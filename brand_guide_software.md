@@ -612,6 +612,53 @@ compare these against a per-view figure from anywhere else.
 that names what the *next* one will do, over the finished visual, held for the full end-of-beat 3 s.
 The end frame is currently the most-watched piece of dead space in the format.
 
+### r003's first day — the hook re-cut did not move the opening (added 2026-09-05)
+
+Posted 2026-09-05, read at ~18 h. **Base for every r003 rate below: its 324 viewers.** The r001
+column is at **3 days and 1,286 viewers** — a different age and a different base, so the view counts
+are NOT comparable and only the curve shape and the per-viewer fractions are read across the two.
+
+| | r003 QR, ~18 h | r001 Shazam, 3 days |
+|:--|--:|--:|
+| Views / viewers | 390 / 324 | 1,656 / 1,286 |
+| Avg watch | 9 s of 37 s (24%) | 15 s of 40 s (38%) |
+| Half the audience gone by | **~2 s** | ~3 s |
+| Still watching at the last frame | **~10%** | ~18% |
+| Likes | 3 (0.9%) | 24 (1.9%) |
+| Shares / saves | 0 / 1 | 6 / 6 |
+| Follows | **0** | 1 |
+| Sources | Reels tab 86.6% · Explore 9.5% · Feed 1.3% | Reels tab 89.7% · Explore 9.8% · Feed 0.2% |
+
+**The finding runs against the theory that produced it.** r003 is the reel built to fix the opening:
+destruction starts at 0.3 s, the verdict lands at 2.5 s, the title rides over the action, no step
+label in the hook. It lost half its audience *earlier* than r001 and held a thinner tail.
+**Hook-first timing on its own did not buy retention.** The rule is not refuted — r002, which broke
+it hardest, is still the worst of the three — but it is plainly not sufficient, and §13 previously
+read as though it were.
+
+**What is not readable at 18 h.** r001 showed 0.0% shares and 12 s avg watch in its first hours and
+finished at 0.5% and 15 s, so r003's 0 shares and 9 s are early numbers, not final ones. And 3 likes
+against 24 is 3 taps against 24 — this section's own rule puts like-rate differences at that sample
+size in the noise. Two readings are robust: the retention **shape**, and the reach curve, which had
+already flattened by 18 h while r001's was still climbing at 3 days.
+
+**Three hypotheses, in the order worth testing.** None of these is established; each needs a reel
+that could falsify it.
+
+1. **A QR code is visual noise at 0.5 s.** "Show before you tell" was satisfied on the clock but
+   perhaps not in legibility. A spectrogram reads as a picture at thumbnail size; a QR matrix reads
+   as static. The rule may need to be *show something legible*, not merely show something moving.
+2. **The title dropped the number.** "How Shazam names a song in 3 seconds" names an object AND makes
+   a specific numeric claim. "How much of a QR code can you destroy?" names the object and asks a
+   question whose answer the viewer cannot guess, so there is nothing to be curious about verifying.
+3. **The call to action was impossible to perform.** The reel closes on "Point your camera at it"
+   over a code displayed on the only screen most viewers have. You cannot scan a QR code with the
+   phone showing it. Follows: 0. Whatever else is true here, the ask could not be completed.
+
+Hypothesis 3 is the one already fixed — the end beat added to `Qr.tsx` on 2026-09-05 closes on a line
+naming the next reel, which needs no second device. **That beat is not in the posted cut**; r003 went
+out before it landed. It is a rule for r004 on, not something this reel can be measured against.
+
 ### Reading time — end-of-beat text needs >= 3s
 
 A step label can be short; the **closing line of a beat carries the finding**, and it is usually two
@@ -634,4 +681,4 @@ read.
 |:--|:--|:--|:--|
 | `r001` | How Shazam names a song in seconds | 40 s | **2026-09-02** |
 | `r002` | Autocorrect / edit distance | 43 s | **2026-09-02** |
-| `r003` | QR codes / Reed–Solomon | 35 s | not yet |
+| `r003` | QR codes / Reed–Solomon | 37 s | **2026-09-05** |

@@ -26,12 +26,12 @@ Do not invent a topic.** 50 entries, ids `I01`–`I50`, grouped into six section
 |:--|:--|:--|:--|
 | `r001` | `I02` | Shazam fingerprinting | **posted 2026-09-02** |
 | `r002` | `I08` | Autocorrect / edit distance | **posted 2026-09-02** |
-| `r003` | `I01` | QR / Reed–Solomon damage tolerance | re-cut hook-first 2026-09-03, end beat 2026-09-05, 37 s, not posted |
+| `r003` | `I01` | QR / Reed–Solomon damage tolerance | **posted 2026-09-05** (without the end beat) |
 
 Update this table and `brand_guide_software.md` §13 when one ships.
 
-**r003's end card promises `I03` (a JPEG stores no pixels) as r004.** Build that next, or change
-the line in `Qr.tsx` before posting — the reel is on record either way.
+**r003 shipped without the end beat** — it was added to `Qr.tsx` after the reel was posted, so the
+`I03` line in that file is a plan, not a public promise. r004 is still an open choice.
 
 ### The method: compute the animation, don't author it
 
@@ -79,6 +79,8 @@ involved in a reel.** Keep it that way.
 9. **End on a reason to follow.** Measured on r001 at 3 days: ~18% of 1,286 viewers reached the
    last frame and **one** followed. The end frame is the most-watched dead space in the format —
    close on a line naming what the next reel does, over the finished visual, held the full 3s.
+   The ask must be performable on the phone in the viewer's hand: r003 closed on "point your
+   camera at it" over an on-screen QR code, which nobody holding one phone can scan. Follows: 0.
 
 ---
 
