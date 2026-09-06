@@ -105,15 +105,25 @@ def main() -> None:
     ap.add_argument('--image', required=True)
     ap.add_argument('--size', type=int, default=512)
     ap.add_argument('--quality', type=int, default=50)
+    ap.add_argument(
+        '--crop',
+        help='x,y,w,h in source pixels. Omit for the centre square. The crop is '
+             'the whole ballgame at 16 blocks across: a face fills the frame and '
+             'assembles, a whole framed painting puts each face in ~3 blocks and '
+             'never resolves into anything.',
+    )
     args = ap.parse_args()
 
     size = args.size - args.size % 8
     src = Image.open(args.image).convert('L')
-    side = min(src.size)
-    left, top = (src.width - side) // 2, (src.height - side) // 2
-    src = src.crop((left, top, left + side, top + side)).resize(
-        (size, size), Image.LANCZOS
-    )
+    if args.crop:
+        x, y, w, h = (int(v) for v in args.crop.split(','))
+        box = (x, y, x + w, y + h)
+    else:
+        side = min(src.size)
+        left, top = (src.width - side) // 2, (src.height - side) // 2
+        box = (left, top, left + side, top + side)
+    src = src.crop(box).resize((size, size), Image.LANCZOS)
     samples = np.asarray(src, dtype=np.float64)
 
     D = dct_matrix()
@@ -178,6 +188,7 @@ def main() -> None:
 
     data = {
         'source_image': str(pathlib.Path(args.image).name),
+        'crop': list(box),
         'size': size,
         'blocks': int(coeffs.shape[0]),
         'coefficients_total': total,
