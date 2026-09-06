@@ -185,9 +185,29 @@ def main() -> None:
     # true photograph is exported separately at full size so the reel can land on
     # it -- same crop, same pixels, just not decimated to 16 blocks across.
     src.resize((1024, 1024), Image.LANCZOS).save(REELS_PUBLIC / 'r004_photo.png')
+    # ...and in colour, for the last frame. The transform stage runs on luma, so
+    # the reel is grey all the way through the assembly and lands on this.
+    Image.open(args.image).convert('RGB').crop(box).resize(
+        (1024, 1024), Image.LANCZOS
+    ).save(REELS_PUBLIC / 'r004_photo_color.png')
+
+    # ── one real block, for the beat that shows numbers going to zero ──────
+    # The busiest block, since a flat one would quantise to almost nothing and
+    # prove the point too easily. Its 64 coefficients are what the reel prints.
+    busiest = int(np.argmax(coeffs[:, 1:, 1:].reshape(coeffs.shape[0], -1).std(axis=1)))
+    example = {
+        'index': busiest,
+        'row': busiest // (size // 8),
+        'col': busiest % (size // 8),
+        'samples': (blocks[busiest] + 128.0).astype(int).tolist(),
+        'coefficients': np.round(coeffs[busiest], 1).tolist(),
+        'quantised': quantised[busiest].astype(int).tolist(),
+        'zeros_after_quantisation': int(np.count_nonzero(quantised[busiest] == 0)),
+    }
 
     data = {
         'source_image': str(pathlib.Path(args.image).name),
+        'example_block': example,
         'crop': list(box),
         'size': size,
         'blocks': int(coeffs.shape[0]),
@@ -211,6 +231,8 @@ def main() -> None:
     print(f"quantised    {nonzero:,} of {total:,} coefficients survive "
           f"= {100.0*nonzero/total:.2f}%  ({data['quantised_zero_pct']}% become zero)")
     print(f"             mean {data['mean_kept_per_block']} non-zero coefficients per 8x8 block")
+    print(f"example blk  #{example['index']} (row {example['row']}, col {example['col']}): "
+          f"{example['zeros_after_quantisation']} of its 64 coefficients become zero")
     for n in [1, 2, 3, 4, 6, 10, 15, 21, 64]:
         s = steps[n - 1]
         print(f"  N={n:2d}   mean abs error {s['mae']:6.2f}   PSNR {s['psnr_db']:6.2f} dB")

@@ -9,6 +9,7 @@ import {
   DURATION_SECONDS as AUTOCORRECT_SECONDS,
 } from './reels/Autocorrect';
 import { DURATION_SECONDS as QR_SECONDS, Qr } from './reels/Qr';
+import { DURATION_SECONDS as JPEG_SECONDS, Jpeg } from './reels/Jpeg';
 import { SafeZones } from './reels/lib/chrome';
 import { TitleCard } from './scenes/TitleCard';
 import { Scene16 } from './scenes/Scene16';
@@ -36,6 +37,13 @@ import { Scene77 } from './scenes/Scene77';
  *
  * 3840×2160 @ 30fps, 30 frames of handles at BOTH ends. Content starts at frame 30.
  */
+
+const JpegSafe: React.FC = () => (
+  <>
+    <Jpeg />
+    <SafeZones />
+  </>
+);
 
 const QrSafe: React.FC = () => (
   <>
@@ -88,6 +96,23 @@ export const RemotionRoot: React.FC = () => {
         id="r003-qr-safe"
         component={QrSafe}
         durationInFrames={QR_SECONDS * 30}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+
+      <Composition
+        id="r004-jpeg"
+        component={Jpeg}
+        durationInFrames={JPEG_SECONDS * 30}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="r004-jpeg-safe"
+        component={JpegSafe}
+        durationInFrames={JPEG_SECONDS * 30}
         fps={30}
         width={1080}
         height={1920}

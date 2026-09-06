@@ -27,11 +27,15 @@ Do not invent a topic.** 50 entries, ids `I01`–`I50`, grouped into six section
 | `r001` | `I02` | Shazam fingerprinting | **posted 2026-09-02** |
 | `r002` | `I08` | Autocorrect / edit distance | **posted 2026-09-02** |
 | `r003` | `I01` | QR / Reed–Solomon damage tolerance | **posted 2026-09-05** (without the end beat) |
+| `r004` | `I03` | JPEG / DCT — a photo stores no pixels | built 2026-09-06, 38 s, not posted |
 
 Update this table and `brand_guide_software.md` §13 when one ships.
 
 **r003 shipped without the end beat** — it was added to `Qr.tsx` after the reel was posted, so the
-`I03` line in that file is a plan, not a public promise. r004 is still an open choice.
+`I03` line in that file is a plan, not a public promise.
+
+**r004's end card promises `I15` (300 roads, not 300,000) as r005.** Nothing is posted yet, so
+that line in `Jpeg.tsx` is still editable — but once r004 ships it is a public promise.
 
 ### The method: compute the animation, don't author it
 
