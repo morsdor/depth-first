@@ -26,9 +26,12 @@ Do not invent a topic.** 50 entries, ids `I01`–`I50`, grouped into six section
 |:--|:--|:--|:--|
 | `r001` | `I02` | Shazam fingerprinting | **posted 2026-09-02** |
 | `r002` | `I08` | Autocorrect / edit distance | **posted 2026-09-02** |
-| `r003` | `I01` | QR / Reed–Solomon damage tolerance | re-cut hook-first 2026-09-03, 35 s, not posted |
+| `r003` | `I01` | QR / Reed–Solomon damage tolerance | re-cut hook-first 2026-09-03, end beat 2026-09-05, 37 s, not posted |
 
 Update this table and `brand_guide_software.md` §13 when one ships.
+
+**r003's end card promises `I03` (a JPEG stores no pixels) as r004.** Build that next, or change
+the line in `Qr.tsx` before posting — the reel is on record either way.
 
 ### The method: compute the animation, don't author it
 
@@ -73,6 +76,9 @@ involved in a reel.** Keep it that way.
    before shipping (`content_backlog.md` closing section). Historical entries `I31 I48 I49 I50` carry
    figures from memory and *must* be checked. Treat every number in the backlog as a research lead.
 8. **Verify with video + filmstrip, never stills** — for *timing*. Stills are correct for *layout*.
+9. **End on a reason to follow.** Measured on r001 at 3 days: ~18% of 1,286 viewers reached the
+   last frame and **one** followed. The end frame is the most-watched dead space in the format —
+   close on a line naming what the next reel does, over the finished visual, held the full 3s.
 
 ---
 

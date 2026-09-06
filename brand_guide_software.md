@@ -564,12 +564,53 @@ Two diagnosable differences explain why r002 is twice as bad:
 - **The title rides over the action**, never before it.
 - **Name a recognisable object** in the title. r003 was re-cut from "How much of *this* can you
   destroy?" to "How much of *a QR code* can you destroy?" for exactly this reason.
-- **Watch share rate, not like rate.** Both reels sit at 0.0% shares, and shares drive Reels
-  distribution more than any other signal. Like-rate differences at this sample size are one or two
-  taps — noise.
+- **Watch share rate, not like rate.** Both reels read 0.0% shares in the first hours, and shares
+  drive Reels distribution more than any other signal. Like-rate differences at this sample size are
+  one or two taps — noise. *(Superseded in part: r001 finished at 0.5% shares once the data matured
+  — see the next section. The rule stands; the "0.0%" reading was a rounding artefact of a tiny
+  sample, not a result.)*
 
 r003 was re-cut on this basis: 45 s → 35 s, destruction begins at 0.3 s, verdict at 2.5 s (was
 10.6 s), and it closes on the live scannable code as a call to action, since follows were 0.
+
+### r001 at 3 days — the matured numbers (added 2026-09-05)
+
+Read from Reel insights on 2026-09-05, three days after posting. **Every rate below has the same
+base: the 1,286 unique viewers**, not the 1,656 views — 24/1286 = 1.9%, 6/1286 = 0.5%. Do not
+compare these against a per-view figure from anywhere else.
+
+| | r001, 3 days |
+|:--|--:|
+| Views / viewers | 1,656 / 1,286 |
+| Avg watch | **15 s of 40 s** (37.5%) — was 12 s at a few hours |
+| Skip rate | **37.9%** — was 34.1% at a few hours |
+| Likes | 24 (1.9%) |
+| Shares | 6 (0.5%) |
+| Saves | 6 (0.5%) |
+| Comments / reposts | 0 / 0 |
+| Follows | **1** (0.08% of viewers) |
+| Sources | Reels tab 89.7% · Explore 9.8% · Feed 0.2% |
+
+**Three findings.**
+
+1. **The distribution was entirely cold.** 99.5% of views came from Reels tab + Explore; 0.2% from
+   feed. Nothing here was carried by an existing audience — the ranking system pushed it to
+   strangers on its own. Every number above is therefore a cold-audience number, which is the only
+   kind that predicts anything.
+2. **The plateau survived contact with a larger audience.** The curve still falls to ~55% by ~3 s
+   and then declines slowly to ~18% at 40 s with no second cliff, and avg watch *rose* 12 s → 15 s
+   as the sample grew. The body holds up at scale; the opening is still the only thing costing
+   reach. Skip rate drifting 34.1% → 37.9% is the audience getting colder, not the reel getting
+   worse.
+3. **Follows are the failure, and they are an end-frame failure.** Roughly 18% of viewers — ~230
+   people — watched to the last frame, and one followed. The reel earns attention and then asks for
+   nothing. Sends ÷ likes is 25% (6/24), between `equation.verse`'s spectacle post (12%) and its
+   utility post (51%) in `insta_strategy.md` §2 — so the "forward this to someone" instinct is
+   real and the account still converts almost none of it.
+
+**Rule, from finding 3: every reel ends on a reason to follow.** Not a subscribe plate — a line
+that names what the *next* one will do, over the finished visual, held for the full end-of-beat 3 s.
+The end frame is currently the most-watched piece of dead space in the format.
 
 ### Reading time — end-of-beat text needs >= 3s
 

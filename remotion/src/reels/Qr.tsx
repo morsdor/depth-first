@@ -39,6 +39,14 @@ import {
  * evidence is fatal. Now the destruction starts at 0.3s and the payoff verdict
  * lands at 2.5s, with the title riding over the damage instead of preceding it.
  * Runtime 45s -> 35s.
+ *
+ * ── End beat added 2026-09-05, from r001's three-day numbers ─────────────────
+ * r001 finished at 1,286 viewers, ~18% of whom reached the last frame — roughly
+ * 230 people — and ONE followed. The reel earned forty seconds and then asked for
+ * nothing. So the tail now does two things it did not: it says where the code
+ * goes (an unexplained QR is not scanned; this one opens the account, which is
+ * the payload qr_damage.py actually encodes), and it closes on a line naming
+ * what the next reel does, held 3.4s. See CLAUDE.md non-negotiable 9.
  */
 
 export const DURATION_SECONDS = 37;
@@ -75,6 +83,9 @@ const T = {
   answer: 28.4,
   answerOut: 32.2,
   cta: 32.4,
+  // The closing ask. 33.6 -> 37.0 is 3.4s, over the >= 3s an end-of-beat block
+  // needs, and it is the last thing on screen rather than a handle under a CTA.
+  next: 33.6,
 };
 
 // ── geometry ────────────────────────────────────────────────────────────────
@@ -455,7 +466,7 @@ export const Qr: React.FC = () => {
         <span style={{ color: '#AD88FF' }}>Three corners are not.</span>
       </Fade>
 
-      {/* ── 5. give the viewer something to do ───────────────────────────── */}
+      {/* ── 5. give the viewer something to do, and say where it goes ────── */}
       <Fade
         from={t(T.cta)}
         style={{
@@ -472,28 +483,54 @@ export const Qr: React.FC = () => {
         <div
           style={{
             fontFamily: 'IBM Plex Sans',
-            fontSize: 44,
+            fontSize: 40,
             color: '#81A2C4',
             marginTop: 14,
           }}
         >
-          Point your camera at it.
+          Point your camera — it opens this account.
         </div>
       </Fade>
+
+      {/*
+        ── 6. the reason to follow: what the NEXT one does ──────────────────
+        Vertically this is the tightest block in the reel, so the numbers are
+        deliberate. The code's white square runs 690 -> 1347 and Progress sits at
+        SAFE_BOTTOM - 6 = 1534, leaving a 187px band and nothing else.
+
+        1358 was the first attempt and it was wrong: it clears the code on paper,
+        but the code and this block breathe INDEPENDENTLY (+-5px translate, and
+        the code's 1.012 scale adds ~4px to a 657px square), so at opposing
+        phases they touch. Rendering it is what caught that -- the arithmetic
+        said it fitted. 1382 centres the block in the band instead: ~35px of air
+        above at rest, ~25px worst case, and it ends at ~1497, clear of Progress.
+      */}
       <Fade
-        from={t(T.cta + 0.6)}
+        from={t(T.next)}
         style={{
           position: 'absolute',
-          top: 1380,
+          top: 1382,
           left: 60,
           width: 960,
           textAlign: 'center',
-          fontFamily: 'IBM Plex Mono',
-          fontSize: 40,
-          color: '#AD88FF',
         }}
       >
-        @thedepthfirst
+        <div style={{ transform: breath, transformOrigin: 'center center' }}>
+          <div style={{ fontFamily: 'IBM Plex Sans', fontSize: 44, color: '#E8E6E1' }}>
+            Next: why a JPEG stores{' '}
+            <span style={{ color: '#AD88FF' }}>no pixels</span>.
+          </div>
+          <div
+            style={{
+              fontFamily: 'IBM Plex Mono',
+              fontSize: 38,
+              color: '#AD88FF',
+              marginTop: 14,
+            }}
+          >
+            @thedepthfirst
+          </div>
+        </div>
       </Fade>
 
       <Progress seconds={DURATION_SECONDS} />
