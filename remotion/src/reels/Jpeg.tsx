@@ -4,13 +4,13 @@ import {
   Progress,
   ReelGround,
   ReelHeader,
-  Readout,
+  SAFE_W,
   StepLabel,
   useBreath,
   ease,
   t,
 } from './lib/chrome';
-import { EXAMPLE, QUALITY, STATS, STEPS, STOPS } from './data/jpeg';
+import { COLOUR, DONE_DELTA, DONE_N, EXAMPLE, QUALITY, STATS, STOPS } from './data/jpeg';
 
 /**
  * r004 · "A JPEG stores no pixels"  (backlog I03)
@@ -34,7 +34,7 @@ import { EXAMPLE, QUALITY, STATS, STEPS, STOPS } from './data/jpeg';
  * progression to watch. At 16 blocks across there is. See dct.py's note on --size.
  */
 
-export const DURATION_SECONDS = 38;
+export const DURATION_SECONDS = 40;
 
 const T = {
   // ── HOOK: it is already assembling. No step label, no preamble. ───────────
@@ -52,27 +52,34 @@ const T = {
   hookOut: 6.0,
 
   // ── 1. the 64 patterns ────────────────────────────────────────────────────
-  s1Label: [6.0, 14.0] as [number, number],
-  basis: [7.2, 10.2] as [number, number],
-  s1Read: 10.5,
-  s1Out: 13.8,
+  s1Label: [6.0, 12.5] as [number, number],
+  basis: [7.0, 9.8] as [number, number],
+  s1Read: 10.2,
+  s1Out: 12.3,
 
-  // ── 2. the whole climb, 1 -> 64 ───────────────────────────────────────────
-  s2Label: [14.0, 22.0] as [number, number],
-  climb: [15.2, 19.2] as [number, number],
-  s2Read: 19.5,
-  s2Out: 21.8,
+  // ── 2. the climb — which stops mattering long before 64 ───────────────────
+  s2Label: [12.5, 19.0] as [number, number],
+  climb: [13.6, 17.2] as [number, number],
+  s2Read: 17.4,
+  s2Out: 18.8,
 
   // ── 3. and then most of them are deleted ──────────────────────────────────
-  s3Label: [22.0, 29.0] as [number, number],
-  zero: [23.4, 25.4] as [number, number],
-  s3Verdict: 25.7,
-  s3Out: 28.8,
+  s3Label: [19.0, 25.5] as [number, number],
+  zero: [20.2, 22.2] as [number, number],
+  s3Verdict: 22.5,
+  s3Out: 25.3,
 
-  // ── 4/5. the answer, then the reason to follow ────────────────────────────
-  answer: 29.2,
-  answerOut: 33.0,
-  next: 33.4,
+  // ── 4. colour, which the first cut popped to without ever explaining ──────
+  s4Label: [25.5, 32.0] as [number, number],
+  swapIn: 26.8,
+  swapTo: [28.6, 29.2] as [number, number],
+  s4Verdict: 29.5,
+  s4Out: 31.8,
+
+  // ── 5/6. the answer, then the reason to follow ────────────────────────────
+  answer: 32.2,
+  answerOut: 35.8,
+  next: 36.2,
 };
 
 // ── geometry ────────────────────────────────────────────────────────────────
@@ -192,7 +199,7 @@ export const Jpeg: React.FC = () => {
   const push = 1 + 0.05 * (0.5 - 0.5 * Math.cos((2 * Math.PI * frame) / (30 * 11)));
 
   const hookN = interpolate(frame, T.build.map(t), [1, 2, 3, 6], ease);
-  const climbN = interpolate(frame, [t(T.climb[0]), t(T.climb[1])], [1, 64], ease);
+  const climbN = interpolate(frame, [t(T.climb[0]), t(T.climb[1])], [1, DONE_N], ease);
   const basisReveal = interpolate(frame, [t(T.basis[0]), t(T.basis[1])], [0, 1], ease);
   const zeroed = interpolate(frame, [t(T.zero[0]), t(T.zero[1])], [0, 1], ease);
 
@@ -204,10 +211,20 @@ export const Jpeg: React.FC = () => {
   const inBasis = frame >= t(T.basis[0]) && frame < t(T.s1Out + HOLD);
   const inClimb = frame >= t(T.climb[0]) && frame < t(T.s2Out + HOLD);
   const inCoeff = frame >= t(T.zero[0]) && frame < t(T.s3Out + HOLD);
+  const inColour = frame >= t(T.swapIn) && frame < t(T.s4Out + HOLD);
   const inFinal = frame >= t(T.answer);
 
+  // The A/B that answers "so where does the colour come from?": the same 16x
+  // squash applied to colour, then to brightness. Sequential rather than side by
+  // side — two 300px panels on a phone is two things nobody looks at.
+  const toLuma = interpolate(
+    frame,
+    [t(T.swapTo[0]), t(T.swapTo[1])],
+    [0, 1],
+    ease,
+  );
+
   const shownN = inClimb ? climbN : inHook ? hookN : 64;
-  const step = STEPS[Math.max(0, Math.min(63, Math.round(shownN) - 1))];
 
   // The colour photograph arrives only on the last beat: the transform stage runs
   // on luma, so everything before this is honestly grey.
@@ -256,6 +273,22 @@ export const Jpeg: React.FC = () => {
           <Basis reveal={basisReveal} />
         ) : inCoeff ? (
           <Coefficients zeroed={zeroed} />
+        ) : inColour ? (
+          <>
+            <Img
+              src={staticFile('reels/r004_chroma_16.png')}
+              style={{ position: 'absolute', width: STAGE, height: STAGE }}
+            />
+            <Img
+              src={staticFile('reels/r004_luma_16.png')}
+              style={{
+                position: 'absolute',
+                width: STAGE,
+                height: STAGE,
+                opacity: toLuma,
+              }}
+            />
+          </>
         ) : (
           <>
             <Plate n={shownN} />
@@ -326,9 +359,7 @@ export const Jpeg: React.FC = () => {
       >
         Flat grey top-left, finest detail bottom-right.
         <br />
-        <span style={{ fontFamily: 'IBM Plex Mono', color: '#81A2C4' }}>
-          a photo is how much of each
-        </span>
+        <span style={{ color: ACCENT }}>A photo is just how much of each.</span>
       </Fade>
 
       {/* ── 2. the climb, with the error measured at every step ───────────── */}
@@ -339,7 +370,7 @@ export const Jpeg: React.FC = () => {
         from={t(T.s2Label[0])}
         to={t(T.s2Label[1])}
       />
-      {inClimb ? (
+      {inClimb && frame < t(T.s2Read) ? (
         <div
           style={{
             position: 'absolute',
@@ -355,15 +386,38 @@ export const Jpeg: React.FC = () => {
           {Math.round(shownN)} / 64
         </div>
       ) : null}
-      <Readout
+      {/*
+        It stops at DONE_N, not 64. Counting the last twenty on screen is dead
+        time — measured against the finished reconstruction, they move it by less
+        than DONE_DELTA of 255, which is not a thing an eye can find.
+      */}
+      <Fade
         from={t(T.s2Read)}
         to={t(T.s2Out)}
-        top={1352}
-        rows={[
-          ['coefficients kept', `${Math.round(shownN)} of 64`],
-          ['mean error per pixel', `${step.mae.toFixed(2)} of 255`],
-        ]}
-      />
+        style={{ position: 'absolute', top: 1340, left: 60, width: SAFE_W }}
+      >
+        {(
+          [
+            ['stops changing at', `${DONE_N} of 64`],
+            ['the last 20 move it by', `${DONE_DELTA.toFixed(2)} of 255`],
+          ] as [string, string][]
+        ).map(([k, v]) => (
+          <div
+            key={k}
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              borderTop: '2px solid #274064',
+              padding: '14px 4px',
+              fontFamily: 'IBM Plex Mono',
+              fontSize: 38,
+            }}
+          >
+            <span style={{ color: '#81A2C4' }}>{k}</span>
+            <span style={{ color: '#E8E6E1' }}>{v}</span>
+          </div>
+        ))}
+      </Fade>
 
       {/* ── 3. and then most of them are thrown away ──────────────────────── */}
       <StepLabel
@@ -399,7 +453,66 @@ export const Jpeg: React.FC = () => {
         </div>
       </Fade>
 
-      {/* ── 4. the answer, over the finished photograph ───────────────────── */}
+      {/*
+        ── 4. colour ────────────────────────────────────────────────────────
+        The first cut ran grey and then popped to colour with no explanation,
+        which invites exactly one question and answers none of it. Colour is not
+        deduced: it is stored separately and coarsely, and the A/B proves it.
+        The claim is about what libjpeg does at this quality (measured: 4:2:0) —
+        the source file is 4:4:4, so nothing is claimed about the source.
+      */}
+      <StepLabel
+        n="STEP 4"
+        title="Colour is stored separately"
+        sub={`And coarsely — the encoder picks ${COLOUR.encoderSampling}.`}
+        from={t(T.s4Label[0])}
+        to={t(T.s4Label[1])}
+      />
+      <Fade
+        from={t(T.swapIn)}
+        to={t(T.s4Verdict)}
+        style={{
+          position: 'absolute',
+          top: 1358,
+          left: 60,
+          width: 960,
+          textAlign: 'center',
+          fontFamily: 'IBM Plex Mono',
+          fontSize: 44,
+          color: ACCENT,
+        }}
+      >
+        {toLuma < 0.5 ? 'colour squashed 16×' : 'brightness squashed 16×'}
+      </Fade>
+      <Fade
+        from={t(T.s4Verdict)}
+        to={t(T.s4Out)}
+        style={{
+          position: 'absolute',
+          top: 1352,
+          left: 60,
+          width: 960,
+          textAlign: 'center',
+        }}
+      >
+        <div style={{ fontFamily: 'Archivo Black', fontSize: 54, color: ACCENT }}>
+          Same squash. {(COLOUR.lumaError['16'] / COLOUR.chromaError['16']).toFixed(1)}× the damage.
+        </div>
+        <div
+          style={{
+            fontFamily: 'IBM Plex Sans',
+            fontSize: 38,
+            color: '#81A2C4',
+            marginTop: 10,
+            lineHeight: 1.3,
+          }}
+        >
+          colour {COLOUR.chromaError['16']} of 255 · brightness{' '}
+          {COLOUR.lumaError['16']} of 255
+        </div>
+      </Fade>
+
+      {/* ── 5. the answer, over the finished photograph ───────────────────── */}
       <Fade
         from={t(T.answer)}
         to={t(T.answerOut)}

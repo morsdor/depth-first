@@ -39,6 +39,28 @@ export const EXAMPLE = {
   zeros: 42,
 };
 
+/**
+ * Where the climb stops being worth watching. Measured against the FINAL
+ * reconstruction, not the original: the question is when adding more stops
+ * CHANGING anything. Below 3 of 255 at N=44, below 2 at N=52.
+ */
+export const DONE_N = 44;
+export const DONE_DELTA = 2.9802;
+
+/**
+ * Colour. The SOURCE file is 4:4:4, so nothing here is claimed about it —
+ * these are what libjpeg does at quality 50, read back from a file it wrote.
+ * Chroma is squashed by a factor and restored; the error is against the original.
+ */
+export const COLOUR = {
+  encoderSampling: "4:2:0",
+  sourceSampling: "4:4:4",
+  /** Squash factor -> mean abs RGB error of 255, COLOUR squashed. */
+  chromaError: {"2":1.192,"4":1.501,"8":1.943,"16":2.577} as Record<string, number>,
+  /** The same squash applied to BRIGHTNESS instead. */
+  lumaError: {"2":4.279,"4":8.005,"8":11.771,"16":15.818} as Record<string, number>,
+} as const;
+
 export const STATS = {
   coefficientsTotal: 16384,
   quantisedNonzero: 3602,

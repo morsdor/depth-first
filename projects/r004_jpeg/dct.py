@@ -32,7 +32,7 @@ import json
 import pathlib
 
 import numpy as np
-from PIL import Image
+from PIL import Image, JpegImagePlugin
 
 HERE = pathlib.Path(__file__).resolve().parent
 REELS_PUBLIC = HERE.parents[1] / 'remotion' / 'public' / 'reels'
@@ -49,6 +49,8 @@ REELS_PUBLIC = HERE.parents[1] / 'remotion' / 'public' / 'reels'
 # is sharp by N=10. Same algorithm, same maths -- a scale at which the 8x8 block
 # is a thing the eye can see. Compute small, display upscaled.
 STOPS = [1, 2, 3, 4, 6, 10, 15, 21, 28, 36, 64]
+
+SAMPLING = {0: '4:4:4', 1: '4:2:2', 2: '4:2:0'}
 
 
 def dct_matrix() -> np.ndarray:
@@ -133,6 +135,7 @@ def main() -> None:
 
     # ── self-check: all 64 coefficients must rebuild the original exactly ──
     full = unblock(D.T @ coeffs @ D, size, size) + 128.0
+    full_rec = np.clip(full, 0, 255)
     err = float(np.abs(full - samples).max())
     assert err < 1e-9, f'transform is not invertible: max error {err}'
 
@@ -205,9 +208,74 @@ def main() -> None:
         'zeros_after_quantisation': int(np.count_nonzero(quantised[busiest] == 0)),
     }
 
+    # ── when does the climb stop being worth watching? ─────────────────────
+    # Counting to 64 is dead screen time if the picture finished at 40. Measured
+    # against the FINAL reconstruction, not the original: the question is "when
+    # does adding more stop CHANGING anything", not "when is it accurate".
+    # 2.0 of 255 is under a percent and comfortably invisible.
+    finals = []
+    for n in range(1, 65):
+        keep = np.zeros(64, dtype=bool)
+        keep[zz[:n]] = True
+        rec = np.clip(
+            unblock(D.T @ (coeffs * keep.reshape(8, 8)) @ D, size, size) + 128.0, 0, 255
+        )
+        finals.append(float(np.abs(rec - full_rec).mean()))
+    done_n = next((n for n in range(1, 65) if finals[n - 1] < 2.0), 64)
+
+    # ── colour, which the reel previously popped to without explaining ─────
+    # The SOURCE file is 4:4:4, so nothing is claimed about it. What is claimed
+    # is what the encoder does at this quality, read back from a file it just
+    # wrote: libjpeg picks 4:2:0 and keeps each chroma channel at half width and
+    # half height — a quarter of the samples.
+    probe = HERE / '_probe_colour.jpg'
+    rgb = Image.open(args.image).convert('RGB').crop(box)
+    rgb.save(probe, 'JPEG', quality=args.quality)
+    with Image.open(probe) as reopened:
+        sampling = SAMPLING.get(JpegImagePlugin.get_sampling(reopened), 'unknown')
+    probe.unlink()
+    with Image.open(args.image) as orig:
+        source_sampling = SAMPLING.get(JpegImagePlugin.get_sampling(orig), 'unknown')
+
+    ycc = rgb.resize((size * 4, size * 4), Image.LANCZOS).convert('YCbCr')
+    y, cb, cr = ycc.split()
+    w, h = y.size
+
+    def squash(chan, divisor):
+        # Down to 1/divisor in each direction and back, which is exactly what
+        # chroma subsampling does — average down, then repeat on the way up.
+        small = (max(1, w // divisor), max(1, h // divisor))
+        return chan.resize(small, Image.BOX).resize((w, h), Image.NEAREST)
+
+    chroma_at = lambda d: Image.merge(
+        'YCbCr', (y, squash(cb, d), squash(cr, d))
+    ).convert('RGB')
+    luma_at = lambda d: Image.merge(
+        'YCbCr', (squash(y, d), cb, cr)
+    ).convert('RGB')
+
+    ref = np.asarray(rgb.resize((w, h), Image.LANCZOS).convert('RGB'), dtype=np.float64)
+    mae = lambda im: round(float(np.abs(np.asarray(im, dtype=np.float64) - ref).mean()), 3)
+    chroma_err = {d: mae(chroma_at(d)) for d in (2, 4, 8, 16)}
+    luma_err = {d: mae(luma_at(d)) for d in (2, 4, 8, 16)}
+
+    for d in (2, 8, 16):
+        chroma_at(d).resize((1024, 1024), Image.LANCZOS).save(
+            REELS_PUBLIC / f'r004_chroma_{d:02d}.png'
+        )
+    luma_at(16).resize((1024, 1024), Image.LANCZOS).save(REELS_PUBLIC / 'r004_luma_16.png')
+
     data = {
         'source_image': str(pathlib.Path(args.image).name),
         'example_block': example,
+        'visually_done_n': done_n,
+        'delta_to_final': [round(v, 4) for v in finals],
+        'colour': {
+            'encoder_sampling': sampling,
+            'source_sampling': source_sampling,
+            'chroma_error': chroma_err,
+            'luma_error': luma_err,
+        },
         'crop': list(box),
         'size': size,
         'blocks': int(coeffs.shape[0]),
@@ -233,6 +301,12 @@ def main() -> None:
     print(f"             mean {data['mean_kept_per_block']} non-zero coefficients per 8x8 block")
     print(f"example blk  #{example['index']} (row {example['row']}, col {example['col']}): "
           f"{example['zeros_after_quantisation']} of its 64 coefficients become zero")
+    print(f"climb        indistinguishable from the finished picture at N={done_n} "
+          f"(delta {finals[done_n-1]:.2f} of 255); the last {64-done_n} change nothing visible")
+    print(f"colour       source file is {source_sampling}; libjpeg at quality "
+          f"{args.quality} chooses {sampling}")
+    print(f"             chroma squashed  2x: err {chroma_err[2]}  8x: {chroma_err[8]}  16x: {chroma_err[16]}")
+    print(f"             LUMA squashed   16x: err {luma_err[16]}  <- the same squash on brightness")
     for n in [1, 2, 3, 4, 6, 10, 15, 21, 64]:
         s = steps[n - 1]
         print(f"  N={n:2d}   mean abs error {s['mae']:6.2f}   PSNR {s['psnr_db']:6.2f} dB")
