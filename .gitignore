@@ -18,6 +18,12 @@ tools/realesrgan/
 *.mp4
 *.mov
 *.webm
+
+# ...except the finished reel renders. These are the deliverable — a ~12-40s,
+# 10-20MB file that has to reach a phone to be posted — and downloading one from
+# GitHub is the shortest path there. The blanket rule above still covers the 4K
+# long-form clips it was written for.
+!projects/r*/*.mp4
 *.mkv
 *.avi
 projects/*/images/
