@@ -682,3 +682,4 @@ read.
 | `r001` | How Shazam names a song in seconds | 40 s | **2026-09-02** |
 | `r002` | Autocorrect / edit distance | 43 s | **2026-09-02** |
 | `r003` | QR codes / Reed–Solomon | 37 s | **2026-09-05** |
+| `r004` | JPEG / DCT — a photo stores no pixels | 40 s | **2026-09-06** |

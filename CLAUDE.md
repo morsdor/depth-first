@@ -27,9 +27,10 @@ Do not invent a topic.** 50 entries, ids `I01`–`I50`, grouped into six section
 | `r001` | `I02` | Shazam fingerprinting | **posted 2026-09-02** |
 | `r002` | `I08` | Autocorrect / edit distance | **posted 2026-09-02** |
 | `r003` | `I01` | QR / Reed–Solomon damage tolerance | **posted 2026-09-05** (without the end beat) |
-| `r004` | `I03` | JPEG / DCT — a photo stores no pixels | built 2026-09-06, 40 s, not posted |
+| `r004` | `I03` | JPEG / DCT — a photo stores no pixels | **posted 2026-09-06** |
 
-Update this table and `brand_guide_software.md` §13 when one ships.
+Update this table, `brand_guide_software.md` §13 and
+[`reel_captions_log.md`](reel_captions_log.md) when one ships.
 
 **r003 shipped without the end beat** — it was added to `Qr.tsx` after the reel was posted, so the
 `I03` line in that file is a plan, not a public promise.
