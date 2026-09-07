@@ -38,3 +38,47 @@ If it ever does not, the shuffle is not uniform or the counting is wrong.
 - **"less random"** for the spread arrangement is literal and provable: it is constructed to avoid
   repeats, so it cannot produce most of the permutations a uniform shuffle can. It is not a figure
   of speech.
+
+---
+
+## The landing-position map (`heatmap.py`) — the v5 subject
+
+The v4 reel proved the naive shuffle is biased with a six-bar histogram and `27 ÷ 6 = 4.5`. It
+failed with a viewer for a reason no pacing fix could reach: **the payoff frame visually argued
+against its own caption.** The claim is "these orders are not equally likely"; the picture is six
+bars of near-identical height, because the true spread at n=3 is only 1.25x. The viewer is asked to
+trust text over their own eyes, and does not.
+
+`heatmap.py` makes the same bias visible instead of arguing it. For each card, count where it ends
+up, over 400,000 shuffles — an n x n table. A fair shuffle is featureless; the naive shuffle has a
+bright staircase diagonal and a dark wedge. No magnitude comparison is required of the viewer, only
+pattern detection, which is the one perceptual task humans are superhuman at.
+
+| Figure | Value |
+|:--|--:|
+| Naive mean absolute deviation from fair | **8.34%** |
+| Fisher–Yates, same sample size (the noise floor) | **0.46%** |
+| Signal / noise | **18x** |
+| Naive brightest : dimmest cell | 1.71x |
+
+The Fisher–Yates map at the same sample size is the honesty control: it establishes that "flat"
+is what this measurement actually produces when the algorithm is correct, so the naive pattern
+cannot be an artefact of the rendering. `heatmap.py` asserts both — FY contrast under 1.10, and
+naive deviation at least 10x the FY floor — and fails rather than emitting a flattering picture.
+
+Deck size is a legibility choice, not an accuracy one: the bias runs 7.27% (n=6), 8.26% (n=13),
+8.68% (n=26), 8.88% (n=52). n=13 gives 44px cells at phone size.
+
+### Do not explain the shape of the pattern
+
+A first draft of the mechanism sentence was "cards the loop reaches late are touched fewer times,
+so they stay nearer where they started." **Measurement falsified it.** Touch count does fall
+monotonically across starting positions (2.93x down to 1.38x), but mean distance moved is U-shaped
+(6.00 at position 0, 3.25 in the middle, 5.48 at position 12) — the last card is touched least and
+still travels far. The distance measure is confounded in any case: a card at either end of the deck
+is geometrically farther from a uniformly random position than a card in the middle, whatever the
+algorithm does.
+
+So the reel explains **why a bias must exist** (the counting argument) and never **why the pattern
+takes that shape**. Gate #7 in `CLAUDE.md` is what caught this: the sentence was hand-written and
+plausible, and it was wrong.
