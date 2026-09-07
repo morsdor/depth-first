@@ -82,3 +82,40 @@ algorithm does.
 So the reel explains **why a bias must exist** (the counting argument) and never **why the pattern
 takes that shape**. Gate #7 in `CLAUDE.md` is what caught this: the sentence was hand-written and
 plausible, and it was wrong.
+
+### The v5 cut as built — 39 s, five beats
+
+| Beat | Window | What is on screen |
+|:--|:--|:--|
+| 1 · hook | 0.0–9.0 s | Both maps fill from 60 runs to 400,000. No labels. The verdict "One of these decks was shuffled **wrong**" lands at 4.8 s, the title rides over the filling at 8.7 s |
+| 2 · what you are looking at | 9.3–16.2 s | Row = where a card started, column = where it ended. "Fair means featureless." Deviation readout: 8.34% vs 0.46% |
+| 3 · the bug | 16.6–25.2 s | One word. "Swap it with **any card** in the deck" vs "swap it with one you **haven't dealt yet**" |
+| 4 · why it can never be fair | 25.6–34.4 s | 27 dots dealt into 6 piles; three come out taller. `EXACT_NAIVE = [4,5,5,5,4,4]` |
+| 5 · close | 34.8–39.0 s | "It took 400,000 of them to see the bug — a test would never have caught it." |
+
+Final gate, on `r005_shuffle.mp4`:
+
+```
+brand:check    35 files · 12 colours · 2 easing curves · min 36px · damping >= 200
+motion audit   39.5 s (158 samples @ 4 fps)
+               median change      1.035
+               longest dead spell 0.50 s  (limit 1.50 s, starts 2.8 s)
+               event density      53%
+               PASS
+```
+
+All five end-of-beat holds are 3.2–4.2 s, clearing the 3 s reading-time rule. The staircase is
+legible by 2.0 s / 16,261 shuffles, inside the 3 s hook window.
+
+Two traps this cut hit, both recorded in `brand_guide_software.md` §13:
+
+- **The run counter must be read off the same playhead as the pixels.** A second `interpolate` for
+  the caption drifted to "393,881 shuffles" over a picture drawn from ~340,000 runs. It is now
+  derived from the same `k` that indexes the snapshot array, so it cannot disagree with the image.
+- **`Fade` overwrites `transform`.** Breath handed to a `Fade` via `style` is silently dropped. The
+  text-only beats sat dead for 3.75 s until the breath wrapper moved outside the `Fade`.
+
+### Still owed before posting
+
+The `r005-shuffle-safe` composition has not been scrubbed in Studio. That is non-negotiable #1 and
+it is a human gate — stills and filmstrips do not substitute for it.

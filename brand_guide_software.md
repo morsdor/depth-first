@@ -725,6 +725,7 @@ slow stage push satisfies the metric while the frame merely drifts.
 | r004 JPEG | 0.861 | 42% |
 | r005 first cut (passed the old rule, read as static) | 0.573 | **26%** |
 | r005 rebuilt | 1.130 | **55%** |
+| r005 v5 (landing-position map, the shipped cut) | 1.035 | **53%** |
 
 **The fix is never a bigger push.** It is to stop pausing the thing the reel is about. r005's queue
 now plays continuously from the first beat to the last frame instead of running three defined sweeps
@@ -804,6 +805,65 @@ corners most needed to be on screen. The code now stays visible to the last fram
 finder patterns ringed in the accent, and the answer text sits in the step-label and verdict slots
 around it rather than over it. If a line names something, that something is on screen while it is
 read.
+
+### The payoff frame must not argue against its own caption (added 2026-09-07)
+
+r005 was rebuilt five times. Four of those rebuilds were pacing, phrasing and motion work, and none
+of them touched the actual fault, which was in the *demonstration* rather than the animation.
+
+The v4 payoff frame was six bars — one per ordering of three cards — from a real trial, under a
+caption reading "these are not equally likely". At n=3 the true spread is **1.25x**, so the six bars
+are near-identical heights. The viewer sees six equal bars, reads "not equal", and believes their
+eyes. Every figure on that frame was correct and the frame was still unpersuasive, because it asked
+the viewer to accept text over a picture that contradicted it.
+
+**Rule: the payoff frame must make the claim visible at a glance, or the claim needs a different
+demonstration.** Not a bigger label, not a longer hold — a different measurement. If the effect you
+are claiming is smaller than the viewer's own reading error on the graphic, the graphic is wrong for
+the claim.
+
+**The replacement measures the same bias in a form perception is good at.** Instead of comparing six
+near-identical magnitudes, r005 v5 plots where each card *lands*: a 13x13 table, row = start
+position, column = end position, over 400,000 shuffles. Fair is featureless; the naive shuffle grows
+a bright staircase and a dark wedge. The task changes from magnitude comparison, which humans do
+badly, to pattern detection, which they do better than any algorithm. Deviation from fair: **8.34%**
+naive against **0.46%** for Fisher-Yates at the same sample size.
+
+Three things that keep it honest, and are worth copying:
+
+1. **Render the correct algorithm the same way, at the same sample size.** The Fisher-Yates map is
+   the control: it establishes that "flat" is what this rendering produces when the algorithm is
+   right, so the naive pattern cannot be an artefact of the colour ramp. `heatmap.py` asserts it
+   (FY contrast < 1.10) and fails rather than emitting a flattering picture.
+2. **One accent, one scale, both grids.** Different hues would let a viewer conclude the difference
+   is the palette. The only thing that differs between the two panels is the data.
+3. **The contrast curve is declared in a comment and applied identically to both.** A gamma of 1.9
+   makes the measured pattern legible at phone size; it cannot invent one. State that in the code,
+   because a colour ramp is the easiest place in a reel to lie by accident.
+
+**And the counting argument survives as support, not as the payoff.** `27 ÷ 6 = 4.5` is still the
+proof that the bias is inevitable rather than a sampling accident, but it now lands at beat 4, after
+the viewer has already seen the pattern. A proof explains something you have been shown. It is a
+poor thing to be shown first.
+
+**Corollary on sample size:** at 60 runs *both* maps are ~36% deviated from fair. More data does not
+kill bias, it kills noise — and the reel says exactly that rather than letting the early frames imply
+the naive map is merely undersampled.
+
+### `Fade` overwrites `transform` — breath passed through it is a silent no-op
+
+The motion audit failed r005 on a 3.75s dead spell in the two text-only beats, and the first fix
+(passing `useBreath()`'s transform into a `Fade`'s `style`) changed nothing at all: `Fade` sets its
+own `translateY` for the rise and overwrites whatever `transform` it was handed. No error, no
+warning, no visible effect — the audit was the only thing that caught it.
+
+**Wrap breath in a plain div OUTSIDE `Fade`, never inside it.** That is what r001-r004 already do;
+the idiom was there and this reel simply broke it. Do not "fix" `Fade` to compose transforms — it is
+shared chrome under three posted reels, and the local wrapper is free.
+
+More generally: **a motion fix that is not re-measured is not a fix.** The audit is now
+`scripts/reel_motion_audit.py` rather than a shell pipeline re-derived per reel, so re-running it
+costs one command.
 
 ### Posted
 

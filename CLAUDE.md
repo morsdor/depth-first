@@ -28,7 +28,7 @@ Do not invent a topic.** 50 entries, ids `I01`–`I50`, grouped into six section
 | `r002` | `I08` | Autocorrect / edit distance | **posted 2026-09-02** |
 | `r003` | `I01` | QR / Reed–Solomon damage tolerance | **posted 2026-09-05** (without the end beat) |
 | `r004` | `I03` | JPEG / DCT — a photo stores no pixels | **posted 2026-09-06** |
-| `r005` | `I51` | The obvious way to shuffle is wrong (Fisher–Yates bias) | rebuilt 2026-09-07, 36 s, not posted |
+| `r005` | `I51` | The obvious way to shuffle is wrong (Fisher–Yates bias) | rebuilt 2026-09-07 (v5, landing-position map), 39 s, not posted |
 
 Update this table, `brand_guide_software.md` §13 and
 [`reel_captions_log.md`](reel_captions_log.md) when one ships.
@@ -76,7 +76,8 @@ involved in a reel.** Keep it that way.
    **That test has a blind spot: a slow push changes pixels without anything HAPPENING.** So also
    check *event density* — the share of 4fps samples with change >= 1.0. r004 ran 42%; r005's first
    cut ran 26% and a viewer called it static despite passing the 0.35 rule. Continuous motion, not
-   more drift, is the fix: r005 now runs 55% by never pausing the thing the reel is about.
+   more drift, is the fix: r005 v5 runs 53% by never pausing the thing the reel is about.
+   The audit is `scripts/reel_motion_audit.py` — run it on the rendered mp4, don't re-derive it.
 5. **Pacing inside the body: read → animate → hold** — the hold keeps its reading time but never its
    stillness (see 4). Label alone ~1.5s, animation 2–3s, hold on the finished state
    ~2s. ≈6.5s per idea. The 2s hold is the phase everyone drops, and dropping it is why a reel reads
