@@ -36,7 +36,7 @@ with the row, because the temptation to "tighten" it later is exactly how a fals
 | `r001` | 2026-09-02 | **not recorded** — predates this log | — | 24 | 6 | 6 | 1 | — |
 | `r002` | 2026-09-02 | **not recorded** — predates this log | — | — | — | — | — | — |
 | `r003` | 2026-09-05 | **not recorded** — predates this log | — | 3 | 0 | 1 | 0 | — |
-| `r004` | 2026-09-06 | A (below) | "A JPEG doesn't store your photo. It stores a recipe." | TBD | TBD | TBD | TBD | TBD |
+| `r004` | 2026-09-06 | A (below) | "A JPEG doesn't store your photo. It stores a recipe." | 17 | 1 | 5 | 0 | Lowest skip rate of the three (34.8%, flagged "Lower") and the widest reach (1,617 viewers) — but 1 share against r001's 6. A caption cannot be credited or blamed for either at this sample size; see `brand_guide_software.md` §13. |
 
 Engagement figures are per the reel's own Insights, on the base Instagram reports them against
 (unique viewers). r001's are at 3 days, r003's at ~18 h — see `brand_guide_software.md` §13.

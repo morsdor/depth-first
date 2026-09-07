@@ -659,6 +659,55 @@ Hypothesis 3 is the one already fixed — the end beat added to `Qr.tsx` on 2026
 naming the next reel, which needs no second device. **That beat is not in the posted cut**; r003 went
 out before it landed. It is a rule for r004 on, not something this reel can be measured against.
 
+### r004 — legibility fixed the opening, and moved the problem (added 2026-09-07)
+
+r004 was built as a test of one r003 hypothesis: that a QR matrix reads as *static* at 0.5s and a
+face does not. **Base for every r004 rate: its 1,617 viewers.** r001 is at 3 days, r003 at ~18 h,
+r004 at an age Instagram does not state on the card — so views are not compared across them, only
+per-viewer fractions and curve shape.
+
+| | r001 Shazam | r003 QR | r004 JPEG |
+|:--|--:|--:|--:|
+| Viewers | 1,286 | 324 | **1,617** |
+| Skip rate | 37.9% | — | **34.8%** *(Instagram: "Lower")* |
+| Avg watch | 15 s of 40 s (37.5%) | 9 s of 37 s (24.3%) | 11 s of 40 s (27.5%) |
+| Views ÷ viewers | 1.29 | 1.20 | **1.12** |
+| Still watching at the last frame | ~18% | ~10% | ~10% |
+| Likes | 24 (1.87%) | 3 (0.93%) | 17 (1.05%) |
+| Shares / saves | 6 / 6 | 0 / 1 | 1 / 5 |
+| Follows | 1 | 0 | **0** |
+| Sources | Reels tab 89.7% · Explore 9.8% | 86.6% · 9.5% | 82.7% · **16.0%** |
+
+**The hypothesis holds, at the top of the funnel.** r004 reached 1,617 viewers against r003's 324,
+and its skip rate is the lowest of the three — Instagram flags it "Lower" than the account's own
+typical, and flags like rate and share rate "Higher". A legible object in the first second buys
+reach. **That is now measured, not assumed, and it is the one thing three reels have established.**
+
+**And it moved the problem to the body.** Against r001, which is the same 40 s length: average watch
+fell from 15 s to 11 s, the last-frame tail from ~18% to ~10%, and views per viewer from 1.29 to
+1.12 — r001 was re-watched substantially more. The opening got better; the middle got worse.
+
+**Do not read the 0 follows as the end beat failing.** About 161 people reached the last frame. At
+r001's own follow rate (1 in 1,286 viewers) the *expected* yield from 161 people is **0.13 follows**.
+Zero is what you would observe whether the beat works or not; distinguishing the two needs roughly
+ten times that end-frame audience. The end beat is **untested**, not disproven — and the same
+arithmetic says r001's single follow was never evidence either.
+
+Read nothing into 1 share, either. The "Higher" flag on share rate is against a recent baseline that
+includes r003's zero, which is a low bar rather than a result.
+
+**Where the body loses them — the candidates, in the order worth testing:**
+
+1. **The body is grey for 32 of its 40 seconds.** The same legibility argument that just won at 0.5s
+   applies at 15 s: a grey plate is less arresting than a colour one, on a feed, at thumbnail size.
+   r001's spectrogram was in colour and in constant motion.
+2. **Five beats may be one too many.** The colour beat is a good beat and it pushed the reel to 40 s.
+   Fewer ideas held longer is the untested direction; the pacing rule budgets ≈6.5 s per idea but
+   says nothing about how many ideas a viewer will accept.
+3. **Subject shape.** Shazam is something a person *does*, with a scene attached — a bar, a song you
+   cannot name. A JPEG is something that happens to them. That difference is not fixable by craft and
+   should be weighed when picking from the backlog.
+
 ### Reading time — end-of-beat text needs >= 3s
 
 A step label can be short; the **closing line of a beat carries the finding**, and it is usually two
