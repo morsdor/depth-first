@@ -28,6 +28,7 @@ Do not invent a topic.** 50 entries, ids `I01`–`I50`, grouped into six section
 | `r002` | `I08` | Autocorrect / edit distance | **posted 2026-09-02** |
 | `r003` | `I01` | QR / Reed–Solomon damage tolerance | **posted 2026-09-05** (without the end beat) |
 | `r004` | `I03` | JPEG / DCT — a photo stores no pixels | **posted 2026-09-06** |
+| `r005` | `I07` | Shuffle — clumping is what random looks like | built 2026-09-07, 30 s, not posted |
 
 Update this table, `brand_guide_software.md` §13 and
 [`reel_captions_log.md`](reel_captions_log.md) when one ships.
@@ -35,8 +36,12 @@ Update this table, `brand_guide_software.md` §13 and
 **r003 shipped without the end beat** — it was added to `Qr.tsx` after the reel was posted, so the
 `I03` line in that file is a plan, not a public promise.
 
-**r004's end card promises `I15` (300 roads, not 300,000) as r005.** Nothing is posted yet, so
-that line in `Jpeg.tsx` is still editable — but once r004 ships it is a public promise.
+**`I15` is deferred, and its end-card promise was broken deliberately.** r004 shipped promising
+"300 roads, not 300,000", but a real street graph needs OpenStreetMap, and `overpass-api.de`,
+`api.openstreetmap.org` and `download.geofabrik.de` are all refused by the cloud container's
+egress proxy. The build waits in [`projects/i15_astar/`](projects/i15_astar/) — keyed to the
+permanent backlog id, not a reel number — and needs `fetch_graph.py` run on a networked machine.
+The promise was seen by ~160 viewers and converted none, so breaking it cost less than stalling.
 
 ### The method: compute the animation, don't author it
 

@@ -10,6 +10,7 @@ import {
 } from './reels/Autocorrect';
 import { DURATION_SECONDS as QR_SECONDS, Qr } from './reels/Qr';
 import { DURATION_SECONDS as JPEG_SECONDS, Jpeg } from './reels/Jpeg';
+import { DURATION_SECONDS as SHUFFLE_SECONDS, Shuffle } from './reels/Shuffle';
 import { SafeZones } from './reels/lib/chrome';
 import { TitleCard } from './scenes/TitleCard';
 import { Scene16 } from './scenes/Scene16';
@@ -37,6 +38,13 @@ import { Scene77 } from './scenes/Scene77';
  *
  * 3840×2160 @ 30fps, 30 frames of handles at BOTH ends. Content starts at frame 30.
  */
+
+const ShuffleSafe: React.FC = () => (
+  <>
+    <Shuffle />
+    <SafeZones />
+  </>
+);
 
 const JpegSafe: React.FC = () => (
   <>
@@ -113,6 +121,23 @@ export const RemotionRoot: React.FC = () => {
         id="r004-jpeg-safe"
         component={JpegSafe}
         durationInFrames={JPEG_SECONDS * 30}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+
+      <Composition
+        id="r005-shuffle"
+        component={Shuffle}
+        durationInFrames={SHUFFLE_SECONDS * 30}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="r005-shuffle-safe"
+        component={ShuffleSafe}
+        durationInFrames={SHUFFLE_SECONDS * 30}
         fps={30}
         width={1080}
         height={1920}
