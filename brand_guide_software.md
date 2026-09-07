@@ -708,6 +708,40 @@ includes r003's zero, which is a low bar rather than a result.
    cannot name. A JPEG is something that happens to them. That difference is not fixable by craft and
    should be weighed when picking from the backlog.
 
+### The stillness audit has a blind spot: event density (added 2026-09-07)
+
+The 4fps mean-inter-frame-change test (non-negotiable 4) measures whether PIXELS move. It cannot
+tell that apart from whether anything HAPPENS, and on r001–r004 the two never came apart because
+those reels animated continuously anyway.
+
+r005 pulled them apart. Its first cut passed the rule — no dead stretch over 0.75s, median 0.573 —
+and the first person to watch it said *"not much happens, seems very static."* They were right. The
+slow stage push satisfies the metric while the frame merely drifts.
+
+**Second metric, measured the same way: event density — the share of 4fps samples with change ≥ 1.0.**
+
+| | median | event density |
+|:--|--:|--:|
+| r004 JPEG | 0.861 | 42% |
+| r005 first cut (passed the old rule, read as static) | 0.573 | **26%** |
+| r005 rebuilt | 1.130 | **55%** |
+
+**The fix is never a bigger push.** It is to stop pausing the thing the reel is about. r005's queue
+now plays continuously from the first beat to the last frame instead of running three defined sweeps
+and sitting still through every hold — a music player does not pause while you read a caption.
+
+### A legible shape is not a recognisable object (added 2026-09-07)
+
+The same viewing found r005's first cut *"not understandable by an average person"*, and that is the
+r003 finding wearing a new costume. r003 failed because a QR matrix reads as static at 0.5s. r005's
+first cut drew the playlist as 16 coloured bars — perfectly legible as SHAPES, and meaningless,
+because nothing on screen said "music". No rows, no artist names, no player. The playlist had been
+abstracted into a bar chart and the viewer was expected to make the leap back.
+
+**Rule: the opening object must be recognisable as the thing it is, not merely visible.** r004 got
+this right by accident — a photograph is unambiguously a photograph. A chart of an abstraction is
+not the object, however cleanly it is drawn.
+
 ### Reading time — end-of-beat text needs >= 3s
 
 A step label can be short; the **closing line of a beat carries the finding**, and it is usually two
