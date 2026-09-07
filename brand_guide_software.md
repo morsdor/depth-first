@@ -742,6 +742,28 @@ abstracted into a bar chart and the viewer was expected to make the leap back.
 this right by accident — a photograph is unambiguously a photograph. A chart of an abstraction is
 not the object, however cleanly it is drawn.
 
+### A claim about a RELATION has to draw the relation (added 2026-09-07)
+
+r005's second cut put a list on screen where "Artist A" appeared four times, and a caption reading
+*"Never the same artist twice"* with a counter reading **0**. A viewer read that and concluded,
+correctly, that the reel was lying.
+
+It was. The claim was never that an artist appears once — it is about appearing **back to back** —
+and nothing on screen carried that. The word "repeat" was doing the work of "adjacent", the counter
+said "repeats so far", and a per-row tag marked members of a pair without showing they were a pair.
+Every figure was right and the sentence was false.
+
+**Two rules out of it.**
+
+1. **Never name a relation the frame does not draw.** Adjacent songs are now one fused block with a
+   bracket around the whole run and a single "back to back" label spanning it. Adjacency is a thing
+   you see, not a property you are asked to infer from ordering.
+2. **Say the relation in the words, every time.** "back to back", never "repeat"; "never twice in a
+   row", never "never twice". The short version is the false one.
+
+This is the same failure family as r003 (a QR matrix reads as static) and r005's first cut (a bar
+chart is not a playlist): **the frame has to BE the thing, not stand for it.**
+
 ### Reading time — end-of-beat text needs >= 3s
 
 A step label can be short; the **closing line of a beat carries the finding**, and it is usually two

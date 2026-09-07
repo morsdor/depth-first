@@ -28,7 +28,7 @@ Do not invent a topic.** 50 entries, ids `I01`–`I50`, grouped into six section
 | `r002` | `I08` | Autocorrect / edit distance | **posted 2026-09-02** |
 | `r003` | `I01` | QR / Reed–Solomon damage tolerance | **posted 2026-09-05** (without the end beat) |
 | `r004` | `I03` | JPEG / DCT — a photo stores no pixels | **posted 2026-09-06** |
-| `r005` | `I07` | Shuffle — clumping is what random looks like | rebuilt as a playing queue 2026-09-07, 30 s, not posted |
+| `r005` | `I07` | Shuffle — clumping is what random looks like | rebuilt 2026-09-07, 36 s, not posted |
 
 Update this table, `brand_guide_software.md` §13 and
 [`reel_captions_log.md`](reel_captions_log.md) when one ships.

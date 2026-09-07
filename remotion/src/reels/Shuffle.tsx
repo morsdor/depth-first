@@ -49,33 +49,29 @@ import {
  * state you are told about after the fact.
  */
 
-export const DURATION_SECONDS = 30;
+export const DURATION_SECONDS = 36;
 
 const T = {
   deal: [0.12, 0.85] as [number, number],
-  // The playhead is the motion. It never stops during a beat, which is what
-  // separates "something is happening" from "the frame is drifting".
   sweep1: [0.9, 4.6] as [number, number],
-  hookVerdict: 4.9,
-  titleOut: [4.4, 4.8] as [number, number],
-  titleIn: [4.8, 5.15] as [number, number],
-  hookOut: 5.5,
+  hookVerdict: 4.4,
+  titleOut: [5.6, 6.0] as [number, number],
+  titleIn: [6.0, 6.35] as [number, number],
+  hookOut: 7.6,
 
-  s1Label: [5.9, 14.0] as [number, number],
-  reshuffle: 6.6,
-  sweep2: [7.0, 11.2] as [number, number],
-  s1Read: 11.5,
-  s1Out: 13.8,
+  s1Label: [7.8, 16.5] as [number, number],
+  reshuffle: 8.4,
+  s1Read: 12.6,
+  s1Out: 16.2,
 
-  s2Label: [14.3, 21.8] as [number, number],
-  respread: 15.0,
-  sweep3: [15.4, 19.4] as [number, number],
-  s2Verdict: 19.7,
-  s2Out: 21.6,
+  s2Label: [16.8, 25.5] as [number, number],
+  respread: 17.4,
+  s2Verdict: 21.6,
+  s2Out: 25.2,
 
-  answer: 22.2,
-  answerOut: 25.8,
-  next: 26.2,
+  answer: 25.9,
+  answerOut: 29.9,
+  next: 30.3,
 };
 
 // ── geometry ────────────────────────────────────────────────────────────────
@@ -105,11 +101,35 @@ const NAMES = ['Artist A', 'Artist B', 'Artist C', 'Artist D', 'Artist E', 'Arti
 const repeats = (order: number[]): boolean[] =>
   order.map((a, i) => i > 0 && order[i - 1] === a);
 
-const Queue: React.FC<{ order: number[]; head: number; dealt: number }> = ({
-  order,
-  head,
-  dealt,
-}) => {
+/**
+ * Maximal runs of the same artist, length >= 2.
+ *
+ * This is the fix for the thing that made the reel WRONG rather than unclear. A
+ * viewer reading a list where "Artist A" appears four times and a caption saying
+ * "no repeats" concludes, correctly, that the caption is lying. The claim was
+ * never about an artist appearing again — it is about appearing BACK TO BACK —
+ * and neither the word "repeat" nor a per-row tag carried that. A run is drawn
+ * as one fused block with a bracket, so adjacency is a thing you can see rather
+ * than a property you are asked to infer.
+ */
+const runsOf = (order: number[]): { start: number; len: number }[] => {
+  const out: { start: number; len: number }[] = [];
+  let i = 0;
+  while (i < order.length) {
+    let j = i;
+    while (j + 1 < order.length && order[j + 1] === order[i]) j++;
+    if (j > i) out.push({ start: i, len: j - i + 1 });
+    i = j + 1;
+  }
+  return out;
+};
+
+const Queue: React.FC<{
+  order: number[];
+  head: number;
+  dealt: number;
+  revealed: number;
+}> = ({ order, head, dealt, revealed }) => {
   const rep = repeats(order);
   const cur = Math.floor(head);
   // How far through the current song the playhead is. This is what makes the
@@ -124,7 +144,7 @@ const Queue: React.FC<{ order: number[]; head: number; dealt: number }> = ({
         const active = i === cur;
         // A repeat only counts once the playhead has reached it — the viewer
         // sees it land rather than being shown the answer in advance.
-        const caught = rep[i] && i <= cur;
+        const caught = rep[i] && i <= revealed;
         const lit = active || caught;
         return (
           <div
@@ -186,23 +206,55 @@ const Queue: React.FC<{ order: number[]; head: number; dealt: number }> = ({
             >
               {NAMES[a]}
             </div>
-            {caught ? (
-              <div
-                style={{
-                  position: 'relative',
-                  marginLeft: 'auto',
-                  marginRight: 14,
-                  fontFamily: 'IBM Plex Mono',
-                  fontSize: 36,
-                  color: artistColor(a),
-                }}
-              >
-                again
-              </div>
-            ) : null}
+
           </div>
         );
       })}
+      {/* Runs, once the playhead has passed through them: one bracketed block
+          spanning the whole run, labelled in words the viewer already has. */}
+      {runsOf(order)
+        .filter((r) => r.start <= revealed)
+        .map((r) => {
+          const a = order[r.start];
+          const top = r.start * (ROW_H + GAP) - 4;
+          const height = r.len * ROW_H + (r.len - 1) * GAP + 8;
+          return (
+            <div key={`run-${r.start}`}>
+              <div
+                style={{
+                  position: 'absolute',
+                  left: -6,
+                  top,
+                  width: LIST_W + 12,
+                  height,
+                  borderRadius: 12,
+                  border: `4px solid ${artistColor(a)}`,
+                  pointerEvents: 'none',
+                }}
+              />
+              {/* Inside the block, not beside it: the list already reaches x=850
+                  and anything hung off its right edge lands under the action
+                  rail. The rows carry the artist name on the left, so the right
+                  half is free. */}
+              <div
+                style={{
+                  position: 'absolute',
+                  left: 0,
+                  top: top + height / 2 - 24,
+                  width: LIST_W - 18,
+                  textAlign: 'right',
+                  fontFamily: 'IBM Plex Mono',
+                  fontSize: 36,
+                  color: artistColor(a),
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                back to back
+              </div>
+            </div>
+          );
+        })}
+
       {/* the playhead itself — a continuously moving bar, not a row highlight */}
       {head >= 0 && head < SONGS ? (
         <div
@@ -250,11 +302,15 @@ export const Shuffle: React.FC = () => {
   const beat = beats.filter((b) => frame >= t(b.from)).pop();
   const order = beat ? beat.order : EXAMPLES[2];
   const SONG_FRAMES = 9; // 0.3s a song, so a full pass is 3.6s and then it loops
-  const head = beat ? ((frame - t(beat.from)) / SONG_FRAMES) % SONGS : -1;
+  const elapsed = beat ? frame - t(beat.from) : -1;
+  const head = beat ? (elapsed / SONG_FRAMES) % SONGS : -1;
+  // Marks appear as the playhead reaches them on the FIRST pass, then stay. The
+  // loop was un-drawing them every time it wrapped, so by the time the hook's
+  // verdict landed the clumps it was talking about were no longer marked.
+  const revealed =
+    beat && elapsed >= SONG_FRAMES * SONGS ? SONGS : Math.floor(head);
 
-  const caughtSoFar = repeats(order).filter(
-    (r, i) => r && i <= Math.floor(head === -1 ? SONGS : head),
-  ).length;
+  const caughtSoFar = repeats(order).filter((r, i) => r && i <= revealed).length;
   // The counter shares the bottom slot with every readout, verdict and the
   // closing block, and making the queue play for the whole reel turned that into
   // three overlapping texts. It shows only while that slot is otherwise free:
@@ -295,7 +351,7 @@ export const Shuffle: React.FC = () => {
           transformOrigin: 'center center',
         }}
       >
-        <Queue order={order} head={head} dealt={Math.round(dealt)} />
+        <Queue order={order} head={head} dealt={Math.round(dealt)} revealed={revealed} />
       </div>
 
       {/* the live counter — the thing that makes a clump an event */}
@@ -312,7 +368,7 @@ export const Shuffle: React.FC = () => {
             color: caughtSoFar > 0 ? ACCENT : '#81A2C4',
           }}
         >
-          repeats so far: {caughtSoFar}
+          back to back so far: {caughtSoFar}
         </div>
       ) : null}
 
@@ -348,7 +404,7 @@ export const Shuffle: React.FC = () => {
       >
         {(
           [
-            ['with a repeat', `${PCT_CLUMPED}%`],
+            ['back to back', `${PCT_CLUMPED}%`],
             ['comes out clean', `${PCT_CLEAN}%`],
             ['shuffles run', TRIALS.toLocaleString('en-US')],
           ] as [string, string][]
@@ -374,7 +430,7 @@ export const Shuffle: React.FC = () => {
       <StepLabel
         n="STEP 2"
         title="Now the one you expected"
-        sub="Never the same artist twice."
+        sub="Never twice in a row — which is the whole trick."
         from={t(T.s2Label[0])}
         to={t(T.s2Label[1])}
       />
@@ -418,7 +474,7 @@ export const Shuffle: React.FC = () => {
       >
         <div style={{ transform: breath, transformOrigin: 'center center' }}>
           <div style={{ fontFamily: 'Archivo Black', fontSize: 64, color: ACCENT }}>
-            Repeats are the proof
+            Back to back is the proof
           </div>
         </div>
       </Fade>
