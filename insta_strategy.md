@@ -35,6 +35,31 @@ user-reported, not verified):
 | "OSI vs TCP/IP" — four-layer mapping | 639 | 5 | 36 | 292 | 46% |
 | "Rat in a Maze" — backtracking grid + live code panel (20 Aug) | — | — | — | — | — |
 
+### 2.0 First-party confirmation of Finding 1 (added 2026-09-07)
+
+Four reels in, the hit distribution and the 24-hour window are both visible on our own account, so
+Finding 1 below is no longer an inference from someone else's numbers.
+
+| Reel | Views | Read earlier | Gained since |
+|:--|--:|:--|--:|
+| `r001` | 1,658 | 1,656 at 3 days | **+2** |
+| `r002` | 322 | — | — |
+| `r003` | 422 | 390 at ~18 h | +32 |
+| `r004` | 1,809 | 1,806 at ~1 day | **+3** |
+
+**A reel is finished in about 24 hours.** r001 gained two views in four days; r004 gained three. It
+is not decaying, it is over — there is no long tail to work, and nothing done after the first day
+changes a post's outcome.
+
+**And the spread is already 5.6x** — two reels at ~1,733 and two at ~372, same account, same format,
+same month, which is the `equation.verse` pattern below reproducing in miniature. Craft moved the
+floor (r004 has the lowest skip rate of the four) but did not decide the ceiling.
+
+Both facts point at the same lever, and it is the one this section already names: **cadence.** At
+roughly a day of work per reel we hold about four tickets a month. The cheapest available win is not
+a better reel, it is more of them — which makes the per-reel build cost a strategic number, not an
+engineering detail.
+
 **Growth (user-reported):** ~20,000 followers in ~3 months, currently ~300/day.
 That is ~222/day average — and rising, which means it is compounding rather than decaying.
 
