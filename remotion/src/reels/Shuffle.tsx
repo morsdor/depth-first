@@ -11,264 +11,160 @@ import {
   t,
 } from './lib/chrome';
 import {
-  ARTISTS,
-  EXAMPLES,
-  EXACT_PAIRS,
-  MEAN_PAIRS,
-  PCT_CLEAN,
-  PCT_CLUMPED,
-  SONGS,
-  SPREAD,
-  TRIALS,
-} from './data/shuffle';
+  CHECKPOINTS,
+  ORDERS,
+  PATHS_FY,
+  PATHS_NAIVE,
+  PCT_FY,
+  PCT_HIGH,
+  PCT_LOW,
+  RATIO,
+  SERIES_FY,
+  SERIES_NAIVE,
+  WORST_RATIO,
+} from './data/bias';
 
 /**
- * r005 · "Your shuffle isn't broken"  (backlog I07)
+ * r005 · "The obvious way to shuffle is wrong"  (backlog I07, reframed)
  *
- * Every arrangement is a real Fisher-Yates shuffle from
- * projects/r005_shuffle/shuffle.py, measured over 200,000 of them. The closed
- * form E[pairs] = sum k(k-1)/n is the self-check. The reel does NOT name any
- * music company — see NOTES.md for the claim that was cut and why.
+ * ── Why this is the fourth cut ───────────────────────────────────────────────
+ * The first three measured how often a CORRECT shuffle clumps. Every figure was
+ * real, and a viewer said it plainly: "it doesn't talk about any algorithm or
+ * interesting knowledge, only fast repeated animations." They were right on both
+ * counts, and the two faults were the same fault.
  *
- * ── Rebuilt after the first cut was watched ──────────────────────────────────
- * The first cut drew the playlist as 16 coloured bars and failed twice.
+ * r001 ran Shazam's fingerprinting, r003 ran Reed-Solomon, r004 ran the DCT.
+ * This ran random.shuffle and counted pairs — a statistics demo with no
+ * mechanism in it. And when an earlier cut read as static, the fix was a LOOPING
+ * playhead, which raised the event-density metric to 68% while teaching nothing:
+ * motion without information. The metric rewards change, and a loop is change.
+ * That is a second blind spot, one layer above the first.
  *
- * It was not UNDERSTANDABLE: nothing on screen said "music". No rows, no artist
- * names, no player. The playlist had been abstracted into a bar chart and the
- * viewer was expected to make the leap back. That is the r003 finding — a legible
- * shape is not a recognisable object — in a new costume.
- *
- * And it was STATIC in a way the stillness audit could not see. That audit
- * measures mean inter-frame pixel change, so the slow stage push satisfies it
- * without anything HAPPENING: three arrangement swaps in thirty seconds, drifting
- * in between. Pixel change is a proxy for motion, not for event density, and on
- * r001-r004 the two were never allowed to come apart.
- *
- * So the queue now PLAYS. A playhead runs down it continuously, and a clump is an
- * event you watch arrive — two rows flaring as the counter ticks — rather than a
- * state you are told about after the fact.
+ * So the algorithm is the subject now. The naive shuffle everyone writes first is
+ * measurably biased, the proof is a counting argument a viewer can follow, and
+ * the fix is one character. Every bar on screen fills from a real run — the
+ * motion is the result arriving, and it never repeats.
  */
 
 export const DURATION_SECONDS = 36;
 
 const T = {
-  deal: [0.12, 0.85] as [number, number],
-  sweep1: [0.9, 4.6] as [number, number],
-  hookVerdict: 4.4,
+  // The run does not stop when the hook ends. Letting it keep going through
+  // the proof is the honest way to fill that beat: the counter climbs, the
+  // bars settle, and none of it repeats. Freezing the chart there left 1.75s
+  // under the stillness floor; LOOPING it would have been the other failure.
+  fillNaive: [0.4, 17.8] as [number, number],
+  hookVerdict: 5.6,
   titleOut: [5.6, 6.0] as [number, number],
   titleIn: [6.0, 6.35] as [number, number],
-  hookOut: 7.6,
+  hookOut: 8.9,
 
-  s1Label: [7.8, 16.5] as [number, number],
-  reshuffle: 8.4,
-  s1Read: 12.6,
-  s1Out: 16.2,
+  // 1. the proof, which is counting rather than measuring
+  s1Label: [9.2, 18.0] as [number, number],
+  paths: [10.2, 12.4] as [number, number],
+  s1Read: 14.2,
+  s1Out: 17.8,
 
-  s2Label: [16.8, 25.5] as [number, number],
-  respread: 17.4,
-  s2Verdict: 21.6,
-  s2Out: 25.2,
+  // 2. one character, and it goes flat
+  s2Label: [18.3, 27.0] as [number, number],
+  fillFy: [19.4, 36.0] as [number, number],
+  s2Verdict: 23.4,
+  s2Out: 27.0,
 
-  answer: 25.9,
-  answerOut: 29.9,
-  next: 30.3,
+  answer: 27.4,
+  answerOut: 31.4,
+  next: 31.8,
 };
 
 // ── geometry ────────────────────────────────────────────────────────────────
-// 620 wide centred on the frame is 230..850, clear of the 870 action rail.
-// SAFE_W is a width measured FROM x=60 — it is not a width you may centre.
-const ROW_H = 46;
-const GAP = 6;
-const LIST_W = 620;
-const LIST_H = SONGS * ROW_H + (SONGS - 1) * GAP;
-const LIST_X = 540 - LIST_W / 2;
-const LIST_Y = 672;
+// 620 centred on the frame is 230..850, clear of the 870 action rail.
+const ROW_H = 62;
+const GAP = 10;
+const CHART_W = 620;
+const CHART_H = ORDERS.length * ROW_H + (ORDERS.length - 1) * GAP;
+const CHART_X = 540 - CHART_W / 2;
+const CHART_Y = 690;
+const LABEL_W = 150;
 
 const ACCENT = '#AD88FF'; // DOMAIN_ACCENT.data — §1, things you touch every day
+const CYAN = '#00D6F7';
 
-/** One colour per artist as a computed ramp, so the palette stays closed. */
-const RAMP_A = [173, 136, 255]; // #AD88FF violet
-const RAMP_B = [0, 214, 247]; // #00D6F7 cyan
-const artistColor = (a: number, k = 1): string => {
-  const f = ARTISTS < 2 ? 0 : a / (ARTISTS - 1);
-  const ch = RAMP_A.map((x, i) => Math.round((x + (RAMP_B[i] - x) * f) * k));
-  return `rgb(${ch.join(',')})`;
+/** Counts at a fractional checkpoint, so the bars grow smoothly between samples. */
+const countsAt = (series: number[][], p: number): number[] => {
+  const x = Math.max(0, Math.min(series.length - 1, p * (series.length - 1)));
+  const lo = Math.floor(x);
+  const hi = Math.min(series.length - 1, lo + 1);
+  const f = x - lo;
+  return series[lo].map((v, i) => v + (series[hi][i] - v) * f);
 };
-
-const NAMES = ['Artist A', 'Artist B', 'Artist C', 'Artist D', 'Artist E', 'Artist F'];
-
-/** True where this row and the one before it are the same artist. */
-const repeats = (order: number[]): boolean[] =>
-  order.map((a, i) => i > 0 && order[i - 1] === a);
 
 /**
- * Maximal runs of the same artist, length >= 2.
- *
- * This is the fix for the thing that made the reel WRONG rather than unclear. A
- * viewer reading a list where "Artist A" appears four times and a caption saying
- * "no repeats" concludes, correctly, that the caption is lying. The claim was
- * never about an artist appearing again — it is about appearing BACK TO BACK —
- * and neither the word "repeat" nor a per-row tag carried that. A run is drawn
- * as one fused block with a bracket, so adjacency is a thing you can see rather
- * than a property you are asked to infer.
+ * Six bars, one per possible order. Length is the share of runs that produced
+ * that order, scaled so the widest bar fills the track — which is what makes a
+ * 18.52 / 14.81 split read as obviously uneven rather than as six similar bars.
  */
-const runsOf = (order: number[]): { start: number; len: number }[] => {
-  const out: { start: number; len: number }[] = [];
-  let i = 0;
-  while (i < order.length) {
-    let j = i;
-    while (j + 1 < order.length && order[j + 1] === order[i]) j++;
-    if (j > i) out.push({ start: i, len: j - i + 1 });
-    i = j + 1;
-  }
-  return out;
-};
-
-const Queue: React.FC<{
-  order: number[];
-  head: number;
-  dealt: number;
-  revealed: number;
-}> = ({ order, head, dealt, revealed }) => {
-  const rep = repeats(order);
-  const cur = Math.floor(head);
-  // How far through the current song the playhead is. This is what makes the
-  // frame move EVERY frame rather than once per row: a 620px fill sweeping a row
-  // changes far more pixels than a 6px marker stepping down a list, and event
-  // density — not drift — is what the viewer reads as "something is happening".
-  const frac = head - cur;
+const Chart: React.FC<{ counts: number[]; colour: string; flatAt?: number }> = ({
+  counts,
+  colour,
+  flatAt,
+}) => {
+  const total = counts.reduce((a, b) => a + b, 0) || 1;
+  const max = Math.max(...counts, 1);
+  const track = CHART_W - LABEL_W - 130;
   return (
-    <div style={{ position: 'relative', width: LIST_W, height: LIST_H }}>
-      {order.map((a, i) => {
-        const played = i < cur;
-        const active = i === cur;
-        // A repeat only counts once the playhead has reached it — the viewer
-        // sees it land rather than being shown the answer in advance.
-        const caught = rep[i] && i <= revealed;
-        const lit = active || caught;
+    <div style={{ position: 'relative', width: CHART_W, height: CHART_H }}>
+      {ORDERS.map((o, i) => {
+        const pct = (100 * counts[i]) / total;
+        const w = (counts[i] / max) * track;
         return (
           <div
-            key={i}
+            key={o}
             style={{
               position: 'absolute',
-              left: 0,
               top: i * (ROW_H + GAP),
-              width: LIST_W,
+              left: 0,
+              width: CHART_W,
               height: ROW_H,
-              borderRadius: 8,
               display: 'flex',
               alignItems: 'center',
-              gap: 16,
-              paddingLeft: 12,
-              overflow: 'hidden',
-              // the playing row tints toward its own artist — a computed rgb() from the
-              // ramp, not a new hex, so the palette stays closed (brand:check rejected
-              // the literal I first reached for)
-              background: caught
-                ? artistColor(a, 0.42)
-                : active
-                  ? artistColor(a, 0.2)
-                  : '#0D1F3C',
-              outline: caught ? `3px solid ${artistColor(a)}` : 'none',
-              opacity: i < dealt ? (played && !caught ? 0.55 : 1) : 0,
             }}
           >
-            {/* the song playing, filling left to right */}
-            {active ? (
-              <div
-                style={{
-                  position: 'absolute',
-                  left: 0,
-                  top: 0,
-                  width: LIST_W * frac,
-                  height: ROW_H,
-                  borderRadius: 8,
-                  background: artistColor(a, 0.5),
-                }}
-              />
-            ) : null}
             <div
               style={{
-                position: 'relative',
-                width: 30,
-                height: 30,
-                borderRadius: 6,
-                background: artistColor(a, lit ? 1 : 0.72),
-              }}
-            />
-            <div
-              style={{
-                position: 'relative',
-                fontFamily: 'IBM Plex Sans',
-                fontSize: 36,
-                color: lit ? '#E8E6E1' : '#81A2C4',
+                width: LABEL_W,
+                fontFamily: 'IBM Plex Mono',
+                fontSize: 38,
+                color: '#E8E6E1',
+                letterSpacing: 4,
               }}
             >
-              {NAMES[a]}
+              {o}
             </div>
-
+            <div
+              style={{
+                width: track,
+                height: 34,
+                borderRadius: 6,
+                background: '#0D1F3C',
+                overflow: 'hidden',
+              }}
+            >
+              <div style={{ width: w, height: 34, borderRadius: 6, background: colour }} />
+            </div>
+            <div
+              style={{
+                width: 130,
+                textAlign: 'right',
+                fontFamily: 'IBM Plex Mono',
+                fontSize: 36,
+                color: flatAt !== undefined ? colour : '#81A2C4',
+              }}
+            >
+              {counts[i] > 0 ? `${pct.toFixed(1)}%` : ''}
+            </div>
           </div>
         );
       })}
-      {/* Runs, once the playhead has passed through them: one bracketed block
-          spanning the whole run, labelled in words the viewer already has. */}
-      {runsOf(order)
-        .filter((r) => r.start <= revealed)
-        .map((r) => {
-          const a = order[r.start];
-          const top = r.start * (ROW_H + GAP) - 4;
-          const height = r.len * ROW_H + (r.len - 1) * GAP + 8;
-          return (
-            <div key={`run-${r.start}`}>
-              <div
-                style={{
-                  position: 'absolute',
-                  left: -6,
-                  top,
-                  width: LIST_W + 12,
-                  height,
-                  borderRadius: 12,
-                  border: `4px solid ${artistColor(a)}`,
-                  pointerEvents: 'none',
-                }}
-              />
-              {/* Inside the block, not beside it: the list already reaches x=850
-                  and anything hung off its right edge lands under the action
-                  rail. The rows carry the artist name on the left, so the right
-                  half is free. */}
-              <div
-                style={{
-                  position: 'absolute',
-                  left: 0,
-                  top: top + height / 2 - 24,
-                  width: LIST_W - 18,
-                  textAlign: 'right',
-                  fontFamily: 'IBM Plex Mono',
-                  fontSize: 36,
-                  color: artistColor(a),
-                  whiteSpace: 'nowrap',
-                }}
-              >
-                back to back
-              </div>
-            </div>
-          );
-        })}
-
-      {/* the playhead itself — a continuously moving bar, not a row highlight */}
-      {head >= 0 && head < SONGS ? (
-        <div
-          style={{
-            position: 'absolute',
-            left: -14,
-            top: head * (ROW_H + GAP),
-            width: 6,
-            height: ROW_H,
-            borderRadius: 3,
-            background: '#00D6F7',
-          }}
-        />
-      ) : null}
     </div>
   );
 };
@@ -277,65 +173,33 @@ export const Shuffle: React.FC = () => {
   const frame = useCurrentFrame();
   const breath = useBreath();
 
-  const dealt = interpolate(frame, [t(T.deal[0]), t(T.deal[1])], [0, SONGS], ease);
+  const showFy = frame >= t(T.fillFy[0]);
+  const pNaive = interpolate(frame, [t(T.fillNaive[0]), t(T.fillNaive[1])], [0, 1], ease);
+  const pFy = interpolate(frame, [t(T.fillFy[0]), t(T.fillFy[1])], [0, 1], ease);
 
-  // THE QUEUE NEVER STOPS PLAYING.
-  //
-  // The previous cut ran the playhead only inside three defined sweeps — about
-  // 12s of a 30s reel — and let the list sit still through every verdict, readout
-  // and hold. Measured: 26% of samples had real change against r004's 42%, which
-  // is the "not much happens" the first viewing found. A music player does not
-  // pause while you read a caption, so this one does not either: the head loops
-  // continuously from the first beat to the last frame, restarting whenever the
-  // order changes.
-  //
-  // EXAMPLES are three real Fisher-Yates runs with 2, 0 and 4 repeats. The reel
-  // shows the two that clump, which is the REPRESENTATIVE choice rather than a
-  // flattering one: 96.82% of shuffles do. EXAMPLES[1] is the 3.18% case and
-  // showing it as "what a shuffle looks like" would be the misleading edit.
-  const beats: { from: number; order: number[] }[] = [
-    { from: T.sweep1[0], order: EXAMPLES[2] },
-    { from: T.reshuffle, order: EXAMPLES[0] },
-    { from: T.respread, order: SPREAD },
-    { from: T.answer, order: EXAMPLES[2] },
-  ];
-  const beat = beats.filter((b) => frame >= t(b.from)).pop();
-  const order = beat ? beat.order : EXAMPLES[2];
-  const SONG_FRAMES = 9; // 0.3s a song, so a full pass is 3.6s and then it loops
-  const elapsed = beat ? frame - t(beat.from) : -1;
-  const head = beat ? (elapsed / SONG_FRAMES) % SONGS : -1;
-  // Marks appear as the playhead reaches them on the FIRST pass, then stay. The
-  // loop was un-drawing them every time it wrapped, so by the time the hook's
-  // verdict landed the clumps it was talking about were no longer marked.
-  const revealed =
-    beat && elapsed >= SONG_FRAMES * SONGS ? SONGS : Math.floor(head);
-
-  const caughtSoFar = repeats(order).filter((r, i) => r && i <= revealed).length;
-  // The counter shares the bottom slot with every readout, verdict and the
-  // closing block, and making the queue play for the whole reel turned that into
-  // three overlapping texts. It shows only while that slot is otherwise free:
-  // during the hook, and in the run-up to each step's own verdict.
-  const counterVisible =
-    (frame >= t(T.sweep1[0]) && frame < t(T.hookVerdict)) ||
-    (frame >= t(T.reshuffle) && frame < t(T.s1Read)) ||
-    (frame >= t(T.respread) && frame < t(T.s2Verdict));
+  // The bars fill from a real 100,000-run series, not from a curve. Nothing here
+  // loops: the run advances once, and the SHAPE arriving is the information.
+  const counts = showFy ? countsAt(SERIES_FY, pFy) : countsAt(SERIES_NAIVE, pNaive);
+  const runs = Math.round(
+    (showFy ? pFy : pNaive) * CHECKPOINTS[CHECKPOINTS.length - 1],
+  );
 
   return (
     <AbsoluteFill>
       <ReelGround accent={ACCENT} />
 
       <ReelHeader
-        bigSize={72}
+        bigSize={68}
         big={
           <>
-            Your shuffle
+            The obvious way to
             <br />
-            isn&apos;t <span style={{ color: ACCENT }}>broken</span>
+            shuffle is <span style={{ color: ACCENT }}>wrong</span>
           </>
         }
         small={
           <>
-            Your shuffle isn&apos;t <span style={{ color: ACCENT }}>broken</span>
+            The obvious way to shuffle is <span style={{ color: ACCENT }}>wrong</span>
           </>
         }
         out={T.titleOut}
@@ -345,92 +209,120 @@ export const Shuffle: React.FC = () => {
       <div
         style={{
           position: 'absolute',
-          top: LIST_Y,
-          left: LIST_X,
+          top: CHART_Y,
+          left: CHART_X,
           transform: breath,
           transformOrigin: 'center center',
         }}
       >
-        <Queue order={order} head={head} dealt={Math.round(dealt)} revealed={revealed} />
+        <Chart
+          counts={counts}
+          colour={showFy ? CYAN : ACCENT}
+          flatAt={showFy ? 1 : undefined}
+        />
       </div>
 
-      {/* the live counter — the thing that makes a clump an event */}
-      {counterVisible ? (
+      {/* The live run counter — a number that only ever goes up. Under the
+          chart (which ends at 1112), and only while a fill is actually running:
+          at y=620 it sat on top of every StepLabel's sub-line. */}
+      {runs > 0 && frame < t(T.answer) ? (
         <div
           style={{
             position: 'absolute',
-            top: 1320,
+            top: 1140,
             left: 60,
             width: 960,
             textAlign: 'center',
             fontFamily: 'IBM Plex Mono',
-            fontSize: 44,
-            color: caughtSoFar > 0 ? ACCENT : '#81A2C4',
+            fontSize: 36,
+            color: '#81A2C4',
           }}
         >
-          back to back so far: {caughtSoFar}
+          {runs.toLocaleString('en-US')} shuffles of 3 songs
         </div>
       ) : null}
 
+      {/* ── HOOK ──────────────────────────────────────────────────────────── */}
       <Fade
         from={t(T.hookVerdict)}
         to={t(T.hookOut)}
         style={{
           position: 'absolute',
-          top: 1400,
+          top: 1320,
           left: 60,
           width: 960,
           textAlign: 'center',
-          fontFamily: 'Archivo Black',
-          fontSize: 56,
-          color: ACCENT,
         }}
       >
-        {PCT_CLUMPED}% of shuffles
+        <div style={{ fontFamily: 'Archivo Black', fontSize: 56, color: ACCENT }}>
+          Some orders {WORST_RATIO}× likelier
+        </div>
+        <div
+          style={{
+            fontFamily: 'IBM Plex Sans',
+            fontSize: 38,
+            color: '#81A2C4',
+            marginTop: 10,
+          }}
+        >
+          from the shuffle almost everyone writes first
+        </div>
       </Fade>
 
-      {/* ── 1. again, with a different random order ───────────────────────── */}
+      {/* ── 1. the proof is counting, not measuring ───────────────────────── */}
       <StepLabel
         n="STEP 1"
-        title="Shuffle it again"
-        sub="Same songs, a genuinely random order."
+        title="Count the ways it can run"
+        sub="Three swaps, three choices each."
         from={t(T.s1Label[0])}
         to={t(T.s1Label[1])}
       />
       <Fade
         from={t(T.s1Read)}
         to={t(T.s1Out)}
-        style={{ position: 'absolute', top: 1330, left: 60, width: SAFE_W }}
+        style={{ position: 'absolute', top: 1200, left: 60, width: SAFE_W }}
       >
         {(
           [
-            ['back to back', `${PCT_CLUMPED}%`],
-            ['comes out clean', `${PCT_CLEAN}%`],
-            ['shuffles run', TRIALS.toLocaleString('en-US')],
+            ['ways it can run', `${PATHS_NAIVE}`],
+            ['possible orders', `${ORDERS.length}`],
+            [`${PATHS_NAIVE} ÷ ${ORDERS.length}`, `${RATIO}`],
           ] as [string, string][]
-        ).map(([k, v]) => (
+        ).map(([k, v], i) => (
           <div
             key={k}
             style={{
               display: 'flex',
               justifyContent: 'space-between',
               borderTop: '2px solid #274064',
-              padding: '8px 4px',
+              padding: '10px 4px',
               fontFamily: 'IBM Plex Mono',
-              fontSize: 36,
+              fontSize: 38,
+              color: i === 2 ? ACCENT : '#81A2C4',
             }}
           >
-            <span style={{ color: '#81A2C4' }}>{k}</span>
-            <span style={{ color: '#E8E6E1' }}>{v}</span>
+            <span>{k}</span>
+            <span style={{ color: i === 2 ? ACCENT : '#E8E6E1' }}>{v}</span>
           </div>
         ))}
+        <div
+          style={{
+            marginTop: 14,
+            textAlign: 'center',
+            fontFamily: 'IBM Plex Sans',
+            fontSize: 40,
+            color: '#E8E6E1',
+          }}
+        >
+          Not a whole number. It <span style={{ color: ACCENT }}>cannot</span> be fair.
+        </div>
       </Fade>
 
-      {/* ── 2. the order people actually expect ───────────────────────────── */}
+      {/* ── 2. one character ──────────────────────────────────────────────── */}
       <StepLabel
         n="STEP 2"
-        title="Now the one you expected"
-        sub="Never twice in a row — which is the whole trick."
+        title="Shrink the range as you go"
+        sub="Pick from what is left, not from everything."
         from={t(T.s2Label[0])}
         to={t(T.s2Label[1])}
       />
@@ -439,24 +331,24 @@ export const Shuffle: React.FC = () => {
         to={t(T.s2Out)}
         style={{
           position: 'absolute',
-          top: 1370,
+          top: 1320,
           left: 60,
           width: 960,
           textAlign: 'center',
         }}
       >
-        <div style={{ fontFamily: 'Archivo Black', fontSize: 50, color: ACCENT }}>
-          This is the less random one
+        <div style={{ fontFamily: 'Archivo Black', fontSize: 52, color: CYAN }}>
+          {PATHS_FY} ways, {ORDERS.length} orders
         </div>
         <div
           style={{
             fontFamily: 'IBM Plex Sans',
             fontSize: 38,
             color: '#81A2C4',
-            marginTop: 8,
+            marginTop: 10,
           }}
         >
-          it is built so that can never happen
+          one each — {PCT_FY[0]}% every time
         </div>
       </Fade>
 
@@ -473,8 +365,8 @@ export const Shuffle: React.FC = () => {
         }}
       >
         <div style={{ transform: breath, transformOrigin: 'center center' }}>
-          <div style={{ fontFamily: 'Archivo Black', fontSize: 64, color: ACCENT }}>
-            Back to back is the proof
+          <div style={{ fontFamily: 'Archivo Black', fontSize: 58, color: ACCENT }}>
+            One character apart
           </div>
         </div>
       </Fade>
@@ -483,7 +375,7 @@ export const Shuffle: React.FC = () => {
         to={t(T.answerOut)}
         style={{
           position: 'absolute',
-          top: 1380,
+          top: 1310,
           left: 60,
           width: 960,
           textAlign: 'center',
@@ -493,9 +385,9 @@ export const Shuffle: React.FC = () => {
           lineHeight: 1.3,
         }}
       >
-        Expected per shuffle: {EXACT_PAIRS.toFixed(2)}.
+        {PCT_HIGH}% and {PCT_LOW}% — or
         <br />
-        <span style={{ color: ACCENT }}>Measured: {MEAN_PAIRS.toFixed(2)}.</span>
+        <span style={{ color: CYAN }}>{PCT_FY[0]}%, six times over.</span>
       </Fade>
 
       {/* ── 4. the reason to follow ──────────────────────────────────────── */}
@@ -503,7 +395,7 @@ export const Shuffle: React.FC = () => {
         from={t(T.next)}
         style={{
           position: 'absolute',
-          top: 1340,
+          top: 1300,
           left: 60,
           width: 960,
           textAlign: 'center',

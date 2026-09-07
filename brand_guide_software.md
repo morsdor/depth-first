@@ -764,6 +764,31 @@ Every figure was right and the sentence was false.
 This is the same failure family as r003 (a QR matrix reads as static) and r005's first cut (a bar
 chart is not a playlist): **the frame has to BE the thing, not stand for it.**
 
+### Event density measures change, not information (added 2026-09-07)
+
+The metric added two entries above has its own blind spot, and r005 found it the hard way. Told the
+reel read as static, the fix applied was a LOOPING playhead — which drove event density from 26% to
+68%, the highest of any reel, while adding no information at all. The viewer's verdict on that cut:
+*"it doesn't talk about any algorithm or interesting knowledge, only fast repeated animations."*
+
+**A loop is change. The metric cannot tell it from a result arriving.** So it is a floor, never a
+target: use it to catch a frozen frame, and never to justify motion that repeats.
+
+The rebuilt reel runs at **11% event density** and is far better, because what moves is a real
+100,000-run trial converging once and never repeating. Both numbers are true and the lower one is
+the better reel. The hard rule — no dead stretch over 1.5s — still binds, and it passes at 1.00s.
+
+### The subject has to be a mechanism (added 2026-09-07)
+
+r001 ran Shazam's fingerprinting. r003 ran Reed–Solomon. r004 ran the DCT. r005's first three cuts
+ran `random.shuffle` and counted adjacent pairs — every figure correct, and no mechanism in it. A
+statistics demo is not a `Depth First` reel, however cleanly it is animated.
+
+**Test before building: what does the viewer now know how to do, or know is true, that they did not
+before?** "Random clumps more than you think" is a fact about the world. "The shuffle everyone writes
+first is measurably biased, and here is the counting argument" is a mechanism, and the second is what
+the channel is for.
+
 ### Reading time — end-of-beat text needs >= 3s
 
 A step label can be short; the **closing line of a beat carries the finding**, and it is usually two
