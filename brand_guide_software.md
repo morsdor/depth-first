@@ -907,29 +907,57 @@ a reel still in active distribution keeps meeting new people, so that ratio move
 
 | | r001 Shazam | r003 QR | r004 JPEG | r006 Great circle |
 |:--|--:|--:|--:|--:|
-| Viewers | 1,286 | 324 | 1,617 | **6,799** *(4 h, still climbing)* |
+| Viewers | 1,286 | 324 | 1,617 | **10,311** *(7 h, still climbing)* |
 | Skip rate | 37.9% | — | 34.8% | **32.1%** *(Instagram: "Lower")* |
-| Avg watch | 15 s of 40 s (37.5%) | 9 s of 37 s (24.3%) | 11 s of 40 s (27.5%) | **16 s of 32 s (50.0%)** |
-| Views ÷ viewers | 1.29 | 1.20 | 1.12 | 1.35 |
+| Avg watch | 15 s of 40 s (37.5%) | 9 s of 37 s (24.3%) | 11 s of 40 s (27.5%) | **17 s of 32 s (53.1%)** |
+| Views ÷ viewers | 1.29 | 1.20 | 1.12 | 1.31 |
 | Still watching at the last frame | ~18% | ~10% | ~10% | ~18% |
-| Likes | 24 (1.87%) | 3 (0.93%) | 17 (1.05%) | 100 (1.47%) |
-| Shares / saves | 6 (0.47%) / 6 (0.47%) | 0 / 1 (0.31%) | 1 (0.06%) / 5 (0.31%) | 5 (0.07%) / **36 (0.53%)** |
-| Comments / reposts | — | — | — | **4 / 5** |
-| Follows | 1 (0.078%) | 0 | 0 | **8 (0.118%)** |
+| Likes | 24 (1.87%) | 3 (0.93%) | 17 (1.05%) | **211 (2.05%)** |
+| Shares / saves | 6 (0.47%) / 6 (0.47%) | 0 / 1 (0.31%) | 1 (0.06%) / 5 (0.31%) | **73 (0.71%) / 86 (0.83%)** |
+| Comments / reposts | — | — | — | 6 / 8 |
+| Follows | 1 (0.078%) | 0 | 0 | **16 (0.155%)** |
 | Sources | Reels tab 89.7% · Explore 9.8% | 86.6% · 9.5% | 82.7% · 16.0% | 82.5% · **17.0%** |
 
-**Two readings, 1 h and 4 h.** At 1 h: 515 viewers, skip 30.5%, 12 likes, 2 saves, 1 follow. At 4 h:
-6,799 viewers — a 13× expansion — and the row above. Where the two disagree, the 4 h figures are the
-record. Views ÷ viewers fell 1.81 → 1.35 exactly as the 1 h note predicted, because a reel in active
-distribution keeps meeting new people; it is now comparable and it is the highest on the account.
+**r006 now beats every previous reel on every per-viewer metric**, shares included. It is 6.4× the
+previous best reach (r004, 1,617 viewers) and still climbing at 7 h.
 
-**Average watch held at 16 s while the audience grew 13×.** That is the strongest craft signal in
-the set, and it is worth more than the raw reach. Early viewers are a warm audience; a reel that
-holds its watch time as distribution pushes it to cold strangers is being held by the content rather
-than by the audience. Skip rate drifted 30.5% → 32.1% over the same expansion, which is the small
-cost of that colder audience and still the lowest on the account.
+### Three readings, two retractions — read this before writing a conclusion from fresh Insights
 
-**Half the runtime is watched, and that is the result.** 50.0% against a previous best of 37.5%. It
+| | 1 h | 4 h | 7 h |
+|:--|--:|--:|--:|
+| Viewers | 515 | 6,799 | 10,311 |
+| Avg watch | 16 s | 16 s | **17 s** |
+| Likes | 12 | 100 | 211 |
+| Saves | 2 | 36 | 86 |
+| **Shares** | **0** | **5** | **73** |
+| Follows | 1 | 8 | 16 |
+
+**Two conclusions were written into this section and both had to be retracted within hours.**
+
+1. At 1 h, 2 saves → *"a revelation has nothing to come back to; chasing saves needs a reel with
+   reference value."* At 7 h it has **86 saves, 0.83% of viewers**, nearly double r001's rate.
+2. At 4 h, 5 shares → *"shares stayed the weak one... 6× worse than r001... not reproduced in five
+   reels and not understood."* Three hours later shares had gone **5 → 73**, a 14.6× jump, and
+   **0.71% of viewers against r001's 0.47%.**
+
+Both were the same error: **a count in single digits is not a low rate, it is an unpopulated one.**
+Engagement does not accrue proportionally with views — shares in particular lagged reach by hours and
+then arrived in a burst, which is exactly the shape that makes an early reading maximally misleading.
+
+**The rule: record figures at any age, but do not write a content conclusion from a count below ~30,
+and mark every conclusion with the age it was drawn at.** A reel is not readable before ~24 h. Three
+readings in one day produced two false findings and one true one, and the true one (average watch
+holding as reach grew) was the only one drawn from a metric that was already fully populated at 1 h.
+
+**What survived all three readings: average watch time.** 16 s → 16 s → 17 s while the audience grew
+20×, from a warm early audience to 10,311 mostly-cold strangers — **it went up, not down.** That is
+the strongest craft signal in the set and it is worth more than the raw reach: a reel that holds its
+watch time as distribution pushes it to cold strangers is being held by the content rather than by
+the audience. It was also the only finding legible at the first reading, because it is a per-view
+average rather than a cumulative count. Skip rate drifted 30.5% → 32.1% over the same expansion,
+which is the small cost of that colder audience and still the lowest on the account.
+
+**Half the runtime is watched, and that is the result.** 53.1% against a previous best of 37.5%. It
 is the metric that most directly feeds distribution, and it is the first one on this account to clear
 half. Part of it is craft and part of it is arithmetic — **32 s is the shortest reel yet**, and a
 shorter reel is a cheaper thing to finish. Both r007 and any re-cut should treat 30–35 s as the
@@ -952,26 +980,26 @@ beat, everybody is leaking slowly. The two curve shapes want opposite fixes. A c
 opening. A linear bleed says the reel has no moment that re-commits the viewer after the payoff —
 and r006's payoff (the +2,572 km) lands at ~22 s, with the end card behind it.
 
-**The end beat has finally been tested, and the answer is "no clear signal".** The 1 h note said the
-test needed roughly ten times that end-frame audience before the number meant anything. It got it:
-~18% of 6,799 is about **1,224 people reaching the last frame**, and the reel has **8 follows**.
+**The account finally has a measured follow rate: 0.155%, from 16 follows on 10,311 viewers.**
+About 1,856 people reached the last frame (~18%).
 
-That is the account's best follow rate — 0.118% of viewers against r001's 0.078% — but it is not
-evidence the end card works. At r001's own rate, 6,799 viewers would be *expected* to yield **5.3
-follows**; 8 is a routine draw from that (Poisson p ≈ 0.16). The honest reading is that **follows so
-far scale with reach and nothing more**, and four reels of next-reel end cards have not yet moved
-the rate detectably. The beat is no longer untestable — it is tested and unconvincing. Anything that
-would actually change it has to be a bigger change than a closing line.
+**It cannot be compared to r001.** r001's rate came from a single follow — one event, whose true rate
+could plausibly be anywhere from a fifth to five times the 0.078% point estimate. Saying r006 is "2×
+r001" is arithmetic on a number that was never measured. The honest statement is that **r006 is the
+first reel on this account whose follow rate is known at all**, and it is 0.155%. That is now the
+baseline every future reel gets compared against, and the end beat's contribution stays unresolved
+until a reel ships without one.
 
-**Shares stayed the weak one, and r001 is still unexplained.** 5 shares, 0.07% of viewers, against
-r001's 6 from a fifth of the audience (0.47%). Every other engagement metric on r006 beat r001 per
-viewer; this one is 6× worse. Whatever r001 did to get shared has not been reproduced in five reels
-and is not understood.
+**Shares arrived late and then dominated — 73 at 7 h, 0.71% of viewers, the best on the account.**
+They were the last metric to move (0 at 1 h, 5 at 4 h) and then jumped 14.6× in three hours, well
+after reach was already large. Shares are the strongest distribution signal Instagram has, and the
+views curve was still climbing at 7 h, so the likely causality runs share → reach rather than the
+reverse. **r001's 6 shares are no longer the account's benchmark and no longer need explaining.**
 
 **Saves were called wrong at 1 h, and the correction is the most useful thing in this section.**
 At 2 saves the reading here was that "a revelation has nothing to come back to" — that a save means
-"I will come back to this", so a reel complete on first watch cannot earn one. **Four hours later
-r006 has 36 saves, 0.53% of viewers, the best save rate on the account** (r001's 0.47% was the
+"I will come back to this", so a reel complete on first watch cannot earn one. **Seven hours later
+r006 has 86 saves, 0.83% of viewers, the best save rate on the account** (r001's 0.47% was the
 previous best), and Instagram flipped the flag from "Lower" to "Higher".
 
 **A save is not only reference value. It is also "I want to show this to someone."** r006 has nothing
