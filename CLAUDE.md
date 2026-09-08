@@ -68,6 +68,7 @@ and a bad reel, and recognising it early is cheaper than five rebuilds.
 | `r003` | `I01` | QR / Reed–Solomon damage tolerance | **posted 2026-09-05** (without the end beat) |
 | `r004` | `I03` | JPEG / DCT — a photo stores no pixels | **posted 2026-09-06** |
 | `r005` | `I51` | The obvious way to shuffle is wrong (Fisher–Yates bias) | rebuilt 2026-09-07 (v5, landing-position map), 39 s, not posted |
+| `r006` | `I17` | Great circle — the flight path that looks curved is the straight one | built 2026-09-08 (32 s), passed Gate 0, not posted |
 
 Update this table, `brand_guide_software.md` §13 and
 [`reel_captions_log.md`](reel_captions_log.md) when one ships.
