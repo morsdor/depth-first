@@ -59,6 +59,17 @@ Machine-checkable rigor is the thing I will drift toward if nothing stops me.
 shuffle's whole point is that nobody can see the bias and no test catches it. That is a good essay
 and a bad reel, and recognising it early is cheaper than five rebuilds.
 
+### Prefer a belief correction (r006, 2026-09-08 — one data point, under test)
+
+r006 is 4x the account's previous best reach and best-in-class on every per-viewer engagement metric
+except shares. The candidate reason: it does not explain a mechanism, it **corrects a belief the
+viewer already holds** — "your flight path isn't curved, the map is bent". r001-r005 all taught
+something the viewer had no prior opinion about; nobody has a stake in that.
+
+When picking the next id, prefer one where the viewer is already confidently wrong. The full pattern
+and the falsification test are in `brand_guide_software.md` §13 ("The r006 pattern"). **It is one
+reel — `I22` is the test, and it must not change five things at once.**
+
 ### Built so far
 
 | Reel | Backlog id | Subject | State |
@@ -68,7 +79,7 @@ and a bad reel, and recognising it early is cheaper than five rebuilds.
 | `r003` | `I01` | QR / Reed–Solomon damage tolerance | **posted 2026-09-05** (without the end beat) |
 | `r004` | `I03` | JPEG / DCT — a photo stores no pixels | **posted 2026-09-06** |
 | `r005` | `I51` | The obvious way to shuffle is wrong (Fisher–Yates bias) | rebuilt 2026-09-07 (v5, landing-position map), 39 s, not posted |
-| `r006` | `I17` | Great circle — the flight path that looks curved is the straight one | built 2026-09-08 (32 s), passed Gate 0, not posted |
+| `r006` | `I17` | Great circle — the flight path that looks curved is the straight one | **posted 2026-09-08** (32 s) — first reel built under Gate 0 |
 
 Update this table, `brand_guide_software.md` §13 and
 [`reel_captions_log.md`](reel_captions_log.md) when one ships.
