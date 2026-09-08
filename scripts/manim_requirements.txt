@@ -1,0 +1,5 @@
+# Pinned to the versions proven in this container (Python 3.11, glibc 2.39).
+# manimpango has no linux wheel and builds from source, which is why the apt
+# step in manim_render.py's docstring is not optional.
+manim==0.18.1
+imageio-ffmpeg==0.6.0

@@ -11,6 +11,7 @@ import {
 import { DURATION_SECONDS as QR_SECONDS, Qr } from './reels/Qr';
 import { DURATION_SECONDS as JPEG_SECONDS, Jpeg } from './reels/Jpeg';
 import { DURATION_SECONDS as SHUFFLE_SECONDS, Shuffle } from './reels/Shuffle';
+import { DURATION_SECONDS as MANIM_SECONDS, ManimProbe } from './reels/ManimProbe';
 import { SafeZones } from './reels/lib/chrome';
 import { TitleCard } from './scenes/TitleCard';
 import { Scene16 } from './scenes/Scene16';
@@ -126,6 +127,14 @@ export const RemotionRoot: React.FC = () => {
         height={1920}
       />
 
+      <Composition
+        id="manim-probe"
+        component={ManimProbe}
+        durationInFrames={Math.round(MANIM_SECONDS * 30)}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
       <Composition
         id="r005-shuffle"
         component={Shuffle}
