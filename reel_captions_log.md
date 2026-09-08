@@ -37,6 +37,7 @@ with the row, because the temptation to "tighten" it later is exactly how a fals
 | `r002` | 2026-09-02 | **not recorded** — predates this log | — | — | — | — | — | — |
 | `r003` | 2026-09-05 | **not recorded** — predates this log | — | 3 | 0 | 1 | 0 | — |
 | `r004` | 2026-09-06 | A (below) | "A JPEG doesn't store your photo. It stores a recipe." | 17 | 1 | 5 | 0 | Lowest skip rate of the three (34.8%, flagged "Lower") and the widest reach (1,617 viewers) — but 1 share against r001's 6. A caption cannot be credited or blamed for either at this sample size; see `brand_guide_software.md` §13. |
+| `r006` | 2026-09-08 | A (below) | "Those curved flight paths on the seatback map are the straight lines. The map is bent, not the flight." | 12 | 0 | 2 | 1 | **Figures at ~1 h, not final — backfill at 3 days.** Best skip rate (30.5%) and best average watch (16 s of 32 s = 50%) of any reel on the account, and the first to clear half its runtime. Retention stopped falling off a cliff and started bleeding linearly instead; see `brand_guide_software.md` §13. Saves stay flat at 0.39% — a revelation has nothing to come back to. |
 
 Engagement figures are per the reel's own Insights, on the base Instagram reports them against
 (unique viewers). r001's are at 3 days, r003's at ~18 h — see `brand_guide_software.md` §13.
@@ -99,19 +100,15 @@ All figures below are output of `projects/r004_jpeg/dct.py` on the posted crop
 
 ---
 
-## Built, not yet posted
+## Caption detail
 
-A caption written before posting is a draft; it moves into the table above with its engagement
-figures on the day it ships. Nothing here has a Lesson column yet, because nothing here has been
-seen by anyone.
-
-### r006 — "Your flight path isn't curved" (`I17`)
+### r006 — "Your flight path isn't curved" (`I17`) — posted 2026-09-08
 
 Every figure is output of `projects/i17_greatcircle/build_geo.py`. Distances are spherical, on the
 IUGG mean radius R = 6,371.0088 km, cross-checked against the WGS84 geodesic (`pyproj.Geod`) and
 against the sum of the sampled legs.
 
-#### Caption A — drafted
+#### Caption A — posted
 
 > Those curved flight paths on the seatback map are the straight lines. The map is bent, not the
 > flight.

@@ -898,6 +898,77 @@ splitting a coastline subpath at the Mercator seam (an x-jump > half the map wid
 runs behind the terminator mid-morph. Filling a ring that is cut at the terminator paints a chord
 straight across the ocean, so the land fill is gated to the last 18% of the morph.
 
+### r006 — the hook problem is solved; the shape of the loss changed (added 2026-09-08)
+
+**Base for every r006 rate: its 515 viewers, at ~1 hour after posting.** That age is the caveat on
+the whole row. r001 is at 3 days, r003 at ~18 h, r004 at an age Instagram does not state. Skip rate,
+average watch and curve shape stabilise early and are worth comparing; **views ÷ viewers is not** —
+a reel still in active distribution keeps meeting new people, so that ratio moves.
+
+| | r001 Shazam | r003 QR | r004 JPEG | r006 Great circle |
+|:--|--:|--:|--:|--:|
+| Viewers | 1,286 | 324 | 1,617 | 515 *(1 h)* |
+| Skip rate | 37.9% | — | 34.8% | **30.5%** *(Instagram: "Lower")* |
+| Avg watch | 15 s of 40 s (37.5%) | 9 s of 37 s (24.3%) | 11 s of 40 s (27.5%) | **16 s of 32 s (50.0%)** |
+| Views ÷ viewers | 1.29 | 1.20 | 1.12 | 1.81 *(1 h — not comparable)* |
+| Still watching at the last frame | ~18% | ~10% | ~10% | ~18% |
+| Likes | 24 (1.87%) | 3 (0.93%) | 17 (1.05%) | **12 (2.33%)** |
+| Shares / saves | 6 / 6 | 0 / 1 | 1 / 5 | 0 / 2 |
+| Follows | 1 | 0 | 0 | 1 |
+| Sources | Reels tab 89.7% · Explore 9.8% | 86.6% · 9.5% | 82.7% · 16.0% | 86.2% · 13.6% |
+
+**Half the runtime is watched, and that is the result.** 50.0% against a previous best of 37.5%. It
+is the metric that most directly feeds distribution, and it is the first one on this account to clear
+half. Part of it is craft and part of it is arithmetic — **32 s is the shortest reel yet**, and a
+shorter reel is a cheaper thing to finish. Both r007 and any re-cut should treat 30–35 s as the
+default length rather than 40.
+
+**The retention curve changed shape, and that is the finding worth keeping.** r001 and r002 both fell
+off a cliff and then FLATTENED — brutal opening, loyal body. r006 does neither:
+
+| t | Still watching |
+|--:|--:|
+| 0 s | 100% |
+| ~3 s | ~69% |
+| 16 s | ~48% |
+| 32 s | ~18% |
+
+A shallow knee, then a near-linear bleed of roughly 1.9 points per second for the remaining 29 s.
+**The opening is no longer the thing costing reach** — 69% survive the first three seconds where r001
+kept about half. But there is no plateau of committed viewers either: nobody is being lost to one bad
+beat, everybody is leaking slowly. The two curve shapes want opposite fixes. A cliff says rebuild the
+opening. A linear bleed says the reel has no moment that re-commits the viewer after the payoff —
+and r006's payoff (the +2,572 km) lands at ~22 s, with the end card behind it.
+
+**Read nothing into 1 follow.** §13's own arithmetic on r004 applies unchanged: ~18% of 515 is about
+93 people reaching the last frame, and at r001's follow rate the expected yield from 93 people is
+**0.07 follows**. One is what you would observe whether the end beat works or not. Three reels have
+now closed on a next-reel line and the beat remains **untested**, not proven. It needs roughly ten
+times that end-frame audience before the number means anything.
+
+**Read nothing into shares either, and note the cards disagree.** The engagement row shows 0 shares;
+the rates card shows share rate 0.1% flagged "Higher". 0.1% of 932 views is 0.93, so this is one
+share not yet counted, or a rounded zero. Either way r001's 6 shares (0.47%) remains unmatched by any
+reel since, and nothing here explains it.
+
+**Saves are the one genuinely weak metric, and the reason is structural.** 2 saves, 0.39% of viewers
+— roughly r004's 0.31% and r003's 0.31%, so not a regression, but nobody saves these. A save means
+"I will come back to this". **A revelation has nothing to come back to.** The reel is complete on
+first watch: you learn the map is bent and you are done. If saves are worth chasing, it takes a reel
+with reference value — something with a number, a rule or a method the viewer expects to want again
+— and that is a different content decision, not a craft fix.
+
+**Explore at 13.6% is the civilian-object thesis showing up in distribution, not just in the hook.**
+Maps and aviation have an Explore audience that pure developer content does not. r003 (a QR matrix)
+got 9.5%; r004 (a photograph) 16.0%; r006 (a world map) 13.6%. The reels that open on something a
+non-programmer already cares about are the reels Explore carries.
+
+**What r007 should test.** The linear bleed is the open question, and the cheapest probe is a second
+re-commitment beat: r006 gives the viewer one surprise (the arc is straight) and then spends 20 s
+elaborating it. A reel with two distinct surprises, the second landing around 18–20 s, would show up
+as a kink in this curve if the diagnosis is right. **The end card also now owes a public promise** —
+about 93 people were told the next reel is the cable on the seabed, which is backlog `I22`.
+
 ### Posted
 
 | Reel | Subject | Length | Posted |
@@ -906,3 +977,4 @@ straight across the ocean, so the land fill is gated to the last 18% of the morp
 | `r002` | Autocorrect / edit distance | 43 s | **2026-09-02** |
 | `r003` | QR codes / Reed–Solomon | 37 s | **2026-09-05** |
 | `r004` | JPEG / DCT — a photo stores no pixels | 40 s | **2026-09-06** |
+| `r006` | Great circle — your flight path isn't curved | 32 s | **2026-09-08** |
