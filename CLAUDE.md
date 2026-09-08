@@ -20,6 +20,45 @@ Do not invent a topic.** 50 entries, ids `I01`–`I50`, grouped into six section
   they cover all six sections and double as a pillar test. `I42` is the s001 warm-up.
 - **Propose the id and confirm before building.** A reel is a day of work; don't guess which one.
 
+### Gate 0 — the friend test. Runs BEFORE any code, and it is not mine to pass.
+
+Nothing is built — no Python, no `.tsx`, no data module — until these two things exist and the
+**human has said yes**:
+
+1. **The sentence.** One sentence, in a normal person's words, that a viewer would say to a friend
+   after watching. Not a description of the reel. The thing they'd repeat at dinner.
+2. **One still of the payoff frame.** Drawn by hand or in PIL, in five minutes. Not a render.
+
+**Three kill conditions. Any one of them ends the concept — pick a different id, don't repair it.**
+
+- **The sentence needs a CS word.** "Shuffle bias", "hash", "index", "edit distance", "quantise".
+  If the sentence cannot survive without it, the idea has no civilian surface and never will.
+- **The payoff frame shows an object the viewer has never seen.** A matrix, a bar chart, a grid of
+  abstract cells, a graph — these are pictures *of* an idea, not the thing itself. A city map, a
+  photograph, a keyboard, a song, a lock, a queue of people: those are objects. The test is whether
+  a stranger can name what is on screen with the sound off and no labels.
+- **The amazement depends on understanding first.** If the viewer has to follow an argument before
+  the frame is impressive, it is a blog post. The `equation.verse` reel at 131,000 likes is a real
+  Berlin street map flooding with a pathfinding search — you are amazed *first*, and understanding
+  is the reward for staying. That order is not optional and it is not reversible.
+
+**I do not pass this gate.** I wrote the sentence, so I already know what it means, and I cannot
+un-know it to judge whether a stranger would. The human says yes or no, in under a minute. That is
+the entire cost of the gate, and it replaces a day of building the wrong thing.
+
+**Why this exists — r005, five rebuilds, 2026-09-07/08.** Every rebuild raised rigor and lowered
+recognition: v1 drew 16 coloured bars, v5 drew a 13x13 landing-position matrix measured over 400,000
+shuffles. v5 is the more honest reel and it is the less watchable one, because no viewer has ever
+seen either object. The verdict that ended it — *"anyone who sees that will not understand even a
+single word; nobody knows what it is for"* — was given five times before it was heard, because each
+time it was answered with a craft fix. **Every other gate in this file can be checked by me alone,
+which is exactly why the one that decides whether the reel works had to become a human gate.**
+Machine-checkable rigor is the thing I will drift toward if nothing stops me.
+
+**A subject whose defining property is that it is invisible cannot pass this gate.** The naive
+shuffle's whole point is that nobody can see the bias and no test catches it. That is a good essay
+and a bad reel, and recognising it early is cheaper than five rebuilds.
+
 ### Built so far
 
 | Reel | Backlog id | Subject | State |
@@ -82,7 +121,11 @@ involved in a reel.** Keep it that way.
    stillness (see 4). Label alone ~1.5s, animation 2–3s, hold on the finished state
    ~2s. ≈6.5s per idea. The 2s hold is the phase everyone drops, and dropping it is why a reel reads
    as "too fast to understand anything".
-6. **Open on a civilian object, never a developer noun.** Never name the algorithm in the hook.
+6. **Open on a civilian object, never a developer noun** — and never leave it. Never name the
+   algorithm in the hook. This rule used to govern only the opening, which is how r005 could open
+   on two decks of cards, cut to a 13x13 matrix three seconds later, and still pass. **The
+   recognisable object stays on screen, or in frame, for the whole reel.** If a beat needs an
+   abstraction, it sits beside the object rather than replacing it.
 7. **Accuracy gate — sentences, not just numbers.** Figures get checked because they visibly came
    from a script; hand-written *mechanism* sentences slip through. r001 shipped "the cafe noise dies
    here" — false: peak-picking yields MORE peaks on pure noise (224) than on the song (202). Any
