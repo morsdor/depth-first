@@ -141,7 +141,11 @@ against the sum of the sampled legs.
 
 #### Hashtags
 
-`#maps #mercator #geodesy #aviation #howitworks #depthfirst`
+`#maps #mercator #aviation #depthfirst`
+
+Four, not six. `#mercator` is the specific one worth ranking in, `#aviation` is the only tag here
+that reaches outside the dev audience, `#depthfirst` is the brand. Dropped: `#geodesy` (too small to
+carry traffic) and `#howitworks` (generic enough to be noise).
 
 #### Load-bearing phrasings — do not loosen
 
