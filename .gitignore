@@ -53,3 +53,5 @@ remotion/.remotion/
 remotion/public/reels/r004_*.png
 .manimenv/
 remotion/public/manim/
+
+.geoenv/

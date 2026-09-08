@@ -520,7 +520,17 @@ like-comment-share rail down the right.
 
 Codified in `remotion/src/reels/lib/chrome.tsx` as `SAFE`, `SAFE_TOP`, `SAFE_BOTTOM`, `SAFE_H`,
 `SAFE_W`, `SAFE_CX`. The shared chrome components (`ReelHeader`, `StepLabel`, `Readout`, `Progress`)
-are positioned against them, so any reel built on the shared lib is safe by construction.
+are positioned against the top and bottom bands, so no reel built on the shared lib can repeat r001's
+title-in-the-status-bar bug.
+
+**The shared lib is NOT safe by construction against the right rail — r006 found this (2026-09-08).**
+`Readout` defaults to `CONTENT_W` (960), which runs to `x=1020`, and its default `top` is 1240 — so
+its right-aligned value column sits squarely inside the action rail (`x > 870`, `y` 1050–1540). Every
+reel r002–r005 has shipped this way; it was survivable there because the readouts were corroborating
+detail. r006 resolves to three right-aligned kilometre figures, so the rail was eating the payoff.
+`Readout` now takes an optional `width`; the default is unchanged, and **any reel whose right-hand
+column is the thing the viewer must read passes `SAFE_W`.** The `*-safe` scrub is what caught it,
+which is the argument for the scrub being mandatory rather than a formality.
 
 **How this was found — r001 shipped broken.** It was authored against the raw canvas, putting its
 title at `y=120`, wholly inside Instagram's top bar; the progress bar at `y=1790` was likewise lost
@@ -726,6 +736,7 @@ slow stage push satisfies the metric while the frame merely drifts.
 | r005 first cut (passed the old rule, read as static) | 0.573 | **26%** |
 | r005 rebuilt | 1.130 | **55%** |
 | r005 v5 (landing-position map, the shipped cut) | 1.035 | **53%** |
+| r006 great circle | 0.608 | **38%** |
 
 **The fix is never a bigger push.** It is to stop pausing the thing the reel is about. r005's queue
 now plays continuously from the first beat to the last frame instead of running three defined sweeps
@@ -864,6 +875,28 @@ shared chrome under three posted reels, and the local wrapper is free.
 More generally: **a motion fix that is not re-measured is not a fix.** The audit is now
 `scripts/reel_motion_audit.py` rather than a shell pipeline re-derived per reel, so re-running it
 costs one command.
+
+### r006 — a moving marker is part of its line, not a second amber element (added 2026-09-08)
+
+§3a holds amber to **one element per frame**, and r006's closing beat appeared to break it twice
+over: the constant-bearing track is amber, and the marker racing along it is amber too. It is one
+element. **A line and the marker travelling on it are a single amber object** — the marker is that
+line's position, not a competing accent — and the rule counts objects a viewer would point at, not
+SVG nodes. What the rule still forbids, and r006 obeys, is a second amber *thing*: the great-circle
+arc, its own marker, and its distance label are all cyan, so the frame never asks which of two amber
+items matters.
+
+**The projection constraint that shaped the whole build.** A great circle projects to a straight line
+in orthographic **only when the view centre lies on that great circle**. The reel's first beat has to
+show the taut line as genuinely straight — that is the entire "pull a thread tight" claim — so the
+globe is centred on a point of the flight path and rolls along it rather than sitting on a fixed
+centre. The roll doubles as motion: it is what carries the opening beat's event density, which is why
+the globe never stops turning.
+
+**Two SVG traps in any globe↔flat morph**, both of which paint garbage rather than erroring:
+splitting a coastline subpath at the Mercator seam (an x-jump > half the map width), and dropping the
+runs behind the terminator mid-morph. Filling a ring that is cut at the terminator paints a chord
+straight across the ocean, so the land fill is gated to the last 18% of the morph.
 
 ### Posted
 

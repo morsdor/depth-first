@@ -12,6 +12,7 @@ import { DURATION_SECONDS as QR_SECONDS, Qr } from './reels/Qr';
 import { DURATION_SECONDS as JPEG_SECONDS, Jpeg } from './reels/Jpeg';
 import { DURATION_SECONDS as SHUFFLE_SECONDS, Shuffle } from './reels/Shuffle';
 import { DURATION_SECONDS as MANIM_SECONDS, ManimProbe } from './reels/ManimProbe';
+import { DURATION_SECONDS as GC_SECONDS, Greatcircle } from './reels/Greatcircle';
 import { SafeZones } from './reels/lib/chrome';
 import { TitleCard } from './scenes/TitleCard';
 import { Scene16 } from './scenes/Scene16';
@@ -43,6 +44,13 @@ import { Scene77 } from './scenes/Scene77';
 const ShuffleSafe: React.FC = () => (
   <>
     <Shuffle />
+    <SafeZones />
+  </>
+);
+
+const GreatcircleSafe: React.FC = () => (
+  <>
+    <Greatcircle />
     <SafeZones />
   </>
 );
@@ -131,6 +139,22 @@ export const RemotionRoot: React.FC = () => {
         id="manim-probe"
         component={ManimProbe}
         durationInFrames={Math.round(MANIM_SECONDS * 30)}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="r006-greatcircle"
+        component={Greatcircle}
+        durationInFrames={GC_SECONDS * 30}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="r006-greatcircle-safe"
+        component={GreatcircleSafe}
+        durationInFrames={GC_SECONDS * 30}
         fps={30}
         width={1080}
         height={1920}
