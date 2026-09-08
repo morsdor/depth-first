@@ -59,6 +59,17 @@ Machine-checkable rigor is the thing I will drift toward if nothing stops me.
 shuffle's whole point is that nobody can see the bias and no test catches it. That is a good essay
 and a bad reel, and recognising it early is cheaper than five rebuilds.
 
+### Prefer a belief correction (r006, 2026-09-08 — one data point, under test)
+
+r006 is 4x the account's previous best reach and best-in-class on every per-viewer engagement metric
+except shares. The candidate reason: it does not explain a mechanism, it **corrects a belief the
+viewer already holds** — "your flight path isn't curved, the map is bent". r001-r005 all taught
+something the viewer had no prior opinion about; nobody has a stake in that.
+
+When picking the next id, prefer one where the viewer is already confidently wrong. The full pattern
+and the falsification test are in `brand_guide_software.md` §13 ("The r006 pattern"). **It is one
+reel — `I22` is the test, and it must not change five things at once.**
+
 ### Built so far
 
 | Reel | Backlog id | Subject | State |

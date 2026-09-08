@@ -907,15 +907,27 @@ a reel still in active distribution keeps meeting new people, so that ratio move
 
 | | r001 Shazam | r003 QR | r004 JPEG | r006 Great circle |
 |:--|--:|--:|--:|--:|
-| Viewers | 1,286 | 324 | 1,617 | 515 *(1 h)* |
-| Skip rate | 37.9% | — | 34.8% | **30.5%** *(Instagram: "Lower")* |
+| Viewers | 1,286 | 324 | 1,617 | **6,799** *(4 h, still climbing)* |
+| Skip rate | 37.9% | — | 34.8% | **32.1%** *(Instagram: "Lower")* |
 | Avg watch | 15 s of 40 s (37.5%) | 9 s of 37 s (24.3%) | 11 s of 40 s (27.5%) | **16 s of 32 s (50.0%)** |
-| Views ÷ viewers | 1.29 | 1.20 | 1.12 | 1.81 *(1 h — not comparable)* |
+| Views ÷ viewers | 1.29 | 1.20 | 1.12 | 1.35 |
 | Still watching at the last frame | ~18% | ~10% | ~10% | ~18% |
-| Likes | 24 (1.87%) | 3 (0.93%) | 17 (1.05%) | **12 (2.33%)** |
-| Shares / saves | 6 / 6 | 0 / 1 | 1 / 5 | 0 / 2 |
-| Follows | 1 | 0 | 0 | 1 |
-| Sources | Reels tab 89.7% · Explore 9.8% | 86.6% · 9.5% | 82.7% · 16.0% | 86.2% · 13.6% |
+| Likes | 24 (1.87%) | 3 (0.93%) | 17 (1.05%) | 100 (1.47%) |
+| Shares / saves | 6 (0.47%) / 6 (0.47%) | 0 / 1 (0.31%) | 1 (0.06%) / 5 (0.31%) | 5 (0.07%) / **36 (0.53%)** |
+| Comments / reposts | — | — | — | **4 / 5** |
+| Follows | 1 (0.078%) | 0 | 0 | **8 (0.118%)** |
+| Sources | Reels tab 89.7% · Explore 9.8% | 86.6% · 9.5% | 82.7% · 16.0% | 82.5% · **17.0%** |
+
+**Two readings, 1 h and 4 h.** At 1 h: 515 viewers, skip 30.5%, 12 likes, 2 saves, 1 follow. At 4 h:
+6,799 viewers — a 13× expansion — and the row above. Where the two disagree, the 4 h figures are the
+record. Views ÷ viewers fell 1.81 → 1.35 exactly as the 1 h note predicted, because a reel in active
+distribution keeps meeting new people; it is now comparable and it is the highest on the account.
+
+**Average watch held at 16 s while the audience grew 13×.** That is the strongest craft signal in
+the set, and it is worth more than the raw reach. Early viewers are a warm audience; a reel that
+holds its watch time as distribution pushes it to cold strangers is being held by the content rather
+than by the audience. Skip rate drifted 30.5% → 32.1% over the same expansion, which is the small
+cost of that colder audience and still the lowest on the account.
 
 **Half the runtime is watched, and that is the result.** 50.0% against a previous best of 37.5%. It
 is the metric that most directly feeds distribution, and it is the first one on this account to clear
@@ -940,34 +952,106 @@ beat, everybody is leaking slowly. The two curve shapes want opposite fixes. A c
 opening. A linear bleed says the reel has no moment that re-commits the viewer after the payoff —
 and r006's payoff (the +2,572 km) lands at ~22 s, with the end card behind it.
 
-**Read nothing into 1 follow.** §13's own arithmetic on r004 applies unchanged: ~18% of 515 is about
-93 people reaching the last frame, and at r001's follow rate the expected yield from 93 people is
-**0.07 follows**. One is what you would observe whether the end beat works or not. Three reels have
-now closed on a next-reel line and the beat remains **untested**, not proven. It needs roughly ten
-times that end-frame audience before the number means anything.
+**The end beat has finally been tested, and the answer is "no clear signal".** The 1 h note said the
+test needed roughly ten times that end-frame audience before the number meant anything. It got it:
+~18% of 6,799 is about **1,224 people reaching the last frame**, and the reel has **8 follows**.
 
-**Read nothing into shares either, and note the cards disagree.** The engagement row shows 0 shares;
-the rates card shows share rate 0.1% flagged "Higher". 0.1% of 932 views is 0.93, so this is one
-share not yet counted, or a rounded zero. Either way r001's 6 shares (0.47%) remains unmatched by any
-reel since, and nothing here explains it.
+That is the account's best follow rate — 0.118% of viewers against r001's 0.078% — but it is not
+evidence the end card works. At r001's own rate, 6,799 viewers would be *expected* to yield **5.3
+follows**; 8 is a routine draw from that (Poisson p ≈ 0.16). The honest reading is that **follows so
+far scale with reach and nothing more**, and four reels of next-reel end cards have not yet moved
+the rate detectably. The beat is no longer untestable — it is tested and unconvincing. Anything that
+would actually change it has to be a bigger change than a closing line.
 
-**Saves are the one genuinely weak metric, and the reason is structural.** 2 saves, 0.39% of viewers
-— roughly r004's 0.31% and r003's 0.31%, so not a regression, but nobody saves these. A save means
-"I will come back to this". **A revelation has nothing to come back to.** The reel is complete on
-first watch: you learn the map is bent and you are done. If saves are worth chasing, it takes a reel
-with reference value — something with a number, a rule or a method the viewer expects to want again
-— and that is a different content decision, not a craft fix.
+**Shares stayed the weak one, and r001 is still unexplained.** 5 shares, 0.07% of viewers, against
+r001's 6 from a fifth of the audience (0.47%). Every other engagement metric on r006 beat r001 per
+viewer; this one is 6× worse. Whatever r001 did to get shared has not been reproduced in five reels
+and is not understood.
 
-**Explore at 13.6% is the civilian-object thesis showing up in distribution, not just in the hook.**
+**Saves were called wrong at 1 h, and the correction is the most useful thing in this section.**
+At 2 saves the reading here was that "a revelation has nothing to come back to" — that a save means
+"I will come back to this", so a reel complete on first watch cannot earn one. **Four hours later
+r006 has 36 saves, 0.53% of viewers, the best save rate on the account** (r001's 0.47% was the
+previous best), and Instagram flipped the flag from "Lower" to "Higher".
+
+**A save is not only reference value. It is also "I want to show this to someone."** r006 has nothing
+to look up later and it is saved more than any reel that does, because "the curvy flight path is the
+straight one" is a thing you carry to another person. The saves, comments, reposts and shares all
+moved together and all four were near-zero before — that is one behaviour, not four.
+
+**The rule this replaces the wrong one with: saves track tellability, not reference value.** And the
+general lesson is the age one — 2 saves at 1 h was not a weak save rate, it was an unpopulated one.
+**Do not draw a content conclusion from a metric whose count is still in single digits**, however
+tempting the story. This section did exactly that and had to retract it inside four hours.
+
+**Explore at 17.0% is the civilian-object thesis showing up in distribution, not just in the hook.**
 Maps and aviation have an Explore audience that pure developer content does not. r003 (a QR matrix)
-got 9.5%; r004 (a photograph) 16.0%; r006 (a world map) 13.6%. The reels that open on something a
-non-programmer already cares about are the reels Explore carries.
+got 9.5%; r004 (a photograph) 16.0%; r006 (a world map) **17.0%**, the highest on the account, and it
+rose from 13.6% at 1 h as the reel spread. The reels that open on something a non-programmer already
+cares about are the reels Explore carries.
 
 **What r007 should test.** The linear bleed is the open question, and the cheapest probe is a second
 re-commitment beat: r006 gives the viewer one surprise (the arc is straight) and then spends 20 s
 elaborating it. A reel with two distinct surprises, the second landing around 18–20 s, would show up
 as a kink in this curve if the diagnosis is right. **The end card also now owes a public promise** —
 about 93 people were told the next reel is the cable on the seabed, which is backlog `I22`.
+
+### The r006 pattern — correct a belief, don't explain a mechanism (added 2026-09-08)
+
+r006 is the account's biggest reel by a factor of four and the best on every per-viewer engagement
+metric except shares. **One reel is one data point**, and this repo has a written history of turning a
+single result into a rule and then rebuilding five times — so what follows is a named hypothesis with
+a test attached, not a law.
+
+**What r006 did that r001–r005 did not:**
+
+| | r001–r005 | r006 |
+|:--|:--|:--|
+| Proposition | "here is how X works" | "**the thing you believe is wrong**" |
+| Viewer's prior | none — they had never considered it | a belief they already hold and have never examined |
+| Object | a spectrogram, a QR matrix, a photo, a card table | a **world map** — a place, not a diagram |
+| Object's tenure | opens on it, then cuts to the abstraction | **never leaves the screen** |
+| Payoff | a mechanism understood | **one subtraction**: 14,945 − 12,373 = +2,572 |
+| Length | 37–43 s | **32 s** |
+| Close | the finished diagram | a **race with a winner**, still running under the end card |
+
+**The candidate engine is the second row.** Everything else on this list has appeared in an earlier
+reel in some form; the *belief correction* has not. r001 taught you something you had no opinion
+about. r006 told you something you already thought was true is false — flight paths look bent because
+the map is bent, not because planes detour. A viewer who has never wondered how Shazam works has
+nothing at stake; a viewer who has looked at a seatback map has been quietly wrong for years and did
+not know it.
+
+**That is also the cleanest explanation of the engagement shape.** Saves, comments, reposts and shares
+were all ~0 on every previous reel and all moved at once here. A correction is *tellable* — it makes
+the viewer the person who knows something at the table. A mechanism explanation does not, however
+elegant it is. See the saves retraction above: this is the same finding from the other side.
+
+**The pattern, stated so it can be applied:**
+
+1. **Find a belief the viewer already holds and has never checked.** Not a gap in their knowledge — a
+   wrong answer they are confident in. If the viewer has no prior, this pattern does not apply.
+2. **The object is a place or a thing, and it stays on screen the whole reel.** Rule 6 in CLAUDE.md
+   already says this; r006 is the first reel that actually obeyed it end to end.
+3. **Resolve to one arithmetic payoff the viewer can hold in their head.** One subtraction, one
+   ratio. Not a mechanism, not a chain of steps.
+4. **Close on a competition with a visible winner**, not a finished diagram. r006's race runs under
+   the end card, which is also why its event density never collapses at the end.
+5. **30–35 s.** Shortest reel on the account and the only one to clear half its runtime watched.
+
+**The test.** r007 is `I22` (the seabed cable), already promised on r006's end card to ~1,224 people
+who reached the last frame. It has the same shape available: **everyone believes their message to a
+friend abroad goes up to a satellite, and almost none of it does.** That is a belief correction, on a
+map, resolving to one number. If the pattern is real, r007 performs like r006. If r007 lands back at
+r004's numbers, then r006 was a topic that happened to travel and the table above is a coincidence —
+which is the outcome worth being able to detect, so **do not change three other things at the same
+time.**
+
+**What would falsify the "belief correction" reading:** r007 built to all five points and landing at
+r004-level reach would mean the engine is elsewhere — most likely the map itself, i.e. Explore's
+geography audience rather than anything about the argument. That is distinguishable: check the
+Explore share. If r007 travels on Explore too but engages worse, the object is doing the work and the
+belief correction is decoration.
 
 ### Posted
 
