@@ -102,6 +102,74 @@ All figures below are output of `projects/r004_jpeg/dct.py` on the posted crop
 
 ## Caption detail
 
+### r007 — "Your message doesn't go to space" (`I22`) — **written 2026-09-09, not yet posted**
+
+Every figure is output of `projects/i22_cables/build_geo.py`. Distances are spherical on
+R = 6,371 km; fibre latency uses `c / 1.4675`, the group index of silica at 1550 nm.
+
+#### Caption A — recommended
+
+> Your message to America doesn't go up to a satellite. It goes into the sea.
+>
+> Mumbai to Virginia Beach along the seabed is 16,335 km of glass — round Arabia, through
+> Bab-el-Mandeb, up the whole length of the Red Sea, through Suez, across the Mediterranean,
+> out past Gibraltar, then the Atlantic. It comes ashore once, crosses France on land, and
+> dives again. Light covers the whole thing in 80 ms.
+>
+> Go up instead. Geostationary orbit is 35,786 km straight up, so up and back down is
+> 73,458 km — 4.5× the distance — and 245 ms. And that is the generous version: it assumes a
+> satellite parked directly above each city, which one satellite cannot be, because Mumbai and
+> Virginia Beach are 148.9° apart. A real satellite path is worse than that.
+>
+> The part I didn't expect is that glass is the *slower* medium. Light does 299,792 km/s in
+> vacuum and 204,288 km/s in fibre — it gives up almost a third of its speed the moment it
+> enters the cable. The wire runs the whole race with a 32% handicap and still wins about three
+> to one, purely because the sky route is so much further.
+>
+> Those milliseconds are speed-of-light floors for the route, not pings — no switching, no
+> queuing. The line is traced through the chokepoints a cable has to pass, not one particular
+> cable's filed track; the Atlantic leg is the stretch MAREA runs, 6,605 km published. Every
+> coastline and every kilometre computed in Python and played back frame by frame.
+
+**Hook line** (74 chars, shows before "more"): *"Your message to America doesn't go up to a
+satellite. It goes into the sea."*
+
+#### Caption B — alternate, shorter
+
+> Nothing you send abroad has been to space.
+>
+> Mumbai to Virginia Beach is 16,335 km of glass on the seabed — Suez, the Mediterranean,
+> Gibraltar, the Atlantic — and 80 ms. Geostationary orbit is 35,786 km straight up; up and back
+> down is 73,458 km and 245 ms, and that assumes a satellite directly above each city, which one
+> satellite cannot be.
+>
+> And glass is the *slower* medium: 204,288 km/s against 299,792 in vacuum. The cable runs with
+> a 32% speed handicap and still wins three to one, on distance alone.
+>
+> Speed-of-light floors, not pings. Computed in Python, played back frame by frame.
+
+#### Hashtags
+
+`#submarinecables #maps #internetinfrastructure #depthfirst`
+
+Four, following r006's shape. `#submarinecables` is the specific one worth ranking in and has a
+real enthusiast community. **`#maps` is the deliberate repeat** — it is the only tag reaching
+outside the dev audience, and Explore carried 17.0% of r006's views, the highest on the account,
+on the strength of the map being the object. `#depthfirst` is the brand. Dropped:
+`#howtheinternetworks` (generic enough to be noise), `#fiberoptics` (narrow and technical, the
+wrong end of the civilian/dev split), `#telecom` (an industry tag, not an audience).
+
+#### Load-bearing phrasings — do not loosen
+
+| Written as | Never | Why |
+|:--|:--|:--|
+| "speed-of-light **floors** for the route, not pings" | "takes 80 ms" / "the latency is 80 ms" | Every millisecond here is distance ÷ medium velocity. Real RTT adds switching, queuing and the fact that traffic does not take the drawn path. Drop the word "floor" and the caption is claiming a measurement nobody made. |
+| "traced through the **chokepoints a cable has to pass**" | "this is the route your message takes" / "this is MAREA's route" | The line is a reconstruction from public geography — real ports and real straits — not any cable's filed track, and TeleGeography's actual route geometry is licensed and was deliberately not used. Naming MAREA and quoting its **published** 6,605 km is a fact; claiming the drawn line *is* MAREA is not. |
+| "that is the **generous** version… a real satellite path is worse" | "a satellite would take 245 ms" | 73,458 km assumes one satellite parked over each city's own longitude. At 148.9° apart a single-satellite link sits at ~0° elevation and is unusable, so the honest framing is that the reel understates the satellite on purpose. |
+| "**crosses France on land**" | silence | 909 km of the 16,335 is overland at an assumed ×1.35 routing allowance. Saying it out loud is cheaper than being caught implying the whole path is underwater — and a sensitivity sweep (1.0×–2.0×, plus scaling to published lengths) moves the payoff only 167 → 161 ms, so the assumption cannot change the claim. |
+
+---
+
 ### r006 — "Your flight path isn't curved" (`I17`) — posted 2026-09-08
 
 Every figure is output of `projects/i17_greatcircle/build_geo.py`. Distances are spherical, on the
