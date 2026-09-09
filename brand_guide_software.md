@@ -900,39 +900,64 @@ straight across the ocean, so the land fill is gated to the last 18% of the morp
 
 ### r006 — the hook problem is solved; the shape of the loss changed (added 2026-09-08)
 
-**Base for every r006 rate: its 515 viewers, at ~1 hour after posting.** That age is the caveat on
-the whole row. r001 is at 3 days, r003 at ~18 h, r004 at an age Instagram does not state. Skip rate,
-average watch and curve shape stabilise early and are worth comparing; **views ÷ viewers is not** —
-a reel still in active distribution keeps meeting new people, so that ratio moves.
+**Base for every rate in this section: unique viewers, the base Instagram itself uses.** That is now
+confirmed rather than assumed — Instagram's own "what affects your views" panel reports r006's share
+rate as 0.9%, like rate 2.7%, save rate 1.1%, and 303/32,882, 916/32,882 and 362/32,882 give 0.92%,
+2.79% and 1.10%. Against *views* they would be 0.65%, 1.96% and 0.77%, which match nothing. **Every
+engagement rate Instagram shows you is per viewer, not per view** — so compute yours the same way.
+
+r006's figures are at **day 1 (2026-09-09 09:47)**; r001 is at 3 days, r003 at ~18 h, r004 at an age
+Instagram does not state. Skip rate, average watch and curve shape stabilise early and are worth
+comparing; **views ÷ viewers is not** — a reel still in active distribution keeps meeting new people.
 
 | | r001 Shazam | r003 QR | r004 JPEG | r006 Great circle |
 |:--|--:|--:|--:|--:|
-| Viewers | 1,286 | 324 | 1,617 | **10,311** *(7 h, still climbing)* |
-| Skip rate | 37.9% | — | 34.8% | **32.1%** *(Instagram: "Lower")* |
-| Avg watch | 15 s of 40 s (37.5%) | 9 s of 37 s (24.3%) | 11 s of 40 s (27.5%) | **17 s of 32 s (53.1%)** |
-| Views ÷ viewers | 1.29 | 1.20 | 1.12 | 1.31 |
-| Still watching at the last frame | ~18% | ~10% | ~10% | ~18% |
-| Likes | 24 (1.87%) | 3 (0.93%) | 17 (1.05%) | **211 (2.05%)** |
-| Shares / saves | 6 (0.47%) / 6 (0.47%) | 0 / 1 (0.31%) | 1 (0.06%) / 5 (0.31%) | **73 (0.71%) / 86 (0.83%)** |
-| Comments / reposts | — | — | — | 6 / 8 |
-| Follows | 1 (0.078%) | 0 | 0 | **16 (0.155%)** |
-| Sources | Reels tab 89.7% · Explore 9.8% | 86.6% · 9.5% | 82.7% · 16.0% | 82.5% · **17.0%** |
+| Viewers | 1,286 | 324 | 1,617 | **32,882** *(day 1, still climbing)* |
+| Skip rate | 37.9% | — | 34.8% | **29.9%** *(Instagram: "Lower")* |
+| Avg watch | 15 s of 40 s | 9 s of 37 s | 11 s of 40 s | **20 s of 32 s** |
+| Views ÷ viewers | 1.29 | 1.20 | 1.12 | **1.42** |
+| Still watching at the last frame | ~18% | ~10% | ~10% | **~28%** |
+| Likes | 24 (1.87%) | 3 (0.93%) | 17 (1.05%) | **916 (2.79%)** |
+| Shares / saves | 6 (0.47%) / 6 (0.47%) | 0 / 1 (0.31%) | 1 (0.06%) / 5 (0.31%) | **303 (0.92%) / 362 (1.10%)** |
+| Comments / reposts | — | — | — | 13 / 26 |
+| Follows | 1 (0.078%) | 0 | 0 | **71 (0.216%)** |
+| Sources | Reels tab 89.7% · Explore 9.8% | 86.6% · 9.5% | 82.7% · 16.0% | 82.2% · **17.0%** |
 
-**r006 now beats every previous reel on every per-viewer metric**, shares included. It is 6.4× the
-previous best reach (r004, 1,617 viewers) and still climbing at 7 h.
+**r006 beats every previous reel on every per-viewer metric, and it is 20.3× the previous best reach**
+(r004, 1,617 viewers). Likes are 1.5× r001's rate, shares 2.0×, saves 2.3×. It was still climbing at
+day 1 — the views curve has not flattened — so these are lower bounds, for the reason in the next
+section.
+
+**The completion percentage has been removed from that row deliberately.** Earlier versions of this
+table read "17 s of 32 s (53.1%)". That division is only valid if average watch time is per *view*,
+and Instagram does not state its base. With views ÷ viewers at 1.42, 20 s per viewer is 14.1 s per
+view — 44% of the runtime, not 62.5%. **Both are still the best on the account, but the honest claim
+is the direction, not the ratio:** average watch rose 16 → 16 → 17 → 20 s on one consistent metric
+definition while reach grew 64×. Report the seconds; do not divide them by the runtime. (Rule 7:
+every percentage gets one stated base.)
 
 ### Three readings, two retractions — read this before writing a conclusion from fresh Insights
 
-| | 1 h | 4 h | 7 h |
-|:--|--:|--:|--:|
-| Viewers | 515 | 6,799 | 10,311 |
-| Avg watch | 16 s | 16 s | **17 s** |
-| Likes | 12 | 100 | 211 |
-| Saves | 2 | 36 | 86 |
-| **Shares** | **0** | **5** | **73** |
-| Follows | 1 | 8 | 16 |
+| | 1 h | 4 h | 7 h | day 1 |
+|:--|--:|--:|--:|--:|
+| Viewers | 515 | 6,799 | 10,311 | **32,882** |
+| Avg watch | 16 s | 16 s | 17 s | **20 s** |
+| Skip rate | 30.5% | — | 32.1% | **29.9%** |
+| Likes | 12 | 100 | 211 | **916** |
+| Saves | 2 | 36 | 86 | **362** |
+| **Shares** | **0** | **5** | **73** | **303** |
+| Follows | 1 | 8 | 16 | **71** |
 
-**Two conclusions were written into this section and both had to be retracted within hours.**
+And the same four as rates on viewers, which is the row that matters:
+
+| | 1 h | 4 h | 7 h | day 1 |
+|:--|--:|--:|--:|--:|
+| Like rate | 2.33% | 1.47% | 2.05% | **2.79%** |
+| Save rate | 0.39% | 0.53% | 0.83% | **1.10%** |
+| Share rate | 0% | 0.07% | 0.71% | **0.92%** |
+| Follow rate | 0.194% | 0.118% | 0.155% | **0.216%** |
+
+**Three conclusions were written into this section and all three had to be retracted.**
 
 1. At 1 h, 2 saves → *"a revelation has nothing to come back to; chasing saves needs a reel with
    reference value."* At 7 h it has **86 saves, 0.83% of viewers**, nearly double r001's rate.
@@ -940,28 +965,45 @@ previous best reach (r004, 1,617 viewers) and still climbing at 7 h.
    reels and not understood."* Three hours later shares had gone **5 → 73**, a 14.6× jump, and
    **0.71% of viewers against r001's 0.47%.**
 
-Both were the same error: **a count in single digits is not a low rate, it is an unpopulated one.**
-Engagement does not accrue proportionally with views — shares in particular lagged reach by hours and
-then arrived in a burst, which is exactly the shape that makes an early reading maximally misleading.
+3. At 7 h, skip rate 30.5% → 32.1% → *"the small cost of a colder audience."* At day 1 it is
+   **29.9%**, below the 1 h reading and the lowest on the account. A 1.6-point move was read as a
+   trend; it was noise. Skip rate stayed inside a 2.2-point band across a 64× audience expansion —
+   **the correct reading was "flat", and flat was the interesting result.**
 
-**The rule: record figures at any age, but do not write a content conclusion from a count below ~30,
-and mark every conclusion with the age it was drawn at.** A reel is not readable before ~24 h. Three
-readings in one day produced two false findings and one true one, and the true one (average watch
-holding as reach grew) was the only one drawn from a metric that was already fully populated at 1 h.
+**The first two were the same error: a count in single digits is not a low rate, it is an unpopulated
+one.** The third is its mirror — reading a trend into a move smaller than the metric's own wobble.
 
-**What survived all three readings: average watch time.** 16 s → 16 s → 17 s while the audience grew
-20×, from a warm early audience to 10,311 mostly-cold strangers — **it went up, not down.** That is
-the strongest craft signal in the set and it is worth more than the raw reach: a reel that holds its
-watch time as distribution pushes it to cold strangers is being held by the content rather than by
-the audience. It was also the only finding legible at the first reading, because it is a per-view
-average rather than a cumulative count. Skip rate drifted 30.5% → 32.1% over the same expansion,
-which is the small cost of that colder audience and still the lowest on the account.
+**But the deeper mechanism is not noise, it is a systematic bias, and that is the part worth keeping.**
+Every rate in the second table above *rose* from 4 h onward. Engagement is cumulative and lags the
+view that caused it, so on a reel whose views are still climbing, the numerator is always behind the
+denominator. **A cumulative engagement rate on a growing reel is biased low, not merely noisy** — it
+is an underestimate whose error shrinks as growth decelerates, which is why every successive reading
+looked better than the last and why every conclusion drawn from an early one was pessimistic in the
+same direction. r006's day-1 rates are still lower bounds: the views curve had not flattened.
 
-**Half the runtime is watched, and that is the result.** 53.1% against a previous best of 37.5%. It
-is the metric that most directly feeds distribution, and it is the first one on this account to clear
-half. Part of it is craft and part of it is arithmetic — **32 s is the shortest reel yet**, and a
-shorter reel is a cheaper thing to finish. Both r007 and any re-cut should treat 30–35 s as the
-default length rather than 40.
+**The rule: record figures at any age, but do not write a content conclusion until the count is above
+~30 AND the views curve has visibly flattened, and mark every conclusion with the age it was drawn
+at.** A reel is not readable before ~24 h, and r006 was not fully readable then either. Three readings
+in one day produced three false findings and one true one, and the true one (average watch rising as
+reach grew) was the only one drawn from a metric that is an average rather than a cumulative count.
+
+**What survived all four readings: average watch time.** 16 → 16 → 17 → **20 s** while the audience
+grew 64× — **it went up at every reading, not down.** That is the strongest craft signal in the set
+and it is worth more than the raw reach. It was also the only finding legible at the first reading,
+because it is an average rather than a cumulative count, so it carries none of the lag bias above.
+
+**Delete the phrase "warm early audience" wherever it appears in this file.** Earlier readings
+explained the held watch time as a reel surviving the move from warm followers to cold strangers.
+Instagram's audience panel says r006's viewers were **99.9% non-followers, 0.1% followers.** There
+was never a warm cohort — 0.1% of 32,882 is about 33 people, and this account is far too small for
+its followers to have been a meaningful share of even the 515 viewers at 1 h. **Every reel this
+account has posted was watched almost entirely by strangers.** The rising watch time is still the
+finding; the explanation attached to it was invented and is withdrawn.
+
+**20 s of a 32 s reel is the best watch time on the account by a wide margin**, and it is the metric
+that most directly feeds distribution. Part of it is craft and part of it is arithmetic — **32 s is
+the shortest reel yet**, and a shorter reel is a cheaper thing to finish. Both r007 and any re-cut
+should treat 30–35 s as the default length rather than 40.
 
 **The retention curve changed shape, and that is the finding worth keeping.** r001 and r002 both fell
 off a cliff and then FLATTENED — brutal opening, loyal body. r006 does neither:
@@ -969,37 +1011,45 @@ off a cliff and then FLATTENED — brutal opening, loyal body. r006 does neither
 | t | Still watching |
 |--:|--:|
 | 0 s | 100% |
-| ~3 s | ~69% |
-| 16 s | ~48% |
-| 32 s | ~18% |
+| ~3 s | ~70% |
+| 16 s | ~50% |
+| 32 s | **~28%** |
 
-A shallow knee, then a near-linear bleed of roughly 1.9 points per second for the remaining 29 s.
-**The opening is no longer the thing costing reach** — 69% survive the first three seconds where r001
+A shallow knee, then a near-linear bleed of roughly 1.45 points per second for the remaining 29 s.
+**The opening is no longer the thing costing reach** — 70% survive the first three seconds where r001
 kept about half. But there is no plateau of committed viewers either: nobody is being lost to one bad
 beat, everybody is leaking slowly. The two curve shapes want opposite fixes. A cliff says rebuild the
 opening. A linear bleed says the reel has no moment that re-commits the viewer after the payoff —
 and r006's payoff (the +2,572 km) lands at ~22 s, with the end card behind it.
 
-**The account finally has a measured follow rate: 0.155%, from 16 follows on 10,311 viewers.**
-About 1,856 people reached the last frame (~18%).
+**~28% reach the last frame — about 9,200 people.** The 7 h reading estimated ~18% off a smaller
+graph; the day-1 curve is read directly and the tail is fatter than that guess.
+
+**The account finally has a measured follow rate: 0.216%, from 71 follows on 32,882 viewers.**
+It rose at every reading after 4 h (0.118% → 0.155% → 0.216%), which is the lag bias unwinding.
 
 **It cannot be compared to r001.** r001's rate came from a single follow — one event, whose true rate
-could plausibly be anywhere from a fifth to five times the 0.078% point estimate. Saying r006 is "2×
+could plausibly be anywhere from a fifth to five times the 0.078% point estimate. Saying r006 is "3×
 r001" is arithmetic on a number that was never measured. The honest statement is that **r006 is the
-first reel on this account whose follow rate is known at all**, and it is 0.155%. That is now the
-baseline every future reel gets compared against, and the end beat's contribution stays unresolved
-until a reel ships without one.
+first reel on this account whose follow rate is known at all**, and it is 0.216%. That is the
+baseline every future reel gets compared against.
 
-**Shares arrived late and then dominated — 73 at 7 h, 0.71% of viewers, the best on the account.**
-They were the last metric to move (0 at 1 h, 5 at 4 h) and then jumped 14.6× in three hours, well
-after reach was already large. Shares are the strongest distribution signal Instagram has, and the
-views curve was still climbing at 7 h, so the likely causality runs share → reach rather than the
-reverse. **r001's 6 shares are no longer the account's benchmark and no longer need explaining.**
+**71 follows against 108 profile visits is the strange number, and it is the informative one.**
+Follows are 66% of profile visits. Either most of those people followed without ever opening the
+profile — using the follow button on the reel itself — or the profile converted two visitors in
+three. Both are remarkable and both point the same way: **the persuading was done by the reel, not by
+the profile.** Whatever the account bio says, it is not what earned these follows.
+
+**Shares arrived late and then dominated — 303 at day 1, 0.92% of viewers, the best on the account.**
+They were the last metric to move (0 at 1 h, 5 at 4 h, 73 at 7 h) and kept the steepest growth of any
+metric after that. Shares are the strongest distribution signal Instagram has, and the views curve was
+still climbing at day 1, so the likely causality runs share → reach rather than the reverse.
+**r001's 6 shares are no longer the account's benchmark and no longer need explaining.**
 
 **Saves were called wrong at 1 h, and the correction is the most useful thing in this section.**
 At 2 saves the reading here was that "a revelation has nothing to come back to" — that a save means
-"I will come back to this", so a reel complete on first watch cannot earn one. **Seven hours later
-r006 has 86 saves, 0.83% of viewers, the best save rate on the account** (r001's 0.47% was the
+"I will come back to this", so a reel complete on first watch cannot earn one. **By day 1
+r006 has 362 saves, 1.10% of viewers, the best save rate on the account** (r001's 0.47% was the
 previous best), and Instagram flipped the flag from "Lower" to "Higher".
 
 **A save is not only reference value. It is also "I want to show this to someone."** r006 has nothing
@@ -1015,19 +1065,96 @@ tempting the story. This section did exactly that and had to retract it inside f
 **Explore at 17.0% is the civilian-object thesis showing up in distribution, not just in the hook.**
 Maps and aviation have an Explore audience that pure developer content does not. r003 (a QR matrix)
 got 9.5%; r004 (a photograph) 16.0%; r006 (a world map) **17.0%**, the highest on the account, and it
-rose from 13.6% at 1 h as the reel spread. The reels that open on something a non-programmer already
-cares about are the reels Explore carries.
+rose from 13.6% at 1 h and then held at 17.0% from 7 h to day 1 while reach tripled. The reels that
+open on something a non-programmer already cares about are the reels Explore carries.
 
-**What r007 should test.** The linear bleed is the open question, and the cheapest probe is a second
-re-commitment beat: r006 gives the viewer one surprise (the arc is straight) and then spends 20 s
-elaborating it. A reel with two distinct surprises, the second landing around 18–20 s, would show up
-as a kink in this curve if the diagnosis is right. **The end card also now owes a public promise** —
-about 93 people were told the next reel is the cable on the seabed, which is backlog `I22`.
+### The end card is the most-liked frame in the reel (added 2026-09-09)
+
+Instagram's **"when people liked your reel"** panel plots the share of all likes against playback
+time. It had never been read on this account before. For r006 it is the most actionable instrument in
+the whole Insights screen, because it says *where in the reel the viewer decided they liked it*.
+
+Read off the day-1 graph — these are eyeballed from a chart, so treat them as ±1 point:
+
+| t | Beat | Share of likes |
+|--:|:--|--:|
+| 0–1 s | first frame, arc drawing | ~5% *(partly a t=0 binning artefact)* |
+| ~2.5 s | title lands | ~1% — trough |
+| **~4.5 s** | **globe → Mercator morph completing** | **~5.7% — the mid-reel peak** |
+| 6–9 s | readout: 12,373 km, 75.5° N | ~4.3%, sustained |
+| ~12 s | morph back to the globe | ~1.4% — trough |
+| ~16 s | scale bars, the 4.00× | ~3.4% |
+| ~19 s | constant-bearing line draws | ~3.0% |
+| 21–30 s | **the race** | ~1.2–2.6% — the lowest sustained stretch |
+| **32 s** | **arrival + end card** | **~8.5% — the global maximum** |
+
+**The tallest bar in the reel is the last frame.** And that understates it: only ~28% of viewers are
+still there, so per surviving viewer the final frame is roughly **3.5× more like-dense than the best
+mid-reel moment.**
+
+**This resolves a question this section had written off.** At 7 h the entry here said the end beat's
+contribution "stays unresolved until a reel ships without one." It is resolved, and positively —
+the closing frame is where people commit. Together with follows running at 66% of profile visits,
+the end card is doing real work rather than occupying the most-watched dead space. **Rule 9 in
+`CLAUDE.md` was right for a reason nobody had measured.**
+
+**The two peaks are the two morphs, and both are transformations of one object.** The 4.5 s peak is
+the globe unrolling into a Mercator map — the exact moment the straight line becomes a curve. The
+32 s peak is the arrival. Nothing in between comes close, and the readouts, the scale bars and the
+bearing line — the three beats that carry the *explanation* — are all mid-table. **People like the
+reveal and the resolution. They tolerate the argument in between.**
+
+**The race is the reel's weakest stretch and it is 10.8 s long — a third of the runtime.** It scores
+lowest on likes of any sustained section, and it sits directly between the two peaks, delaying the
+one frame that outperforms everything. It was built as continuous motion to satisfy the event-density
+rule, and it does that job, but it is dead weight for engagement. **The single clearest instruction
+for r007: get to the end card sooner.** Cutting the race to one lap would have ended the reel at
+~27 s. That is the first concrete thing this account has learned about its own pacing from data
+rather than from principle.
+
+### Who actually watched it (added 2026-09-09)
+
+| | |
+|:--|--:|
+| Non-followers | **99.9%** |
+| Followers | 0.1% |
+| India | 58% |
+| United States | 6% |
+| Germany / Canada / UK | 2.3% / 2.3% / 2.2% |
+| Age 25–34 | 42.9% |
+| Age 35–44 | 24.2% |
+| Age 18–24 | 16.3% |
+
+**25–44 is 67% of the audience** — not the teenage feed this format is usually assumed to be aimed
+at. That is squarely the demographic that flies, which is consistent with a reel about flight paths
+finding the people it is for.
+
+**India at 58% is a real number with an unknown cause, and it must not be over-read.** r006 uses
+Delhi–San Francisco as its route, which is an India-relevant journey, so route choice is a plausible
+driver. But the account posts from India, and Instagram's baseline distribution is home-market
+weighted regardless of content — **and the audience panel has never been pulled for r001–r005, so
+there is no baseline to compare against.** That is exactly the two-different-bases trap in rule 7.
+**Action: pull the Audience panel for r001 and r004 before drawing any conclusion about route
+choice.** If they are also ~58% India, the route explains nothing.
+
+**What r007 should test.** Two things, and they are separable:
+
+1. **Get to the end card sooner.** The like histogram says the closing frame is the strongest beat
+   and the 10.8 s race is the weakest stretch. A 27–30 s cut that reaches the end card earlier is
+   the highest-confidence change available.
+2. **The linear bleed still wants a second re-commitment beat.** r006 gives the viewer one surprise
+   (the arc is straight) and then spends 20 s elaborating it. A reel with two distinct surprises, the
+   second landing around 15–18 s, would show up as a kink in the retention curve and as a third peak
+   in the like histogram if the diagnosis is right.
+
+**The end card also now owes a public promise** — about **9,200** people reached the last frame and
+were told the next reel is the cable on the seabed, backlog `I22`. At 93 people that promise was
+cheap to break, as `I15`'s was. At 9,200 it is not.
 
 ### The r006 pattern — correct a belief, don't explain a mechanism (added 2026-09-08)
 
-r006 is the account's biggest reel by a factor of four and the best on every per-viewer engagement
-metric except shares. **One reel is one data point**, and this repo has a written history of turning a
+r006 is the account's biggest reel by a factor of twenty and the best on every per-viewer engagement
+metric, shares included. **One reel is one data point**, and this repo has a written history of turning a
 single result into a rule and then rebuilding five times — so what follows is a named hypothesis with
 a test attached, not a law.
 
@@ -1063,12 +1190,15 @@ elegant it is. See the saves retraction above: this is the same finding from the
    already says this; r006 is the first reel that actually obeyed it end to end.
 3. **Resolve to one arithmetic payoff the viewer can hold in their head.** One subtraction, one
    ratio. Not a mechanism, not a chain of steps.
-4. **Close on a competition with a visible winner**, not a finished diagram. r006's race runs under
-   the end card, which is also why its event density never collapses at the end.
-5. **30–35 s.** Shortest reel on the account and the only one to clear half its runtime watched.
+4. **Close on a competition with a visible winner**, not a finished diagram — **and reach the winner
+   fast.** The like histogram (above) makes this precise: r006's *arrival* is the single most-liked
+   frame in the reel, while the 10.8 s race leading to it is the least-liked stretch. The resolution
+   is what people respond to; the build-up to it is a cost. One lap, not two.
+5. **30–35 s**, and shorter if the ending can arrive sooner. Shortest reel on the account and the
+   best watch time on it by a wide margin.
 
-**The test.** r007 is `I22` (the seabed cable), already promised on r006's end card to ~1,224 people
-who reached the last frame. It has the same shape available: **everyone believes their message to a
+**The test.** r007 is `I22` (the seabed cable), already promised on r006's end card to **~9,200**
+people who reached the last frame. It has the same shape available: **everyone believes their message to a
 friend abroad goes up to a satellite, and almost none of it does.** That is a belief correction, on a
 map, resolving to one number. If the pattern is real, r007 performs like r006. If r007 lands back at
 r004's numbers, then r006 was a topic that happened to travel and the table above is a coincidence —
