@@ -28,10 +28,14 @@ W, H = 1080, 1920
 SAFE_TOP, SAFE_BOT, SIDE, SAFE_W = 270, 1540, 60, 810
 INK, DIM, CYAN, AMBER, GRAPHITE = "#E8E6E1", "#81A2C4", "#00D6F7", "#FFB020", "#274064"
 
-START = (40.7580, -73.9855)   # Times Square
-GOAL = (40.7794, -73.9632)    # the Met
+# Paris, not Manhattan. Measured over 12 matched routes per city, Paris gives a
+# median A* advantage of 6.5x against Manhattan's 3.5x — and on this particular
+# pair, 10.1x. The corridor is visibly a corridor, which Manhattan's 3.6x was not.
+START = (48.8738, 2.2950)     # Arc de Triomphe
+GOAL = (48.8530, 2.3499)      # Notre-Dame
+CITY = "Central Paris"
 
-graph = json.loads((HERE.parent / "graph_nyc.json").read_text())
+graph = json.loads((HERE.parent / "graph_paris.json").read_text())
 pos, adj = build(graph)
 near = lambda ll: min(pos, key=lambda n: haversine(pos[n], ll))
 s, g = near(START), near(GOAL)
@@ -41,9 +45,9 @@ ast = search(pos, adj, s, g, lambda n: haversine(pos[n], gp))
 assert abs(dij["cost"] - ast["cost"]) < 1e-6 and dij["path"] == ast["path"]
 
 S, Wl, N, E = graph["bbox"]
-MW = 662
+MW = 810
 MH = int(MW * (N - S) / ((E - Wl) * math.cos(math.radians((N + S) / 2))))
-MX, MY = 465 - MW // 2, 540
+MX, MY = 60, 528
 
 
 def proj(lat, lon):
@@ -83,12 +87,12 @@ for gy in range(0, H, 54):
 for way in graph["ways"]:
     pts = [proj(*pos[n]) for n in way["nodes"] if n in pos]
     if len(pts) > 1:
-        d.line(pts, fill="#1B3149", width=2)
+        d.line(pts, fill="#24405E", width=2)
 
 # ── what Dijkstra looked at: everything, in all directions ─────────────────
 for n in dij["settled"]:
     x, y = proj(*pos[n])
-    d.ellipse([x - 3, y - 3, x + 3, y + 3], fill="#2E5C86")
+    d.ellipse([x - 2, y - 2, x + 2, y + 2], fill="#2E5C86")
 
 # ── what A* looked at: a corridor aimed at the goal ────────────────────────
 for n in ast["settled"]:
@@ -105,7 +109,7 @@ for node, col in ((s, INK), (g, AMBER)):
 # it was the first thing a viewer flagged. Rule 3 bans "this"; it bans this too.
 d.text((SIDE, SAFE_TOP + 24), "Same route, either way.", font=font(60, True), fill=INK)
 d.text((SIDE, SAFE_TOP + 100), "One search looked at", font=font(60, True), fill=INK)
-d.text((SIDE, SAFE_TOP + 176), "three times as much.", font=font(60, True), fill=CYAN)
+d.text((SIDE, SAFE_TOP + 176), "ten times as much.", font=font(60, True), fill=CYAN)
 
 rows = [
     ("checked every direction", f"{len(dij['settled']):,}", "#2E5C86"),
@@ -122,7 +126,7 @@ for i, (k, v, col) in enumerate(rows):
     d.text((SIDE + SAFE_W, y), v, font=mono(36), fill=col, anchor="ra")
     d.line([(SIDE, y + 46), (SIDE + SAFE_W, y + 46)], fill="#1E3348", width=2)
 
-d.text((SIDE, 1500), "Midtown Manhattan · © OpenStreetMap contributors",
+d.text((SIDE, 1500), f"{CITY} · © OpenStreetMap contributors",
        font=mono(26), fill="#4A688A")
 
 out = HERE / "payoff_frame.png"
