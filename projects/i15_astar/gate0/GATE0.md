@@ -34,7 +34,7 @@ start dot and the Seine runs through the middle of the frame.
 | Condition | Verdict |
 |:--|:--|
 | **The sentence needs a CS word** | **No.** streets, route, junctions, city. "Dijkstra", "A\*" and "heuristic" never have to be said out loud — they can sit on screen as labels. |
-| **The payoff frame shows an object never seen** | **No.** A street map of Manhattan. The most nameable object in the backlog. |
+| **The payoff frame shows an object never seen** | **No.** A street map of a real city, with the Étoile and the Seine legible in it. The most nameable object in the backlog. |
 | **The amazement depends on understanding first** | **No.** The flood spreading across a city and then collapsing into a corridor is legible with the sound off and no labels. This is the one concept in the backlog where the spectacle *is* the mechanism. |
 
 ## 4. The backlog headline is wrong, and it has to change
