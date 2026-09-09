@@ -7,19 +7,29 @@ want to know why?
 
 Geography is real even in the mock, because a mock with invented numbers can
 pass a gate the real reel would fail:
-  * coastlines   — GSHHG rings reused from r006's generated i17_geo.ts, re-wrapped
-                   from its mid-Atlantic seam to a Pacific seam (this route crosses
-                   the Atlantic, so r006's seam would cut it in half).
-  * cable routes — TeleGeography submarine cable map, api/v3 GeoJSON.
-  * latency      — measured route length / (c / 1.4675), the group velocity in
-                   silica at 1550 nm. Satellite leg travels at c.
+  * coastlines — GSHHG rings reused from r006's generated i17_geo.ts, re-wrapped
+                 from its mid-Atlantic seam to a Pacific seam (this route crosses
+                 the Atlantic, so r006's seam would cut it in half).
+  * the route  — built HERE, from public geography only: real ports and the real
+                 chokepoints any cable between them has to pass through.
+  * latency    — route length / (c / 1.4675), the group velocity in silica at
+                 1550 nm. The satellite leg travels at c.
+
+PROVENANCE, and why it is not TeleGeography's. The first version of this mock
+measured the route from submarinecablemap.com's api/v3 GeoJSON. TeleGeography's
+citation policy permits screenshots of the published maps under CC BY-SA 4.0 but
+states that "access to the underlying databases remains restricted to paying
+subscribers" — so the route geometry is not ours to compute from, and that
+version has been removed. The waypoint route below agrees with it to 1.4%, and
+its two ocean legs cross-check against published cable lengths, which are facts:
+MAREA is 6,605 km (this route: 6,414) and IMEWE is 12,091 km end to end,
+of which Mumbai->Marseille is the trunk (this route: 9,013).
 """
-import json, math, re, sys
+import math, re
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parents[3]
-SCRATCH = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(".")
 
 W, H = 1080, 1920
 SAFE_TOP, SAFE_BOT, SIDE, SAFE_W = 270, 1540, 60, 810
@@ -62,63 +72,47 @@ def coastlines():
         if len(run) > 1: rings.append(run)
     return rings
 
-# ── the route, from real cable geometry ─────────────────────────────────────
+# ── the route, from public geography ────────────────────────────────────────
+# Ports and chokepoints only. A cable from Mumbai to Marseille has to round
+# Arabia, thread Bab-el-Mandeb, run the length of the Red Sea and pass Suez;
+# one from Bilbao to Virginia crosses open Atlantic. None of that is anybody's
+# proprietary data — it is where the water is.
 MUM, MRS, BIL, VAB = (19.076, 72.877), (43.29, 5.37), (43.27, -2.95), (36.76, -76.06)
 
-def cable_path(cg, name, A, B):
-    """Shortest walk from A to B over ALL of `name`'s vertices.
+LEG1 = [MUM, (12.5, 60.0), (12.6, 45.0), (12.6, 43.3), (19.0, 38.5), (27.5, 34.5),
+        (30.5, 32.35), (31.3, 32.3), (33.8, 28.0), (36.8, 12.0), (38.5, 4.0), MRS]
+LEG2 = [MRS, BIL]
+LEG3 = [BIL, (44.5, -6.5), (42.0, -12.0), (39.0, -35.0), (37.5, -60.0), VAB]
 
-    A cable's GeoJSON is a MultiLineString split into many parts, so trimming a
-    single part yields a shortcut that is shorter than the great circle — i.e.
-    obviously not a cable. Weld vertices that sit within 25 km of each other
-    across parts, then run Dijkstra over the welded graph.
-    """
-    import heapq
-    from collections import defaultdict
-    parts = []
-    for f in cg["features"]:
-        if f["properties"]["name"] != name: continue
-        g = f["geometry"]
-        parts += g["coordinates"] if g["type"] == "MultiLineString" else [g["coordinates"]]
-    V, adj = [], defaultdict(list)
-    for part in parts:
-        idx = []
-        for x, y in part:
-            V.append((y, x)); idx.append(len(V) - 1)
-        for a, b in zip(idx, idx[1:]):
-            w = hav(V[a], V[b]); adj[a].append((b, w)); adj[b].append((a, w))
-    grid = defaultdict(list)
-    for i, (y, x) in enumerate(V):
-        grid[(round(y * 4), round(x * 4))].append(i)
-    for (gy, gx), ids in list(grid.items()):
-        cand = [j for dy in (-1, 0, 1) for dx in (-1, 0, 1) for j in grid.get((gy + dy, gx + dx), [])]
-        for i in ids:
-            for j in cand:
-                if j <= i: continue
-                w = hav(V[i], V[j])
-                if w < 25: adj[i].append((j, w)); adj[j].append((i, w))
-    s_ = min(range(len(V)), key=lambda i: hav(A, V[i]))
-    t_ = min(range(len(V)), key=lambda i: hav(B, V[i]))
-    dist, prev, pq = {s_: 0.0}, {}, [(0.0, s_)]
-    while pq:
-        dd, u = heapq.heappop(pq)
-        if u == t_: break
-        if dd > dist.get(u, 1e18): continue
-        for v, w in adj[u]:
-            nd = dd + w
-            if nd < dist.get(v, 1e18):
-                dist[v] = nd; prev[v] = u; heapq.heappush(pq, (nd, v))
-    path, u = [t_], t_
-    while u in prev:
-        u = prev[u]; path.append(u)
-    path.reverse()
-    return [V[i] for i in path], dist[t_], hav(A, V[s_]) + hav(B, V[t_])
+def polyline_km(w):
+    return sum(hav(w[i], w[i + 1]) for i in range(len(w) - 1))
 
-cg = json.loads((SCRATCH / "cable-geo.json").read_text())
-leg1, km1, _ = cable_path(cg, "IMEWE", MUM, MRS)          # Mumbai -> Marseille
-leg3, km3, _ = cable_path(cg, "MAREA", BIL, VAB)          # Bilbao -> Virginia Beach
-km2 = hav(MRS, BIL) * 1.35                                # overland France/Spain, 1.35x detour
-leg2 = [MRS, BIL]
+def densify(w, step=120.0):
+    """Great-circle interpolation between waypoints, so the drawn route curves
+    the way a real route does instead of reading as a chain of straight hops."""
+    out = []
+    for a, b in zip(w, w[1:]):
+        n = max(2, int(hav(a, b) / step))
+        la1, lo1, la2, lo2 = map(math.radians, (a[0], a[1], b[0], b[1]))
+        d = 2 * math.asin(min(1, math.sqrt(
+            math.sin((la2 - la1) / 2) ** 2 + math.cos(la1) * math.cos(la2)
+            * math.sin((lo2 - lo1) / 2) ** 2)))
+        for i in range(n):
+            f = i / n
+            if d < 1e-9:
+                out.append(a); continue
+            A, B = math.sin((1 - f) * d) / math.sin(d), math.sin(f * d) / math.sin(d)
+            x = A * math.cos(la1) * math.cos(lo1) + B * math.cos(la2) * math.cos(lo2)
+            y = A * math.cos(la1) * math.sin(lo1) + B * math.cos(la2) * math.sin(lo2)
+            z = A * math.sin(la1) + B * math.sin(la2)
+            out.append((math.degrees(math.atan2(z, math.hypot(x, y))),
+                        math.degrees(math.atan2(y, x))))
+    out.append(w[-1])
+    return out
+
+km1, km3 = polyline_km(LEG1), polyline_km(LEG3)
+km2 = polyline_km(LEG2) * 1.35          # overland France/Spain, 1.35x detour
+leg1, leg2, leg3 = densify(LEG1), densify(LEG2), densify(LEG3)
 
 CABLE_KM = km1 + km2 + km3
 SAT_KM   = slant(MUM[0]) + slant(VAB[0])
@@ -208,9 +202,9 @@ out = Path(__file__).parent / "payoff_frame.png"
 img.save(out)
 print(f"""wrote {out}
 
-  IMEWE   Mumbai -> Marseille      {km1:9,.0f} km   (measured along route geometry)
-  land    Marseille -> Bilbao      {km2:9,.0f} km   (great circle x1.35, ASSUMED)
-  MAREA   Bilbao -> Virginia Bch   {km3:9,.0f} km   (measured; TeleGeography publish 6,605)
+  Mumbai -> Marseille via Suez   {km1:9,.0f} km   (IMEWE trunk; system publishes 12,091 total)
+  Marseille -> Bilbao, overland  {km2:9,.0f} km   (great circle x1.35, ASSUMED)
+  Bilbao -> Virginia Beach       {km3:9,.0f} km   (MAREA; published length 6,605)
   ----------------------------------------------
   glass                            {CABLE_KM:9,.0f} km  ->  {CABLE_MS:6.1f} ms one way
   geostationary, best case         {SAT_KM:9,.0f} km  ->  {SAT_MS:6.1f} ms one way
