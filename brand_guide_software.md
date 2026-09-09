@@ -936,6 +936,24 @@ scored 27% at 240 and 51% at 360, because small moving objects survive one downs
 vanish under the other. Every benchmark in `CLAUDE.md` is at 240; a per-beat script that
 picks its own width is measuring a different reel.
 
+### r007 — "It" is "this" wearing a different pronoun (added 2026-09-09)
+
+r007's first cut opened on **"It doesn't go up. It goes under."** and held it for six
+seconds over a map, before any element named the subject. Rule 3 in `CLAUDE.md` says name a
+recognisable object in the title and **never "this"** — and a bare "It" is the same failure.
+It survived a full build, a filmstrip pass, a safe-area scrub and a commit; the user caught
+it on first watch, asking "should we reveal what is meant by It?"
+
+**The worse half is that the reel already had its anchor and dropped it.** The Gate 0
+sentence — the one a human approved — is *"when you **message** someone in America"*. The
+word **message** never reached the screen. r006 is the model: **"Your flight path isn't
+curved"** names the object in the first three words, and r006 is the account's best reel.
+
+**Check the hook against the Gate 0 sentence before rendering.** The sentence is written to
+be the most repeatable phrasing of the idea; if its subject noun is missing from the title,
+the title is weaker than something already approved. That check costs one comparison and it
+is not currently in any gate.
+
 ### r007 — check the data licence inside Gate 0 (added 2026-09-09)
 
 r007's route was measured out of TeleGeography's submarine-cable API before anyone read

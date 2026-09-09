@@ -142,7 +142,12 @@ involved in a reel.** Keep it that way.
    rather than preceding it. No step label in the opening beat. Measured on r001/r002: half the
    audience is gone by 1.5–3s, and both retention curves then FLATTEN — so the body works and the
    opening is the only thing costing reach. Name a recognisable object in the title ("a QR code",
-   "Shazam"), never "this".
+   "Shazam"), never "this" — **and never a bare "It" either, which is the same failure.** r007
+   shipped a first cut opening on "It doesn't go up. It goes under.", six seconds of pronoun with
+   no antecedent, and it passed every automated check. **Check the title against the Gate 0
+   sentence before rendering:** that sentence is the most repeatable phrasing of the idea and a
+   human approved it, so if its subject noun ("your *message*") is missing from the title, the
+   title is weaker than something you already had.
 4. **Nothing is ever perfectly still.** Apply `useBreath()` from the shared chrome to every graphic
    stage (and to text-only beats). Measured on the shipped reels: **51–55% of each one had no visible
    change at all**, in stretches up to 6.5s — a frozen frame on a feed reads as "this ended". The

@@ -324,6 +324,13 @@ export const Cables: React.FC = () => {
     `translate(${(MAP_CX - camScale * camX).toFixed(1)}px, ` +
     `${(MAP_CY - camScale * camY).toFixed(1)}px) scale(${camScale.toFixed(3)})`;
 
+  // A climber dims as it enters the headline band. This has to be measured in
+  // SCREEN space, not map space: the opening is zoomed 1.75x, so a marker at map
+  // y=653 is drawn at screen y=430 and a map-space threshold never fires.
+  // Rule 3 wants the title riding OVER the action, not fighting it.
+  const skyDim = (y: number) =>
+    Math.max(0.16, Math.min(1, (camScale * (y - camY) + MAP_CY - 300) / 260));
+
   // Speed bars for the second surprise. Measured out rather than switched on:
   // a length that grows is an event.
   const barU = interpolate(frame, [t(14.6), t(16.4)], [0, 1], ease);
@@ -428,7 +435,7 @@ export const Cables: React.FC = () => {
                 const p = satAt(u * 0.5);
                 const fade = 1 - u * 2 > 0 ? Math.min(1, (1 - u * 2) * 2.4) : 0;
                 return (
-                  <g key={`cl${k}`} opacity={satVis * fade}>
+                  <g key={`cl${k}`} opacity={satVis * fade * skyDim(p.y)}>
                     <circle
                       cx={p.x}
                       cy={p.y}
@@ -697,15 +704,29 @@ export const Cables: React.FC = () => {
         ))}
       </Fade>
 
+      {/* "Your message", not "It".
+          The first cut opened on "It doesn't go up. It goes under." — a pronoun
+          with no antecedent, over a map, for the six seconds before anything
+          named the subject. That is rule 3's "never 'this'" failure wearing a
+          different pronoun, and it threw away the reel's whole civilian anchor:
+          the Gate 0 sentence is "when you MESSAGE someone in America", and the
+          word never reached the screen. r006 had it right — "Your flight path
+          isn't curved" names the object in the first three words.
+          Line lengths are load-bearing: Archivo Black runs ~0.58em per character,
+          so 960px holds about 22 characters at 72px. "Your message doesn't go up."
+          is 27 and wraps, orphaning "up." onto the climbing marker. Split the way
+          r006 does instead — object on line 1, correction on line 2 — and say
+          "space" rather than "up", because space is the belief being corrected
+          and it pays off on the end card. */}
       <ReelHeader
         big={
           <>
-            It doesn&apos;t go up.
+            Your message
             <br />
-            It goes under.
+            doesn&apos;t go to space.
           </>
         }
-        small="The route is a wire."
+        small="Your message goes underwater."
         out={[2.2, 3.0]}
         in_={[3.0, 3.8]}
         bigSize={72}

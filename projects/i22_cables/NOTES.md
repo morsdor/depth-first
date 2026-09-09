@@ -80,7 +80,7 @@ reason — the data is free and the container's egress was not.
 | t | Beat | What moves |
 |--:|:--|:--|
 | 0.0 | Tight on Mumbai. Amber traffic climbs out and off the top of the frame | camera at 1.75×; climbers on a 1.6 s cycle |
-| 2.2 | Title rides over the action — "It doesn't go up. It goes under." | header handoff at 3.0 |
+| 2.2 | Title rides over the action — "Your message doesn't go to space." | header handoff at 3.0 |
 | 3.4 | **Pull back.** The whole ocean between the two cities | camera 1.75 → 1.0 |
 | 6.3 | **Surprise 1.** The cable is laid, Arabia → Suez → Med → Gibraltar → Atlantic | camera follows the drawing head at 1.35× |
 | 11.4 | Readout: 73,458 km up, 16,335 km under, 57,123 km shorter | wavefront sweeps the finished cable every 2.1 s |
@@ -114,9 +114,9 @@ unchanged, because r006's last frame was an arrival and was its most-liked frame
 
 ```
 r007_cables.mp4  28.5s  (114 samples @ 4fps)
-  median change      0.996
-  longest dead spell 0.00s  (limit 1.5s)
-  event density      49%          PASS
+  median change      0.956
+  longest dead spell 0.25s  (limit 1.5s)
+  event density      46%          PASS
 ```
 
 `npx tsc --noEmit` clean. `npm run brand:check` clean — 41 files, 12 colours,
@@ -151,6 +151,34 @@ camera would make, each is meaningful, and each moves the entire map. 27% → 49
 per-beat analysis at 360 reported 51% for a reel the script scored 27%, because
 small moving objects survive downscaling to 360 and vanish at 240. Every
 benchmark in `CLAUDE.md` (r004 42%, r005 v5 53%, r006 38%) is at 240.
+
+## The hook shipped with a pronoun and no antecedent
+
+The first cut opened on **"It doesn't go up. It goes under."** for six seconds,
+over a map, before anything named the subject. Rule 3 says name a recognisable
+object in the title and **never "this"** — "It" is that failure wearing a
+different pronoun, and nobody caught it until the reel was watched end to end.
+
+It also threw away the reel's own civilian anchor. The Gate 0 sentence is *"when
+you **message** someone in America"*, and the word **message** never reached the
+screen at all. r006 had this right and its header is the model: **"Your flight
+path isn't curved"** names the object in the first three words.
+
+Now: **"Your message / doesn't go to space."** — object on line 1, correction on
+line 2, and "space" rather than "up" because space is the belief being corrected
+and it pays off on the end card ("Nothing you send abroad goes to space").
+The small header carries the same anchor: "Your message goes underwater."
+
+**Two things that made this fiddly and are worth knowing:**
+
+- **Archivo Black runs ~0.58em per character**, so 960 px holds about 22
+  characters at 72 px. "Your message doesn't go up." is 27 and wrapped to three
+  lines, orphaning "up." onto the climbing marker and colliding with the step
+  label at y=470. The header has room for exactly two lines.
+- **The climber dimming has to be computed in SCREEN space.** The first attempt
+  thresholded on map-space `y` and did nothing, because the opening is zoomed
+  1.75× — a marker at map y=653 is drawn at screen y=430. `skyDim` applies the
+  camera before comparing.
 
 ## Traps
 
