@@ -1225,6 +1225,73 @@ choice.** If they are also ~58% India, the route explains nothing.
 were told the next reel is the cable on the seabed, backlog `I22`. At 93 people that promise was
 cheap to break, as `I15`'s was. At 9,200 it is not.
 
+### FALSIFIED — the r006 pattern was not the engine (2026-09-10)
+
+**r007 was the pre-registered test and it failed it.** It was built to all five points of the
+pattern below — belief correction, a map that never leaves the frame, one arithmetic payoff, a
+race that ends on an arrival, 28 s — with better motion numbers than r006 (46% event density
+against 38%). **It peaked at ~1.8k views against r006's ~66k. A 36× gap.**
+
+The falsification condition written below said r004-level reach would mean the engine was
+elsewhere, and named the likely alternative: the map, i.e. Explore's geography audience. **That
+alternative is dead too** — r007 is also a map and it did not travel at all. Both the stated
+hypothesis and its stated alternative are wrong.
+
+**What the comments say the engine actually was: r006 landed inside the flat-earth argument.**
+The curved-flight-path-on-a-flat-map is *the* most-cited exhibit on both sides of that fight.
+r006 did not merely correct a belief — it handed people a piece of usable evidence in a dispute
+that was already running, and they took it somewhere.
+
+**The refined hypothesis: a reel travels when it settles an argument the viewer is already
+having.** Not when it fills a gap in their knowledge. The test is not "is the viewer wrong?" but
+**"is the viewer wrong, out loud, in a fight they are already in?"**
+
+| | r006 great circle | r007 cables |
+|:--|:--|:--|
+| Corrects a belief | yes | yes |
+| Belief personally witnessed | **yes — the seatback screen** | no — nobody has watched a message route |
+| An argument already running | **yes — flat earth** | **none. No faction, no stake, nobody to send it to** |
+| Views | ~66,000 | ~1,800 |
+
+**This is the same finding as the saves retraction above, arriving from the other side.** That
+entry concluded "saves track tellability, not reference value — a save is *I want to show this to
+someone*." r006's shares (0.92%) and saves (1.10%) were both roughly double the account's previous
+best, which is the signature of people forwarding a thing to a specific person. r007 gave nobody
+anything to say to anyone.
+
+**Two caveats, stated so this is not over-read the way its predecessor was.**
+
+1. **This is n=1 against n=1.** A 36× gap is far too large to be posting-time variance, but two
+   reels cannot separate "argument" from every other difference between them. r006's globe→Mercator
+   morph is also a more spectacular image than a line drawn across a static map, and that is
+   unmeasured.
+2. **Reach is not the only thing worth having, and this audience may not be the channel's.** r006
+   converted 0.216% of 32,882 viewers into follows — the account's best *measured* rate, and still
+   low. If that reach came from an argument rather than from interest in how things work, the
+   followers it brought may not want the next reel. **Worth checking before optimising for it:
+   how many of r006's 71 follows are still following, and did they watch r007?**
+
+**What this does NOT license: chasing conspiracy content.** The engine is "settles a live
+argument", and flat earth is one arena among many — most of them cheaper, less toxic, and closer
+to what this channel is for. The next section is the pattern that survives.
+
+### The pattern that survives — an argument, personally witnessed (2026-09-10)
+
+Three conditions, all required. r006 has all three; r007 has one.
+
+1. **The viewer has personally witnessed the evidence.** Not "has heard of it" — has *seen* it,
+   with their own eyes, repeatedly. The seatback map. The blue dot. The shuffle that keeps
+   playing the same artist. This is a stricter form of non-negotiable 6: the OBJECT must be
+   recognisable, and now the BELIEF must be first-hand too.
+2. **There is a dispute already running.** Somebody is wrong about this in public, regularly, and
+   somebody else is correcting them. If you cannot picture the argument, there isn't one.
+3. **It resolves to one thing you can repeat.** One number, one subtraction, one ratio — small
+   enough to carry into the argument without the reel.
+
+**The discriminating question, cheaper than building:** *who does the viewer send this to, and
+what are they proving?* r006: your uncle, that the earth is round. r007: nobody, nothing.
+**If that question has no answer, the reel will be liked and forgotten.**
+
 ### The r006 pattern — correct a belief, don't explain a mechanism (added 2026-09-08)
 
 r006 is the account's biggest reel by a factor of twenty and the best on every per-viewer engagement

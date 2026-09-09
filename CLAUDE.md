@@ -59,25 +59,34 @@ Machine-checkable rigor is the thing I will drift toward if nothing stops me.
 shuffle's whole point is that nobody can see the bias and no test catches it. That is a good essay
 and a bad reel, and recognising it early is cheaper than five rebuilds.
 
-### Prefer a belief correction (r006, 2026-09-08 — one data point, under test)
+### Pick a fight, not a gap (r006 vs r007 — the belief-correction test FAILED)
 
-r006 is 20x the account's previous best reach and best-in-class on every per-viewer engagement
-metric. The candidate reason: it does not explain a mechanism, it **corrects a belief the
-viewer already holds** — "your flight path isn't curved, the map is bent". r001-r005 all taught
-something the viewer had no prior opinion about; nobody has a stake in that.
+**r007 was the pre-registered test of the "correct a belief" pattern and it failed.** Built to all
+five points, better motion numbers than r006, and it peaked at **~1.8k views against r006's ~66k**.
+The stated fallback explanation — that the engine was the map and Explore's geography audience —
+died with it, because r007 is also a map.
 
-When picking the next id, prefer one where the viewer is already confidently wrong. The full pattern
-and the falsification test are in `brand_guide_software.md` §13 ("The r006 pattern"). **It is one
-reel — `I22` is the test, and it must not change five things at once.**
+**What r006 actually had, per its comments: it landed inside the flat-earth argument.** The curved
+flight path on a flat map is the most-cited exhibit on both sides of that fight, so the reel was
+usable as evidence in a dispute already running. r007 corrected a belief nobody argues about.
 
-**Two day-1 findings that change how a reel is built, both from panels never read before:**
+**Three conditions, all required** (full reasoning in `brand_guide_software.md` §13):
 
-- **The end card is the most-liked frame in the reel** — the tallest bar in Instagram's "when people
-  liked your reel" histogram, and ~3.5x the like density of the best mid-reel moment once you adjust
-  for who is still watching. Rule 9 is right. **Get to it sooner:** r006's 10.8 s race is its
-  least-liked stretch and it sits between the reel's two peaks.
-- **The audience is 99.9% non-followers.** There is no warm cohort on this account; every reel is
-  judged by strangers. Any reasoning that starts "early viewers are followers, so..." is wrong.
+1. **The viewer has personally witnessed the evidence** — seen it themselves, repeatedly. The
+   seatback map. The blue dot. The shuffle that repeats an artist.
+2. **A dispute is already running.** Somebody is publicly wrong about this on a regular basis and
+   somebody else corrects them. If you cannot picture the argument, there isn't one.
+3. **It resolves to one repeatable thing** — one number, ratio or subtraction, carried into the
+   argument without the reel.
+
+**Ask before building: who does the viewer send this to, and what are they proving?** r006: your
+uncle, that the earth is round. r007: nobody, nothing. **No answer means the reel gets liked and
+forgotten.** This is n=1 against n=1 and is not a law — but it is the cheapest available filter,
+and it costs one sentence to apply.
+
+**It does not license chasing conspiracy content.** The engine is "settles a live argument"; flat
+earth is one arena and most others are cheaper and less toxic. Also unresolved and worth checking
+before optimising for reach: whether r006's 71 follows stayed, and whether they watched r007.
 
 ### Built so far
 
@@ -89,7 +98,7 @@ reel — `I22` is the test, and it must not change five things at once.**
 | `r004` | `I03` | JPEG / DCT — a photo stores no pixels | **posted 2026-09-06** |
 | `r005` | `I51` | The obvious way to shuffle is wrong (Fisher–Yates bias) | rebuilt 2026-09-07 (v5, landing-position map), 39 s, not posted |
 | `r006` | `I17` | Great circle — the flight path that looks curved is the straight one | **posted 2026-09-08** (32 s) — first reel built under Gate 0 |
-| `r007` | `I22` | Submarine cables — your message abroad goes underwater, not to space | built 2026-09-09 (28 s), **not posted** — the test of the r006 pattern |
+| `r007` | `I22` | Submarine cables — your message abroad goes underwater, not to space | **posted 2026-09-09** (28 s) — peaked ~1.8k views; the r006 pattern test, and it failed |
 
 Update this table, `brand_guide_software.md` §13 and
 [`reel_captions_log.md`](reel_captions_log.md) when one ships.
