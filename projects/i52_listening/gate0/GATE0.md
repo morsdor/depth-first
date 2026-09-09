@@ -79,7 +79,24 @@ wake-word detection hide behind the assistant.
 4. **Licence check on any audio or model used** — the Gate 0 step added after r007. Our own
    narration is already clear; an open wake-word model needs its licence read.
 
-## 7. The question for the human
+## 7. FAILED — 2026-09-10
+
+**Verdict from the human: "I honestly don't understand the video."**
+
+That is kill condition 3, and it is the answer §4 above was worried about. The frame is a phone
+with a waveform and a counter reading zero, and the zero only means anything once you already
+accept that a dot would be lit if anything were recording. The amazement depends on
+understanding first, which makes it a blog post rather than a reel.
+
+**Not repaired.** `CLAUDE.md` is explicit: any one kill condition ends the concept, pick a
+different id. The id stays permanent so this record resolves; the successor is `I15`.
+
+**What the gate cost: one mock and one afternoon of reading, instead of a day of building.**
+The failure was visible in §4 before the human saw it — a negative claim whose decisive
+evidence is platform behaviour rather than a computation — and writing that down honestly is
+what made the verdict quick.
+
+## 8. The original question (unanswered — superseded)
 
 **Sound off: does a stranger know they are looking at a phone listening, and want to know why
 "left your phone" says zero?**

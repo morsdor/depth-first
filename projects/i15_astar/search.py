@@ -71,8 +71,16 @@ def build(graph: dict) -> tuple[dict, dict]:
             adj.setdefault(u, []).append((v, d))
             if not way.get('oneway'):
                 adj.setdefault(v, []).append((u, d))
-    # Drop nodes no edge reaches; they are geometry, not junctions.
-    pos = {n: p for n, p in pos.items() if n in adj}
+    # Drop nodes no edge touches; they are geometry, not junctions.
+    #
+    # "Touches" has to mean SOURCE OR TARGET. Keeping only `adj` keys drops any
+    # node that is solely the destination of a one-way edge — and that node is
+    # still handed to heuristic() as a neighbour, so the search dies with a
+    # KeyError on pos[v]. The synthetic lattice has no one-way edges, so this
+    # survived every test until the first real graph: Manhattan's avenues are
+    # almost all one-way, and it failed on the first run.
+    touched = set(adj) | {v for edges in adj.values() for v, _ in edges}
+    pos = {n: p for n, p in pos.items() if n in touched}
     return pos, adj
 
 

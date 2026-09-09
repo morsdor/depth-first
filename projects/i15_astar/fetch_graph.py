@@ -27,7 +27,13 @@ import urllib.parse
 import urllib.request
 
 HERE = pathlib.Path(__file__).resolve().parent
-OVERPASS = 'https://overpass-api.de/api/interpreter'
+# Overpass is donated infrastructure and 504s under load. Mirrors, tried in
+# order, one query each — not a retry storm.
+OVERPASS_MIRRORS = (
+    'https://overpass-api.de/api/interpreter',
+    'https://overpass.kumi.systems/api/interpreter',
+    'https://overpass.private.coffee/api/interpreter',
+)
 
 # Drivable roads only. Excluding footways and service roads keeps the graph the
 # size of the thing a routing app would actually search, which is the subject.
@@ -51,8 +57,25 @@ def main() -> None:
     q = QUERY.format(s=s, w=w, n=n, e=e)
     body = urllib.parse.urlencode({'data': q}).encode()
     print(f'querying Overpass for {args.place or args.bbox} …')
-    with urllib.request.urlopen(OVERPASS, data=body, timeout=180) as r:
-        raw = json.load(r)
+    # Overpass answers urllib's default User-Agent with HTTP 406. It is donated
+    # infrastructure and asks callers to identify themselves, so send a real one
+    # rather than working around the rejection.
+    raw = None
+    for host in OVERPASS_MIRRORS:
+        req = urllib.request.Request(
+            host,
+            data=body,
+            headers={'User-Agent': 'depth-first-reels/1.0 (one-off street graph pull; contact via github.com/morsdor)'},
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=240) as r:
+                raw = json.load(r)
+            print(f'  served by {urllib.parse.urlparse(host).netloc}')
+            break
+        except Exception as exc:  # noqa: BLE001 — any failure means try the next mirror
+            print(f'  {urllib.parse.urlparse(host).netloc}: {exc}')
+    if raw is None:
+        raise SystemExit('every Overpass mirror failed — try a smaller bbox')
 
     nodes = {
         el['id']: (el['lat'], el['lon']) for el in raw['elements'] if el['type'] == 'node'
