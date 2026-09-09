@@ -35,8 +35,8 @@ appended to `content_backlog.md` with its section and accent **before** it is bu
 (`failure`), which already fit them. Do not build off a topic that has no row.
 
 **When asked for "a new reel", pick the next concept from [`content_backlog.md`](content_backlog.md).
-Do not invent a topic — propose a new id and get it written down instead.** 52 entries, ids
-`I01`–`I52`, grouped into six sections that map 1:1 onto `DOMAIN_ACCENT` in
+Do not invent a topic — propose a new id and get it written down instead.** 65 entries, ids
+`I01`–`I68`, grouped into six sections that map 1:1 onto `DOMAIN_ACCENT` in
 `remotion/src/brand/tokens.ts` — so the section *is* the accent colour decision.
 
 - **Ids are permanent.** Never reuse an id for a different concept. Retire with
