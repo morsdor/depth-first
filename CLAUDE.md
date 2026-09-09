@@ -39,6 +39,12 @@ Do not invent a topic — propose a new id and get it written down instead.** 65
 `I01`–`I68`, grouped into six sections that map 1:1 onto `DOMAIN_ACCENT` in
 `remotion/src/brand/tokens.ts` — so the section *is* the accent colour decision.
 
+**The procedure for all of this is the [`new-reel`](.claude/skills/new-reel/SKILL.md) skill —
+`/new-reel`.** It lists the live candidate ids with their real status
+(`python3 .claude/skills/new-reel/scripts/backlog_ideas.py`), runs the reasoning that shortlists
+them, and then walks Gate 0 → research → build → render → audit → the five logs, stopping at each
+of the three human gates. This file stays the law; the skill is the sequence.
+
 - **Ids are permanent.** Never reuse an id for a different concept. Retire with
   "(retired — date, reason)"; the row stays so old logs resolve.
 - **Prefer the "open with these eight"** (`I01 I02 I03 I15 I17 I25 I31 I42`) until they are used up —
