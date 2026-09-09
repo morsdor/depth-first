@@ -99,6 +99,7 @@ before optimising for reach: whether r006's 71 follows stayed, and whether they 
 | `r005` | `I51` | The obvious way to shuffle is wrong (Fisher–Yates bias) | rebuilt 2026-09-07 (v5, landing-position map), 39 s, not posted |
 | `r006` | `I17` | Great circle — the flight path that looks curved is the straight one | **posted 2026-09-08** (32 s) — first reel built under Gate 0 |
 | `r007` | `I22` | Submarine cables — your message abroad goes underwater, not to space | **posted 2026-09-09** (28 s) — peaked ~1.8k views; the r006 pattern test, and it failed |
+| `r008` | `I15` | A\* vs Dijkstra — one route across Paris, two ways to find it | built 2026-09-10 (28 s), **not posted** — first reel on real OpenStreetMap data |
 
 Update this table, `brand_guide_software.md` §13 and
 [`reel_captions_log.md`](reel_captions_log.md) when one ships.
@@ -106,12 +107,16 @@ Update this table, `brand_guide_software.md` §13 and
 **r003 shipped without the end beat** — it was added to `Qr.tsx` after the reel was posted, so the
 `I03` line in that file is a plan, not a public promise.
 
-**`I15` is deferred, and its end-card promise was broken deliberately.** r004 shipped promising
-"300 roads, not 300,000", but a real street graph needs OpenStreetMap, and `overpass-api.de`,
-`api.openstreetmap.org` and `download.geofabrik.de` are all refused by the cloud container's
-egress proxy. The build waits in [`projects/i15_astar/`](projects/i15_astar/) — keyed to the
-permanent backlog id, not a reel number — and needs `fetch_graph.py` run on a networked machine.
-The promise was seen by ~160 viewers and converted none, so breaking it cost less than stalling.
+**`I15` is built (2026-09-10), and its numbers were nothing like the promise.** r004 shipped
+promising "300 roads, not 300,000". A real graph does not do that: on 26,193 junctions of central
+Paris, Arc de Triomphe to Notre-Dame, Dijkstra expands **17,092** and A* expands **1,700** —
+**10.1x**, not 1000x. Manhattan gave only 3.6x. **Treat every backlog figure as a research lead,
+including the ones in the hooks.**
+
+The block that deferred it — `overpass-api.de` and every other OSM host refused by the cloud
+container's egress proxy — does not apply on a local machine. Overpass also answers urllib's
+default User-Agent with **HTTP 406**, so `fetch_graph.py` identifies itself and falls back across
+three mirrors.
 
 ### Gate 0 also has a licence question (added 2026-09-09, from `I22`)
 

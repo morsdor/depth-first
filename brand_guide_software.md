@@ -898,6 +898,31 @@ splitting a coastline subpath at the Mercator seam (an x-jump > half the map wid
 runs behind the terminator mid-morph. Filling a ring that is cut at the terminator paints a chord
 straight across the ocean, so the land fill is gated to the last 18% of the morph.
 
+### r008 — the beat carrying the argument is often the deadest one (added 2026-09-10)
+
+r008's first cut measured **41%** event density overall, which passes. Per beat it did not:
+
+| beat | density |
+|:--|--:|
+| Dijkstra floods the city | **91%** |
+| **A\* aims at the goal** | **20%** |
+| the twist | 29% |
+| end card | 21% |
+
+**The spectacle was fine and the argument was dead.** A\*'s whole point is that it looks at less
+— 1,420 pixels against the flood's 14,018 — so the beat that carries the reel's actual claim is
+*by construction* the one with the least on-screen change, for 6.2 seconds. This will happen to
+any reel whose payoff is "and this one does less".
+
+The fix was to draw the **frontier**: the ~150 junctions each search has just committed to, in
+bone, moving ahead of the settled set. That band is not decoration — it *is* the search frontier,
+the truest thing in the beat — and it turned 41% into **55%, the highest on the account**, past
+r005 v5's 53%.
+
+**The general rule: measure per beat, and check the beat that carries the argument separately.**
+r007 needed the same lesson from the other direction (its route-draw beat scored lowest of any),
+and in both cases the global number was passing while the most important seconds were not.
+
 ### r007 — a static map cannot pass the motion audit; move the camera (added 2026-09-09)
 
 r007 is a world map with a line drawn across it. Its first cut measured **19% event
