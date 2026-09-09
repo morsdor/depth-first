@@ -68,6 +68,21 @@ import {
 
 export const DURATION_SECONDS = 28;
 
+// ── RE-SPINED 2026-09-10, after the first cut failed the friend test ───────
+// The first cut was framed as a comparison of two algorithms — "one route, two
+// ways to find it" — and the verdict was "I didn't understand the point. We are
+// comparing 2 algos?". That is the right reaction: an algorithms comparison is
+// an inside-baseball framing, and the question actually asked was "how does a
+// maps app find the route".
+//
+// Same footage, one point. Your phone does NOT draw a line toward your
+// destination — it spreads out blindly in every direction until it trips over
+// it. The flood is not algorithm 1 of 2; the flood IS the answer. A* is demoted
+// from co-equal beat to a four-second twist.
+//
+// The gate missed this because the gate question asked whether the PICTURE read,
+// not whether the SENTENCE was repeatable. The picture was always fine.
+
 // Accent: DOMAIN_ACCENT.infrastructure #00D6F7 — backlog §2, maps and real
 // geography. The flood uses DOMAIN_ACCENT.languages #51A4FF so the two searches
 // are separable at a glance. Both are literals at the use site so Studio keeps
@@ -75,7 +90,7 @@ export const DURATION_SECONDS = 28;
 
 // The data module pre-projected against this stage; a mismatch would silently
 // draw the city in the wrong place, so fail loudly instead.
-if (MAP_X !== 115 || MAP_Y !== 640 || MAP_W !== 700) {
+if (MAP_X !== 115 || MAP_Y !== 672 || MAP_W !== 700) {
   throw new Error(
     `i15_geo.ts was projected against a different stage (${MAP_X},${MAP_Y},${MAP_W}). ` +
       'Re-run projects/i15_astar/emit_ts.py after changing the stage.',
@@ -128,11 +143,11 @@ const TO: [number, number] = [PATH[PATH.length - 2], PATH[PATH.length - 1]];
 
 // ── the beats ───────────────────────────────────────────────────────────────
 const FLOOD_FROM = 0.6;
-const FLOOD_TO = 6.6;
-const AIM_FROM = 9.2;
-const AIM_TO = 13.2;
-const ROUTE_FROM = 15.6;
-const ROUTE_TO = 17.8;
+const FLOOD_TO = 7.6;      // the flood is the answer, so it gets the time
+const AIM_FROM = 10.4;
+const AIM_TO = 13.6;       // the twist is a twist: 3.2s, not 4
+const ROUTE_FROM = 15.8;
+const ROUTE_TO = 17.9;
 
 export const Astar: React.FC = () => {
   const frame = useCurrentFrame();
@@ -154,7 +169,7 @@ export const Astar: React.FC = () => {
 
   // Once A* starts, Dijkstra's flood drops to a wash. The comparison only reads
   // if both are on screen at once — that is the whole frame.
-  const dijFade = interpolate(frame, [t(8.4), t(9.2)], [1, 0.42], ease);
+  const dijFade = interpolate(frame, [t(9.6), t(10.4)], [1, 0.42], ease);
 
   const routeU = interpolate(frame, [t(ROUTE_FROM), t(ROUTE_TO)], [0, 1], ease);
 
@@ -207,7 +222,7 @@ export const Astar: React.FC = () => {
             strokeLinecap="round"
             opacity={dijFade}
           />
-          {frame < t(8.4) && (
+          {frame < t(9.6) && (
             <path
               d={dotsRange(DIJKSTRA, dijN - frontier, dijN)}
               fill="none"
@@ -307,12 +322,12 @@ export const Astar: React.FC = () => {
       <ReelHeader
         big={
           <>
-            One route across Paris.
+            Your phone doesn&apos;t aim.
             <br />
-            Two ways to find it.
+            It floods the city.
           </>
         }
-        small="Same answer. Ten times the work."
+        small="17,092 junctions, one route."
         out={[2.0, 2.8]}
         in_={[2.8, 3.6]}
         bigSize={62}
@@ -320,39 +335,39 @@ export const Astar: React.FC = () => {
 
       <StepLabel
         n="01"
-        title="Check every direction"
-        sub="Outward, until it stumbles on the answer."
+        title="No aim at all"
+        sub="Cheapest-so-far first, in every direction."
         from={t(2.9)}
-        to={t(8.4)}
+        to={t(9.4)}
       />
       <StepLabel
         n="02"
-        title="Or aim at the goal"
-        sub="Add one term: how far is left to go."
-        from={t(9.0)}
-        to={t(15.4)}
+        title="The clever version does aim"
+        sub="And it still checks 1,700 junctions."
+        from={t(10.2)}
+        to={t(15.6)}
       />
       <StepLabel
         n="03"
         title="Your phone does neither"
         sub="It worked the shortcuts out months ago."
-        from={t(18.4)}
-        to={t(22.0)}
+        from={t(18.6)}
+        to={t(22.2)}
       />
 
       {/* SAFE_W, not the default 960: these are the payoff figures and the
           default width parks them under Instagram's action rail (the r006 bug). */}
       <Readout
-        from={t(6.9)}
-        to={t(8.6)}
+        from={t(7.9)}
+        to={t(9.8)}
         top={1290}
         width={SAFE_W}
         rows={[['junctions checked', fmt(DIJKSTRA_N)]]}
       />
       <Readout
-        from={t(13.4)}
-        to={t(18.2)}
-        top={1256}
+        from={t(13.8)}
+        to={t(18.4)}
+        top={1274}
         width={SAFE_W}
         rows={[
           ['checked every direction', fmt(DIJKSTRA_N)],
@@ -361,8 +376,8 @@ export const Astar: React.FC = () => {
       />
 
       <Fade
-        from={t(15.9)}
-        to={t(18.2)}
+        from={t(16.1)}
+        to={t(18.4)}
         style={{ position: 'absolute', top: 486, left: 60, width: SAFE_W }}
       >
         <div
@@ -391,7 +406,7 @@ export const Astar: React.FC = () => {
           that worked on r006 ("open a flight tracker") rather than the one that
           failed on r003 (scan an on-screen QR code while holding one phone). */}
       <Fade
-        from={t(22.3)}
+        from={t(22.4)}
         style={{ position: 'absolute', top: 1300, left: 60, width: SAFE_W }}
       >
         <div

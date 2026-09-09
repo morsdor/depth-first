@@ -46,6 +46,17 @@ Nothing is built — no Python, no `.tsx`, no data module — until these two th
 un-know it to judge whether a stranger would. The human says yes or no, in under a minute. That is
 the entire cost of the gate, and it replaces a day of building the wrong thing.
 
+**Ask about the SENTENCE, not the picture — r008, 2026-09-10.** r008 passed this gate on the
+question *"does a stranger know that's a city and want to know why the blue spread everywhere?"*
+and the answer was yes, because the picture was genuinely good. It was built, and the verdict on
+watching it was **"I didn't understand the point. We are comparing 2 algos?"** — which was exactly
+right: its sentence was *"that one change is the difference between checking 17,000 junctions and
+checking 1,700"*, a fact about algorithmic efficiency that nobody would ever repeat to a friend.
+
+A beautiful payoff frame will carry a bad sentence straight through this gate. **The gate question
+must be "would you say this sentence to someone?", and the frame is only there to prove the
+sentence can be shown.** The order matters: sentence first, frame as evidence for it.
+
 **Why this exists — r005, five rebuilds, 2026-09-07/08.** Every rebuild raised rigor and lowered
 recognition: v1 drew 16 coloured bars, v5 drew a 13x13 landing-position matrix measured over 400,000
 shuffles. v5 is the more honest reel and it is the less watchable one, because no viewer has ever

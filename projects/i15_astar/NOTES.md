@@ -5,13 +5,26 @@ OpenStreetMap — `I15` had been deferred since 2026-09-06 because the cloud
 container's egress proxy refused every OSM host. It also clears a promise r004
 made to ~160 viewers.
 
-**Gate 0 sentence:**
+**Sentence — RE-SPINED 2026-09-10, after the first cut failed on being watched:**
 
-> "Your phone doesn't search the whole city to find a route. It only looks at the
-> streets heading roughly the right way — and that one change is the difference
-> between checking 17,000 junctions and checking 1,700."
+> **"Your phone doesn't aim at your destination. It spreads out in every direction
+> until it bumps into it — and it checks 17,092 junctions on the way."**
 
-Gate artefacts and the human yes are in [`gate0/`](gate0/GATE0.md).
+The first cut was framed as a comparison of two algorithms, and the verdict was
+*"I didn't understand the point. We are comparing 2 algos?"* — correct. The
+question asked was "how does a maps app find a route", and an algorithms
+comparison is not an answer to it.
+
+**Gate 0 passed it anyway, because the gate question was about the picture.**
+The frame was good and got an honest yes; the sentence — *"the difference between
+checking 17,000 junctions and checking 1,700"* — was never tested and is not
+something anyone would repeat. The lesson is in `brand_guide_software.md` §13 and
+now in `CLAUDE.md`'s Gate 0 section: **ask about the sentence, not the frame.**
+
+**Nothing was rebuilt.** Every frame was reusable; the flood stopped being
+"algorithm 1 of 2" and became the answer, and A* dropped to a four-second twist.
+
+Gate artefacts are in [`gate0/`](gate0/GATE0.md).
 
 ## The figures
 
@@ -78,15 +91,16 @@ still has to cross the map. **So the endpoints are on screen for the whole reel.
 | t | Beat | What moves |
 |--:|:--|:--|
 | 0.0 | The city arrives in 0.7 s | 6,539 streets, one path |
-| 0.6 | **Dijkstra floods**, in real settle order | 14,018 pixels + a white frontier band |
-| 2.0 | Title rides over the flood | handoff at 2.8 |
-| 6.9 | Readout: 17,092 junctions checked | |
-| 9.2 | **A\* aims.** The flood drops to a wash so both are visible at once | 1,420 pixels + frontier |
-| 13.4 | Readout: 17,092 against 1,700 | |
-| 15.6 | The route draws — the same one, from both | |
-| 15.9 | **10.1× less of the city.** The same 5.2 km route, either way | |
-| 18.4 | **The twist: your phone does neither** | a pulse runs the route |
-| 22.3 | End card | pulse continues |
+| 0.6 | **The flood — this is the answer**, in real settle order | 14,018 pixels + a white frontier band |
+| 2.0 | Title rides over it: "Your phone doesn't aim. It floods the city." | handoff at 2.8 |
+| 2.9 | **01 No aim at all** — cheapest-so-far first, in every direction | |
+| 7.9 | Readout: 17,092 junctions checked | |
+| 10.4 | **The twist: the clever version DOES aim** — and still checks 1,700 | 1,420 pixels + frontier |
+| 13.8 | Readout: 17,092 against 1,700 | |
+| 15.8 | The route draws — the same one, either way | |
+| 16.1 | **10.1× less of the city.** The same 5.2 km route | |
+| 18.6 | **03 Your phone does neither** — it looked this up | a pulse runs the route |
+| 22.4 | End card | pulse continues |
 
 **Both searches are replayed in their real settle order** — the order the run
 actually committed to each junction — not a radial wipe that imitates one.
@@ -97,7 +111,7 @@ actually committed to each junction — not a radial wipe that imitates one.
 r008_astar.mp4  28.5s  (114 samples @ 4fps)
   median change      1.035
   longest dead spell 0.25s  (limit 1.5s)
-  event density      55%          PASS
+  event density      54%          PASS
 ```
 
 `npx tsc --noEmit` clean. `npm run brand:check` clean — 43 files, 12 colours,
@@ -105,7 +119,7 @@ r008_astar.mp4  28.5s  (114 samples @ 4fps)
 rail all empty of anything above ground brightness, once the shared `Progress`
 bar is excluded (960 wide on every reel since r002, ornamental).
 
-**55% is the highest on the account** — past r005 v5 (53%), r007 (46%), r004
+**54% is the highest on the account** — past r005 v5 (53%), r007 (46%), r004
 (42%) and r006 (38%). It did not start there.
 
 | beat | first cut | shipped |
@@ -115,7 +129,7 @@ bar is excluded (960 wide on every reel since r002, ornamental).
 | route draws | 45% | — |
 | the twist | 29% | — |
 | end card | 21% | — |
-| **overall** | **41%** | **55%** |
+| **overall** | **41%** | **54%** |
 
 The flood was never the problem. **A\*'s corridor is intrinsically small** — 1,420
 pixels appearing against the flood's 14,018 — so the beat that carries the reel's
@@ -164,9 +178,12 @@ truest thing to draw rather than decoration:
 - **14,018 dots and 6,539 streets are ONE `<path>` each.** Remotion re-renders
   every frame; tens of thousands of DOM nodes per frame is the difference between
   a render that finishes and one that does not.
-- **The map had to shrink to 700×591 and move down to y=640.** At 810 wide from
-  y=528 it ran under the step label, and 42 px ash text over a bright flood is
-  unreadable.
+- **The map is 700×591 at y=672, and every part of that was forced.** At 810 wide
+  from y=528 it ran under the step label, and 42 px ash text over a bright flood
+  is unreadable. Shrinking it to 660 wide fixed the text and **cost 12 points of
+  event density (54% → 42%)**, because a smaller map floods fewer pixels. Moving
+  it *down* instead of shrinking it kept both — the comparison readout drops to
+  y=1274 to make room.
 
 ## What is NOT claimed
 

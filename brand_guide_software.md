@@ -898,6 +898,32 @@ splitting a coastline subpath at the Mercator seam (an x-jump > half the map wid
 runs behind the terminator mid-morph. Filling a ring that is cut at the terminator paints a chord
 straight across the ocean, so the land fill is gated to the last 18% of the morph.
 
+### r008 — a good frame will smuggle a bad sentence through Gate 0 (added 2026-09-10)
+
+r008 was built, rendered, audited at 55% event density, scrubbed clean, documented and committed —
+and then failed on being watched: **"I didn't understand the point. We are comparing 2 algos?"**
+
+It was. The question asked was *"how does a maps app find the route between two points"* and the
+reel answered *"here are two algorithms and one is more efficient"*. Those are different questions,
+and the second one is inside-baseball.
+
+**Gate 0 did not catch it, and the reason is instructive.** The gate question was *"sound off, no
+labels: does a stranger know that's a city and want to know why the blue spread everywhere and the
+cyan didn't?"* — a question about the PICTURE, which was genuinely good and got a genuine yes. The
+sentence was never tested. Read cold, it was: *"that one change is the difference between checking
+17,000 junctions and checking 1,700."* Nobody says that at dinner. Compare r006's, which is the
+whole reason that reel travelled: *"your flight path isn't curved, the map is bent."*
+
+**The fix was a re-spine, not a rebuild — every frame was reusable.** The flood stopped being
+"algorithm 1 of 2" and became the answer: *your phone doesn't aim at your destination, it spreads
+out in every direction until it trips over it.* A\* dropped from co-equal beat to a four-second
+twist ("the clever version does aim — and it still checks 1,700"). Same footage, same data, one
+point, and a sentence a person could repeat.
+
+**The rule: put the sentence in front of the human, not the frame.** The frame exists to prove the
+sentence can be *shown*; it is not itself the thing being approved. A payoff frame good enough to
+win the gate on its own is exactly the condition under which this failure happens.
+
 ### r008 — the beat carrying the argument is often the deadest one (added 2026-09-10)
 
 r008's first cut measured **41%** event density overall, which passes. Per beat it did not:

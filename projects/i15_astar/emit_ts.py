@@ -35,7 +35,7 @@ OUT = HERE.parent.parent / "remotion/src/reels/data/i15_geo.ts"
 # 700 wide, not 810, and pushed down to 640: at 810/528 the map ran under the
 # step label, and 42px ash text over a bright flood is unreadable. The city is
 # still the largest thing in the frame.
-MAP_X, MAP_W, MAP_Y = 115, 700, 640
+MAP_X, MAP_W, MAP_Y = 115, 700, 672
 
 START = (48.8738, 2.2950)   # Arc de Triomphe
 GOAL = (48.8530, 2.3499)    # Notre-Dame
