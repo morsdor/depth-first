@@ -63,6 +63,23 @@ lets one time unit be called a minute on screen.
 Your line is the fastest of 4: **25.0%** of the time — so you are in the wrong line **75%** of the
 time, and not because you are unlucky.
 
+**Corrected after the still was drawn: "same average wait" is false.** The means are 2.13 and 2.54,
+a 16.0% cut, not a tie. What is identical is **throughput — 203.57 against 203.56 served per hour**,
+which is the true and better version of "one line doesn't make the shop faster": it adds no till.
+The frame and the script now say *"same 204 served an hour"*.
+
+**Seed stability, five seeds** (a figure that moves with the seed cannot go on screen):
+
+| statistic | ratio 4-lines / 1-line | range | one line cuts |
+|:--|--:|--:|--:|
+| mean wait | 1.191 | 1.181–1.198 | 16.0% |
+| 95th pct | 1.306 | 1.290–1.320 | 23.4% |
+| 99th pct | 1.342 | 1.269–1.385 | 25.5% |
+| **maximum** | 1.747 | **1.353–2.190** | **unstable — barred from the screen** |
+
+The single-run maximum (53 min against 24) is the most dramatic pair in the data and it is the one
+figure that must not be used: it swings by a factor of two with the seed.
+
 **The bug that nearly shipped the wrong answer.** v1 of the sim gave "shared" and "shortest"
 identical results to 2dp, because both picked the till that would *free* soonest. That hands the
 simulated shopper knowledge no human has: a basket of three and a full trolley look the same from
@@ -76,7 +93,8 @@ I pitched this concept as "one shared line cuts everyone's wait several-fold". *
 19% on the mean.** The real, sturdy finding is the tail: 24% off the 95th percentile
 (1 - 8.57/11.28), which is the "quarter off your worst wait" in the sentence.
 
-So the script may not say *faster*. It says the average is the same and the bad day disappears —
+So the script may not say *faster*. It says the shop serves the same number either way and the
+bad day disappears —
 which is both true and the more surprising claim, because the thing everyone repeats is the
 opposite. **The 5.16x row is not the reel's headline number** and must not be cropped into one:
 joining at random is nobody's behaviour, and quoting it would be the r004 "300 roads, not 300,000"

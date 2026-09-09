@@ -110,8 +110,10 @@ for s, (y0, title, worst, col) in enumerate([
 
 assert drawn[0] == drawn[1] == TOTAL, f'the shops differ: {drawn}'
 
+# NOT "same average wait" — that was false (2.13 vs 2.54). What IS identical
+# to three digits is throughput: 203.57 vs 203.56 served per hour.
 text((SIDE, 1372), 'Same tills. Same shoppers.', lab, BONE)
-text((SIDE, 1416), 'Same average wait.', lab, BONE)
+text((SIDE, 1416), 'Same 204 served an hour.', lab, BONE)
 text((SIDE, 1468), '4 tills · 85% busy · 300,000 shoppers', small, GRAPHITE)
 text((SIDE, 1504), 'baskets 30 s, trolleys 3 min', small, GRAPHITE)
 

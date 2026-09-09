@@ -41,6 +41,24 @@ Never run ahead of a gate. Stage 2 is not mine to pass, and neither is Stage 1.
 
 ---
 
+## Git — do not commit
+
+**Leave every change uncommitted in the working tree.** The user reads the diff themselves; that
+review is a gate too, and committing for them takes it away.
+
+- **Never commit unless the user says to commit**, in that turn. "Looks good" is not that.
+- **When they do say so: commit directly to `main`.**
+- **No new branches, and no worktrees.** Not for isolation, not for safety, not "just in case".
+- No pushing, no merging, no PRs unless asked.
+
+At the end of a stage, say what changed and in which files, then stop.
+
+*(`.claude/settings.json` sets `worktree.bgIsolation: none` so a background job can edit the
+checkout directly instead of being forced onto a branch. If some other harness still refuses an
+edit without isolation, say so plainly rather than branching quietly.)*
+
+---
+
 ## Stage 1 — Present the ideas
 
 **Never invent a topic.** Every reel comes from a permanent id in
@@ -191,6 +209,9 @@ Five files, every time (details in `reference/validate-and-ship.md`):
 
 **GATE 3: the user watches the reel end to end before it is posted.** r007's pronoun hook and
 r008's entire framing passed every automated check and were caught only by watching.
+
+Write all five, then **stop — do not commit.** List what changed and let the user read the diff.
+See "Git — do not commit" above.
 
 ---
 
