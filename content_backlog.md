@@ -7,6 +7,17 @@ section determines its accent colour with no further decision.*
 
 **Readable version:** https://claude.ai/code/artifact/05e8ada8-023a-4b75-beb1-80d276be6649
 
+## Scope — widened 2026-09-10
+
+**Every entry below is software, and that is an accident of when this file was written, not the
+channel's remit.** The promise is *how systems work* — grids, water, tides, ports, railways,
+orbits, cities are all in scope, and the evidence says they are the STRONGER half: three
+consecutive Gate 0 failures (`I52`, `r008` twice, `I24`) all died on "the amazement depends on
+understanding first", which is the default state of an invisible mechanism. See `CLAUDE.md`.
+
+New non-software concepts get a permanent id here, with a section and therefore an accent, before
+anything is built. Runtime is 30–60 s, not the 28–39 s the shipped reels happen to use.
+
 ## The rule every entry obeys
 
 One move, applied fifty times: **take something the viewer already uses every day, then show the

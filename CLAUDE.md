@@ -10,9 +10,34 @@ Repo for two YouTube channels and one Instagram account:
 
 ## Short-form reels — start here
 
+### The promise is "how systems work" — NOT computer science (2026-09-10)
+
+**The subject is any system whose mechanism can be shown running on real data.** Power grids,
+water, tides, ports, railways, orbits, cities — all in scope. Software is one lane of it and has
+been mistaken for the whole channel because `content_backlog.md` was written in one sitting by
+someone thinking only about software.
+
+**This is the explanation for three Gate 0 failures in a row.** `I52`, both cuts of `r008` and
+`I24` all died on the same kill condition — *the amazement depends on understanding first* — and
+that is not bad luck. **A software mechanism is invisible by nature**, so it always needs a
+sentence of setup before the picture means anything, which is precisely the order Gate 0 forbids.
+A physical system is visible by nature. The reel that reached ~66k is a map and a physical fact;
+the one that reached ~1.8k is a map and a fact nobody argues about. Widening the subject is not a
+new strategy, it is removing a constraint that was never real.
+
+**Length: 30–60 s.** The 28–39 s reels shipped so far were not a format rule, and at ≈6.5 s per
+idea 60 s buys eight or nine beats instead of four. Longer is permitted, never required — earn
+each beat, and the retention cliff at 1.5–3 s is unchanged by the runtime.
+
+**The backlog is still the gate on inventing topics.** A non-software concept gets a permanent id
+appended to `content_backlog.md` with its section and accent **before** it is built, exactly like
+`I51` and `I52` did. Physical-system ids will usually land in §2 (`infrastructure`) or §6
+(`failure`), which already fit them. Do not build off a topic that has no row.
+
 **When asked for "a new reel", pick the next concept from [`content_backlog.md`](content_backlog.md).
-Do not invent a topic.** 50 entries, ids `I01`–`I50`, grouped into six sections that map 1:1 onto
-`DOMAIN_ACCENT` in `remotion/src/brand/tokens.ts` — so the section *is* the accent colour decision.
+Do not invent a topic — propose a new id and get it written down instead.** 52 entries, ids
+`I01`–`I52`, grouped into six sections that map 1:1 onto `DOMAIN_ACCENT` in
+`remotion/src/brand/tokens.ts` — so the section *is* the accent colour decision.
 
 - **Ids are permanent.** Never reuse an id for a different concept. Retire with
   "(retired — date, reason)"; the row stays so old logs resolve.
