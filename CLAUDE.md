@@ -89,6 +89,7 @@ reel — `I22` is the test, and it must not change five things at once.**
 | `r004` | `I03` | JPEG / DCT — a photo stores no pixels | **posted 2026-09-06** |
 | `r005` | `I51` | The obvious way to shuffle is wrong (Fisher–Yates bias) | rebuilt 2026-09-07 (v5, landing-position map), 39 s, not posted |
 | `r006` | `I17` | Great circle — the flight path that looks curved is the straight one | **posted 2026-09-08** (32 s) — first reel built under Gate 0 |
+| `r007` | `I22` | Submarine cables — your message abroad goes underwater, not to space | built 2026-09-09 (28 s), **not posted** — the test of the r006 pattern |
 
 Update this table, `brand_guide_software.md` §13 and
 [`reel_captions_log.md`](reel_captions_log.md) when one ships.
@@ -102,6 +103,20 @@ Update this table, `brand_guide_software.md` §13 and
 egress proxy. The build waits in [`projects/i15_astar/`](projects/i15_astar/) — keyed to the
 permanent backlog id, not a reel number — and needs `fetch_graph.py` run on a networked machine.
 The promise was seen by ~160 viewers and converted none, so breaking it cost less than stalling.
+
+### Gate 0 also has a licence question (added 2026-09-09, from `I22`)
+
+**Before building, check that the data source may actually be used.** r007's
+route was first measured out of TeleGeography's submarine-cable API; their policy
+permits screenshots of the published maps under CC BY-SA 4.0 but restricts "the
+underlying databases" to paying subscribers, so the whole build had to be
+re-sourced after Gate 0 had already passed. It survived only because a route
+rebuilt from public geography alone — real ports and the chokepoints between
+them — landed within 1.4% of it.
+
+**Published figures are facts and are citable. Route geometry is a database.**
+That distinction is what let r007 keep naming MAREA and IMEWE and quoting their
+lengths. Ask the licence question next to the friend test, not after it.
 
 ### The method: compute the animation, don't author it
 
@@ -137,7 +152,15 @@ involved in a reel.** Keep it that way.
    check *event density* — the share of 4fps samples with change >= 1.0. r004 ran 42%; r005's first
    cut ran 26% and a viewer called it static despite passing the 0.35 rule. Continuous motion, not
    more drift, is the fix: r005 v5 runs 53% by never pausing the thing the reel is about.
-   The audit is `scripts/reel_motion_audit.py` — run it on the rendered mp4, don't re-derive it.
+   The audit is `scripts/reel_motion_audit.py` — run it on the rendered mp4, don't re-derive it,
+   and run it at its DEFAULT `--width 240`: every benchmark above is at that width, and the same
+   reel scores 27% at 240 and 51% at 360 because small moving objects vanish under downscaling.
+   **The audit measures mean change over the whole frame, so only large-area motion counts.** A
+   growing 6px line and a moving 15px dot are worth almost nothing — r007's route-draw beat, its
+   most important animation, scored the LOWEST of any beat at 16%. Fixing it needs the frame to
+   move, not the marker: r007 went 27% -> 49% by adding a camera that opens tight, pulls back, and
+   follows the cable. Measure PER BEAT before changing anything; the global number hides which
+   beat is dead.
 5. **Pacing inside the body: read → animate → hold** — the hold keeps its reading time but never its
    stillness (see 4). Label alone ~1.5s, animation 2–3s, hold on the finished state
    ~2s. ≈6.5s per idea. The 2s hold is the phase everyone drops, and dropping it is why a reel reads

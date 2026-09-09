@@ -12,6 +12,7 @@ import { DURATION_SECONDS as QR_SECONDS, Qr } from './reels/Qr';
 import { DURATION_SECONDS as JPEG_SECONDS, Jpeg } from './reels/Jpeg';
 import { DURATION_SECONDS as SHUFFLE_SECONDS, Shuffle } from './reels/Shuffle';
 import { DURATION_SECONDS as MANIM_SECONDS, ManimProbe } from './reels/ManimProbe';
+import { Cables, DURATION_SECONDS as CABLES_SECONDS } from './reels/Cables';
 import { DURATION_SECONDS as GC_SECONDS, Greatcircle } from './reels/Greatcircle';
 import { SafeZones } from './reels/lib/chrome';
 import { TitleCard } from './scenes/TitleCard';
@@ -44,6 +45,13 @@ import { Scene77 } from './scenes/Scene77';
 const ShuffleSafe: React.FC = () => (
   <>
     <Shuffle />
+    <SafeZones />
+  </>
+);
+
+const CablesSafe: React.FC = () => (
+  <>
+    <Cables />
     <SafeZones />
   </>
 );
@@ -139,6 +147,22 @@ export const RemotionRoot: React.FC = () => {
         id="manim-probe"
         component={ManimProbe}
         durationInFrames={Math.round(MANIM_SECONDS * 30)}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="r007-cables"
+        component={Cables}
+        durationInFrames={CABLES_SECONDS * 30}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="r007-cables-safe"
+        component={CablesSafe}
+        durationInFrames={CABLES_SECONDS * 30}
         fps={30}
         width={1080}
         height={1920}

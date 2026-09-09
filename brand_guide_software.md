@@ -898,6 +898,62 @@ splitting a coastline subpath at the Mercator seam (an x-jump > half the map wid
 runs behind the terminator mid-morph. Filling a ring that is cut at the terminator paints a chord
 straight across the ocean, so the land fill is gated to the last 18% of the morph.
 
+### r007 — a static map cannot pass the motion audit; move the camera (added 2026-09-09)
+
+r007 is a world map with a line drawn across it. Its first cut measured **19% event
+density** — below r005's first cut at 26%, the one a viewer called static. Three rounds of
+adding motion to the *elements* (flowing dashes, a heavier race marker, a sweeping
+wavefront) got it only to 27%. r006, for comparison, runs 38%.
+
+**The reason is in the metric's definition and it generalises.** The audit takes the mean
+absolute change over the WHOLE frame. A 6px line growing, or a 15px marker moving, changes
+a few thousand pixels out of two million — it is worth roughly 0.1 against a threshold of
+1.0. **No amount of detail animation will pass.** r006 cleared the bar because its
+globe↔map morph moved every coastline in the frame at once.
+
+**Measure per beat before changing anything.** The global number hid which beat was dead;
+per-beat it was obvious:
+
+| beat | density |
+|:--|--:|
+| hook | 17% |
+| 01 the belief | 15% |
+| **02 the route draws** | **16%** |
+| distance readout | 23% |
+| 03 speed bars | 38% |
+| race lap 1 | 48% |
+
+The route draw — the most important animation in the reel — was the second-worst beat in
+it. Anything built on "one thing moves against a still background" will measure like this.
+
+**The fix is a camera, and it is a craft improvement rather than a metric hack.** r007
+opens tight on Mumbai, pulls back at 3.4s to reveal the ocean between the two cities, and
+follows the cable as it is laid. Each move is one a documentary camera would make, each
+carries meaning, and each moves the entire map. **27% → 49%**, above r006 and r004.
+
+**Run the audit at its own default width.** It samples at `--width 240`. The same file
+scored 27% at 240 and 51% at 360, because small moving objects survive one downscale and
+vanish under the other. Every benchmark in `CLAUDE.md` is at 240; a per-beat script that
+picks its own width is measuring a different reel.
+
+### r007 — check the data licence inside Gate 0 (added 2026-09-09)
+
+r007's route was measured out of TeleGeography's submarine-cable API before anyone read
+their terms. Their citation policy permits screenshots of the published maps under
+CC BY-SA 4.0 but says **"access to the underlying databases remains restricted to paying
+subscribers"** — so measuring route geometry from the API is use of the database, and the
+build was not shippable. This was found *after* Gate 0 had passed and after the payoff
+still had been committed and pushed.
+
+**It survived on a distinction worth keeping: published figures are facts, route geometry
+is a database.** The rebuilt route uses public geography only — real ports and the
+chokepoints any cable between them must pass — and lands within **1.4%** of the licensed
+geometry, while still naming MAREA and IMEWE and quoting their published lengths, which
+are citable. The reel is unchanged in substance and now rests on something we may use.
+
+**The rule: ask the licence question beside the friend test, not after it.** It costs one
+search before the build and a rebuild after it.
+
 ### r006 — the hook problem is solved; the shape of the loss changed (added 2026-09-08)
 
 **Base for every rate in this section: unique viewers, the base Instagram itself uses.** That is now
