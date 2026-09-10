@@ -33,7 +33,7 @@ import { CURVE_HOURS, ENVELOPE, ENVELOPE_STEP_DEG, MOON_CURVE, TIDES } from './d
  * never animates a bulge arriving at a coast. That restraint is the whole reason
  * the concept survived Gate 0 in this form rather than the backlog row's original
  * "two high tides a day, and one of them shouldn't be there" — see
- * projects/i58_tides/gate0/GATE0.md §7, and r001's false "the cafe noise dies
+ * projects/r009_tides/gate0/GATE0.md §7, and r001's false "the cafe noise dies
  * here", which is the mistake this rule exists to prevent.
  *
  * ── The second surprise, and where it sits ──────────────────────────────────
@@ -50,7 +50,7 @@ import { CURVE_HOURS, ENVELOPE, ENVELOPE_STEP_DEG, MOON_CURVE, TIDES } from './d
  * statement instead: the Moon pulls the centre harder than the far side, so the
  * far side is left behind. Not that the sea's highs are 12h25m apart — measured,
  * adding the Sun moves them 8.5 min earlier; the reel says the MOON'S PART
- * repeats every 12h25m, which is what M2 means. See projects/i58_tides/NOTES.md.
+ * repeats every 12h25m, which is what M2 means. See projects/r009_tides/NOTES.md.
  */
 
 export const DURATION_SECONDS = 54;

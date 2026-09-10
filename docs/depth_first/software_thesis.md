@@ -37,10 +37,10 @@ An honest audit of the repo, separating the asset from the plumbing.
 in Python on real data → dump intermediate state to JSON → `emit_ts.py` **re-derives every claim and
 refuses to write the module if one is false** → Remotion plays it back. On-screen numbers are correct
 because the run produced them. Nobody in the creator-tool market has this, because everyone else
-starts from pixels and works backwards. `i69_pendulum/emit_ts.py` carries 22 asserts, including one
+starts from pixels and works backwards. `r010_pendulum/emit_ts.py` carries 22 asserts, including one
 that the equation printed on screen reproduces the fifteen lengths on screen to 0.005 cm.
 
-**A falsification habit that changes designs, not just confidence.** `i69_pendulum/design.py`
+**A falsification habit that changes designs, not just confidence.** `r010_pendulum/design.py`
 integrated the real nonlinear pendulum and found the textbook lengths reform 0.33 s late — so the
 reel prints a corrected equation. `I53` was killed by its own data after passing the human gate.
 `r001` shipped a false mechanism sentence and that failure became rule 7. This is a *process*

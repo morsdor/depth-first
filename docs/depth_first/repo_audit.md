@@ -74,9 +74,9 @@ Also deleted from disk: `remotion/public/manim/` — 1,020 PNGs, 153 MB, the r01
 **Fully regenerable in ~21 s** from tracked scripts, and the posted mp4 is committed:
 
 ```bash
-python3 projects/i69_pendulum/simulate.py && python3 projects/i69_pendulum/emit_ts.py
+python3 projects/r010_pendulum/simulate.py && python3 projects/r010_pendulum/emit_ts.py
 MANIM_W=1350 MANIM_H=2400 python3 scripts/manim_render.py \
-    projects/i69_pendulum/scene_pendulum.py Pendulums i69pendulum
+    projects/r010_pendulum/scene_pendulum.py Pendulums i69pendulum
 ```
 
 **The toolchain was rebuilt from scratch** on 2026-09-10 so no stale packages remain:
@@ -100,8 +100,8 @@ reclaims nothing there.
 1. **`manim` 0.18.1 imports `importlib_metadata` without declaring it**, so a clean install on
    Python 3.9 dies at `manim --version` with `ModuleNotFoundError`. It only worked before because
    some retired dependency happened to pull it in. Now pinned in `scripts/manim_requirements.txt`.
-2. **`numpy` is now 2.0.2, and four scripts still call `np.ptp`** — `i69_pendulum/simulate.py` (two
-   asserts), `i64_queue/sim.py`, `i17_greatcircle/build_geo.py`. `np.ptp` as a *function* survives
+2. **`numpy` is now 2.0.2, and four scripts still call `np.ptp`** — `r010_pendulum/simulate.py` (two
+   asserts), `i64_queue/sim.py`, `r006_greatcircle/build_geo.py`. `np.ptp` as a *function* survives
    in NumPy 2; it is the `ndarray.ptp()` *method* that was removed, and all four uses are the
    function form, so they are safe. Worth knowing, because this repo has been bitten by the 2.0
    removal twice already.
@@ -128,7 +128,7 @@ Nothing of value; git holds the history of all of it.
 
 ## 4. Defects fixed
 
-**1 · Two reels were both numbered `r009`.** `i58_tides` (posted) and the shelved `i64_queue` build.
+**1 · Two reels were both numbered `r009`.** `r009_tides` (posted) and the shelved `i64_queue` build.
 The shelved build now holds **no** reel number: its render is `i64_queue_shelved.mp4` and its
 compositions are `i64-queue` / `i64-queue-safe`. `brand_guide_software.md` updated. The rule — *a
 reel number is claimed in `CLAUDE.md`'s table when the build starts and never shared* — is now
@@ -186,6 +186,45 @@ their old names because the logs cite them.
 this with the one-line restore command. Every other archived-path reference in the surviving files
 (`brand_guide_software.md`, `content_backlog.md`, `insta_strategy.md`, `remotion/src/brand/tokens.ts`,
 both comp deep dives) now names the branch instead of dangling.
+
+---
+
+## 4b. Second pass, same day — unpublished reels deleted, folders renamed by reel number
+
+On the decision *"delete the projects — astar or other ones that we have not published… better way
+to rename would be `r<reel-number>_<reel-name>`; idea numbers are redundant and replaceable"*:
+
+**Deleted — three reels that were built and never posted.** Project folder, Remotion component,
+data modules and compositions each time. All recoverable from git history.
+
+| Reel | Id | Why it was never posted |
+|:--|:--|:--|
+| `r005` shuffle | `I51` | five rebuilds; each raised rigor and lowered watchability. The subject's defining property is that the bias is invisible |
+| `r008` A\* | `I15` | passed Gate 0 on its picture, then drew *"I didn't understand the point. We are comparing 2 algos?"* |
+| I64 queue | `I64` | passed every automated gate at 65% event density and was stopped at Gate 3: *"the output is not sound"* |
+
+**r005 and r008 are spent reel numbers and are never reused. The next reel is `r011`.**
+
+**Renamed — `projects/r<NNN>_<name>/`, keyed by reel number rather than backlog id.**
+
+```
+i17_greatcircle → r006_greatcircle      i58_tides    → r009_tides
+i22_cables      → r007_cables           i69_pendulum → r010_pendulum
+data/i17_geo.ts → data/r006_geo.ts      data/i22_geo.ts → data/r007_geo.ts
+```
+
+34 files were rewritten to follow the rename, and the convention in
+`.claude/skills/new-reel/reference/build.md` was reversed to match: **a folder in `projects/` is a
+reel that shipped**, and a concept in gate keeps an id-named folder only until it is posted.
+
+**Backlog rows keep the ids** — ids are still permanent there, which is the rule that lets old logs
+resolve. `I51` and `I15` are marked *retired*, `I64` *shelved* (its Gate 0 sentence passed a human
+gate and nobody has diagnosed which part of the execution failed, so the concept is still open).
+`backlog_ideas.py` gained a `SHELVED` state so a deleted project, which leaves no directory to
+detect, is still reported as spent rather than offered as a fresh candidate. It now reads:
+**69 ids — 8 built, 1 failed, 2 in gate, 2 retired, 1 shelved, 55 open.**
+
+`Root.tsx` was rewritten again: **16 compositions, posted reels only, in reel order.**
 
 ---
 

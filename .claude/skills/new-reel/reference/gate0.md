@@ -142,7 +142,7 @@ improve by trying again.**
 
 ## The GATE0.md template
 
-Write to `projects/<id>_<slug>/gate0/GATE0.md`. Models: `i17_greatcircle` (passed),
+Write to `projects/<id>_<slug>/gate0/GATE0.md`. Models: `r006_greatcircle` (passed),
 `i53_flood` (failed by measurement), `i24`/`i52` notes in the backlog (failed on the sentence).
 
 ```markdown
@@ -202,7 +202,7 @@ and where the geometry/data came from>
 
 ## The payoff-frame script
 
-`projects/<id>_<slug>/gate0/mock_payoff.py` — model: `i17_greatcircle/gate0/mock_payoff.py`.
+`projects/<id>_<slug>/gate0/mock_payoff.py` — model: `r006_greatcircle/gate0/mock_payoff.py`.
 
 - **1080×1920**, composed inside the safe area (`y` 270–1540, `x` 60–870). The gate frame should
   be honest about the real canvas.

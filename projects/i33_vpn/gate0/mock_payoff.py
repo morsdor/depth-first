@@ -4,7 +4,7 @@
 Nothing here is drawn from imagination:
 
   * coastline  — the GSHHG polylines r006 already shipped, read straight back
-                 out of remotion/src/reels/data/i17_geo.ts. Same licence path,
+                 out of remotion/src/reels/data/r006_geo.ts. Same licence path,
                  already cleared once.
   * zones      — /usr/share/zoneinfo/zone.tab, the real IANA database on this
                  machine (2026c). The zone names, their country codes and the
@@ -32,7 +32,7 @@ FAILURE = '#FF4D4D'   # the leak, and only the leak
 
 FONTS = Path('assets/fonts')
 TZTAB = Path('/usr/share/zoneinfo/zone.tab')
-GEO = Path('remotion/src/reels/data/i17_geo.ts')
+GEO = Path('remotion/src/reels/data/r006_geo.ts')
 
 # lat, lon straight out of zone.tab (+5222+00454 and +2232+08822)
 AMS = (52.37, 4.90)

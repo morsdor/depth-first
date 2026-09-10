@@ -155,12 +155,17 @@ before optimising for reach: whether r006's 71 follows stayed, and whether they 
 | `r002` | `I08` | Autocorrect / edit distance | **posted 2026-09-02** |
 | `r003` | `I01` | QR / Reed–Solomon damage tolerance | **posted 2026-09-05** (without the end beat) |
 | `r004` | `I03` | JPEG / DCT — a photo stores no pixels | **posted 2026-09-06** |
-| `r005` | `I51` | The obvious way to shuffle is wrong (Fisher–Yates bias) | rebuilt 2026-09-07 (v5, landing-position map), 39 s, not posted |
 | `r006` | `I17` | Great circle — the flight path that looks curved is the straight one | **posted 2026-09-08** (32 s) — first reel built under Gate 0; **80k+ views and ~120 follows by 2026-09-10**, the account's only hit |
 | `r007` | `I22` | Submarine cables — your message abroad goes underwater, not to space | **posted 2026-09-09** (28 s) — peaked ~1.8k views; the r006 pattern test, and it failed |
-| `r008` | `I15` | A\* vs Dijkstra — one route across Paris, two ways to find it | built 2026-09-10 (28 s), **not posted** — first reel on real OpenStreetMap data |
 | `r009` | `I58` | Tides — the Sun pulls 179x harder and the Moon still makes the tide | built 2026-09-10 (54 s), **posted 2026-09-10** — 189 views · 4 likes · 1 follow at first reading; first reel outside software, and the longest |
 | `r010` | `I69` | Pendulum wave — fifteen strings, and the thirty seconds they take to come back | built 2026-09-10 (34 s), **posted 2026-09-10** — 190 views · 0 engagement at first reading; first reel with a Manim layer; rebuilt down from a 60 s cycle after the first viewer could not tell the fifteen strings apart |
+
+**Three built reels were never posted and were deleted on 2026-09-10** — `r005` (`I51`, the
+shuffle bias, five rebuilds), `r008` (`I15`, A\* vs Dijkstra, which failed the sentence test after
+being built) and the shelved `I64` queue. Their project folders, components and data modules are
+gone from the tree and remain in git history. **The reel numbers r005 and r008 are spent and are
+never reused** — the next reel is `r011`. What they taught is in `brand_guide_software.md` §13 and
+stays there.
 
 Update this table, `brand_guide_software.md` §13 and
 [`reel_captions_log.md`](reel_captions_log.md) when one ships.

@@ -17,7 +17,7 @@ which is change that teaches nothing -- the metric rewards motion and cannot
 tell whether the motion carries information. Read it next to the reel, never
 instead of it.
 
-    python3 scripts/reel_motion_audit.py projects/r005_shuffle/r005_shuffle.mp4
+    python3 scripts/reel_motion_audit.py projects/r006_greatcircle/r006_greatcircle.mp4
 """
 import argparse
 import shutil

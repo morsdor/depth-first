@@ -130,7 +130,7 @@ Every fix goes back into the row as an italic note with the date and the measuri
 
 ### NOTES.md template
 
-Model: `projects/i22_cables/NOTES.md` — the fullest one, and the shape to copy.
+Model: `projects/r007_cables/NOTES.md` — the fullest one, and the shape to copy.
 
 ```markdown
 # rNNN · `I<NN>` — "<the sentence, short form>"
@@ -161,7 +161,7 @@ change the conclusion>
 <the narrower, true version of the claim>
 ```
 
-**Write the traps section even when the build went well.** Every entry in `i22_cables/NOTES.md`'s
+**Write the traps section even when the build went well.** Every entry in `r007_cables/NOTES.md`'s
 trap list — a welded-then-measured cable, the 180° seam, `GEO_ALT` needing the equatorial radius,
 coastlines invisible at `#274064` — is a thing that failed silently and would have cost the same
 hour twice.

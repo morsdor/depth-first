@@ -32,9 +32,9 @@ import { PENDULUM } from './data/pendulum';
  * Manim drew. Every box on this page — labels, callout, table, equation, closing
  * line — is asserted clear of the apparatus, inside the safe area, and disjoint
  * from every other box that shares its screen time, by
- * projects/i69_pendulum/check_annotations.py. Move one here and re-run that.
+ * projects/r010_pendulum/check_annotations.py. Move one here and re-run that.
  *
- * The camera lives in projects/i69_pendulum/camera.py and arrives through the
+ * The camera lives in projects/r010_pendulum/camera.py and arrives through the
  * data module, for the same reason: the clearances are checked against it, so a
  * camera edited only in this file would invalidate those checks in silence.
  */

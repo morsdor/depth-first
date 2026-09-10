@@ -24,7 +24,7 @@ import {
   SFO,
   STRETCH_AT_VERTEX,
   VERTEX_LAT,
-} from './data/i17_geo';
+} from './data/r006_geo';
 
 /**
  * r006 · "Your flight path isn't curved. Your map is."  (backlog I17)

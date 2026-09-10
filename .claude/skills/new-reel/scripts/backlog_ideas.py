@@ -137,6 +137,11 @@ def status_of(entry: dict, built: dict, projects: dict) -> tuple[str, str]:
         return 'STARTED', p['dir']
     if 'retired' in hook.lower():
         return 'RETIRED', 'see the row'
+    # A build that was made and stopped by a human. The concept may still be open —
+    # what is spent is the execution, and the row says which. Deleted projects leave
+    # no directory to detect, so the row is the only record.
+    if 'shelved' in hook.lower():
+        return 'SHELVED', 'built and stopped — see the row before rebuilding'
     if 'FAILED' in hook:
         return 'FAILED', 'marked in the backlog row'
     if 'produced as' in hook:

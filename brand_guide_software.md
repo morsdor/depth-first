@@ -926,7 +926,7 @@ and the second one is the reel's actual constraint:
   **displacement**. One straight lifting bar pulls every bob the same distance sideways, which is a
   much wider angle on a short string than a long one — `C` then spreads by **10368 ppm** and the
   line never comes back (48.5° of scatter at 30 s). Full table in
-  `projects/i69_pendulum/gate0/GATE0.md` §6.
+  `projects/r010_pendulum/gate0/GATE0.md` §6.
 
 **The generalisable part: the approximation you are using is itself a claim, and it is the one
 least likely to get tested** — because it arrived as a formula rather than as a sentence. The

@@ -107,7 +107,7 @@ All figures below are output of `projects/r004_jpeg/dct.py` on the posted crop
 
 ### r010 — "Fifteen weights, and the thirty seconds they take to come back" (`I69`) — **written 2026-09-10, not yet posted**
 
-Every figure is output of `projects/i69_pendulum/simulate.py`, which integrates
+Every figure is output of `projects/r010_pendulum/simulate.py`, which integrates
 `θ'' = −(g/L)·sin θ` with RK4 at dt = 1/600 s. `g = 9.80665 m/s²` (standard gravity, CGPM 1901).
 No data source and no licence question — the reel is computed from first principles.
 
@@ -203,7 +203,7 @@ copy), `#manim` (dev inside-baseball, and it advertises the tool over the thing)
 
 ### r007 — "Your message doesn't go to space" (`I22`) — **written 2026-09-09, not yet posted**
 
-Every figure is output of `projects/i22_cables/build_geo.py`. Distances are spherical on
+Every figure is output of `projects/r007_cables/build_geo.py`. Distances are spherical on
 R = 6,371 km; fibre latency uses `c / 1.4675`, the group index of silica at 1550 nm.
 
 #### Caption A — recommended
@@ -271,7 +271,7 @@ wrong end of the civilian/dev split), `#telecom` (an industry tag, not an audien
 
 ### r006 — "Your flight path isn't curved" (`I17`) — posted 2026-09-08
 
-Every figure is output of `projects/i17_greatcircle/build_geo.py`. Distances are spherical, on the
+Every figure is output of `projects/r006_greatcircle/build_geo.py`. Distances are spherical, on the
 IUGG mean radius R = 6,371.0088 km, cross-checked against the WGS84 geodesic (`pyproj.Geod`) and
 against the sum of the sampled legs.
 
@@ -332,8 +332,8 @@ carry traffic) and `#howitworks` (generic enough to be noise).
 
 ## r009 — "The Sun pulls 179x harder. The Moon makes the tide." (`I58`) — DRAFT, not posted
 
-All figures are output of `projects/i58_tides/tides.py`, re-asserted by `emit_ts.py` before the
-data module was written. See `projects/i58_tides/NOTES.md`.
+All figures are output of `projects/r009_tides/tides.py`, re-asserted by `emit_ts.py` before the
+data module was written. See `projects/r009_tides/NOTES.md`.
 
 ### Caption A — drafted
 

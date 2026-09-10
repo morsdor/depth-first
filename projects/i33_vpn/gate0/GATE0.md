@@ -21,7 +21,7 @@ Chosen over two alternatives, both recorded here because the reasons matter:
 ![payoff](payoff_frame.png) — `mock_payoff.py`. Two clocks, one screen, disagreeing, over a
 map with two pins that cannot both be true. Nothing on it is invented:
 
-- **coastline** — the GSHHG polylines r006 already shipped, read back out of `i17_geo.ts`.
+- **coastline** — the GSHHG polylines r006 already shipped, read back out of `r006_geo.ts`.
   Same licence path, cleared once already.
 - **pins** — the literal coordinates in `zone.tab` for `Europe/Amsterdam` (+5222+00454) and
   `Asia/Kolkata` (+2232+08822).

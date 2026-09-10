@@ -46,7 +46,7 @@ below are therefore the *only* shared code the reels will ever have, which raise
 
 | Function | Count | Where |
 |:--|--:|:--|
-| `coastlines()` | 2 | `i17_greatcircle/build_geo.py`, `i22_cables/build_geo.py` |
+| `coastlines()` | 2 | `r006_greatcircle/build_geo.py`, `r007_cables/build_geo.py` |
 | `rdp()` (polyline simplification) | 2 | the same two |
 | `fisher_yates()` | 3 | the r005 scripts |
 | `main()` with the same fetch → compute → assert → write shape | 9 | every project |

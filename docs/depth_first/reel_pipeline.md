@@ -126,7 +126,7 @@ licence question. `GATE0.md` records verdicts on each, honestly — r009 and r01
 leg they were weak on, and both then landed on the floor.
 
 The model file is `.claude/skills/new-reel/reference/gate0.md`; the best examples are
-`projects/i69_pendulum/gate0/GATE0.md` (a pass with a falsification that changed the design) and
+`projects/r010_pendulum/gate0/GATE0.md` (a pass with a falsification that changed the design) and
 `projects/i53_flood/gate0/GATE0.md` (a failure record).
 
 ### Stage 3 · research and measure
@@ -138,9 +138,9 @@ Where the numbers come from, and the rules that keep them honest:
 - **Cache the network.** `i15_astar/fetch_graph.py` hits Overpass with a real User-Agent (the
   default one gets HTTP 406), falls back across three mirrors, and writes `graph_<city>.json` so
   every rebuild is offline. Four city graphs (Paris, London, NYC, Delhi) are already cached.
-- **Falsify the mechanism.** `i69_pendulum/design.py` integrated the real `θ'' = −(g/L) sin θ` and
+- **Falsify the mechanism.** `r010_pendulum/design.py` integrated the real `θ'' = −(g/L) sin θ` and
   found the textbook small-angle lengths reform 0.33 s late — so the reel prints the corrected
-  equation. `i58_tides/tides.py` asserts 23 claims from CODATA/IAU constants. `r003`'s damage
+  equation. `r009_tides/tides.py` asserts 23 claims from CODATA/IAU constants. `r003`'s damage
   verdicts come from OpenCV, not from the encoder that made the code.
 - **One stated base per percentage**, never two figures on different bases side by side.
 - **No dataset shopping.** Trying cities until one supports the claim is p-hacking when the claim is
@@ -185,7 +185,7 @@ legal. Amber is one element per frame; `failure #FF4D4D` only on the beat someth
 
 **The camera** lives in one of two places: as a keyframe table in the `.tsx`
 (`Tides.tsx` `CAM: [second, scale, cx, cy][]`, rule: no two consecutive keyframes equal) or in
-Python (`i69_pendulum/camera.py`), shipped through the data module so that annotation clearances
+Python (`r010_pendulum/camera.py`), shipped through the data module so that annotation clearances
 can be asserted against the camera the reel actually uses.
 
 **The Manim layer (r010).** Manim renders; it does not animate. Angles are read frame by frame from
@@ -283,16 +283,16 @@ are seven is that each was added after something false shipped or nearly shipped
 ```bash
 python3 .claude/skills/new-reel/scripts/backlog_ideas.py --id I69     # Stage 1
 # Stage 2: gate0/GATE0.md written, gate0/mock_payoff.py → payoff_frame.png, human yes to the sentence
-python3 projects/i69_pendulum/design.py        # Stage 3: falsification — found the 0.33 s error
-python3 projects/i69_pendulum/simulate.py      # → pendulum_data.json (RK4, dt = 1/600 s, self-asserting)
-python3 projects/i69_pendulum/emit_ts.py       # → remotion/src/reels/data/pendulum.ts (22 asserts)
+python3 projects/r010_pendulum/design.py        # Stage 3: falsification — found the 0.33 s error
+python3 projects/r010_pendulum/simulate.py      # → pendulum_data.json (RK4, dt = 1/600 s, self-asserting)
+python3 projects/r010_pendulum/emit_ts.py       # → remotion/src/reels/data/pendulum.ts (22 asserts)
 MANIM_W=1350 MANIM_H=2400 python3 scripts/manim_render.py \
-    projects/i69_pendulum/scene_pendulum.py Pendulums i69pendulum   # → public/manim/i69pendulum/ (1,020 PNGs)
-python3 projects/i69_pendulum/check_annotations.py                  # every text box cleared, before rendering
+    projects/r010_pendulum/scene_pendulum.py Pendulums i69pendulum   # → public/manim/i69pendulum/ (1,020 PNGs)
+python3 projects/r010_pendulum/check_annotations.py                  # every text box cleared, before rendering
 cd remotion && npx tsc --noEmit && npm run brand:check
-npx remotion render r010-pendulum ../projects/i69_pendulum/r010_pendulum.mp4 --codec=h264
-cd .. && python3 scripts/reel_motion_audit.py projects/i69_pendulum/r010_pendulum.mp4
-python3 scripts/reel_safe_audit.py projects/i69_pendulum/r010_pendulum.mp4
+npx remotion render r010-pendulum ../projects/r010_pendulum/r010_pendulum.mp4 --codec=h264
+cd .. && python3 scripts/reel_motion_audit.py projects/r010_pendulum/r010_pendulum.mp4
+python3 scripts/reel_safe_audit.py projects/r010_pendulum/r010_pendulum.mp4
 # Gate 3: watched end to end → rebuilt from a 60 s cycle to 30 s (strings 1.62× → 2.37× apart)
 # Stage 6: five logs written; posted 2026-09-10; 190 views at first reading
 ```

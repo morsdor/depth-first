@@ -17,8 +17,8 @@ because the run produced them.
 ```bash
 python3 .claude/skills/new-reel/scripts/backlog_ideas.py   # what to build next
 cd remotion && npm run dev                                 # Remotion Studio
-npx remotion render r006-greatcircle ../projects/i17_greatcircle/r006_greatcircle.mp4 --codec=h264
-cd .. && python3 scripts/reel_motion_audit.py projects/i17_greatcircle/r006_greatcircle.mp4
+npx remotion render r006-greatcircle ../projects/r006_greatcircle/r006_greatcircle.mp4 --codec=h264
+cd .. && python3 scripts/reel_motion_audit.py projects/r006_greatcircle/r006_greatcircle.mp4
 ```
 
 ## The YouTube line is retired

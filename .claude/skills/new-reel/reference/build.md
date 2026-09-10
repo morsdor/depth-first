@@ -15,25 +15,30 @@ them**.
 
 Reference shape: `projects/r001_shazam/` (`fingerprint.py` → `emit_ts.py` → `emit_audio.py` →
 `remotion/src/reels/Shazam.tsx`). Best modern examples: `projects/i15_astar/` (real OSM graph) and
-`projects/i22_cables/` (public geography, licence-clean).
+`projects/r007_cables/` (public geography, licence-clean).
 
 ---
 
 ## File layout
 
-**The folder is named for the BACKLOG ID, not the reel number** — `projects/i58_tides/`, not
-`projects/r009_tides/`. The reel number appears only on the render inside it
-(`r009_tides.mp4`). Reason: an id is permanent and is assigned at Gate 0, while a reel number is
-assigned at ship time and two builds have already collided over one — `I58` tides and the shelved
-`I64` queue were both "r009" until 2026-09-10. `projects/r001_shazam` … `projects/r005_shuffle`
-predate the convention and keep their names, because the logs cite them.
+**The folder is `projects/r<NNN>_<name>/` — the REEL NUMBER, not the backlog id.** Set 2026-09-10.
+The name after the number can be as long as it needs to be; it is for humans reading a directory
+listing. Backlog ids stay permanent *in `content_backlog.md`* and in the logs, but they are
+redundant as a folder key: a folder is a place a reel was built, and the reel number is what every
+log, caption and analytics reading calls it.
 
-**Claim the reel number in `CLAUDE.md`'s table when the build starts, and never share it.** A
-shelved build releases its number and is renamed (`i64_queue_shelved.mp4`, compositions
-`i64-queue` / `i64-queue-safe`).
+**A folder in `projects/` is a reel that shipped.** An unbuilt or unshipped concept lives as a Gate 0
+record only — `projects/<id>_<slug>/gate0/` is acceptable while a concept is in gate, and the folder
+is renamed to `r<NNN>_<name>` when the reel is posted. Three built-but-never-posted reels
+(r005 shuffle, r008 A\*, the shelved I64 queue) were deleted on 2026-09-10 rather than kept; they
+are in git history if a rebuild ever wants them.
 
-`.gitignore` tracks a render by the FILE's name, not the folder's — `!projects/*/r[0-9][0-9][0-9]_*.mp4`
-— so a correctly named render is committed and a shelved one is not.
+**Claim the reel number in `CLAUDE.md`'s table when the build starts, and never share it.** `I58`
+tides and the shelved `I64` queue were both "r009" until 2026-09-10, which is exactly the collision
+this rule prevents.
+
+`.gitignore` tracks a render by the FILE's name — `!projects/*/r[0-9][0-9][0-9]_*.mp4` — so a
+correctly named render is committed. Match the render's name to its folder: `projects/r006_greatcircle/r006_greatcircle.mp4`.
 
 ```
 projects/<id>_<slug>/

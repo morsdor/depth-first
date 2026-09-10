@@ -33,7 +33,7 @@ import {
   VIRGINIA,
   V_FIBRE,
   V_RADIO,
-} from "./data/i22_geo";
+} from "./data/r007_geo";
 
 /**
  * r007 · "Your message to a friend abroad goes underwater."  (backlog I22)
@@ -66,7 +66,7 @@ import {
  * Every millisecond here is a speed-of-light FLOOR for the route: distance over
  * medium velocity. No switching, no queuing, no routing reality. The reel never
  * shows a figure as a measured ping, and the readout says "floor" where it
- * matters. See projects/i22_cables/NOTES.md.
+ * matters. See projects/r007_cables/NOTES.md.
  */
 
 export const DURATION_SECONDS = 28;
