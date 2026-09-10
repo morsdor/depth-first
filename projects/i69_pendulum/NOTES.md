@@ -201,15 +201,15 @@ an explicit `size`.
 `scripts/reel_motion_audit.py` at its default `--width 240`:
 
 ```
-median change 3.363 · longest dead spell 0.00s · event density 99%   PASS
+median change 3.36 · longest dead spell 0.00s · event density 99%   PASS
 ```
 
 Per beat: seven of eight at **100%**, the hook at 95%; medians 2.74–4.61. Benchmarks: r004 42%,
-r005 v5 53%, r006 38%, r007 46%, r008 54%, r009 65%.
+r005 v5 53%, r006 38%, r007 46%, r008 54%, r009 (tides) 47%, and the shelved `I64` queue build 65%.
 
-**That number should be read with suspicion, not pride.** r009 scored the best in the repo at 65%
-and the verdict on watching it was "the output is not sound" — the audit counts pixels changing,
-not whether a stranger can name what they are seeing. The reason this reel scores so high is not
+**That number should be read with suspicion, not pride.** The queue build scored the best in the
+repo at 65% and the verdict on watching it was "the output is not sound" — the audit counts pixels
+changing, not whether a stranger can name what they are seeing. The reason this reel scores so high is not
 craft: fifteen large bright bobs never stop moving for the entire 34 seconds. Read it as "the
 metric is saturated and no longer discriminating".
 
@@ -239,4 +239,4 @@ Instagram's action rail begins at x = 870. That tool is a report, not a gate.
 - **A bob reappeared *below* the readout** during the short-end push at t = 27 — the longest
   string hangs 400 px past its pivot and the scrim stopped at y = 1576. The scrim now runs to the
   bottom of the frame.
-- `np.ptp` was removed in NumPy 2.0 — same bite as r009.
+- `np.ptp` was removed in NumPy 2.0 — same bite as the `I64` queue build.

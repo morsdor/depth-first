@@ -977,9 +977,11 @@ r010 measures **99% event density** — seven of its eight beats at 100%, the ho
 change 3.36, no dead spell at all. Best on the account by a distance, and it means almost nothing
 on its own.
 
-**r009 held the previous record at 65% and the verdict on watching it was "the output is not
-sound."** The audit counts pixels changing; it cannot count whether a stranger can name what is
-moving. The reason r010 scores where it does is not craft — it is that fifteen large bright bobs
+**The shelved `I64` queue build held the previous record at 65% and the verdict on watching it
+was "the output is not sound."** (That build was proposed as r009; the number went to `I58` tides,
+which measures 47%. The queue mp4 is still at `projects/i64_queue/r009_queue.mp4` — see the note
+under §13's r010 entries about the collision.) The audit counts pixels changing; it cannot count
+whether a stranger can name what is moving. The reason r010 scores where it does is not craft — it is that fifteen large bright bobs
 are in motion for thirty-four consecutive seconds. Any reel about a physical system in continuous motion
 will score like this, and the number should be read as "the metric is saturated and no longer
 discriminating", not as a grade.
