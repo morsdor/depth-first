@@ -79,9 +79,36 @@ MANIM_W=1350 MANIM_H=2400 python3 scripts/manim_render.py \
     projects/i69_pendulum/scene_pendulum.py Pendulums i69pendulum
 ```
 
-**Kept deliberately:** `remotion/node_modules` (581 MB), `.venv` (431 MB), `.manimenv` (407 MB).
-These are toolchain, not content — deleting them would mean an `npm install` and two venv rebuilds
-before the next reel. Say so if you want them gone; each is one command to restore.
+**The toolchain was rebuilt from scratch** on 2026-09-10 so no stale packages remain:
+
+| Env | Before | After | Rebuilt with |
+|:--|--:|--:|:--|
+| `remotion/node_modules` | 581 MB | 581 MB | `npm ci` |
+| `.venv` | 431 MB | **79 MB** | `pip install -r requirements.txt` |
+| `.manimenv` | 407 MB | **257 MB** | `pip install -r scripts/manim_requirements.txt` |
+
+`.venv` shed 352 MB because the old one carried the retired long-form pipeline (moviepy,
+google-genai, opencv, pyproj, segno); the new one is numpy, Pillow and matplotlib.
+
+**`node_modules` did not shrink, and that is correct: 193 MB of it is
+`node_modules/.remotion/chrome-headless-shell`**, the headless Chrome Remotion downloads on first
+bundle and renders every frame through. It is the render engine, not bloat, and a clean install
+reclaims nothing there.
+
+**Two things the rebuild found:**
+
+1. **`manim` 0.18.1 imports `importlib_metadata` without declaring it**, so a clean install on
+   Python 3.9 dies at `manim --version` with `ModuleNotFoundError`. It only worked before because
+   some retired dependency happened to pull it in. Now pinned in `scripts/manim_requirements.txt`.
+2. **`numpy` is now 2.0.2, and four scripts still call `np.ptp`** — `i69_pendulum/simulate.py` (two
+   asserts), `i64_queue/sim.py`, `i17_greatcircle/build_geo.py`. `np.ptp` as a *function* survives
+   in NumPy 2; it is the `ndarray.ptp()` *method* that was removed, and all four uses are the
+   function form, so they are safe. Worth knowing, because this repo has been bitten by the 2.0
+   removal twice already.
+
+Verified after the rebuild: `npm run lint` clean, 22 compositions enumerate,
+`reel_motion_audit.py` reproduces r006's recorded 38% event density, `manim --version` reports
+Community v0.18.1.
 
 ---
 

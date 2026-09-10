@@ -3,3 +3,9 @@
 # step in manim_render.py's docstring is not optional.
 manim==0.18.1
 imageio-ffmpeg==0.6.0
+
+# manim 0.18.1 imports `importlib_metadata` unconditionally but does not declare it,
+# so a clean install on Python 3.9 fails at `manim --version` with ModuleNotFoundError.
+# (3.10+ has importlib.metadata in the stdlib, which is why this went unnoticed.)
+# Found rebuilding the venv from scratch on 2026-09-10.
+importlib-metadata
