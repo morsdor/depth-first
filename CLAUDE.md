@@ -1,14 +1,31 @@
 # CLAUDE.md
 
-Repo for two YouTube channels and one Instagram account:
+**Repo for one thing: Depth First short-form reels** — `@thedepthfirst` on Instagram
+(`brand_guide_software.md`). Everything in this file is about a reel unless it says otherwise.
 
-- **The Engineering Atlas** — long-form infrastructure documentaries (`brand_guide.md`)
-- **Depth First** — software/technical, `@thedepthfirst` on YouTube *and* Instagram
-  (`brand_guide_software.md`)
+> **The YouTube line was retired on 2026-09-10.** The Engineering Atlas (long-form historical
+> engineering) is **dead**; Depth First long-form (`s001`) is **parked**, and may be revived.
+> Both are preserved *in full* on the branch **`yt-longform-archive-DO_NOT_DELETE`** — the
+> strategy and brand docs, the 7-pass studio skills, the Gemini generation code, the AE builders,
+> the asset library, both project folders, and `remotion/src/{families,scenes,components,lib}`
+> with `public/plates`. Nothing was deleted from history.
+>
+> ```bash
+> git show yt-longform-archive-DO_NOT_DELETE:channel_strategy.md   # read one file
+> git checkout yt-longform-archive-DO_NOT_DELETE -- <path>         # bring one back
+> git switch yt-longform-archive-DO_NOT_DELETE                     # go and look
+> ```
+>
+> **Any path this repo names that no longer exists is on that branch.** Do not recreate one from
+> memory, and do not treat its absence as a bug. Details: [`docs/depth_first/repo_audit.md`](docs/depth_first/repo_audit.md).
 
 ---
 
 ## Short-form reels — start here
+
+**Operating docs (2026-09-10): [`docs/depth_first/README.md`](docs/depth_first/README.md)** — state of
+the account, the full pipeline map, the repo audit, the visual toolbox, module packs, and the growth
+strategy with its experiment register. This file stays the law; those are the map.
 
 ### The promise is "how systems work" — NOT computer science (2026-09-10)
 
@@ -139,11 +156,11 @@ before optimising for reach: whether r006's 71 follows stayed, and whether they 
 | `r003` | `I01` | QR / Reed–Solomon damage tolerance | **posted 2026-09-05** (without the end beat) |
 | `r004` | `I03` | JPEG / DCT — a photo stores no pixels | **posted 2026-09-06** |
 | `r005` | `I51` | The obvious way to shuffle is wrong (Fisher–Yates bias) | rebuilt 2026-09-07 (v5, landing-position map), 39 s, not posted |
-| `r006` | `I17` | Great circle — the flight path that looks curved is the straight one | **posted 2026-09-08** (32 s) — first reel built under Gate 0 |
+| `r006` | `I17` | Great circle — the flight path that looks curved is the straight one | **posted 2026-09-08** (32 s) — first reel built under Gate 0; **80k+ views and ~120 follows by 2026-09-10**, the account's only hit |
 | `r007` | `I22` | Submarine cables — your message abroad goes underwater, not to space | **posted 2026-09-09** (28 s) — peaked ~1.8k views; the r006 pattern test, and it failed |
 | `r008` | `I15` | A\* vs Dijkstra — one route across Paris, two ways to find it | built 2026-09-10 (28 s), **not posted** — first reel on real OpenStreetMap data |
-| `r009` | `I58` | Tides — the Sun pulls 179x harder and the Moon still makes the tide | built 2026-09-10 (54 s), **not posted** — first reel outside software, and the longest |
-| `r010` | `I69` | Pendulum wave — fifteen strings, and the thirty seconds they take to come back | built 2026-09-10 (34 s), **not posted** — first reel with a Manim layer; rebuilt down from a 60 s cycle after the first viewer could not tell the fifteen strings apart |
+| `r009` | `I58` | Tides — the Sun pulls 179x harder and the Moon still makes the tide | built 2026-09-10 (54 s), **posted 2026-09-10** — 189 views · 4 likes · 1 follow at first reading; first reel outside software, and the longest |
+| `r010` | `I69` | Pendulum wave — fifteen strings, and the thirty seconds they take to come back | built 2026-09-10 (34 s), **posted 2026-09-10** — 190 views · 0 engagement at first reading; first reel with a Manim layer; rebuilt down from a 60 s cycle after the first viewer could not tell the fifteen strings apart |
 
 Update this table, `brand_guide_software.md` §13 and
 [`reel_captions_log.md`](reel_captions_log.md) when one ships.
@@ -277,14 +294,24 @@ without adding hexes to the palette. Hardcoded hex literals outside `brand/` fai
 
 ## Cost gates — always confirm before spending
 
-- **Every image generation is charged.** Asset batches need explicit approval. The studio chain
-  itself must stay ₹0. Reels need no generation at all.
+**A reel costs ₹0 and that is a rule, not an accident.** Every frame is computed; no image model is
+ever involved. It is also the channel's credibility claim — *"the real algorithm, actually run, not
+drawn"* — so it is a positioning decision as much as a budget one. Keep it at ₹0.
+
+- **Every image generation is charged**, and nothing in the reel pipeline needs one. If a task seems
+  to want generation, the answer is that it is the wrong task.
 - **Every Kling job is charged.** Mandatory user confirmation before submitting; no trial runs; never
   auto-resubmit.
-- `scripts/tag_outliers.py` makes a charged Anthropic call — gated behind `--dry-run` / `--yes`.
-- YouTube Data API use is read-only public data inside the free quota.
+- The charged tools that used to live here — `generate_images.py`, `generate_asset.py`,
+  `generate_thumbnail.py`, `scripts/tag_outliers.py` — went to
+  `yt-longform-archive-DO_NOT_DELETE` with the YouTube line. Restoring one restores its cost gate too.
+- **Model tokens are the one real cost of a reel.** Research and code generation are not free even
+  though no image is; see `docs/depth_first/software_thesis.md` §8.
 
 ## Secrets
+
+*(Kling and Gemini have no code on `main` any more — these rules stand for the archive branch and
+for any future restore.)*
 
 - Never read or print `.env` values. `GEMINI_API_KEY` is git-ignored.
 - `~/.kling/.credentials` is sensitive — never read or print it, even if asked.
@@ -293,4 +320,5 @@ without adding hexes to the palette. Hardcoded hex literals outside `brand/` fai
 ## Generated brand assets
 
 Never ship a generated brand asset directly — repair it against the tokens in code first. The model
-gets geometry right and every colour wrong. See `brand_guide_software.md` §2.
+gets geometry right and every colour wrong. See `brand_guide_software.md` §2. This applies to the
+wordmark in `assets/brand/` and to nothing else on `main`: a reel generates no assets.

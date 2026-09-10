@@ -21,6 +21,20 @@ Reference shape: `projects/r001_shazam/` (`fingerprint.py` → `emit_ts.py` → 
 
 ## File layout
 
+**The folder is named for the BACKLOG ID, not the reel number** — `projects/i58_tides/`, not
+`projects/r009_tides/`. The reel number appears only on the render inside it
+(`r009_tides.mp4`). Reason: an id is permanent and is assigned at Gate 0, while a reel number is
+assigned at ship time and two builds have already collided over one — `I58` tides and the shelved
+`I64` queue were both "r009" until 2026-09-10. `projects/r001_shazam` … `projects/r005_shuffle`
+predate the convention and keep their names, because the logs cite them.
+
+**Claim the reel number in `CLAUDE.md`'s table when the build starts, and never share it.** A
+shelved build releases its number and is renamed (`i64_queue_shelved.mp4`, compositions
+`i64-queue` / `i64-queue-safe`).
+
+`.gitignore` tracks a render by the FILE's name, not the folder's — `!projects/*/r[0-9][0-9][0-9]_*.mp4`
+— so a correctly named render is committed and a shelved one is not.
+
 ```
 projects/<id>_<slug>/
   gate0/GATE0.md  mock_payoff.py  payoff_frame.png

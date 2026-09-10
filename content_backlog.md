@@ -29,14 +29,15 @@ mechanism underneath it running on real data.**
   utility gets watched and forgotten; utility without spectacle died at 639 likes against a 131,000
   sibling on the same account in the same month.
 
-**Ids are permanent** — same rule as `formula_library.md`. Once `I07` is logged against a post's
+**Ids are permanent** — same rule as `formula_library.md` (archived to `yt-longform-archive-DO_NOT_DELETE` on 2026-09-10;
+the rule stands). Once `I07` is logged against a post's
 engagement in `data/social_log.csv`, it is never reused for a different concept. Retire an entry by
 appending "(retired — date, reason)" to its hook; the row stays so old logs keep resolving.
 
 **Nothing here needs image generation.** Every frame is computed from real data by an existing
 Remotion family — which is what keeps the numbers on screen correct, keeps marginal cost at render
 time, and keeps the line clear of the inauthentic-content profile described in
-`channel_strategy.md` §4a.
+`channel_strategy.md` §4a (archived to `yt-longform-archive-DO_NOT_DELETE`).
 
 ## Open with these eight
 

@@ -23,7 +23,12 @@ tools/realesrgan/
 # 10-20MB file that has to reach a phone to be posted — and downloading one from
 # GitHub is the shortest path there. The blanket rule above still covers the 4K
 # long-form clips it was written for.
-!projects/r*/*.mp4
+#
+# Match on the RENDER's name, not the folder's. The original `!projects/r*/*.mp4`
+# was written when every project folder was `r00N_<slug>`; since the folders became
+# `i<NN>_<slug>` (keyed by backlog id) it silently stopped matching, and r010 — a
+# POSTED reel — sat untracked while r006-r009 were tracked only by force-add.
+!projects/*/r[0-9][0-9][0-9]_*.mp4
 *.mkv
 *.avi
 projects/*/images/
@@ -54,5 +59,3 @@ remotion/public/reels/r004_*.png
 .manimenv/
 remotion/public/manim/
 
-.geoenv/
-.venv/

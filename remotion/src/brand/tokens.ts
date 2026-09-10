@@ -9,7 +9,8 @@
  * keyframes, edits written back to code — when every value in the `style` prop is an
  * INLINE LITERAL.  Referring to a constant (`color: COLORS.amber`) greys the control out
  * and silently costs us the exact capability the pipeline was chosen for
- * (`/remotion-interactivity`; brand guide §11; remotion-director Rule 7).
+ * (`/remotion-interactivity`; brand guide §11; remotion-director Rule 7 — that skill was
+ * archived to the `yt-longform-archive-DO_NOT_DELETE` branch on 2026-09-10; the doctrine still holds).
  *
  * So the doctrine is:
  *   • Scene + family files carry HARDCODED LITERALS in `style`.  Studio stays live.

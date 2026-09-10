@@ -1,7 +1,33 @@
 # Instagram Strategy: short-form as the discovery layer
 
+> ## ⚠ Status banner — added 2026-09-10. Read before trusting anything below.
+>
+> **This document's central premise has been overtaken by events, and its evidence has not.**
+>
+> It was written 2026-09-02 arguing for short-form as a *discovery layer feeding YouTube*. On
+> 2026-09-10 the YouTube line was retired: The Engineering Atlas is dead and Depth First long-form
+> is parked, both preserved on the branch `yt-longform-archive-DO_NOT_DELETE`.
+> **Instagram is now the main line, not a funnel to anything.** Every "this feeds Depth First
+> long-form" argument here — §1's priority order, §4.2's "the Shorts leg is the strong argument",
+> §8's "s001 still ships" — is superseded. So is the §3 plan to reuse `MapRoute`/`Diagram`/
+> `Counter`: no reel ever imported them and they are now archived.
+>
+> **What survives, and is still the best analysis in the repo:** §2's `equation.verse` teardown and
+> the three findings (hit distribution, spectacle × utility, computed-not-generated), §2.0's
+> first-party 24-hour finality measurement, §4.1's honest funnel arithmetic, §4.3's warning that
+> this audience is the wrong *buyer*, §6's pillars, and §9's metrics. §5's "first-party demand data
+> is the real asset" is more true now, not less.
+>
+> **Paths named here that no longer exist** — `channel_strategy.md`, `strategy_review.md`,
+> `formula_library.md`, `scripts/fetch_outliers.py`, `scripts/tag_outliers.py`, `data/outliers.csv`,
+> `visual-accuracy-gate`, `projects/s001_ai_physical_cost` — are on the archive branch, not lost.
+>
+> **The live successors:** [`docs/depth_first/growth_strategy.md`](docs/depth_first/growth_strategy.md)
+> (what to do now) and [`docs/depth_first/software_thesis.md`](docs/depth_first/software_thesis.md)
+> (where it is going). This file is kept for its evidence and its reasoning, not its plan.
+
 *Written 2026-09-02, after the `equation.verse` teardown. This is a **third** strategic move for
-this repo, and the previous two are documented: [`channel_strategy.md`](channel_strategy.md)
+this repo, and the previous two are documented: `channel_strategy.md` *(archived)*
 (The Engineering Atlas, historical engineering) and
 [`brand_guide_software.md`](brand_guide_software.md) (Depth First, software documentaries). This
 document does **not** replace either. It proposes a discovery layer that feeds Depth First, and it

@@ -105,3 +105,17 @@ And the harder one, given §4: **is a platform guarantee enough of a payoff, or 
 be built on something computed?**
 
 Yes → build as r008. No → it fails on kill condition 3; pick a different id, don't repair it.
+
+
+---
+
+**Broken dependency, 2026-09-10.** `mock_payoff.py` reads its audio from
+`projects/001_roman_aqueduct/vo_001_final.wav`, which was archived to the
+`yt-longform-archive-DO_NOT_DELETE` branch when the YouTube line was retired. **The script will not run as written.**
+Restore just that file, or re-point it at any voice recording:
+
+```bash
+git checkout yt-longform-archive-DO_NOT_DELETE -- projects/001_roman_aqueduct/vo_001_final.wav
+```
+
+`I52` is still open and un-gated, so this costs nothing until someone picks it up.

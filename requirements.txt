@@ -1,13 +1,26 @@
-# The Engineering Atlas — pipeline dependencies
-# venv:  python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
-# System dependency (NOT pip): ffmpeg  →  macOS: brew install ffmpeg
-moviepy==1.0.3       # video_assembler.py
-numpy                # video_assembler.py (Ken Burns transforms)
-pillow               # text overlays + image handling
-google-genai         # generate_images.py / generate_asset.py — Gemini images
-# Animation is hand-built in After Effects (docs/after_effects_workflow.md) —
-# no generative-video deps needed.
-pyyaml               # scripts/fetch_outliers.py — competitor channel list
-# anthropic          # optional: scripts/tag_outliers.py (formula tagging) — install if you use it
-segno                # projects/r003_qr — spec-correct QR encoding (pure python)
-opencv-python-headless  # projects/r003_qr — INDEPENDENT decoder, so damage verdicts are not self-reported
+# Depth First — reel pipeline dependencies
+#
+#   python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
+#
+# Rewritten 2026-09-10. This file used to describe The Engineering Atlas long-form pipeline
+# (moviepy, google-genai) — that line is retired and its requirements are on the branch
+# `yt-longform-archive-DO_NOT_DELETE`. A reel generates no images and needs no API key.
+#
+# System dependency (NOT pip): ffmpeg → macOS: brew install ffmpeg
+#   Used by scripts/reel_motion_audit.py, scripts/reel_safe_audit.py, per-beat slicing and
+#   filmstrips. The FINAL encode is not ffmpeg — Remotion ships its own compositor.
+
+# ── the core three: every reel uses these ────────────────────────────────────
+numpy                   # every simulation and both audit scripts
+pillow                  # Gate 0 payoff mocks, the motion audit's frame differencing
+matplotlib              # Gate 0 mocks, falsification sweeps (e.g. i69_pendulum/design.py)
+
+# ── per-reel extras: install when a build needs one, not by default ──────────
+# segno                 # r003 QR — spec-correct encoding, pure python
+# opencv-python-headless# r003 QR — an INDEPENDENT decoder, so damage verdicts are not self-reported
+# pyproj                # r006 great circle — WGS84 geodesic cross-check against the sphere
+
+# ── Manim lives in its OWN venv, not this one ────────────────────────────────
+#   python3 -m venv .manimenv && .manimenv/bin/pip install -r scripts/manim_requirements.txt
+#   No LaTeX is installed, so MathTex is unavailable — typeset equations in Remotion HTML/CSS
+#   instead, where emit_ts.py can assert them against the data.

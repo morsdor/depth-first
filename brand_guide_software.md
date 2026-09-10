@@ -1,7 +1,8 @@
 # Depth First — Brand Guide (software/technical documentaries)
 
 *The identity document for the **second channel** — technical documentaries told visually. Sister to
-`brand_guide.md` (The Engineering Atlas), which does **not** transfer: different subject, different
+`brand_guide.md` (The Engineering Atlas — retired 2026-09-10, now on the branch
+`yt-longform-archive-DO_NOT_DELETE`), which does **not** transfer: different subject, different
 viewer, different visual language. Written 2026-08-17, after the @CodeSource comp deep dive
 (`docs/comp_deep_dive_codesource.md`) and the Remotion pipeline decision.*
 
@@ -415,8 +416,8 @@ rather than remembered.
 | §5 Frame spec | `<Composition width={3840} height={2160} fps={30}>`, `HANDLE_FRAMES = 30` |
 | §5 Camera | `families/PlatePush.tsx`, `push` typed as `PushPercent` (a closed union, not `number`) |
 | **Enforcement** | `remotion/scripts/check-brand.mjs` → `npm run brand:check`, wired into `npm run lint` |
-| §7 Structure | `storyboard.json` scene skeletons (script-analyzer, pass 1) |
-| §8 Thumbnails | `generate_thumbnail.py` + `add_thumbnail_text.py` → `assets/thumbnails_log.md` |
+| §7 Structure | `storyboard.json` scene skeletons (script-analyzer, pass 1) — *archived* |
+| §8 Thumbnails | `generate_thumbnail.py` + `add_thumbnail_text.py` → `assets/thumbnails_log.md` — *archived* |
 
 > [!IMPORTANT]
 > **Corrected 2026-08-17 after building it — tokens are the spec and the validator, NOT runtime
@@ -471,7 +472,9 @@ carry 100% of that load, which raises the bar on packaging rather than lowering 
 
 *Companions: `docs/comp_deep_dive_codesource.md` (the evidence behind §7 runtime and §8) ·
 `brand_guide.md` (The Engineering Atlas — the sister channel, deliberately different) ·
-`docs/cinematography.md` (craft canon behind §5) · the `studio-director` chain for per-video execution.*
+`docs/cinematography.md` (craft canon behind §5) · the `studio-director` chain for per-video execution.
+**All three retired 2026-09-10 and preserved on `yt-longform-archive-DO_NOT_DELETE`.** For short-form, §13 below and
+`CLAUDE.md` are the live authorities.*
 
 ---
 
@@ -484,9 +487,15 @@ two brands with zero compounding, and would recreate exactly the dead funnel dia
 | Field | Value |
 |:--|:--|
 | Handle | `@thedepthfirst` |
-| Name (30 char, indexed separately from the handle) | `Depth First · how code works` |
+| Name (30 char, indexed separately from the handle) | `Depth First · how systems work` — **widened 2026-09-10**, exactly 30 chars; was `Depth First · how code works` |
 | Avatar | `assets/brand/depthfirst_mark_512.png` |
-| Bio | The algorithms hiding in things you already use. Every animation here is the real algorithm, actually run — not drawn. |
+| Bio | The mechanisms hiding in things you already use. Every animation here is the real thing, actually run — not drawn. |
+
+> **Both fields were widened on 2026-09-10 and are NOT yet changed in the app** — that is a
+> manual edit only the account holder can make. `CLAUDE.md` widened the promise from software to
+> *how systems work* that morning, and the profile is what a viewer reads at the follow decision,
+> so a tides reel under a bio that says "algorithms" costs a follow. "The real **thing**, actually
+> run" keeps the moat sentence true now that the subject is not always an algorithm.
 
 **Why the Name field carries a plain-English descriptor.** §0 and §12 gate the *name* to engineers
 and accept that it does no recruiting work with register 2. Instagram hands that cost back for free —
@@ -979,8 +988,9 @@ on its own.
 
 **The shelved `I64` queue build held the previous record at 65% and the verdict on watching it
 was "the output is not sound."** (That build was proposed as r009; the number went to `I58` tides,
-which measures 47%. The queue mp4 is still at `projects/i64_queue/r009_queue.mp4` — see the note
-under §13's r010 entries about the collision.) The audit counts pixels changing; it cannot count
+which measures 47%. The queue render was renamed to
+`projects/i64_queue/i64_queue_shelved.mp4` on 2026-09-10 and its compositions to
+`i64-queue` / `i64-queue-safe`, so a shelved build no longer holds a reel number.) The audit counts pixels changing; it cannot count
 whether a stranger can name what is moving. The reason r010 scores where it does is not craft — it is that fifteen large bright bobs
 are in motion for thirty-four consecutive seconds. Any reel about a physical system in continuous motion
 will score like this, and the number should be read as "the metric is saturated and no longer
@@ -1644,3 +1654,6 @@ followed, applied to the browser.
 | `r003` | QR codes / Reed–Solomon | 37 s | **2026-09-05** |
 | `r004` | JPEG / DCT — a photo stores no pixels | 40 s | **2026-09-06** |
 | `r006` | Great circle — your flight path isn't curved | 32 s | **2026-09-08** |
+| `r007` | Submarine cables — your message goes underwater | 28 s | **2026-09-09** |
+| `r009` | Tides — the Sun pulls 179× harder, the Moon makes the tide | 54 s | **2026-09-10** |
+| `r010` | Pendulum wave — fifteen strings, back in line at 30 s | 34 s | **2026-09-10** |
