@@ -142,6 +142,7 @@ before optimising for reach: whether r006's 71 follows stayed, and whether they 
 | `r006` | `I17` | Great circle — the flight path that looks curved is the straight one | **posted 2026-09-08** (32 s) — first reel built under Gate 0 |
 | `r007` | `I22` | Submarine cables — your message abroad goes underwater, not to space | **posted 2026-09-09** (28 s) — peaked ~1.8k views; the r006 pattern test, and it failed |
 | `r008` | `I15` | A\* vs Dijkstra — one route across Paris, two ways to find it | built 2026-09-10 (28 s), **not posted** — first reel on real OpenStreetMap data |
+| `r009` | `I58` | Tides — the Sun pulls 179x harder and the Moon still makes the tide | built 2026-09-10 (54 s), **not posted** — first reel outside software, and the longest |
 
 Update this table, `brand_guide_software.md` §13 and
 [`reel_captions_log.md`](reel_captions_log.md) when one ships.

@@ -14,6 +14,7 @@ import { DURATION_SECONDS as SHUFFLE_SECONDS, Shuffle } from './reels/Shuffle';
 import { DURATION_SECONDS as MANIM_SECONDS, ManimProbe } from './reels/ManimProbe';
 import { Astar, DURATION_SECONDS as ASTAR_SECONDS } from './reels/Astar';
 import { Cables, DURATION_SECONDS as CABLES_SECONDS } from './reels/Cables';
+import { DURATION_SECONDS as TIDES_SECONDS, Tides } from './reels/Tides';
 import { DURATION_SECONDS as GC_SECONDS, Greatcircle } from './reels/Greatcircle';
 import { SafeZones } from './reels/lib/chrome';
 import { TitleCard } from './scenes/TitleCard';
@@ -53,6 +54,13 @@ const ShuffleSafe: React.FC = () => (
 const AstarSafe: React.FC = () => (
   <>
     <Astar />
+    <SafeZones />
+  </>
+);
+
+const TidesSafe: React.FC = () => (
+  <>
+    <Tides />
     <SafeZones />
   </>
 );
@@ -171,6 +179,22 @@ export const RemotionRoot: React.FC = () => {
         id="r008-astar-safe"
         component={AstarSafe}
         durationInFrames={ASTAR_SECONDS * 30}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="r009-tides"
+        component={Tides}
+        durationInFrames={TIDES_SECONDS * 30}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="r009-tides-safe"
+        component={TidesSafe}
+        durationInFrames={TIDES_SECONDS * 30}
         fps={30}
         width={1080}
         height={1920}
