@@ -252,8 +252,9 @@ data module was written. See `projects/i58_tides/NOTES.md`.
 > Everything here is the tide-raising *force*, computed from published constants — not a tide table.
 > Real coastlines are a different and much messier problem.
 >
-> Open your tide table: tomorrow's high is about 51 minutes later than today's. That's the Moon's
-> clock, not ours.
+> The whole thing in one sum: the Sun is 27 million times heavier and 389 times further away.
+> Divide by 389 twice and you get 179x the pull. Divide once more and you get 0.46x the tide.
+> One extra division is the entire difference.
 
 ### Load-bearing phrasings — do not "tighten" these
 
@@ -265,7 +266,11 @@ data module was written. See `projects/i58_tides/NOTES.md`.
   makes spring and neap tides.
 - **Do not write "two high tides a day."** Tides are semidiurnal, diurnal or mixed by location; the
   Gulf of Mexico gets one. This is the claim the backlog row proposed and the build refused.
-- **51 minutes** is the lunar-day drift (50.5 min, rounded). It is not a promise about any port.
+- **The two divisions are the real sum**, asserted in `tides.py` to reproduce the measured ratios to
+  1e-12 — not a tidy restatement of them. Keep both lines or neither; one alone is just a ratio.
+- **The tide-table line was cut at Gate 3** ("tomorrow's high is about 51 minutes later"). It was an
+  absolute about a prediction this reel does not make. Its removal also removed rule 9's
+  *performable* ask, which is a known trade — see `projects/i58_tides/NOTES.md`.
 
 ### Not in the caption, on purpose
 

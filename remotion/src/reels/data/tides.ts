@@ -35,6 +35,22 @@ export const TIDES = {
     near: 1.127847e-06,
     far: 1.073133e-06,
     asymPct: 4.9,
+    /** The same three pulls as plain relative numbers, for the screen.
+     *  Scientific notation is what a script prints, not what a viewer reads. */
+    nearVsCentrePct: 3.4,
+    farVsCentrePct: 3.2,
+    farBulgeRel: 95,
+  },
+  /** The end card, as a calculation rather than a result. The Sun is heavier
+   *  AND further; dividing by the distance ratio ONE MORE TIME is the entire
+   *  difference between winning the pull and losing the tide. Both lines below
+   *  are asserted to reproduce the measured ratios exactly. */
+  ratios: {
+    mass: 27068745,
+    massMillions: 27,
+    distance: 389,
+    pullFromRatios: 178.7,
+    tideFromRatios: 0.459,
   },
   rhythm: {
     lunarDayH: 24.84120,

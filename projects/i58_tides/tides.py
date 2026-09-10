@@ -80,6 +80,23 @@ tide_near = a_near - a_centre        # residual, pointing TOWARD the Moon
 tide_far  = a_centre - a_far         # residual, pointing AWAY from the Moon
 ASYM_PCT  = 100 * (1 - tide_far / tide_near)
 
+# ── 2b. the same three pulls as RELATIVE numbers ────────────────────────────
+# Gate 3 feedback: "1.128e-6 is hard to understand by any person." Scientific
+# notation is what a script prints, not what a viewer reads. These are the same
+# measurements expressed against a baseline, which is all the reel ever claimed.
+near_vs_centre_pct = (a_near / a_centre - 1) * 100      # near side, vs the middle
+far_vs_centre_pct = (1 - a_far / a_centre) * 100        # far side, vs the middle
+bulge_far_rel = tide_far / tide_near * 100              # far bulge, near bulge = 100
+
+# ── 2c. the end-card arithmetic ─────────────────────────────────────────────
+# The whole reel in two divisions. The Sun is far heavier AND far further, and
+# the ONLY difference between winning the pull and losing the tide is dividing
+# by the distance ratio one more time.
+mass_ratio = M_SUN / M_MOON                             # ~27 million
+dist_ratio = D_SUN / D_MOON                             # ~389
+pull_from_ratios = mass_ratio / dist_ratio ** 2
+tide_from_ratios = mass_ratio / dist_ratio ** 3
+
 # ── 3. the rhythm ───────────────────────────────────────────────────────────
 lunar_day_h = 1.0 / (1.0 / T_ROT - 1.0 / T_ORB) * 24
 M2_h        = lunar_day_h / 2
@@ -150,6 +167,12 @@ assert 0.35 < K_moon < 0.36 and 0.16 < K_sun < 0.17, (K_moon, K_sun)
 assert tide_near > tide_far > 0, 'both residuals must point outward'
 assert 4.0 < ASYM_PCT < 6.0, ASYM_PCT
 assert 690_000 < BODY_RATIO < 720_000, BODY_RATIO
+# the end card's arithmetic must reproduce the measured ratios EXACTLY, or the
+# calculation shown on screen is a different sum from the one that was computed
+assert abs(pull_from_ratios - PULL_RATIO) / PULL_RATIO < 1e-12, (pull_from_ratios, PULL_RATIO)
+assert abs(tide_from_ratios - TIDE_RATIO) / TIDE_RATIO < 1e-12, (tide_from_ratios, TIDE_RATIO)
+assert 3.0 < near_vs_centre_pct < 3.8 and 3.0 < far_vs_centre_pct < 3.5
+assert 94.5 < bulge_far_rel < 95.5, bulge_far_rel
 # the Moon acting alone must produce highs exactly half a lunar day apart --
 # an end-to-end check that the curve and the period agree
 assert len(moon_gaps) >= 2, moon_gaps
@@ -171,6 +194,13 @@ data = {
     'bulges': {
         'a_near': a_near, 'a_centre': a_centre, 'a_far': a_far,
         'tide_near': tide_near, 'tide_far': tide_far, 'asym_pct': ASYM_PCT,
+        'near_vs_centre_pct': near_vs_centre_pct,
+        'far_vs_centre_pct': far_vs_centre_pct,
+        'bulge_far_rel': bulge_far_rel,
+    },
+    'ratios': {
+        'mass': mass_ratio, 'distance': dist_ratio,
+        'pull_from_ratios': pull_from_ratios, 'tide_from_ratios': tide_from_ratios,
     },
     'rhythm': {
         'lunar_day_h': lunar_day_h, 'm2_h': M2_h, 's2_h': S2_h,
@@ -203,6 +233,12 @@ print(f'TIDE   sun/moon            {TIDE_RATIO:>12.3f}x   (moon/sun {1/TIDE_RATI
 print(f'       lunar amplitude     {K_moon*100:>12.1f} cm')
 print(f'       solar amplitude     {K_sun*100:>12.1f} cm')
 print(f'       spring / neap       {SPRING_NEAP:>12.2f}x   ({spring*100:.0f} cm vs {neap*100:.0f} cm)')
+print(f'RELATIVE near side vs mid  {near_vs_centre_pct:>11.2f}% harder')
+print(f'         far side vs mid   {far_vs_centre_pct:>11.2f}% weaker')
+print(f'         far bulge         {bulge_far_rel:>11.1f}  (near bulge = 100)')
+print(f'END CARD mass ratio        {mass_ratio:>11,.0f}x   distance ratio {dist_ratio:.0f}x')
+print(f'         / {dist_ratio:.0f} squared     {pull_from_ratios:>11.1f}x the pull')
+print(f'         / {dist_ratio:.0f} cubed       {tide_from_ratios:>11.3f}x the tide')
 print(f'BULGE  near residual       {tide_near:>12.4e} m/s^2')
 print(f'       far  residual       {tide_far:>12.4e} m/s^2   ({ASYM_PCT:.1f}% weaker)')
 print(f'RHYTHM lunar day           {lunar_day_h:>12.5f} h')

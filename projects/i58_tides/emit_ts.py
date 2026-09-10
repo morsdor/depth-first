@@ -16,6 +16,7 @@ OUT = Path('remotion/src/reels/data/tides.ts')
 d = json.loads(SRC.read_text())
 pull, tide, bul = d['pull'], d['tide'], d['bulges']
 rhy, body, env, cur = d['rhythm'], d['body'], d['envelope'], d['curve']
+rat = d['ratios']
 
 # ── the reel's claims, asserted before a single byte is written ─────────────
 claims = {
@@ -33,6 +34,14 @@ claims = {
     'spring is 2.7x neap':              abs(tide['spring_over_neap'] - 2.70) < 0.01,
     # the reversal the whole reel rests on
     'the reversal holds':               pull['ratio'] > 100 and tide['ratio_sun_over_moon'] < 0.5,
+    # the end card SHOWS a calculation; it must be the same sum that was measured
+    'end-card sum gives the pull':      abs(rat['pull_from_ratios'] - pull['ratio']) < 1e-9,
+    'end-card sum gives the tide':      abs(rat['tide_from_ratios'] - tide['ratio_sun_over_moon']) < 1e-12,
+    'the Sun is ~389x further':         388 < rat['distance'] < 390,
+    'the Sun is ~27M times heavier':    2.70e7 < rat['mass'] < 2.71e7,
+    'near side is 3.4% harder':         abs(bul['near_vs_centre_pct'] - 3.4) < 0.05,
+    'far side is 3.2% weaker':          abs(bul['far_vs_centre_pct'] - 3.2) < 0.05,
+    'far bulge is 95 of the near':      abs(bul['bulge_far_rel'] - 95.1) < 0.1,
 }
 bad = [k for k, ok in claims.items() if not ok]
 if bad:
@@ -84,6 +93,22 @@ export const TIDES = {{
     near: {bul['tide_near']:.6e},
     far: {bul['tide_far']:.6e},
     asymPct: {bul['asym_pct']:.1f},
+    /** The same three pulls as plain relative numbers, for the screen.
+     *  Scientific notation is what a script prints, not what a viewer reads. */
+    nearVsCentrePct: {bul['near_vs_centre_pct']:.1f},
+    farVsCentrePct: {bul['far_vs_centre_pct']:.1f},
+    farBulgeRel: {bul['bulge_far_rel']:.0f},
+  }},
+  /** The end card, as a calculation rather than a result. The Sun is heavier
+   *  AND further; dividing by the distance ratio ONE MORE TIME is the entire
+   *  difference between winning the pull and losing the tide. Both lines below
+   *  are asserted to reproduce the measured ratios exactly. */
+  ratios: {{
+    mass: {round(rat['mass']):d},
+    massMillions: {rat['mass'] / 1e6:.0f},
+    distance: {rat['distance']:.0f},
+    pullFromRatios: {rat['pull_from_ratios']:.1f},
+    tideFromRatios: {rat['tide_from_ratios']:.3f},
   }},
   rhythm: {{
     lunarDayH: {rhy['lunar_day_h']:.5f},

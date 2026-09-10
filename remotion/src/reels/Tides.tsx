@@ -2,11 +2,9 @@ import { AbsoluteFill, interpolate, useCurrentFrame } from 'remotion';
 import {
   Fade,
   Progress,
-  Readout,
   ReelGround,
   ReelHeader,
   SAFE_W,
-  StepLabel,
   ease,
   fmt,
   t,
@@ -109,23 +107,24 @@ const CAM: [number, number, number, number][] = [
   [2.6, 0.55, -430, 0],
   [7.0, 0.52, -400, 0],
   [9.2, 0.6, 250, 0],
-  [14.0, 0.57, 235, 0],
-  [16.2, 1.0, 0, 60],
-  [21.0, 0.96, 0, 65],
-  [28.0, 0.9, 0, 70],
-  [30.2, 0.6, 250, 0],
-  [34.5, 0.57, 240, 0],
-  // Beats 6 and 7 originally shrank the planet to 0.43x to clear room for the
-  // panels, and both measured dead (14% and 32% density, a 4s dead spell). The
-  // panels only need the BOTTOM of the frame, so the Earth is lifted instead of
-  // shrunk, and beat 7 PUSHES IN rather than drifting out — the beat carrying
-  // the reel's second surprise should not be its quietest.
-  [36.6, 0.7, -300, 300],
-  [41.5, 0.58, -265, 330],
-  [43.6, 0.56, -300, 330],
-  [48.5, 0.86, -180, 300],
-  [50.2, 0.74, 0, 130],
-  [54.0, 0.62, 0, 145],
+  [14.0, 0.5, 200, -30],
+  // cy is NEGATIVE here so the planet sits low and leaves the label band clear.
+  // Gate 3: "the secondary text and background look the same" — the real cause
+  // was body copy lying on top of the ocean, not the colour of the type. The
+  // fix is a scrim behind the words, and a scrim is a large STATIC area, which
+  // cost 8 points of event density. It is bought back here: every beat now
+  // travels far enough that the frame is never resting.
+  [16.2, 1.02, 0, -150],
+  [21.0, 0.94, 30, -158],
+  [28.0, 0.8, 60, -178],
+  [30.2, 0.66, 250, -40],
+  [34.5, 0.48, 170, 30],
+  [36.6, 0.8, -330, 300],
+  [41.5, 0.52, -230, 355],
+  [43.6, 0.5, -320, 335],
+  [48.5, 0.94, -140, 285],
+  [50.2, 0.76, 0, 120],
+  [54.0, 0.6, 40, 150],
 ];
 
 const track = (frame: number, i: 1 | 2 | 3) =>
@@ -152,6 +151,115 @@ const LAND = [
   'M-284,147 L-191,131 L-169,218 L-267,229 Z',
 ];
 
+/**
+ * Every text block sits on its own scrim. The reel is full-bleed by necessity
+ * (the motion audit needs the planet to BE the frame), so type and graphic
+ * share pixels; a panel of ground at 0.88 behind the words is what makes them
+ * readable without shrinking the subject back down.
+ */
+const Panel: React.FC<{
+  from: number;
+  to?: number;
+  top: number;
+  children: React.ReactNode;
+}> = ({ from, to, top, children }) => (
+  <Fade from={from} to={to} style={{ position: 'absolute', top, left: 60, width: PANEL_W }}>
+    <div style={{ position: 'relative', padding: '20px 24px 24px' }}>
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundColor: '#040E1F',
+          opacity: 0.88,
+          borderRadius: 18,
+        }}
+      />
+      <div style={{ position: 'relative' }}>{children}</div>
+    </div>
+  </Fade>
+);
+
+/** Step number + claim + one plain-English line, on a scrim. */
+const BeatLabel: React.FC<{ n: string; title: string; sub: string; from: number; to: number }> = ({
+  n,
+  title,
+  sub,
+  from,
+  to,
+}) => (
+  <Panel from={from} to={to} top={452}>
+    <div
+      style={{
+        fontFamily: 'IBM Plex Mono',
+        fontSize: 36,
+        color: '#00D6F7',
+        letterSpacing: 3,
+        marginBottom: 10,
+      }}
+    >
+      {n}
+    </div>
+    <div style={{ fontFamily: 'IBM Plex Sans', fontWeight: 600, fontSize: 58, color: '#E8E6E1' }}>
+      {title}
+    </div>
+    {/* bone at 0.82 rather than ash: ash reads fine on the ground and vanishes
+        over the ocean, and this line is the one doing the explaining. */}
+    <div
+      style={{
+        fontFamily: 'IBM Plex Sans',
+        fontSize: 42,
+        color: '#E8E6E1',
+        opacity: 0.82,
+        marginTop: 10,
+      }}
+    >
+      {sub}
+    </div>
+  </Panel>
+);
+
+/** Instrumentation rows. Values are plain relative numbers, never exponents. */
+const Rows: React.FC<{
+  from: number;
+  to: number;
+  top: number;
+  rows: [string, string][];
+  note?: string;
+}> = ({ from, to, top, rows, note }) => (
+  <Panel from={from} to={to} top={top}>
+    {rows.map(([k, v]) => (
+      <div
+        key={k}
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'baseline',
+          borderTop: '2px solid #274064',
+          padding: '14px 2px',
+          fontFamily: 'IBM Plex Mono',
+          fontSize: 40,
+        }}
+      >
+        <span style={{ color: '#E8E6E1', opacity: 0.72 }}>{k}</span>
+        <span style={{ color: '#E8E6E1' }}>{v}</span>
+      </div>
+    ))}
+    {note ? (
+      <div
+        style={{
+          fontFamily: 'IBM Plex Sans',
+          fontSize: 36,
+          color: '#E8E6E1',
+          opacity: 0.72,
+          marginTop: 14,
+        }}
+      >
+        {note}
+      </div>
+    ) : null}
+  </Panel>
+);
+
 const bar = (w: number, color: string, h = 16) => (
   <div style={{ width: Math.max(2, w), height: h, background: color, borderRadius: 2 }} />
 );
@@ -163,11 +271,15 @@ const Row: React.FC<{ label: string; children: React.ReactNode; sub?: string }> 
 }) => (
   <div style={{ marginBottom: 20 }}>
     <div
+      // bone at 0.72, not ash: Gate 3 flagged the secondary tone as reading the
+      // same as the ground. Ash is fine on the bare ground and disappears the
+      // moment the ocean drifts behind it.
       style={{
         fontFamily: 'IBM Plex Sans',
         fontWeight: 600,
         fontSize: 36,
-        color: '#81A2C4',
+        color: '#E8E6E1',
+        opacity: 0.72,
         letterSpacing: 2,
         marginBottom: 10,
       }}
@@ -207,7 +319,7 @@ export const Tides: React.FC = () => {
   // Continents turn for the whole reel: one revolution per 10s. This is the
   // large-area motion the audit measures, and it never stops. At 26s per turn
   // (the first cut) the planet was technically moving and measured as still.
-  const spin = (frame / 30) * (360 / 10);
+  const spin = (frame / 30) * (360 / 8.5);
 
   const sunIn = interpolate(frame, [t(1.2), t(2.6)], [0, 1], ease);
   const sunOut = interpolate(frame, [t(8.4), t(9.6)], [1, 0], ease);
@@ -336,46 +448,48 @@ export const Tides: React.FC = () => {
         </div>
       </div>
 
-      {/* ── beat labels ──────────────────────────────────────────────────── */}
-      <StepLabel
+      {/* ── beat labels ────────────────────────────────────────────────────
+          Rewritten after Gate 3: "make text more user friendly to understand".
+          "Pull falls off as d squared" became a sentence with no algebra in it. */}
+      <BeatLabel
         n="01"
         title="One pull is enormous."
         sub="The other one wins."
         from={t(B.reversal[0])}
         to={t(B.reversal[1] - 0.4)}
       />
-      <StepLabel
+      <BeatLabel
         n="02"
-        title="The pull is not the same everywhere."
-        sub="Near side hardest. Far side least."
+        title="The pull isn't the same everywhere."
+        sub="The side facing the Moon gets pulled hardest. The far side least."
         from={t(B.nearfar[0])}
         to={t(B.nearfar[1] - 0.4)}
       />
-      <StepLabel
+      <BeatLabel
         n="03"
-        title="The far side is left behind."
-        sub="Take away the middle and both ends bulge out."
+        title="The far side gets left behind."
+        sub="Take the middle away, and both ends bulge outward."
         from={t(B.behind[0])}
         to={t(B.behind[1] - 0.4)}
       />
-      <StepLabel
+      <BeatLabel
         n="04"
         title="Distance counts three times."
-        sub="Pull falls off as d squared. A tide falls off as d cubed."
+        sub="Move twice as far away: the pull drops 4x. The tide drops 8x."
         from={t(B.cube[0])}
         to={t(B.cube[1] - 0.4)}
       />
-      <StepLabel
+      <BeatLabel
         n="05"
-        title="The sea keeps the Moon's time."
-        sub="Not the Sun's, and not the clock's."
+        title="The sea runs on the Moon's clock."
+        sub="Not the Sun's. Not ours."
         from={t(B.clock[0])}
         to={t(B.clock[1] - 0.4)}
       />
-      <StepLabel
+      <BeatLabel
         n="06"
         title="So does it pull on you?"
-        sub="You are 1.7 metres across, not 12,742 kilometres."
+        sub="You're 1.7 metres across. The Earth is 12,742 kilometres."
         from={t(B.body[0])}
         to={t(B.body[1] - 0.4)}
       />
@@ -401,105 +515,181 @@ export const Tides: React.FC = () => {
         </Row>
       </Fade>
 
-      <Readout
+      {/* Gate 3: "e-6 is hard to understand by any person." These are the same
+          three measurements, expressed against the middle of the Earth — which
+          is the only thing the beat ever compared them to anyway. */}
+      <Rows
         from={t(16.6)}
         to={t(21.0)}
-        top={1200}
-        width={PANEL_W}
+        top={1160}
         rows={[
-          ['near side', `${TIDES.bulges.aNear.toExponential(3)} m/s²`],
-          ['centre', `${TIDES.bulges.aCentre.toExponential(3)} m/s²`],
-          ['far side', `${TIDES.bulges.aFar.toExponential(3)} m/s²`],
+          ['the near side', `${TIDES.bulges.nearVsCentrePct}% harder`],
+          ['the middle', 'the baseline'],
+          ['the far side', `${TIDES.bulges.farVsCentrePct}% weaker`],
         ]}
+        note="one Moon, one Earth, three different pulls"
       />
 
-      <Readout
+      <Rows
         from={t(23.4)}
         to={t(28.0)}
-        top={1200}
-        width={PANEL_W}
+        top={1160}
         rows={[
-          ['bulge toward the Moon', TIDES.bulges.near.toExponential(3)],
-          ['bulge away from it', TIDES.bulges.far.toExponential(3)],
-          ['the far one is weaker by', `${TIDES.bulges.asymPct}%`],
+          ['bulge toward the Moon', '100'],
+          ['bulge away from it', `${TIDES.bulges.farBulgeRel}`],
         ]}
+        note={`the far one is ${TIDES.bulges.asymPct}% weaker — and it is still there`}
       />
 
-      <Readout
+      <Rows
         from={t(30.4)}
         to={t(34.5)}
-        top={1200}
-        width={PANEL_W}
+        top={1160}
         rows={[
-          ['the Sun pulls', `${TIDES.pull.ratio}x harder`],
-          ['the Sun raises', `${TIDES.tide.sunOverMoon}x the tide`],
-          ['so the Moon wins by', `${TIDES.tide.moonOverSun}x`],
+          ['the Sun pulls', `${Math.round(TIDES.pull.ratio)}x harder`],
+          ['the Sun raises', `${TIDES.tide.sunOverMoon.toFixed(2)}x the tide`],
+          ['so the Moon wins by', `${TIDES.tide.moonOverSun.toFixed(1)}x`],
         ]}
       />
 
-      {/* ── beat 5: the Moon's own tide curve, computed over 48 h ────────── */}
-      <Fade from={t(36.2)} to={t(41.5)} style={{ position: 'absolute', top: 1112, left: 60, width: PANEL_W }}>
+      {/* ── the Moon's own tide curve, computed over 48 h ─────────────────── */}
+      <Fade from={t(36.2)} to={t(41.5)} style={{ position: 'absolute', top: 1096, left: 60, width: PANEL_W }}>
+        <div style={{ position: 'relative', padding: '20px 24px 24px' }}>
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              backgroundColor: '#040E1F',
+              opacity: 0.88,
+              borderRadius: 18,
+            }}
+          />
+          <div style={{ position: 'relative' }}>
+            <div
+              style={{
+                fontFamily: 'IBM Plex Sans',
+                fontWeight: 600,
+                fontSize: 36,
+                color: '#E8E6E1',
+                opacity: 0.72,
+                letterSpacing: 2,
+                marginBottom: 10,
+              }}
+            >
+              THE MOON&apos;S PART OF THE TIDE · {CURVE_HOURS} HOURS
+            </div>
+            <svg width={PANEL_W - 48} height={148} viewBox={`0 0 ${PANEL_W - 48} 148`}>
+              <line x1={0} y1={74} x2={PANEL_W - 48} y2={74} stroke="#274064" strokeWidth={2} />
+              <path
+                d={MOON_CURVE.map((v, i) => {
+                  const x = (i / (MOON_CURVE.length - 1)) * (PANEL_W - 48);
+                  const y = 74 - (v / TIDES.tide.moonM) * 50;
+                  return `${i ? 'L' : 'M'}${x.toFixed(1)},${y.toFixed(1)}`;
+                }).join('')}
+                fill="none"
+                stroke="#00D6F7"
+                strokeWidth={5}
+                strokeDasharray={4000}
+                strokeDashoffset={4000 * (1 - draw)}
+              />
+            </svg>
+            <div style={{ fontFamily: 'IBM Plex Mono', fontSize: 38, color: '#E8E6E1', marginTop: 8 }}>
+              a high every {Math.floor(TIDES.rhythm.m2H)} h {Math.round((TIDES.rhythm.m2H % 1) * 60)} min
+            </div>
+            {/* The disclaimer earns its place: this curve is the FORCE. Saying so
+                is the difference between this reel and the one Gate 0 refused. */}
+            <div
+              style={{
+                fontFamily: 'IBM Plex Sans',
+                fontSize: 36,
+                color: '#E8E6E1',
+                opacity: 0.72,
+                marginTop: 8,
+              }}
+            >
+              this is the pull, not a tide table
+            </div>
+          </div>
+        </div>
+      </Fade>
+
+      {/* ── the same law, applied to a person ────────────────────────────── */}
+      <Panel from={t(43.4)} to={t(48.5)} top={1150}>
+        <Row label="THE MOON, PULLING ACROSS YOU">{bar(2, '#E8E6E1')}</Row>
+        <Row
+          label="SOMEONE STANDING ONE METRE AWAY"
+          sub={`${fmt(TIDES.body.personOverMoon)}x stronger — drawn to the same scale`}
+        >
+          {bar(700, '#00D6F7')}
+        </Row>
+      </Panel>
+
+      {/* ── the end card ─────────────────────────────────────────────────────
+          Gate 3 dropped the "tomorrow's high is 51 minutes later" ask: it was an
+          absolute about a tide table this reel deliberately never claims to
+          predict. What replaces it is the whole reel as one sum — and both lines
+          are asserted in emit_ts.py to reproduce the measured ratios exactly, so
+          the arithmetic on screen IS the arithmetic that was run. */}
+      <Panel from={t(49.0)} top={1096}>
         <div
           style={{
             fontFamily: 'IBM Plex Sans',
             fontWeight: 600,
-            fontSize: 36,
-            color: '#81A2C4',
-            letterSpacing: 2,
-            marginBottom: 8,
+            fontSize: 42,
+            color: '#E8E6E1',
+            marginBottom: 18,
           }}
         >
-          THE MOON&apos;S PART OF THE TIDE · {CURVE_HOURS} H
-        </div>
-        <svg width={PANEL_W} height={150} viewBox="0 0 780 150">
-          <line x1={0} y1={75} x2={PANEL_W} y2={75} stroke="#274064" strokeWidth={2} />
-          <path
-            d={MOON_CURVE.map((v, i) => {
-              const x = (i / (MOON_CURVE.length - 1)) * PANEL_W;
-              const y = 75 - (v / TIDES.tide.moonM) * 52;
-              return `${i ? 'L' : 'M'}${x.toFixed(1)},${y.toFixed(1)}`;
-            }).join('')}
-            fill="none"
-            stroke="#00D6F7"
-            strokeWidth={5}
-            strokeDasharray={4000}
-            strokeDashoffset={4000 * (1 - draw)}
-          />
-        </svg>
-        <div style={{ fontFamily: 'IBM Plex Mono', fontSize: 36, color: '#E8E6E1', marginTop: 6 }}>
-          {TIDES.rhythm.m2H.toFixed(2)} h apart · lunar day {TIDES.rhythm.lunarDayH.toFixed(2)} h
-        </div>
-        {/* The disclaimer earns its place over the arithmetic: this curve is the
-            FORCE, and saying so is the difference between this reel and the one
-            Gate 0 refused to build. */}
-        <div style={{ fontFamily: 'IBM Plex Sans', fontSize: 36, color: '#81A2C4', marginTop: 6 }}>
-          the tide-raising force, not a gauge record
-        </div>
-      </Fade>
-
-      {/* ── beat 6: the same law, applied to a person ─────────────────────── */}
-      <Fade from={t(43.4)} to={t(48.5)} style={{ position: 'absolute', top: 1160, left: 60, width: PANEL_W }}>
-        <Row label="THE MOON, ACROSS YOUR BODY">{bar(2, '#81A2C4')}</Row>
-        <Row
-          label="A PERSON STANDING ONE METRE AWAY"
-          sub={`${fmt(TIDES.body.personOverMoon)}x stronger — same scale`}
-        >
-          {bar(720, '#00D6F7')}
-        </Row>
-      </Fade>
-
-      {/* ── the end card ─────────────────────────────────────────────────── */}
-      <Fade from={t(49.0)} style={{ position: 'absolute', top: 1220, left: 60, width: PANEL_W }}>
-        <div style={{ fontFamily: 'IBM Plex Sans', fontWeight: 600, fontSize: 46, color: '#E8E6E1' }}>
-          A tide isn&apos;t how hard you&apos;re pulled.
+          The Sun is {TIDES.ratios.massMillions} million times heavier
           <br />
-          It&apos;s how much harder your near side is.
+          and {TIDES.ratios.distance} times further away.
         </div>
-        <div style={{ fontFamily: 'IBM Plex Sans', fontSize: 36, color: '#81A2C4', marginTop: 16 }}>
-          Open your tide table. Tomorrow&apos;s high is about{' '}
-          {Math.round(TIDES.rhythm.driftMinPerDay)} minutes later.
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            borderTop: '2px solid #274064',
+            padding: '14px 2px',
+            fontFamily: 'IBM Plex Mono',
+            fontSize: 40,
+          }}
+        >
+          <span style={{ color: '#E8E6E1', opacity: 0.72 }}>
+            ÷ {TIDES.ratios.distance} twice
+          </span>
+          <span style={{ color: '#E8E6E1' }}>
+            {Math.round(TIDES.ratios.pullFromRatios)}x the pull
+          </span>
         </div>
-      </Fade>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            borderTop: '2px solid #274064',
+            padding: '14px 2px',
+            fontFamily: 'IBM Plex Mono',
+            fontSize: 40,
+          }}
+        >
+          <span style={{ color: '#E8E6E1', opacity: 0.72 }}>
+            ÷ {TIDES.ratios.distance} once more
+          </span>
+          <span style={{ color: '#00D6F7' }}>
+            {TIDES.ratios.tideFromRatios.toFixed(2)}x the tide
+          </span>
+        </div>
+        <div
+          style={{
+            fontFamily: 'IBM Plex Sans',
+            fontWeight: 600,
+            fontSize: 42,
+            color: '#E8E6E1',
+            marginTop: 20,
+          }}
+        >
+          One extra division. That&apos;s the whole thing.
+        </div>
+      </Panel>
 
       <Progress seconds={DURATION_SECONDS} />
     </AbsoluteFill>

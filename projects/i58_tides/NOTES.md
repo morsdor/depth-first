@@ -29,7 +29,7 @@ So the reel names no port, animates no bulge arriving at a coast, and captions i
 ## The figures, and which script produced them
 
 Every number on screen comes from `tides.py`, from published constants (CODATA `G`; IAU/JPL masses
-and mean distances) and Newtonian gravity. `emit_ts.py` re-asserts **13 claims** and refuses to
+and mean distances) and Newtonian gravity. `emit_ts.py` re-asserts **20 claims** and refuses to
 write the TS module if any is false.
 
 | figure | value | on screen |
@@ -99,28 +99,70 @@ the difference stays visible to the next person.
    latin-subset woff2 files** into `remotion/public/fonts` and replacing `@remotion/google-fonts`
    with local `@font-face`. Renders are now offline. TLS verification was never disabled.
 
+## Gate 3 — first human viewing, 2026-09-10, and what it changed
+
+Four corrections, all from watching it on a phone. None were visible to any automated gate.
+
+1. **"The secondary text and background look the same."** Diagnosed wrong at first glance — the
+   cause was not the colour but the *placement*: the reel is full-bleed by necessity (the audit
+   needs the planet to BE the frame), so body copy was lying directly on the ocean. Fixed by giving
+   every text block a scrim — ground at 0.88 behind the words — and moving secondary type from ash
+   `#81A2C4` to bone at 0.72. Ash reads fine on the bare ground and vanishes over cyan water.
+
+2. **"`e-6` is hard to understand by any person."** Correct, and it was a script's habit leaking
+   onto the screen. `1.128e-6 / 1.073e-6` became **`100` and `95`**; `3.431e-5 / 3.318e-5 /
+   3.211e-5` became **`3.4% harder` / `the baseline` / `3.2% weaker`**. Same measurements, same
+   assertions, expressed against the thing the beat was already comparing them to.
+
+3. **"The last frame doesn't need the tide table. Give relative values and a calculation."** The
+   strongest note of the four, and it made the reel better rather than just clearer. The end card
+   was an absolute about a prediction this reel deliberately never makes. It is now the whole
+   argument as one sum:
+
+   > The Sun is **27 million** times heavier and **389** times further away.
+   > ÷ 389 twice → **179x the pull**. ÷ 389 once more → **0.46x the tide**.
+   > *One extra division. That's the whole thing.*
+
+   `tides.py` computes `mass_ratio / dist_ratio²` and `mass_ratio / dist_ratio³` and **asserts they
+   reproduce the measured `PULL_RATIO` and `TIDE_RATIO` to 1e-12**, so the arithmetic shown is
+   provably the arithmetic that was run, not a restatement of it.
+
+4. **"Make text more user friendly."** *"Pull falls off as d squared. A tide falls off as d cubed"*
+   → *"Move twice as far away: the pull drops 4x. The tide drops 8x."* No algebra survives on
+   screen anywhere in the reel.
+
+**The scrims cost 8 points of event density** (44% → 36%, with a 1.75 s dead spell) because a scrim
+is a large static area. Readability was not negotiable, so the motion was bought back the documented
+way — widening camera travel in every beat rather than shrinking the panels. **Final: 46%, better
+than before the scrims.**
+
+**What this cost the end card:** rule 9's *performable* ask went with the tide-table line. The close
+is now a calculation and the Gate 0 sentence. That is a deliberate trade made by the human, and it
+is worth watching in the day-1 numbers — r006's performable ask ("open a flight tracker") produced
+its most-liked frame.
+
 ## Motion audit — final
 
 ```
 r009_tides.mp4  54.5s  (218 samples @ 4fps, --width 240)
-  median change      0.890
+  median change      0.939
   longest dead spell 0.25s  (limit 1.5s)
-  event density      44%
+  event density      46%
 PASS
 ```
 
 | beat | median | density | dead |
 |:--|--:|--:|--:|
-| 1 hook | 0.840 | 46% | 0% |
-| 2 reversal | 0.541 | 39% | 7% |
-| 3 near/far | 1.097 | 61% | 0% |
-| 4 left behind | 0.919 | 39% | 0% |
-| 5 cube law | 0.621 | 35% | 4% |
-| 6 clock | 0.857 | 36% | 0% |
-| 7 body | 0.951 | 46% | 0% |
-| 8 end | 1.135 | 55% | 0% |
+| 1 hook | 0.853 | 46% | 0% |
+| 2 reversal | 0.735 | 39% | 4% |
+| 3 near/far | 1.170 | 64% | 0% |
+| 4 left behind | 0.891 | 43% | 0% |
+| 5 cube law | 0.794 | 35% | 8% |
+| 6 clock | 1.003 | 50% | 4% |
+| 7 body | 0.938 | 39% | 4% |
+| 8 end | 1.342 | 55% | 0% |
 
-44% sits between r004 (42%) and r007 (49%), below r005 v5's 53%. **It was not chased further on
+46% sits between r004 (42%) and r007 (49%), below r005 v5's 53%. **It was not chased further on
 purpose** — density is a floor, not a target, and it cannot tell whether motion carries information.
 Every beat is alive; adding drift to reach 50 would have bought a number and nothing else.
 
