@@ -12,7 +12,7 @@ forget having written.*
 ## The rules this log enforces
 
 From [`insta_strategy.md`](insta_strategy.md) §6 and the `equation.verse` teardown
-([`docs/comp_deep_dive_equationverse.md`](docs/comp_deep_dive_equationverse.md)), explicitly on the
+([`docs/comps/comp_deep_dive_equationverse.md`](docs/comps/comp_deep_dive_equationverse.md)), explicitly on the
 "leave" list:
 
 - **No hashtag stuffing.** No `#viralreels #fyp #followme`. Six topical tags is plenty.

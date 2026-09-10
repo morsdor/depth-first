@@ -109,7 +109,7 @@ This is the `I15` situation exactly: blocked in the cloud, fine on a local machi
 - **The physics half of the reel is fully buildable here** — the tide-generating field, the two
   amplitudes, the M2 period and the body comparison are pure arithmetic.
 - **The measured-record half needs one fetch run locally**, in a `fetch_tide.py` shaped like
-  `i15_astar/fetch_graph.py` (real User-Agent, mirrors, cached JSON committed).
+  the deleted `I15` build's `fetch_graph.py` (real User-Agent, mirrors, cached JSON committed).
 - If that never happens, the reel still stands on computed physics alone. It is weaker without a
   real gauge record, and that trade should be a deliberate choice, not a discovery at Stage 5.
 

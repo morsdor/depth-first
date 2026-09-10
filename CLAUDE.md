@@ -52,9 +52,11 @@ appended to `content_backlog.md` with its section and accent **before** it is bu
 (`failure`), which already fit them. Do not build off a topic that has no row.
 
 **When asked for "a new reel", pick the next concept from [`content_backlog.md`](content_backlog.md).
-Do not invent a topic — propose a new id and get it written down instead.** 65 entries, ids
-`I01`–`I68`, grouped into six sections that map 1:1 onto `DOMAIN_ACCENT` in
-`remotion/src/brand/tokens.ts` — so the section *is* the accent colour decision.
+Do not invent a topic — propose a new id and get it written down instead.** **69 entries, ids
+`I01`–`I69`**, grouped into six sections that map 1:1 onto `DOMAIN_ACCENT` in
+`remotion/src/brand/tokens.ts` — so the section *is* the accent colour decision. Live counts come
+from the script, never from this line:
+**8 built · 1 failed · 2 in gate · 2 retired · 1 shelved · 55 open** (2026-09-10).
 
 **The procedure for all of this is the [`new-reel`](.claude/skills/new-reel/SKILL.md) skill —
 `/new-reel`.** It lists the live candidate ids with their real status
@@ -64,8 +66,11 @@ of the three human gates. This file stays the law; the skill is the sequence.
 
 - **Ids are permanent.** Never reuse an id for a different concept. Retire with
   "(retired — date, reason)"; the row stays so old logs resolve.
-- **Prefer the "open with these eight"** (`I01 I02 I03 I15 I17 I25 I31 I42`) until they are used up —
-  they cover all six sections and double as a pillar test. `I42` is the s001 warm-up.
+- **The "open with these eight" are nearly used up.** `I01 I02 I03 I17` are built (r003, r001,
+  r004, r005) and `I15` is retired, so **only `I25`, `I31` and `I42` remain**. They were chosen to
+  cover all six sections as a pillar test; with five gone that job is mostly done, and the argument
+  test below now matters more than finishing the list. `I42` was the s001 warm-up — s001 is parked
+  on the archive branch, so `I42` is now just a strong `§5 ai` candidate on its own merits.
 - **Propose the id and confirm before building.** A reel is a day of work; don't guess which one.
 
 ### Gate 0 — the friend test. Runs BEFORE any code, and it is not mine to pass.
@@ -175,16 +180,53 @@ for. `I51` and `I15` briefly held r005 and r008; those numbers now belong to the
 pendulum reels, and everything those builds taught is in `brand_guide_software.md` §13 under their
 ids.
 
-### Where things live
+### Where things live — the whole repo (2026-09-10)
 
-| Tree | Means |
-|:--|:--|
-| `projects/r<NNN>_<name>/` | **a reel that shipped.** The render inside it matches the folder name |
-| `gate0/i<NN>_<slug>/` | a concept with a written Gate 0 and **no** shipped reel — in gate, or killed |
-| `scripts/manim_probe/` | not a reel; the Manim→PNG→Remotion bridge smoke test behind `manim-probe` |
+```
+depth-first/
+├── CLAUDE.md                    the law — this file
+├── README.md                    what this is, how to run it, where the YouTube line went
+├── content_backlog.md           69 permanent ids in six sections; the section IS the accent
+├── brand_guide_software.md      §13 is the ledger: every dated lesson, incl. retracted ones
+├── reel_captions_log.md         caption, hook line, load-bearing phrasings, engagement per reel
+├── insta_strategy.md            superseded premise, surviving evidence — read its status banner
+├── requirements.txt             numpy · Pillow · matplotlib (Manim has its own venv)
+│
+├── projects/r<NNN>_<name>/      A REEL THAT SHIPPED. r001…r008, contiguous, in posting order
+│   ├── gate0/                   GATE0.md · mock_payoff.py · payoff_frame.png
+│   ├── <compute>.py             the real algorithm; prints every figure; asserts its invariants
+│   ├── <name>_data.json         its dumped intermediate state
+│   ├── emit_ts.py               packs JSON → TS and REFUSES to write if a claim is false
+│   ├── NOTES.md                 figures with provenance · beats · gate numbers · traps
+│   └── r<NNN>_<name>.mp4        the render — tracked, so it can reach a phone
+│
+├── gate0/i<NN>_<slug>/          A WRITTEN GATE 0 WITH NO SHIPPED REEL — in gate, or killed
+│                                I33, I52 in gate · I53 killed by its own data
+│
+├── remotion/
+│   ├── src/reels/               one .tsx per reel + lib/chrome.tsx (the shared chrome)
+│   │   ├── lib/chrome.tsx       SAFE area · ReelGround · useBreath · ReelHeader · Readout
+│   │   ├── lib/manim.tsx        ManimLayer — plays a transparent PNG sequence
+│   │   └── data/                GENERATED TS modules — never hand-edited
+│   ├── src/brand/tokens.ts      palette · easing · type scale — brand:check enforces it
+│   ├── src/Root.tsx             16 compositions: 8 reels × (plain + -safe), plus manim-probe
+│   └── public/{fonts,reels,manim}/   vendored fonts (renders are offline) · audio · PNG layers
+│
+├── scripts/
+│   ├── reel_motion_audit.py     dead spell ≤ 1.5 s · event density (run at DEFAULT --width 240)
+│   ├── reel_safe_audit.py       any content outside x 60–870 / y 270–1540, on the mp4
+│   ├── manim_render.py          Manim scene → transparent PNG sequence for ManimLayer
+│   └── manim_probe/             the Manim→PNG→Remotion bridge smoke test. NOT a reel
+│
+├── docs/depth_first/            the operating docs — start at README.md
+├── docs/comps/                  equation.verse and @CodeSource teardowns
+├── data/                        the *_software competitor evidence
+└── assets/{brand,fonts}/        the wordmark and the type
+```
 
-A concept lives in `gate0/` from the moment its Gate 0 is written, and moves to
-`projects/r<NNN>_<name>/` when the reel is posted and takes its number.
+**A concept lives in `gate0/` from the moment its Gate 0 is written and moves to
+`projects/r<NNN>_<name>/` when the build starts and claims its number.** If a build is abandoned it
+is deleted and its number is released, which is what keeps `r001`–`r008` gapless.
 
 Update this table, `brand_guide_software.md` §13 and
 [`reel_captions_log.md`](reel_captions_log.md) when one ships.
@@ -324,8 +366,9 @@ drawn"* — so it is a positioning decision as much as a budget one. Keep it at 
 
 - **Every image generation is charged**, and nothing in the reel pipeline needs one. If a task seems
   to want generation, the answer is that it is the wrong task.
-- **Every Kling job is charged.** Mandatory user confirmation before submitting; no trial runs; never
-  auto-resubmit.
+- **Every Kling job is charged.** No Kling code exists on `main`; the rule stands for the archive
+  branch and any future restore. Mandatory user confirmation before submitting; no trial runs;
+  never auto-resubmit.
 - The charged tools that used to live here — `generate_images.py`, `generate_asset.py`,
   `generate_thumbnail.py`, `scripts/tag_outliers.py` — went to
   `yt-longform-archive-DO_NOT_DELETE` with the YouTube line. Restoring one restores its cost gate too.

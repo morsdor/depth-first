@@ -62,8 +62,19 @@ export type Domain = keyof typeof DOMAIN_ACCENT;
 
 /** Every colour the brand check will accept in a scene file. */
 export const ALLOWED_COLORS: readonly string[] = [
-  ...Object.values(BASE),
-  ...Object.values(DOMAIN_ACCENT),
+  BASE.ink,
+  BASE.slate,
+  BASE.bone,
+  BASE.ash,
+  BASE.graphite,
+  BASE.mesh,
+  BASE.amber,
+  DOMAIN_ACCENT.infrastructure,
+  DOMAIN_ACCENT.security,
+  DOMAIN_ACCENT.data,
+  DOMAIN_ACCENT.ai,
+  DOMAIN_ACCENT.failure,
+  DOMAIN_ACCENT.languages,
   'transparent',
 ];
 

@@ -64,7 +64,7 @@ remotion/src/Root.tsx                 both compositions registered
 
 - **Nothing is recalled.** Every figure that reaches the screen is printed by a script in this
   folder, and `NOTES.md` records which script and which run.
-- **`emit_ts.py` refuses to write a module whose claims are false.** `i15_astar/emit_ts.py`
+- **`emit_ts.py` refuses to write a module whose claims are false.** the deleted `I15` build's `emit_ts.py`
   asserts a route exists, that A\*'s cost equals Dijkstra's, and that the paths are the same node
   sequence. `search.py` goes further and verifies the heuristic is admissible at every settled node
   by running a full backwards Dijkstra. **If the reel claims it, a script asserts it.**

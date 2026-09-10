@@ -149,7 +149,7 @@ working, not failing.
   returned 96–99 for everything including its controls — saturation dressed as a result.
 
 If a figure kills the concept: write the GATE0 file up as a **failure record** (model:
-`projects/i53_flood/gate0/GATE0.md`), append the verdict to the backlog row, keep the id, stop.
+`gate0/i53_flood/gate0/GATE0.md`), append the verdict to the backlog row, keep the id, stop.
 Do not repair and do not go city-shopping.
 
 ---

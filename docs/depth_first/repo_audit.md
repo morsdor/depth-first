@@ -101,7 +101,7 @@ reclaims nothing there.
    Python 3.9 dies at `manim --version` with `ModuleNotFoundError`. It only worked before because
    some retired dependency happened to pull it in. Now pinned in `scripts/manim_requirements.txt`.
 2. **`numpy` is now 2.0.2, and four scripts still call `np.ptp`** — `r008_pendulum/simulate.py` (two
-   asserts), `i64_queue/sim.py`, `r005_greatcircle/build_geo.py`. `np.ptp` as a *function* survives
+   asserts), the deleted `I64` build's `sim.py`, `r005_greatcircle/build_geo.py`. `np.ptp` as a *function* survives
    in NumPy 2; it is the `ndarray.ptp()` *method* that was removed, and all four uses are the
    function form, so they are safe. Worth knowing, because this repo has been bitten by the 2.0
    removal twice already.
@@ -128,8 +128,11 @@ Nothing of value; git holds the history of all of it.
 
 ## 4. Defects fixed
 
-**1 · Two reels were both numbered `r007`.** `r007_tides` (posted) and the shelved `i64_queue` build.
-The shelved build now holds **no** reel number: its render is `i64_queue_shelved.mp4` and its
+*Reel numbers in this section are the ones in force when each defect was fixed, before the
+renumber in §4b. Where one has moved, the current number is given in brackets.*
+
+**1 · Two builds held the same reel number.** At the time both were `r009` — the tides reel (posted, now `r007` after the renumber below) and the shelved `I64` queue build.
+The shelved build now holds **no** reel number: its render is the `I64` render and its
 compositions are `i64-queue` / `i64-queue-safe`. `brand_guide_software.md` updated. The rule — *a
 reel number is claimed in `CLAUDE.md`'s table when the build starts and never shared* — is now
 written into `.claude/skills/new-reel/reference/build.md`.
@@ -172,7 +175,7 @@ about "algorithms". §13 now specifies `Depth First · how systems work` (exactl
 core three, per-reel extras (segno, opencv, pyproj) commented, Manim's separate venv explained, and
 ffmpeg named as the system dependency the audits need.
 
-**9 · `projects/i64_queue/` had a render and no `NOTES.md`.** Written as a failure record: the Gate 0
+**9 · The `I64` queue build had a render and no `NOTES.md`.** Written as a failure record: the Gate 0
 sentence, the fact that it **passed every automated gate** — 65% event density, the best in the repo
 at the time, 15 asserts, clean lint — and was still stopped by a human at Gate 3 ("the output is not
 sound"). It states plainly that nobody has since diagnosed *why*, so a rebuild starts there.
@@ -181,7 +184,7 @@ sound"). It states plainly that nobody has since diagnosed *why*, so a rebuild s
 permanent backlog id, the reel number appears only on the render, and the `r001…I51` folders keep
 their old names because the logs cite them.
 
-**Also fixed:** a real broken dependency — `projects/i52_listening/gate0/mock_payoff.py` reads
+**Also fixed:** a real broken dependency — `gate0/i52_listening/gate0/mock_payoff.py` reads
 `projects/001_roman_aqueduct/vo_001_final.wav`, which is now on the branch. `I52`'s `GATE0.md` records
 this with the one-line restore command. Every other archived-path reference in the surviving files
 (`brand_guide_software.md`, `content_backlog.md`, `insta_strategy.md`, `remotion/src/brand/tokens.ts`,
@@ -277,8 +280,9 @@ yt video ideas/
 └── assets/{brand, fonts}
 ```
 
-**Root: 30 items → 13. Tracked files: 454 → 183. Working tree: ~357 MB of dead-era and
-regenerable content deleted from disk.** Verified after the change: `npm run lint` clean,
+**Root: 30 items → 15 (two of them the new `gate0/` and `docs/`). Tracked files: 454 → 143.
+Working tree: ~357 MB of dead-era and regenerable content deleted from disk, plus 502 MB reclaimed
+by rebuilding the three environments.** Verified after the change: `npm run lint` clean,
 `reel_motion_audit.py` reproduces r005's recorded 38% event density, `backlog_ideas.py` reports its
 69 ids, and all 22 reel compositions enumerate.
 

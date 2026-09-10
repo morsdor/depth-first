@@ -128,7 +128,7 @@ It survived only because a route rebuilt from public geography alone landed with
 That distinction is what let r006 keep naming MAREA and IMEWE and quoting their lengths.
 
 Known-good sources: OpenStreetMap via Overpass (attribute ODbL; identify a real User-Agent — the
-default urllib UA gets **HTTP 406** — and fall back across mirrors, as `i15_astar/fetch_graph.py`
+default urllib UA gets **HTTP 406** — and fall back across mirrors, as the deleted `I15` build's `fetch_graph.py`
 does), GSHHG coastlines bundled offline in `basemap-data`, SRTM 1-arcsec from the AWS open-data
 skadi endpoint (NASA, public domain, no key), public TLEs, published incident reports.
 

@@ -127,7 +127,7 @@ leg they were weak on, and both then landed on the floor.
 
 The model file is `.claude/skills/new-reel/reference/gate0.md`; the best examples are
 `projects/r008_pendulum/gate0/GATE0.md` (a pass with a falsification that changed the design) and
-`projects/i53_flood/gate0/GATE0.md` (a failure record).
+`gate0/i53_flood/gate0/GATE0.md` (a failure record).
 
 ### Stage 3 · research and measure
 
@@ -135,7 +135,7 @@ Where the numbers come from, and the rules that keep them honest:
 
 - **Nothing is recalled.** Every figure that reaches the screen is printed by a script in the
   project folder, and `NOTES.md` says which script and which run.
-- **Cache the network.** `i15_astar/fetch_graph.py` hits Overpass with a real User-Agent (the
+- **Cache the network.** the deleted `I15` build's `fetch_graph.py` hits Overpass with a real User-Agent (the
   default one gets HTTP 406), falls back across three mirrors, and writes `graph_<city>.json` so
   every rebuild is offline. Four city graphs (Paris, London, NYC, Delhi) are already cached.
 - **Falsify the mechanism.** `r008_pendulum/design.py` integrated the real `θ'' = −(g/L) sin θ` and

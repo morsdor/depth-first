@@ -4,7 +4,7 @@
 `brand_guide.md` (The Engineering Atlas — retired 2026-09-10, now on the branch
 `yt-longform-archive-DO_NOT_DELETE`), which does **not** transfer: different subject, different
 viewer, different visual language. Written 2026-08-17, after the @CodeSource comp deep dive
-(`docs/comp_deep_dive_codesource.md`) and the Remotion pipeline decision.*
+(`docs/comps/comp_deep_dive_codesource.md`) and the Remotion pipeline decision.*
 
 > **§5 Motion Identity is not prose — it is the spec for `src/brand/tokens.ts`.** Under the AE pipeline
 > a brand guide was a document a human had to remember to obey. Under Remotion it compiles. Every
@@ -470,7 +470,7 @@ carry 100% of that load, which raises the bar on packaging rather than lowering 
 
 ---
 
-*Companions: `docs/comp_deep_dive_codesource.md` (the evidence behind §7 runtime and §8) ·
+*Companions: `docs/comps/comp_deep_dive_codesource.md` (the evidence behind §7 runtime and §8) ·
 `brand_guide.md` (The Engineering Atlas — the sister channel, deliberately different) ·
 `docs/cinematography.md` (craft canon behind §5) · the `studio-director` chain for per-video execution.
 **All three retired 2026-09-10 and preserved on `yt-longform-archive-DO_NOT_DELETE`.** For short-form, §13 below and
@@ -482,7 +482,7 @@ carry 100% of that load, which raises the bar on packaging rather than lowering 
 
 The short-form arm. Same name, same handle, same mark as YouTube — deliberately. Two names would be
 two brands with zero compounding, and would recreate exactly the dead funnel diagnosed in
-`docs/comp_deep_dive_equationverse.md` §5.
+`docs/comps/comp_deep_dive_equationverse.md` §5.
 
 | Field | Value |
 |:--|:--|
@@ -989,7 +989,7 @@ on its own.
 **The shelved `I64` queue build held the previous record at 65% and the verdict on watching it
 was "the output is not sound."** (That build was proposed as r007; the number went to `I58` tides,
 which measures 47%. The queue render was renamed to
-`projects/i64_queue/i64_queue_shelved.mp4` on 2026-09-10 and its compositions to
+the deleted `I64` build's render on 2026-09-10 and its compositions to
 `i64-queue` / `i64-queue-safe`, so a shelved build no longer holds a reel number.) The audit counts pixels changing; it cannot count
 whether a stranger can name what is moving. The reason r008 scores where it does is not craft — it is that fifteen large bright bobs
 are in motion for thirty-four consecutive seconds. Any reel about a physical system in continuous motion
