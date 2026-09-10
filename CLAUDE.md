@@ -356,6 +356,25 @@ npx remotion still r002-autocorrect-safe out.png --frame=600
 `brand:check` accepts **computed `rgb()` strings**, which is how data-driven colour ramps stay legal
 without adding hexes to the palette. Hardcoded hex literals outside `brand/` fail.
 
+### `/wip` — hand the working tree to another device
+
+```bash
+/wip                      # or: bash scripts/wip.sh
+/wip mid-way through X    # optional note, used in the branch name and the subject
+```
+
+Commits everything to a **new `wip/<date>-<slug>` branch and pushes it**, then leaves you on that
+branch. **It never commits to `main`.** Reuses the branch if you are already on one, and says
+"nothing to hand off" when the tree is clean and pushed.
+
+**Why it exists.** Remote Control is a window into the session on *this* Mac and dies when the Mac
+sleeps; a session started from the Claude app runs in the cloud and clones from GitHub, so it cannot
+see uncommitted local work. This is the bridge. When you are back and have read the diff:
+
+```bash
+git switch main && git merge --squash wip/<branch> && git commit
+```
+
 ---
 
 ## Cost gates — always confirm before spending
