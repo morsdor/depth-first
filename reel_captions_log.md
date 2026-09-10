@@ -37,6 +37,7 @@ with the row, because the temptation to "tighten" it later is exactly how a fals
 | `r002` | 2026-09-02 | **not recorded** — predates this log | — | — | — | — | — | — |
 | `r003` | 2026-09-05 | **not recorded** — predates this log | — | 3 | 0 | 1 | 0 | — |
 | `r004` | 2026-09-06 | A (below) | "A JPEG doesn't store your photo. It stores a recipe." | 17 | 1 | 5 | 0 | Lowest skip rate of the three (34.8%, flagged "Lower") and the widest reach (1,617 viewers) — but 1 share against r001's 6. A caption cannot be credited or blamed for either at this sample size; see `brand_guide_software.md` §13. |
+| `r009` | *not posted* | A (below) — drafted, awaiting Gate 3 | "The Sun pulls on the Earth 179 times harder than the Moon does. The Moon still makes the tide." | — | — | — | — | First reel outside software and the longest at 54 s. Gate 0 recorded its weak leg in advance: nobody is arguing about tidal bulges, so the reach test's "a dispute is already running" is unmet and the body comparison carries that load in the last beat. |
 | `r006` | 2026-09-08 | A (below) | "Those curved flight paths on the seatback map are the straight lines. The map is bent, not the flight." | 916 | 303 | 362 | 71 | **Figures at day 1 (2026-09-09 09:47); views curve had not flattened, so these are lower bounds.** 32,882 viewers / 46,782 views — 20.3x the account's previous best reach — and best on every per-viewer metric: likes 2.79%, shares 0.92%, saves 1.10%, follows 0.216%. Skip 29.9%, the lowest recorded. Average watch rose 16 -> 16 -> 17 -> 20 s across four readings while reach grew 64x. Audience was **99.9% non-followers**, 58% India, 67% aged 25-44. **Three early conclusions were retracted** (saves at 1 h, shares at 4 h, skip rate at 7 h) — see `brand_guide_software.md` §13. |
 
 Engagement figures are per the reel's own Insights, on the base Instagram reports them against
@@ -324,3 +325,62 @@ carry traffic) and `#howitworks` (generic enough to be noise).
 - **"Great circle" in the caption's first line.** It is the CS word Gate 0 tests for. It appears
   nowhere in the hook, on screen or in the opening sentence — the viewer gets "the map is bent, not
   the flight" and can look the term up if they want it.
+
+---
+
+## r009 — "The Sun pulls 179x harder. The Moon makes the tide." (`I58`) — DRAFT, not posted
+
+All figures are output of `projects/i58_tides/tides.py`, re-asserted by `emit_ts.py` before the
+data module was written. See `projects/i58_tides/NOTES.md`.
+
+### Caption A — drafted
+
+> The Sun pulls on the Earth 179 times harder than the Moon does. The Moon still makes the tide.
+>
+> A tide isn't about how hard you're pulled. It's about how much harder your near side is pulled
+> than your far side — and that difference falls off with the cube of the distance, not the square.
+>
+> Which makes the whole thing one extra division. The Sun is 27 million times heavier than the Moon
+> and 389 times further away. Divide by 389 twice, you get 179x the pull. Divide once more, you get
+> 0.46x the tide.
+>
+> Same rule, applied to you. A tide needs a difference across something, and you're 1.7 metres
+> across, not 12,742 kilometres. Someone standing two metres away raises a tide in your body about
+> 10,000 times stronger than the Moon does — and keeps winning until they've walked about 38 metres
+> off.
+>
+> One thing to be precise about: that's the tide, not the pull. The Moon's straight pull on you
+> really is far bigger than theirs, roughly 28,000 times bigger. It just doesn't stretch you, and
+> stretching is what a tide is.
+>
+> All of this is the tide-raising force, computed from published constants — not a tide table. Real
+> coastlines are set by the shape of their ocean basin, and some places get one high a day, not two.
+
+### Load-bearing phrasings — do not "tighten" these
+
+- **"the tide, not the pull"** must survive. On gravity the Moon beats a nearby person by ~28,000x,
+  the opposite result. Dropping this clause turns a true claim into a false one.
+- **"two metres away"** must stay attached to the 10,000x. At 1 m the formula returns 702,858x, but
+  the near end of a 1.7 m body would be 0.15 m from the other person's centre — inside the
+  point-mass singularity. The measured values are 702,858x at 1 m, 34,795x at 1.5 m, 10,077x at 2 m,
+  2,370x at 3 m.
+- **"about 38 metres"** is the robust form of the claim, because it picks no separation at all.
+- **"the tide-raising force"**, not "the tide". The reel draws the equilibrium tide, which is the
+  forcing. Real tides lag it and vary enormously by coast.
+- **"The Moon still makes the tide"** — not "only the Moon". The Sun's 16 cm is real and is what
+  makes spring and neap tides.
+- **Do not write "two high tides a day."** Tides are semidiurnal, diurnal or mixed by location.
+- **The two divisions are the real sum**, asserted in `tides.py` to reproduce the measured ratios to
+  1e-12. Keep both lines or neither; one alone is just a ratio.
+- **The tide-table line was cut at Gate 3.** It was an absolute about a prediction this reel does not
+  make. Its removal also removed rule 9's *performable* ask, which is a known trade.
+
+### Hashtags — six, topical, no stuffing
+
+`#physics` `#astronomy` `#tides` `#moon` `#gravity` `#scicomm`
+
+### Not in the caption, on purpose
+
+The phrase "centrifugal force is wrong". The rotating-frame derivation about the barycentre is
+legitimate; only the popular version is wrong. Saying it flatly would be the reel making the same
+class of error it exists to avoid.

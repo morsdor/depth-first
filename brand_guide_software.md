@@ -1583,6 +1583,56 @@ geography audience rather than anything about the argument. That is distinguisha
 Explore share. If r007 travels on Explore too but engages worse, the object is doing the work and the
 belief correction is decoration.
 
+### r009 — the subject has to BE the frame, not sit in a panel (added 2026-09-10)
+
+r009's first cut failed the motion audit at **19% event density with every one of its eight beats
+dead**, and the cause was geometry rather than animation. The Earth sat in an 800x520 panel with
+text above and readouts below — a sensible-looking layout — which at the audit's 240px sampling
+width made the planet **15-40 px across**. The audit measures mean change over the whole frame, so
+a subject that occupies a tenth of it cannot move the number no matter how much it animates.
+
+The fix was structural: full-bleed stage, the planet nearly tripled in world radius, one rotation
+per 10 s instead of 26, and **no two consecutive camera keyframes equal** — a documentary camera is
+never locked off. 19% -> 38%. Then the two beats that were still dead (14% and 32%) turned out to be
+the two where the camera had *shrunk* the planet to make room for a panel; the panels only need the
+bottom of the frame, so the Earth was lifted instead, and the beat carrying the reel's second
+surprise was made to push IN rather than drift out. 38% -> **44%, zero dead time in any beat.**
+
+**The general rule this yields: text and graphic must share the frame, not divide it.** r006 and
+r007 already put text over a full-bleed map; r009 is the case that shows what dividing costs.
+
+It was deliberately not pushed to 50%. Density is a floor, not a target, and it cannot distinguish
+motion that teaches from motion that fills.
+
+### r009 — the audit cannot see a missing antecedent, and the filmstrip can (added 2026-09-10)
+
+Two defects survived a passing motion audit, a clean typecheck, a clean `brand:check` and a
+programmatic safe-area test, and both were obvious in a filmstrip:
+
+- **The Sun was an 82 px sliver at the frame edge** — in a reel whose entire claim is "the Sun pulls
+  179x harder". Every automated check was satisfied because something bright was on screen.
+- **Beat 2 read "same scale as the bar above" while the bar above had faded out five seconds
+  earlier.** Two states in sequence is not a relation. The bars are now co-present — 720 px against
+  4 px — which is the whole argument in one picture.
+
+This is the same lesson as r007's "It doesn't go up" pronoun hook, generalised: **the automated
+gates check that things are legal, never that they are legible.** Non-negotiable 8 says verify
+timing with video and filmstrip; the corollary is that composition needs it too.
+
+### r009 — the render had a network dependency nobody had noticed (added 2026-09-10)
+
+`remotion render` failed outright the first time the pipeline ran in a container with a controlled
+egress: it tried to download Chromium from a non-allowlisted host, and once pointed at the
+container's own Chromium, the headless browser is not proxy-aware and could not reach
+`fonts.gstatic.com` — so `@remotion/google-fonts` failed every face and the render aborted with a
+NetworkError before writing a frame.
+
+**A render that needs the network is a render that can fail for reasons that have nothing to do with
+the reel.** The five latin-subset woff2 files are now vendored in `remotion/public/fonts` and loaded
+by local `@font-face`; `brand/fonts.ts` exports the same family names, so nothing downstream moved.
+Renders are offline and reproducible. This is the "cache the network" rule the Python side already
+followed, applied to the browser.
+
 ### Posted
 
 | Reel | Subject | Length | Posted |
