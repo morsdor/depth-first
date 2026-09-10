@@ -13,10 +13,10 @@ npm run brand:check          # palette / easing / font-size / damping lint
 npm run lint                 # eslint + tsc + brand:check
 npm run dev                  # Studio — scrub, and check the *-safe composition
 
-npx remotion render rNNN-<slug> ../projects/<id>_<slug>/rNNN_<slug>.mp4 --codec=h264
-npx remotion still rNNN-<slug>-safe out.png --frame=600
+npx remotion render r<NNN>-<name> ../projects/r<NNN>_<name>/r<NNN>_<name>.mp4 --codec=h264
+npx remotion still r<NNN>-<name>-safe out.png --frame=600
 
-cd .. && python3 scripts/reel_motion_audit.py projects/<id>_<slug>/rNNN_<slug>.mp4
+cd .. && python3 scripts/reel_motion_audit.py projects/r<NNN>_<name>/r<NNN>_<name>.mp4
 ```
 
 ---
@@ -34,12 +34,12 @@ Benchmarks — **all at the default `--width 240`**:
 
 | | density |
 |:--|--:|
-| r005 first cut — *a viewer called it static* | 26% |
-| r007 first cut | 27% |
-| r006 (shipped, ~66k views) | 38% |
+| I51 first cut — *a viewer called it static* | 26% |
+| r006 first cut | 27% |
+| r005 (shipped, ~66k views) | 38% |
 | r004 | 42% |
-| r007 (shipped, after the camera) | 49% |
-| r005 v5 | 53% |
+| r006 (shipped, after the camera) | 49% |
+| I51 v5 | 53% |
 
 ### Three rules for reading it
 
@@ -48,14 +48,14 @@ scores 27% at 240 and 51% at 360, because small moving objects survive downscali
 vanish at 240. A per-beat analysis at 360 once reported 51% for a reel the script scored 27%.
 
 **2 · Measure per beat before changing anything.** The global number hides which beat is dead, and
-**the beat carrying the argument is usually the deadest one** — r007's route-draw, the most
+**the beat carrying the argument is usually the deadest one** — r006's route-draw, the most
 important animation in the reel, scored the lowest of any beat at 16%. Slice the render and audit
 each beat:
 
 ```bash
 # RE-ENCODE, and put -ss AFTER -i. Input-seeking with `-c copy` snaps to the nearest
 # keyframe and can shift the window by a second — silently giving the wrong beat's number.
-ffmpeg -i projects/<id>_<slug>/rNNN_<slug>.mp4 -ss 6.3 -t 5.1 \
+ffmpeg -i projects/r<NNN>_<name>/r<NNN>_<name>.mp4 -ss 6.3 -t 5.1 \
        -c:v libx264 -preset ultrafast /tmp/beat02.mp4
 python3 scripts/reel_motion_audit.py /tmp/beat02.mp4
 ```
@@ -66,7 +66,7 @@ cannot decode h264. On this Mac it falls through to Homebrew's `/opt/homebrew/bi
 is fine.)*
 
 **3 · Density is a floor, not a target.** It rewards motion and cannot tell whether the motion
-carries information: r005 cut 4 hit **68%** by *looping* an animation, which teaches nothing. Read
+carries information: I51 cut 4 hit **68%** by *looping* an animation, which teaches nothing. Read
 it next to the reel, never instead of it.
 
 ### When a beat is dead, move the camera, not the marker
@@ -74,7 +74,7 @@ it next to the reel, never instead of it.
 The audit measures **mean change over the whole frame**, so only large-area motion counts. A 6 px
 line growing and a 15 px dot moving are worth almost nothing. The fix is a camera that opens tight,
 pulls back to reveal, and follows the subject — each move meaningful, each moving the entire frame.
-r007 went 27% → 49% that way. r006 cleared the bar without one only because a globe↔map morph moves
+r006 went 27% → 49% that way. r005 cleared the bar without one only because a globe↔map morph moves
 every coastline at once.
 
 ---
@@ -84,13 +84,13 @@ every coastline at once.
 - **`*-safe` composition, in Studio and as a still.** Check the title clears Instagram's top bar,
   and that nothing the viewer must *read* sits under the action rail (x ≥ 870, y ≥ 1050).
 - **Watch the video end to end, and pull a filmstrip.** Stills are for layout; video is for timing.
-  This is where r007's pronoun hook and r008's whole framing were caught — both had passed every
+  This is where r006's pronoun hook and I15's whole framing were caught — both had passed every
   automated check.
 - **Read the title against the Gate 0 sentence.** If the sentence's subject noun is missing from
   the title, the title is weaker than something already approved.
 - **Re-read every on-screen sentence for rule 7.** Any "X because Y" needs an experiment behind it,
   and every percentage needs one stated base. Check that instrumentation cannot be misread as a
-  measurement — r007 puts *"speed-of-light floor, not a ping"* under its payoff line for exactly
+  measurement — r006 puts *"speed-of-light floor, not a ping"* under its payoff line for exactly
   this reason.
 - **Check the end card**: names what the next reel does (only if that one is already gated), and
   the ask is performable on the phone in the viewer's hand.
@@ -111,7 +111,7 @@ Before anything is posted. Under a minute, and it has caught what nothing else c
 | `brand_guide_software.md` §13 | a dated subsection — what this build taught, **including what failed** |
 | `reel_captions_log.md` | the caption, the hook line (first ~125 chars), engagement columns later |
 | `content_backlog.md` | the row marked produced/failed, plus corrections to any figure it got wrong |
-| `projects/<id>_<slug>/NOTES.md` | the build record |
+| `projects/r<NNN>_<name>/NOTES.md` | the build record |
 
 **Correcting the backlog is not optional.** `I01`'s row was wrong twice (30% → 24%; "no region is
 essential" → a 0.7% corner is fatal) and `I15`'s hook claimed a 1000× ratio no real graph supports.
@@ -130,7 +130,7 @@ Every fix goes back into the row as an italic note with the date and the measuri
 
 ### NOTES.md template
 
-Model: `projects/r007_cables/NOTES.md` — the fullest one, and the shape to copy.
+Model: `projects/r006_cables/NOTES.md` — the fullest one, and the shape to copy.
 
 ```markdown
 # rNNN · `I<NN>` — "<the sentence, short form>"
@@ -161,7 +161,7 @@ change the conclusion>
 <the narrower, true version of the claim>
 ```
 
-**Write the traps section even when the build went well.** Every entry in `r007_cables/NOTES.md`'s
+**Write the traps section even when the build went well.** Every entry in `r006_cables/NOTES.md`'s
 trap list — a welded-then-measured cable, the 180° seam, `GEO_ALT` needing the equatorial radius,
 coastlines invisible at `#274064` — is a thing that failed silently and would have cost the same
 hour twice.

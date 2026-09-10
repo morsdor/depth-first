@@ -35,7 +35,7 @@ survives a rival account with a bigger budget.
 | `equation.verse` | ~20k | one reel (Berlin pathfinding) is a **74× outlier** against its own median; **51% send ratio** on the utility post; the Substack it funnels to has zero posts — *build the destination before pointing traffic at it* |
 | `@thebrainmaze` | ~1M | the "body as a system" lane at scale, on Instagram and TikTok; "making science fun for everyone" |
 | Fern, Johnny Harris | long-form north stars | 3D reenactment and map-driven documentary; the *place* as the object |
-| `@thedepthfirst` | 145 | one reel at 80k+ (r006), the argument engine observed once |
+| `@thedepthfirst` | 145 | one reel at 80k+ (r005), the argument engine observed once |
 
 The lane is crowded with approximately-right content and nearly empty of computed, verified,
 argument-settling content. That is the position.
@@ -47,9 +47,9 @@ argument-settling content. That is the position.
 | Cash cost per reel | ₹0 | rule; no generation |
 | Time cost per reel | ~1 human-day (three gates + review) | the skill's time budget; eight reels in nine days |
 | Time to outcome | ~24 hours | `insta_strategy.md` §2.0 — r001 gained 2 views in four days |
-| Hit rate so far | 1 in 8 | r006 |
-| Floor | ~190–420 views | r002, r003, r009, r010 |
-| Follow conversion on the hit | 0.216% of day-1 viewers; ~0.15% per view by the 80k reading | r006 |
+| Hit rate so far | 1 in 8 | r005 |
+| Floor | ~190–420 views | r002, r003, r007, r008 |
+| Follow conversion on the hit | 0.216% of day-1 viewers; ~0.15% per view by the 80k reading | r005 |
 | Followers from the hit | ~120 of 145 | user report |
 
 **What that implies.** At the hit's conversion rate, follower milestones cost roughly:
@@ -68,10 +68,10 @@ deliberately, and doubling it halves every row. Two levers, and the second is ch
 
 | Rank | Hypothesis | Evidence | n |
 |--:|:--|:--|--:|
-| 1 | **A reel travels when it settles an argument the viewer is already having**, with evidence they have personally witnessed, resolving to one repeatable number | r006 (the flat-earth exhibit) 80k vs r007 (same pattern minus the argument) 1.8k; r009 and r010 both flagged "no argument running" at Gate 0 and landed on the floor | 1 vs 3 |
+| 1 | **A reel travels when it settles an argument the viewer is already having**, with evidence they have personally witnessed, resolving to one repeatable number | r005 (the flat-earth exhibit) 80k vs r006 (same pattern minus the argument) 1.8k; r007 and r008 both flagged "no argument running" at Gate 0 and landed on the floor | 1 vs 3 |
 | 2 | **A legible, nameable object in the first half-second buys reach** | r004 (photograph) 1,617 viewers vs r003 (QR matrix) 324, lowest skip rate on the account | 1 vs 1 |
 | 3 | **Spectacle + utility together** (the `equation.verse` finding: utility without spectacle did 6% of its sibling) | comp data only | — |
-| — | *Not engines:* motion density, length, section, craft, rigor, posting time | r007 46% density/1.8k vs r006 38%/80k; r010 99%/190; the floor spans 28–54 s | — |
+| — | *Not engines:* motion density, length, section, craft, rigor, posting time | r006 46% density/1.8k vs r005 38%/80k; r008 99%/190; the floor spans 28–54 s | — |
 
 **The refined discriminating question, one sentence, asked before building:** *who does the viewer
 send this to, and what are they proving?* No answer → liked and forgotten (`CLAUDE.md`).
@@ -112,12 +112,12 @@ what makes three a week cost two days instead of three.
 4. **A series identity.** A recurring first-frame shape for the argument reels ("your uncle is wrong
    about…" is the energy, not the wording) so a second hit is recognisably from the same account.
 5. **Check the followers you already have.** Insights per reel shows follower vs non-follower
-   share. If r006's 120 did not watch r009 or r010, the followers an argument buys are not the
+   share. If r005's 120 did not watch r007 or r008, the followers an argument buys are not the
    channel's audience, and the series identity matters more than reach.
 
 ## 8. The experiment register — pre-registered, with kill criteria
 
-*The r007 test is the model: hypothesis written before the build, prediction stated, result
+*The r006 test is the model: hypothesis written before the build, prediction stated, result
 accepted. Each row is read at 24 h and 7 d, then closed. Move this table to its own file once it
 passes ten rows.*
 
@@ -126,7 +126,7 @@ passes ten rows.*
 | E1 | Is the argument engine real? | five reels that pass all three conditions, nothing else changed | ≥ 2 of 5 clear 10k views | < 1 of 5 → the engine is elsewhere; run four `equation.verse`-style spectacle+utility reels (E3) before anything else |
 | E2 | Does the physical widening buy reach, or only Gate 0 passes? | inside E1, at least two physical, at least two software | no difference attributable to physical vs software | if physical loses 2–0 with equal argument scores, treat "physical" as topic supply only |
 | E3 | Does spectacle+utility travel without an argument? | one Berlin-style flood on a real Indian city vs one on a Tier-1 city (the comp's own 55× natural experiment) | Tier-1 city ≥ 5× | informs the city list for §2 ids |
-| E4 | How much is the hook worth? | re-post r006's body with a different first 3 s as a Trial Reel when eligible | within 3× of the original | if ≥ 3× apart, hooks get their own Gate |
+| E4 | How much is the hook worth? | re-post r005's body with a different first 3 s as a Trial Reel when eligible | within 3× of the original | if ≥ 3× apart, hooks get their own Gate |
 | E5 | Does the end card convert? | ten consecutive reels with the rule-9 card vs the four without | follows per last-frame viewer ≥ 2× | fold the winner into the pack |
 | E6 | Is Shorts really the strong leg? | post all eight existing reels to YouTube Shorts this week, same day, same caption | any Short ≥ its Instagram views | if yes, every reel ships twice from now on; if no, Instagram-only and stop guessing |
 | E7 | Object class on the same engine | one body reel, one satellite reel, one grid reel, each argument-qualified | none falls to the floor | decides where the 20% goes next quarter |
@@ -154,7 +154,7 @@ shorts_views_7d, experiment_id, notes
 ```
 
 **Reading protocol, from the ledger's own retractions:** never conclude from under 24 h (saves at
-1 h, shares at 4 h and skip rate at 7 h were all read wrong on r006); compare rates on one stated
+1 h, shares at 4 h and skip rate at 7 h were all read wrong on r005); compare rates on one stated
 base (unique viewers); like-rate differences under ~30 taps are noise; a single reel is a hypothesis.
 
 ## 10. What "a million-dollar page" actually means, and when
@@ -189,12 +189,12 @@ hit rate and the follow conversion**, logged in §9. Everything else is derived.
 | Tool sprawl — three.js, Blender, Cesium, anatomy are each weeks | one new tool per reel, only when a gated id needs it (`visual_toolbox.md` §3 boundary rule) |
 | Followers bought by an argument who do not want the next reel | §7.5 measures it before it is optimised for |
 | Licence exposure once sponsored | every Gate 0 records the licence; the two flagged tools are re-decided at the first deal |
-| Over-reading n = 1 (this repo's documented habit — five rebuilds of r005) | the register in §8 with predictions written first |
+| Over-reading n = 1 (this repo's documented habit — five rebuilds of I51) | the register in §8 with predictions written first |
 
 ## 12. The next 90 days
 
 **Days 1–14 (to 24 Sep) — decide, clean, scaffold, and ship three.**
-Answer the decisions in §13 and `repo_audit.md` §6. Fix the five cheap defects (r009 collision, the
+Answer the decisions in §13 and `repo_audit.md` §6. Fix the five cheap defects (r007 collision, the
 mp4 pattern, the stale tables, the profile text, the reels `requirements.txt`) — **all six were
 done on 2026-09-10, see `repo_audit.md` §4**; what remains from that list is pushing the archive
 branch and backing up the charged plates. Build the scaffold and
@@ -224,7 +224,7 @@ one-page verdict per experiment, and a new register.
 1. **Cadence you can sustain** for twelve weeks with a job: three a week is the assumption.
 2. **Shorts, yes or no** — the eight-reel test costs an hour.
 3. **The profile text** — approve the widened Name and bio.
-4. **The r009 numbering fix** and the `.gitignore` pattern — one commit, if you want them.
+4. **The r007 numbering fix** and the `.gitignore` pattern — one commit, if you want them.
 5. **The archive decision** for the two frozen eras (`repo_audit.md` §6).
 6. **Whether to spend on any key this quarter** (MapTiler, Google 3D Tiles) or stay at ₹0 and
    use Google Earth Studio under its attribution terms.

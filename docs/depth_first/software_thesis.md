@@ -37,10 +37,10 @@ An honest audit of the repo, separating the asset from the plumbing.
 in Python on real data → dump intermediate state to JSON → `emit_ts.py` **re-derives every claim and
 refuses to write the module if one is false** → Remotion plays it back. On-screen numbers are correct
 because the run produced them. Nobody in the creator-tool market has this, because everyone else
-starts from pixels and works backwards. `r010_pendulum/emit_ts.py` carries 22 asserts, including one
+starts from pixels and works backwards. `r008_pendulum/emit_ts.py` carries 22 asserts, including one
 that the equation printed on screen reproduces the fifteen lengths on screen to 0.005 cm.
 
-**A falsification habit that changes designs, not just confidence.** `r010_pendulum/design.py`
+**A falsification habit that changes designs, not just confidence.** `r008_pendulum/design.py`
 integrated the real nonlinear pendulum and found the textbook lengths reform 0.33 s late — so the
 reel prints a corrected equation. `I53` was killed by its own data after passing the human gate.
 `r001` shipped a false mechanism sentence and that failure became rule 7. This is a *process*
@@ -51,7 +51,7 @@ AI video in every serious domain.
 and **stops** for a human yes. It builds, renders, audits, and **stops** for a human watch. Three
 gates, about a minute each, each of which has already saved a day. That is a genuinely novel
 interaction pattern for agentic creative tools, and this repo found it the expensive way — five
-rebuilds of `r005`, each raising rigor and lowering watchability, before the conclusion was accepted.
+rebuilds of `I51`, each raising rigor and lowering watchability, before the conclusion was accepted.
 
 **A judged corpus, which is the rarest item on this list.** Ten built reels with known outcomes,
 eight posted with real engagement, three killed at a gate with written reasons, and
@@ -197,7 +197,7 @@ signal to build one, and by then you can hire.
 Take the pipeline exactly as it is and make five to ten computed explainers for people who pay.
 No product, no landing page, no code beyond what a reel already needs. Target list: developer-relations
 teams at infrastructure companies, edtech and course companies, data journalists. The pitch is one
-sentence plus one reel — send `r006`.
+sentence plus one reel — send `r005`.
 **Kill criterion: if nobody pays for a true, computed animation of their system, the thesis is dead
 and you have spent six weeks.** That is the cheapest possible test of the entire plan.
 
@@ -222,7 +222,7 @@ be chosen deliberately rather than drifted into.
 **Throughout: the account keeps running, three reels a week, on `growth_strategy.md`'s terms.** It
 is the R&D lab (every reel dogfoods a pack), the proof (case studies you own), and the marketing
 (publish "how this was computed" as its own stream). **Never turn a reel into an advert for the
-tool** — `r010` dropped `#manim` from its hashtags for exactly this reason, and that instinct is
+tool** — `r008` dropped `#manim` from its hashtags for exactly this reason, and that instinct is
 correct.
 
 ---
@@ -286,7 +286,7 @@ product *is* that discipline, productised.
 1. **Extract the packs as if they were a public library from the start** — proper names, README per
    pack, no repo-specific paths baked in. `module_packs.md` already argues for this on cadence
    grounds alone; the thesis raises its priority from "nice" to "first".
-2. **Start the outreach list now.** Ten names, one sentence each, sent alongside `r006`. It costs an
+2. **Start the outreach list now.** Ten names, one sentence each, sent alongside `r005`. It costs an
    evening and it is the highest-information action available.
 3. **Instrument model cost per reel**, so COGS is known before it matters.
 4. **Keep every failure record.** `i53_flood/gate0/GATE0.md` and the shelved queue build are not

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Render a Manim scene to a transparent PNG sequence Remotion can composite.
 
-    python3 scripts/manim_render.py projects/manim/probe.py Probe probe
+    python3 scripts/manim_render.py scripts/manim_probe/probe.py Probe probe
 
 Writes remotion/public/manim/<name>/0000.png ... and prints the frame count to
 pass to <ManimLayer frames={...} />.

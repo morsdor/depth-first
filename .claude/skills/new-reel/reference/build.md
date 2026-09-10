@@ -14,41 +14,47 @@ them**.
 **₹0 — no image model is involved in a reel. Keep it that way.** Every frame is computed.
 
 Reference shape: `projects/r001_shazam/` (`fingerprint.py` → `emit_ts.py` → `emit_audio.py` →
-`remotion/src/reels/Shazam.tsx`). Best modern examples: `projects/i15_astar/` (real OSM graph) and
-`projects/r007_cables/` (public geography, licence-clean).
+`remotion/src/reels/Shazam.tsx`). Best modern examples: `the deleted `I15` build/` (real OSM graph) and
+`projects/r006_cables/` (public geography, licence-clean).
 
 ---
 
 ## File layout
 
-**The folder is `projects/r<NNN>_<name>/` — the REEL NUMBER, not the backlog id.** Set 2026-09-10.
-The name after the number can be as long as it needs to be; it is for humans reading a directory
-listing. Backlog ids stay permanent *in `content_backlog.md`* and in the logs, but they are
-redundant as a folder key: a folder is a place a reel was built, and the reel number is what every
-log, caption and analytics reading calls it.
+**Two trees, and each means exactly one thing.** Set 2026-09-10.
 
-**A folder in `projects/` is a reel that shipped.** An unbuilt or unshipped concept lives as a Gate 0
-record only — `projects/<id>_<slug>/gate0/` is acceptable while a concept is in gate, and the folder
-is renamed to `r<NNN>_<name>` when the reel is posted. Three built-but-never-posted reels
-(r005 shuffle, r008 A\*, the shelved I64 queue) were deleted on 2026-09-10 rather than kept; they
-are in git history if a rebuild ever wants them.
+| Tree | Means |
+|:--|:--|
+| `gate0/i<NN>_<slug>/` | a concept with a written Gate 0 and **no** shipped reel — in gate, or killed |
+| `projects/r<NNN>_<name>/` | **a reel that shipped**, numbered by the order it was posted |
 
-**Claim the reel number in `CLAUDE.md`'s table when the build starts, and never share it.** `I58`
-tides and the shelved `I64` queue were both "r009" until 2026-09-10, which is exactly the collision
-this rule prevents.
+**A concept starts in `gate0/` and moves to `projects/` when the reel is posted**, taking its number
+at that moment. The name after the number can be as long as it needs to be; it is for humans reading
+a directory listing.
+
+**Reel numbers are contiguous and mean "the Nth reel posted."** The number is **claimed in
+`CLAUDE.md`'s table the moment a build starts**, which is what stops two builds colliding — `I58`
+tides and the shelved `I64` queue briefly held the same one. **If a build is abandoned, its number
+is released and the next build takes it**, which is what keeps the sequence gapless: an unpublished
+build has no reel number and is called by its backlog id, which is what ids are for.
+
+Three built-but-never-posted reels (`I51` shuffle, `I15` A\*, the shelved `I64` queue) were deleted
+on 2026-09-10 rather than kept; they are in git history if a rebuild ever wants them.
+
+Backlog ids stay permanent in `content_backlog.md`; they are just not a folder key.
 
 `.gitignore` tracks a render by the FILE's name — `!projects/*/r[0-9][0-9][0-9]_*.mp4` — so a
-correctly named render is committed. Match the render's name to its folder: `projects/r006_greatcircle/r006_greatcircle.mp4`.
+correctly named render is committed. Match the render's name to its folder: `projects/r005_greatcircle/r005_greatcircle.mp4`.
 
 ```
-projects/<id>_<slug>/
+projects/r<NNN>_<name>/
   gate0/GATE0.md  mock_payoff.py  payoff_frame.png
   fetch_*.py           acquire real data; cache it to JSON so a rebuild is offline
   <compute>.py         the real algorithm; prints the figures; verifies its own invariants
   <name>_data.json     its dumped intermediate state
   emit_ts.py           packs the JSON to TS — and ASSERTS the reel's claims before writing
   NOTES.md             the build record
-  rNNN_<slug>.mp4      the render
+  r<NNN>_<name>.mp4      the render
 remotion/src/reels/data/<name>.ts     generated — never hand-edited
 remotion/src/reels/<Name>.tsx         the reel
 remotion/src/Root.tsx                 both compositions registered
@@ -97,7 +103,7 @@ Import from here rather than reinventing. Everything below is real API.
    put the breath transform on an inner element.
 2. **`Readout` defaults to `CONTENT_W` (960), which runs under Instagram's action rail** (x ≥ 870,
    y ≥ 1050). Survivable when the numbers are ornamental, **fatal when they are the payoff** —
-   pass `SAFE_W` (810) whenever the right-hand column is what the viewer must read. Found on r006,
+   pass `SAFE_W` (810) whenever the right-hand column is what the viewer must read. Found on r005,
    whose whole reel resolves to three right-aligned kilometre figures.
 3. **`Progress` is 960 wide and also runs under the rail** on every reel from r002 on. Ornamental,
    left alone — but it will show up in any scrub.
@@ -106,7 +112,7 @@ Import from here rather than reinventing. Everything below is real API.
    header has room for exactly **two lines**; a third orphans a word onto the graphic. Drop
    `bigSize` below 76 rather than wrapping to three.
 6. **Anything thresholded against a camera-transformed coordinate must be computed in SCREEN
-   space.** r007's first attempt dimmed markers on map-space `y` and did nothing, because the
+   space.** r006's first attempt dimmed markers on map-space `y` and did nothing, because the
    opening is zoomed 1.75×.
 
 ### Colour
@@ -115,7 +121,7 @@ Import from here rather than reinventing. Everything below is real API.
   section. The hexes in the backlog headings are **stale** — tokens.ts wins.
 - `failure #FF4D4D` goes **only on the beat something breaks.** Decorative use destroys it.
 - **Amber stays one element per frame.** A moving marker is part of its line, not a second amber
-  element (r006).
+  element (r005).
 - `brand:check` accepts computed `rgb()` strings — that is how data-driven colour ramps stay legal.
   **Hardcoded hex literals outside `brand/` fail the check.**
 - Coastlines and structure at `#274064` are invisible on this ground; use ash `#81A2C4` at ~0.42.
@@ -125,8 +131,8 @@ Import from here rather than reinventing. Everything below is real API.
 Export `DURATION_SECONDS` from the reel and register **two** compositions:
 
 ```tsx
-<Composition id="rNNN-<slug>"      component={Name} durationInFrames={NAME_SECONDS * 30} … />
-<Composition id="rNNN-<slug>-safe" component={NameSafe} durationInFrames={NAME_SECONDS * 30} … />
+<Composition id="r<NNN>-<name>"      component={Name} durationInFrames={NAME_SECONDS * 30} … />
+<Composition id="r<NNN>-<name>-safe" component={NameSafe} durationInFrames={NAME_SECONDS * 30} … />
 ```
 
 The `-safe` variant overlays `SafeZones` and is checked before posting. r001 shipped with its title
@@ -150,7 +156,7 @@ opening beat. Half the audience is gone by 1.5–3 s and both retention curves t
 the body works and the opening is the only thing costing reach.
 
 > Name a recognisable object in the title. Never "this" — **and never a bare "It"**, which is the
-> same failure. r007 shipped a first cut opening on *"It doesn't go up. It goes under."*: six
+> same failure. r006 shipped a first cut opening on *"It doesn't go up. It goes under."*: six
 > seconds of pronoun with no antecedent, and it passed every automated check.
 >
 > **Check the title against the Gate 0 sentence before rendering.** That sentence is the most
@@ -160,7 +166,7 @@ the body works and the opening is the only thing costing reach.
 **4 · Nothing is ever perfectly still.** `useBreath()` on every graphic stage, including text-only
 beats. 51–55% of each shipped reel had no visible change at all, in stretches up to 6.5 s; on a
 feed a frozen frame reads as "this ended". Two metrics, because the first has a blind spot — see
-`validate-and-ship.md`. **Continuous motion is the fix, not more drift**: r005 v5 runs 53% by never
+`validate-and-ship.md`. **Continuous motion is the fix, not more drift**: I51 v5 runs 53% by never
 pausing the thing the reel is about.
 
 **5 · Pacing: read → animate → hold.** Label alone ~1.5 s, animation 2–3 s, hold on the finished
@@ -170,7 +176,7 @@ reads as "too fast to understand anything".** End-of-beat text needs ≥ 3 s to 
 
 **6 · Open on a civilian object, and never leave it.** Never name the algorithm in the hook. **The
 recognisable object stays on screen, or in frame, for the whole reel** — this used to govern only
-the opening, which is how r005 could open on two decks of cards, cut to a 13×13 matrix three
+the opening, which is how I51 could open on two decks of cards, cut to a 13×13 matrix three
 seconds later, and still pass. If a beat needs an abstraction, it sits *beside* the object rather
 than replacing it.
 
@@ -185,7 +191,7 @@ stated base per percentage.
 followed. The end frame is the most-watched dead space in the format — close on a line naming what
 the next reel does, over the finished visual, held the full 3 s. **The ask must be performable on
 the phone in the viewer's hand**: r003 closed on "point your camera at it" over an on-screen QR
-code, which nobody holding one phone can scan. Follows: 0. r006's "open a flight tracker" worked.
+code, which nobody holding one phone can scan. Follows: 0. r005's "open a flight tracker" worked.
 
 ---
 
@@ -193,15 +199,15 @@ code, which nobody holding one phone can scan. Follows: 0. r006's "open a flight
 
 - **A claim about a RELATION has to draw the relation.** Two states side by side is not a relation.
 - **The payoff frame must not argue against its own caption.**
-- **End on an arrival, not on a finished diagram.** r006's *arrival* is the single most-liked frame
+- **End on an arrival, not on a finished diagram.** r005's *arrival* is the single most-liked frame
   in the reel; the 10.8 s race leading to it is the least-liked stretch. **Reach the winner fast** —
-  one lap, not two. r007 ran the end card *over* the still-running race rather than after it.
-- **Put a second surprise where the curve leaks.** r006's retention was a linear bleed: one
-  surprise at 3 s, then twenty seconds elaborating it. r007 added "glass is the *slower* medium" at
+  one lap, not two. r006 ran the end card *over* the still-running race rather than after it.
+- **Put a second surprise where the curve leaks.** r005's retention was a linear bleed: one
+  surprise at 3 s, then twenty seconds elaborating it. r006 added "glass is the *slower* medium" at
   14.4 s specifically to re-commit the viewer.
 - **A camera is how a map passes the motion audit.** The audit measures mean change over the whole
   frame, so a growing 6 px line and a moving 15 px dot are worth almost nothing. Open tight, pull
   back to reveal, follow the subject — three moves a documentary camera would make, each meaningful,
-  each moving the entire frame. r007: 27% → 49%.
-- **Don't promise a specific next reel on the end card** unless it is already gated. r006 promised
+  each moving the entire frame. r006: 27% → 49%.
+- **Don't promise a specific next reel on the end card** unless it is already gated. r005 promised
   `I15`; that promise was broken for four days.

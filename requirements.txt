@@ -13,12 +13,12 @@
 # ── the core three: every reel uses these ────────────────────────────────────
 numpy                   # every simulation and both audit scripts
 pillow                  # Gate 0 payoff mocks, the motion audit's frame differencing
-matplotlib              # Gate 0 mocks, falsification sweeps (e.g. r010_pendulum/design.py)
+matplotlib              # Gate 0 mocks, falsification sweeps (e.g. r008_pendulum/design.py)
 
 # ── per-reel extras: install when a build needs one, not by default ──────────
 # segno                 # r003 QR — spec-correct encoding, pure python
 # opencv-python-headless# r003 QR — an INDEPENDENT decoder, so damage verdicts are not self-reported
-# pyproj                # r006 great circle — WGS84 geodesic cross-check against the sphere
+# pyproj                # r005 great circle — WGS84 geodesic cross-check against the sphere
 
 # ── Manim lives in its OWN venv, not this one ────────────────────────────────
 #   python3 -m venv .manimenv && .manimenv/bin/pip install -r scripts/manim_requirements.txt

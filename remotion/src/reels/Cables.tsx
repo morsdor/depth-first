@@ -33,29 +33,29 @@ import {
   VIRGINIA,
   V_FIBRE,
   V_RADIO,
-} from "./data/r007_geo";
+} from "./data/r006_geo";
 
 /**
- * r007 · "Your message to a friend abroad goes underwater."  (backlog I22)
+ * r006 · "Your message to a friend abroad goes underwater."  (backlog I22)
  *
  * ── What is on screen, and why it is that ───────────────────────────────────
  * A world map, two cities, and one line between them. The map is the subject and
- * it never leaves the frame — non-negotiable 6 in its widened form, the rule r005
- * broke and r006 was the first to keep.
+ * it never leaves the frame — non-negotiable 6 in its widened form, the rule I51
+ * broke and r005 was the first to keep.
  *
  * The reel corrects a belief rather than explaining a mechanism, which is the
- * r006 pattern under test (brand guide §13). The belief: a message to another
+ * r005 pattern under test (brand guide §13). The belief: a message to another
  * continent goes up to a satellite. It does not. It goes into the sea.
  *
- * ── What the day-1 numbers on r006 changed here ─────────────────────────────
- * Instagram's like-timing histogram said r006's most-liked frame by a wide
+ * ── What the day-1 numbers on r005 changed here ─────────────────────────────
+ * Instagram's like-timing histogram said r005's most-liked frame by a wide
  * margin was its LAST one, and its least-liked stretch was the 10.8s race that
  * preceded it. So this reel is 28s rather than 32, and the race no longer
  * precedes the end card — it runs underneath it. The lap is timed so the reel
- * still ends on an arrival, which is the part of r006 that worked.
+ * still ends on an arrival, which is the part of r005 that worked.
  *
  * ── The second surprise, and why the reel needs one ─────────────────────────
- * r006's retention was a linear bleed with no plateau: one surprise at 3s and
+ * r005's retention was a linear bleed with no plateau: one surprise at 3s and
  * then twenty seconds elaborating it. The diagnosis was a missing re-commitment
  * beat. Here the second surprise lands at 14.4s and it is a real one — glass is
  * the SLOWER medium. Light gives up a third of its speed in fibre (204,288 km/s
@@ -66,7 +66,7 @@ import {
  * Every millisecond here is a speed-of-light FLOOR for the route: distance over
  * medium velocity. No switching, no queuing, no routing reality. The reel never
  * shows a figure as a measured ping, and the readout says "floor" where it
- * matters. See projects/r007_cables/NOTES.md.
+ * matters. See projects/r006_cables/NOTES.md.
  */
 
 export const DURATION_SECONDS = 28;
@@ -76,7 +76,7 @@ export const DURATION_SECONDS = 28;
 // click-editable (brand guide §11).
 
 // ── the stage ───────────────────────────────────────────────────────────────
-// 800 wide from x=60 stops at x=860, clear of the action rail at x=870. r006's
+// 800 wide from x=60 stops at x=860, clear of the action rail at x=870. r005's
 // readout shipped 960 wide and had its payoff figures eaten by the rail; the
 // map is the payoff here, so it gets the same treatment.
 const MAP_X = 60;
@@ -100,7 +100,7 @@ const proj = (lon: number, lat: number): P => ({
 /**
  * A ring becomes one or more subpaths. A coastline that crosses the seam must be
  * BROKEN there: painting straight through it draws a chord across the whole map.
- * r006 hit this twice and it fails silently — it paints garbage rather than
+ * r005 hit this twice and it fails silently — it paints garbage rather than
  * throwing. The seam is at 180 deg, out in the Pacific, because this route
  * crosses the Atlantic.
  */
@@ -227,7 +227,7 @@ const satAt = (u: number): P => {
 
 // ── the race ────────────────────────────────────────────────────────────────
 // 5.25s x exactly two laps fills 17.5 -> 28.0, so the reel ENDS on an arrival.
-// r006's most-liked frame was its last one, and its last frame was an arrival;
+// r005's most-liked frame was its last one, and its last frame was an arrival;
 // that is the one structural thing carried over unchanged.
 //
 // The satellite is given its true handicap rather than a dramatic one: it is
@@ -266,7 +266,7 @@ export const Cables: React.FC = () => {
   const cableArrived = racing && (cableLap >= 1 || cableU > 0.985);
 
   // ── continuous motion, and why it is not decoration ──────────────────────
-  // The first cut of this reel measured 19% event density — below r005's first
+  // The first cut of this reel measured 19% event density — below I51's first
   // cut at 26%, which a viewer called static. The map is still for three whole
   // beats: 01, the distance readout, and the speed bars. Rule 4's fix is not
   // more drift, it is to never pause the thing the reel is ABOUT.
@@ -285,15 +285,15 @@ export const Cables: React.FC = () => {
   // Traffic climbing the amber column, three blobs on a 1.6s cycle. Per-beat
   // measurement put the opening at 15-17% event density, and the opening is the
   // stretch that decides reach — dashes alone move too few pixels to register.
-  // The column and everything travelling it are one amber element (r006's
+  // The column and everything travelling it are one amber element (r005's
   // reading: a marker is part of its line, not a second element).
   const climbers = [0, 1, 2].map((k) => (frame / (1.6 * 30) + k / 3) % 1);
 
   // ── the camera ───────────────────────────────────────────────────────────
   // Per-beat measurement said the first 14s ran 15-17% event density against
-  // r006's 38% overall. The cause is structural rather than fixable with more
+  // r005's 38% overall. The cause is structural rather than fixable with more
   // dashes: a static map with a small marker on it cannot generate events,
-  // because the audit measures mean change over the WHOLE frame. r006 cleared
+  // because the audit measures mean change over the WHOLE frame. r005 cleared
   // the bar by morphing every coastline at once.
   //
   // So the view moves. It opens tight on Mumbai — your phone, one city — pulls
@@ -395,7 +395,7 @@ export const Cables: React.FC = () => {
             ))}
 
             {/* ── the belief, amber. One amber ELEMENT: the path and the marker
-              travelling it are the same thing (r006's reading of §3a). ── */}
+              travelling it are the same thing (r005's reading of §3a). ── */}
             <path
               d={`M${P_MUM.x} ${P_MUM.y}L${P_MUM.x} ${
                 P_MUM.y + (SKY_Y - P_MUM.y) * satDrawn
@@ -710,12 +710,12 @@ export const Cables: React.FC = () => {
           named the subject. That is rule 3's "never 'this'" failure wearing a
           different pronoun, and it threw away the reel's whole civilian anchor:
           the Gate 0 sentence is "when you MESSAGE someone in America", and the
-          word never reached the screen. r006 had it right — "Your flight path
+          word never reached the screen. r005 had it right — "Your flight path
           isn't curved" names the object in the first three words.
           Line lengths are load-bearing: Archivo Black runs ~0.58em per character,
           so 960px holds about 22 characters at 72px. "Your message doesn't go up."
           is 27 and wraps, orphaning "up." onto the climbing marker. Split the way
-          r006 does instead — object on line 1, correction on line 2 — and say
+          r005 does instead — object on line 1, correction on line 2 — and say
           "space" rather than "up", because space is the belief being corrected
           and it pays off on the end card. */}
       <ReelHeader
@@ -845,15 +845,15 @@ export const Cables: React.FC = () => {
         </div>
       </Fade>
 
-      {/* End card, over the still-running race. Earlier than r006's, because the
+      {/* End card, over the still-running race. Earlier than r005's, because the
           day-1 like histogram said the closing frame is the strongest beat in a
           reel and the run-up to it is the weakest.
 
           Rule 9 wants a reason to follow that is PERFORMABLE on the phone in the
           viewer's hand — r003 failed it by asking people holding one phone to
-          scan an on-screen QR code. r006 passed with "open a flight tracker" and
+          scan an on-screen QR code. r005 passed with "open a flight tracker" and
           its last frame became the most-liked in the reel. This is the same
-          shape. It deliberately does NOT promise a specific next reel: r006's
+          shape. It deliberately does NOT promise a specific next reel: r005's
           end card promised this one, and I15's promise was broken. */}
       <Fade
         from={t(21.8)}

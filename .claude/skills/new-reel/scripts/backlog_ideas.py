@@ -9,7 +9,7 @@ machine-checkable rigor CLAUDE.md warns the model drifts toward.
 Status is never taken from memory. It comes from three places in the repo:
 
   built       CLAUDE.md's "Built so far" table         (backlog id -> reel id + state)
-  gate-*      projects/*/gate0/GATE0.md, first line    (FAILED in the title = killed)
+  gate-*      gate0/*/gate0/GATE0.md, first line       (FAILED in the title = killed)
   started     projects/<id>_*/ exists with no GATE0.md (work begun, no gate written)
 
     python3 .claude/skills/new-reel/scripts/backlog_ideas.py
@@ -36,6 +36,7 @@ ROOT = Path(__file__).resolve().parents[4]
 BACKLOG = ROOT / 'content_backlog.md'
 CLAUDE_MD = ROOT / 'CLAUDE.md'
 PROJECTS = ROOT / 'projects'
+GATE0 = ROOT / 'gate0'
 TOKENS = ROOT / 'remotion' / 'src' / 'brand' / 'tokens.ts'
 
 # CLAUDE.md: "Prefer the open with these eight until they are used up."
@@ -102,22 +103,33 @@ def parse_built() -> dict[str, dict]:
 
 
 def parse_projects() -> dict[str, dict]:
-    """Gate verdicts and in-flight work, from the projects/ tree."""
+    """Gate verdicts and in-flight work.
+
+    Since 2026-09-10 the two trees mean different things:
+      projects/r<NNN>_<name>/  a reel that SHIPPED — its status comes from CLAUDE.md's table
+      gate0/i<NN>_<slug>/      a concept with a written Gate 0 and no shipped reel
+
+    Only the second is scanned here. `projects/` is still swept for an id-named
+    directory so a build in flight before its reel number exists is not invisible.
+    """
     found: dict[str, dict] = {}
-    if not PROJECTS.is_dir():
-        return found
-    for d in sorted(PROJECTS.iterdir()):
-        m = re.match(r'^(i\d+)_', d.name)
-        if not (d.is_dir() and m):
+    for root in (GATE0, PROJECTS):
+        if not root.is_dir():
             continue
-        bid = 'I' + m.group(1)[1:].zfill(2)
-        gate = d / 'gate0' / 'GATE0.md'
-        if gate.exists():
-            title = gate.read_text(encoding='utf-8').splitlines()[0]
-            state = 'gate-failed' if 'FAILED' in title.upper() else 'gate-written'
-        else:
-            state = 'started'
-        found[bid] = {'dir': f'projects/{d.name}', 'state': state}
+        for d in sorted(root.iterdir()):
+            m = re.match(r'^(i\d+)_', d.name)
+            if not (d.is_dir() and m):
+                continue
+            bid = 'I' + m.group(1)[1:].zfill(2)
+            if bid in found:
+                continue
+            gate = d / 'gate0' / 'GATE0.md'
+            if gate.exists():
+                title = gate.read_text(encoding='utf-8').splitlines()[0]
+                state = 'gate-failed' if 'FAILED' in title.upper() else 'gate-written'
+            else:
+                state = 'started'
+            found[bid] = {'dir': f'{root.name}/{d.name}', 'state': state}
     return found
 
 

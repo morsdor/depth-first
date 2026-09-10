@@ -532,11 +532,11 @@ Codified in `remotion/src/reels/lib/chrome.tsx` as `SAFE`, `SAFE_TOP`, `SAFE_BOT
 are positioned against the top and bottom bands, so no reel built on the shared lib can repeat r001's
 title-in-the-status-bar bug.
 
-**The shared lib is NOT safe by construction against the right rail — r006 found this (2026-09-08).**
+**The shared lib is NOT safe by construction against the right rail — r005 found this (2026-09-08).**
 `Readout` defaults to `CONTENT_W` (960), which runs to `x=1020`, and its default `top` is 1240 — so
 its right-aligned value column sits squarely inside the action rail (`x > 870`, `y` 1050–1540). Every
-reel r002–r005 has shipped this way; it was survivable there because the readouts were corroborating
-detail. r006 resolves to three right-aligned kilometre figures, so the rail was eating the payoff.
+reel r002–I51 has shipped this way; it was survivable there because the readouts were corroborating
+detail. r005 resolves to three right-aligned kilometre figures, so the rail was eating the payoff.
 `Readout` now takes an optional `width`; the default is unchanged, and **any reel whose right-hand
 column is the thing the viewer must read passes `SAFE_W`.** The `*-safe` scrub is what caught it,
 which is the argument for the scrub being mandatory rather than a formality.
@@ -733,7 +733,7 @@ The 4fps mean-inter-frame-change test (non-negotiable 4) measures whether PIXELS
 tell that apart from whether anything HAPPENS, and on r001–r004 the two never came apart because
 those reels animated continuously anyway.
 
-r005 pulled them apart. Its first cut passed the rule — no dead stretch over 0.75s, median 0.573 —
+I51 pulled them apart. Its first cut passed the rule — no dead stretch over 0.75s, median 0.573 —
 and the first person to watch it said *"not much happens, seems very static."* They were right. The
 slow stage push satisfies the metric while the frame merely drifts.
 
@@ -742,19 +742,19 @@ slow stage push satisfies the metric while the frame merely drifts.
 | | median | event density |
 |:--|--:|--:|
 | r004 JPEG | 0.861 | 42% |
-| r005 first cut (passed the old rule, read as static) | 0.573 | **26%** |
-| r005 rebuilt | 1.130 | **55%** |
-| r005 v5 (landing-position map, the shipped cut) | 1.035 | **53%** |
-| r006 great circle | 0.608 | **38%** |
+| I51 first cut (passed the old rule, read as static) | 0.573 | **26%** |
+| I51 rebuilt | 1.130 | **55%** |
+| I51 v5 (landing-position map, the shipped cut) | 1.035 | **53%** |
+| r005 great circle | 0.608 | **38%** |
 
-**The fix is never a bigger push.** It is to stop pausing the thing the reel is about. r005's queue
+**The fix is never a bigger push.** It is to stop pausing the thing the reel is about. I51's queue
 now plays continuously from the first beat to the last frame instead of running three defined sweeps
 and sitting still through every hold — a music player does not pause while you read a caption.
 
 ### A legible shape is not a recognisable object (added 2026-09-07)
 
-The same viewing found r005's first cut *"not understandable by an average person"*, and that is the
-r003 finding wearing a new costume. r003 failed because a QR matrix reads as static at 0.5s. r005's
+The same viewing found I51's first cut *"not understandable by an average person"*, and that is the
+r003 finding wearing a new costume. r003 failed because a QR matrix reads as static at 0.5s. I51's
 first cut drew the playlist as 16 coloured bars — perfectly legible as SHAPES, and meaningless,
 because nothing on screen said "music". No rows, no artist names, no player. The playlist had been
 abstracted into a bar chart and the viewer was expected to make the leap back.
@@ -765,7 +765,7 @@ not the object, however cleanly it is drawn.
 
 ### A claim about a RELATION has to draw the relation (added 2026-09-07)
 
-r005's second cut put a list on screen where "Artist A" appeared four times, and a caption reading
+I51's second cut put a list on screen where "Artist A" appeared four times, and a caption reading
 *"Never the same artist twice"* with a counter reading **0**. A viewer read that and concluded,
 correctly, that the reel was lying.
 
@@ -782,12 +782,12 @@ Every figure was right and the sentence was false.
 2. **Say the relation in the words, every time.** "back to back", never "repeat"; "never twice in a
    row", never "never twice". The short version is the false one.
 
-This is the same failure family as r003 (a QR matrix reads as static) and r005's first cut (a bar
+This is the same failure family as r003 (a QR matrix reads as static) and I51's first cut (a bar
 chart is not a playlist): **the frame has to BE the thing, not stand for it.**
 
 ### Event density measures change, not information (added 2026-09-07)
 
-The metric added two entries above has its own blind spot, and r005 found it the hard way. Told the
+The metric added two entries above has its own blind spot, and I51 found it the hard way. Told the
 reel read as static, the fix applied was a LOOPING playhead — which drove event density from 26% to
 68%, the highest of any reel, while adding no information at all. The viewer's verdict on that cut:
 *"it doesn't talk about any algorithm or interesting knowledge, only fast repeated animations."*
@@ -801,7 +801,7 @@ the better reel. The hard rule — no dead stretch over 1.5s — still binds, an
 
 ### The subject has to be a mechanism (added 2026-09-07)
 
-r001 ran Shazam's fingerprinting. r003 ran Reed–Solomon. r004 ran the DCT. r005's first three cuts
+r001 ran Shazam's fingerprinting. r003 ran Reed–Solomon. r004 ran the DCT. I51's first three cuts
 ran `random.shuffle` and counted adjacent pairs — every figure correct, and no mechanism in it. A
 statistics demo is not a `Depth First` reel, however cleanly it is animated.
 
@@ -828,7 +828,7 @@ read.
 
 ### The payoff frame must not argue against its own caption (added 2026-09-07)
 
-r005 was rebuilt five times. Four of those rebuilds were pacing, phrasing and motion work, and none
+I51 was rebuilt five times. Four of those rebuilds were pacing, phrasing and motion work, and none
 of them touched the actual fault, which was in the *demonstration* rather than the animation.
 
 The v4 payoff frame was six bars — one per ordering of three cards — from a real trial, under a
@@ -843,7 +843,7 @@ are claiming is smaller than the viewer's own reading error on the graphic, the 
 the claim.
 
 **The replacement measures the same bias in a form perception is good at.** Instead of comparing six
-near-identical magnitudes, r005 v5 plots where each card *lands*: a 13x13 table, row = start
+near-identical magnitudes, I51 v5 plots where each card *lands*: a 13x13 table, row = start
 position, column = end position, over 400,000 shuffles. Fair is featureless; the naive shuffle grows
 a bright staircase and a dark wedge. The task changes from magnitude comparison, which humans do
 badly, to pattern detection, which they do better than any algorithm. Deviation from fair: **8.34%**
@@ -872,7 +872,7 @@ the naive map is merely undersampled.
 
 ### `Fade` overwrites `transform` — breath passed through it is a silent no-op
 
-The motion audit failed r005 on a 3.75s dead spell in the two text-only beats, and the first fix
+The motion audit failed I51 on a 3.75s dead spell in the two text-only beats, and the first fix
 (passing `useBreath()`'s transform into a `Fade`'s `style`) changed nothing at all: `Fade` sets its
 own `translateY` for the rise and overwrites whatever `transform` it was handed. No error, no
 warning, no visible effect — the audit was the only thing that caught it.
@@ -885,13 +885,13 @@ More generally: **a motion fix that is not re-measured is not a fix.** The audit
 `scripts/reel_motion_audit.py` rather than a shell pipeline re-derived per reel, so re-running it
 costs one command.
 
-### r006 — a moving marker is part of its line, not a second amber element (added 2026-09-08)
+### r005 — a moving marker is part of its line, not a second amber element (added 2026-09-08)
 
-§3a holds amber to **one element per frame**, and r006's closing beat appeared to break it twice
+§3a holds amber to **one element per frame**, and r005's closing beat appeared to break it twice
 over: the constant-bearing track is amber, and the marker racing along it is amber too. It is one
 element. **A line and the marker travelling on it are a single amber object** — the marker is that
 line's position, not a competing accent — and the rule counts objects a viewer would point at, not
-SVG nodes. What the rule still forbids, and r006 obeys, is a second amber *thing*: the great-circle
+SVG nodes. What the rule still forbids, and r005 obeys, is a second amber *thing*: the great-circle
 arc, its own marker, and its distance label are all cyan, so the frame never asks which of two amber
 items matters.
 
@@ -907,7 +907,7 @@ splitting a coastline subpath at the Mercator seam (an x-jump > half the map wid
 runs behind the terminator mid-morph. Filling a ring that is cut at the terminator paints a chord
 straight across the ocean, so the land fill is gated to the last 18% of the morph.
 
-### r010 — the falsification test changed the design, not just the confidence (added 2026-09-10)
+### r008 — the falsification test changed the design, not just the confidence (added 2026-09-10)
 
 Stage 3 asks for an experiment that could falsify the on-screen claim. For a pendulum wave the
 obvious expectation is that it passes: the lengths come from `T = 2π√(L/g)`, which is in every
@@ -926,7 +926,7 @@ and the second one is the reel's actual constraint:
   **displacement**. One straight lifting bar pulls every bob the same distance sideways, which is a
   much wider angle on a short string than a long one — `C` then spreads by **10368 ppm** and the
   line never comes back (48.5° of scatter at 30 s). Full table in
-  `projects/r010_pendulum/gate0/GATE0.md` §6.
+  `projects/r008_pendulum/gate0/GATE0.md` §6.
 
 **The generalisable part: the approximation you are using is itself a claim, and it is the one
 least likely to get tested** — because it arrived as a formula rather than as a sentence. The
@@ -939,7 +939,7 @@ pendulums. Peak measured raggedness is at t = 15 s — exactly τ/2, which is th
 antiphase comb. The shipped reel never characterises the middle at all: it lets the frame look
 like a mess and does not claim the motion is disordered, because it isn't.
 
-### r010 — Manim is a layer, not the animation (added 2026-09-10)
+### r008 — Manim is a layer, not the animation (added 2026-09-10)
 
 First reel with a Manim layer. The chain that works:
 
@@ -980,18 +980,18 @@ Two things worth copying:
 fifteen bobs on all 1020 frames and prints the global extent. Sampling one frame is not enough: the
 widest instant is not the one that happens to be on screen when you look at it.
 
-### r010 — 99% event density is not a quality result (added 2026-09-10)
+### r008 — 99% event density is not a quality result (added 2026-09-10)
 
-r010 measures **99% event density** — seven of its eight beats at 100%, the hook at 95% — median
+r008 measures **99% event density** — seven of its eight beats at 100%, the hook at 95% — median
 change 3.36, no dead spell at all. Best on the account by a distance, and it means almost nothing
 on its own.
 
 **The shelved `I64` queue build held the previous record at 65% and the verdict on watching it
-was "the output is not sound."** (That build was proposed as r009; the number went to `I58` tides,
+was "the output is not sound."** (That build was proposed as r007; the number went to `I58` tides,
 which measures 47%. The queue render was renamed to
 `projects/i64_queue/i64_queue_shelved.mp4` on 2026-09-10 and its compositions to
 `i64-queue` / `i64-queue-safe`, so a shelved build no longer holds a reel number.) The audit counts pixels changing; it cannot count
-whether a stranger can name what is moving. The reason r010 scores where it does is not craft — it is that fifteen large bright bobs
+whether a stranger can name what is moving. The reason r008 scores where it does is not craft — it is that fifteen large bright bobs
 are in motion for thirty-four consecutive seconds. Any reel about a physical system in continuous motion
 will score like this, and the number should be read as "the metric is saturated and no longer
 discriminating", not as a grade.
@@ -1013,7 +1013,7 @@ was being carried by camera motion alone, which is the failure mode the camera r
 dimming at exactly the instant the line reformed — the single frame the whole reel exists for. The
 last beat now has no `to` at all and holds to the final frame.
 
-### r010 — the cycle length was a legibility parameter, not a timing one (added 2026-09-10)
+### r008 — the cycle length was a legibility parameter, not a timing one (added 2026-09-10)
 
 The 60 s cut passed every gate and every audit, and the first person to watch it returned four
 notes. Three of them had one cause and one fix.
@@ -1050,7 +1050,7 @@ it is not in the design equation at all. The beat is a three-row table — `leng
 sets up the `C²` term the next beat prints. **A viewer question that the reel can answer truthfully
 in three rows is a beat, not an objection.**
 
-### r010 — clear the annotations before rendering, not after (added 2026-09-10)
+### r008 — clear the annotations before rendering, not after (added 2026-09-10)
 
 "The video looks very blank" was the other verdict on the first cut, and the fix — length labels on
 the ropes, a range callout, the design equation — meant putting text into a frame that fifteen
@@ -1090,9 +1090,9 @@ The variables table was cleared at 36 px and rendered at 40 px, because it reuse
 in five seconds. **Geometry checks and looking at the render are not substitutes for each other**,
 and the component was given an explicit `size` prop so the next reuse states its size out loud.
 
-### r008 — a good frame will smuggle a bad sentence through Gate 0 (added 2026-09-10)
+### I15 — a good frame will smuggle a bad sentence through Gate 0 (added 2026-09-10)
 
-r008 was built, rendered, audited at 55% event density, scrubbed clean, documented and committed —
+I15 was built, rendered, audited at 55% event density, scrubbed clean, documented and committed —
 and then failed on being watched: **"I didn't understand the point. We are comparing 2 algos?"**
 
 It was. The question asked was *"how does a maps app find the route between two points"* and the
@@ -1103,7 +1103,7 @@ and the second one is inside-baseball.
 labels: does a stranger know that's a city and want to know why the blue spread everywhere and the
 cyan didn't?"* — a question about the PICTURE, which was genuinely good and got a genuine yes. The
 sentence was never tested. Read cold, it was: *"that one change is the difference between checking
-17,000 junctions and checking 1,700."* Nobody says that at dinner. Compare r006's, which is the
+17,000 junctions and checking 1,700."* Nobody says that at dinner. Compare r005's, which is the
 whole reason that reel travelled: *"your flight path isn't curved, the map is bent."*
 
 **The fix was a re-spine, not a rebuild — every frame was reusable.** The flood stopped being
@@ -1116,9 +1116,9 @@ point, and a sentence a person could repeat.
 sentence can be *shown*; it is not itself the thing being approved. A payoff frame good enough to
 win the gate on its own is exactly the condition under which this failure happens.
 
-### r008 — the beat carrying the argument is often the deadest one (added 2026-09-10)
+### I15 — the beat carrying the argument is often the deadest one (added 2026-09-10)
 
-r008's first cut measured **41%** event density overall, which passes. Per beat it did not:
+I15's first cut measured **41%** event density overall, which passes. Per beat it did not:
 
 | beat | density |
 |:--|--:|
@@ -1135,23 +1135,23 @@ any reel whose payoff is "and this one does less".
 The fix was to draw the **frontier**: the ~150 junctions each search has just committed to, in
 bone, moving ahead of the settled set. That band is not decoration — it *is* the search frontier,
 the truest thing in the beat — and it turned 41% into **55%, the highest on the account**, past
-r005 v5's 53%.
+I51 v5's 53%.
 
 **The general rule: measure per beat, and check the beat that carries the argument separately.**
-r007 needed the same lesson from the other direction (its route-draw beat scored lowest of any),
+r006 needed the same lesson from the other direction (its route-draw beat scored lowest of any),
 and in both cases the global number was passing while the most important seconds were not.
 
-### r007 — a static map cannot pass the motion audit; move the camera (added 2026-09-09)
+### r006 — a static map cannot pass the motion audit; move the camera (added 2026-09-09)
 
-r007 is a world map with a line drawn across it. Its first cut measured **19% event
-density** — below r005's first cut at 26%, the one a viewer called static. Three rounds of
+r006 is a world map with a line drawn across it. Its first cut measured **19% event
+density** — below I51's first cut at 26%, the one a viewer called static. Three rounds of
 adding motion to the *elements* (flowing dashes, a heavier race marker, a sweeping
-wavefront) got it only to 27%. r006, for comparison, runs 38%.
+wavefront) got it only to 27%. r005, for comparison, runs 38%.
 
 **The reason is in the metric's definition and it generalises.** The audit takes the mean
 absolute change over the WHOLE frame. A 6px line growing, or a 15px marker moving, changes
 a few thousand pixels out of two million — it is worth roughly 0.1 against a threshold of
-1.0. **No amount of detail animation will pass.** r006 cleared the bar because its
+1.0. **No amount of detail animation will pass.** r005 cleared the bar because its
 globe↔map morph moved every coastline in the frame at once.
 
 **Measure per beat before changing anything.** The global number hid which beat was dead;
@@ -1169,19 +1169,19 @@ per-beat it was obvious:
 The route draw — the most important animation in the reel — was the second-worst beat in
 it. Anything built on "one thing moves against a still background" will measure like this.
 
-**The fix is a camera, and it is a craft improvement rather than a metric hack.** r007
+**The fix is a camera, and it is a craft improvement rather than a metric hack.** r006
 opens tight on Mumbai, pulls back at 3.4s to reveal the ocean between the two cities, and
 follows the cable as it is laid. Each move is one a documentary camera would make, each
-carries meaning, and each moves the entire map. **27% → 49%**, above r006 and r004.
+carries meaning, and each moves the entire map. **27% → 49%**, above r005 and r004.
 
 **Run the audit at its own default width.** It samples at `--width 240`. The same file
 scored 27% at 240 and 51% at 360, because small moving objects survive one downscale and
 vanish under the other. Every benchmark in `CLAUDE.md` is at 240; a per-beat script that
 picks its own width is measuring a different reel.
 
-### r007 — "It" is "this" wearing a different pronoun (added 2026-09-09)
+### r006 — "It" is "this" wearing a different pronoun (added 2026-09-09)
 
-r007's first cut opened on **"It doesn't go up. It goes under."** and held it for six
+r006's first cut opened on **"It doesn't go up. It goes under."** and held it for six
 seconds over a map, before any element named the subject. Rule 3 in `CLAUDE.md` says name a
 recognisable object in the title and **never "this"** — and a bare "It" is the same failure.
 It survived a full build, a filmstrip pass, a safe-area scrub and a commit; the user caught
@@ -1189,17 +1189,17 @@ it on first watch, asking "should we reveal what is meant by It?"
 
 **The worse half is that the reel already had its anchor and dropped it.** The Gate 0
 sentence — the one a human approved — is *"when you **message** someone in America"*. The
-word **message** never reached the screen. r006 is the model: **"Your flight path isn't
-curved"** names the object in the first three words, and r006 is the account's best reel.
+word **message** never reached the screen. r005 is the model: **"Your flight path isn't
+curved"** names the object in the first three words, and r005 is the account's best reel.
 
 **Check the hook against the Gate 0 sentence before rendering.** The sentence is written to
 be the most repeatable phrasing of the idea; if its subject noun is missing from the title,
 the title is weaker than something already approved. That check costs one comparison and it
 is not currently in any gate.
 
-### r007 — check the data licence inside Gate 0 (added 2026-09-09)
+### r006 — check the data licence inside Gate 0 (added 2026-09-09)
 
-r007's route was measured out of TeleGeography's submarine-cable API before anyone read
+r006's route was measured out of TeleGeography's submarine-cable API before anyone read
 their terms. Their citation policy permits screenshots of the published maps under
 CC BY-SA 4.0 but says **"access to the underlying databases remains restricted to paying
 subscribers"** — so measuring route geometry from the API is use of the database, and the
@@ -1215,19 +1215,19 @@ are citable. The reel is unchanged in substance and now rests on something we ma
 **The rule: ask the licence question beside the friend test, not after it.** It costs one
 search before the build and a rebuild after it.
 
-### r006 — the hook problem is solved; the shape of the loss changed (added 2026-09-08)
+### r005 — the hook problem is solved; the shape of the loss changed (added 2026-09-08)
 
 **Base for every rate in this section: unique viewers, the base Instagram itself uses.** That is now
-confirmed rather than assumed — Instagram's own "what affects your views" panel reports r006's share
+confirmed rather than assumed — Instagram's own "what affects your views" panel reports r005's share
 rate as 0.9%, like rate 2.7%, save rate 1.1%, and 303/32,882, 916/32,882 and 362/32,882 give 0.92%,
 2.79% and 1.10%. Against *views* they would be 0.65%, 1.96% and 0.77%, which match nothing. **Every
 engagement rate Instagram shows you is per viewer, not per view** — so compute yours the same way.
 
-r006's figures are at **day 1 (2026-09-09 09:47)**; r001 is at 3 days, r003 at ~18 h, r004 at an age
+r005's figures are at **day 1 (2026-09-09 09:47)**; r001 is at 3 days, r003 at ~18 h, r004 at an age
 Instagram does not state. Skip rate, average watch and curve shape stabilise early and are worth
 comparing; **views ÷ viewers is not** — a reel still in active distribution keeps meeting new people.
 
-| | r001 Shazam | r003 QR | r004 JPEG | r006 Great circle |
+| | r001 Shazam | r003 QR | r004 JPEG | r005 Great circle |
 |:--|--:|--:|--:|--:|
 | Viewers | 1,286 | 324 | 1,617 | **32,882** *(day 1, still climbing)* |
 | Skip rate | 37.9% | — | 34.8% | **29.9%** *(Instagram: "Lower")* |
@@ -1240,7 +1240,7 @@ comparing; **views ÷ viewers is not** — a reel still in active distribution k
 | Follows | 1 (0.078%) | 0 | 0 | **71 (0.216%)** |
 | Sources | Reels tab 89.7% · Explore 9.8% | 86.6% · 9.5% | 82.7% · 16.0% | 82.2% · **17.0%** |
 
-**r006 beats every previous reel on every per-viewer metric, and it is 20.3× the previous best reach**
+**r005 beats every previous reel on every per-viewer metric, and it is 20.3× the previous best reach**
 (r004, 1,617 viewers). Likes are 1.5× r001's rate, shares 2.0×, saves 2.3×. It was still climbing at
 day 1 — the views curve has not flattened — so these are lower bounds, for the reason in the next
 section.
@@ -1296,11 +1296,11 @@ view that caused it, so on a reel whose views are still climbing, the numerator 
 denominator. **A cumulative engagement rate on a growing reel is biased low, not merely noisy** — it
 is an underestimate whose error shrinks as growth decelerates, which is why every successive reading
 looked better than the last and why every conclusion drawn from an early one was pessimistic in the
-same direction. r006's day-1 rates are still lower bounds: the views curve had not flattened.
+same direction. r005's day-1 rates are still lower bounds: the views curve had not flattened.
 
 **The rule: record figures at any age, but do not write a content conclusion until the count is above
 ~30 AND the views curve has visibly flattened, and mark every conclusion with the age it was drawn
-at.** A reel is not readable before ~24 h, and r006 was not fully readable then either. Three readings
+at.** A reel is not readable before ~24 h, and r005 was not fully readable then either. Three readings
 in one day produced three false findings and one true one, and the true one (average watch rising as
 reach grew) was the only one drawn from a metric that is an average rather than a cumulative count.
 
@@ -1311,7 +1311,7 @@ because it is an average rather than a cumulative count, so it carries none of t
 
 **Delete the phrase "warm early audience" wherever it appears in this file.** Earlier readings
 explained the held watch time as a reel surviving the move from warm followers to cold strangers.
-Instagram's audience panel says r006's viewers were **99.9% non-followers, 0.1% followers.** There
+Instagram's audience panel says r005's viewers were **99.9% non-followers, 0.1% followers.** There
 was never a warm cohort — 0.1% of 32,882 is about 33 people, and this account is far too small for
 its followers to have been a meaningful share of even the 515 viewers at 1 h. **Every reel this
 account has posted was watched almost entirely by strangers.** The rising watch time is still the
@@ -1319,11 +1319,11 @@ finding; the explanation attached to it was invented and is withdrawn.
 
 **20 s of a 32 s reel is the best watch time on the account by a wide margin**, and it is the metric
 that most directly feeds distribution. Part of it is craft and part of it is arithmetic — **32 s is
-the shortest reel yet**, and a shorter reel is a cheaper thing to finish. Both r007 and any re-cut
+the shortest reel yet**, and a shorter reel is a cheaper thing to finish. Both r006 and any re-cut
 should treat 30–35 s as the default length rather than 40.
 
 **The retention curve changed shape, and that is the finding worth keeping.** r001 and r002 both fell
-off a cliff and then FLATTENED — brutal opening, loyal body. r006 does neither:
+off a cliff and then FLATTENED — brutal opening, loyal body. r005 does neither:
 
 | t | Still watching |
 |--:|--:|
@@ -1337,7 +1337,7 @@ A shallow knee, then a near-linear bleed of roughly 1.45 points per second for t
 kept about half. But there is no plateau of committed viewers either: nobody is being lost to one bad
 beat, everybody is leaking slowly. The two curve shapes want opposite fixes. A cliff says rebuild the
 opening. A linear bleed says the reel has no moment that re-commits the viewer after the payoff —
-and r006's payoff (the +2,572 km) lands at ~22 s, with the end card behind it.
+and r005's payoff (the +2,572 km) lands at ~22 s, with the end card behind it.
 
 **~28% reach the last frame — about 9,200 people.** The 7 h reading estimated ~18% off a smaller
 graph; the day-1 curve is read directly and the tail is fatter than that guess.
@@ -1346,8 +1346,8 @@ graph; the day-1 curve is read directly and the tail is fatter than that guess.
 It rose at every reading after 4 h (0.118% → 0.155% → 0.216%), which is the lag bias unwinding.
 
 **It cannot be compared to r001.** r001's rate came from a single follow — one event, whose true rate
-could plausibly be anywhere from a fifth to five times the 0.078% point estimate. Saying r006 is "3×
-r001" is arithmetic on a number that was never measured. The honest statement is that **r006 is the
+could plausibly be anywhere from a fifth to five times the 0.078% point estimate. Saying r005 is "3×
+r001" is arithmetic on a number that was never measured. The honest statement is that **r005 is the
 first reel on this account whose follow rate is known at all**, and it is 0.216%. That is the
 baseline every future reel gets compared against.
 
@@ -1366,10 +1366,10 @@ still climbing at day 1, so the likely causality runs share → reach rather tha
 **Saves were called wrong at 1 h, and the correction is the most useful thing in this section.**
 At 2 saves the reading here was that "a revelation has nothing to come back to" — that a save means
 "I will come back to this", so a reel complete on first watch cannot earn one. **By day 1
-r006 has 362 saves, 1.10% of viewers, the best save rate on the account** (r001's 0.47% was the
+r005 has 362 saves, 1.10% of viewers, the best save rate on the account** (r001's 0.47% was the
 previous best), and Instagram flipped the flag from "Lower" to "Higher".
 
-**A save is not only reference value. It is also "I want to show this to someone."** r006 has nothing
+**A save is not only reference value. It is also "I want to show this to someone."** r005 has nothing
 to look up later and it is saved more than any reel that does, because "the curvy flight path is the
 straight one" is a thing you carry to another person. The saves, comments, reposts and shares all
 moved together and all four were near-zero before — that is one behaviour, not four.
@@ -1381,14 +1381,14 @@ tempting the story. This section did exactly that and had to retract it inside f
 
 **Explore at 17.0% is the civilian-object thesis showing up in distribution, not just in the hook.**
 Maps and aviation have an Explore audience that pure developer content does not. r003 (a QR matrix)
-got 9.5%; r004 (a photograph) 16.0%; r006 (a world map) **17.0%**, the highest on the account, and it
+got 9.5%; r004 (a photograph) 16.0%; r005 (a world map) **17.0%**, the highest on the account, and it
 rose from 13.6% at 1 h and then held at 17.0% from 7 h to day 1 while reach tripled. The reels that
 open on something a non-programmer already cares about are the reels Explore carries.
 
 ### The end card is the most-liked frame in the reel (added 2026-09-09)
 
 Instagram's **"when people liked your reel"** panel plots the share of all likes against playback
-time. It had never been read on this account before. For r006 it is the most actionable instrument in
+time. It had never been read on this account before. For r005 it is the most actionable instrument in
 the whole Insights screen, because it says *where in the reel the viewer decided they liked it*.
 
 Read off the day-1 graph — these are eyeballed from a chart, so treat them as ±1 point:
@@ -1425,7 +1425,7 @@ reveal and the resolution. They tolerate the argument in between.**
 lowest on likes of any sustained section, and it sits directly between the two peaks, delaying the
 one frame that outperforms everything. It was built as continuous motion to satisfy the event-density
 rule, and it does that job, but it is dead weight for engagement. **The single clearest instruction
-for r007: get to the end card sooner.** Cutting the race to one lap would have ended the reel at
+for r006: get to the end card sooner.** Cutting the race to one lap would have ended the reel at
 ~27 s. That is the first concrete thing this account has learned about its own pacing from data
 rather than from principle.
 
@@ -1446,20 +1446,20 @@ rather than from principle.
 at. That is squarely the demographic that flies, which is consistent with a reel about flight paths
 finding the people it is for.
 
-**India at 58% is a real number with an unknown cause, and it must not be over-read.** r006 uses
+**India at 58% is a real number with an unknown cause, and it must not be over-read.** r005 uses
 Delhi–San Francisco as its route, which is an India-relevant journey, so route choice is a plausible
 driver. But the account posts from India, and Instagram's baseline distribution is home-market
-weighted regardless of content — **and the audience panel has never been pulled for r001–r005, so
+weighted regardless of content — **and the audience panel has never been pulled for r001–I51, so
 there is no baseline to compare against.** That is exactly the two-different-bases trap in rule 7.
 **Action: pull the Audience panel for r001 and r004 before drawing any conclusion about route
 choice.** If they are also ~58% India, the route explains nothing.
 
-**What r007 should test.** Two things, and they are separable:
+**What r006 should test.** Two things, and they are separable:
 
 1. **Get to the end card sooner.** The like histogram says the closing frame is the strongest beat
    and the 10.8 s race is the weakest stretch. A 27–30 s cut that reaches the end card earlier is
    the highest-confidence change available.
-2. **The linear bleed still wants a second re-commitment beat.** r006 gives the viewer one surprise
+2. **The linear bleed still wants a second re-commitment beat.** r005 gives the viewer one surprise
    (the arc is straight) and then spends 20 s elaborating it. A reel with two distinct surprises, the
    second landing around 15–18 s, would show up as a kink in the retention curve and as a third peak
    in the like histogram if the diagnosis is right.
@@ -1468,28 +1468,28 @@ choice.** If they are also ~58% India, the route explains nothing.
 were told the next reel is the cable on the seabed, backlog `I22`. At 93 people that promise was
 cheap to break, as `I15`'s was. At 9,200 it is not.
 
-### FALSIFIED — the r006 pattern was not the engine (2026-09-10)
+### FALSIFIED — the r005 pattern was not the engine (2026-09-10)
 
-**r007 was the pre-registered test and it failed it.** It was built to all five points of the
+**r006 was the pre-registered test and it failed it.** It was built to all five points of the
 pattern below — belief correction, a map that never leaves the frame, one arithmetic payoff, a
-race that ends on an arrival, 28 s — with better motion numbers than r006 (46% event density
-against 38%). **It peaked at ~1.8k views against r006's ~66k. A 36× gap.**
+race that ends on an arrival, 28 s — with better motion numbers than r005 (46% event density
+against 38%). **It peaked at ~1.8k views against r005's ~66k. A 36× gap.**
 
 The falsification condition written below said r004-level reach would mean the engine was
 elsewhere, and named the likely alternative: the map, i.e. Explore's geography audience. **That
-alternative is dead too** — r007 is also a map and it did not travel at all. Both the stated
+alternative is dead too** — r006 is also a map and it did not travel at all. Both the stated
 hypothesis and its stated alternative are wrong.
 
-**What the comments say the engine actually was: r006 landed inside the flat-earth argument.**
+**What the comments say the engine actually was: r005 landed inside the flat-earth argument.**
 The curved-flight-path-on-a-flat-map is *the* most-cited exhibit on both sides of that fight.
-r006 did not merely correct a belief — it handed people a piece of usable evidence in a dispute
+r005 did not merely correct a belief — it handed people a piece of usable evidence in a dispute
 that was already running, and they took it somewhere.
 
 **The refined hypothesis: a reel travels when it settles an argument the viewer is already
 having.** Not when it fills a gap in their knowledge. The test is not "is the viewer wrong?" but
 **"is the viewer wrong, out loud, in a fight they are already in?"**
 
-| | r006 great circle | r007 cables |
+| | r005 great circle | r006 cables |
 |:--|:--|:--|
 | Corrects a belief | yes | yes |
 | Belief personally witnessed | **yes — the seatback screen** | no — nobody has watched a message route |
@@ -1498,21 +1498,21 @@ having.** Not when it fills a gap in their knowledge. The test is not "is the vi
 
 **This is the same finding as the saves retraction above, arriving from the other side.** That
 entry concluded "saves track tellability, not reference value — a save is *I want to show this to
-someone*." r006's shares (0.92%) and saves (1.10%) were both roughly double the account's previous
-best, which is the signature of people forwarding a thing to a specific person. r007 gave nobody
+someone*." r005's shares (0.92%) and saves (1.10%) were both roughly double the account's previous
+best, which is the signature of people forwarding a thing to a specific person. r006 gave nobody
 anything to say to anyone.
 
 **Two caveats, stated so this is not over-read the way its predecessor was.**
 
 1. **This is n=1 against n=1.** A 36× gap is far too large to be posting-time variance, but two
-   reels cannot separate "argument" from every other difference between them. r006's globe→Mercator
+   reels cannot separate "argument" from every other difference between them. r005's globe→Mercator
    morph is also a more spectacular image than a line drawn across a static map, and that is
    unmeasured.
-2. **Reach is not the only thing worth having, and this audience may not be the channel's.** r006
+2. **Reach is not the only thing worth having, and this audience may not be the channel's.** r005
    converted 0.216% of 32,882 viewers into follows — the account's best *measured* rate, and still
    low. If that reach came from an argument rather than from interest in how things work, the
    followers it brought may not want the next reel. **Worth checking before optimising for it:
-   how many of r006's 71 follows are still following, and did they watch r007?**
+   how many of r005's 71 follows are still following, and did they watch r006?**
 
 **What this does NOT license: chasing conspiracy content.** The engine is "settles a live
 argument", and flat earth is one arena among many — most of them cheaper, less toxic, and closer
@@ -1520,7 +1520,7 @@ to what this channel is for. The next section is the pattern that survives.
 
 ### The pattern that survives — an argument, personally witnessed (2026-09-10)
 
-Three conditions, all required. r006 has all three; r007 has one.
+Three conditions, all required. r005 has all three; r006 has one.
 
 1. **The viewer has personally witnessed the evidence.** Not "has heard of it" — has *seen* it,
    with their own eyes, repeatedly. The seatback map. The blue dot. The shuffle that keeps
@@ -1532,19 +1532,19 @@ Three conditions, all required. r006 has all three; r007 has one.
    enough to carry into the argument without the reel.
 
 **The discriminating question, cheaper than building:** *who does the viewer send this to, and
-what are they proving?* r006: your uncle, that the earth is round. r007: nobody, nothing.
+what are they proving?* r005: your uncle, that the earth is round. r006: nobody, nothing.
 **If that question has no answer, the reel will be liked and forgotten.**
 
-### The r006 pattern — correct a belief, don't explain a mechanism (added 2026-09-08)
+### The r005 pattern — correct a belief, don't explain a mechanism (added 2026-09-08)
 
-r006 is the account's biggest reel by a factor of twenty and the best on every per-viewer engagement
+r005 is the account's biggest reel by a factor of twenty and the best on every per-viewer engagement
 metric, shares included. **One reel is one data point**, and this repo has a written history of turning a
 single result into a rule and then rebuilding five times — so what follows is a named hypothesis with
 a test attached, not a law.
 
-**What r006 did that r001–r005 did not:**
+**What r005 did that r001–I51 did not:**
 
-| | r001–r005 | r006 |
+| | r001–I51 | r005 |
 |:--|:--|:--|
 | Proposition | "here is how X works" | "**the thing you believe is wrong**" |
 | Viewer's prior | none — they had never considered it | a belief they already hold and have never examined |
@@ -1556,7 +1556,7 @@ a test attached, not a law.
 
 **The candidate engine is the second row.** Everything else on this list has appeared in an earlier
 reel in some form; the *belief correction* has not. r001 taught you something you had no opinion
-about. r006 told you something you already thought was true is false — flight paths look bent because
+about. r005 told you something you already thought was true is false — flight paths look bent because
 the map is bent, not because planes detour. A viewer who has never wondered how Shazam works has
 nothing at stake; a viewer who has looked at a seatback map has been quietly wrong for years and did
 not know it.
@@ -1571,33 +1571,33 @@ elegant it is. See the saves retraction above: this is the same finding from the
 1. **Find a belief the viewer already holds and has never checked.** Not a gap in their knowledge — a
    wrong answer they are confident in. If the viewer has no prior, this pattern does not apply.
 2. **The object is a place or a thing, and it stays on screen the whole reel.** Rule 6 in CLAUDE.md
-   already says this; r006 is the first reel that actually obeyed it end to end.
+   already says this; r005 is the first reel that actually obeyed it end to end.
 3. **Resolve to one arithmetic payoff the viewer can hold in their head.** One subtraction, one
    ratio. Not a mechanism, not a chain of steps.
 4. **Close on a competition with a visible winner**, not a finished diagram — **and reach the winner
-   fast.** The like histogram (above) makes this precise: r006's *arrival* is the single most-liked
+   fast.** The like histogram (above) makes this precise: r005's *arrival* is the single most-liked
    frame in the reel, while the 10.8 s race leading to it is the least-liked stretch. The resolution
    is what people respond to; the build-up to it is a cost. One lap, not two.
 5. **30–35 s**, and shorter if the ending can arrive sooner. Shortest reel on the account and the
    best watch time on it by a wide margin.
 
-**The test.** r007 is `I22` (the seabed cable), already promised on r006's end card to **~9,200**
+**The test.** r006 is `I22` (the seabed cable), already promised on r005's end card to **~9,200**
 people who reached the last frame. It has the same shape available: **everyone believes their message to a
 friend abroad goes up to a satellite, and almost none of it does.** That is a belief correction, on a
-map, resolving to one number. If the pattern is real, r007 performs like r006. If r007 lands back at
-r004's numbers, then r006 was a topic that happened to travel and the table above is a coincidence —
+map, resolving to one number. If the pattern is real, r006 performs like r005. If r006 lands back at
+r004's numbers, then r005 was a topic that happened to travel and the table above is a coincidence —
 which is the outcome worth being able to detect, so **do not change three other things at the same
 time.**
 
-**What would falsify the "belief correction" reading:** r007 built to all five points and landing at
+**What would falsify the "belief correction" reading:** r006 built to all five points and landing at
 r004-level reach would mean the engine is elsewhere — most likely the map itself, i.e. Explore's
 geography audience rather than anything about the argument. That is distinguishable: check the
-Explore share. If r007 travels on Explore too but engages worse, the object is doing the work and the
+Explore share. If r006 travels on Explore too but engages worse, the object is doing the work and the
 belief correction is decoration.
 
-### r009 — the subject has to BE the frame, not sit in a panel (added 2026-09-10)
+### r007 — the subject has to BE the frame, not sit in a panel (added 2026-09-10)
 
-r009's first cut failed the motion audit at **19% event density with every one of its eight beats
+r007's first cut failed the motion audit at **19% event density with every one of its eight beats
 dead**, and the cause was geometry rather than animation. The Earth sat in an 800x520 panel with
 text above and readouts below — a sensible-looking layout — which at the audit's 240px sampling
 width made the planet **15-40 px across**. The audit measures mean change over the whole frame, so
@@ -1610,13 +1610,13 @@ the two where the camera had *shrunk* the planet to make room for a panel; the p
 bottom of the frame, so the Earth was lifted instead, and the beat carrying the reel's second
 surprise was made to push IN rather than drift out. 38% -> **44%, zero dead time in any beat.**
 
-**The general rule this yields: text and graphic must share the frame, not divide it.** r006 and
-r007 already put text over a full-bleed map; r009 is the case that shows what dividing costs.
+**The general rule this yields: text and graphic must share the frame, not divide it.** r005 and
+r006 already put text over a full-bleed map; r007 is the case that shows what dividing costs.
 
 It was deliberately not pushed to 50%. Density is a floor, not a target, and it cannot distinguish
 motion that teaches from motion that fills.
 
-### r009 — the audit cannot see a missing antecedent, and the filmstrip can (added 2026-09-10)
+### r007 — the audit cannot see a missing antecedent, and the filmstrip can (added 2026-09-10)
 
 Two defects survived a passing motion audit, a clean typecheck, a clean `brand:check` and a
 programmatic safe-area test, and both were obvious in a filmstrip:
@@ -1627,11 +1627,11 @@ programmatic safe-area test, and both were obvious in a filmstrip:
   earlier.** Two states in sequence is not a relation. The bars are now co-present — 720 px against
   4 px — which is the whole argument in one picture.
 
-This is the same lesson as r007's "It doesn't go up" pronoun hook, generalised: **the automated
+This is the same lesson as r006's "It doesn't go up" pronoun hook, generalised: **the automated
 gates check that things are legal, never that they are legible.** Non-negotiable 8 says verify
 timing with video and filmstrip; the corollary is that composition needs it too.
 
-### r009 — the render had a network dependency nobody had noticed (added 2026-09-10)
+### r007 — the render had a network dependency nobody had noticed (added 2026-09-10)
 
 `remotion render` failed outright the first time the pipeline ran in a container with a controlled
 egress: it tried to download Chromium from a non-allowlisted host, and once pointed at the
@@ -1653,7 +1653,7 @@ followed, applied to the browser.
 | `r002` | Autocorrect / edit distance | 43 s | **2026-09-02** |
 | `r003` | QR codes / Reed–Solomon | 37 s | **2026-09-05** |
 | `r004` | JPEG / DCT — a photo stores no pixels | 40 s | **2026-09-06** |
-| `r006` | Great circle — your flight path isn't curved | 32 s | **2026-09-08** |
-| `r007` | Submarine cables — your message goes underwater | 28 s | **2026-09-09** |
-| `r009` | Tides — the Sun pulls 179× harder, the Moon makes the tide | 54 s | **2026-09-10** |
-| `r010` | Pendulum wave — fifteen strings, back in line at 30 s | 34 s | **2026-09-10** |
+| `r005` | Great circle — your flight path isn't curved | 32 s | **2026-09-08** |
+| `r006` | Submarine cables — your message goes underwater | 28 s | **2026-09-09** |
+| `r007` | Tides — the Sun pulls 179× harder, the Moon makes the tide | 54 s | **2026-09-10** |
+| `r008` | Pendulum wave — fifteen strings, back in line at 30 s | 34 s | **2026-09-10** |

@@ -18,7 +18,7 @@ each and they have each already saved a build.
 
 **The channel promise is "how systems work" — not computer science.** Grids, water, tides, ports,
 railways, orbits, cities are in scope and are the *stronger* half; a software mechanism is
-invisible by nature, which is why three consecutive Gate 0 failures (`I52`, `r008` twice, `I24`)
+invisible by nature, which is why three consecutive Gate 0 failures (`I52`, `I15` twice, `I24`)
 all died on the same kill condition. Read `CLAUDE.md` "Short-form reels" before Stage 1 — this
 skill is the procedure, `CLAUDE.md` is the law, and where they disagree `CLAUDE.md` wins.
 
@@ -82,7 +82,7 @@ For each candidate, one line each:
 
 1. **The draft sentence** — what a viewer repeats to a friend. Plain words, no CS noun.
 2. **Who do they send it to, and what are they proving?** *(`brand_guide_software.md` §13)*
-   r006: your uncle, that the earth is round → ~66k views. r007: nobody, nothing → ~1.8k.
+   r005: your uncle, that the earth is round → ~66k views. r006: nobody, nothing → ~1.8k.
    **No answer to that question means the reel gets liked and forgotten.** Cheapest filter there is.
    The full test is three conditions, all required: the viewer has **personally witnessed** the
    evidence, a **dispute is already running**, and it **resolves to one repeatable thing**.
@@ -112,10 +112,10 @@ Two artefacts, in this order, then a human yes:
 
 1. **The sentence** — written and put in front of the user *as text*, first.
 2. **One still of the payoff frame** — PIL/matplotlib, five minutes, into
-   `projects/<id>_<slug>/gate0/`. The frame is **evidence that the sentence can be shown**,
+   `gate0/<id>_<slug>/gate0/`. The frame is **evidence that the sentence can be shown**,
    nothing more.
 
-**Ask about the SENTENCE, not the picture.** r008 passed this gate on *"does a stranger know
+**Ask about the SENTENCE, not the picture.** I15 passed this gate on *"does a stranger know
 that's a city?"* — yes, the picture was genuinely good — and the finished reel got *"I didn't
 understand the point. We are comparing 2 algos?"*. A beautiful frame will carry a bad sentence
 straight through. The gate question is **"would you say this sentence to someone?"**
@@ -165,7 +165,7 @@ numbers are then free and correct because the run produced them. **₹0 — no i
 involved in a reel. Keep it that way.**
 
 ```
-projects/<id>_<slug>/
+projects/r<NNN>_<name>/
   gate0/GATE0.md, mock_payoff.py, payoff_frame.png
   <compute>.py      → <name>_data.json   real algorithm on real data; asserts its own claims
   emit_ts.py        → remotion/src/reels/data/<name>.ts
@@ -182,9 +182,9 @@ remotion/src/reels/<Name>.tsx             plus BOTH compositions registered in R
 ```bash
 cd remotion
 npx tsc --noEmit && npm run brand:check
-npx remotion render rNNN-<slug> ../projects/<id>_<slug>/rNNN_<slug>.mp4 --codec=h264
+npx remotion render r<NNN>-<name> ../projects/r<NNN>_<name>/r<NNN>_<name>.mp4 --codec=h264
 cd ..
-python3 scripts/reel_motion_audit.py projects/<id>_<slug>/rNNN_<slug>.mp4
+python3 scripts/reel_motion_audit.py projects/r<NNN>_<name>/r<NNN>_<name>.mp4
 ```
 
 Non-negotiable: **run the audit at its default `--width 240`** — every benchmark in the repo is at
@@ -205,10 +205,10 @@ Five files, every time (details in `reference/validate-and-ship.md`):
 | `brand_guide_software.md` §13 | what this build taught, dated — including what failed |
 | `reel_captions_log.md` | the caption, the hook line, engagement columns filled in later |
 | `content_backlog.md` | the row marked produced/failed, with corrections to its figures |
-| `projects/<id>_<slug>/NOTES.md` | figures with provenance, the beats, the traps, what is NOT claimed |
+| `projects/r<NNN>_<name>/NOTES.md` | figures with provenance, the beats, the traps, what is NOT claimed |
 
-**GATE 3: the user watches the reel end to end before it is posted.** r007's pronoun hook and
-r008's entire framing passed every automated check and were caught only by watching.
+**GATE 3: the user watches the reel end to end before it is posted.** r006's pronoun hook and
+I15's entire framing passed every automated check and were caught only by watching.
 
 Write all five, then **stop — do not commit.** List what changed and let the user read the diff.
 See "Git — do not commit" above.

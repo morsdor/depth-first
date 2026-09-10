@@ -13,7 +13,7 @@ import {
 import { CURVE_HOURS, ENVELOPE, ENVELOPE_STEP_DEG, MOON_CURVE, TIDES } from './data/tides';
 
 /**
- * r009 · "The Sun pulls the Earth 179x harder than the Moon — and the Moon makes
+ * r007 · "The Sun pulls the Earth 179x harder than the Moon — and the Moon makes
  * the tide."  (backlog I58, §2 Maps and real geography)
  *
  * ── What is on screen, and why it is that ───────────────────────────────────
@@ -33,11 +33,11 @@ import { CURVE_HOURS, ENVELOPE, ENVELOPE_STEP_DEG, MOON_CURVE, TIDES } from './d
  * never animates a bulge arriving at a coast. That restraint is the whole reason
  * the concept survived Gate 0 in this form rather than the backlog row's original
  * "two high tides a day, and one of them shouldn't be there" — see
- * projects/r009_tides/gate0/GATE0.md §7, and r001's false "the cafe noise dies
+ * projects/r007_tides/gate0/GATE0.md §7, and r001's false "the cafe noise dies
  * here", which is the mistake this rule exists to prevent.
  *
  * ── The second surprise, and where it sits ──────────────────────────────────
- * r006 bled retention linearly because it had one surprise at 3s and then twenty
+ * r005 bled retention linearly because it had one surprise at 3s and then twenty
  * seconds of elaboration. The first surprise here is the reversal at ~9s (huge
  * pull, smaller tide). The second is the body beat at 41.5s: the person standing
  * next to you raises a tide in you 702,858x stronger than the Moon does. That is
@@ -50,7 +50,7 @@ import { CURVE_HOURS, ENVELOPE, ENVELOPE_STEP_DEG, MOON_CURVE, TIDES } from './d
  * statement instead: the Moon pulls the centre harder than the far side, so the
  * far side is left behind. Not that the sea's highs are 12h25m apart — measured,
  * adding the Sun moves them 8.5 min earlier; the reel says the MOON'S PART
- * repeats every 12h25m, which is what M2 means. See projects/r009_tides/NOTES.md.
+ * repeats every 12h25m, which is what M2 means. See projects/r007_tides/NOTES.md.
  */
 
 export const DURATION_SECONDS = 54;
@@ -64,7 +64,7 @@ export const DURATION_SECONDS = 54;
 // Earth in an 800x520 panel: at the audit's 240px sampling width the planet was
 // 15-40px across, every beat scored 9-27% event density and the reel failed. The
 // audit measures mean change over the WHOLE frame, so the subject has to BE most
-// of the frame. Text rides over the graphic, as it does on r006 and r007.
+// of the frame. Text rides over the graphic, as it does on r005 and r006.
 const STAGE = { left: 0, top: 270, w: 1080, h: 1270 } as const;
 const VB = { x: -540, y: -635, w: 1080, h: 1270 } as const;
 

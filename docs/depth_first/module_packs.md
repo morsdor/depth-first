@@ -31,7 +31,7 @@ building every reel from scratch, with a human reviewing every stage. Packs do t
 |:--|:--|:--|
 | `mercY`, `GRATICULE`, `tailPath`, `ringPaths` | `Cables.tsx`, `Greatcircle.tsx` | Mercator y, the lat/lon grid, the moving-marker tail and rings |
 | `CAM` keyframe table + per-axis `interpolate` | `Tides.tsx`, `Queue.tsx` | `[second, scale, cx, cy][]`; `Pendulum.tsx` does the same from a data module (`PENDULUM.camera`) |
-| `Row` | `Pendulum.tsx`, `Tides.tsx` | a key/value line — and the size-inheritance bug in r010's NOTES came from reusing it without an explicit `size` |
+| `Row` | `Pendulum.tsx`, `Tides.tsx` | a key/value line — and the size-inheritance bug in r008's NOTES came from reusing it without an explicit `size` |
 | `Table` | `Autocorrect.tsx`, `Shuffle.tsx` | a small on-screen table |
 | `STAGE`, `CELL`, `PANEL_W`, `MAP_W`, `MAP_H` | four to five files each | layout constants re-chosen per reel |
 
@@ -46,13 +46,13 @@ below are therefore the *only* shared code the reels will ever have, which raise
 
 | Function | Count | Where |
 |:--|--:|:--|
-| `coastlines()` | 2 | `r006_greatcircle/build_geo.py`, `r007_cables/build_geo.py` |
+| `coastlines()` | 2 | `r005_greatcircle/build_geo.py`, `r006_cables/build_geo.py` |
 | `rdp()` (polyline simplification) | 2 | the same two |
-| `fisher_yates()` | 3 | the r005 scripts |
+| `fisher_yates()` | 3 | the I51 scripts |
 | `main()` with the same fetch → compute → assert → write shape | 9 | every project |
 
 And the discipline that matters most is unevenly applied: `emit_ts.py` carries **22** asserts in
-`i69`, 15 in `i64`, 6 in `i15`, 3 in `i58`, 1 in `r001`, and **0** in `r002`–`r005`.
+`i69`, 15 in `i64`, 6 in `i15`, 3 in `i58`, 1 in `r001`, and **0** in `r002`–`I51`.
 
 ---
 
@@ -63,16 +63,16 @@ Each pack is a folder under `remotion/src/reels/lib/<pack>/` (TypeScript) and/or
 
 | # | Pack | What it absorbs | Proven by | Unlocks |
 |--:|:--|:--|:--|:--|
-| 1 | **`chrome`** *(exists)* | ground, header, step label, readout, progress, breath, safe zones | r002 → r010 | — |
-| 2 | **`camera`** | a `useCamera(keys)` hook over `[t, s, x, y]` keyframes; the rule *no two consecutive keyframes equal*; the Python `camera.py` model that checks what the camera points at | r007 (camera fixed the audit), r009, r010 | every physical reel |
-| 3 | **`geo`** | projections (Mercator, orthographic, the globe↔map morph), graticule, Natural Earth coastlines as a committed JSON cache, great-circle sampling, `tailPath`/`ringPaths`; Python: `coastlines()`, spherical distance, `rdp()`, chokepoint routing | r006, r007, r009 | 20 ids in §2 |
-| 4 | **`graph`** | Overpass fetch with User-Agent, three mirrors and a JSON cache; Dijkstra / A\* trace to per-frame frontier sets; the flood renderer | r008 | I16 I20 I21, any city |
-| 5 | **`layers`** | `FrameSequenceLayer` (today `ManimLayer`), `scripts/manim_render.py`, a `blender_render.py` sibling, the `layout.py` pattern for sharing reference-pixel geometry between renderer and annotations | r010 | anything 3D or mesh-based |
-| 6 | **`annotate`** | the `check_annotations.py` idea made generic: declare every text box with its beat window; assert it clears the moving geometry, sits inside the safe area, and never overlaps another box on screen at the same time | r010 (three real defects caught before rendering) | every reel with text over a moving subject |
-| 7 | **`readout`** | one `Row`/`Table` with an explicit `size`, rail-safe by default (`SAFE_W`) | r006 (the rail ate the payoff), r010 | every reel |
-| 8 | **`hook`** | *promise + clock*: the countdown that turns "in 30 seconds it comes back" into a reason to stay; title-over-action; the end card with a performable ask | r010 hook, r006 end card | every reel whose payoff is delayed |
-| 9 | **`sim`** *(Python)* | RK4 integrator, resampling to 30 fps, the `emit_ts` scaffold with an `assert_claims()` block that cannot be skipped | r010, r009 | every physics reel |
-| 10 | **`audit`** *(exists, partly)* | `reel_motion_audit.py`, `reel_safe_audit.py`, plus the two recipes typed by hand today: per-beat slicing and the filmstrip | r005 → r010 | Stage 5 in one command |
+| 1 | **`chrome`** *(exists)* | ground, header, step label, readout, progress, breath, safe zones | r002 → r008 | — |
+| 2 | **`camera`** | a `useCamera(keys)` hook over `[t, s, x, y]` keyframes; the rule *no two consecutive keyframes equal*; the Python `camera.py` model that checks what the camera points at | r006 (camera fixed the audit), r007, r008 | every physical reel |
+| 3 | **`geo`** | projections (Mercator, orthographic, the globe↔map morph), graticule, Natural Earth coastlines as a committed JSON cache, great-circle sampling, `tailPath`/`ringPaths`; Python: `coastlines()`, spherical distance, `rdp()`, chokepoint routing | r005, r006, r007 | 20 ids in §2 |
+| 4 | **`graph`** | Overpass fetch with User-Agent, three mirrors and a JSON cache; Dijkstra / A\* trace to per-frame frontier sets; the flood renderer | I15 | I16 I20 I21, any city |
+| 5 | **`layers`** | `FrameSequenceLayer` (today `ManimLayer`), `scripts/manim_render.py`, a `blender_render.py` sibling, the `layout.py` pattern for sharing reference-pixel geometry between renderer and annotations | r008 | anything 3D or mesh-based |
+| 6 | **`annotate`** | the `check_annotations.py` idea made generic: declare every text box with its beat window; assert it clears the moving geometry, sits inside the safe area, and never overlaps another box on screen at the same time | r008 (three real defects caught before rendering) | every reel with text over a moving subject |
+| 7 | **`readout`** | one `Row`/`Table` with an explicit `size`, rail-safe by default (`SAFE_W`) | r005 (the rail ate the payoff), r008 | every reel |
+| 8 | **`hook`** | *promise + clock*: the countdown that turns "in 30 seconds it comes back" into a reason to stay; title-over-action; the end card with a performable ask | r008 hook, r005 end card | every reel whose payoff is delayed |
+| 9 | **`sim`** *(Python)* | RK4 integrator, resampling to 30 fps, the `emit_ts` scaffold with an `assert_claims()` block that cannot be skipped | r008, r007 | every physics reel |
+| 10 | **`audit`** *(exists, partly)* | `reel_motion_audit.py`, `reel_safe_audit.py`, plus the two recipes typed by hand today: per-beat slicing and the filmstrip | I51 → r008 | Stage 5 in one command |
 
 **Order of extraction, by backlog leverage:** `camera` and `geo` first (they cover half the open
 ids and are the two most-duplicated), then `layers` (the door to 3D and the body), then `sim`,
@@ -85,7 +85,7 @@ ids and are the two most-duplicated), then `layers` (the door to 3D and the body
 `scripts/new_reel_scaffold.py <ID> <slug>` creates, from templates:
 
 ```
-projects/<id>_<slug>/
+projects/r<NNN>_<name>/
   gate0/GATE0.md          the sentence · three kill conditions · the argument test · the licence question — all as headed blanks
   gate0/mock_payoff.py    PIL skeleton that writes payoff_frame.png
   fetch_<slug>.py         User-Agent, mirrors, JSON cache — from the graph pack
@@ -105,9 +105,9 @@ written down what it claims.
 
 | Asset | Where it should live | Status |
 |:--|:--|:--|
-| Brand fonts (5 latin woff2) | `remotion/public/fonts/` | done — renders are offline since r009 |
+| Brand fonts (5 latin woff2) | `remotion/public/fonts/` | done — renders are offline since r007 |
 | Natural Earth coastlines, 110 m and 50 m, as JSON | `data/geo/` | built inside two reels, never committed as a shared file |
-| OSM city graphs (Paris, London, NYC, Delhi) | `data/geo/osm/` | in `projects/i15_astar/`, ~7 MB, tracked — move so the next city reel finds them |
+| OSM city graphs (Paris, London, NYC, Delhi) | `data/geo/osm/` | in `the deleted `I15` build/`, ~7 MB, tracked — move so the next city reel finds them |
 | NASA Blue Marble texture | `remotion/public/textures/` (git-ignored, download script) | not present |
 | Z-Anatomy `.blend` | outside the repo, download script + checksum | not present |
 | Coastline/graph fetch scripts | `data/geo/README.md` with provenance and licence per file | not present |

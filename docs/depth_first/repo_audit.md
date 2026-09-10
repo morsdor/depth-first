@@ -70,13 +70,13 @@ mp4s for the reels and nothing else"*, and they were deleted.
 masters are on the branch too. What was deleted is the raw and rejected generation output behind
 them. Reviving s001 therefore still works; regenerating its rejects would cost money again.
 
-Also deleted from disk: `remotion/public/manim/` — 1,020 PNGs, 153 MB, the r010 render input.
+Also deleted from disk: `remotion/public/manim/` — 1,020 PNGs, 153 MB, the r008 render input.
 **Fully regenerable in ~21 s** from tracked scripts, and the posted mp4 is committed:
 
 ```bash
-python3 projects/r010_pendulum/simulate.py && python3 projects/r010_pendulum/emit_ts.py
+python3 projects/r008_pendulum/simulate.py && python3 projects/r008_pendulum/emit_ts.py
 MANIM_W=1350 MANIM_H=2400 python3 scripts/manim_render.py \
-    projects/r010_pendulum/scene_pendulum.py Pendulums i69pendulum
+    projects/r008_pendulum/scene_pendulum.py Pendulums i69pendulum
 ```
 
 **The toolchain was rebuilt from scratch** on 2026-09-10 so no stale packages remain:
@@ -100,14 +100,14 @@ reclaims nothing there.
 1. **`manim` 0.18.1 imports `importlib_metadata` without declaring it**, so a clean install on
    Python 3.9 dies at `manim --version` with `ModuleNotFoundError`. It only worked before because
    some retired dependency happened to pull it in. Now pinned in `scripts/manim_requirements.txt`.
-2. **`numpy` is now 2.0.2, and four scripts still call `np.ptp`** — `r010_pendulum/simulate.py` (two
-   asserts), `i64_queue/sim.py`, `r006_greatcircle/build_geo.py`. `np.ptp` as a *function* survives
+2. **`numpy` is now 2.0.2, and four scripts still call `np.ptp`** — `r008_pendulum/simulate.py` (two
+   asserts), `i64_queue/sim.py`, `r005_greatcircle/build_geo.py`. `np.ptp` as a *function* survives
    in NumPy 2; it is the `ndarray.ptp()` *method* that was removed, and all four uses are the
    function form, so they are safe. Worth knowing, because this repo has been bitten by the 2.0
    removal twice already.
 
 Verified after the rebuild: `npm run lint` clean, 22 compositions enumerate,
-`reel_motion_audit.py` reproduces r006's recorded 38% event density, `manim --version` reports
+`reel_motion_audit.py` reproduces r005's recorded 38% event density, `manim --version` reports
 Community v0.18.1.
 
 ---
@@ -128,15 +128,15 @@ Nothing of value; git holds the history of all of it.
 
 ## 4. Defects fixed
 
-**1 · Two reels were both numbered `r009`.** `r009_tides` (posted) and the shelved `i64_queue` build.
+**1 · Two reels were both numbered `r007`.** `r007_tides` (posted) and the shelved `i64_queue` build.
 The shelved build now holds **no** reel number: its render is `i64_queue_shelved.mp4` and its
 compositions are `i64-queue` / `i64-queue-safe`. `brand_guide_software.md` updated. The rule — *a
 reel number is claimed in `CLAUDE.md`'s table when the build starts and never shared* — is now
 written into `.claude/skills/new-reel/reference/build.md`.
 
-**2 · The posted r010 render was untracked.** `.gitignore`'s negation was `!projects/r*/*.mp4`,
+**2 · The posted r008 render was untracked.** `.gitignore`'s negation was `!projects/r*/*.mp4`,
 written when every project folder was `r00N_<slug>`. Once folders became `i<NN>_<slug>` it silently
-stopped matching: r006–r009 were tracked only because they had been force-added, and **r010 — a
+stopped matching: r005–r007 were tracked only because they had been force-added, and **r008 — a
 posted reel — was not tracked at all**. The negation now matches the *render's* name rather than the
 folder's:
 
@@ -144,7 +144,7 @@ folder's:
 !projects/*/r[0-9][0-9][0-9]_*.mp4
 ```
 
-Verified both ways: `r010_pendulum.mp4` is now tracked (added, 15 MB), and a long-form
+Verified both ways: `r008_pendulum.mp4` is now tracked (added, 15 MB), and a long-form
 `scene_NN.mp4` is still correctly ignored. A shelved build's render no longer matches, which is the
 right outcome.
 
@@ -178,7 +178,7 @@ at the time, 15 asserts, clean lint — and was still stopped by a human at Gate
 sound"). It states plainly that nobody has since diagnosed *why*, so a rebuild starts there.
 
 **10 · Two folder-naming conventions.** Documented in `build.md`: the folder is named for the
-permanent backlog id, the reel number appears only on the render, and the `r001…r005` folders keep
+permanent backlog id, the reel number appears only on the render, and the `r001…I51` folders keep
 their old names because the logs cite them.
 
 **Also fixed:** a real broken dependency — `projects/i52_listening/gate0/mock_payoff.py` reads
@@ -199,18 +199,48 @@ data modules and compositions each time. All recoverable from git history.
 
 | Reel | Id | Why it was never posted |
 |:--|:--|:--|
-| `r005` shuffle | `I51` | five rebuilds; each raised rigor and lowered watchability. The subject's defining property is that the bias is invisible |
-| `r008` A\* | `I15` | passed Gate 0 on its picture, then drew *"I didn't understand the point. We are comparing 2 algos?"* |
+| shuffle bias | `I51` | five rebuilds; each raised rigor and lowered watchability. The subject's defining property is that the bias is invisible |
+| A\* vs Dijkstra | `I15` | passed Gate 0 on its picture, then drew *"I didn't understand the point. We are comparing 2 algos?"* |
 | I64 queue | `I64` | passed every automated gate at 65% event density and was stopped at Gate 3: *"the output is not sound"* |
 
-**r005 and r008 are spent reel numbers and are never reused. The next reel is `r011`.**
+**The numbering was then closed up so the eight posted reels are `r001`–`r008`, contiguous, in the
+order they were posted.** Deleting three builds left gaps at r005 and r008, and a reel number that
+skips is a number that has to be explained every time it is read. The two unpublished builds gave up
+their numbers and are called by their permanent backlog ids (`I51`, `I15`) — which is what ids are
+for. **The next reel is `r009`.**
+
+| was | is |
+|:--|:--|
+| r006 great circle | **r005** |
+| r007 cables | **r006** |
+| r009 tides | **r007** |
+| r010 pendulum | **r008** |
+| r005 shuffle *(deleted)* | `I51` |
+| r008 A\* *(deleted)* | `I15` |
+
+719 reel-number references were rewritten across the repo in one atomic pass — a sequential
+find-and-replace would have collapsed r006→r005→… onto itself. Two forms needed separate handling:
+`\b` does not match before an underscore, so `r006_geo` and `r006_greatcircle` were missed by the
+first pass and caught by a second.
+
+**Also moved, so each tree means one thing:**
+
+| Tree | Means |
+|:--|:--|
+| `projects/r<NNN>_<name>/` | a reel that shipped |
+| `gate0/i<NN>_<slug>/` | a written Gate 0 with no shipped reel — `I33`, `I52` in gate, `I53` killed by its own data |
+| `scripts/manim_probe/` | the Manim bridge smoke test, which was never a reel |
+
+`backlog_ideas.py` scans `gate0/` first and `projects/` second, so a build in flight before it has a
+reel number is still visible. Counts are unchanged: **69 ids — 8 built, 1 failed, 2 in gate,
+2 retired, 1 shelved, 55 open.**
 
 **Renamed — `projects/r<NNN>_<name>/`, keyed by reel number rather than backlog id.**
 
 ```
-i17_greatcircle → r006_greatcircle      i58_tides    → r009_tides
-i22_cables      → r007_cables           i69_pendulum → r010_pendulum
-data/i17_geo.ts → data/r006_geo.ts      data/i22_geo.ts → data/r007_geo.ts
+i17_greatcircle → r005_greatcircle      i58_tides    → r007_tides
+i22_cables      → r006_cables           i69_pendulum → r008_pendulum
+data/i17_geo.ts → data/r005_geo.ts      data/i22_geo.ts → data/r006_geo.ts
 ```
 
 34 files were rewritten to follow the rename, and the convention in
@@ -239,7 +269,7 @@ yt video ideas/
 ├── docs/
 │   ├── depth_first/             the seven operating docs
 │   └── comps/                   the two competitor deep dives
-├── projects/                    reels only — r001…r005, i15, i17, i22, i33, i52, i53, i58, i64, i69, manim
+├── projects/                    reels only — r001…I51, i15, i17, i22, i33, i52, i53, i58, i64, i69, manim
 ├── remotion/src/{reels, brand}  + Root.tsx (310 lines)
 ├── remotion/public/{fonts, reels, manim}
 ├── scripts/                     manim_render · reel_motion_audit · reel_safe_audit
@@ -249,7 +279,7 @@ yt video ideas/
 
 **Root: 30 items → 13. Tracked files: 454 → 183. Working tree: ~357 MB of dead-era and
 regenerable content deleted from disk.** Verified after the change: `npm run lint` clean,
-`reel_motion_audit.py` reproduces r006's recorded 38% event density, `backlog_ideas.py` reports its
+`reel_motion_audit.py` reproduces r005's recorded 38% event density, `backlog_ideas.py` reports its
 69 ids, and all 22 reel compositions enumerate.
 
 ---

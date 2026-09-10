@@ -34,7 +34,7 @@ water, tides, ports, railways, orbits, cities — all in scope. Software is one 
 been mistaken for the whole channel because `content_backlog.md` was written in one sitting by
 someone thinking only about software.
 
-**This is the explanation for three Gate 0 failures in a row.** `I52`, both cuts of `r008` and
+**This is the explanation for three Gate 0 failures in a row.** `I52`, both cuts of `I15` and
 `I24` all died on the same kill condition — *the amazement depends on understanding first* — and
 that is not bad luck. **A software mechanism is invisible by nature**, so it always needs a
 sentence of setup before the picture means anything, which is precisely the order Gate 0 forbids.
@@ -94,7 +94,7 @@ Nothing is built — no Python, no `.tsx`, no data module — until these two th
 un-know it to judge whether a stranger would. The human says yes or no, in under a minute. That is
 the entire cost of the gate, and it replaces a day of building the wrong thing.
 
-**Ask about the SENTENCE, not the picture — r008, 2026-09-10.** r008 passed this gate on the
+**Ask about the SENTENCE, not the picture — I15, 2026-09-10.** I15 passed this gate on the
 question *"does a stranger know that's a city and want to know why the blue spread everywhere?"*
 and the answer was yes, because the picture was genuinely good. It was built, and the verdict on
 watching it was **"I didn't understand the point. We are comparing 2 algos?"** — which was exactly
@@ -105,7 +105,7 @@ A beautiful payoff frame will carry a bad sentence straight through this gate. *
 must be "would you say this sentence to someone?", and the frame is only there to prove the
 sentence can be shown.** The order matters: sentence first, frame as evidence for it.
 
-**Why this exists — r005, five rebuilds, 2026-09-07/08.** Every rebuild raised rigor and lowered
+**Why this exists — I51, five rebuilds, 2026-09-07/08.** Every rebuild raised rigor and lowered
 recognition: v1 drew 16 coloured bars, v5 drew a 13x13 landing-position matrix measured over 400,000
 shuffles. v5 is the more honest reel and it is the less watchable one, because no viewer has ever
 seen either object. The verdict that ended it — *"anyone who sees that will not understand even a
@@ -118,16 +118,16 @@ Machine-checkable rigor is the thing I will drift toward if nothing stops me.
 shuffle's whole point is that nobody can see the bias and no test catches it. That is a good essay
 and a bad reel, and recognising it early is cheaper than five rebuilds.
 
-### Pick a fight, not a gap (r006 vs r007 — the belief-correction test FAILED)
+### Pick a fight, not a gap (r005 vs r006 — the belief-correction test FAILED)
 
-**r007 was the pre-registered test of the "correct a belief" pattern and it failed.** Built to all
-five points, better motion numbers than r006, and it peaked at **~1.8k views against r006's ~66k**.
+**r006 was the pre-registered test of the "correct a belief" pattern and it failed.** Built to all
+five points, better motion numbers than r005, and it peaked at **~1.8k views against r005's ~66k**.
 The stated fallback explanation — that the engine was the map and Explore's geography audience —
-died with it, because r007 is also a map.
+died with it, because r006 is also a map.
 
-**What r006 actually had, per its comments: it landed inside the flat-earth argument.** The curved
+**What r005 actually had, per its comments: it landed inside the flat-earth argument.** The curved
 flight path on a flat map is the most-cited exhibit on both sides of that fight, so the reel was
-usable as evidence in a dispute already running. r007 corrected a belief nobody argues about.
+usable as evidence in a dispute already running. r006 corrected a belief nobody argues about.
 
 **Three conditions, all required** (full reasoning in `brand_guide_software.md` §13):
 
@@ -138,14 +138,14 @@ usable as evidence in a dispute already running. r007 corrected a belief nobody 
 3. **It resolves to one repeatable thing** — one number, ratio or subtraction, carried into the
    argument without the reel.
 
-**Ask before building: who does the viewer send this to, and what are they proving?** r006: your
-uncle, that the earth is round. r007: nobody, nothing. **No answer means the reel gets liked and
+**Ask before building: who does the viewer send this to, and what are they proving?** r005: your
+uncle, that the earth is round. r006: nobody, nothing. **No answer means the reel gets liked and
 forgotten.** This is n=1 against n=1 and is not a law — but it is the cheapest available filter,
 and it costs one sentence to apply.
 
 **It does not license chasing conspiracy content.** The engine is "settles a live argument"; flat
 earth is one arena and most others are cheaper and less toxic. Also unresolved and worth checking
-before optimising for reach: whether r006's 71 follows stayed, and whether they watched r007.
+before optimising for reach: whether r005's 71 follows stayed, and whether they watched r006.
 
 ### Built so far
 
@@ -155,17 +155,36 @@ before optimising for reach: whether r006's 71 follows stayed, and whether they 
 | `r002` | `I08` | Autocorrect / edit distance | **posted 2026-09-02** |
 | `r003` | `I01` | QR / Reed–Solomon damage tolerance | **posted 2026-09-05** (without the end beat) |
 | `r004` | `I03` | JPEG / DCT — a photo stores no pixels | **posted 2026-09-06** |
-| `r006` | `I17` | Great circle — the flight path that looks curved is the straight one | **posted 2026-09-08** (32 s) — first reel built under Gate 0; **80k+ views and ~120 follows by 2026-09-10**, the account's only hit |
-| `r007` | `I22` | Submarine cables — your message abroad goes underwater, not to space | **posted 2026-09-09** (28 s) — peaked ~1.8k views; the r006 pattern test, and it failed |
-| `r009` | `I58` | Tides — the Sun pulls 179x harder and the Moon still makes the tide | built 2026-09-10 (54 s), **posted 2026-09-10** — 189 views · 4 likes · 1 follow at first reading; first reel outside software, and the longest |
-| `r010` | `I69` | Pendulum wave — fifteen strings, and the thirty seconds they take to come back | built 2026-09-10 (34 s), **posted 2026-09-10** — 190 views · 0 engagement at first reading; first reel with a Manim layer; rebuilt down from a 60 s cycle after the first viewer could not tell the fifteen strings apart |
+| `r005` | `I17` | Great circle — the flight path that looks curved is the straight one | **posted 2026-09-08** (32 s) — first reel built under Gate 0; **80k+ views and ~120 follows by 2026-09-10**, the account's only hit |
+| `r006` | `I22` | Submarine cables — your message abroad goes underwater, not to space | **posted 2026-09-09** (28 s) — peaked ~1.8k views; the r005 pattern test, and it failed |
+| `r007` | `I58` | Tides — the Sun pulls 179x harder and the Moon still makes the tide | built 2026-09-10 (54 s), **posted 2026-09-10** — 189 views · 4 likes · 1 follow at first reading; first reel outside software, and the longest |
+| `r008` | `I69` | Pendulum wave — fifteen strings, and the thirty seconds they take to come back | built 2026-09-10 (34 s), **posted 2026-09-10** — 190 views · 0 engagement at first reading; first reel with a Manim layer; rebuilt down from a 60 s cycle after the first viewer could not tell the fifteen strings apart |
 
-**Three built reels were never posted and were deleted on 2026-09-10** — `r005` (`I51`, the
-shuffle bias, five rebuilds), `r008` (`I15`, A\* vs Dijkstra, which failed the sentence test after
-being built) and the shelved `I64` queue. Their project folders, components and data modules are
-gone from the tree and remain in git history. **The reel numbers r005 and r008 are spent and are
-never reused** — the next reel is `r011`. What they taught is in `brand_guide_software.md` §13 and
-stays there.
+**Reel numbers are contiguous and mean "the Nth reel posted".** `r001`–`r008` above are the eight
+that have shipped, in order. **The next reel is `r009`.**
+
+**Three built reels were never posted and were deleted on 2026-09-10** — the shuffle bias (`I51`,
+five rebuilds), A\* vs Dijkstra (`I15`, which failed the sentence test after being built) and the
+shelved queue (`I64`). Their project folders, components and data modules are gone from the tree and
+remain in git history.
+
+**The number is claimed when a build starts and released if the build is abandoned.** Claiming it
+at build time is what stops two builds colliding; releasing it is what keeps the sequence gapless.
+**An unpublished build has no reel number and is called by its backlog id** — which is what ids are
+for. `I51` and `I15` briefly held r005 and r008; those numbers now belong to the great-circle and
+pendulum reels, and everything those builds taught is in `brand_guide_software.md` §13 under their
+ids.
+
+### Where things live
+
+| Tree | Means |
+|:--|:--|
+| `projects/r<NNN>_<name>/` | **a reel that shipped.** The render inside it matches the folder name |
+| `gate0/i<NN>_<slug>/` | a concept with a written Gate 0 and **no** shipped reel — in gate, or killed |
+| `scripts/manim_probe/` | not a reel; the Manim→PNG→Remotion bridge smoke test behind `manim-probe` |
+
+A concept lives in `gate0/` from the moment its Gate 0 is written, and moves to
+`projects/r<NNN>_<name>/` when the reel is posted and takes its number.
 
 Update this table, `brand_guide_software.md` §13 and
 [`reel_captions_log.md`](reel_captions_log.md) when one ships.
@@ -173,7 +192,7 @@ Update this table, `brand_guide_software.md` §13 and
 **r003 shipped without the end beat** — it was added to `Qr.tsx` after the reel was posted, so the
 `I03` line in that file is a plan, not a public promise.
 
-**`I15` is built (2026-09-10), and its numbers were nothing like the promise.** r004 shipped
+**`I15` was built (2026-09-10, never posted, since deleted) and its numbers were nothing like the promise.** r004 shipped
 promising "300 roads, not 300,000". A real graph does not do that: on 26,193 junctions of central
 Paris, Arc de Triomphe to Notre-Dame, Dijkstra expands **17,092** and A* expands **1,700** —
 **10.1x**, not 1000x. Manhattan gave only 3.6x. **Treat every backlog figure as a research lead,
@@ -186,7 +205,7 @@ three mirrors.
 
 ### Gate 0 also has a licence question (added 2026-09-09, from `I22`)
 
-**Before building, check that the data source may actually be used.** r007's
+**Before building, check that the data source may actually be used.** r006's
 route was first measured out of TeleGeography's submarine-cable API; their policy
 permits screenshots of the published maps under CC BY-SA 4.0 but restricts "the
 underlying databases" to paying subscribers, so the whole build had to be
@@ -195,7 +214,7 @@ rebuilt from public geography alone — real ports and the chokepoints between
 them — landed within 1.4% of it.
 
 **Published figures are facts and are citable. Route geometry is a database.**
-That distinction is what let r007 keep naming MAREA and IMEWE and quoting their
+That distinction is what let r006 keep naming MAREA and IMEWE and quoting their
 lengths. Ask the licence question next to the friend test, not after it.
 
 ### The method: compute the animation, don't author it
@@ -222,13 +241,13 @@ involved in a reel.** Keep it that way.
    rather than preceding it. No step label in the opening beat. Measured on r001/r002: half the
    audience is gone by 1.5–3s, and both retention curves then FLATTEN — so the body works and the
    opening is the only thing costing reach. Name a recognisable object in the title ("a QR code",
-   "Shazam"), never "this" — **and never a bare "It" either, which is the same failure.** r007
+   "Shazam"), never "this" — **and never a bare "It" either, which is the same failure.** r006
    shipped a first cut opening on "It doesn't go up. It goes under.", six seconds of pronoun with
    no antecedent, and it passed every automated check. **Check the title against the Gate 0
    sentence before rendering:** that sentence is the most repeatable phrasing of the idea and a
    human approved it, so if its subject noun ("your *message*") is missing from the title, the
    title is weaker than something you already had.
-   **A hook that only labels the frame is not a hook — r010, 2026-09-10.** Its first cut opened on
+   **A hook that only labels the frame is not a hook — r008, 2026-09-10.** Its first cut opened on
    "FIFTEEN WEIGHTS. FIFTEEN STRINGS.": accurate, two real objects named, and it passes every rule
    above. The verdict was *"first frame doesn't bring any question/hype that user would want to
    stick to end"*. A label describes what is on screen; a **promise** says what is about to happen
@@ -242,16 +261,16 @@ involved in a reel.** Keep it that way.
    ground must NOT scale: it is exactly frame-size, and scaling under 1 exposes its edges. Verify by
    sampling at 4fps and checking mean inter-frame change never sits under ~0.35 for more than ~1.5s.
    **That test has a blind spot: a slow push changes pixels without anything HAPPENING.** So also
-   check *event density* — the share of 4fps samples with change >= 1.0. r004 ran 42%; r005's first
+   check *event density* — the share of 4fps samples with change >= 1.0. r004 ran 42%; I51's first
    cut ran 26% and a viewer called it static despite passing the 0.35 rule. Continuous motion, not
-   more drift, is the fix: r005 v5 runs 53% by never pausing the thing the reel is about.
+   more drift, is the fix: I51 v5 runs 53% by never pausing the thing the reel is about.
    The audit is `scripts/reel_motion_audit.py` — run it on the rendered mp4, don't re-derive it,
    and run it at its DEFAULT `--width 240`: every benchmark above is at that width, and the same
    reel scores 27% at 240 and 51% at 360 because small moving objects vanish under downscaling.
    **The audit measures mean change over the whole frame, so only large-area motion counts.** A
-   growing 6px line and a moving 15px dot are worth almost nothing — r007's route-draw beat, its
+   growing 6px line and a moving 15px dot are worth almost nothing — r006's route-draw beat, its
    most important animation, scored the LOWEST of any beat at 16%. Fixing it needs the frame to
-   move, not the marker: r007 went 27% -> 49% by adding a camera that opens tight, pulls back, and
+   move, not the marker: r006 went 27% -> 49% by adding a camera that opens tight, pulls back, and
    follows the cable. Measure PER BEAT before changing anything; the global number hides which
    beat is dead.
 5. **Pacing inside the body: read → animate → hold** — the hold keeps its reading time but never its
@@ -259,7 +278,7 @@ involved in a reel.** Keep it that way.
    ~2s. ≈6.5s per idea. The 2s hold is the phase everyone drops, and dropping it is why a reel reads
    as "too fast to understand anything".
 6. **Open on a civilian object, never a developer noun** — and never leave it. Never name the
-   algorithm in the hook. This rule used to govern only the opening, which is how r005 could open
+   algorithm in the hook. This rule used to govern only the opening, which is how I51 could open
    on two decks of cards, cut to a 13x13 matrix three seconds later, and still pass. **The
    recognisable object stays on screen, or in frame, for the whole reel.** If a beat needs an
    abstraction, it sits beside the object rather than replacing it.

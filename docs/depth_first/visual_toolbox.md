@@ -4,13 +4,13 @@
 gives, what it costs, what the licence demands, whether it is in the repo today, and which backlog
 ids it fits. Licence statements marked ✔ were checked against the source on 2026-09-10 (links at
 the end); everything else is well-established but still gets re-checked inside Gate 0, which is the
-repo's own rule since r007.*
+repo's own rule since r006.*
 
 ---
 
 ## 0. The one bridge that makes every renderer usable
 
-r010 proved the pattern: **any external renderer → a transparent PNG sequence at the composition's
+r008 proved the pattern: **any external renderer → a transparent PNG sequence at the composition's
 fps → `remotion/public/<dir>/0000.png …` → a layer inside the Remotion composition.** Remotion keeps
 the chrome, the text, the camera, the safe area and the audits; the external tool only draws.
 
@@ -27,7 +27,7 @@ the chrome, the text, the camera, the safe area and the audits; the external too
 - Cost is disk, not money: ~150 KB per 1350×2400 frame, so a 40 s layer is ~180 MB, git-ignored and
   regenerated from the scripts. Render at 1.25× the composition when the Remotion camera will push in.
 - **The state still lives in the JSON.** Whatever draws it, `emit_ts.py` still asserts the claims,
-  and `layout.py` (r010) is the model for sharing geometry between the renderer and the annotations.
+  and `layout.py` (r008) is the model for sharing geometry between the renderer and the annotations.
 - The alternative is to render *inside* Remotion: `@remotion/three` runs WebGL in the composition
   (§3). Use the bridge when the tool has assets or materials Remotion lacks; use `@remotion/three`
   when the geometry is simple and you want one build.
@@ -38,8 +38,8 @@ the chrome, the text, the camera, the safe area and the audits; the external too
 
 | Technique | What it gives | Cost / key | Licence & attribution | In repo? | Fits |
 |:--|:--|:--|:--|:--|:--|
-| **Own projection code** — Mercator, orthographic, globe↔map morph, graticule, great-circle sampling | exact geometry, brand style, deterministic | none | Natural Earth coastlines: public domain | **Yes** — r006, r007, r009 (`mercY`, `GRATICULE`, `tailPath`, `ringPaths` duplicated across `Cables.tsx` and `Greatcircle.tsx`) | I16 I18 I19 I21 I23 I56 I59 I60 I63 |
-| **OSM street graphs** via Overpass | real streets, real node counts, the `equation.verse` flood | none; rate-limited, cache it | ODbL — "© OpenStreetMap contributors" on screen or in the caption; a rendered reel is a *produced work*, publishing the extracted graph JSON would be a *derived database* | **Yes** — r008; Paris, London, NYC, Delhi cached in `projects/i15_astar/` | I16 I20 I21 I53-class ideas |
+| **Own projection code** — Mercator, orthographic, globe↔map morph, graticule, great-circle sampling | exact geometry, brand style, deterministic | none | Natural Earth coastlines: public domain | **Yes** — r005, r006, r007 (`mercY`, `GRATICULE`, `tailPath`, `ringPaths` duplicated across `Cables.tsx` and `Greatcircle.tsx`) | I16 I18 I19 I21 I23 I56 I59 I60 I63 |
+| **OSM street graphs** via Overpass | real streets, real node counts, the `equation.verse` flood | none; rate-limited, cache it | ODbL — "© OpenStreetMap contributors" on screen or in the caption; a rendered reel is a *produced work*, publishing the extracted graph JSON would be a *derived database* | **Yes** — I15; Paris, London, NYC, Delhi cached in `the deleted `I15` build/` | I16 I20 I21 I53-class ideas |
 | **Vector basemap in Remotion** — MapLibre (free, no key, no 3D buildings), MapTiler (key, free tier; borders, rivers, labels as filterable layers), Mapbox (key; globe view; 3D landmarks) | a real, styled map that pans and zooms, with annotations pinned to features | key for MapTiler/Mapbox; MapLibre none | provider terms + OSM attribution | No — but the vendored `remotion-maps` skill carries a technique file for each, with the traps (`delayRender` until `idle`, `preserveDrawingBuffer:true`, `jumpTo` per frame) | anything where streets/rivers/borders are the object |
 | **3D terrain flyover** — CesiumJS technique: `landscape` mode on MapTiler terrain + satellite, `city` mode on Google Photorealistic 3D Tiles | the Fern flyover: a valley, a dam, a port from the air | MapTiler key (free tier); Google 3D Tiles need a **billing-enabled** key | provider attribution | No — `.agents/skills/remotion-maps/techniques/cesium/` has a `CesiumFlythrough.tsx` and path-prep script ready to copy | I57 I61 I62, any "the place is the object" reel |
 | **Google Earth Studio** | keyframed satellite/3D camera, PNG sequence export with camera data | free, browser | ✔ "Google Earth" + imagery providers **on screen for the duration**; allowed for documentaries, education and recreational YouTube; **not** for ads or promotional content; Google offers no commercial licence | No | the same, when a Cesium key is not worth it |
@@ -59,13 +59,13 @@ and it needs a flyover. The 20 map ids in §2 split roughly 14 / 4 / 2 across th
 
 | Tool | Have? | Use it for | Do not use it for |
 |:--|:--|:--|:--|
-| **Manim CE 0.18.1** (`.manimenv`) | yes | `Axes`, `Graph` (`projects/manim/probe.py` floods a shortest path), `NumberLine`, `ValueTracker`-driven plots, physics apparatus (r010) | equations — no LaTeX installed; typeset in HTML/CSS inside Remotion instead, where `emit_ts.py` can assert them (r010) |
+| **Manim CE 0.18.1** (`.manimenv`) | yes | `Axes`, `Graph` (`scripts/manim_probe/probe.py` floods a shortest path), `NumberLine`, `ValueTracker`-driven plots, physics apparatus (r008) | equations — no LaTeX installed; typeset in HTML/CSS inside Remotion instead, where `emit_ts.py` can assert them (r008) |
 | **matplotlib** (`.venv`) | yes | Gate 0 mocks, `design.py` sweeps, scientific plots as PNG sequences | anything that must match the brand tokens pixel-exactly |
 | **d3** in Remotion (`d3-geo`, `d3-scale`, `d3-shape`, `d3-force`; ISC licence) | no | projections (it would replace the hand-written `mercY`), scales, arcs, force layouts — deterministic when seeded and driven from `useCurrentFrame()` | animating with d3 transitions (timers are forbidden in Remotion) |
 | **A code panel with the executing line highlighted**, synced to the picture | no | §3/§4 software ids — the single strongest craft element on `equation.verse` per the teardown | reels whose object is physical |
 
 **Gate 0 reminder that overrides all of this:** a chart is a picture *of* an idea. It is never the
-payoff frame and never the opening object; it sits beside the object (rule 6, and the r005 lesson —
+payoff frame and never the opening object; it sits beside the object (rule 6, and the I51 lesson —
 a 13×13 matrix measured over 400,000 shuffles was the most honest reel and the least watchable).
 
 ---
@@ -120,13 +120,13 @@ and brand decision, not a one-line edit.
 
 - The heart is a pump: a pressure–volume loop drawn from published curves, the valve as the object.
 - The ear is a frequency analyser: the basilar membrane resolving a chord — the r001 spectrogram, in flesh.
-- Walking is an inverted pendulum: leg length sets cadence the way string length set r010's — the same equation.
+- Walking is an inverted pendulum: leg length sets cadence the way string length set r008's — the same equation.
 - The eye projects the world upside down: real optics, a real lens, the retina as the screen.
 - Reflex latency is nerve length divided by conduction speed: why the knee-jerk is faster than a decision.
 - Blood pressure against height: the giraffe, the fainting soldier, the astronaut.
 
 Each is an argument people already have, out loud, about their own body — which is the reach
-condition r009 and r010 lacked.
+condition r007 and r008 lacked.
 
 ### Toolchain for it
 
@@ -150,7 +150,7 @@ blue dot, the supermarket queue, the pendulum rig.
 - **Wikimedia Commons** (per-file CC, attribution), **NASA galleries** (public domain), stock sites
   (Pexels/Pixabay have their own licences and editorial limits — read them).
 - Never someone else's viral footage. The pendulum-wave rigs on the platform are other people's
-  videos; r010 was computed for exactly that reason, and its caption says "Not filmed".
+  videos; r008 was computed for exactly that reason, and its caption says "Not filmed".
 
 ---
 

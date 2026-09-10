@@ -174,7 +174,7 @@ export const StepLabel: React.FC<{
  * `width` defaults to CONTENT_W (960), which runs to x=1020 and therefore UNDER
  * Instagram's action rail (x>=870, y>=1050). That is survivable when the values are
  * ornamental, and fatal when they are the payoff: pass SAFE_W (810) whenever the
- * right-hand column is the thing the viewer is meant to read. Found on r006, whose
+ * right-hand column is the thing the viewer is meant to read. Found on r005, whose
  * whole reel resolves to three right-aligned kilometre figures.
  */
 export const Readout: React.FC<{

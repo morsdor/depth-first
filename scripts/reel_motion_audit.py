@@ -9,15 +9,15 @@ Two metrics, because the first one has a blind spot that shipped a bad reel:
                 at all, in stretches up to 6.5s.
 
   event density -- the share of samples with change >= 1.0. A slow push passes
-                the stillness rule while nothing HAPPENS: r005's first cut ran
+                the stillness rule while nothing HAPPENS: I51's first cut ran
                 26% and a viewer called it static despite clearing 0.35.
 
-Density is a floor, not a target. r005 cut 4 hit 68% by LOOPING an animation,
+Density is a floor, not a target. I51 cut 4 hit 68% by LOOPING an animation,
 which is change that teaches nothing -- the metric rewards motion and cannot
 tell whether the motion carries information. Read it next to the reel, never
 instead of it.
 
-    python3 scripts/reel_motion_audit.py projects/r006_greatcircle/r006_greatcircle.mp4
+    python3 scripts/reel_motion_audit.py projects/r005_greatcircle/r005_greatcircle.mp4
 """
 import argparse
 import shutil

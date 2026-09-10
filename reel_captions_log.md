@@ -37,10 +37,10 @@ with the row, because the temptation to "tighten" it later is exactly how a fals
 | `r002` | 2026-09-02 | **not recorded** — predates this log | — | — | — | — | — | — |
 | `r003` | 2026-09-05 | **not recorded** — predates this log | — | 3 | 0 | 1 | 0 | — |
 | `r004` | 2026-09-06 | A (below) | "A JPEG doesn't store your photo. It stores a recipe." | 17 | 1 | 5 | 0 | Lowest skip rate of the three (34.8%, flagged "Lower") and the widest reach (1,617 viewers) — but 1 share against r001's 6. A caption cannot be credited or blamed for either at this sample size; see `brand_guide_software.md` §13. |
-| `r009` | 2026-09-10 | A (below) — confirm which caption went out | "The Sun pulls on the Earth 179 times harder than the Moon does. The Moon still makes the tide." | 4 | — | — | 1 | **189 views at first reading (2026-09-10)** — on the account's floor. First reel outside software and the longest at 54 s. Gate 0 recorded its weak leg in advance: nobody is arguing about tidal bulges, so the reach test's "a dispute is already running" is unmet and the body comparison carries that load in the last beat. |
-| `r006` | 2026-09-08 | A (below) | "Those curved flight paths on the seatback map are the straight lines. The map is bent, not the flight." | 916 | 303 | 362 | 71 | **Figures at day 1 (2026-09-09 09:47); views curve had not flattened, so these are lower bounds.** 32,882 viewers / 46,782 views — 20.3x the account's previous best reach — and best on every per-viewer metric: likes 2.79%, shares 0.92%, saves 1.10%, follows 0.216%. Skip 29.9%, the lowest recorded. Average watch rose 16 -> 16 -> 17 -> 20 s across four readings while reach grew 64x. Audience was **99.9% non-followers**, 58% India, 67% aged 25-44. **Three early conclusions were retracted** (saves at 1 h, shares at 4 h, skip rate at 7 h) — see `brand_guide_software.md` §13. |
-| `r007` | 2026-09-09 | A (below) — confirm which caption went out | "Your message to America doesn't go up to a satellite. It goes into the sea." | — | — | — | — | Peaked ~1.8k views: the pre-registered test of the r006 pattern, failed — see `brand_guide_software.md` §13 "FALSIFIED". Insights not yet logged. |
-| `r010` | 2026-09-10 | A (below) — confirm which caption went out | "Fifteen weights on fifteen strings. Nothing connects them. Watch what happens at thirty seconds." | 0 | 0 | 0 | 0 | **190 views at first reading (2026-09-10)** — the floor, with the best motion score on the account (99%); Gate 0 had flagged the "personally witnessed" leg as weak. |
+| `r007` | 2026-09-10 | A (below) — confirm which caption went out | "The Sun pulls on the Earth 179 times harder than the Moon does. The Moon still makes the tide." | 4 | — | — | 1 | **189 views at first reading (2026-09-10)** — on the account's floor. First reel outside software and the longest at 54 s. Gate 0 recorded its weak leg in advance: nobody is arguing about tidal bulges, so the reach test's "a dispute is already running" is unmet and the body comparison carries that load in the last beat. |
+| `r005` | 2026-09-08 | A (below) | "Those curved flight paths on the seatback map are the straight lines. The map is bent, not the flight." | 916 | 303 | 362 | 71 | **Figures at day 1 (2026-09-09 09:47); views curve had not flattened, so these are lower bounds.** 32,882 viewers / 46,782 views — 20.3x the account's previous best reach — and best on every per-viewer metric: likes 2.79%, shares 0.92%, saves 1.10%, follows 0.216%. Skip 29.9%, the lowest recorded. Average watch rose 16 -> 16 -> 17 -> 20 s across four readings while reach grew 64x. Audience was **99.9% non-followers**, 58% India, 67% aged 25-44. **Three early conclusions were retracted** (saves at 1 h, shares at 4 h, skip rate at 7 h) — see `brand_guide_software.md` §13. |
+| `r006` | 2026-09-09 | A (below) — confirm which caption went out | "Your message to America doesn't go up to a satellite. It goes into the sea." | — | — | — | — | Peaked ~1.8k views: the pre-registered test of the r005 pattern, failed — see `brand_guide_software.md` §13 "FALSIFIED". Insights not yet logged. |
+| `r008` | 2026-09-10 | A (below) — confirm which caption went out | "Fifteen weights on fifteen strings. Nothing connects them. Watch what happens at thirty seconds." | 0 | 0 | 0 | 0 | **190 views at first reading (2026-09-10)** — the floor, with the best motion score on the account (99%); Gate 0 had flagged the "personally witnessed" leg as weak. |
 
 Engagement figures are per the reel's own Insights, on the base Instagram reports them against
 (unique viewers). r001's are at 3 days, r003's at ~18 h — see `brand_guide_software.md` §13.
@@ -105,9 +105,9 @@ All figures below are output of `projects/r004_jpeg/dct.py` on the posted crop
 
 ## Caption detail
 
-### r010 — "Fifteen weights, and the thirty seconds they take to come back" (`I69`) — **written 2026-09-10, not yet posted**
+### r008 — "Fifteen weights, and the thirty seconds they take to come back" (`I69`) — **written 2026-09-10, not yet posted**
 
-Every figure is output of `projects/r010_pendulum/simulate.py`, which integrates
+Every figure is output of `projects/r008_pendulum/simulate.py`, which integrates
 `θ'' = −(g/L)·sin θ` with RK4 at dt = 1/600 s. `g = 9.80665 m/s²` (standard gravity, CGPM 1901).
 No data source and no licence question — the reel is computed from first principles.
 
@@ -165,10 +165,10 @@ connects them. Watch what happens at thirty seconds."*
 
 `#pendulumwave #physics #kineticart #depthfirst`
 
-Four, following r006's shape. `#pendulumwave` is the specific one worth ranking in and has a real
+Four, following r005's shape. `#pendulumwave` is the specific one worth ranking in and has a real
 enthusiast community (the Harvard lecture-demo video is the anchor of it). `#physics` is the broad
-tag reaching outside the dev audience, which is the r006 `#maps` role — Explore carried 17.0% of
-r006's views on the strength of the object being nameable, and a row of swinging weights is more
+tag reaching outside the dev audience, which is the r005 `#maps` role — Explore carried 17.0% of
+r005's views on the strength of the object being nameable, and a row of swinging weights is more
 nameable than a map. `#kineticart` reaches the design/motion audience that shares this kind of
 footage on sight. `#depthfirst` is the brand. Dropped: `#satisfying` (the largest available tag by
 far, and exactly the engagement-bait lane the `equation.verse` teardown named as the thing not to
@@ -201,9 +201,9 @@ copy), `#manim` (dev inside-baseball, and it advertises the tool over the thing)
 
 ---
 
-### r007 — "Your message doesn't go to space" (`I22`) — **written 2026-09-09, not yet posted**
+### r006 — "Your message doesn't go to space" (`I22`) — **written 2026-09-09, not yet posted**
 
-Every figure is output of `projects/r007_cables/build_geo.py`. Distances are spherical on
+Every figure is output of `projects/r006_cables/build_geo.py`. Distances are spherical on
 R = 6,371 km; fibre latency uses `c / 1.4675`, the group index of silica at 1550 nm.
 
 #### Caption A — recommended
@@ -251,9 +251,9 @@ satellite. It goes into the sea."*
 
 `#submarinecables #maps #internetinfrastructure #depthfirst`
 
-Four, following r006's shape. `#submarinecables` is the specific one worth ranking in and has a
+Four, following r005's shape. `#submarinecables` is the specific one worth ranking in and has a
 real enthusiast community. **`#maps` is the deliberate repeat** — it is the only tag reaching
-outside the dev audience, and Explore carried 17.0% of r006's views, the highest on the account,
+outside the dev audience, and Explore carried 17.0% of r005's views, the highest on the account,
 on the strength of the map being the object. `#depthfirst` is the brand. Dropped:
 `#howtheinternetworks` (generic enough to be noise), `#fiberoptics` (narrow and technical, the
 wrong end of the civilian/dev split), `#telecom` (an industry tag, not an audience).
@@ -269,9 +269,9 @@ wrong end of the civilian/dev split), `#telecom` (an industry tag, not an audien
 
 ---
 
-### r006 — "Your flight path isn't curved" (`I17`) — posted 2026-09-08
+### r005 — "Your flight path isn't curved" (`I17`) — posted 2026-09-08
 
-Every figure is output of `projects/r006_greatcircle/build_geo.py`. Distances are spherical, on the
+Every figure is output of `projects/r005_greatcircle/build_geo.py`. Distances are spherical, on the
 IUGG mean radius R = 6,371.0088 km, cross-checked against the WGS84 geodesic (`pyproj.Geod`) and
 against the sum of the sampled legs.
 
@@ -330,10 +330,10 @@ carry traffic) and `#howitworks` (generic enough to be noise).
 
 ---
 
-## r009 — "The Sun pulls 179x harder. The Moon makes the tide." (`I58`) — DRAFT, not posted
+## r007 — "The Sun pulls 179x harder. The Moon makes the tide." (`I58`) — DRAFT, not posted
 
-All figures are output of `projects/r009_tides/tides.py`, re-asserted by `emit_ts.py` before the
-data module was written. See `projects/r009_tides/NOTES.md`.
+All figures are output of `projects/r007_tides/tides.py`, re-asserted by `emit_ts.py` before the
+data module was written. See `projects/r007_tides/NOTES.md`.
 
 ### Caption A — drafted
 

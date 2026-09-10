@@ -5,7 +5,7 @@
  * timestamp and filename is set in `IBM Plex Mono`. A metric in a proportional
  * face instantly reads as a generic explainer.
  *
- * ── Why these are vendored rather than fetched (2026-09-10, r009) ───────────
+ * ── Why these are vendored rather than fetched (2026-09-10, r007) ───────────
  * This used to call @remotion/google-fonts, which makes the RENDERING BROWSER
  * fetch woff2 from fonts.gstatic.com. That is a network dependency inside the
  * render, and it failed hard the first time the pipeline ran somewhere with a

@@ -23,7 +23,7 @@ content_backlog.md (69 permanent ids, six sections = six accent colours)
    ▼
  ┌─────────── GATE 1 · the human picks the id ───────────┐
    │
-   │  STAGE 2 · Gate 0, in projects/<id>_<slug>/gate0/
+   │  STAGE 2 · Gate 0, in gate0/<id>_<slug>/gate0/
    │     GATE0.md        the sentence, three kill conditions, the argument test, the licence question
    │     mock_payoff.py  PIL / matplotlib, five minutes — proves the sentence CAN be shown
    │     payoff_frame.png
@@ -33,7 +33,7 @@ content_backlog.md (69 permanent ids, six sections = six accent colours)
    │  STAGE 3 · research & measure
    │     fetch_*.py      network once, cached to JSON (Overpass with a real User-Agent, 3 mirrors)
    │     <compute>.py    the real algorithm / integrator; prints every figure; asserts its invariants
-   │     design.py       the falsification experiment (r010's found the design equation was wrong)
+   │     design.py       the falsification experiment (r008's found the design equation was wrong)
    │     NOTES.md        every figure with the script and run that produced it; negative results too
    │       → a figure can still kill the concept here (I53 died on its own data)
    ▼
@@ -43,10 +43,10 @@ content_backlog.md (69 permanent ids, six sections = six accent colours)
    │     optional external renderer:
    │     scene_<x>.py ──► scripts/manim_render.py ──► remotion/public/manim/<name>/0000.png … ──► <ManimLayer/>
    │     remotion/src/reels/<Name>.tsx     built on reels/lib/chrome.tsx (ground, header, breath, safe area)
-   │     remotion/src/Root.tsx             TWO compositions: rNNN-<slug> and rNNN-<slug>-safe
+   │     remotion/src/Root.tsx             TWO compositions: r<NNN>-<name> and r<NNN>-<name>-safe
    ▼
    │  STAGE 5 · render & validate
-   │     npx tsc --noEmit · npm run brand:check · npx remotion render rNNN-<slug> … --codec=h264
+   │     npx tsc --noEmit · npm run brand:check · npx remotion render r<NNN>-<name> … --codec=h264
    │     scripts/reel_motion_audit.py   (ffmpeg samples 4 fps at 240 px wide; dead spell ≤ 1.5 s; event density)
    │     per-beat slices with ffmpeg      (the global number hides the dead beat)
    │     scripts/reel_safe_audit.py      (ffmpeg → raw grey frames → any ink outside x 60–870, y 270–1540?)
@@ -56,7 +56,7 @@ content_backlog.md (69 permanent ids, six sections = six accent colours)
    │
    │  STAGE 6 · log & ship — five files, then STOP, do not commit
    │     CLAUDE.md (Built so far) · brand_guide_software.md §13 · reel_captions_log.md ·
-   │     content_backlog.md (row + corrections) · projects/<id>_<slug>/NOTES.md
+   │     content_backlog.md (row + corrections) · projects/r<NNN>_<name>/NOTES.md
    ▼
    post from the phone · read Insights at 24 h and 7 d · log them
 ```
@@ -75,10 +75,10 @@ Stage 5 ≈ 1 h, Stage 6 ≈ 20 min. A reel is a day.
 | Python | 3.9.6 (system, `.venv`, `.manimenv` — all three) | every computation | `scripts/manim_requirements.txt`'s "Python 3.11" note is about the cloud container, not this machine |
 | numpy, Pillow | in system python3 and both venvs | simulation, PIL mocks, the audits | |
 | matplotlib | `.venv` | Gate 0 mocks, `design.py` sweeps | |
-| Manim Community | 0.18.1 in `.manimenv` | vector/physics layers (r010) | **no LaTeX installed** — `Text` (Pango) only, no `MathTex` |
+| Manim Community | 0.18.1 in `.manimenv` | vector/physics layers (r008) | **no LaTeX installed** — `Text` (Pango) only, no `MathTex` |
 | ffmpeg | 8.1.2 (Homebrew, `/opt/homebrew/bin/ffmpeg`) | audits, beat slicing, filmstrips; Manim's encoder via `imageio-ffmpeg` symlink | `reel_motion_audit.py` lists Linux compositor paths first and falls through to this one |
 | segno, opencv-python-headless | `.venv` | r003 — spec-correct QR encoding and an *independent* decoder | |
-| pyproj | `.venv` | r006 — WGS84 geodesic cross-check | |
+| pyproj | `.venv` | r005 — WGS84 geodesic cross-check | |
 | After Effects 2026 | installed | **nothing in the reel pipeline** | legacy of the long-form era; no reel ever touched it, and its build scripts were archived to `yt-longform-archive-DO_NOT_DELETE` on 2026-09-10 |
 | Blender, three.js, LaTeX | **not installed** | — | see `visual_toolbox.md` |
 
@@ -116,17 +116,17 @@ Two artefacts, in this order, then a human yes:
 1. **The sentence** — what a viewer says to a friend afterwards. Plain words. Put in front of the
    human *as text* before any picture exists.
 2. **One still of the payoff frame** — `gate0/mock_payoff.py`, PIL or matplotlib, five minutes.
-   Evidence that the sentence can be shown; nothing more. r010's mock integrated the real physics to
+   Evidence that the sentence can be shown; nothing more. r008's mock integrated the real physics to
    4.286 s so the still and the render could not disagree.
 
 Three kill conditions, any one ends the id: the sentence needs a CS word; the frame shows an object
 the viewer has never seen (a matrix, a chart, a graph — pictures *of* an idea); the amazement
 depends on understanding first. Then the argument test (three conditions, all required) and the
-licence question. `GATE0.md` records verdicts on each, honestly — r009 and r010 both wrote down the
+licence question. `GATE0.md` records verdicts on each, honestly — r007 and r008 both wrote down the
 leg they were weak on, and both then landed on the floor.
 
 The model file is `.claude/skills/new-reel/reference/gate0.md`; the best examples are
-`projects/r010_pendulum/gate0/GATE0.md` (a pass with a falsification that changed the design) and
+`projects/r008_pendulum/gate0/GATE0.md` (a pass with a falsification that changed the design) and
 `projects/i53_flood/gate0/GATE0.md` (a failure record).
 
 ### Stage 3 · research and measure
@@ -138,16 +138,16 @@ Where the numbers come from, and the rules that keep them honest:
 - **Cache the network.** `i15_astar/fetch_graph.py` hits Overpass with a real User-Agent (the
   default one gets HTTP 406), falls back across three mirrors, and writes `graph_<city>.json` so
   every rebuild is offline. Four city graphs (Paris, London, NYC, Delhi) are already cached.
-- **Falsify the mechanism.** `r010_pendulum/design.py` integrated the real `θ'' = −(g/L) sin θ` and
+- **Falsify the mechanism.** `r008_pendulum/design.py` integrated the real `θ'' = −(g/L) sin θ` and
   found the textbook small-angle lengths reform 0.33 s late — so the reel prints the corrected
-  equation. `r009_tides/tides.py` asserts 23 claims from CODATA/IAU constants. `r003`'s damage
+  equation. `r007_tides/tides.py` asserts 23 claims from CODATA/IAU constants. `r003`'s damage
   verdicts come from OpenCV, not from the encoder that made the code.
 - **One stated base per percentage**, never two figures on different bases side by side.
 - **No dataset shopping.** Trying cities until one supports the claim is p-hacking when the claim is
   the reel.
 - **Record negative results**, including broken tests (`I53`'s flow-accumulation test returned
   96–99 for everything, controls included).
-- **Licence at this stage, not after.** r007 was measured out of TeleGeography's API, whose
+- **Licence at this stage, not after.** r006 was measured out of TeleGeography's API, whose
   database is subscriber-only, and had to be rebuilt from public geography. Published figures are
   facts; route geometry is a database.
 
@@ -155,7 +155,7 @@ Where the numbers come from, and the rules that keep them honest:
 
 **Python → JSON → TS.** `emit_ts.py` is the checkpoint: it re-derives the reel's claims from the
 JSON and refuses to write the module if any is false. The assert counts today tell you how much
-that discipline has grown: r002–r005 `emit_ts.py` have **0** asserts, r001 has 1, `i58` has 3,
+that discipline has grown: r002–I51 `emit_ts.py` have **0** asserts, r001 has 1, `i58` has 3,
 `i15` has 6, `i64` has 15, `i69` has 22. **Downsample in Python, not in React** — the TS module
 holds playback-ready state (frames of frontier, polylines, per-beat counters), never raw data for
 the browser to crunch.
@@ -185,10 +185,10 @@ legal. Amber is one element per frame; `failure #FF4D4D` only on the beat someth
 
 **The camera** lives in one of two places: as a keyframe table in the `.tsx`
 (`Tides.tsx` `CAM: [second, scale, cx, cy][]`, rule: no two consecutive keyframes equal) or in
-Python (`r010_pendulum/camera.py`), shipped through the data module so that annotation clearances
+Python (`r008_pendulum/camera.py`), shipped through the data module so that annotation clearances
 can be asserted against the camera the reel actually uses.
 
-**The Manim layer (r010).** Manim renders; it does not animate. Angles are read frame by frame from
+**The Manim layer (r008).** Manim renders; it does not animate. Angles are read frame by frame from
 `pendulum_data.json`. `scripts/manim_render.py` renders `--format=png --transparent` at the
 composition's fps into `remotion/public/manim/<name>/0000.png …` and prints the `<ManimLayer>` tag.
 PNG, not video, because Chromium cannot decode qtrle `.mov` and this ffmpeg build silently drops
@@ -197,7 +197,7 @@ alpha when writing VP9 (reports `yuva420p`, writes `yuv420p`). Render taller tha
 imported by both the Manim scene and `emit_ts.py`, so annotations drawn in HTML land on strings
 Manim drew. 1,020 frames ≈ 155 MB, git-ignored, regenerated in ~21 s.
 
-**Registration.** Export `DURATION_SECONDS`, register `rNNN-<slug>` and `rNNN-<slug>-safe` in
+**Registration.** Export `DURATION_SECONDS`, register `r<NNN>-<name>` and `r<NNN>-<name>-safe` in
 `Root.tsx`. The safe variant exists purely to be eyeballed before posting.
 
 ### Stage 5 · render and validate
@@ -205,11 +205,11 @@ Manim drew. 1,020 frames ≈ 155 MB, git-ignored, regenerated in ~21 s.
 ```bash
 cd remotion
 npx tsc --noEmit && npm run brand:check
-npx remotion render rNNN-<slug> ../projects/<id>_<slug>/rNNN_<slug>.mp4 --codec=h264
-npx remotion still rNNN-<slug>-safe ../projects/<id>_<slug>/safe_check.png --frame=600
+npx remotion render r<NNN>-<name> ../projects/r<NNN>_<name>/r<NNN>_<name>.mp4 --codec=h264
+npx remotion still r<NNN>-<name>-safe ../projects/r<NNN>_<name>/safe_check.png --frame=600
 cd ..
-python3 scripts/reel_motion_audit.py projects/<id>_<slug>/rNNN_<slug>.mp4      # default --width 240
-python3 scripts/reel_safe_audit.py   projects/<id>_<slug>/rNNN_<slug>.mp4      # report, not a gate
+python3 scripts/reel_motion_audit.py projects/r<NNN>_<name>/r<NNN>_<name>.mp4      # default --width 240
+python3 scripts/reel_safe_audit.py   projects/r<NNN>_<name>/r<NNN>_<name>.mp4      # report, not a gate
 ```
 
 **Where ffmpeg is, precisely:**
@@ -224,13 +224,13 @@ python3 scripts/reel_safe_audit.py   projects/<id>_<slug>/rNNN_<slug>.mp4      #
 | Final encode | **not ffmpeg** — Remotion's bundled compositor | |
 
 **Thresholds.** Longest dead spell ≤ 1.5 s under mean change 0.35; event density is the share of
-samples with change ≥ 1.0, a floor and not a target (r005 cut 4 hit 68% by looping and taught
-nothing; r010 hit 99% and did 190 views). Run at 240 px: the same reel scores 27% at 240 and 51%
-at 360. Benchmarks: r004 42 · r005 v5 53 · r006 38 · r007 49 · r008 54 · r009 44 · r010 99.
+samples with change ≥ 1.0, a floor and not a target (I51 cut 4 hit 68% by looping and taught
+nothing; r008 hit 99% and did 190 views). Run at 240 px: the same reel scores 27% at 240 and 51%
+at 360. Benchmarks: r004 42 · I51 v5 53 · r005 38 · r006 49 · I15 54 · r007 44 · r008 99.
 
-**What the audits cannot see** — and what Gate 3 is for: a pronoun with no antecedent (r007's
-first cut), a payoff whose subject is an 82 px sliver at the frame edge (r009), a whole framing
-that compares two algorithms nobody asked about (r008). All three passed every automated check.
+**What the audits cannot see** — and what Gate 3 is for: a pronoun with no antecedent (r006's
+first cut), a payoff whose subject is an 82 px sliver at the frame edge (r007), a whole framing
+that compares two algorithms nobody asked about (I15). All three passed every automated check.
 
 ### Stage 6 · the five logs, then posting
 
@@ -240,18 +240,18 @@ that compares two algorithms nobody asked about (r008). All three passed every a
 | `brand_guide_software.md` §13 | a dated subsection — what this build taught, including what failed |
 | `reel_captions_log.md` | caption A/B, hook line, hashtags (four to six, no bait), **load-bearing phrasings**, deliberately omitted claims; engagement filled in later |
 | `content_backlog.md` | the row marked built/failed, and every figure it had wrong, corrected in italics with the date and the measuring script |
-| `projects/<id>_<slug>/NOTES.md` | figures with provenance, beats, gate numbers, **traps**, what is NOT claimed |
+| `projects/r<NNN>_<name>/NOTES.md` | figures with provenance, beats, gate numbers, **traps**, what is NOT claimed |
 
 Then stop and let the human read the diff. Never commit unless told, and then straight to `main`.
 
 The mp4 is tracked in git on purpose (`!projects/r*/*.mp4`) so downloading it from GitHub is the
 shortest path to the phone. **But the negation only matches `projects/r*/`.** The renders in the
-newer `projects/i*/` folders (r006–r009) were force-added, and r010's mp4 — posted — is untracked
+newer `projects/i*/` folders (r005–r007) were force-added, and r008's mp4 — posted — is untracked
 as of 2026-09-10. `repo_audit.md` has the one-line pattern fix.
 
 Posting is manual: caption from the log, cover frame chosen for the grid (a wall of *objects*, not
 code), and a reading of Insights at 24 h and again at 7 d — with the three-readings-two-retractions
-lesson from r006 in mind (saves at 1 h, shares at 4 h and skip rate at 7 h were all read wrong).
+lesson from r005 in mind (saves at 1 h, shares at 4 h and skip rate at 7 h were all read wrong).
 
 ---
 
@@ -267,7 +267,7 @@ are seven is that each was added after something false shipped or nearly shipped
 3. **A falsification experiment for any "X because Y"** — r001 shipped "the cafe noise dies here",
    which is false (noise yields 224 peaks against the song's 202).
 4. **`emit_ts.py` refuses to write a module whose claims are false** — including that the equation
-   printed on screen reproduces the numbers on screen (r010: to 0.005 cm).
+   printed on screen reproduces the numbers on screen (r008: to 0.005 cm).
 5. **Load-bearing phrasings are recorded with the caption** ("78% of the *coefficients*", never "of
    the file"; "the tide, not the pull"; "let go from the same *angle*"), because tightening one
    later is exactly how a false claim ships.
@@ -278,21 +278,21 @@ are seven is that each was added after something false shipped or nearly shipped
 
 ---
 
-## 5. A worked example — r010, start to finish
+## 5. A worked example — r008, start to finish
 
 ```bash
 python3 .claude/skills/new-reel/scripts/backlog_ideas.py --id I69     # Stage 1
 # Stage 2: gate0/GATE0.md written, gate0/mock_payoff.py → payoff_frame.png, human yes to the sentence
-python3 projects/r010_pendulum/design.py        # Stage 3: falsification — found the 0.33 s error
-python3 projects/r010_pendulum/simulate.py      # → pendulum_data.json (RK4, dt = 1/600 s, self-asserting)
-python3 projects/r010_pendulum/emit_ts.py       # → remotion/src/reels/data/pendulum.ts (22 asserts)
+python3 projects/r008_pendulum/design.py        # Stage 3: falsification — found the 0.33 s error
+python3 projects/r008_pendulum/simulate.py      # → pendulum_data.json (RK4, dt = 1/600 s, self-asserting)
+python3 projects/r008_pendulum/emit_ts.py       # → remotion/src/reels/data/pendulum.ts (22 asserts)
 MANIM_W=1350 MANIM_H=2400 python3 scripts/manim_render.py \
-    projects/r010_pendulum/scene_pendulum.py Pendulums i69pendulum   # → public/manim/i69pendulum/ (1,020 PNGs)
-python3 projects/r010_pendulum/check_annotations.py                  # every text box cleared, before rendering
+    projects/r008_pendulum/scene_pendulum.py Pendulums i69pendulum   # → public/manim/i69pendulum/ (1,020 PNGs)
+python3 projects/r008_pendulum/check_annotations.py                  # every text box cleared, before rendering
 cd remotion && npx tsc --noEmit && npm run brand:check
-npx remotion render r010-pendulum ../projects/r010_pendulum/r010_pendulum.mp4 --codec=h264
-cd .. && python3 scripts/reel_motion_audit.py projects/r010_pendulum/r010_pendulum.mp4
-python3 scripts/reel_safe_audit.py projects/r010_pendulum/r010_pendulum.mp4
+npx remotion render r008-pendulum ../projects/r008_pendulum/r008_pendulum.mp4 --codec=h264
+cd .. && python3 scripts/reel_motion_audit.py projects/r008_pendulum/r008_pendulum.mp4
+python3 scripts/reel_safe_audit.py projects/r008_pendulum/r008_pendulum.mp4
 # Gate 3: watched end to end → rebuilt from a 60 s cycle to 30 s (strings 1.62× → 2.37× apart)
 # Stage 6: five logs written; posted 2026-09-10; 190 views at first reading
 ```

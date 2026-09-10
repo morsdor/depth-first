@@ -8,7 +8,7 @@ still. Cost of skipping it: a day.
 
 ## Why this gate is human and not mine
 
-`r005` was rebuilt **five times**. Every rebuild raised rigor and lowered recognition: v1 drew 16
+`I51` was rebuilt **five times**. Every rebuild raised rigor and lowered recognition: v1 drew 16
 coloured bars, v5 drew a 13×13 landing-position matrix measured over 400,000 shuffles. v5 is the
 more honest reel and the less watchable one, because no viewer has ever seen either object. The
 verdict that ended it — *"anyone who sees that will not understand even a single word; nobody
@@ -40,7 +40,7 @@ sentence can be *shown*.
 
 ## Ask about the SENTENCE, not the picture
 
-**This is the r008 lesson and it cost a full build.** r008 passed this gate on the question
+**This is the I15 lesson and it cost a full build.** I15 passed this gate on the question
 *"does a stranger know that's a city and want to know why the blue spread everywhere?"* — and the
 answer was an honest yes, because the picture was genuinely good. It was built, and the verdict on
 watching it was **"I didn't understand the point. We are comparing 2 algos?"** — exactly right. Its
@@ -71,7 +71,7 @@ objects.
 
 **The test: can a stranger name what is on screen, with the sound off and no labels?**
 
-A *legible* shape is not a *recognisable* object (`brand_guide_software.md` §13). r005 v5's heatmap
+A *legible* shape is not a *recognisable* object (`brand_guide_software.md` §13). I51 v5's heatmap
 was perfectly legible and nameable by nobody.
 
 ### 3. The amazement depends on understanding first
@@ -83,7 +83,7 @@ search — **you are amazed first, and understanding is the reward for staying.*
 optional and it is not reversible.
 
 **This is the one that keeps killing concepts, and it is not bad luck.** `I52`, both cuts of
-`r008`, and `I24` all died here. A software mechanism is *invisible by nature*, so it always needs
+`I15`, and `I24` all died here. A software mechanism is *invisible by nature*, so it always needs
 a sentence of setup before the picture means anything — precisely the order this condition forbids.
 A physical system is visible by nature. **A subject whose defining property is that it is invisible
 cannot pass this gate.**
@@ -96,8 +96,8 @@ cannot pass this gate.**
 
 **Who does the viewer send this to, and what are they proving?**
 
-- r006: *your uncle, that the earth is round.* ~66,000 views.
-- r007: *nobody, nothing.* ~1,800 views. Same format, better motion numbers, 36× less reach.
+- r005: *your uncle, that the earth is round.* ~66,000 views.
+- r006: *nobody, nothing.* ~1,800 views. Same format, better motion numbers, 36× less reach.
 
 Three conditions, all required (`brand_guide_software.md` §13):
 
@@ -118,14 +118,14 @@ live argument", and flat earth is one arena among many, most of them cheaper and
 
 **Before building, check that the data source may actually be used.**
 
-r007's route was first measured out of TeleGeography's submarine-cable API. Their policy permits
+r006's route was first measured out of TeleGeography's submarine-cable API. Their policy permits
 screenshots of the published maps under CC BY-SA 4.0 but restricts *"the underlying databases"* to
 paying subscribers — so the whole build had to be re-sourced **after Gate 0 had already passed**.
 It survived only because a route rebuilt from public geography alone landed within 1.4% of it.
 
 > **Published figures are facts and are citable. Route geometry is a database.**
 
-That distinction is what let r007 keep naming MAREA and IMEWE and quoting their lengths.
+That distinction is what let r006 keep naming MAREA and IMEWE and quoting their lengths.
 
 Known-good sources: OpenStreetMap via Overpass (attribute ODbL; identify a real User-Agent — the
 default urllib UA gets **HTTP 406** — and fall back across mirrors, as `i15_astar/fetch_graph.py`
@@ -142,7 +142,7 @@ improve by trying again.**
 
 ## The GATE0.md template
 
-Write to `projects/<id>_<slug>/gate0/GATE0.md`. Models: `r006_greatcircle` (passed),
+Write to `gate0/<id>_<slug>/gate0/GATE0.md`. Models: `r005_greatcircle` (passed),
 `i53_flood` (failed by measurement), `i24`/`i52` notes in the backlog (failed on the sentence).
 
 ```markdown
@@ -202,7 +202,7 @@ and where the geometry/data came from>
 
 ## The payoff-frame script
 
-`projects/<id>_<slug>/gate0/mock_payoff.py` — model: `r006_greatcircle/gate0/mock_payoff.py`.
+`gate0/<id>_<slug>/gate0/mock_payoff.py` — model: `r005_greatcircle/gate0/mock_payoff.py`.
 
 - **1080×1920**, composed inside the safe area (`y` 270–1540, `x` 60–870). The gate frame should
   be honest about the real canvas.

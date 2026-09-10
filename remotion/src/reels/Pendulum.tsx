@@ -5,7 +5,7 @@ import { FPS, Fade, ReelGround, SAFE_CX, SAFE_W, ease, t, useBreath } from './li
 import { PENDULUM } from './data/pendulum';
 
 /**
- * r010 · I69 — fifteen weights, and the thirty seconds they take to come back.
+ * r008 · I69 — fifteen weights, and the thirty seconds they take to come back.
  *
  * The reel IS the physics: composed against a 30 s cycle, and the frame at
  * t = 30.000 s is the instant the row comes back into a straight line. Nothing
@@ -32,9 +32,9 @@ import { PENDULUM } from './data/pendulum';
  * Manim drew. Every box on this page — labels, callout, table, equation, closing
  * line — is asserted clear of the apparatus, inside the safe area, and disjoint
  * from every other box that shares its screen time, by
- * projects/r010_pendulum/check_annotations.py. Move one here and re-run that.
+ * projects/r008_pendulum/check_annotations.py. Move one here and re-run that.
  *
- * The camera lives in projects/r010_pendulum/camera.py and arrives through the
+ * The camera lives in projects/r008_pendulum/camera.py and arrives through the
  * data module, for the same reason: the clearances are checked against it, so a
  * camera edited only in this file would invalidate those checks in silence.
  */
@@ -275,7 +275,7 @@ export const Pendulum: React.FC = () => {
 
       {/* ── beat 1 · the promise ────────────────────────────────────────────
           "THIS ROW OF WEIGHTS" and not "THIS": the row is on screen from frame
-          0, so the deictic has something to point at — the failure r007 shipped
+          0, so the deictic has something to point at — the failure r006 shipped
           was six seconds of a pronoun with no antecedent anywhere. */}
       <Head from={B.hook[0]} to={B.hook[1]}>
         <div

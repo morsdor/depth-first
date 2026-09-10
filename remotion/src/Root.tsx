@@ -27,7 +27,7 @@ import { SafeZones } from './reels/lib/chrome';
  *
  * ── What is NOT here ────────────────────────────────────────────────────────
  * Three built-but-never-posted reels were removed on 2026-09-10 on the decision not
- * to publish them: r005 shuffle (five rebuilds, never posted), r008 A* (failed the
+ * to publish them: I51 shuffle (five rebuilds, never posted), I15 A* (failed the
  * sentence test after building), and the shelved I64 queue (stopped at Gate 3).
  * Their components, data modules and project folders went with them. They remain in
  * git history.
@@ -159,9 +159,9 @@ export const RemotionRoot: React.FC = () => {
         height={1920}
       />
 
-      {/* r006 · I17 · great circle — the account's only hit, 80k+ views — posted 2026-09-08 */}
+      {/* r005 · I17 · great circle — the account's only hit, 80k+ views — posted 2026-09-08 */}
       <Composition
-        id="r006-greatcircle"
+        id="r005-greatcircle"
         component={Greatcircle}
         durationInFrames={GC_SECONDS * 30}
         fps={30}
@@ -169,7 +169,7 @@ export const RemotionRoot: React.FC = () => {
         height={1920}
       />
       <Composition
-        id="r006-greatcircle-safe"
+        id="r005-greatcircle-safe"
         component={GreatcircleSafe}
         durationInFrames={GC_SECONDS * 30}
         fps={30}
@@ -177,9 +177,9 @@ export const RemotionRoot: React.FC = () => {
         height={1920}
       />
 
-      {/* r007 · I22 · submarine cables — posted 2026-09-09 */}
+      {/* r006 · I22 · submarine cables — posted 2026-09-09 */}
       <Composition
-        id="r007-cables"
+        id="r006-cables"
         component={Cables}
         durationInFrames={CABLES_SECONDS * 30}
         fps={30}
@@ -187,7 +187,7 @@ export const RemotionRoot: React.FC = () => {
         height={1920}
       />
       <Composition
-        id="r007-cables-safe"
+        id="r006-cables-safe"
         component={CablesSafe}
         durationInFrames={CABLES_SECONDS * 30}
         fps={30}
@@ -195,9 +195,9 @@ export const RemotionRoot: React.FC = () => {
         height={1920}
       />
 
-      {/* r009 · I58 · tides — posted 2026-09-10 */}
+      {/* r007 · I58 · tides — posted 2026-09-10 */}
       <Composition
-        id="r009-tides"
+        id="r007-tides"
         component={Tides}
         durationInFrames={TIDES_SECONDS * 30}
         fps={30}
@@ -205,7 +205,7 @@ export const RemotionRoot: React.FC = () => {
         height={1920}
       />
       <Composition
-        id="r009-tides-safe"
+        id="r007-tides-safe"
         component={TidesSafe}
         durationInFrames={TIDES_SECONDS * 30}
         fps={30}
@@ -213,11 +213,11 @@ export const RemotionRoot: React.FC = () => {
         height={1920}
       />
 
-      {/* r010 · I69 · pendulum wave — posted 2026-09-10. Needs the Manim PNG layer in
+      {/* r008 · I69 · pendulum wave — posted 2026-09-10. Needs the Manim PNG layer in
           remotion/public/manim/i69pendulum/ — regenerate it before rendering, see
-          projects/r010_pendulum/NOTES.md. */}
+          projects/r008_pendulum/NOTES.md. */}
       <Composition
-        id="r010-pendulum"
+        id="r008-pendulum"
         component={Pendulum}
         durationInFrames={PENDULUM_SECONDS * 30}
         fps={30}
@@ -225,7 +225,7 @@ export const RemotionRoot: React.FC = () => {
         height={1920}
       />
       <Composition
-        id="r010-pendulum-safe"
+        id="r008-pendulum-safe"
         component={PendulumSafe}
         durationInFrames={PENDULUM_SECONDS * 30}
         fps={30}
@@ -233,7 +233,7 @@ export const RemotionRoot: React.FC = () => {
         height={1920}
       />
 
-      {/* Not a reel — the Manim bridge smoke test (projects/manim/probe.py). */}
+      {/* Not a reel — the Manim bridge smoke test (scripts/manim_probe/probe.py). */}
       <Composition
         id="manim-probe"
         component={ManimProbe}

@@ -24,14 +24,14 @@ import {
   SFO,
   STRETCH_AT_VERTEX,
   VERTEX_LAT,
-} from './data/r006_geo';
+} from './data/r005_geo';
 
 /**
- * r006 · "Your flight path isn't curved. Your map is."  (backlog I17)
+ * r005 · "Your flight path isn't curved. Your map is."  (backlog I17)
  *
  * ── What is on screen, and why it is that ───────────────────────────────────
  * A globe and a world map. Both are objects a stranger can name with the sound
- * off, which is the bar Gate 0 sets and the bar r005 could not clear: it opened
+ * off, which is the bar Gate 0 sets and the bar I51 could not clear: it opened
  * on two decks of cards and cut to a 13x13 matrix. Here the map IS the subject,
  * so the recognisable object never leaves the frame — non-negotiable 6, in its
  * widened form.
@@ -267,7 +267,7 @@ export const Greatcircle: React.FC = () => {
    *
    * Nothing here is decoration. The first cut of this reel measured 28% event
    * density and a 1.75s dead spell in the end beat — inside the range a viewer
-   * called static on r005. The fix rule 4 prescribes is not more drift, it is
+   * called static on I51. The fix rule 4 prescribes is not more drift, it is
    * never pausing the thing the reel is about, so the thing the reel is about
    * moves continuously: a marker runs the route in every beat, and from the
    * moment the second line exists there are two of them.
