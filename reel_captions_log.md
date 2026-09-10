@@ -102,6 +102,102 @@ All figures below are output of `projects/r004_jpeg/dct.py` on the posted crop
 
 ## Caption detail
 
+### r010 — "Fifteen weights, and the thirty seconds they take to come back" (`I69`) — **written 2026-09-10, not yet posted**
+
+Every figure is output of `projects/i69_pendulum/simulate.py`, which integrates
+`θ'' = −(g/L)·sin θ` with RK4 at dt = 1/600 s. `g = 9.80665 m/s²` (standard gravity, CGPM 1901).
+No data source and no licence question — the reel is computed from first principles.
+
+**Rewritten 2026-09-10** for the 30 s rebuild. The first caption was written against a 60 s cycle
+(N = 51…65, strings 33.63–20.70 cm); every number below moved when the cycle was halved to make
+the fifteen strings visibly different from each other. See `content_backlog.md` under `I69`.
+
+#### Caption A — recommended
+
+> Fifteen weights on fifteen strings. Nothing connects them. Watch what happens at thirty seconds.
+>
+> Each string is cut a little shorter than the one before, so that in exactly thirty seconds the
+> longest weight swings back and forth 26 times, the next 27, the next 28, and so on up to 40.
+> Whole numbers. That is the entire trick.
+>
+> They start in a straight line. A couple of seconds in they're a travelling wave, then two waves,
+> then a mess with no pattern left in it at all — and at thirty seconds every one of them arrives
+> back in the same straight line at the same instant, because every one of them has just finished a
+> whole number of swings.
+>
+> There is no motor, no timing, nothing passing between them. Each weight is only keeping its own
+> time. The pattern is what fifteen clocks running at fifteen slightly different speeds look like
+> from the side.
+>
+> The weights are identical, and the weight is the one thing that makes no difference — mass
+> cancels out of the equation, so a heavier bob keeps exactly the same time. Only the length
+> matters. The strings run 32.35 cm down to 13.67 cm. Cut them from the formula in the textbook and
+> the row comes back a third of a second late, because a pendulum's period grows very slightly with
+> how far you pull it — so these are solved against the exact equation instead. For the same reason
+> all fifteen have to be let go from the same *angle*. Pull them all sideways by the same distance
+> with one straight bar and the short ones start out much wider than the long ones, and the line
+> never comes home.
+>
+> Not filmed. Every frame integrated from the real equation of motion and played back.
+
+**Hook line** (95 chars, shows before "more"): *"Fifteen weights on fifteen strings. Nothing
+connects them. Watch what happens at thirty seconds."*
+
+#### Caption B — alternate, shorter
+
+> Fifteen weights, and none of them is connected to anything.
+>
+> Each string is cut so that in thirty seconds it swings a whole number of times — 26, 27, 28, all
+> the way to 40. That's the whole trick. They start in a line, turn into waves, fall into a mess,
+> and at exactly thirty seconds every one of them lands back in the line at the same instant.
+>
+> No motor and no timing. Each weight is only keeping its own time; the pattern is a side effect.
+>
+> The weights are all the same, and that's the part people get wrong — mass isn't in the equation
+> at all. 32.35 cm down to 13.67 cm, solved against the exact equation rather than the textbook
+> one, and released from a common angle, which turns out to be the condition the whole thing
+> depends on. Not filmed: integrated and played back.
+
+#### Hashtags
+
+`#pendulumwave #physics #kineticart #depthfirst`
+
+Four, following r006's shape. `#pendulumwave` is the specific one worth ranking in and has a real
+enthusiast community (the Harvard lecture-demo video is the anchor of it). `#physics` is the broad
+tag reaching outside the dev audience, which is the r006 `#maps` role — Explore carried 17.0% of
+r006's views on the strength of the object being nameable, and a row of swinging weights is more
+nameable than a map. `#kineticart` reaches the design/motion audience that shares this kind of
+footage on sight. `#depthfirst` is the brand. Dropped: `#satisfying` (the largest available tag by
+far, and exactly the engagement-bait lane the `equation.verse` teardown named as the thing not to
+copy), `#manim` (dev inside-baseball, and it advertises the tool over the thing), `#simulation`
+(invites "so it's fake" before the caption gets to explain what was computed and why).
+
+#### Load-bearing phrasings — do not loosen
+
+| Written as | Never | Why |
+|:--|:--|:--|
+| "**Not filmed.** Every frame integrated from the real equation of motion" | silence, or "watch this" | This is a computed reel and it looks exactly like the many real pendulum-wave rigs on the platform. Leaving it out lets a viewer believe they are watching footage. Saying it costs one line and is also the reel's actual credential — the physics is real *because* it was integrated, not despite it. |
+| "a **mess with no pattern left in it**" | "chaos" / "chaotic" / "random" | The motion is never chaotic. Phase is linear in the index, so the row is a sampled sinusoid at every instant; what the eye reads as a mess is spatial aliasing once the wavelength drops below two pendulums. Peak measured raggedness is at t = 15 s — exactly τ/2, the perfectly *ordered* antiphase comb. "Chaos" would be a false mechanism claim of exactly the kind `CLAUDE.md` §7 exists for. **The reel itself never characterises the middle at all**; only the caption describes it, and only as what it looks like. |
+| "let go from the same **angle**" | "pulled back and released" | The design survives the real nonlinear equation only under a common release angle. A common *displacement* — one straight lifting bar, which is how most rigs are built — spreads the period correction by 10368 ppm and the line never reforms. This is the reel's one genuine caveat and it is not optional. |
+| "**32.35 cm down to 13.67 cm**" | 33.07 / 13.97 | Those are the small-angle figures, and they are what the textbook formula gives. The reel's lengths are solved against the exact period at a 24° release, which is what makes the row reform at 30.000 s instead of 0.33 s late. The reel prints the corrected formula on screen — `emit_ts.py` refuses to build unless that printed expression reproduces all fifteen lengths to 0.005 cm. |
+| "**mass cancels out of the equation**" | "weight doesn't matter much" | It does not matter *at all*, and the reason is exact: mass appears on both sides of `m·L·θ'' = −m·g·sin θ`. The on-screen table says `weight / nothing`, which is the strong claim, so the caption must be able to back it. |
+| "swings back and forth **26 times**" | "26 swings each way" / "26 half-swings" | A swing here is one full oscillation, out and back. The counter on screen reads "25 of 26" at 29.9 s because 25.9 are complete — counting toward the total rather than up is what keeps the ticker from appearing to contradict the closing line. |
+| "**thirty seconds**" | "half a minute" / "under a minute" | The number is the promise the first frame makes and the clock on screen keeps. Rounding it in the caption breaks the one thing the viewer was asked to hold on to. |
+
+#### Deliberately omitted
+
+- **The word "chaos", on screen and in both captions.** See the table above. It is the word the
+  footage begs for and it is not true.
+- **"Aliasing", "phase", "harmonic".** The mechanism is fully carried by "each one is only keeping
+  its own time" plus the whole numbers, and none of those three words survives the Gate 0 test.
+- **Any claim that a row cut to these lengths resolves.** It resolves *if released from a common
+  angle*, which the caption says out loud.
+- **The +1.1% amplitude term, in words.** It is on screen as a table row and in the caption only as
+  "a pendulum's period grows very slightly with how far you pull it". Naming it as a percentage in
+  prose invites the reader to think it is the point; it is a correction, not a mechanism.
+
+---
+
 ### r007 — "Your message doesn't go to space" (`I22`) — **written 2026-09-09, not yet posted**
 
 Every figure is output of `projects/i22_cables/build_geo.py`. Distances are spherical on

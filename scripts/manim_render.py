@@ -28,7 +28,12 @@ import sys
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 VENV = ROOT / '.manimenv'
-W, H, FPS = 1080, 1920, 30
+import os
+# Render taller than the composition when a Remotion camera will push into
+# the layer; a 1080-wide PNG upscaled 1.25x is visibly soft.
+W = int(os.environ.get('MANIM_W', 1080))
+H = int(os.environ.get('MANIM_H', 1920))
+FPS = 30
 
 
 def main() -> int:
@@ -52,27 +57,39 @@ def main() -> int:
     if not link.exists():
         link.symlink_to(ff)
 
+    # Manim appends into media/images/ and never prunes, so a re-render that
+    # produces FEWER frames leaves the previous run's tail behind and the
+    # rglob below silently ships a mix of the two. Start from empty.
     work = ROOT / '.manimenv' / 'work'
-    env = {'PATH': f'{binroot}:/usr/bin:/bin'}
+    if work.exists():
+        shutil.rmtree(work)
+    # Pass the caller's environment through: a scene may be parameterised by
+    # env vars, and a bare {'PATH': ...} silently drops them.
+    env = {**os.environ, 'PATH': f'{binroot}:/usr/bin:/bin'}
     subprocess.run(
         [VENV / 'bin' / 'manim', 'render', '-q', 'h', '--format=png', '--transparent',
          '-r', f'{W},{H}', '--fps', str(FPS),
          '--media_dir', str(work), scene_file, scene_name],
         cwd=ROOT, env=env, check=True)
 
-    src = next((work / 'images').rglob(f'{scene_name}*'), None)
-    if src is None or not src.is_dir():
-        # Manim puts png sequences under videos/<file>/<res>/<Scene>/
-        src = next((work / 'videos').rglob(scene_name), None)
-    if src is None:
-        print('could not locate the rendered frames', file=sys.stderr)
+    # Where the frames land varies by manim version and format. 0.18.1 with
+    # --format=png writes FILES named <Scene>0000.png straight into
+    # media/images/<file>/, with no per-scene directory -- so the old lookup
+    # (find a DIRECTORY called <Scene>) matched Probe0043.png, failed is_dir(),
+    # and reported "could not locate the rendered frames" with 105 frames on
+    # disk. Search for the frames themselves and take whatever holds them.
+    frames = sorted(work.rglob(f'{scene_name}[0-9]*.png'))
+    if not frames:
+        frames = sorted(f for d in work.rglob(scene_name) if d.is_dir()
+                        for f in d.glob('*.png'))
+    if not frames:
+        print(f'could not locate the rendered frames under {work}', file=sys.stderr)
         return 1
 
     dest = ROOT / 'remotion' / 'public' / 'manim' / out_name
     if dest.exists():
         shutil.rmtree(dest)
     dest.mkdir(parents=True)
-    frames = sorted(src.glob('*.png'))
     for i, f in enumerate(frames):
         shutil.copyfile(f, dest / f'{i:04d}.png')
 

@@ -35,7 +35,11 @@ C, RHO, N, WARM = 4, 0.85, 4000, 400
 SMALL, BIG, P_BIG = 0.5, 3.0, 0.20
 SEED = 20260910
 
-FPS, RACE_S = 30, 13.0
+# The window is sized so no beat ever holds a frozen shop: the reel needs 18 s of
+# four-line shop up front and 31.5 s of two-shop race after it, and the race is
+# the one that sets the length. It keeps running after the followed shopper
+# leaves, which is what the closing beats play over.
+FPS, RACE_S, WINDOW_MIN = 30, 31.5, 15.0
 RACE_F = int(FPS * RACE_S)
 XP = 0.072            # panel-widths per person of queue depth
 SNAKE_HEAD = 0.70     # where the snake's front stands, in panel-local x
@@ -119,7 +123,7 @@ print(f'  one line  : waited {w1[you]:.2f} min')
 print(f'  selection band: p70={lo:.2f} p90={hi:.2f}, one-line median={med1:.2f}')
 
 T0 = arr[you] - 1.2
-T1 = max(e4[you], e1[you]) + 1.0
+T1 = T0 + WINDOW_MIN
 print(f'  window {T0:.2f}..{T1:.2f} min ({T1-T0:.2f} min) over {RACE_S}s '
       f'= {(T1-T0)/RACE_S:.2f} sim-min per screen second')
 
@@ -171,6 +175,20 @@ one = positions(lane1, s1, e1, True)
 for f in (0, RACE_F // 2, RACE_F - 1):
     assert four[f] and one[f], f'frame {f} is empty in one of the shops'
 
+# Both shops are fed the identical arrival stream and identical baskets, so the
+# COHORT is the same by construction. The two shops do not display the same set
+# of people, and that is the phenomenon rather than a bug: the window opens with
+# the four-line shop still holding shoppers the one-line shop already released.
+ids4 = {e[0] for f in four for e in f}
+ids1 = {e[0] for f in one for e in f}
+in_win = [int(i) for i in live if T0 <= arr[i] <= T1]
+assert ids1 <= ids4, 'the FASTER shop is holding someone the slower one is not'
+missing = [i for i in in_win if i not in ids4 or i not in ids1]
+assert not missing, f'everyone arriving inside the window must appear in both: {missing}'
+held = sorted(ids4 - ids1)
+print(f'  four-line shop still holds {len(held)} shoppers the one-line shop had '
+      f'already released when the window opened: {held}')
+
 served4 = [int(((e4[live] <= T0 + (T1 - T0) * f / (RACE_F - 1)) &
                 (e4[live] > T0)).sum()) for f in range(RACE_F)]
 served1 = [int(((e1[live] <= T0 + (T1 - T0) * f / (RACE_F - 1)) &
@@ -186,7 +204,11 @@ ROUNDS, DEPTH = 16, 2
 sv, bg = draw(r3, ROUNDS * C * DEPTH)
 tot = sv.reshape(ROUNDS, C, DEPTH).sum(2)
 winner = tot.argmin(1)
+# `fill` is how fast each lane empties relative to the winner, so the four bars
+# on screen race at the speed the drawn service times actually imply and the
+# winner arrives exactly on the round boundary. Nothing about it is authored.
 rounds = [dict(win=int(winner[r]),
+               fill=[float(tot[r].min() / tot[r][j]) for j in range(C)],
                big=[[bool(x) for x in bg.reshape(ROUNDS, C, DEPTH)[r][j]]
                     for j in range(C)])
           for r in range(ROUNDS)]
@@ -203,5 +225,6 @@ out.write_text(json.dumps(dict(
     big={int(i): bool(big[i]) for i in live},
     four=four, one=one, served4=served4, served1=served1,
     rounds=rounds, roundsYours=yours, roundsN=ROUNDS,
+    arrivedInWindow=in_win, heldOnlyByFour=held,
 )))
 print(f'wrote {out}  ({out.stat().st_size/1024:.0f} KB)')

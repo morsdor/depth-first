@@ -898,6 +898,186 @@ splitting a coastline subpath at the Mercator seam (an x-jump > half the map wid
 runs behind the terminator mid-morph. Filling a ring that is cut at the terminator paints a chord
 straight across the ocean, so the land fill is gated to the last 18% of the morph.
 
+### r010 — the falsification test changed the design, not just the confidence (added 2026-09-10)
+
+Stage 3 asks for an experiment that could falsify the on-screen claim. For a pendulum wave the
+obvious expectation is that it passes: the lengths come from `T = 2π√(L/g)`, which is in every
+textbook. Integrating the real equation `θ'' = −(g/L)·sin θ` instead said the row reforms **0.33 s
+late**, and the payoff frame — fifteen weights in a straight line at exactly 30 s — would have been
+a lie by a third of a second.
+
+The reason is that a pendulum's period grows with amplitude, and the correction
+`C = T_true/T_small` **depends on the release angle alone — never on the length**. Two consequences,
+and the second one is the reel's actual constraint:
+
+- Because `C` is common to all fifteen, solving each length against the *exact* period removes the
+  error completely: reform at t = 30.000 s, worst bob **0.000000°** off. Lengths move from
+  33.07–13.97 cm to **32.35–13.67 cm**.
+- Because `C` depends on angle, the fifteen must be released from a common **angle**, not a common
+  **displacement**. One straight lifting bar pulls every bob the same distance sideways, which is a
+  much wider angle on a short string than a long one — `C` then spreads by **10368 ppm** and the
+  line never comes back (48.5° of scatter at 30 s). Full table in
+  `projects/i69_pendulum/gate0/GATE0.md` §6.
+
+**The generalisable part: the approximation you are using is itself a claim, and it is the one
+least likely to get tested** — because it arrived as a formula rather than as a sentence. The
+falsification test is cheap precisely when you are confident, and that is when to run it.
+
+It also killed a word. The middle of the reel *looks* chaotic, and "chaos" was in the draft
+sentence. The phase is linear in the index `n`, so the row is always a sampled sinusoid — there is
+no chaos in it at any instant, only spatial aliasing once the wavelength drops below two
+pendulums. Peak measured raggedness is at t = 15 s — exactly τ/2, which is the perfectly *ordered*
+antiphase comb. The shipped reel never characterises the middle at all: it lets the frame look
+like a mess and does not claim the motion is disordered, because it isn't.
+
+### r010 — Manim is a layer, not the animation (added 2026-09-10)
+
+First reel with a Manim layer. The chain that works:
+
+```
+simulate.py → JSON  → scene_pendulum.py → transparent PNGs → <ManimLayer> in Remotion
+```
+
+**Manim renders the pendulums; it does not animate them.** Every angle is read frame-by-frame out
+of the RK4 integration, so the method is unchanged — compute the animation, don't author it. Manim
+is here for the drawing, not the motion. It is fast enough not to matter: ~50 fps, the full 34 s
+run in ~21 s. Budget the disk, not the time: 1020 transparent 1350×2400 PNGs are **150 MB**, about
+147 KB each, and that scales with how much ink is on the frame — the 60 s cut was a third of that
+per frame with thinner strings and smaller bobs.
+
+Four traps, all of which paint something plausible rather than erroring:
+
+- **Manim does not hold `frame_height` at 8 on a tall canvas.** It holds `frame_width` at the 16:9
+  default and grows `frame_height`, so hardcoded unit constants render the whole apparatus into a
+  281×369 box inside a 1350×2400 frame. Write the layout in 1080×1920 reference pixels and convert
+  with `u = config.frame_width / REF_W`.
+- **Direction vectors must be unit vectors.** Building the rod direction through the px→unit
+  converter multiplies by `u` a second time, giving every string zero length and parking fifteen
+  bobs on the rail.
+- **`scripts/manim_render.py` never cleared its work directory** (fixed). Manim appends into
+  `media/images/` and never prunes, so a re-render producing *fewer* frames left the previous run's
+  tail behind and the frame collector silently shipped a mix of two takes.
+- **It also replaced the subprocess environment** with a bare `PATH` (fixed), so an env-parameterised
+  scene silently ignored its parameters and rendered the full minute when asked for a 3-second probe.
+
+Two things worth copying:
+
+- **Render the layer at 1.25× the composition** (1350×2400) when a Remotion camera will push into
+  it. A 1080-wide PNG upscaled 1.25× is visibly soft, and the cost is only disk.
+- **Keep the camera in Remotion, not in the scene.** Retiming a push then costs a Remotion render
+  rather than 37 s of Cairo — and the camera was retimed three times.
+
+**Assert the safe area inside the scene, over every frame.** `scene_pendulum.py` checks all
+fifteen bobs on all 1020 frames and prints the global extent. Sampling one frame is not enough: the
+widest instant is not the one that happens to be on screen when you look at it.
+
+### r010 — 99% event density is not a quality result (added 2026-09-10)
+
+r010 measures **99% event density** — seven of its eight beats at 100%, the hook at 95% — median
+change 3.36, no dead spell at all. Best on the account by a distance, and it means almost nothing
+on its own.
+
+**r009 held the previous record at 65% and the verdict on watching it was "the output is not
+sound."** The audit counts pixels changing; it cannot count whether a stranger can name what is
+moving. The reason r010 scores where it does is not craft — it is that fifteen large bright bobs
+are in motion for thirty-four consecutive seconds. Any reel about a physical system in continuous motion
+will score like this, and the number should be read as "the metric is saturated and no longer
+discriminating", not as a grade.
+
+**So the number was spent rather than banked.** A filmstrip of the first render found three defects
+the audit is structurally blind to:
+
+| defect | fix |
+|:--|:--|
+| bobs swing across the bottom readout, making both numbers unreadable | gradient scrim under the readout, transparent → ink over 200 px, then solid ink to the bottom of the frame |
+| counter reads "25 swings" while the text claims 26 | "**25 of 26** swings" — same truth, both payoff numbers on screen throughout |
+| max camera scale 1.42 clipped bobs at the frame edge | scales pulled back to 1.22 max |
+
+The last one *lowers* the audit score on purpose. With that much headroom, camera aggression is
+worth trading for a row that stays inside the frame — and a per-beat re-measure confirmed no beat
+was being carried by camera motion alone, which is the failure mode the camera rule invites.
+
+**One more: `Fade`'s `to` prop begins its fade 5 frames early.** The closing payoff sentence was
+dimming at exactly the instant the line reformed — the single frame the whole reel exists for. The
+last beat now has no `to` at all and holds to the final frame.
+
+### r010 — the cycle length was a legibility parameter, not a timing one (added 2026-09-10)
+
+The 60 s cut passed every gate and every audit, and the first person to watch it returned four
+notes. Three of them had one cause and one fix.
+
+> *"First frame says 15 weights. are they all different?? we are not conveying a lot of info so
+> does video have to be 1 min long. when the text comes longest ones swing 51 time a minute, it
+> zooms on shorter string. should we also mention other variables like weight? first frame doesnt
+> bring any question/hype that user would want to stick to end"*
+
+**"Are they all different?" is a question about the picture, and the picture was answering "no".**
+A 60 s cycle needs N = 51…65 swings, and consecutive integers that high are close together: the
+strings run 33.63 cm to 20.70 cm, a **1.62x** spread. On a phone that is fifteen identical
+strings. Re-solving at a 30 s cycle needs N = 26…40, and the same fifteen consecutive integers now
+span **2.37x** — 32.35 cm to 13.67 cm, obviously different with no caption at all. **The parameter
+that decided whether the reel's central visual claim was legible was the cycle length, which had
+been chosen as a duration.** Worth checking on anything built from a harmonic series: the ratio of
+the extremes is set by `N_max/N_min`, so lowering the fundamental is free contrast.
+
+That one change also answered "does it have to be a minute" — the reel is now **34 s**, payoff at
+30 s — and it answered *why* the minute felt empty: 60 s at ≈6.5 s a beat is nine beats, and the
+cut only had eight things to say, so two of them were restatements.
+
+**"It zooms on the shorter string" was a real bug and a cheap class of bug.** The camera keyframe
+for "the longest one swings 51 times a minute" pushed to (762, 700) — the *short* end of the row.
+Nothing catches this: the frame is well composed, inside the safe area, and moving. Only a viewer
+reading the sentence and looking at the frame catches it. The fix is a check, not care:
+`check_annotations.py` now asserts that **the bob the sentence names is on screen for the whole
+beat that names it**, by number.
+
+**"Should we mention weight" earned a beat.** It is the first question anyone asks about a
+pendulum, and the answer is genuinely surprising: mass cancels out of `m·L·θ'' = −m·g·sin θ`, so
+it is not in the design equation at all. The beat is a three-row table — `length / everything`,
+`weight / nothing`, `how far you pull / +1.1%` — and the third row is the honest complication that
+sets up the `C²` term the next beat prints. **A viewer question that the reel can answer truthfully
+in three rows is a beat, not an objection.**
+
+### r010 — clear the annotations before rendering, not after (added 2026-09-10)
+
+"The video looks very blank" was the other verdict on the first cut, and the fix — length labels on
+the ropes, a range callout, the design equation — meant putting text into a frame that fifteen
+swinging bobs move through for the entire runtime. Rendering and eyeballing that is a 3-minute loop
+per attempt, and the eye is bad at it.
+
+So the geometry became a module and the placement became a question with an exact answer:
+
+```
+layout.py    apparatus geometry in 1080x1920 reference px — imported BY the Manim scene,
+             so the scene and the annotations cannot disagree
+camera.py    the keyframes + cam(t), to_screen(), clearance(box, t0, t1) — bisected
+             cubic-bezier matching chrome.tsx exactly
+check_annotations.py   every box in Pendulum.tsx, asserted clear of every string and bob
+             over its whole beat, inside the safe area, and disjoint from the others
+```
+
+This works because `<ManimLayer>` stretches the 1350×2400 render across a 1080×1920 div: **inside
+the camera div, one reference pixel is one composition pixel at any camera scale.** That is what
+lets a plain HTML `<div>` sit on a string Manim drew.
+
+What it caught, all before a single frame was rendered:
+
+- **The clear region is a triangle, not a rectangle.** A single-box search found only 400×230 of
+  usable space and the real profile is a per-y band: at y = 462 a block may run to x = 700, at
+  y = 620 only to x = 560. Every block is sized against that profile.
+- **A bob clipped at x = 1098** on a proposed camera keyframe, at one instant in the middle of a
+  4-second beat.
+- **Two annotations overlapping each other.** The apparatus check cannot see this, and the range
+  callout as first written covered the n=8 length label by 86×27 px. A mutual-overlap pass over
+  every pair that shares screen time is a separate check and now runs alongside.
+
+**And the honest limit of the method: it checks the box you tell it about, not the box you drew.**
+The variables table was cleared at 36 px and rendered at 40 px, because it reused the readout's
+`<Row>` component and inherited its size — so the label ran into the value and the block stood
+26 px taller than the box that had been verified. No analytic check catches that; a filmstrip did,
+in five seconds. **Geometry checks and looking at the render are not substitutes for each other**,
+and the component was given an explicit `size` prop so the next reuse states its size out loud.
+
 ### r008 — a good frame will smuggle a bad sentence through Gate 0 (added 2026-09-10)
 
 r008 was built, rendered, audited at 55% event density, scrubbed clean, documented and committed —

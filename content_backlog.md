@@ -75,6 +75,25 @@ them has seen the inside.*
 
 | **I54** | Measure the speed of light with cheese | Everyone owns a microwave | Take the turntable out and the burnt spots land ~6 cm apart — half a wavelength. 2 x 0.061 m x 2.45 GHz gives 3x10^8 m/s on a dinner plate. It also kills "microwaves cook from the inside", which is false and widely believed | A real melt pattern measured, the standing wave drawn over it, the arithmetic done on screen | Diagram + Counter |
 | **I55** | Your oven clock has no clock in it | The clock on the oven, the microwave, the immersion heater | It counts mains cycles, not seconds — so every mains clock on one synchronous grid is a single shared instrument. In 2018 a dispute between two countries slowed the Continental European grid and every one of them lost about six minutes | Real frequency trace against 50 Hz, the drift integral accumulating, a clock face falling behind a correct one | Counter + Diagram |
+| **I69** | Fifteen weights, and for one minute they refuse to stay in a line | Everyone has pushed a swing, and most people have seen a pendulum clock | Cut each string so that in 30 s it swings a whole number of times — 26, 27, 28 … 40 — and the row turns into waves, then into apparent chaos, then snaps back into a straight line at the same instant. The trick is entirely in the lengths; nothing is connected to anything | Fifteen real pendulums integrated from the NONLINEAR equation, not the textbook approximation, with the phase pattern resolving on screen | Manim layer + Counter |
+
+> **I69 — produced as r010, 2026-09-10.** The 60 s cycle it was first built on was wrong, and not
+> for a physics reason. At 60 s the fifteen strings run 33.63–20.70 cm — a **1.62x** spread — and
+> fifteen strings within 1.62x of each other read on a phone as fifteen identical strings. The
+> first viewer's question was literally *"first frame says 15 weights, are they all different??"*.
+> Re-solving at a **30 s** cycle (N = 26…40) gives **32.35–13.67 cm, a 2.37x spread**, visible with
+> no caption; it also halves the runtime to 34 s and moves the payoff to t = 30 s, inside the span
+> a viewer will still hold a promise made at t = 0. **The cycle length of a resonance demo is a
+> legibility parameter, not only a timing one.**
+>
+> Lengths are 32.35 cm down to 13.67 cm, not the 33.07/13.97 the textbook period gives: solving
+> against the EXACT nonlinear period is what makes the row reform at 30.000 s instead of 0.33 s
+> late. The wave survives the real equation **only if every bob is released from the same angle** —
+> a common sideways displacement (one straight lifting bar) spreads the correction by 10368 ppm and
+> the line never returns. There is also no chaos in it: the phase is linear in n, so the row is
+> always a sampled sinusoid and the mess is spatial aliasing. Falsification in
+> `projects/i69_pendulum/gate0/GATE0.md` §6.
+
 
 ## §2 · Maps and real geography — accent `infrastructure #22D3EE`
 

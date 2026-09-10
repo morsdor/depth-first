@@ -13,6 +13,8 @@ import { DURATION_SECONDS as JPEG_SECONDS, Jpeg } from './reels/Jpeg';
 import { DURATION_SECONDS as SHUFFLE_SECONDS, Shuffle } from './reels/Shuffle';
 import { DURATION_SECONDS as MANIM_SECONDS, ManimProbe } from './reels/ManimProbe';
 import { Astar, DURATION_SECONDS as ASTAR_SECONDS } from './reels/Astar';
+import { DURATION_SECONDS as QUEUE_SECONDS, Queue } from './reels/Queue';
+import { DURATION_SECONDS as PENDULUM_SECONDS, Pendulum } from './reels/Pendulum';
 import { Cables, DURATION_SECONDS as CABLES_SECONDS } from './reels/Cables';
 import { DURATION_SECONDS as GC_SECONDS, Greatcircle } from './reels/Greatcircle';
 import { SafeZones } from './reels/lib/chrome';
@@ -46,6 +48,20 @@ import { Scene77 } from './scenes/Scene77';
 const ShuffleSafe: React.FC = () => (
   <>
     <Shuffle />
+    <SafeZones />
+  </>
+);
+
+const QueueSafe: React.FC = () => (
+  <>
+    <Queue />
+    <SafeZones />
+  </>
+);
+
+const PendulumSafe: React.FC = () => (
+  <>
+    <Pendulum />
     <SafeZones />
   </>
 );
@@ -171,6 +187,42 @@ export const RemotionRoot: React.FC = () => {
         id="r008-astar-safe"
         component={AstarSafe}
         durationInFrames={ASTAR_SECONDS * 30}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+
+      {/* r010 · I69 · fifteen pendulums, and the thirty seconds they take to come back */}
+      <Composition
+        id="r010-pendulum"
+        component={Pendulum}
+        durationInFrames={PENDULUM_SECONDS * 30}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="r010-pendulum-safe"
+        component={PendulumSafe}
+        durationInFrames={PENDULUM_SECONDS * 30}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+
+      {/* r009 · I64 · one line or four — a real queueing simulation */}
+      <Composition
+        id="r009-queue"
+        component={Queue}
+        durationInFrames={QUEUE_SECONDS * 30}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="r009-queue-safe"
+        component={QueueSafe}
+        durationInFrames={QUEUE_SECONDS * 30}
         fps={30}
         width={1080}
         height={1920}

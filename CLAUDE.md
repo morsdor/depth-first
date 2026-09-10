@@ -142,6 +142,7 @@ before optimising for reach: whether r006's 71 follows stayed, and whether they 
 | `r006` | `I17` | Great circle — the flight path that looks curved is the straight one | **posted 2026-09-08** (32 s) — first reel built under Gate 0 |
 | `r007` | `I22` | Submarine cables — your message abroad goes underwater, not to space | **posted 2026-09-09** (28 s) — peaked ~1.8k views; the r006 pattern test, and it failed |
 | `r008` | `I15` | A\* vs Dijkstra — one route across Paris, two ways to find it | built 2026-09-10 (28 s), **not posted** — first reel on real OpenStreetMap data |
+| `r010` | `I69` | Pendulum wave — fifteen strings, and the thirty seconds they take to come back | built 2026-09-10 (34 s), **not posted** — first reel with a Manim layer; rebuilt down from a 60 s cycle after the first viewer could not tell the fifteen strings apart |
 
 Update this table, `brand_guide_software.md` §13 and
 [`reel_captions_log.md`](reel_captions_log.md) when one ships.
@@ -204,6 +205,14 @@ involved in a reel.** Keep it that way.
    sentence before rendering:** that sentence is the most repeatable phrasing of the idea and a
    human approved it, so if its subject noun ("your *message*") is missing from the title, the
    title is weaker than something you already had.
+   **A hook that only labels the frame is not a hook — r010, 2026-09-10.** Its first cut opened on
+   "FIFTEEN WEIGHTS. FIFTEEN STRINGS.": accurate, two real objects named, and it passes every rule
+   above. The verdict was *"first frame doesn't bring any question/hype that user would want to
+   stick to end"*. A label describes what is on screen; a **promise** says what is about to happen
+   to it and when — "REMEMBER THIS ROW OF WEIGHTS. In 30 seconds it comes back." And if the promise
+   names a time, put a clock on screen keeping it: the countdown is what turns the claim into a
+   reason to still be there at the payoff. Costs nothing, applies to every reel whose payoff is
+   delayed.
 4. **Nothing is ever perfectly still.** Apply `useBreath()` from the shared chrome to every graphic
    stage (and to text-only beats). Measured on the shipped reels: **51–55% of each one had no visible
    change at all**, in stretches up to 6.5s — a frozen frame on a feed reads as "this ended". The
