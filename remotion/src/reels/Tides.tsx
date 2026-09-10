@@ -613,15 +613,45 @@ export const Tides: React.FC = () => {
         </div>
       </Fade>
 
-      {/* ── the same law, applied to a person ────────────────────────────── */}
-      <Panel from={t(43.4)} to={t(48.5)} top={1150}>
-        <Row label="THE MOON, PULLING ACROSS YOU">{bar(2, '#E8E6E1')}</Row>
+      {/* ── the same law, applied to a person ──────────────────────────────
+          Rewritten after the second Gate 3 pass, which caught three things:
+
+          1. Every label here said PULL, and the comparison is only true for the
+             TIDE. On straight gravity the Moon beats a nearby person by 28,409x
+             — the opposite result. Saying "pull" invited a correction that would
+             have been right. Both bars now say tide, and the reel concedes the
+             gravity case out loud rather than losing to it in the comments.
+          2. The distance was 1 m, which is not physical: with a 1.7 m body the
+             near end of you sits 0.15 m from the other person's centre, so the
+             point-mass formula was being read inside its own singularity. The
+             702,858x it returned was mostly that artefact. At 2 m — two people
+             standing near each other — it is 10,077x, and still astonishing.
+          3. The caption said "drawn to the same scale" and that was false HERE:
+             at this ratio the Moon's bar would be 0.07 px. (It is true on the
+             Sun/Moon frame, where the bar is 4.03 px and drawn at 4.) The bar
+             now says what it is: too small to draw. That is the punchline. */}
+      <Panel from={t(43.4)} to={t(48.5)} top={1030}>
+        <Row label="THE TIDE THE MOON RAISES IN YOU" sub="too small to draw here">
+          {bar(2, '#E8E6E1')}
+        </Row>
         <Row
-          label="SOMEONE STANDING ONE METRE AWAY"
-          sub={`${fmt(TIDES.body.personOverMoon)}x stronger — drawn to the same scale`}
+          label={`THE TIDE FROM SOMEONE ${TIDES.body.personDistanceM} METRES AWAY`}
+          sub={`${fmt(TIDES.body.personOverMoon)}x stronger`}
         >
           {bar(700, '#00D6F7')}
         </Row>
+        <div
+          style={{
+            fontFamily: 'IBM Plex Sans',
+            fontSize: 36,
+            color: '#E8E6E1',
+            opacity: 0.72,
+            marginTop: 4,
+          }}
+        >
+          The Moon&apos;s straight pull on you is {fmt(TIDES.body.moonGravWinsBy)}x theirs. It just
+          doesn&apos;t stretch you.
+        </div>
       </Panel>
 
       {/* ── the end card ─────────────────────────────────────────────────────

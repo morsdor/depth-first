@@ -29,7 +29,7 @@ So the reel names no port, animates no bulge arriving at a coast, and captions i
 ## The figures, and which script produced them
 
 Every number on screen comes from `tides.py`, from published constants (CODATA `G`; IAU/JPL masses
-and mean distances) and Newtonian gravity. `emit_ts.py` re-asserts **20 claims** and refuses to
+and mean distances) and Newtonian gravity. `emit_ts.py` re-asserts **23 claims** and refuses to
 write the TS module if any is false.
 
 | figure | value | on screen |
@@ -48,7 +48,9 @@ write the TS module if any is false.
 | lunar day | 24.84 h | beat 6 |
 | M2 | **12.4206 h** | beat 6 |
 | high tide later each day | **50.5 min** → "51 minutes" | end card |
-| a person at 1 m ÷ the Moon, on your body | **702,858×** | beat 7 |
+| a person at 2 m ÷ the Moon, on your body (TIDE) | **10,077×** | beat 7 |
+| the Moon ÷ that person, on your body (GRAVITY) | **28,409×** | beat 7, conceded |
+| a person stops out-tiding the Moon at | **37.8 m** | caption only |
 
 ### The self-check that matters
 
@@ -141,13 +143,42 @@ is now a calculation and the Gate 0 sentence. That is a deliberate trade made by
 is worth watching in the day-1 numbers — r006's performable ask ("open a flight tracker") produced
 its most-liked frame.
 
+## Gate 3, second pass — the body beat was wrong, and it was the dangerous kind of wrong
+
+Three defects in one beat, found by reading the frame rather than by any check.
+
+1. **Every label said PULL, and the comparison is only true for the TIDE.** On straight gravity the
+   Moon beats a person standing 2 m away by **28,409x** — the opposite result. Both facts are true;
+   they are different quantities. A viewer reading "pull" plainly would have concluded the reel
+   claimed a person out-pulls the Moon, which is false, and the correction would have been theirs to
+   make. Both bars now say *tide*, and the reel **concedes the gravity case on screen**: *"The Moon's
+   straight pull on you is 28,409x theirs. It just doesn't stretch you."*
+
+2. **1 metre was not a physical separation.** With a 1.7 m body the near end of you sits 0.15 m from
+   the other person's centre, so the point-mass formula was being evaluated deep inside its own
+   singularity, and most of the 702,858x was that artefact. The ratio is brutally sensitive to it:
+   702,858x at 1 m, 34,795x at 1.5 m, **10,077x at 2 m**, 2,370x at 3 m. The reel now quotes 2 m.
+   The 1 m value is kept in the JSON as `person_at_1m_UNPHYSICAL` so the trap stays visible.
+
+   **The qualitative claim was never at risk** — a 70 kg person out-tides the Moon until they are
+   **37.8 m** away, which is the robust form and is what the caption uses.
+
+3. **"Drawn to the same scale" was false on this frame.** At 10,077x the Moon's bar would be 0.07 px;
+   it was drawn at a 2 px floor. (The same caption is *true* on the Sun/Moon frame, where the bar is
+   4.03 px and drawn at 4.) It now reads **"too small to draw here"**, which is both honest and the
+   better line.
+
+**This is the r004 "300 roads, not 300,000" failure mode caught before shipping rather than after:**
+a figure that is technically derivable but is not what a fair measurement gives. `emit_ts.py` now
+verifies **23 claims**, including the two that assert the concession is true.
+
 ## Motion audit — final
 
 ```
 r009_tides.mp4  54.5s  (218 samples @ 4fps, --width 240)
   median change      0.939
   longest dead spell 0.25s  (limit 1.5s)
-  event density      46%
+  event density      47%
 PASS
 ```
 
@@ -162,7 +193,7 @@ PASS
 | 7 body | 0.938 | 39% | 4% |
 | 8 end | 1.342 | 55% | 0% |
 
-46% sits between r004 (42%) and r007 (49%), below r005 v5's 53%. **It was not chased further on
+47% sits between r004 (42%) and r007 (49%), below r005 v5's 53%. **It was not chased further on
 purpose** — density is a floor, not a target, and it cannot tell whether motion carries information.
 Every beat is alive; adding drift to reach 50 would have bought a number and nothing else.
 
@@ -183,7 +214,9 @@ exactly x=870, a boundary touch that glyph overhang crosses.
 - **Not that the sea's highs are 12h25m apart.** See above — measured, they are not.
 - **Not any local tide time, range, or port.**
 - **Not that the Moon has no effect on a person** — it has one, and it is 2.93e-13 m/s². The claim
-  is comparative and the comparison is stated with its distance.
+  is comparative, it is about the TIDE and not the pull, and it is stated with its distance.
+- **Not that a person out-pulls the Moon.** On gravity the Moon wins by 28,409x, and the reel says
+  so on the same frame.
 
 ## Known weakness, carried from Gate 0
 

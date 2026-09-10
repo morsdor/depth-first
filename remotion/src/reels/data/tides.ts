@@ -66,8 +66,17 @@ export const TIDES = {
     heightM: 1.7,
     massKg: 70.0,
     moonOnBody: 2.9349e-13,
-    personAt1m: 2.0628e-07,
-    personOverMoon: 702858,
+    /** Separation the reel quotes. 1 m is NOT physical for a 1.7 m body — the
+     *  near end of you would sit 0.15 m from the other person's centre, deep
+     *  inside the point-mass formula's singularity. */
+    personDistanceM: 2,
+    personNear: 2.9575e-09,
+    personOverMoon: 10077,
+    /** The robust form of the claim: it picks no separation at all. */
+    crossoverM: 38,
+    /** GRAVITY, not tide — and here the Moon wins by thousands. The reel says
+     *  this out loud, because without it the comparison reads as false. */
+    moonGravWinsBy: 28409,
     earthOverBody: 7499414,
   },
 } as const;

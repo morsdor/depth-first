@@ -241,36 +241,47 @@ data module was written. See `projects/i58_tides/NOTES.md`.
 
 > The Sun pulls on the Earth 179 times harder than the Moon does. The Moon still makes the tide.
 >
-> A tide isn't about how hard you're pulled. It's about how much *harder* your near side is pulled
-> than your far side — and that difference falls off with the cube of distance, not the square. The
-> Sun is 390 times further away, so it wins the pull and loses the tide: 36 cm of lunar bulge
-> against 16 cm of solar.
+> A tide isn't about how hard you're pulled. It's about how much harder your near side is pulled
+> than your far side — and that difference falls off with the cube of the distance, not the square.
 >
-> Same rule, applied to you: the Moon raises a tide across your body of 0.0000000000003 m/s².
-> The person standing a metre away raises one about 700,000 times bigger.
+> Which makes the whole thing one extra division. The Sun is 27 million times heavier than the Moon
+> and 389 times further away. Divide by 389 twice, you get 179x the pull. Divide once more, you get
+> 0.46x the tide.
 >
-> Everything here is the tide-raising *force*, computed from published constants — not a tide table.
-> Real coastlines are a different and much messier problem.
+> Same rule, applied to you. A tide needs a difference across something, and you're 1.7 metres
+> across, not 12,742 kilometres. Someone standing two metres away raises a tide in your body about
+> 10,000 times stronger than the Moon does — and keeps winning until they've walked about 38 metres
+> off.
 >
-> The whole thing in one sum: the Sun is 27 million times heavier and 389 times further away.
-> Divide by 389 twice and you get 179x the pull. Divide once more and you get 0.46x the tide.
-> One extra division is the entire difference.
+> One thing to be precise about: that's the tide, not the pull. The Moon's straight pull on you
+> really is far bigger than theirs, roughly 28,000 times bigger. It just doesn't stretch you, and
+> stretching is what a tide is.
+>
+> All of this is the tide-raising force, computed from published constants — not a tide table. Real
+> coastlines are set by the shape of their ocean basin, and some places get one high a day, not two.
 
 ### Load-bearing phrasings — do not "tighten" these
 
+- **"the tide, not the pull"** must survive. On gravity the Moon beats a nearby person by ~28,000x,
+  the opposite result. Dropping this clause turns a true claim into a false one.
+- **"two metres away"** must stay attached to the 10,000x. At 1 m the formula returns 702,858x, but
+  the near end of a 1.7 m body would be 0.15 m from the other person's centre — inside the
+  point-mass singularity. The measured values are 702,858x at 1 m, 34,795x at 1.5 m, 10,077x at 2 m,
+  2,370x at 3 m.
+- **"about 38 metres"** is the robust form of the claim, because it picks no separation at all.
 - **"the tide-raising force"**, not "the tide". The reel draws the equilibrium tide, which is the
-  forcing. Real tides are set by basin resonance, lag the forcing, and vary enormously by coast.
-- **"about 700,000 times"** must keep its distance ("a metre away"). The figure is exact-form for a
-  70 kg person at 1 m against a 1.7 m body; it is not a general fact about people.
+  forcing. Real tides lag it and vary enormously by coast.
 - **"The Moon still makes the tide"** — not "only the Moon". The Sun's 16 cm is real and is what
   makes spring and neap tides.
-- **Do not write "two high tides a day."** Tides are semidiurnal, diurnal or mixed by location; the
-  Gulf of Mexico gets one. This is the claim the backlog row proposed and the build refused.
+- **Do not write "two high tides a day."** Tides are semidiurnal, diurnal or mixed by location.
 - **The two divisions are the real sum**, asserted in `tides.py` to reproduce the measured ratios to
-  1e-12 — not a tidy restatement of them. Keep both lines or neither; one alone is just a ratio.
-- **The tide-table line was cut at Gate 3** ("tomorrow's high is about 51 minutes later"). It was an
-  absolute about a prediction this reel does not make. Its removal also removed rule 9's
-  *performable* ask, which is a known trade — see `projects/i58_tides/NOTES.md`.
+  1e-12. Keep both lines or neither; one alone is just a ratio.
+- **The tide-table line was cut at Gate 3.** It was an absolute about a prediction this reel does not
+  make. Its removal also removed rule 9's *performable* ask, which is a known trade.
+
+### Hashtags — six, topical, no stuffing
+
+`#physics` `#astronomy` `#tides` `#moon` `#gravity` `#scicomm`
 
 ### Not in the caption, on purpose
 

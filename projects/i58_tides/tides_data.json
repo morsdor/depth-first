@@ -46,9 +46,16 @@
   "mass_kg": 70.0,
   "moon_on_body": 2.9348696497691157e-13,
   "moon_on_earth": 2.2009801524845615e-06,
-  "person_at_1m": 2.0627980196412613e-07,
-  "person_over_moon": 702858.4795251606,
-  "earth_over_body": 7499413.6542238295
+  "person_distance_m": 2.0,
+  "person_near": 2.9575171770170955e-09,
+  "person_at_1m_UNPHYSICAL": 2.0627980196412613e-07,
+  "person_over_moon": 10077.167063449519,
+  "earth_over_body": 7499413.6542238295,
+  "crossover_m": 37.826656400080644,
+  "moon_grav_you": 3.3181204661811715e-05,
+  "person_grav_near": 1.1680024999999999e-09,
+  "grav_moon_wins_by": 28408.50482923771,
+  "grav_over_tide": 113058529.41176471
  },
  "envelope": {
   "step_deg": 2,

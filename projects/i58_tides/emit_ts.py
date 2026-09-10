@@ -30,7 +30,11 @@ claims = {
     'M2 is 12h25m':                     abs(rhy['m2_h'] - 12.4206012) * 3600 < 1.0,
     'the Moon-only curve matches M2':   abs(rhy['moon_only_gap_h'] - rhy['m2_h']) * 60 < 1.0,
     'high tide is ~50 min later a day': abs(rhy['drift_min_per_day'] - 50.5) < 0.2,
-    'a person at 1 m beats the Moon':   703_000 > body['person_over_moon'] > 702_000,
+    'a person at 2 m beats the Moon':   10_000 < body['person_over_moon'] < 10_200,
+    'the crossover is ~38 m':           37 < body['crossover_m'] < 39,
+    # the reel CONCEDES this, and the concession must be true
+    'on gravity the Moon wins big':     body['grav_moon_wins_by'] > 1000,
+    'gravity and tide differ hugely':   body['grav_over_tide'] > 1e6,
     'spring is 2.7x neap':              abs(tide['spring_over_neap'] - 2.70) < 0.01,
     # the reversal the whole reel rests on
     'the reversal holds':               pull['ratio'] > 100 and tide['ratio_sun_over_moon'] < 0.5,
@@ -124,8 +128,17 @@ export const TIDES = {{
     heightM: {body['height_m']},
     massKg: {body['mass_kg']},
     moonOnBody: {body['moon_on_body']:.4e},
-    personAt1m: {body['person_at_1m']:.4e},
+    /** Separation the reel quotes. 1 m is NOT physical for a 1.7 m body — the
+     *  near end of you would sit 0.15 m from the other person's centre, deep
+     *  inside the point-mass formula's singularity. */
+    personDistanceM: {body['person_distance_m']:.0f},
+    personNear: {body['person_near']:.4e},
     personOverMoon: {round(body['person_over_moon']):d},
+    /** The robust form of the claim: it picks no separation at all. */
+    crossoverM: {body['crossover_m']:.0f},
+    /** GRAVITY, not tide — and here the Moon wins by thousands. The reel says
+     *  this out loud, because without it the comparison reads as false. */
+    moonGravWinsBy: {round(body['grav_moon_wins_by']):d},
     earthOverBody: {round(body['earth_over_body']):d},
   }},
 }} as const;

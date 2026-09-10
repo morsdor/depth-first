@@ -112,9 +112,30 @@ SPRING_NEAP = spring / neap
 # ── 5. the same law applied to a person ─────────────────────────────────────
 moon_on_body   = span(M_MOON, D_MOON, BODY_H)
 moon_on_earth  = span(M_MOON, D_MOON, 2 * R_E)
-person_at_1m   = span(BODY_M, 1.0, BODY_H)
-BODY_RATIO     = person_at_1m / moon_on_body
 EARTH_VS_BODY  = moon_on_earth / moon_on_body
+
+# 1 m centre-to-centre was the first cut's figure and it is NOT PHYSICAL: with a
+# 1.7 m body the near end of you sits 0.15 m from the other person's centre, so
+# the point-mass formula is evaluated deep inside its own singularity and the
+# 702,858x it returns is mostly that artefact. 2 m is two people standing near
+# each other, and it is the number the reel quotes.
+PERSON_D       = 2.0
+person_at_1m   = span(BODY_M, 1.0, BODY_H)          # kept only to document the trap
+person_near    = span(BODY_M, PERSON_D, BODY_H)
+BODY_RATIO     = person_near / moon_on_body
+
+# The distance at which a person finally stops out-tiding the Moon. This is the
+# robust form of the claim: it does not depend on picking a separation at all.
+CROSSOVER_M    = (2 * G * BODY_M * BODY_H / moon_on_body) ** (1 / 3.0)
+
+# The concession the reel must make, or the comparison reads as false. These are
+# GRAVITY, not tide, and they point the other way: the Moon's straight pull on
+# you beats a nearby person's by thousands of times. Both facts are true; they
+# are different quantities, and the reel has to say which one it means.
+moon_grav_you    = G * M_MOON / D_MOON ** 2
+person_grav_2m   = G * BODY_M / PERSON_D ** 2
+GRAV_MOON_WINS   = moon_grav_you / person_grav_2m
+GRAV_VS_TIDE     = moon_grav_you / moon_on_body
 
 # ── 6. the ocean envelope, as playback-ready polylines ──────────────────────
 # Radius multiplier at 1-degree steps, relative to mean sea level. The reel
@@ -166,7 +187,12 @@ assert 0.45 < TIDE_RATIO < 0.47, TIDE_RATIO
 assert 0.35 < K_moon < 0.36 and 0.16 < K_sun < 0.17, (K_moon, K_sun)
 assert tide_near > tide_far > 0, 'both residuals must point outward'
 assert 4.0 < ASYM_PCT < 6.0, ASYM_PCT
-assert 690_000 < BODY_RATIO < 720_000, BODY_RATIO
+assert 10_000 < BODY_RATIO < 10_200, BODY_RATIO
+assert 37 < CROSSOVER_M < 39, CROSSOVER_M
+# the crossover must actually be a crossover
+assert abs(span(BODY_M, CROSSOVER_M, BODY_H) / moon_on_body - 1) < 0.01
+# and the honesty check: on GRAVITY the Moon wins, by a lot
+assert GRAV_MOON_WINS > 1000, GRAV_MOON_WINS
 # the end card's arithmetic must reproduce the measured ratios EXACTLY, or the
 # calculation shown on screen is a different sum from the one that was computed
 assert abs(pull_from_ratios - PULL_RATIO) / PULL_RATIO < 1e-12, (pull_from_ratios, PULL_RATIO)
@@ -213,8 +239,12 @@ data = {
     'body': {
         'height_m': BODY_H, 'mass_kg': BODY_M,
         'moon_on_body': moon_on_body, 'moon_on_earth': moon_on_earth,
-        'person_at_1m': person_at_1m,
+        'person_distance_m': PERSON_D,
+        'person_near': person_near, 'person_at_1m_UNPHYSICAL': person_at_1m,
         'person_over_moon': BODY_RATIO, 'earth_over_body': EARTH_VS_BODY,
+        'crossover_m': CROSSOVER_M,
+        'moon_grav_you': moon_grav_you, 'person_grav_near': person_grav_2m,
+        'grav_moon_wins_by': GRAV_MOON_WINS, 'grav_over_tide': GRAV_VS_TIDE,
     },
     'envelope': {'step_deg': STEP, 'moon': envelope_moon, 'sun': envelope_sun},
     'curve': {'hours': HOURS, 'samples': SAMPLES,
@@ -248,6 +278,11 @@ print(f'       moon+sun highs      {both_gap:>12.5f} h apart  ({len(both_gaps)} 
 print(f'       adding the Sun      {sun_shift_min:>12.1f} min EARLIER per cycle')
 print(f'       later each day      {daily_drift_min:>12.1f} min')
 print(f'BODY   moon across you     {moon_on_body:>12.4e} m/s^2')
-print(f'       person at 1 m       {person_at_1m:>12.4e} m/s^2   ({BODY_RATIO:,.0f}x the Moon)')
+print(f'       person at {PERSON_D:.0f} m       {person_near:>12.4e} m/s^2   ({BODY_RATIO:,.0f}x the Moon)')
+print(f'       crossover           {CROSSOVER_M:>12.1f} m     (beyond this the Moon wins)')
+print(f'HONESTY moon GRAVITY on you {moon_grav_you:>12.4e} m/s^2')
+print(f'        person gravity 2 m  {person_grav_2m:>12.4e} m/s^2   -> MOON wins by {GRAV_MOON_WINS:,.0f}x')
+print(f'        gravity / tide      {GRAV_VS_TIDE:>12,.0f}x  -- different quantities, opposite winners')
+print(f'  (1 m figure kept in JSON as UNPHYSICAL: {person_at_1m/moon_on_body:,.0f}x, near end 0.15 m away)')
 print(f'       earth / your body   {EARTH_VS_BODY:>12,.0f}x')
 print(f'wrote {OUT}')
