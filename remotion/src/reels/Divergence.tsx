@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { AbsoluteFill, interpolate, useCurrentFrame } from 'remotion';
+import { AbsoluteFill, useCurrentFrame } from 'remotion';
 import { ThreeCanvas } from '@remotion/three';
 import * as THREE from 'three';
 import { FPS, Fade, REEL_H, REEL_W, ReelGround, t } from './lib/chrome';
@@ -40,10 +40,27 @@ import { FRAMES, META } from './data/divergence';
  */
 export const DURATION_SECONDS = 12;
 
-/** Beat boundaries, seconds. */
+/**
+ * Beat boundaries, seconds.
+ *
+ * RE-CUT 2026-09-11 after the GATE 5 verdict on cut 1: *"what is the text on video
+ * supposed to say?? i do not understand it"*. Cut 1 said "ONE OF THESE IS / A HAIR'S
+ * WIDTH OFF." over what LOOKED like a single pendulum, then reported the measurement
+ * three seconds after the split had already happened. Two failures, both mine:
+ *
+ *  - "ONE OF THESE" is a plural pointing at a singular. Cut 1 deliberately drew B in
+ *    bone so the pair would read as one object, and then asked the viewer to pick one
+ *    of two. A viewer looks for the second thing and there isn't one.
+ *  - The sentence the reel is actually about was never on screen in any form: two were
+ *    released from the same place, nothing touched either, they ended up unrelated.
+ *    Cut 1 animated the consequence and never stated the cause.
+ *
+ * Cut 2 states the setup BEFORE the split and lets the split be the payoff.
+ */
 const B = {
-  promise: [0.8, 3.2],
-  reveal: [6.2, 11.0],
+  two: [0.6, 2.1],
+  hair: [2.3, 4.1],
+  none: [4.7, 10.2],
 } as const;
 
 // ── palette. Brand tokens only. ─────────────────────────────────────────────
@@ -89,8 +106,6 @@ const TRAIL_S = 3.6; // rolling trail; the shared path is kept separately, forev
  * copy quotes.
  */
 
-const C_BONE = new THREE.Color(BONE);
-const C_FAIL = new THREE.Color(FAIL);
 
 const secs = (frame: number) => frame / FPS;
 
@@ -153,7 +168,34 @@ const Pendulum: React.FC<{
   arm: THREE.Color | string;
   bob: THREE.Color | string;
   z: number;
-}> = ({ t1, t2, arm, bob, z }) => {
+  /** Cylinder radius of both arms. */
+  armR: number;
+  /** Bob radius at the elbow and at the tip. */
+  r1: number;
+  r2: number;
+  /**
+   * Draw the bobs as flat RINGS instead of solid spheres, and how thick the ring is.
+   *
+   * This is not a style choice, it is the only thing that works. Two coincident
+   * pendulums cannot be distinguished by drawing one bigger and one smaller in 3D:
+   * concentric SOLIDS nest, and the depth test then hands the whole overlap to
+   * whichever sphere bulges furthest toward the camera. A red sphere of r 0.132 sitting
+   * BEHIND a bone sphere of r 0.100 wins at every screen radius, because
+   * sqrt(0.132^2 - p^2) > 0.02 + sqrt(0.100^2 - p^2) for all p < 0.100 — so cut 2a
+   * rendered as a solid red pendulum with the bone one erased inside it.
+   *
+   * Pushing A forward in z would fix the depth test and break the reel: at 0.09 m —
+   * the least that wins — the parallax at full reach is 0.71 px, and this reel's claim
+   * is that the two are identical to within ONE pixel. Buying legibility with 70% of
+   * the entire accuracy budget is not a trade worth making.
+   *
+   * A flat ring has no such conflict. Its inner edge is set OUTSIDE the other
+   * pendulum's silhouette, so the two never contend for the same pixel and both sit at
+   * the same z: zero parallax, nothing occluded, and the coincident phase reads as a
+   * bone pendulum wearing a red halo.
+   */
+  ring?: number;
+}> = ({ t1, t2, arm, bob, z, armR, r1, r2, ring }) => {
   const e = elbow(t1);
   const p = tip(t1, t2);
 
@@ -168,8 +210,8 @@ const Pendulum: React.FC<{
     };
   };
 
-  const s1 = seg([0, 0], e, 0.040);
-  const s2 = seg(e, p, 0.040);
+  const s1 = seg([0, 0], e, armR);
+  const s2 = seg(e, p, armR);
 
   return (
     <>
@@ -181,14 +223,22 @@ const Pendulum: React.FC<{
         <cylinderGeometry args={s2.args} />
         <meshStandardMaterial color={arm} emissive={arm} emissiveIntensity={0.5} roughness={0.5} metalness={0.05} />
       </mesh>
-      <mesh position={[e[0], e[1], z]}>
-        <sphereGeometry args={[0.100, 28, 28]} />
-        <meshStandardMaterial color={bob} emissive={bob} emissiveIntensity={0.55} roughness={0.35} metalness={0.05} />
-      </mesh>
-      <mesh position={[p[0], p[1], z]}>
-        <sphereGeometry args={[0.132, 28, 28]} />
-        <meshStandardMaterial color={bob} emissive={bob} emissiveIntensity={0.55} roughness={0.35} metalness={0.05} />
-      </mesh>
+      {([[e, r1], [p, r2]] as [[number, number], number][]).map(([c, r], k) => (
+        <mesh key={k} position={[c[0], c[1], z]}>
+          {ring ? (
+            <torusGeometry args={[r, ring, 10, 40]} />
+          ) : (
+            <sphereGeometry args={[r, 28, 28]} />
+          )}
+          <meshStandardMaterial
+            color={bob}
+            emissive={bob}
+            emissiveIntensity={0.55}
+            roughness={0.35}
+            metalness={0.05}
+          />
+        </mesh>
+      ))}
     </>
   );
 };
@@ -215,15 +265,6 @@ const Scene: React.FC<{ s: number }> = ({ s }) => {
     [iTrail, i],
   );
 
-  /** B is bone until the split, so before it the pair reads as ONE pendulum. Turning
-   *  it red from frame 0 would have given away the entire reel in the first second. */
-  const split = interpolate(s, [META.splitS, META.splitS + 0.9], [0, 1], {
-    extrapolateLeft: 'clamp',
-    extrapolateRight: 'clamp',
-  });
-  const bobB = C_BONE.clone().lerp(C_FAIL, split);
-  const armB = new THREE.Color(ASH).lerp(C_FAIL.clone().multiplyScalar(0.62), split);
-
   // NOT -PIVOT_X_M. PIVOT_X_M is already the offset FROM frame centre TO the safe
   // centre (negative, because x 465 is left of 540); negating it pushed the pivot to
   // x = 615 and the traces ran into the action rail. Caught by the frame audit, which
@@ -237,17 +278,48 @@ const Scene: React.FC<{ s: number }> = ({ s }) => {
       <directionalLight position={[-4, 6, 9]} intensity={0.85} />
       <pointLight position={[3, -2, 5]} intensity={0.35} />
 
-      <Trace pts={shared} colour={BONE} width={0.034} opacity={0.46} z={-0.06} />
-      <Trace pts={trailA} colour={BONE} width={0.029} opacity={0.85} z={-0.04} />
-      <Trace pts={trailB} colour={bobB} width={0.029} opacity={0.34 + 0.66 * split} z={-0.02} />
+      {/* The shared path is the WIDEST and the dimmest: a soft bone ghost of where the
+          two were one object, wider than either live trail so neither can hide it. */}
+      <Trace pts={shared} colour={BONE} width={0.055} opacity={0.30} z={-0.08} />
+      <Trace pts={trailB} colour={FAIL} width={0.042} opacity={0.82} z={-0.05} />
+      <Trace pts={trailA} colour={BONE} width={0.026} opacity={0.92} z={-0.04} />
 
       <mesh position={[0, 0, 0.04]}>
         <sphereGeometry args={[0.075, 18, 18]} />
         <meshStandardMaterial color={GRAPHITE} roughness={0.6} />
       </mesh>
 
-      <Pendulum t1={a1} t2={a2} arm={ASH} bob={BONE} z={0} />
-      <Pendulum t1={b1} t2={b2} arm={armB} bob={bobB} z={0.02} />
+      {/*
+        TWO OBJECTS FROM FRAME 0, and this is the whole fix to cut 1.
+
+        They are pixel-identical until 3.28 s, so "show two" cannot mean "show them
+        apart" — that would be a lie about the physics. It means show them REGISTERED,
+        in the same place, visibly two: A is the solid bone pendulum, B is a red ring
+        around each of A's bobs, and every radius below is chosen so the ring's INNER
+        edge clears A's silhouette (0.112 > 0.108 at the tip, 0.081 > 0.078 at the
+        elbow). See the `ring` prop for why a rim of solid geometry cannot work.
+
+        B's arm is 0.016 against A's 0.034, so while they coincide it is hidden inside
+        A's arm and the frame is honest: there is one line there, because there IS one
+        line there. After the split it emerges as B's own thin red arm.
+
+        The outermost thing on screen is now the tip ring at 0.128 + 0.016 = 0.144 m,
+        27.4 px from the tip centre against the 25.1 px of cut 1 — so the safe-width
+        cap gets re-measured, not assumed. Red is on one object for the whole reel,
+        which is the one element per frame tokens.ts allows, not a decorative wash.
+      */}
+      <Pendulum t1={a1} t2={a2} arm={ASH} bob={BONE} z={0} armR={0.034} r1={0.078} r2={0.108} />
+      <Pendulum
+        t1={b1}
+        t2={b2}
+        arm={FAIL}
+        bob={FAIL}
+        z={0}
+        armR={0.016}
+        r1={0.096}
+        r2={0.128}
+        ring={0.016}
+      />
     </group>
   );
 };
@@ -258,7 +330,7 @@ const Head: React.FC<{
   lines: string[];
   top?: number;
   size?: number;
-}> = ({ from, to, lines, top = 1256, size = 62 }) => (
+}> = ({ from, to, lines, top = 1286, size = 58 }) => (
   <Fade from={t(from)} to={t(to)} style={{ position: 'absolute', top, left: 60, width: 810 }}>
     {lines.map((l) => (
       <div
@@ -300,30 +372,30 @@ export const Divergence: React.FC = () => {
         </ThreeCanvas>
       </AbsoluteFill>
 
-      {/* The promise. "These" points at the only thing on screen — not r006's bare
-          pronoun with no antecedent. It is the only reason the first three seconds
-          are tense rather than merely pretty. */}
       {/* Copy sits BELOW the object. The motion box is 3.98 x 3.41 m and 9:16 is far
           taller than that, so ~300 px of frame under the pendulum is dead whatever the
-          scale — text above it left the composition as two floating halves. */}
-      <Head
-        from={B.promise[0]}
-        to={B.promise[1] + 0.3}
-        lines={['ONE OF THESE IS', "A HAIR'S WIDTH OFF."]}
-        top={1300}
-      />
+          scale — text above it left the composition as two floating halves.
 
-      {/* The one piece of information, and it lands AFTER the amazement.
-          NOT "identical" — they differed by 70 um from t=0, and 3.3 s is when the gap
-          crosses one screen pixel. Non-negotiable 7 caught that before the build. */}
-      <Head
-        from={B.reveal[0]}
-        to={B.reveal[1]}
-        lines={["YOU COULDN'T TELL", 'THEM APART FOR', `${META.splitS.toFixed(1)} SECONDS.`]}
-        size={54}
-        top={1252}
-      />
-      <Head from={B.reveal[0] + 1.4} to={B.reveal[1]} lines={['NOTHING WAS RANDOM.']} top={1444} size={40} />
+          All three moments sit at the same `top`. They are sequential with a real gap
+          between them, never crossfading in place: two type blocks dissolving through
+          each other in one spot reads as a double exposure (chrome.tsx, ReelHeader). */}
+
+      {/* Beat 1 — the setup, and the antecedent. Named objects, plural, present before
+          anything happens to them. */}
+      <Head from={B.two[0]} to={B.two[1]} lines={['TWO PENDULUMS.', 'RELEASED TOGETHER.']} />
+
+      {/* Beat 2 — the one difference. HIGHER, not lower: the perturbation adds
+          +0.004011 deg to theta1, and at a release angle of 135 deg a larger theta is
+          FURTHER FROM the downward vertical, so B's elbow starts at y = +0.707107645 m
+          against A's +0.707106781 m. Checked against the integrator, not reasoned about
+          from the sign of the constant. Non-negotiable 7 covers sentences, not just
+          figures, and "lower" would have been a false one. */}
+      <Head from={B.hair[0]} to={B.hair[1]} lines={['ONE STARTED', 'A HAIR HIGHER.']} />
+
+      {/* Beat 3 — lands AFTER they are unmistakably two (20 px apart at 4.45 s), and it
+          is the only claim the reel makes. True by construction: same equations, same
+          solver, no random term anywhere, one nudge at t = 0. */}
+      <Head from={B.none[0]} to={B.none[1]} lines={['NOTHING ELSE', 'CHANGED.']} />
     </AbsoluteFill>
   );
 };

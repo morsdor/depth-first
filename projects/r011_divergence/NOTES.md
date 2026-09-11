@@ -1,6 +1,11 @@
 # r011 · `I71` — the one that started a hair's width away
 
-**Built 2026-09-11. NOT POSTED — at GATE 5.** 12.0 s · 360 frames · 2.7 MB.
+**Built 2026-09-11, RE-CUT the same day. NOT POSTED — at GATE 5.** 12.0 s · 360 frames · 2.7 MB.
+
+> **CUT 2.** Cut 1 rendered clean, passed both audits, scored the account's best motion number and
+> failed GATE 5 on the only thing that matters: *"what is the text on video supposed to say?? i do
+> not understand it; how would i send this to anyone"*. The copy said nothing and the visuals hid
+> half the experiment. Traps 11–14 are the post-mortem; `SCRIPT.md` carries cut 2's table.
 Accent `#FF4D4D` (`failure`, §6). **FIRST REEL IN THE LOOP FORMAT.**
 
 - Gate 0, the send test, and the pre-registered metric: [`gate0/GATE0.md`](gate0/GATE0.md)
@@ -54,12 +59,19 @@ the largest λ, and therefore the earliest split — this is why the reel is 12 
 ## Audits
 
 ```
-motion   median 1.233 · longest dead spell 0.25s (limit 1.5) · event density 69%      PASS
-safe     360 frames · bbox x 60..868  y 552..1488 · NO bleed exemption needed          PASS
+motion   median 1.079 · longest dead spell 0.25s (limit 1.5) · event density 67%      PASS
+safe     360 frames · bbox x 60..868  y 552..1408 · NO bleed exemption needed          PASS
 lint     eslint + tsc + brand:check                                                     PASS
 ```
 
-69% against r004's 42%, r006's 49%, I51 v5's 53% and r010's 61%. There is no still frame anywhere.
+67% against r004's 42%, r006's 49%, I51 v5's 53% and r010's 61%. There is no still frame anywhere.
+Cut 1 ran 69% and an intermediate cut 71%; cut 2 gives back 2 points because pendulum A's solid
+bobs are smaller than cut 1's, to make room for B's ring outside them. **Legibility of the premise
+is worth two points of density** — 67% is still the second-best number on the account.
+
+`x 868` leaves **2 px** inside the action rail, which is the same margin cut 1 shipped with. The
+binding object changed from a 25.1 px sphere to a 27.4 px ring and the audit was re-run rather than
+assumed; see trap 12.
 
 ## Why 3D, and why the camera is nearly orthographic
 
@@ -109,6 +121,37 @@ bobs are lit spheres, the arms are cylinders. That highlight is the whole reason
    That cost motion density (84% → 61%), recovered to 69% by widening the traces instead.
 10. **A JSX comment as the first thing inside `return (`** is a second root element. One line, and it
     took the whole render down.
+11. **CUT 1 HID HALF THE EXPERIMENT, ON PURPOSE, AND THAT KILLED IT.** Pendulum B was drawn in bone
+    until the split, with a comment in the component claiming that turning it red from frame 0
+    "would have given away the entire reel in the first second". The opposite was true. If the
+    viewer does not know there are two objects, the split does not read as *divergence* — it reads
+    as **a red pendulum spawning out of a white one**, which is a graphics effect, not a physical
+    fact. Nothing is given away by showing two: the **existence** of the second pendulum is the
+    premise, and only the **divergence** is the event. Cut 1 concealed the premise to protect a
+    surprise that was never the surprise.
+12. **A RIM OF SOLID GEOMETRY CANNOT WORK, AND THE MATHS SAYS SO BEFORE THE RENDER DOES.** The first
+    repair drew B red and *larger* behind A bone and *smaller* in front, expecting a red rim around
+    a bone bob. It rendered as a **solid red pendulum with the bone one erased inside it**, because
+    concentric solids nest and the depth test hands the whole overlap to whichever sphere bulges
+    furthest toward the camera: `sqrt(0.132² − ρ²) > 0.02 + sqrt(0.100² − ρ²)` for every ρ < 0.100,
+    so B won at every single screen radius. The least z-offset that would let A win is
+    `sqrt(r_B² − r_A²) = 0.086 m`, and **at that offset the parallax at full reach is 0.71 px** —
+    70% of this reel's entire accuracy budget, spent to fix a drawing problem. Refused. B's bobs are
+    now flat **rings** whose inner edge clears A's silhouette (0.112 > 0.108 at the tip, 0.081 >
+    0.078 at the elbow), so the two never contend for the same pixel, both sit at the same z, and
+    nothing is occluded. **When two things must be distinguished at the same coordinates, separate
+    them in the PICTURE PLANE, never in depth.**
+13. **THE APPROVED COPY WAS FALSE BY ONE WORD.** "ONE STARTED A HAIR LOWER" was approved and is
+    wrong: the perturbation adds +0.004011° to θ₁, and at a 135° release a larger θ is *further
+    from* the downward vertical, so B starts a hair **HIGHER** (elbow y = +0.707107645 m against
+    +0.707106781 m). Checked against the integrator rather than reasoned from the sign of the
+    constant, which is the only way to get this right. **An approved script does not make a claim
+    true** — non-negotiable 7 outranks G4, and it covers sentences, not just figures.
+14. **THE SCRIPT TABLE HAS A COLUMN THAT HIDES THE FAILURE.** "Why this beat exists" sits next to
+    the copy, so every line of cut 1's copy read as comprehensible *in the table* and
+    incomprehensible on a phone — the column beside it supplied the context the viewer would never
+    get. **At G4, read the copy column alone with the others covered.** That is how it arrives. A
+    new row on `SCRIPT.md`'s pre-handover checklist now requires it.
 
 ## What this format breaks, deliberately
 

@@ -2012,6 +2012,42 @@ though: v3 has the best opening this account has built and the worst reach.
 mistake — answering a verdict with a craft fix — and that holds whether the reading was good or
 bad. It was good, and it changed nothing that matters.
 
+**r011 — A SURPRISE YOU PROTECT BY HIDING THE PREMISE IS NOT A SURPRISE (2026-09-11).** Cut 1 drew
+the second pendulum in bone until the split so the pair would read as one object, with a comment in
+the component defending it: turning it red from frame 0 "would have given away the entire reel in
+the first second". It gave away nothing and cost everything. A viewer who does not know there are
+two objects does not see *divergence* — they see **a red pendulum spawning out of a white one**,
+which is a graphics effect rather than a physical fact. The existence of the second thing is the
+PREMISE; only the divergence is the EVENT. Concealing a premise to protect an event deletes the
+event. Ask which of the two you are actually withholding.
+
+**r011 — THE VERDICT WAS ON THE COPY, AND THE COPY HAD BEEN APPROVED (2026-09-11).** *"What is the
+text on video supposed to say?? I do not understand it."* The copy read "ONE OF THESE IS / A HAIR'S
+WIDTH OFF." — a plural pointing at a singular, over a frame deliberately built to show one object —
+and the sentence the reel was about (two released from the same place, nothing touched either, they
+ended up unrelated) was never on screen in any form. **It passed G4 because the script table has a
+"why this beat exists" column sitting next to the copy**, silently supplying the context the viewer
+would never get. Every line read as clear in the table and as nothing on a phone. **At G4, read the
+copy column alone with the others covered.** One minute; it is now in `CLAUDE.md`.
+
+**r011 — AN APPROVED SCRIPT DOES NOT MAKE A CLAIM TRUE (2026-09-11).** The re-cut copy was approved
+as "ONE STARTED A HAIR LOWER". The integrator says higher: the perturbation adds +0.004011° to θ₁
+and at a 135° release a larger θ is further from the downward vertical, so B's elbow starts at
++0.707107645 m against +0.707106781 m. **Non-negotiable 7 outranks G4**, it covers sentences rather
+than only figures, and the check is against the data — not against the sign of the constant as
+reasoned about in your head. Change the word and tell the human which word changed.
+
+**r011 — WHEN TWO THINGS MUST BE DISTINGUISHED AT THE SAME COORDINATES, SEPARATE THEM IN THE
+PICTURE PLANE, NEVER IN DEPTH (2026-09-11).** The obvious repair — one solid bob larger and behind,
+one smaller and in front, expecting a coloured rim — renders as a single solid object with the other
+erased inside it, because concentric solids nest and the depth test hands the whole overlap to
+whichever surface bulges furthest toward the camera. The z-offset that would fix it was computable
+in advance (`sqrt(r_B² − r_A²) = 0.086 m`) and so was its price: **0.71 px of parallax at full
+reach, on a reel whose entire claim is that two things agree to within one pixel.** A flat ring
+whose inner edge clears the other silhouette costs nothing, occludes nothing, and needs no z
+separation at all. In a near-orthographic 3D scene, depth is not free real estate — it is
+accuracy budget.
+
 **OPEN — "who does the viewer send this to, and what are they proving?" is not a filter, it is THE
 constraint.** It has now predicted five outcomes in a row. Every craft rule in `CLAUDE.md` governs
 what happens *after* a viewer is shown the reel; nothing in this repo governs whether it is shown
@@ -2038,4 +2074,11 @@ distribution one.** It has never been tried.
 | `r008` | Pendulum wave — fifteen strings, back in line at 30 s | 34 s | **2026-09-10** |
 | `r009` | Scale — the biggest star ever measured is a speck in the gap | 40 s | **2026-09-11** |
 
-**Nothing is built and unposted.** The next reel is `r010`.
+### Built and unposted — at GATE 5
+
+| Reel | Subject | Length | State |
+|:--|:--|:--|:--|
+| `r010` | Traffic jam with no cause — it runs backwards at 12 mph | 46 s | built **2026-09-11** |
+| `r011` | Two double pendulums one hair apart | 12 s | built **2026-09-11**, re-cut the same day |
+
+**The next reel is `r012`.**

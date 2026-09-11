@@ -159,6 +159,20 @@ Every beat, every line of copy, every number, the runtime, the hook and the clos
 it in two minutes and says yes or no. **`projects/r009_emptiness/SCRIPT.md` is the model** — it was
 written *after* the fact and it is exactly what should have existed before.
 
+**READ THE COPY COLUMN ALONE, WITH THE OTHER COLUMNS COVERED — r011, 2026-09-11.** The table's
+"why this beat exists" column sits next to the copy and silently supplies the context the viewer
+will never get, so a line that means nothing on a phone reads as perfectly clear *in the table*.
+r011 cut 1 passed G4, rendered, passed both audits with the best motion number on the account, and
+drew the verdict *"what is the text on video supposed to say?? i do not understand it"*. Its copy
+was **"ONE OF THESE IS / A HAIR'S WIDTH OFF."** over what was deliberately drawn to look like a
+single pendulum — a plural pointing at a singular — and the sentence the reel was actually about was
+never on screen in any form. **The copy column, read by itself, must be a complete thought.** That
+check is one minute and it is now part of G4.
+
+**AN APPROVED SCRIPT DOES NOT MAKE A CLAIM TRUE.** r011's re-cut copy was approved as "ONE STARTED
+A HAIR LOWER" and the integrator says higher. Non-negotiable 7 outranks G4 and it covers sentences,
+not just figures — check the copy against the data *after* it is approved, and change the word.
+
 **Once approved, the script is the contract and the animation serves it.** If a beat cannot be
 animated as scripted, that goes BACK to G4 as a script change — it is never solved by improvising
 at build time. Improvising at build time is how v1 ended up with seven different rulers.
@@ -246,7 +260,7 @@ before optimising for reach: whether r005's 71 follows stayed, and whether they 
 
 | `r010` | `I65` | Traffic jam with no cause — the jam runs backwards at 12 mph, and one car in 22 breaks it up | **BUILT 2026-09-11 (46 s), NOT POSTED — at GATE 5.** First reel under the script-first gates and the first under 3D by default. One parameter bends a straight highway into a 755-foot ring and back, so the unroll is a real geometric morph rather than a cut. Motion: 0.25 s dead spell, 61% event density. See [`projects/r010_phantom_jam/NOTES.md`](projects/r010_phantom_jam/NOTES.md) |
 
-| `r011` | `I71` | Two double pendulums released one human hair apart — the same object for 3.3 s, then unrelated | **BUILT 2026-09-11 (12 s), NOT POSTED — at GATE 5.** The first reel in the loop format, and the first built on a metric other than sends: 12 s against the 28–54 s of everything before it, because a loop watched twice is 200% watch time. Judge on **average watch time ≥ 100% of runtime**; sends expected ~0. Motion: 0.25 s dead spell, **69% event density** — the account's best. See [`projects/r011_divergence/NOTES.md`](projects/r011_divergence/NOTES.md) |
+| `r011` | `I71` | Two double pendulums released one human hair apart — the same object for 3.3 s, then unrelated | **BUILT 2026-09-11 (12 s), RE-CUT the same day, NOT POSTED — at GATE 5.** The first reel in the loop format, and the first built on a metric other than sends: 12 s against the 28–54 s of everything before it, because a loop watched twice is 200% watch time. Judge on **average watch time ≥ 100% of runtime**; sends expected ~0. Cut 1 passed both audits with the account's best motion number and **failed GATE 5 on its copy** — *"what is the text on video supposed to say?? i do not understand it"* — because it pointed a plural at a single visible object and never once stated the setup. Motion: 0.25 s dead spell, **67% event density**. See [`projects/r011_divergence/NOTES.md`](projects/r011_divergence/NOTES.md) traps 11–14 |
 
 **Reel numbers are contiguous and mean "the Nth reel posted".** `r001`–`r009` are the nine that
 have shipped, in order. **`r010` and `r011` are built and unposted** — each claimed its number when

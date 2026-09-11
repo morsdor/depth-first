@@ -2,23 +2,53 @@
 
 **GATE 4. Nothing is coded until this is approved.** One page, because it is a 12-second loop.
 
+> ## CUT 2 — re-scripted 2026-09-11 after the GATE 5 verdict on cut 1
+>
+> **The verdict: _"what is the text on video supposed to say?? i do not understand it; how would i
+> send this to anyone"_.** Cut 1 rendered, passed both audits, scored the account's best motion
+> number, and said nothing. Two failures, both in the copy column of the table below, and both
+> visible in it before a line of code was written:
+>
+> 1. **"ONE OF THESE IS / A HAIR'S WIDTH OFF."** is a plural pointing at a singular. Cut 1 drew
+>    pendulum B in bone *on purpose* so the pair would read as one object — and then asked the
+>    viewer to pick one of two. A viewer looks for the second thing and there isn't one. "OFF" also
+>    had no stated reference: off from what?
+> 2. **The sentence the reel is about was never on screen in any form** — two released from the same
+>    place, nothing touched either, they ended up unrelated. Cut 1 animated the consequence and
+>    reported a *duration* six seconds later, in the past tense, after the payoff was over.
+>    "NOTHING WAS RANDOM." answered a question no viewer had asked.
+>
+> **The process lesson, and it is about this file.** This table has a "why this beat exists" column
+> sitting next to the copy, so every line read as comprehensible *here* and incomprehensible on a
+> phone: the column beside it supplied the context the viewer would never get. **Read the copy
+> column alone, with the others covered.** That is the only way it is read at delivery.
+>
+> Cut 2 states the setup BEFORE the split and lets the split be the payoff. The physics, the data
+> module and all twelve `emit_ts.py` assertions are unchanged — what changed is three lines of copy
+> and which pendulum is visible when.
+
 - **Runtime 12.0 s**, against the 28–54 s of every reel this account has posted. **The runtime IS
   the experiment** — see `gate0/GATE0.md` §4.
 - **Accent** `#FF4D4D` (`failure`, §6), used on exactly one element from exactly the beat it breaks.
-- **Two text moments. No narration. Nothing is explained.**
+- **Three text moments, one at a time. No narration. Nothing is explained.**
 - **THE ONE RULER: there isn't one, and that is correct here.** No number is compared to another
-  number. The only quantity on screen is the 3.3 s the two were identical.
+  number — **cut 2 puts no number on screen at all.** Cut 1's "3.3 SECONDS" was the only quantity
+  and it was the least interesting fact available about the split.
 
-## The script
+## The script — CUT 2
 
 | t | On-screen words | On screen | Why this beat exists |
 |:--|:--|:--|:--|
-| **0.0–0.8** | — | Two double pendulums released from 135°, drawn in **bone**, perfectly overlapping — they read as **one** pendulum. The tip begins tracing a bright path behind it. | Motion on frame 1. No title card, no setup, nothing to read. The hook is the object. |
-| **0.8–3.2** | **ONE OF THESE IS A HAIR'S WIDTH OFF.** | Still one object, swinging chaotically, trace building. The viewer is now looking for a second pendulum and cannot find one. | **The promise** (non-negotiable 3), and the only thing that makes the first three seconds tense instead of merely pretty. "These" has an antecedent on screen — it is not r006's bare pronoun. |
-| **3.2–4.5** | — | **Daylight.** The trace splits into two. One pendulum turns `#FF4D4D` and separates. Measured: 1 px at 3.28 s, 20 px at 4.45 s. | The payoff, and the entire reel. It is *shown* and never named. The failure accent arrives exactly on the beat something breaks. |
-| **4.5–6.2** | — | They swing to completely unrelated positions — 150 px apart by 6.16 s. Both traces continue. | The hold, done as motion instead of stillness. |
-| **6.2–11.0** | **YOU COULDN'T TELL THEM APART<br>FOR 3.3 SECONDS.**<br>**NOTHING WAS RANDOM.** | Two unrelated machines, both tracing. The bone path from the shared stretch is still on screen underneath. | The one piece of information in the reel, and it lands *after* the amazement rather than before it. Second line pre-empts the only objection: that one was nudged. |
-| **11.0–12.0** | — | Text out. Both still swinging. Hard cut to frame 0. | The loop. |
+| **0.0–0.6** | — | **Two** double pendulums, released from 135° and coincident to under a pixel: a solid **bone** pendulum wearing a **`#FF4D4D` ring** on each bob. One tip traces a path behind it. | Motion on frame 1. Two objects are on screen from frame 1, which is the whole fix to cut 1 — they are in the same place, and they are visibly two. |
+| **0.6–2.1** | **TWO PENDULUMS.<br>RELEASED TOGETHER.** | Unchanged, swinging, trace building. | **The antecedent.** Named objects, plural, present and countable before anything happens to them. This is the sentence cut 1 never said. |
+| **2.3–4.1** | **ONE STARTED<br>A HAIR HIGHER.** | Still one silhouette. The ring is still concentric. | **The one difference**, stated while it is still invisible — so the viewer is watching a controlled experiment rather than a graphic. |
+| **3.28–4.5** | *(copy above still up)* | **Daylight.** The ring walks off the bone bob and becomes its own red pendulum with its own trace. Measured: 1 px at 3.28 s, 20 px at 4.45 s. | The payoff, and the entire reel. It is *shown* and never named, and it now lands on a setup the viewer already has. |
+| **4.7–10.2** | **NOTHING ELSE<br>CHANGED.** | Two unrelated machines, both tracing; the wide dim bone ghost of the shared path still underneath. | The only claim the reel makes, and it lands *after* they are unmistakably two. Pre-empts the sole objection — that something else was done to one of them. |
+| **10.2–12.0** | — | Text out. Both still swinging. Hard cut to frame 0, where they are one object again. | The loop. |
+
+**Nothing crossfades in place.** The three text moments share one `top` and are strictly sequential
+with a real gap (0.2 s, then 0.6 s); two type blocks dissolving through each other in the same spot
+reads as a double exposure.
 
 ## The loop is a HARD CUT, and that is honest
 
@@ -32,9 +62,11 @@ unrelated, and now they are one object again. Nothing anywhere claims a seamless
 
 | On screen | Whose |
 |:--|:--|
+| "two pendulums, released together" | **ours** — same equations, same solver, same release angle, identical initial state but for one nudge |
 | "a hair's width" | 70 µm, mid of the cited 17–181 µm range for human hair |
-| "couldn't tell them apart for 3.3 s" | **ours** — the last sample where tip separation is under ONE SCREEN PIXEL. **They were never identical**: they differed by 70 µm from t=0, so "identical" would have been false and 3.28 s is a display threshold, not a physical one. Caught by non-negotiable 7 before the build. |
-| "nothing was random" | **ours** — one perturbation at t=0 and no noise term anywhere in the integrator |
+| **"a hair HIGHER"** | **ours, and checked against the integrator rather than reasoned from the sign of the constant.** The perturbation adds +0.004011° to θ₁, and at a release angle of 135° a larger θ is *further from* the downward vertical — so B's elbow starts at y = +0.707107645 m against A's +0.707106781 m. **The approved copy said "LOWER" and that would have been false.** Non-negotiable 7 covers sentences, not just figures. |
+| "nothing else changed" | **ours** — one perturbation at t = 0, no noise term anywhere in the integrator, both runs through the same RK4 |
+| the split at 3.28 s | **ours** — the last sample where tip separation is under ONE SCREEN PIXEL. **They were never identical**: they differed by 70 µm from t = 0, so "identical" would have been false, and 3.28 s is a display threshold rather than a physical one. Cut 2 no longer quotes the number on screen at all; it is now a render timing, not a claim. |
 | every position that moves | **ours** — RK4 at dt = 1/2000 s, energy drift 3.5 × 10⁻¹¹ of MgL |
 
 ## Pre-handover checklist
@@ -42,9 +74,10 @@ unrelated, and now they are one object again. Nothing anywhere claims a seamless
 | Check | Status |
 |:--|:--|
 | Hook shows rather than promises | **Yes** — moving on frame 1, nothing to read |
-| Names ride on objects | **Yes** — "these" points at the only thing on screen |
-| Never more than three text blocks | **Yes** — max 2 |
+| Names ride on objects | **Yes, and this is what cut 1 got wrong** — "TWO PENDULUMS" names two objects that are both on screen and both countable when the line appears |
+| Never more than three text blocks | **Yes** — max 1 at a time, 3 in the reel, never overlapping |
 | No jargon | **Yes** — "chaos", "Lyapunov", "sensitive dependence" appear nowhere |
+| **The copy column read ALONE** | **Yes — added after cut 1.** "TWO PENDULUMS. RELEASED TOGETHER. / ONE STARTED A HAIR HIGHER. / NOTHING ELSE CHANGED." is a complete, self-contained thought with no help from any other column. |
 | Every claim traced | **Yes** — table above |
 | Civilian object, never left | **Yes** — a pendulum, every frame |
 | Safe area · ground · motion | **Yes** |
