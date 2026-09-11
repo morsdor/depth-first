@@ -41,7 +41,7 @@ with the row, because the temptation to "tighten" it later is exactly how a fals
 | `r005` | 2026-09-08 | A (below) | "Those curved flight paths on the seatback map are the straight lines. The map is bent, not the flight." | 916 | 303 | 362 | 71 | **Figures at day 1 (2026-09-09 09:47); views curve had not flattened, so these are lower bounds.** 32,882 viewers / 46,782 views — 20.3x the account's previous best reach — and best on every per-viewer metric: likes 2.79%, shares 0.92%, saves 1.10%, follows 0.216%. Skip 29.9%, the lowest recorded. Average watch rose 16 -> 16 -> 17 -> 20 s across four readings while reach grew 64x. Audience was **99.9% non-followers**, 58% India, 67% aged 25-44. **Three early conclusions were retracted** (saves at 1 h, shares at 4 h, skip rate at 7 h) — see `brand_guide_software.md` §13. |
 | `r006` | 2026-09-09 | A (below) — confirm which caption went out | "Your message to America doesn't go up to a satellite. It goes into the sea." | — | — | — | — | Peaked ~1.8k views: the pre-registered test of the r005 pattern, failed — see `brand_guide_software.md` §13 "FALSIFIED". Insights not yet logged. |
 | `r008` | 2026-09-10 | A (below) — confirm which caption went out | "Fifteen weights on fifteen strings. Nothing connects them. Watch what happens at thirty seconds." | 0 | 0 | 0 | 0 | **190 views at first reading (2026-09-10)** — the floor, with the best motion score on the account (99%); Gate 0 had flagged the "personally witnessed" leg as weak. |
-| `r009` | *not posted* | A (below) | "Everyone shows you how big stars get. Nobody shows you the emptiness." | — | — | — | — | **Built 2026-09-11, re-cut the same day after the Gate 3 read (53 s → 40 s), awaiting Gate 3 again.** First 3D reel. v1 failed on message, not craft — one ruler now replaces seven, every sphere carries its own name, and the wide third is cut; see `projects/r009_emptiness/SCRIPT.md`. `GATE0.md` §4 records the prediction in advance: it clears all three kill conditions but scores **1 of 3** on the reach test — no dispute is running about star sizes — so r006 numbers would be a confirmed prediction, not a new lesson. |
+| `r009` | 2026-09-11 | A (below) — **confirm which caption went out** | "Everyone shows you how big stars get. Nobody shows you the emptiness." | — | — | — | — | **Posted 2026-09-11 at 40 s, after a same-day re-cut from 53 s.** First 3D reel. v1 failed on message, not craft — one ruler now replaces seven, every sphere carries its own name, and the wide third is cut; see `projects/r009_emptiness/SCRIPT.md`. `GATE0.md` §4 records the prediction in advance: it clears all three kill conditions but scores **1 of 3** on the reach test — no dispute is running about star sizes — so r006 numbers would be a confirmed prediction, not a new lesson. |
 
 Engagement figures are per the reel's own Insights, on the base Instagram reports them against
 (unique viewers). r001's are at 3 days, r003's at ~18 h — see `brand_guide_software.md` §13.
@@ -390,7 +390,7 @@ class of error it exists to avoid.
 
 ---
 
-## r009 — "The biggest star we have ever measured is a speck" (`I70`) — DRAFT, not posted
+## r009 — "The biggest star we have ever measured is a speck" (`I70`) — POSTED 2026-09-11
 
 **Rewritten 2026-09-11 for the v2 cut (53 s → 40 s).** The v1 captions below are superseded but
 every figure in them survived: nothing was re-measured, the reel just stopped putting most of them
@@ -483,9 +483,12 @@ Alternate, if the astronomy tags are crowded on the day: swap `#physics` `#scico
 `#astrophysics` `#universe`. **Six is the cap** — `insta_strategy.md` §6 and the equation.verse
 teardown both put hashtag stuffing on the "leave" list explicitly.
 
-### OPEN ISSUE — the v2 close contradicts this reel's own non-claims list (2026-09-11)
+### OPEN ISSUE — "SPACE IS EMPTY" SHIPPED, and it contradicts this reel's own non-claims list
 
-**`Emptiness.tsx` closes on "SPACE ISN'T BIG. SPACE IS EMPTY."** `NOTES.md`, `GATE0.md` §6 and this
+**Status changed 2026-09-11: the reel is posted, so this is no longer a decision about what to
+render. It is a claim that is live.**
+
+`Emptiness.tsx` closes on **"SPACE ISN'T BIG. SPACE IS EMPTY."** `NOTES.md`, `GATE0.md` §6 and this
 log all record *"Not 'space is empty' — it is empty of stars"* as an explicit non-claim, written
 down before the v2 close was drafted. The line was written as the send-line, on GATE0 §4's reading
 that the one thing making this reel sendable is that it settles *"space is mostly empty"* — and it
@@ -493,21 +496,28 @@ landed straight on the phrasing the build had already ruled out.
 
 It is a **mechanism sentence, not a figure**, which is non-negotiable 7 exactly: figures get
 checked because they visibly came from a script, and a hand-written sentence passes every automated
-gate in the repo. It passed `tsc`, `eslint`, `brand:check` and both audits.
+gate in the repo. It passed `tsc`, `eslint`, `brand:check`, the motion audit and the chrome audit,
+and it passed a human Gate 3 too — nobody caught it, including the three files that had already
+written the rule down.
 
-Two defensible resolutions, and the human picks:
+**The general lesson, which is the part worth keeping.** A non-claims list is only load-bearing if
+something reads it at the moment the words are written. This one lived in `NOTES.md` and `GATE0.md`
+— documents consulted during *research* — while the sentence that broke it was written during
+*layout*, days of context later. Nothing in the pipeline re-reads the non-claims list before a
+render. That is the gap, not this particular line.
 
-1. **Change the close** to something the repo has already agreed is true — *"IT'S NOT THE SIZES. /
-   IT'S THE GAPS."* is the reel's literal argument and costs one re-render. Least repeatable of the
-   options.
-2. **Keep it**, on the grounds that 35 seconds of context make "empty" read as "empty of stars",
-   and that one atom per cubic centimetre is a better vacuum than any laboratory can produce — then
-   retire the non-claim in all three files with that reasoning recorded, rather than leaving the
-   reel contradicting its own documentation.
+**Two live options, and the human picks:**
 
-**What is not acceptable is the current state**, where the reel says one thing and three files say
-it must not. Whichever way it goes, the caption must not repeat the phrase until it is settled —
-none of the three captions above does.
+1. **Retire the non-claim**, on the grounds that 35 seconds of context make "empty" read as "empty
+   of stars", and that one atom per cubic centimetre is a better vacuum than any laboratory can
+   produce. Then strike it from all three files *with that reasoning recorded*, so the reel and its
+   documentation agree.
+2. **Keep the non-claim and record the close as a known defect**, to be fixed if the reel is ever
+   re-cut. The honest alternative line is *"IT'S NOT THE SIZES. IT'S THE GAPS."* — the reel's
+   literal argument.
+
+**Until it is settled the caption must not repeat the phrase**, and none of the three captions
+above does. A caption is the one part of a posted reel that can still be edited; the close is not.
 
 ### Not in the caption, on purpose
 

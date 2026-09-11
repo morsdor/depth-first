@@ -1773,5 +1773,6 @@ scales after its point had landed.
 | `r006` | Submarine cables — your message goes underwater | 28 s | **2026-09-09** |
 | `r007` | Tides — the Sun pulls 179× harder, the Moon makes the tide | 54 s | **2026-09-10** |
 | `r008` | Pendulum wave — fifteen strings, back in line at 30 s | 34 s | **2026-09-10** |
+| `r009` | Scale — the biggest star ever measured is a speck in the gap | 40 s | **2026-09-11** |
 
-**Built, not yet posted:** `r009` — scale / the biggest star is a speck — **40 s**, built and re-cut 2026-09-11.
+**Nothing is built and unposted.** The next reel is `r010`.

@@ -170,11 +170,10 @@ before optimising for reach: whether r005's 71 follows stayed, and whether they 
 | `r006` | `I22` | Submarine cables — your message abroad goes underwater, not to space | **posted 2026-09-09** (28 s) — peaked ~1.8k views; the r005 pattern test, and it failed |
 | `r007` | `I58` | Tides — the Sun pulls 179x harder and the Moon still makes the tide | built 2026-09-10 (54 s), **posted 2026-09-10** — 189 views · 4 likes · 1 follow at first reading; first reel outside software, and the longest |
 | `r008` | `I69` | Pendulum wave — fifteen strings, and the thirty seconds they take to come back | built 2026-09-10 (34 s), **posted 2026-09-10** — 190 views · 0 engagement at first reading; first reel with a Manim layer; rebuilt down from a 60 s cycle after the first viewer could not tell the fifteen strings apart |
+| `r009` | `I70` | Scale — the biggest star ever measured is a speck in the gap to the next one | **posted 2026-09-11** (40 s) — first 3D reel (`@remotion/three`) and first topic invented rather than taken from the backlog. Built at 53 s and **re-cut the same day**: the Gate 3 verdict was *"I had a hard time understanding what it had to convey. We don't know what we are comparing against."* — the account's first Gate 3 failure on MESSAGE rather than concept or craft. One ruler replaced seven, every sphere got its own name, and the wide third was cut. See [`projects/r009_emptiness/SCRIPT.md`](projects/r009_emptiness/SCRIPT.md) |
 
-| `r009` | `I70` | Scale — the biggest star ever measured is a speck in the gap to the next one | built 2026-09-11, **re-cut the same day after the Gate 3 read (53 s → 40 s), awaiting Gate 3 again** — first 3D reel (`@remotion/three`) and first topic invented rather than taken from the backlog. The verdict on v1 was *"I had a hard time understanding what it had to convey. We don't know what we are comparing against."* — see [`projects/r009_emptiness/SCRIPT.md`](projects/r009_emptiness/SCRIPT.md) |
-
-**Reel numbers are contiguous and mean "the Nth reel posted".** `r001`–`r008` above are the eight
-that have shipped, in order; `r009` is built and un-posted. **The next reel is `r010`.**
+**Reel numbers are contiguous and mean "the Nth reel posted".** `r001`–`r009` above are the nine
+that have shipped, in order. Nothing is built and unposted. **The next reel is `r010`.**
 
 **Three built reels were never posted and were deleted on 2026-09-10** — the shuffle bias (`I51`,
 five rebuilds), A\* vs Dijkstra (`I15`, which failed the sentence test after being built) and the
