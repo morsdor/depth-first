@@ -309,3 +309,35 @@ build changed about the plan above, and why:
 - **The end ticks track the gap's ends** rather than sitting at x=60/x=1020, and a retiring rung
   now fades at the page margin instead of sliding off the edge — both found by measuring the mp4,
   not by reading the code.
+
+---
+
+## 9. v3 — the teaser, after the posted numbers (2026-09-11)
+
+r009 posted and averaged **5 s of a 40 s reel**. The script in §3–§7 above is what a viewer who
+stays understands; almost nobody stayed, so the fix moved upstream of everything in this document.
+
+**The hook is replaced, in the same 4 s, by a silent teaser that shows the whole reel:** the
+biggest star ever measured collapses to nothing and the gap resolves around it. No number, no
+ruler, no counter — just the event, at 1 s instead of at 31 s.
+
+| t | On screen | Narration |
+|:--|:--|:--|
+| 0.0–2.8 | the giant collapses, 278 px → nothing, on the gap line | — |
+| 0.3 | | **THE BIGGEST STAR / WE HAVE EVER FOUND** |
+| 2.85 | the frame it stops being a disc | **GONE.** *(104 px, accent)* |
+| 3.45 | an accent wipe crosses the gap | *INTO THE GAP TO THE NEXT STAR.* |
+| 4.2 | **hard cut to Earth** | **SO HOW BIG WAS IT? / START HERE.** |
+
+Everything from §3's B2 onward is unchanged and runs 0.4 s later. Two consequential edits:
+
+- **The clock now promises the figure, not the event** — `GONE IN __s` → **`THE NUMBER IN __s`**.
+  The teaser has already demonstrated the vanish, so what the back half still owes is 18,749.
+- **The gap-beat title became "AND NOW / THAT GAP AGAIN"**, which pays the teaser off instead of
+  introducing the gap as if it were new.
+
+**Why this and not a better promise:** r008's lesson produced "a promise says what is about to
+happen and when", and v2 obeyed it. But a promise still asks the viewer to spend two seconds on
+trust, and in a genre they have seen a hundred times they will not. The teaser spends nothing and
+asks nothing — it delivers, and then earns the right to explain. That is the `equation.verse`
+order, which this repo has quoted since r005 and had never actually used.

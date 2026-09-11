@@ -1,7 +1,7 @@
 # r009 · I70 — the biggest star in the universe is a speck
 
-**Built 2026-09-11. Re-cut the same day after the Gate 3 read: 53 s → 40 s. Accent
-`infrastructure #00D6F7` (§2).**
+**Built 2026-09-11 at 53 s. Re-cut to 40 s the same day after the Gate 3 read, and re-cut again
+to 40.4 s after posting. Accent `infrastructure #00D6F7` (§2).**
 First **3D** reel in the repo (`@remotion/three`), and the first built on a topic that did not
 come from `content_backlog.md`.
 
@@ -110,18 +110,61 @@ reason emission nebulae photograph red.
 `brand:check` bans hex literals outside `brand/` but accepts computed `rgb()` strings, so the
 honest path and the legal path turned out to be the same one.
 
-## The beats — v2, 40 s
+## v3 — the teaser, 2026-09-11, after the posted numbers came in
+
+**r009 posted and averaged 5 s of watch time on a 40 s reel — 12.5% of runtime, against r005's
+20 s of 32 s (62.5%).** Same account, same palette, same chrome, same audit discipline, a 5x gap.
+
+That number rules out the things the v2 re-cut fixed. v2's ruler is not established until 9 s and
+its payoff is at 31 s, so at a 5 s average the overwhelming majority of viewers reached neither.
+**The failure is in the first two seconds, and v2's first two seconds were doing two things
+wrong:**
+
+1. **They promised a result instead of showing one.** `equation.verse` floods its map immediately —
+   you are amazed FIRST and understanding is the reward for staying. v2 spent 3.8 s saying a thing
+   was *about* to happen.
+2. **For two seconds it was indistinguishable from its own genre.** Dark frame, glowing sphere, a
+   size claim: the opening move of every cosmic-scale video already in the feed. r009's actual
+   difference — that sizes saturate and distances do not — did not appear until ~22 s.
+   **Differentiation that arrives at second 22 is not differentiation.**
+
+**v3 replaces the hook with a TEASER in the same 4 s budget: the giant collapses to nothing and
+the gap resolves around it, with no number anywhere.** A star that vanishes in the first three
+seconds is a move the genre never makes and it is legible by ~1 s. Nothing is spoiled — the payoff
+is 18,749 and what ×1,540 feels like, and both still arrive in the back half. What the teaser buys
+is a **question** ("how big was the thing that just vanished?"), which the ladder then answers;
+B2's title is *"SO HOW BIG WAS IT? / START HERE."* in the past tense for exactly that reason.
+
+The clock changed with it. The teaser has already shown the event, so the event needs no
+credibility — what the back half still owes is the figure. `GONE IN __s` became **`THE NUMBER IN
+__s`**, and it starts after the cut rather than at 1.5 s.
+
+**Three measurement lessons, all of them found by re-running the audit rather than by looking:**
+
+- **Space a pull for a constant PIXEL rate, not a constant zoom rate.** A shrinking disc changes an
+  annulus, `2·π·r·dr`, so a log-constant pull front-loads all of its motion and dies exactly as the
+  star gets small. The first teaser cut was alive to 1.5 s and then ran 0.75 s at 0.09–0.10 against
+  a 0.35 floor, sitting in the retention cliff. Holding `r` high and taking `dr` in even bites —
+  ~22 px of radius per sample — fixed it.
+- **A deep-amber body is worth far less change than a bright one.** The giant is flux-shaded to 12%
+  of the Sun's surface brightness, so 5 px of radius per sample measured 0.19–0.34 where the
+  arithmetic predicted 0.53. The giant beat's 1.50 s dead spell was fixed with a text *departure*
+  at 15.6 and an *arrival* at 15.9, not with a faster pull.
+- **`useBeat` is a HOOK and must not be called conditionally.** GapGroup now has two windows —
+  teaser and break — and the first draft branched on the call. Caught before render.
+
+## The beats — v3, 40.4 s
 
 | Beat | s | What it does |
 |:--|:--|:--|
-| hook | 0.0–3.8 | **The giant itself**, receding, with the promise over it and a clock keeping it. |
-| earth | 3.8–7.8 | Hard cut to Earth. Jupiter grows beside it and **Earth stays**. The ruler is born: `×11.2`. |
-| sun | 7.8–11.3 | The Sun grows past Jupiter, which stays. `×9.7`. The title says the ruler out loud. |
-| giant | 11.3–17.0 | The giant returns at `×1,540`, the Sun a **labelled** point beside it for the whole beat. |
-| orbits | 17.0–20.2 | Wordless: rings drawn outward from its seat, Jupiter's swallowed. No new number. |
-| saturate | 21.2–25.8 | The five largest ever measured. The ruler visibly **refuses to climb**. |
-| break | 25.8–34.8 | The gap. Counter 1 → 18,749. Giant gone at **t=31.0**, the second the hook promised. |
-| close | 34.8–40.0 | Stays on the gap while the fill drains out of it. Four staggered arrivals. |
+| **teaser** | **0.0–4.2** | **The whole reel, with no numbers on it.** The giant collapses from 278 px to nothing by 2.8 s; `GONE.` lands at 2.85 on the frame it stops being a disc; the gap resolves around it and an accent wipe says *this is the span*. |
+| earth | 4.2–8.2 | Hard cut to Earth. *"So how big was it? Start here."* Jupiter grows beside it and **Earth stays**. The ruler is born: `×11.2`. |
+| sun | 8.2–11.7 | The Sun grows past Jupiter, which stays. `×9.7`. The title says the ruler out loud. |
+| giant | 11.7–17.4 | The giant returns at `×1,540`, the Sun a **labelled** point beside it for the whole beat. |
+| orbits | 17.4–20.6 | Wordless: rings drawn outward from its seat, Jupiter's swallowed. No new number. |
+| saturate | 21.6–26.2 | The five largest ever measured. The ruler visibly **refuses to climb**. |
+| break | 26.2–35.2 | The gap **again**, this time with the number. Counter 1 → 18,749; giant gone at **t=31.4**, the second the clock promised. |
+| close | 35.2–40.4 | Stays on the gap while the fill drains out of it. Four staggered arrivals. |
 
 **Cut from v1:** `hood` (25 neighbouring systems), `nebula` (Orion at 24 ly) and `galaxy` (the
 Sun at its real galactocentric radius) — 18 s that opened three new scales *after* the payoff had
@@ -206,12 +249,20 @@ a Jupiter not admitted for another 0.3 s.
 ## Audits
 
 ```
-                        v1 (53 s)                    v2 (40 s)
-motion, --width 240     median 0.658                 median 0.723
-                        dead 1.50s (limit 1.5)       dead 0.75s          PASS
-                        event density 31%            event density 35%
-Instagram chrome        TOP 0 · BOTTOM 0 · RAIL 888  TOP 0 · BOTTOM 0 · RAIL 1017
+                      v1 (53 s)        v2 (40 s)        v3 (40.4 s)
+motion --width 240    median 0.658     median 0.723     median 0.690
+                      dead 1.50s       dead 0.75s       dead 0.75s     PASS
+                      density 31%      density 35%      density 36%
+Instagram chrome      TOP 0 BOTTOM 0   TOP 0 BOTTOM 0   TOP 0 BOTTOM 0
+                      RAIL 888         RAIL 1017        RAIL 1008
 ```
+
+**The teaser is the weakest beat on event density — median 0.494, 18%** — and that is understood
+rather than unfixed. It is one collapsing disc and three text arrivals; a disc changes an annulus
+and this one is deep amber, so the frame is continuously *alive* (no dead run over 0.5 s inside
+it) without producing many samples over the 1.0 event threshold. The metric was derived from a
+viewer calling a **frozen** reel static, and this beat is never frozen. If the posted numbers say
+otherwise, the honest next lever is brightness and contrast, not more events.
 
 **Per beat (v2), median | dead samples | event density:**
 

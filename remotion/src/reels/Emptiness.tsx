@@ -68,10 +68,11 @@ import {
  * rung is WIDE.sunR0Ly (GRAVITY Collaboration 2019), which the Sun marker is
  * pinned to. Everything else on screen came out of scale_ladder.py.
  */
-export const DURATION_SECONDS = 40;
+export const DURATION_SECONDS = 40.4;
 
-/** The instant the giant is gone. The hook promises this second, so it is a contract. */
-const VANISH = 31.0;
+/** The instant the giant is gone FOR THE SECOND TIME, with the number attached.
+ *  The teaser has already shown the event; the clock promises the figure. */
+const VANISH = 31.4;
 
 /**
  * Beat boundaries, seconds. Non-negotiable 5 — read -> animate -> HOLD, ~6.5 s
@@ -95,26 +96,40 @@ const VANISH = 31.0;
  *    subject ("how empty is empty") is a reel of its own.
  */
 const B = {
-  /* The hook is 3.8 s and not 5.0. Measured at 240 px, a single shrinking disc
-     carries about two seconds and then goes quiet whatever it does — the change
-     it makes is an annulus, which scales with its radius, so the beat dies
-     exactly as the star gets small. Five seconds of it read 0.27 median / 20%
-     density with a 2.00 s dead spell; text arrivals are the only large-area
-     events an almost-empty frame has, so the beat is shortened to the length its
-     three arrivals can actually fill. */
-  hook: [0.0, 3.8],
-  earth: [3.8, 7.8],
-  sun: [7.8, 11.3],
-  giant: [11.3, 17.0],
-  orbits: [17.0, 20.2],
-  saturate: [21.2, 25.8],
-  /* The tail was 5.5 s of near-empty gap after the payoff landed, and the audit
-     read 31.8-34.05 as dead: the line is a 13 px rule across the frame, so
-     neither the zoom nor the drain changes enough area to register. Text
-     arrivals are the only large-area events available on an empty frame, so the
-     tail is shorter and every line of it lands on its own beat. */
-  break_: [25.8, 34.8],
-  close: [34.8, DURATION_SECONDS],
+  /**
+   * v3 — the TEASER, and it replaces the hook rather than being added to it.
+   *
+   * r009 posted with an average watch time of 5 s on a 40 s reel: 12.5% of
+   * runtime, against r005's 62.5%. The v2 re-cut had fixed comprehension, but
+   * the ruler is not established until 9 s and the payoff is at 31 s, so
+   * essentially nobody reached either. The failure is in the first two seconds.
+   *
+   * Two things were wrong there and this beat fixes both:
+   *
+   * 1. **It opened with a promise instead of a result.** `equation.verse` floods
+   *    its map immediately — you are amazed FIRST and understanding is the
+   *    reward for staying. v2 spent its first 3.8 s saying a thing was *about*
+   *    to happen. The same 3.8 s now shows it happening.
+   * 2. **For two seconds it was indistinguishable from the genre.** Dark frame,
+   *    glowing sphere, a size claim — the opening move of every cosmic-scale
+   *    video already in the feed, and its actual difference did not appear
+   *    until ~22 s. Differentiation that arrives at second 22 is not
+   *    differentiation. A star that COLLAPSES TO NOTHING in the first two
+   *    seconds is a move the genre never makes, and it is legible by ~1 s.
+   *
+   * The teaser spends no numbers, so nothing is spoiled: the payoff is 18,749
+   * and what ×1,540 feels like, and both still arrive in the back half. What
+   * the teaser buys is a QUESTION — how big was the thing that just vanished —
+   * which is what the ladder then answers.
+   */
+  teaser: [0.0, 4.2],
+  earth: [4.2, 8.2],
+  sun: [8.2, 11.7],
+  giant: [11.7, 17.4],
+  orbits: [17.4, 20.6],
+  saturate: [21.6, 26.2],
+  break_: [26.2, 35.2],
+  close: [35.2, DURATION_SECONDS],
 } as const;
 
 // ── the camera, and the one number that moves ───────────────────────────────
@@ -151,53 +166,62 @@ const HERO = (STAGE_H_PX / 1920) * 0.95;
  * slot 470 px away from the thing they named.
  */
 const VIEW: [number, number][] = [
-  /* The cold open. v1 started on Earth at 4.3e4 while the title promised a star
-     — the promise and the picture were about different objects. */
-  /* A REAL pull, and DENSE. `ease` takes the rate to zero at every keyframe, so
-     three widely-spaced ones gave a fast-slow-fast-slow crawl that read as three
-     separate dead spells. Ten geometric steps at 0.42 s make it constant-rate in
-     log space, which is what reads as one continuous recede. */
-  [0.0, 7.4e9], // the giant, at the top of its stage budget
-  [0.42, 8.22e9],
-  [0.84, 9.13e9],
-  [1.26, 1.013e10],
-  [1.68, 1.125e10],
-  [2.1, 1.25e10],
-  [2.52, 1.388e10],
-  [2.94, 1.541e10],
-  [3.36, 1.712e10],
-  [3.78, 1.9e10], // ...a third of the size it started, with 27 s still to run
-  /* A CUT, not a pull: 1.9e10 -> 5.7e4 is 330,000x and no zoom rate survives it.
-     The backdrop does not re-base with viewKm, so it carries across the cut and
-     stops it reading as a jump — which is the job it was built for. */
-  [3.8, 5.7e4], // Earth
-  [5.6, 6.3e5], // Jupiter arrives beside it, and Earth STAYS
-  [7.8, 6.9e5], // the pair holds, still pulling
-  [9.4, 6.3e6], // the Sun, and Jupiter stays
-  [11.3, 6.9e6], // ...and is HELD. the pull starts after the hold, not during it
+  /* THE TEASER — the break beat, replayed at 3.2 s instead of 5.2, with no
+     numbers on it. The giant starts at the top of its stage budget and is a
+     sub-pixel speck by 2.4 s; the two ends of the gap converge into frame by
+     3.2 s and hold for a second so the picture is readable before the cut.
+     The first segment is deliberately SHORT (0.35 s): `ease` ramps the rate
+     inside each segment, so a short one reaches full speed by ~0.2 s and the
+     star is visibly going before the title even lands. */
+  /* Spaced for a constant PIXEL rate, not a constant zoom rate. A log-constant
+     pull shrinks the disc fastest while it is biggest, so the first cut of this
+     teaser front-loaded all its motion: alive to 1.5 s, then 0.75 s at 0.09-0.10
+     against a 0.35 floor, sitting exactly in the retention cliff. A shrinking
+     disc changes an annulus — 2*pi*r*dr — so holding r HIGH and taking dr in
+     even bites is what keeps the area changing. ~22 px of radius per sample. */
+  [0.0, 7.4e9], // 278 px radius
+  [0.2, 7.85e9], // 262 — a short first segment so `ease` is at full rate by ~0.1 s
+  [0.5, 8.8e9], // 234
+  [0.85, 1.005e10], // 205
+  [1.15, 1.176e10], // 175
+  [1.55, 1.583e10], // 130
+  [1.95, 2.286e10], // 90
+  [2.3, 3.741e10], // 55
+  [2.6, 8.23e10], // 25
+  [2.8, 2.57e11], // 8 — and now it falls away
+  [3.15, 8.4e13], // the gap fits the frame, and the star is gone
+  [4.18, 9.6e13],
+  /* A CUT, not a pull: 9.6e13 -> 5.7e4 is nine orders of magnitude and no zoom
+     rate survives it. The backdrop does not re-base with viewKm, so it carries
+     across the cut and stops it reading as a jump — the job it was built for. */
+  [4.2, 5.7e4], // Earth
+  [6.0, 6.3e5], // Jupiter arrives beside it, and Earth STAYS
+  [8.2, 6.9e5], // the pair holds, still pulling
+  [9.8, 6.3e6], // the Sun, and Jupiter stays
+  [11.7, 6.9e6], // ...and is HELD. the pull starts after the hold, not during it
   /* The pull has to clear 5.9e9 before the giant is allowed on screen at all
-     (see the visibility ceiling), so it is admitted at 13.1 — just before its
+     (see the visibility ceiling), so it is admitted at 13.5 — just before its
      title, and while the Sun is still a labelled point beside it. */
-  [13.1, 6.6e9],
-  [14.4, 9.6e9], // the giant, x1,540, bigger than the hook left it
+  [13.5, 6.6e9],
+  [14.8, 9.6e9], // the giant, x1,540, bigger than the teaser left it
   /* The hold keeps pulling, and DENSELY — 9.6e9 -> 1.01e10 over 2.6 s is a 1.05x
-     crawl, and the audit read 15.0-16.75 as dead: the title had landed, the
-     ruler had landed, and the orbit rings were still a second away. */
-  [15.3, 1.055e10],
-  [16.2, 1.16e10],
-  [17.0, 1.25e10],
-  [18.6, 1.3e10],
-  [20.2, 1.35e10], // out past Saturn's orbit — the giant clears Jupiter's ring
+     crawl, and the audit read it as dead: the title had landed, the ruler had
+     landed, and the orbit rings were still a second away. */
+  [15.7, 1.055e10],
+  [16.6, 1.16e10],
+  [17.4, 1.25e10],
+  [19.0, 1.3e10],
+  [20.6, 1.35e10], // out past Saturn's orbit — the giant clears Jupiter's ring
   /* The five-in-a-row must be AT this scale before the beat opens, not arriving
-     at it: the first cut faded them in while the zoom was three keyframes away
+     at it: an earlier cut faded them in while the zoom was three keyframes away
      and the outer two were clipped off both edges. */
-  [21.2, 2.45e10],
-  [25.8, 2.7e10],
+  [21.6, 2.45e10],
+  [26.2, 2.7e10],
   [VANISH, 8.4e13], // the gap, end to end. the giant is now 0.05 px.
-  /* The close STAYS on the gap. v1 pulled out to the neighbourhood, the Orion
-     Nebula and the galaxy here — three new scales opened after the payoff had
-     landed, and the three rungs the motion audit blamed for the 31%. */
-  [34.8, 9.6e13],
+  /* The close STAYS on the gap. An earlier cut pulled out to the neighbourhood,
+     the Orion Nebula and the galaxy here — three new scales opened after the
+     payoff had landed, and the three rungs the motion audit blamed for its 31%. */
+  [35.2, 9.6e13],
   [DURATION_SECONDS, 1.15e14],
 ];
 
@@ -211,7 +235,7 @@ for (const [name, diamKm, atViewKm] of [
   ['Earth', 2 * LADDER[0].radiusKm, 5.7e4],
   ['Jupiter', 2 * LADDER[1].radiusKm, 6.3e5],
   ['the Sun', 2 * LADDER[2].radiusKm, 6.3e6],
-  ['the giant', 2 * LADDER[3].radiusKm, 7.4e9], // its tightest keyframe, the hook
+  ['the giant', 2 * LADDER[3].radiusKm, 7.4e9], // its tightest keyframe, the teaser
   ["Saturn's orbit", 2 * 9.583 * AU_KM, 1.35e10],
 ] as [string, number, number][]) {
   if (diamKm / atViewKm > HERO) {
@@ -249,7 +273,7 @@ const useRung = () => {
   /* Earth HOLDS centred from the cut to 4.7 — the extra stop is the beat the
      new frame gets to itself. Without it Earth started sliding left the instant
      it arrived, toward a Jupiter that is not admitted until ~5.0. */
-  return interpolate(s, [0, 3.78, 3.8, 4.7, 5.6, 9.4, 11.3, 13.1], [3, 3, 0, 0, 1, 2, 2, 3], ease);
+  return interpolate(s, [0, 4.18, 4.2, 5.1, 6.0, 9.8, 11.7, 13.5], [0, 0, 0, 0, 1, 2, 2, 3], ease);
 };
 
 /**
@@ -532,7 +556,15 @@ const Backdrop: React.FC = () => {
  */
 const LadderGroup: React.FC<{ viewKm: number }> = ({ viewKm }) => {
   const s = useCurrentFrame() / FPS;
-  const o = useBeat(B.hook[0] - 1, B.orbits[1]);
+  /* Hard start at the cut, not useBeat: during the teaser the giant is drawn by
+     GapGroup at the midpoint of the gap, and useBeat's 0.6 s lead-in would fade
+     a SECOND giant in beside it at the ladder's rung position. */
+  const o = interpolate(
+    s,
+    [B.earth[0], B.earth[0] + 0.3, B.orbits[1], B.orbits[1] + 0.6],
+    [0, 1, 1, 0],
+    { ...ease, extrapolateLeft: 'clamp', extrapolateRight: 'clamp' },
+  );
   const rung = useRung();
   const u = (km: number) => (km / viewKm) * WORLD_H;
 
@@ -619,7 +651,7 @@ const Orbits: React.FC<{ viewKm: number; cx: number }> = ({ viewKm, cx }) => {
            An earlier attempt grew the STAR from the Sun's radius instead — that
            worked on the audit and was wrong on the screen, because the giant
            snapped from full size down to Sun size the instant the beat opened. */
-        const at = B.orbits[0] - 0.6 + i * 0.55;
+        const at = B.orbits[0] - 1.3 + i * 0.5;
         const a = interpolate(s, [at, at + 0.5], [0, 1], ease);
         const r = u(au * AU_KM) * interpolate(s, [at, at + 1.5], [0, 1], ease);
         if (a <= 0.002 || r <= 0.004) return null;
@@ -711,17 +743,35 @@ const FiveGroup: React.FC<{ viewKm: number }> = ({ viewKm }) => {
  */
 const GapGroup: React.FC<{ viewKm: number }> = ({ viewKm }) => {
   const s = useCurrentFrame() / FPS;
-  const o = useBeat(B.break_[0], DURATION_SECONDS + 1);
+  /* TWO windows. The teaser is this same beat replayed fast and silent — same
+     geometry, same true scale, no counter and no accent fill — so the reel opens
+     on its own result and then spends 27 s earning it. */
+  const teaser = s < B.earth[0];
+  /* useBeat is a HOOK, so it is called unconditionally and the branch picks the
+     result — a conditional call changes hook order between frames. */
+  const breakO = useBeat(B.break_[0], DURATION_SECONDS + 1);
+  const o = teaser ? 1 : breakO;
   const u = (km: number) => (km / viewKm) * WORLD_H;
   if (o <= 0.002) return null;
 
   const half = u(GAP.km / 2);
-  const sweep = interpolate(
-    s,
-    [B.break_[0] + 1.0, VANISH, B.close[0] + 0.6, B.close[0] + 4.4],
-    [0, 1, 1, 0],
-    ease,
-  );
+  /* Nothing is tallied in the teaser: it shows WHAT happens, the back half
+     shows HOW MUCH. A fill creeping across the gap at 3 s would be a number
+     the viewer has no ruler for yet. */
+  const sweep = teaser
+    ? /* a 918x13 px accent wipe is a real event on an otherwise empty frame, and
+         at 0.7 s it reads as "this is the span" rather than as a tally */
+      interpolate(s, [2.9, 3.6], [0, 1], {
+        ...ease,
+        extrapolateLeft: 'clamp',
+        extrapolateRight: 'clamp',
+      })
+    : interpolate(
+        s,
+        [B.break_[0] + 1.0, VANISH, B.close[0] + 0.6, B.close[0] + 4.4],
+        [0, 1, 1, 0],
+        ease,
+      );
   const giantR = u(GAP.biggestDiamKm / 2);
 
   return (
@@ -738,7 +788,7 @@ const GapGroup: React.FC<{ viewKm: number }> = ({ viewKm }) => {
       </mesh>
       {/* the leading edge, a bright moving mark. Gated on the clock and not on
           `sweep`, or it reappears when the fill drains under the close. */}
-      {s < VANISH + 0.3 ? (
+      {!teaser && s < VANISH + 0.3 ? (
         <mesh position={[-half + half * 2 * sweep, 0, 0]}>
           <planeGeometry args={[0.035, 0.5]} />
           <meshBasicMaterial
@@ -774,12 +824,18 @@ const GapGroup: React.FC<{ viewKm: number }> = ({ viewKm }) => {
         color={BIGGEST[0].rgb}
         flux={BIGGEST[0].flux}
         opacity={o}
-        halo={2.3}
-        minHalo={interpolate(s, [B.break_[0], VANISH], [0.062, 0], {
-          ...ease,
-          extrapolateLeft: 'clamp',
-          extrapolateRight: 'clamp',
-        })}
+        /* The same corona breath the ladder's giant has, and for the same
+           measured reason: the halo is ~2.3x the disc and so covers most of the
+           frame, which makes modulating it the cheapest large-area motion
+           available. It matters most HERE — the teaser is one collapsing disc
+           and nothing else, and a collapsing disc only ever changes an annulus. */
+        halo={2.3 + 0.55 * Math.sin((2 * Math.PI * s) / 1.7 + 1.1)}
+        minHalo={interpolate(
+          s,
+          teaser ? [1.6, 2.8] : [B.break_[0], VANISH],
+          [0.062, 0],
+          { ...ease, extrapolateLeft: 'clamp', extrapolateRight: 'clamp' },
+        )}
       />
       {/* the hold after VANISH was 3.25 s of nothing; a pulse leaving the Sun and
           crossing the gap keeps it alive without adding a single new claim */}
@@ -913,11 +969,14 @@ const Caption: React.FC<{ from: number; to: number; rows: string[]; top?: number
   </Fade>
 );
 
-/** The promise made at t=0 has a clock keeping it. r008: a promise that names a
- *  time needs the countdown on screen, or it is just a claim. */
+/** r008: a promise that names a time needs a clock on screen or it is just a
+ *  claim. What is promised CHANGED in v3. The teaser has already shown the star
+ *  vanish, so the event needs no credibility — what the back half still owes is
+ *  the figure, and that is what the clock now counts to. It starts after the
+ *  cut, because during the teaser there is nothing outstanding to promise. */
 const Countdown: React.FC = () => {
   const s = useCurrentFrame() / FPS;
-  const o = interpolate(s, [1.5, 2.1, VANISH - 0.3, VANISH + 0.4], [0, 1, 1, 0], ease);
+  const o = interpolate(s, [5.6, 6.2, VANISH - 0.3, VANISH + 0.4], [0, 1, 1, 0], ease);
   if (o <= 0.002) return null;
   const left = Math.max(0, VANISH - s);
   return (
@@ -934,7 +993,7 @@ const Countdown: React.FC = () => {
       }}
     >
       <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 38, color: '#81A2C4', letterSpacing: 2 }}>
-        GONE IN
+        THE NUMBER IN
       </span>
       <span
         style={{
@@ -1054,19 +1113,19 @@ const BodyLabels: React.FC = () => {
  * means. The tally is then not a new object: it is this row finally breaking.
  */
 const RULER_STEPS: [number, string][] = [
-  [5.8, `×${LADDER[1].step!.toFixed(1)}`],
-  [9.7, `×${LADDER[2].step!.toFixed(1)}`],
-  [14.6, `×${fmt(LADDER[3].step!)}`],
+  [6.2, `×${LADDER[1].step!.toFixed(1)}`],
+  [10.1, `×${LADDER[2].step!.toFixed(1)}`],
+  [15.0, `×${fmt(LADDER[3].step!)}`],
 ];
 
 const Ruler: React.FC = () => {
   const s = useCurrentFrame() / FPS;
-  const o = interpolate(s, [5.5, 6.1, 25.0, 25.5], [0, 1, 1, 0], ease);
+  const o = interpolate(s, [5.9, 6.5, 25.4, 25.9], [0, 1, 1, 0], ease);
   if (o <= 0.002) return null;
   let idx = 0;
   for (let i = 0; i < RULER_STEPS.length; i++) if (s >= RULER_STEPS[i][0]) idx = i;
   /* Every arrival sweeps the rule open, so a changing number is an EVENT and not
-     a quiet swap — three of them, at 5.8, 9.7 and 14.6 s. */
+     a quiet swap — three of them, at 6.2, 10.1 and 15.0 s. */
   const sweep = interpolate(s - RULER_STEPS[idx][0], [0, 0.45], [0, 1], {
     ...ease,
     extrapolateLeft: 'clamp',
@@ -1120,10 +1179,10 @@ const GapLabels: React.FC = () => {
      catches up at ~30.6, so for the first five seconds these two ticks pointed at
      ends that were off screen — a label naming something the viewer cannot see,
      which is the whole defect this rewrite exists to fix. */
-  const o = interpolate(s, [30.4, 31.0, 34.0, 34.4], [0, 1, 1, 0], ease);
+  const o = interpolate(s, [30.8, 31.4, 34.4, 34.8], [0, 1, 1, 0], ease);
   /* And the span line lands AFTER the verdict, as the last thing before the
      close, so the beat never carries more than three text blocks at once. */
-  const span = interpolate(s, [33.6, 34.1, 34.6, 35.0], [0, 1, 1, 0], ease);
+  const span = interpolate(s, [34.0, 34.5, 35.0, 35.4], [0, 1, 1, 0], ease);
   /* BOTH, not just the ticks. The span line outlives them by 0.6 s on purpose —
      it is the last thing before the close — and guarding on `o` alone returned
      null straight through it, leaving 34.4-35.1 as a frame with nothing in it
@@ -1197,7 +1256,7 @@ const GapLabels: React.FC = () => {
  */
 const Tally: React.FC = () => {
   const s = useCurrentFrame() / FPS;
-  const o = interpolate(s, [B.break_[0] + 0.5, B.break_[0] + 1.2, 34.0, 34.4], [0, 1, 1, 0], ease);
+  const o = interpolate(s, [B.break_[0] + 0.5, B.break_[0] + 1.2, 34.4, 34.8], [0, 1, 1, 0], ease);
   if (o <= 0.002) return null;
   const n = interpolate(s, [B.break_[0] + 1.0, VANISH], [1, GAP.fitsRounded], ease);
   return (
@@ -1252,58 +1311,99 @@ export const Emptiness: React.FC = () => {
           over a frame showing Earth: a good promise attached to the wrong
           picture, which is worse than r008's dead label, because r008 at least
           described what was there. */}
-      {/* Split into two arrivals at 0.6 and 2.4, with the clock landing at 1.5
-          between them. On an almost-empty frame a block of 62 px type is the
-          single biggest event available — measured at 3.7 against a 1.0 event
-          threshold — so the promise is spent as three events rather than one. */}
-      <Title from={0.6} to={3.75} lines={['THE BIGGEST STAR', 'EVER MEASURED']} size={62} accent={-1} />
-      <Title from={2.4} to={3.75} lines={['', '', 'IS ABOUT TO VANISH']} size={62} />
+      {/* THE TEASER. Three arrivals, and the star is visibly collapsing under all
+          of them — the title lands at 0.3 while it is already going, "GONE." at
+          2.85 on the frame where it actually stops being a disc, and the line
+          that says where it went at 3.45. No number anywhere: the teaser spends
+          what happened, the back half spends how much. */}
+      <Title
+        from={0.3}
+        to={3.95}
+        lines={['THE BIGGEST STAR', 'WE HAVE EVER FOUND']}
+        size={62}
+        accent={-1}
+      />
+      <Fade
+        from={t(2.85)}
+        to={t(3.95)}
+        style={{ position: 'absolute', top: 556, left: 60, width: 810 }}
+      >
+        <div
+          style={{
+            fontFamily: 'Archivo Black',
+            fontSize: 104,
+            letterSpacing: -3,
+            lineHeight: 1.05,
+            color: '#00D6F7',
+          }}
+        >
+          GONE.
+        </div>
+      </Fade>
+      <Fade
+        from={t(3.45)}
+        to={t(3.95)}
+        style={{ position: 'absolute', top: 700, left: 60, width: 810 }}
+      >
+        <div
+          style={{ fontFamily: 'IBM Plex Mono', fontSize: 40, letterSpacing: 1, color: '#81A2C4' }}
+        >
+          INTO THE GAP TO THE NEXT STAR.
+        </div>
+      </Fade>
       <Countdown />
 
-      {/* B2 — the cut to Earth. The title says why we just left the star, but not
-          immediately: the promise holds to 3.75 and goes with the cut at 3.8, then
-          Earth has 1.1 s on its own — its name at 4.5, its title at 4.9 — before
-          Jupiter starts growing at 5.6. The first v2 cut ran the hook title out at
-          3.6 and the new title in at 4.2, so three text states changed inside one
-          second across a hard cut. */}
-      <Title from={4.9} to={7.5} lines={['TO SEE HOW BIG,', 'START HERE']} size={76} />
+      {/* B2 — the cut to Earth, and the question the teaser just raised. "How big
+          WAS it" is past tense on purpose: it points back at the thing that
+          vanished, which is what makes the ladder feel like an answer rather
+          than a slideshow. Earth gets 1.1 s on its own first — its name at 4.9,
+          its title at 5.3 — before Jupiter starts growing at 6.0. */}
+      <Title from={5.3} to={7.9} lines={['SO HOW BIG WAS IT?', 'START HERE.']} size={68} />
 
       {/* B3 — the ruler, said out loud. This is the sentence v1 never had, and
           without it every number afterwards is an unanchored figure. */}
-      <Title from={8.2} to={12.4} lines={['EACH ONE ABOUT', 'TEN TIMES THE LAST']} size={68} />
+      <Title from={8.6} to={12.8} lines={['EACH ONE ABOUT', 'TEN TIMES THE LAST']} size={68} />
 
       {/* B4 — the jump, stated in the ruler the viewer now owns. */}
-      {/* No caption. With the two body names and the ruler this beat is already
-          carrying four text blocks against the countdown, and a fifth is what
-          made the first v2 still unreadable. The ESO provenance moved to
-          NOTES.md, which is where a source belongs. */}
-      <Title from={13.4} to={16.7} lines={['NOT TEN TIMES.', 'FIFTEEN HUNDRED.']} size={72} />
+      {/* The title HANDS OVER to the caption rather than sitting alongside it —
+          never five text blocks at once, which is what made the first v2 still
+          unreadable, but never a 1.5 s hole either. 15.50-16.75 measured six
+          consecutive dead samples: the giant is deep amber and flux-shaded to
+          12% of the Sun's surface brightness, so its shrinking edge is worth far
+          less change than a bright one, and there was no arrival to cover it.
+          A departure at 15.6 and an arrival at 15.9 cost nothing and fix it. */}
+      <Title from={13.8} to={15.6} lines={['NOT TEN TIMES.', 'FIFTEEN HUNDRED.']} size={72} />
+      <Caption
+        from={15.9}
+        to={17.1}
+        rows={['Imaged in detail in 2024 —', 'the first ever outside our galaxy']}
+      />
 
       {/* B5 — one wordless beat for what 1,540 FEELS like. No number: the ruler
           holds at ×1,540 and the rings do the talking. v1 spent this beat on
           "7.16 AU · short of Saturn", which is the purest jargon in the reel and
           makes the giant sound small at the moment it should feel huge. */}
-      <Title from={17.4} to={19.9} lines={['PUT IT WHERE', 'OUR SUN SITS']} size={72} />
-      <Caption from={17.9} to={19.9} rows={['it reaches out past Jupiter']} />
+      <Title from={17.8} to={20.3} lines={['PUT IT WHERE', 'OUR SUN SITS']} size={72} />
+      <Caption from={18.3} to={20.3} rows={['it reaches out past Jupiter']} />
 
       {/* B6 — sizes stop. The ruler visibly refuses to climb; that is the beat. */}
-      <Title from={21.4} to={25.3} lines={['AND THAT IS WHERE', 'SIZE STOPS']} size={68} />
+      <Title from={21.8} to={25.7} lines={['AND THAT IS WHERE', 'SIZE STOPS']} size={68} />
       <Caption
-        from={21.9}
-        to={25.3}
+        from={22.3}
+        to={25.7}
         rows={['the five biggest ever found', 'two galaxies, none of them bigger']}
       />
 
       {/* B7 — the payoff. Never more than three text blocks at once: the title
           hands over to the span line at 28.8, which hands over to the verdict at
           31.4. v1 ran four blocks in three type scales through all of it. */}
-      <Title from={25.9} to={28.4} lines={['AND NOW THE GAP', 'TO THE NEXT STAR']} size={70} />
+      <Title from={26.3} to={28.8} lines={['AND NOW', 'THAT GAP AGAIN']} size={76} />
       <Tally />
       <GapLabels />
       {/* One line at a time. A two-line block is ONE event to the audit and the
           hold behind it read 2.25 s dead; split, it is two. */}
-      <Title from={31.2} to={33.4} lines={['IT IS IN THERE.']} size={68} accent={-1} />
-      <Title from={32.1} to={33.4} lines={['', 'YOU CANNOT SEE IT.']} size={68} />
+      <Title from={31.6} to={33.8} lines={['IT IS IN THERE.']} size={68} accent={-1} />
+      <Title from={32.5} to={33.8} lines={['', 'YOU CANNOT SEE IT.']} size={68} />
 
       {/* B8 — rule 9: the close names what the next reel does, held the full 3 s,
           and it STAYS on the gap. The one thing GATE0 §4 said could make this
@@ -1312,7 +1412,7 @@ export const Emptiness: React.FC = () => {
           single fade: four arrivals inside the hold is what keeps it alive while
           the accent fill drains out of the gap behind it. */}
       <div style={{ position: 'absolute', top: 1080, left: 60, width: 810 }}>
-        <Fade from={t(35.1)}>
+        <Fade from={t(35.5)}>
           <div
             style={{
               fontFamily: 'Archivo Black',
@@ -1325,7 +1425,7 @@ export const Emptiness: React.FC = () => {
             SPACE ISN&apos;T BIG.
           </div>
         </Fade>
-        <Fade from={t(35.9)}>
+        <Fade from={t(36.3)}>
           <div
             style={{
               fontFamily: 'Archivo Black',
@@ -1340,8 +1440,8 @@ export const Emptiness: React.FC = () => {
           </div>
         </Fade>
         {[
-          [36.9, "The biggest star we've ever found —"],
-          [37.7, `${fmt(GAP.fitsRounded)} of them to cross that gap.`],
+          [37.3, "The biggest star we've ever found —"],
+          [38.1, `${fmt(GAP.fitsRounded)} of them to cross that gap.`],
         ].map(([at, line]) => (
           <Fade key={line as string} from={t(at as number)}>
             <div
@@ -1357,7 +1457,7 @@ export const Emptiness: React.FC = () => {
             </div>
           </Fade>
         ))}
-        <Fade from={t(38.8)}>
+        <Fade from={t(39.2)}>
           {['Next: the traffic jam with no cause —', 'and why it moves backwards.'].map((r) => (
             <div
               key={r}
