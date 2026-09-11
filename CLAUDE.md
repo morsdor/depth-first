@@ -62,7 +62,7 @@ Physical-system ids usually land in §2 (`infrastructure`) or §6 (`failure`).
 `I01`–`I70`**, grouped into six sections that map 1:1 onto `DOMAIN_ACCENT` in
 `remotion/src/brand/tokens.ts` — so the section *is* the accent colour decision. Live counts come
 from the script, never from this line:
-**9 built · 1 failed · 1 in gate · 2 retired · 1 shelved · 56 open** (2026-09-11; 70 ids, `I01`–`I70`).
+**9 built · 1 failed · 2 in gate · 2 retired · 1 shelved · 55 open** (2026-09-11; 70 ids, `I01`–`I70`).
 
 **The procedure for all of this is the [`new-reel`](.claude/skills/new-reel/SKILL.md) skill —
 `/new-reel`.** It lists the live candidate ids with their real status
