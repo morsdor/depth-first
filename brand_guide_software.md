@@ -1849,6 +1849,48 @@ does not say the craft discipline is wasted; it says craft is necessary and has 
 sufficient. And it is nine data points with one success, so every causal claim above is a
 hypothesis with a cheap test attached, not a law.
 
+### THE HOOK A/B — pre-registered 2026-09-11, before any numbers came back
+
+**r009 was re-cut and re-posted the same day with the same Caption A and the same hashtags.**
+Everything from 4.2 s onward is identical. Only the opening differs:
+
+| | v2 | v3 |
+|:--|:--|:--|
+| first 4 s | the giant receding, under a *promise* that it will vanish | the giant **actually vanishing**, into the gap, with no number |
+| clock | `GONE IN __s` from 1.5 s | `THE NUMBER IN __s`, from after the cut |
+| runtime | 40 s | 40.4 s |
+| result | **5 s average watch (12.5%)** | — |
+
+This is the closest thing to a controlled comparison this account has ever had: same subject, same
+script from 4.2 s, same caption, same tags, same aesthetic, same day. **Writing down what may be
+read from it, in advance, is the cheapest thing available and it is what `GATE0.md` §4 did
+correctly for the reel itself.**
+
+#### Read average watch time. Do NOT read views.
+
+**Views are contaminated here and the contamination is one-directional.** A near-duplicate
+re-post is exactly the thing a recommender suppresses, so v3 can lose on reach while winning on
+the hook, and a low view count would tell us nothing about the change. Reach also depends on
+time-of-day, on which pool the post lands in, and on how many of v3's viewers were already shown
+v2 — none of which the re-cut touched.
+
+**Average watch time is per viewer, so it survives all of that.** So does the skip rate, and so
+does anything Instagram reports about the first three seconds. Those are the readings.
+
+- **v3 beats 5 s** → the teaser did its job and the finding generalises to r010: *show the result
+  in the first two seconds, do not promise it*.
+- **v3 lands at ~5 s again** → the hook is not the binding constraint, and the remaining
+  candidates are the two §13 already names — that nobody has ever seen a 1,540 R☉ hypergiant, and
+  that a dark, low-saturation, low-contrast frame reads as "quiet" in a feed. **Both of those are
+  choices about what to make, not about how to cut it**, and neither can be tested by re-cutting
+  r009 again. A third re-cut would be the I51 mistake: answering a verdict with a craft fix.
+- **v3 loses badly on views but holds watch time** → that is the duplicate-suppression signal, and
+  it says the experiment worked and the distribution was withheld. Do not re-cut on that reading.
+
+**Cost of being wrong here is one more floored reel; cost of not writing it down is another
+re-cut cycle spent on the wrong layer.** That is the whole argument for pre-registration, and it
+is the fourth time this repo has had the chance to make it.
+
 ### Posted
 
 | Reel | Subject | Length | Posted |
