@@ -5,7 +5,7 @@ Five minutes of PIL. NOT a render, NOT the reel. It exists only to prove the
 approved sentence can be SHOWN:
 
     "You didn't drive into a traffic jam. The jam drove into YOU -- it's a wave
-     that rolls backwards down the motorway at about 20 km/h, and it was built
+     that rolls backwards down the highway at about 12 mph, and it was built
      out of nothing by people just following the car in front."
 
 Every car on this frame is at a position produced by the real car-following
@@ -31,6 +31,7 @@ FRAME = int(np.argmin(np.abs(T - 360.0)))
 pos, spd = X[FRAME], V[FRAME]
 WAVE = ring.wave_speed(T, X, V)
 WAVE_MEASURED_KMH = 20.0   # Sugiyama et al. 2008 -- the CITED figure, not ours
+WAVE_MEASURED_MPH = WAVE_MEASURED_KMH / 1.609344   # US audience: display only, physics stays SI
 stopped = int((spd < 5 / 3.6).sum())
 
 print(f"frame at t = {T[FRAME]:.0f} s")
@@ -117,13 +118,13 @@ dx, dy = dx / n, dy / n
 d.polygon([(tipx, tipy), (tipx - 18 * dx + 11 * dy, tipy - 18 * dy - 11 * dx),
            (tipx - 18 * dx - 11 * dy, tipy - 18 * dy + 11 * dx)], fill=BONE)
 
-d.text((RCX, RCY - 40), f"{WAVE_MEASURED_KMH:.0f} km/h", font=head_f, fill=BONE, anchor="mm")
+d.text((RCX, RCY - 40), f"{WAVE_MEASURED_MPH:.0f} mph", font=head_f, fill=BONE, anchor="mm")
 d.text((RCX, RCY + 22), "BACKWARDS", font=sub, fill=BONE, anchor="mm")
 d.text((RCX, RCY + 68), "while every car drives forwards", font=mono_s, fill=ASH, anchor="mm")
 
 d.text((CX, SAFE_TOP + 40), "NOBODY BRAKED.", font=head_f, fill=BONE, anchor="ma")
 d.text((CX, SAFE_TOP + 116), "NOBODY CRASHED.", font=head_f, fill=ACCENT, anchor="ma")
-d.text((CX, SAFE_TOP + 208), "22 cars. 230 metres of road. No obstacle.",
+d.text((CX, SAFE_TOP + 208), f"22 cars. {ring.feet(ring.L_RING):.0f} feet of road. No obstacle.",
        font=sub, fill=ASH, anchor="ma")
 
 d.text((CX, SAFE_BOTTOM - 74), "You never drove into it.", font=sub, fill=ASH, anchor="md")
@@ -131,5 +132,6 @@ d.text((CX, SAFE_BOTTOM - 22), "It drove into you.", font=head_f, fill=BONE, anc
 
 out = HERE / "payoff_frame.png"
 img.save(out)
-print(f"\nsim wave {ring.kmh(WAVE):+.2f} km/h   frame shows the CITED {WAVE_MEASURED_KMH:.0f} km/h")
+print(f"\nsim wave {ring.kmh(WAVE):+.2f} km/h = {ring.mph(WAVE):+.2f} mph")
+print(f"frame shows the CITED {WAVE_MEASURED_KMH:.0f} km/h = {WAVE_MEASURED_MPH:.0f} mph")
 print(f"wrote {out}")

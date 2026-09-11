@@ -95,7 +95,10 @@ def wave_speed(T, X, Vv, t_from=240.0):
         return 0.0
     return np.polyfit(T, np.unwrap(np.angle(z)), 1)[0] / k
 
-def kmh(a): return a * 3.6
+def kmh(a):  return a * 3.6
+def mph(a):  return a * 2.236936          # m/s -> mph
+def feet(m): return m * 3.280840          # metres -> feet
+def inch(m): return m * 39.37008          # metres -> inches
 
 if __name__ == "__main__":
     print(f"CALIBRATION   V(h*)={kmh(V(H_STAR)):.2f} km/h   ceiling={kmh(V(1e3)):.2f} km/h   "
@@ -112,7 +115,8 @@ if __name__ == "__main__":
     print(f"   slowest car (last 60 s) {kmh(Vv[tail].min()):6.2f} km/h")
     print(f"   fastest car (last 60 s) {kmh(Vv[tail].max()):6.2f} km/h")
     print(f"   speed spread (std dev)  {kmh(Vv[tail].std()):6.2f} km/h")
-    print(f"   WAVE SPEED              {kmh(c):+6.2f} km/h     experiment: about -20 km/h")
+    print(f"   WAVE SPEED              {kmh(c):+6.2f} km/h  = {mph(c):+6.2f} mph"
+          f"     experiment: about -20 km/h = -12 mph")
     print(f"   laps completed by a car {T[-1]*V_TARGET/L_RING:6.1f}   wave laps "
           f"{abs(c)*T[-1]/L_RING:4.1f} the other way\n")
 

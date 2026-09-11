@@ -9,7 +9,7 @@ Written 2026-09-11, the first concept run under the gate sequence added the same
 ## 1. The sentence — G2
 
 > **"You didn't drive into a traffic jam. The jam drove into YOU — it's a wave rolling
-> backwards down the motorway at about 20 km/h, and it was built out of nothing by people
+> backwards down the highway at about 12 mph, and it was built out of nothing by people
 > just following the car in front."**
 
 Not "phantom traffic jams are caused by driver reaction delay". That is the same fact with
@@ -77,6 +77,25 @@ attribute them to the experiment, not to us.
 **The falsification control is the density sweep.** 8, 12, 14, 16, 17, 18, 20 cars on the same
 ring stay perfectly smooth; 22, 26, 30 jam. A model that jammed at every density would be
 worthless, and the first version of this script did exactly that — see §7.
+
+### Units — US display, SI physics (decided 2026-09-11)
+
+The reel displays **feet and mph**, and uses US vocabulary (highway, gas, road — not motorway,
+petrol, tarmac). Instagram reach is dominated by the US pool and reach is this account's actual
+problem, so the localisation is a distribution decision, not a style one.
+
+**Only the display converts. `ring.py` stays SI end to end** — the model, the integration and
+every measurement above are metres and m/s, with `mph()`, `feet()` and `inch()` as presentation
+helpers. Both sources published in metric, so the metric figures are kept here verbatim and the
+conversions are computed, never typed:
+
+| On screen | Source figure | Exact |
+|:--|:--|:--|
+| 755 feet | 230 m | 754.59 ft |
+| 19 mph | ~30 km/h | 18.64 mph |
+| 12 mph backwards | ~20 km/h | 12.43 mph |
+| four inches | 10 cm | 3.94 in |
+| 2 mph crawl | 4 km/h | 2.49 mph |
 
 ### Licence
 
