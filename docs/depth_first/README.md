@@ -13,6 +13,7 @@ number and command in them was read from the repo or measured on this machine on
 | [`brand_guide_software.md`](../../brand_guide_software.md) §13 | **The ledger.** Every dated lesson, including the retracted ones. |
 | [`content_backlog.md`](../../content_backlog.md) | **The topic supply.** 69 permanent ids in six sections; the section is the accent colour. |
 | [`reel_captions_log.md`](../../reel_captions_log.md) | Captions, load-bearing phrasings, engagement per posted reel. |
+| [`what_travels.md`](what_travels.md) | **Why a reel is SHOWN at all.** The graded evidence behind Gate 3 — Instagram's three ranking ratios, why sends are the one that escapes your follower pool, Berger & Milkman on high-arousal sharing, Guo/Kim/Rubin on educational retention, and two falsified folklore hypotheses. Every rule in `CLAUDE.md` governs what happens AFTER a viewer is shown a reel; this is the file about whether they are. |
 | **These docs** | **The map.** How the machine works end to end, what is clutter, what tools exist beyond it, how to make each reel leave parts behind, and how to run the account like a business. |
 | **`software_thesis.md`** | **The bet beyond the account.** The repo as the seed of a product, and what that changes about how the reels are built today. |
 
@@ -26,7 +27,8 @@ number and command in them was read from the repo or measured on this machine on
 4. [`visual_toolbox.md`](visual_toolbox.md) — everything a reel could be made of beyond what has been used: maps and terrain flyovers, three.js and Blender, charts, body anatomy, real footage, and the licence on each.
 5. [`module_packs.md`](module_packs.md) — how each reel becomes a part in a library instead of a one-off, with the concrete duplications measured in the current code.
 6. [`growth_strategy.md`](growth_strategy.md) — the CEO view: what the engine is, the portfolio of bets, the pre-registered experiments, the metrics log, the 90-day plan, and the decisions only you can make.
-7. [`software_thesis.md`](software_thesis.md) — the product hiding in the repo. What is actually defensible, why an AI editor is the wrong first build, the explainer-engine wedge, the arithmetic to $1M, the three-layer architecture, and the Remotion licence constraint.
+7. [`what_travels.md`](what_travels.md) — **added 2026-09-11, after four floors in a row.** What actually decides distribution, graded STRONG/MEDIUM/WEAK, and the mechanism behind the send test: r009 v3 is LIKED at the same rate as the 66k reel (2.92% vs 2.79%) and SENT at 0.00% vs 0.92%. It is not liked less. It does not travel.
+8. [`software_thesis.md`](software_thesis.md) — the product hiding in the repo. What is actually defensible, why an AI editor is the wrong first build, the explainer-engine wedge, the arithmetic to $1M, the three-layer architecture, and the Remotion licence constraint.
 
 ---
 
