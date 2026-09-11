@@ -392,38 +392,122 @@ class of error it exists to avoid.
 
 ## r009 — "The biggest star we have ever measured is a speck" (`I70`) — DRAFT, not posted
 
-### Caption A
+**Rewritten 2026-09-11 for the v2 cut (53 s → 40 s).** The v1 captions below are superseded but
+every figure in them survived: nothing was re-measured, the reel just stopped putting most of them
+on screen. The one thing v2 changed for the caption is that **the spine is now a single ruler** —
+how many of the last thing fit across the next — so the caption leads with it, because that is what
+makes 18,749 land as something rather than as a big number.
+
+**`WOH G64 A` and `Proxima Centauri` are NOT on screen in v2** and belong here. `brand:check`
+enforces a 36 px type floor, so there is no such thing as a small credit inside the frame; the
+caption is where a designation can be given at the size it deserves.
+
+### Caption A — recommended
 
 > Everyone shows you how big stars get. Nobody shows you the emptiness.
 >
-> WOH G64 is 1,540 times the width of the Sun — put it where the Sun is and it swallows Jupiter's
-> orbit. It is the biggest star we have ever measured, and it is not much bigger than the next
-> four: the five largest ever found, across two galaxies, are all within 8.7% of each other.
-> Sizes run out.
+> Jupiter is 11 times wider than Earth. The Sun is 10 times wider than Jupiter. And the biggest
+> star we have ever measured — WOH G64 A, in the Large Magellanic Cloud — is 1,540 times wider than
+> the Sun. Put it where the Sun is and it swallows Jupiter's orbit.
 >
-> Distances don't. Lay that star end to end across the gap to Proxima Centauri, our nearest
-> neighbour, and it fits **18,749 times**.
+> Then it stops. The five largest stars ever measured, found across two galaxies, are all within
+> 8.7% of each other. Sizes run out.
+>
+> Distances don't. Lay that same star end to end across the gap to Proxima Centauri, our nearest
+> neighbour, and it fits 18,749 times. The Sun fits 28,873,790 times.
 >
 > Every figure here was computed from published measurements, and every colour is the real one —
 > each star is drawn at the colour a body of its temperature actually emits.
 
-### Load-bearing phrasings
+**Hook line (68 chars):** *"Everyone shows you how big stars get. Nobody shows you the emptiness."*
+— the Gate 0 sentence verbatim, which a human approved before anything was built.
+
+### Caption B — short, one number
+
+> The biggest star we have ever measured fits into the gap to the next star 18,749 times.
+>
+> That star is WOH G64 A: 1,540 times the width of our Sun, wide enough to swallow Jupiter's orbit.
+> It is also barely bigger than the next four — the five largest ever measured, across two
+> galaxies, are all within 8.7% of each other. Sizes run out at about 1,500 Suns.
+>
+> Distances don't. Four light-years to Proxima Centauri, and the largest object we have ever
+> measured is a speck in it.
+>
+> Computed from published measurements, not drawn.
+
+**Hook line (86 chars):** *"The biggest star we have ever measured fits into the gap to the next
+star 18,749 times."*
+
+### Caption C — the ruler, stated as the caption's own spine
+
+> Earth to Jupiter: 11 times wider. Jupiter to the Sun: 10. The Sun to the biggest star ever
+> measured: 1,540. Then it stops.
+>
+> The five largest stars ever measured, across two galaxies, are all within 8.7% of each other.
+> Nobody has found a bigger one, and the scale videos that end on "and this one is even bigger" are
+> stopping in the wrong place.
+>
+> Because the gaps keep going. That same star — WOH G64 A, 1,540 Suns wide, wide enough to swallow
+> Jupiter's orbit — fits into the gap to Proxima Centauri 18,749 times over.
+>
+> One question, asked four times: how many of the last thing fit across the next. Every figure
+> computed from published measurements.
+
+**Hook line (122 chars):** *"Earth to Jupiter: 11 times wider. Jupiter to the Sun: 10. The Sun to
+the biggest star ever measured: 1,540."* — lands right at Instagram's "more" cut.
+
+### Load-bearing phrasings — do not "tighten" these
 
 - **"the biggest star we have ever measured"**, never "the biggest star there is". Hypergiant
   radii are model-dependent and disputed; even the source list says so. This wording survives the
   next revision, and there will be one — Stephenson 2-18's 2,150 R☉ did not survive *this* build.
 - **"1,540 times the width"** — width, not size or volume. By volume it is ~3.6 billion times,
   which is a different and much larger claim the reel does not make.
-- **"the five largest ever found ... within 8.7%"** is an observation, not a theory. Do **not**
+- **"the five largest ever measured ... within 8.7%"** is an observation, not a theory. Do **not**
   write "stars cannot get bigger than X" — the Hayashi-limit version of that claim is false and
-  was cut during research.
+  was cut during research. Caption C's "sizes run out at about 1,500 Suns" is the furthest this may
+  be pushed, and only because "run out" describes the measurements rather than a mechanism.
 - **"our nearest neighbour"** — and note Proxima is unusually *close*. Typical local separations
   are larger, which makes the point stronger, so there is no temptation to overstate.
-- **Do not write "space is empty."** It is empty *of stars*.
+- **"11 times wider" / "10 times wider"** are the rounded forms of 11.2 and 9.7 and are fine in
+  prose. **The reel's on-screen ruler shows ×11.2 and ×9.7**, unrounded, because that slot is what
+  the whole reel resolves against; the caption may round where the screen may not.
+- **Do not write "space is empty."** It is empty *of stars*. Gas, dust and plasma are everywhere —
+  and see the open issue below, because the v2 cut puts that exact phrase on screen.
 
 ### Hashtags — six, topical, no stuffing
 
 `#astronomy` `#space` `#stars` `#scale` `#physics` `#scicomm`
+
+Alternate, if the astronomy tags are crowded on the day: swap `#physics` `#scicomm` for
+`#astrophysics` `#universe`. **Six is the cap** — `insta_strategy.md` §6 and the equation.verse
+teardown both put hashtag stuffing on the "leave" list explicitly.
+
+### OPEN ISSUE — the v2 close contradicts this reel's own non-claims list (2026-09-11)
+
+**`Emptiness.tsx` closes on "SPACE ISN'T BIG. SPACE IS EMPTY."** `NOTES.md`, `GATE0.md` §6 and this
+log all record *"Not 'space is empty' — it is empty of stars"* as an explicit non-claim, written
+down before the v2 close was drafted. The line was written as the send-line, on GATE0 §4's reading
+that the one thing making this reel sendable is that it settles *"space is mostly empty"* — and it
+landed straight on the phrasing the build had already ruled out.
+
+It is a **mechanism sentence, not a figure**, which is non-negotiable 7 exactly: figures get
+checked because they visibly came from a script, and a hand-written sentence passes every automated
+gate in the repo. It passed `tsc`, `eslint`, `brand:check` and both audits.
+
+Two defensible resolutions, and the human picks:
+
+1. **Change the close** to something the repo has already agreed is true — *"IT'S NOT THE SIZES. /
+   IT'S THE GAPS."* is the reel's literal argument and costs one re-render. Least repeatable of the
+   options.
+2. **Keep it**, on the grounds that 35 seconds of context make "empty" read as "empty of stars",
+   and that one atom per cubic centimetre is a better vacuum than any laboratory can produce — then
+   retire the non-claim in all three files with that reasoning recorded, rather than leaving the
+   reel contradicting its own documentation.
+
+**What is not acceptable is the current state**, where the reel says one thing and three files say
+it must not. Whichever way it goes, the caption must not repeat the phrase until it is settled —
+none of the three captions above does.
 
 ### Not in the caption, on purpose
 
