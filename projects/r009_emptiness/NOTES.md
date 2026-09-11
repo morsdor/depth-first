@@ -12,6 +12,13 @@ come from `content_backlog.md`.
 Full gate record, including the two rejected alternatives and the honest reach-test failure:
 [`gate0/GATE0.md`](gate0/GATE0.md).
 
+> **Gate 3, 2026-09-11 — the first viewer read says the message does not land.** *"I had a hard
+> time understanding what it had to convey. We don't know what we are comparing against. The
+> sphere can also tell us what it represents."* The craft was praised; the script was not. The
+> diagnosis and the script-first rewrite are in [`SCRIPT.md`](SCRIPT.md) — one ruler instead of
+> seven, labels riding on the bodies, the catalogue name out of the title, and the wide third cut
+> to a sequel. **Everything below describes the v1 cut as built and is unchanged.**
+
 ## The spine
 
 Every cosmic-scale video does **sizes** and ends on "and this one is even bigger". Sizes
