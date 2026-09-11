@@ -1714,6 +1714,41 @@ prediction* and teaches nothing new, and only a good result is information. Reco
 expected outcome in advance is cheap and it is what stops a bad result being re-explained
 afterwards — which is precisely what happened to r006.
 
+### r011 — NEVER FIX A LAYOUT PROBLEM BY CHANGING THE SCALE A CLAIM IS MEASURED IN (2026-09-11)
+
+`r011`'s copy says the two pendulums were indistinguishable for **3.3 seconds**, and that number is
+the moment their tips first separate by **one screen pixel** at 190.3 px/m. Then the safe-area audit
+found exactly two frames of 360 where a bob crossed into the action rail, by 2 and 4 px.
+
+**The obvious fix — widen the lens slightly — would have silently moved the number the copy quotes.**
+A different px/m is a different definition of "one pixel", and `emit_ts.py` had asserted 3.3 s
+against the old one. The bob was shrunk instead, which cost motion density (84% → 61%, recovered to
+69% by widening the traces).
+
+**Rule: once a claim is measured in display units, the display scale is part of the claim.** It may
+only change by going back to the measurement, never as a layout convenience.
+
+### r011 — THE FAILURE ACCENT CANNOT BE THE GROUND (2026-09-11)
+
+`<ReelGround accent={FAIL} />` is the natural thing to write for a §6 reel, and it washes the entire
+frame red for the entire runtime — precisely the decorative use `tokens.ts` warns destroys the
+accent. It passes `brand:check`, because the linter polices which hexes appear and not how much of
+the frame they cover.
+
+**A §6 reel takes a neutral ground and spends the red on one object, from one beat.** In `r011` the
+second pendulum turns red at the split and stays red; nothing else is ever red.
+
+### r011 — AN AUDIT CATCHES WHAT A STILL CANNOT (2026-09-11)
+
+The scene group was positioned at `-PIVOT_X_M` where `PIVOT_X_M` was already an offset *toward* the
+safe centre. The pivot landed 150 px right of where it belonged and the traces ran into Instagram's
+action rail **on all 360 frames**. It typechecked, passed `brand:check`, and looked entirely
+plausible in a still — because a still shows you a composition, not a coordinate.
+
+**Stills are for layout, video is for timing, and only a per-frame numerical audit finds an offset
+that looks fine.** Companion to r010's lesson that an exemption is written down rather than bought:
+`scripts/reel_safe_frames.py` is now the tool for both, and `r011` needs no exemption at all.
+
 ### r010 — THE CLOCK MUST NOT LIE (2026-09-11)
 
 `r010` compresses simulation time and prints the rate on screen (`×12`). The first cut interpolated

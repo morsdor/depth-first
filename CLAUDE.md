@@ -58,11 +58,11 @@ are what the five logs resolve against; inventing the topic is free, skipping th
 Physical-system ids usually land in §2 (`infrastructure`) or §6 (`failure`).
 
 **When asked for "a new reel", bring both — the live candidates from
-[`content_backlog.md`](content_backlog.md) and anything reasoned from scratch that beats them.** **70 entries, ids
-`I01`–`I70`**, grouped into six sections that map 1:1 onto `DOMAIN_ACCENT` in
+[`content_backlog.md`](content_backlog.md) and anything reasoned from scratch that beats them.** **71 entries, ids
+`I01`–`I71`**, grouped into six sections that map 1:1 onto `DOMAIN_ACCENT` in
 `remotion/src/brand/tokens.ts` — so the section *is* the accent colour decision. Live counts come
 from the script, never from this line:
-**10 built · 1 failed · 2 in gate · 2 retired · 1 shelved · 54 open** (2026-09-11; 70 ids, `I01`–`I70`).
+**11 built · 1 failed · 2 in gate · 2 retired · 1 shelved · 54 open** (2026-09-11; 71 ids, `I01`–`I71`).
 
 **The procedure for all of this is the [`new-reel`](.claude/skills/new-reel/SKILL.md) skill —
 `/new-reel`.** It lists the live candidate ids with their real status
@@ -246,9 +246,11 @@ before optimising for reach: whether r005's 71 follows stayed, and whether they 
 
 | `r010` | `I65` | Traffic jam with no cause — the jam runs backwards at 12 mph, and one car in 22 breaks it up | **BUILT 2026-09-11 (46 s), NOT POSTED — at GATE 5.** First reel under the script-first gates and the first under 3D by default. One parameter bends a straight highway into a 755-foot ring and back, so the unroll is a real geometric morph rather than a cut. Motion: 0.25 s dead spell, 61% event density. See [`projects/r010_phantom_jam/NOTES.md`](projects/r010_phantom_jam/NOTES.md) |
 
+| `r011` | `I71` | Two double pendulums released one human hair apart — the same object for 3.3 s, then unrelated | **BUILT 2026-09-11 (12 s), NOT POSTED — at GATE 5.** The first reel in the loop format, and the first built on a metric other than sends: 12 s against the 28–54 s of everything before it, because a loop watched twice is 200% watch time. Judge on **average watch time ≥ 100% of runtime**; sends expected ~0. Motion: 0.25 s dead spell, **69% event density** — the account's best. See [`projects/r011_divergence/NOTES.md`](projects/r011_divergence/NOTES.md) |
+
 **Reel numbers are contiguous and mean "the Nth reel posted".** `r001`–`r009` are the nine that
-have shipped, in order. **`r010` is built and unposted** — it claimed its number when its build
-started, which is what stops two builds colliding. **The next reel is `r011`.**
+have shipped, in order. **`r010` and `r011` are built and unposted** — each claimed its number when
+its build started, which is what stops two builds colliding. **The next reel is `r012`.**
 
 **A re-post does NOT claim a new number.** r009 was posted at 40 s, re-cut after its watch-time
 reading, and posted again the same day at 40.4 s. That is one reel with two posting events, not
@@ -376,6 +378,42 @@ unambiguous even when the message failed.
 **The camera is animated by moving the ROOT GROUP, not the camera.** `<ThreeCanvas>` takes its
 camera as a prop; fighting that is how you lose a day. Fix the camera, animate a wrapping
 `<group>`.
+
+### THE LOOP FORMAT — a second product, judged on a different metric (2026-09-11)
+
+**Two formats now exist and they are not graded against each other.**
+
+| | the teaching reel | **the loop** |
+|:--|:--|:--|
+| runtime | 30–60 s | **10–15 s** |
+| copy | a script of beats | **two text moments, no narration** |
+| travels by | **sends per reach** (GATE 3) | **rewatch → watch time** |
+| success | sends > 0 | **avg watch time ≥ 100% of runtime** |
+| first one | `r001` | **`r011`** |
+
+**Why it exists.** Every reel r001–r010 ran 28–54 s — too long to watch twice by accident. A 12 s
+loop watched twice is 200% watch time, and watch time is a confirmed ranking input. That is the one
+lever this account had never pulled. The origin is the r010 verdict: *"people don't use Instagram to
+consume that much serious knowledge."*
+
+**A loop bends GATE 3, and must say so in writing.** There is usually no dispute for a mesmerising
+loop to settle, so the send test scores badly by construction. That is acceptable ONLY as a
+pre-registered experiment with the watch-time metric stated up front — never as a way to stop asking
+the question. `r011`'s `gate0/GATE0.md` §4 is the model: it says plainly that by the letter of
+GATE 3 it should not have been built, and states what would prove the format wrong.
+
+**"Pretty physics" is NOT the variable, and r008 is the proof.** r008 was a pendulum-wave reel with
+the best motion score on the account (99%) and it took **0 likes, 0 comments, 0 shares, 0 saves** on
+~1.8k views. The bet is **runtime and rewatch**, not being mesmerising. If a 12 s loop pulls the
+same 20% the 40 s reels pull, runtime was never the variable and the problem is the account.
+
+**A loop breaks two non-negotiables and needs a knowing yes for each:** no read → animate → hold
+(5), and **no end card** (9) — an end card is the frame that says "this is over" at exactly the
+moment the loop should restart invisibly.
+
+**Teaching reels are not wasted — they are YouTube inventory.** Every reel is code, so the whole
+back catalogue can be re-rendered at 1920×1080 as a composition change rather than a re-shoot. No
+other channel can change aspect ratio retroactively for free.
 
 ### Non-negotiables for a reel
 
