@@ -1714,6 +1714,41 @@ prediction* and teaches nothing new, and only a good result is information. Reco
 expected outcome in advance is cheap and it is what stops a bad result being re-explained
 afterwards — which is precisely what happened to r006.
 
+### r010 — THE CLOCK MUST NOT LIE (2026-09-11)
+
+`r010` compresses simulation time and prints the rate on screen (`×12`). The first cut interpolated
+simulation time with the brand ease, the same curve every other animated value uses. At 13.3 s the
+clock read **1:35 where a true ×12 is 1:05** — because easing varies the rate continuously inside
+each beat.
+
+**Easing belongs on the camera, never on the physics.** The moment a reel states a rate, a ratio or
+a timestamp on screen, the quantity behind it has to be linear in playback or the label is a false
+statement. Nothing caught this but arithmetic against a still: it type-checked, it passed
+`brand:check`, and it looked completely normal in motion.
+
+### r010 — THE JAM WAS THE DARKEST THING ON SCREEN (2026-09-11)
+
+Cars were coloured by speed, ramping stopped → `GRAPHITE`. `GRAPHITE` is very nearly the colour of
+the asphalt, so the jam rendered as an **absence** — a dark gap in a ring of blue — and the single
+thing the entire reel is about was the hardest thing on the frame to see.
+
+**The subject takes the bright end of any data ramp, whatever the data's natural polarity.** Stopped
+is now bone and moving is accent, and the jam is a bright clot the eye finds before a label points
+at it. Same failure family as r006's route-draw beat: technically correct, visually absent.
+
+### r010 — AN EXEMPTION IS WRITTEN DOWN, NOT BOUGHT (2026-09-11)
+
+The safe-area audit failed on the driver's-eye beats, where the road leaves the bottom corners the
+way `ReelGround` leaves every edge. **The first thing I tried was raising the brightness threshold
+until the number went green** — which is the `I51` mistake wearing a new costume: answering a
+measurement you dislike with a craft adjustment to the measurement.
+
+`scripts/reel_safe_frames.py` now takes `--bleed <ranges>`, so an exemption must be stated as an
+explicit time range and justified in `NOTES.md`. **The header band is never exempt**, whatever the
+camera is doing — that is r001's bug and the whole reason the rule exists. The audit also went from
+FAIL to PASS on a real fix in between: a 280 px label centred on a marker at x = 119 put its glyphs
+at x = 37, inside Instagram's left cut. 78 pixels, and still text under the chrome.
+
 ### r009 — ONE RULER. The yardstick problem, and the first Gate 3 failure on message (2026-09-11)
 
 **The verdict on the 53 s cut:** *"I really like it. All colours, branding, palette, spacing,

@@ -34,6 +34,7 @@ Stage 2   Gate 0 ................ 20 min    → GATE 2 · human says yes to the 
 Stage 2b  THE SEND TEST ......... 10 min    → GATE 3 · human names who sends it, and why
 Stage 3   Research & measure ..... hours      (a figure can still kill it — I53 died here)
 Stage 3b  THE SCRIPT ........... 30 min    → GATE 4 · human approves the FULL SCRIPT
+Stage 3c  Choose the dimension ... 5 min      3D BY DEFAULT (@remotion/three) — 2D needs a reason
 Stage 4   Build to the script .... hours      the script is a CONTRACT, not a draft
 Stage 5   Render & validate ...... 1 hour
 Stage 6   Log & ship ............ 20 min    → GATE 5 · human watches it end to end
@@ -220,6 +221,44 @@ it was written after the fact, and it is precisely what should have existed firs
 **Once approved the script is a CONTRACT.** If a beat cannot be animated as scripted, that comes
 BACK here as a script change — it is never solved by improvising at build time. Improvising at
 build time is how r009 v1 ended up with seven rulers.
+
+---
+
+## Stage 3c — 3D BY DEFAULT. `@remotion/three`, unless there is a stated reason not to.
+
+**Standing direction from the account owner (2026-09-11): use 3D wherever it can add a sense of
+awe.** `r009` proved the stack — `@remotion/three`, `<ThreeCanvas>`, and
+`Config.setChromiumOpenGlRenderer("angle")` in `remotion.config.ts`. A flat 2D reel is now the
+exception and needs a reason in `NOTES.md`.
+
+**Spend the third dimension on something 2D cannot do**, not on tilting a chart. The test: name
+the shot that only exists because the scene is 3D. `r010` unrolls a 755-foot ring into a straight
+highway and bends it back — same road, one continuous move, no cut — and drops the camera to
+driver's eye for the beat where the jam passes through *you*.
+
+**Two failure modes, both already paid for:**
+
+- **Awe is not distribution.** `r009` was the first 3D reel, drew the best craft verdict the
+  account has had, and posted its worst reach. 3D raises the ceiling on a reel that already
+  answers GATE 3; it is never the answer itself. See
+  [`what_travels.md`](../../../docs/depth_first/what_travels.md) §B — arousal requires novelty,
+  and a genre the viewer has seen a hundred times produces recognition instead.
+- **3D must never cost legibility.** If the claim reads more clearly from one angle, the camera
+  goes there and stays. A wave moving backwards through traffic reads from above and nowhere
+  else, so the beat carrying that claim is near-top-down and the dimensionality is spent getting
+  there.
+
+**Mechanics that cost a day if you learn them the hard way:**
+
+- **Animate the ROOT GROUP, not the camera.** `<ThreeCanvas>` takes its camera as a prop. Fix the
+  camera, wrap the scene in a `<group>`, and animate that group's position and rotation.
+- **`useBeat` and friends are HOOKS.** Never call one inside a branch — a conditional call changes
+  hook order between frames. Compute both and pick the result.
+- **Depth precision.** A float32 depth buffer falls apart after ~7 orders of magnitude. If a scene
+  spans more, re-base it (`r009`'s `viewKm`) rather than scaling or flying through.
+- **Render needs an explicit browser** in this container:
+  `--browser-executable=/opt/pw-browsers/chromium_headless_shell-*/chrome-linux/headless_shell`.
+  The plain `chrome` binary fails — old headless mode was removed.
 
 ---
 
