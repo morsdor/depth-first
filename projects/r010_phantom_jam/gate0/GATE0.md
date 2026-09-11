@@ -72,7 +72,19 @@ attribute them to the experiment, not to us.
 | A jam forms from a **10 cm** initial offset, no obstacle | forms at t ≈ 107 s |
 | It persists as a localised structure rather than washing out | 5–6 of 22 cars below 5 km/h, indefinitely |
 | **Critical density: smooth at ≤20 cars, jams at ≥22** | the experiment jammed at 22 and not below — **this threshold was never fitted and it lands on the experiment's value** |
-| One car in 22 on FollowerStopper kills it | speed spread −88% at realistic driver jitter |
+| One car in 22 on FollowerStopper breaks it up | **stopped share 17.5% → 0.0%; speed variation −81%** |
+
+**Two corrections the data forced, both recorded rather than smoothed over:**
+
+1. **"One car fixes traffic" is too strong.** Engaged on an already-jammed ring, the controller
+   breaks the jam up and no car drops below 5 mph again, but the ring never returns to uniform
+   speed (spread 25.7 → 11.3 mph, std dev −81%). The reel claims **"nobody stops any more"** and
+   `emit_ts.py` asserts exactly that, refusing to write the data module if the stopped share is
+   not zero. This also matches what Stern et al. report: waves dissipated, not traffic solved.
+2. **The controlled car targets 95% of uniform-flow speed**, which is what opens the gap in front
+   of it; Stern et al. command a speed at or just below average flow for the same reason. At 100%
+   it cannot recover an already-jammed ring — measured, ~20 mph of spread still present after
+   300 s. Disclosed here because it is a tuning choice, not a measurement.
 
 **The falsification control is the density sweep.** 8, 12, 14, 16, 17, 18, 20 cars on the same
 ring stay perfectly smooth; 22, 26, 30 jam. A model that jammed at every density would be
@@ -131,7 +143,13 @@ Both were caught by looking at output, not by the type checker — the repeated 
    huge negative gap and one near-whole-ring gap. **That artefact alone manufactured a "jam" at
    every density tested, including 8 cars with 29 m of space each** — and it printed a tidy
    plausible table while doing it. The density sweep is what exposed it.
-2. **Noise that was not noise.** Driver jitter was added per step without the `1/√dt` white-noise
+2. **A jam width that was half the track.** `jam_window()` first located the jam as a circular
+   mean over every slow car. During formation there are transiently two slow clusters on opposite
+   sides of the ring; their circular mean lands in the empty middle, and the reported half-width
+   came out at **103 m on a 230 m ring** — calling half the track "the jam". Caught by an
+   `emit_ts.py` assertion that the jam must be localised. Fixed to the longest *contiguous run* of
+   slow cars, which is well defined because cars are indexed in ring order.
+3. **Noise that was not noise.** Driver jitter was added per step without the `1/√dt` white-noise
    scaling, so it damped to 0.017 km/h and every seed returned an identical answer. Uncorrected,
    it would have supported "one car restores traffic *perfectly*" — a 100% result that is an
    artefact of a noiseless world. Corrected, the honest figure is **−88% at 1 km/h jitter, and

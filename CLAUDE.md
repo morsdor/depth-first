@@ -62,7 +62,7 @@ Physical-system ids usually land in §2 (`infrastructure`) or §6 (`failure`).
 `I01`–`I70`**, grouped into six sections that map 1:1 onto `DOMAIN_ACCENT` in
 `remotion/src/brand/tokens.ts` — so the section *is* the accent colour decision. Live counts come
 from the script, never from this line:
-**9 built · 1 failed · 2 in gate · 2 retired · 1 shelved · 55 open** (2026-09-11; 70 ids, `I01`–`I70`).
+**10 built · 1 failed · 2 in gate · 2 retired · 1 shelved · 54 open** (2026-09-11; 70 ids, `I01`–`I70`).
 
 **The procedure for all of this is the [`new-reel`](.claude/skills/new-reel/SKILL.md) skill —
 `/new-reel`.** It lists the live candidate ids with their real status
@@ -244,8 +244,11 @@ before optimising for reach: whether r005's 71 follows stayed, and whether they 
 | `r008` | `I69` | Pendulum wave — fifteen strings, and the thirty seconds they take to come back | built 2026-09-10 (34 s), **posted 2026-09-10** — 190 views · 0 engagement at first reading; first reel with a Manim layer; rebuilt down from a 60 s cycle after the first viewer could not tell the fifteen strings apart |
 | `r009` | `I70` | Scale — the biggest star ever measured is a speck in the gap to the next one | **posted 2026-09-11 (40 s), then RE-CUT AND RE-POSTED the same day as v3 (40.4 s)** — first 3D reel (`@remotion/three`) and first topic invented rather than taken from the backlog. Built at 53 s and **re-cut the same day**: the Gate 3 verdict was *"I had a hard time understanding what it had to convey. We don't know what we are comparing against."* — the account's first Gate 3 failure on MESSAGE rather than concept or craft. One ruler replaced seven, every sphere got its own name, and the wide third was cut. See [`projects/r009_emptiness/SCRIPT.md`](projects/r009_emptiness/SCRIPT.md) |
 
-**Reel numbers are contiguous and mean "the Nth reel posted".** `r001`–`r009` above are the nine
-that have shipped, in order. Nothing is built and unposted. **The next reel is `r010`.**
+| `r010` | `I65` | Traffic jam with no cause — the jam runs backwards at 12 mph, and one car in 22 breaks it up | **BUILT 2026-09-11 (46 s), NOT POSTED — at GATE 5.** First reel under the script-first gates and the first under 3D by default. One parameter bends a straight highway into a 755-foot ring and back, so the unroll is a real geometric morph rather than a cut. Motion: 0.25 s dead spell, 61% event density. See [`projects/r010_phantom_jam/NOTES.md`](projects/r010_phantom_jam/NOTES.md) |
+
+**Reel numbers are contiguous and mean "the Nth reel posted".** `r001`–`r009` are the nine that
+have shipped, in order. **`r010` is built and unposted** — it claimed its number when its build
+started, which is what stops two builds colliding. **The next reel is `r011`.**
 
 **A re-post does NOT claim a new number.** r009 was posted at 40 s, re-cut after its watch-time
 reading, and posted again the same day at 40.4 s. That is one reel with two posting events, not
@@ -350,6 +353,29 @@ play it back in Remotion. See `projects/r001_shazam/` for the reference shape
 
 On-screen numbers are then free and correct because the run produced them. **₹0 — no image model is
 involved in a reel.** Keep it that way.
+
+### 3D BY DEFAULT — `@remotion/three` (2026-09-11)
+
+**Every reel is built in 3D unless there is a stated reason not to.** Directed by the account
+owner: *"it just adds a layer of awe."* `r009` proved the stack works (`@remotion/three`,
+`<ThreeCanvas>`, `Config.setChromiumOpenGlRenderer("angle")`) and the quality verdict on it was
+unambiguous even when the message failed.
+
+**Two things this does NOT license, both already paid for once:**
+
+- **Awe is not distribution.** `r009` was the account's first 3D reel, drew the best craft verdict
+  it has ever had, and posted the worst reach. Awe without a send channel does not travel —
+  `docs/depth_first/what_travels.md` §B. 3D raises the ceiling on a reel that already answers
+  GATE 3; it never substitutes for the answer.
+- **3D must not cost legibility.** If the thing the reel is about reads more clearly from one
+  angle, the camera goes to that angle and stays there. A wave travelling backwards through a
+  line of cars reads from above and nowhere else, so `r010`'s reveal beat is near-top-down and
+  the dimensionality is spent on getting there — driver's eye on the road, rising as the road
+  bends into the ring — rather than on the moment that carries the claim.
+
+**The camera is animated by moving the ROOT GROUP, not the camera.** `<ThreeCanvas>` takes its
+camera as a prop; fighting that is how you lose a day. Fix the camera, animate a wrapping
+`<group>`.
 
 ### Non-negotiables for a reel
 

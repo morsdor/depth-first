@@ -52,7 +52,8 @@ def follower_stopper(gap, dv, v_lead, U):
     if gap <= dx[2]:                      return vl + (U - vl) * (gap - dx[1]) / (dx[2] - dx[1])
     return U
 
-def simulate(n=N_CARS, control_car=None, t_end=T_END, noise=0.0, seed=7):
+def simulate(n=N_CARS, control_car=None, t_end=T_END, noise=0.0, seed=7,
+             control_from=0.0, u_factor=1.0):
     """noise = steady-state speed jitter of a HUMAN driver in km/h (NOT an acceleration).
 
     Without it one controlled car restores PERFECT uniformity and the fix scores 100%,
@@ -67,7 +68,7 @@ def simulate(n=N_CARS, control_car=None, t_end=T_END, noise=0.0, seed=7):
     x = np.arange(n) * h0
     x[0] += 0.10                          # ONE 10 cm offset. That is the entire cause.
     v = np.full(n, V(h0))
-    U = V(h0)
+    U = V(h0) * u_factor
     keep = int(0.10 / DT)
     X, Vh, T = [], [], []
     for s in range(int(t_end / DT)):
@@ -75,7 +76,7 @@ def simulate(n=N_CARS, control_car=None, t_end=T_END, noise=0.0, seed=7):
         acc = A_SENS * (V(h) - v)
         if sigma:
             acc = acc + rng.normal(0.0, sigma / np.sqrt(DT), n)
-        if control_car is not None:
+        if control_car is not None and s * DT >= control_from:
             i, lead = control_car, (control_car + 1) % n
             cmd = follower_stopper(h[i], v[lead] - v[i], v[lead], U)
             acc[i] = np.clip((cmd - v[i]) / 0.4, -3.0, 1.5)

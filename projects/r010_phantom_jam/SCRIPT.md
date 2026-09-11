@@ -20,13 +20,36 @@ claimed. Read it and say yes or no.
 |:--|:--|:--|:--|
 | **0.0–3.2** | **YOU CRAWLED FOR TEN MINUTES.**<br>**THERE WAS NOTHING THERE.** | Top-down slice of highway. Cars nose-to-tail, crawling, speed bar reads **2 MPH**. At 1.6 s the queue ahead pulls away and the road empties; hold 1 s on bare road. | **The hook SHOWS, it does not promise** (+60% on r009). No setup sentence, no pronoun — the object is a road full of cars and the memory is the viewer's own. Argument-test condition 1: they have personally witnessed this, repeatedly. |
 | **3.2–8.0** | **22 CARS. 755 FEET OF ROAD.**<br>**ONE INSTRUCTION: 19 MPH.**<br><sub>Nagoya, 2008 — a real experiment</sub> | The highway strip curls up into the ring (same road, bent — not a cut). 22 cars evenly spaced, all accent blue, all steady. **Speed bar arrives at 19 and stays for the rest of the reel.** | Establishes that there is *nothing to blame*. Without the controlled conditions stated, "no cause" is an assertion; with them it is airtight. The credit rides here so the rest of the reel never stops for it. |
-| **8.0–17.0** | **NOBODY BRAKED.**<br>**NOBODY CRASHED.**<br><sub>clock: 0:00 → 1:47 · ×12</sub> | One car drifts **four inches** out of position — flashes amber for 0.5 s, then back to blue. The wobble passes backward, grows, cars begin to bunch. By 15 s, five cars are stopped. Speed bar spreads from 24 down to 1. | The surprise, and the payoff of the hook's unasked question. The clock is honest about time compression and doubles as the countdown non-negotiable 3 asks for. Four inches is the whole causal claim: this much, and nothing else. |
+| **8.0–17.0** | **NOBODY BRAKED.**<br>**NOBODY CRASHED.**<br><sub>clock: 0:00 → 1:50 · ×12</sub> | One car drifts **four inches** out of position — flashes amber for 0.5 s, then back to blue. The wobble passes backward, grows, cars begin to bunch. By 15 s, five cars are stopped. Speed bar spreads from 24 down to 1. | The surprise, and the payoff of the hook's unasked question. The clock is honest about time compression and doubles as the countdown non-negotiable 3 asks for. Four inches is the whole causal claim: this much, and nothing else. |
 | **17.0–25.0** | **THE CARS GO FORWARDS.**<br>**THE JAM GOES BACKWARDS.**<br>**12 MPH.** | Amber arc locks onto the stopped cars. Cars visibly drive *through* it and out the front while the arc slides the other way around the ring. Speed bar splits into two readings: **CARS +19 · JAM −12**. | **The reel.** One number, one direction, on the same ruler as everything else — and it is the one repeatable thing carried into the argument without the video. Everything before is setup; everything after is consequence. |
 | **25.0–31.0** | **YOU NEVER DROVE INTO IT.**<br>**IT DROVE INTO YOU.** | The ring unrolls back into the highway strip. One car is labelled **YOU**, driving forward at a steady 19. The jam slides backwards along the road and passes through it: YOU slows to 2, crawls, then comes out the other side onto empty road — the exact frame the reel opened on. | Converts a lab result into the viewer's own Tuesday, and closes the hook's loop on the identical image. **This is the sentence that gets sent**, so it is said plainly, with no technical content. |
-| **31.0–40.0** | **ONE CAR IN TWENTY-TWO**<br>**STOPPED CHASING THE CAR AHEAD.**<br>**EVERY CAR BURNED 40% LESS GAS.**<br><sub>vs. the same 22 cars with the wave running — Stern et al., 2018</sub> | Back to the ring, jam running. One car turns amber and simply stops closing on the car ahead — holds steady while the gap opens ahead of it. The braking wave reaches it, is absorbed by the spare room, and is not passed back. The bunch thins, the arc shrinks and dies. All 22 return to a flat 19. | The half of this subject that is **not** saturated: coverage stops at "jams form from nothing" and almost never carries the fix. It is the practical-utility channel, and the reason a viewer sends it rather than just liking it. **The jam dissolving is SHOWN, never narrated** — the words carry only what the picture cannot. |
+| **31.0–40.0** | 31.0–36.0 **ONE CAR IN TWENTY-TWO**<br>**STOPPED CHASING THE CAR AHEAD.**<br><br>36.0–40.0 **NOBODY STOPS ANY MORE.**<br><sub>and every car burned 40% less gas — Stern et al., 2018</sub><br><sub>clock ×18</sub> | Back to the ring, jam running. One car turns amber and stops closing on the car ahead — holding just under the average speed, so a gap opens in front of it. The braking wave reaches that gap, is absorbed, and is not handed back. The bunch thins and breaks up. Speeds still vary — **the ring does not go flat** — but no car drops below 5 mph again. | The half of this subject that is **not** saturated: coverage stops at "jams form from nothing" and almost never carries the fix. It is the practical-utility channel, and the reason a viewer sends it rather than just liking it. **The jam breaking up is SHOWN, never narrated.** The claim is deliberately "nobody stops", not "traffic is fixed" — see below. |
 | **40.0–46.0** | **THE GAP IN FRONT OF YOU**<br>**IS THE BRAKE YOU DON'T HAVE TO USE.**<br><br><sub>Next: why your city's traffic lights aren't broken.</sub> | Held on the smooth ring, all blue, breathing. Speed bar flat at 19. | Non-negotiable 9 — a reason to follow, naming what the next reel does, over the finished visual, held the full stretch. The ask is performable on the phone in their hand: follow. (Next reel = `I66`, already in the backlog.) |
 
-## Beat 6, and why it was rewritten
+## Beat 6 was rewritten TWICE, and the second time the data did it
+
+**The measured result is weaker than the one I scripted, and the script now says the weaker
+thing.** The draft claimed the ring returns to a flat 19 mph. It does not. Measured over the
+80 s after the controller settles:
+
+| | before the fix | after |
+|:--|:--|:--|
+| car-samples under 5 mph | **17.5%** | **0.0%** |
+| slowest car | 0.00 mph | 10.9 mph |
+| speed spread | 25.7 mph | 11.3 mph |
+| speed variation (std dev) | 8.39 mph | 1.58 mph — **81% cut** |
+
+So the honest claim is **"nobody stops any more"**, not "traffic is fixed". That is also what
+Stern et al. report — waves *dissipated* and large fuel savings, never a uniform ring — and
+`emit_ts.py` now asserts the weaker claim and would refuse to write the data module if the
+stopped share were not exactly zero.
+
+**One disclosed choice:** the controlled car targets **95% of the uniform-flow speed**, which is
+what opens the gap in front of it. At 100% it cannot claw back an already-jammed ring — measured,
+20 mph of spread still present after 300 s. Stern et al. likewise command a speed at or just
+below the average flow. Recorded in `gate0/GATE0.md` §5.
+
+## Beat 6, and why it was rewritten the first time
 
 The first draft read **"ONE CAR IN TWENTY-TWO / JUST LEFT THE GAP. / 40% LESS FUEL."** The first
 human to read it asked what it meant, which is the gate doing its job for the price of a line of

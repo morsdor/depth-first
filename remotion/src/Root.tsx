@@ -9,6 +9,7 @@ import { Cables, DURATION_SECONDS as CABLES_SECONDS } from './reels/Cables';
 import { DURATION_SECONDS as TIDES_SECONDS, Tides } from './reels/Tides';
 import { DURATION_SECONDS as PENDULUM_SECONDS, Pendulum } from './reels/Pendulum';
 import { DURATION_SECONDS as EMPTINESS_SECONDS, Emptiness } from './reels/Emptiness';
+import { DURATION_SECONDS as PHANTOM_SECONDS, PhantomJam } from './reels/PhantomJam';
 import { DURATION_SECONDS as MANIM_SECONDS, ManimProbe } from './reels/ManimProbe';
 import { SafeZones } from './reels/lib/chrome';
 
@@ -93,6 +94,13 @@ const PendulumSafe: React.FC = () => (
 const EmptinessSafe: React.FC = () => (
   <>
     <Emptiness />
+    <SafeZones />
+  </>
+);
+
+const PhantomJamSafe: React.FC = () => (
+  <>
+    <PhantomJam />
     <SafeZones />
   </>
 );
@@ -257,6 +265,29 @@ export const RemotionRoot: React.FC = () => {
         id="r009-emptiness-safe"
         component={EmptinessSafe}
         durationInFrames={EMPTINESS_SECONDS * 30}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+
+      {/* r010 · I65 · a traffic jam with no cause. 3D by default from here on
+          (CLAUDE.md, 2026-09-11). One parameter bends a straight highway into a
+          755-foot ring and back, so the unroll is a real geometric morph rather
+          than a cut — the shot that only exists because the scene is 3D. Every
+          car position comes from remotion/src/reels/data/phantomJam.ts, which
+          emit_ts.py refuses to write unless all 14 on-screen claims hold. */}
+      <Composition
+        id="r010-phantom-jam"
+        component={PhantomJam}
+        durationInFrames={PHANTOM_SECONDS * 30}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="r010-phantom-jam-safe"
+        component={PhantomJamSafe}
+        durationInFrames={PHANTOM_SECONDS * 30}
         fps={30}
         width={1080}
         height={1920}
