@@ -129,6 +129,78 @@ Machine-checkable rigor is the thing I will drift toward if nothing stops me.
 shuffle's whole point is that nobody can see the bias and no test catches it. That is a good essay
 and a bad reel, and recognising it early is cheaper than five rebuilds.
 
+### SCRIPT FIRST. Nothing is coded until a script is approved. (2026-09-11)
+
+**r009 was cut three times — v1 53 s, v2 40 s, v3 40.4 s — and every one of those cuts was a
+SCRIPT problem found after a full build, render and audit.** v2 fixed the message. v3 fixed the
+hook. Both were correct fixes and both cost a complete build cycle to discover, because Gate 0
+approves a *sentence* and the next human read is of a *finished reel*. Everything in between is
+mine alone, and everything expensive lives in between.
+
+**The gates, in order. Never run ahead of one.**
+
+```
+G1  the id ............ human picks it
+G2  the sentence ...... human says yes         (Gate 0 — friend test, 3 kill conditions)
+G3  THE SEND TEST ..... human names the person  ← NEW · HARD · costs one sentence
+    research & measure ...................... a figure can still kill it (I53 died here)
+G4  THE SCRIPT ........ human approves it       ← NEW · HARD · costs one page, two minutes
+    build → render → audit .................. the script is now a CONTRACT
+G5  the render ........ human watches it end to end
+```
+
+**G4 — the script — is a table, not prose, and it is written before any Python, `.tsx` or data
+module exists:**
+
+| t | Narration (the on-screen words, verbatim) | On screen | Why this beat exists |
+|:--|:--|:--|:--|
+
+Every beat, every line of copy, every number, the runtime, the hook and the close. The human reads
+it in two minutes and says yes or no. **`projects/r009_emptiness/SCRIPT.md` is the model** — it was
+written *after* the fact and it is exactly what should have existed before.
+
+**Once approved, the script is the contract and the animation serves it.** If a beat cannot be
+animated as scripted, that goes BACK to G4 as a script change — it is never solved by improvising
+at build time. Improvising at build time is how v1 ended up with seven different rulers.
+
+**Why this is not just another gate: it is where the cost is.** A build-render-audit cycle is
+hours of wall time and the single largest token cost in the repo. A script is one page of markdown.
+Three of r009's cycles were spent discovering things a two-minute read would have caught.
+
+### GATE 3 — the send test. It is now BINDING. (2026-09-11)
+
+**"Who does the viewer send this to, and what are they proving?" has predicted five outcomes in a
+row — r006, r007, r008, r009 ×2 — and has never once stopped a build.** That is not a filter, it
+is a prediction log. It is now a gate: **no answer, no build.**
+
+**The platform mechanic that makes it real** (full evidence and grading:
+[`docs/depth_first/what_travels.md`](docs/depth_first/what_travels.md)): Instagram ranks on watch
+time, **likes per reach** and **sends per reach**, as ratios to reach. **Sends are what reach people
+who do not follow you** — reported at roughly 3–5× the weight of a like for unconnected reach.
+Likes move you within your own followers; sends are how a reel escapes the pool it was tested in.
+
+Our own numbers say the same thing. r009 v3 **likes at 2.92% of viewers against r005's 2.79%** —
+the people who see it like it as much as they liked the reel that did 66k. It has **0.00% sends
+against r005's 0.92%**. It is not liked less. **It does not travel.**
+
+**The answer must name a channel.** Berger & Milkman (JMR 2012) find sharing is driven by
+high-AROUSAL emotion — awe, anger, anxiety — with low-arousal emotion (sadness) suppressing it,
+and practical utility and surprise independently positive:
+
+| Channel | The test | Ours |
+|:--|:--|:--|
+| **Argument ammunition** | a dispute is already running and this settles it | **r005** — your uncle, that the earth is round |
+| **High-arousal novelty** | awe/anger/anxiety at something genuinely UNFAMILIAR | r009 aimed here and missed |
+| **"This is you"** | sent to one person because it is about them | none yet |
+| **Practical utility** | the viewer will actually use it | none yet |
+
+**Awe is not enough on its own, and r009 is the proof.** Cosmic scale is the canonical awe
+stimulus and it got zero sends, because **arousal requires novelty** — in a saturated genre the
+response is recognition, not awe. Check the channel against the genre, not just the subject.
+
+**Measure sends per reach, never views.** r005 is the only benchmark: **0.92%**. Everything since
+is zero.
+
 ### Pick a fight, not a gap (r005 vs r006 — the belief-correction test FAILED)
 
 **r006 was the pre-registered test of the "correct a belief" pattern and it failed.** Built to all
@@ -280,6 +352,14 @@ On-screen numbers are then free and correct because the run produced them. **₹
 involved in a reel.** Keep it that way.
 
 ### Non-negotiables for a reel
+
+**Scope, stated honestly (2026-09-11): every rule below governs what happens AFTER a viewer is
+shown the reel.** None of them decides whether it is shown to anyone — that is G3, the send test.
+r008 scored the best motion number on the account (99%) and floored; r009 v3 has the best opening
+this account has built, measured at +60% watch time, and the worst reach. **Craft is necessary and
+has never once been sufficient.** Do not answer a reach problem with a craft fix; that is the `I51`
+mistake, and r009 repeated it twice.
+
 
 1. **Instagram safe area.** Compose in `y` 270–1540, `x` 60–870 — *not* the raw 1080×1920 canvas.
    Constants live in `remotion/src/reels/lib/chrome.tsx` (`SAFE`, `SAFE_TOP`, `SAFE_BOTTOM`,

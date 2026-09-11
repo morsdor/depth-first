@@ -29,15 +29,23 @@ skill is the procedure, `CLAUDE.md` is the law, and where they disagree `CLAUDE.
 ## The pipeline, and where the human stands in it
 
 ```
-Stage 1  Present ideas ........... 5 min    → GATE 1 · human picks the id
-Stage 2  Gate 0 ................. 20 min    → GATE 2 · human says yes to the SENTENCE
-Stage 3  Research & measure ...... hours      (a figure can still kill it — I53 died here)
-Stage 4  Build ................... hours
-Stage 5  Render & validate ....... 1 hour
-Stage 6  Log & ship .............. 20 min    → GATE 3 · human watches it end to end
+Stage 1   Present ideas .......... 5 min    → GATE 1 · human picks the id
+Stage 2   Gate 0 ................ 20 min    → GATE 2 · human says yes to the SENTENCE
+Stage 2b  THE SEND TEST ......... 10 min    → GATE 3 · human names who sends it, and why
+Stage 3   Research & measure ..... hours      (a figure can still kill it — I53 died here)
+Stage 3b  THE SCRIPT ........... 30 min    → GATE 4 · human approves the FULL SCRIPT
+Stage 4   Build to the script .... hours      the script is a CONTRACT, not a draft
+Stage 5   Render & validate ...... 1 hour
+Stage 6   Log & ship ............ 20 min    → GATE 5 · human watches it end to end
 ```
 
-Never run ahead of a gate. Stage 2 is not mine to pass, and neither is Stage 1.
+Never run ahead of a gate. **Stages 2, 2b and 3b are not mine to pass**, and neither is Stage 1.
+
+**Why 2b and 3b exist (2026-09-11).** r009 was cut three times and every cut fixed a SCRIPT
+problem found after a full build, render and audit. Meanwhile the send test had correctly
+predicted five floored reels in a row without ever stopping a build. **The two new gates are where
+the money is**: one costs a sentence, the other costs a page of markdown, and between them they
+guard every hour and every token the build spends.
 
 ---
 
@@ -131,6 +139,37 @@ would. Every other gate in the repo is machine-checkable, which is exactly why t
 
 ---
 
+## Stage 2b — GATE 3 · the send test. Binding. No answer, no build.
+
+**Evidence and grading: [`docs/depth_first/what_travels.md`](../../../docs/depth_first/what_travels.md).**
+
+Ask, and put the answer in front of the human **as one sentence**:
+
+> **Who does the viewer send this to, and what are they proving?**
+
+r005: *your uncle, that the earth is round.* r006–r009: *nobody, nothing* — and all four floored,
+each one flagged in writing beforehand. **The gate is not the asking, it is the stopping.**
+
+Instagram ranks on watch time, likes per reach and **sends per reach**, and sends are what reach
+non-followers — roughly 3–5× a like's weight for unconnected reach. r009 v3 likes at **2.92%** of
+viewers against r005's 2.79% and sends at **0.00%** against 0.92%. It is not liked less; it does
+not travel.
+
+**The answer must name a channel** (Berger & Milkman, JMR 2012 — sharing is driven by high-arousal
+emotion, plus practical utility and surprise):
+
+- **Argument ammunition** — a dispute is already running and this settles it.
+- **High-arousal novelty** — awe/anger/anxiety at something genuinely unfamiliar. **Check the
+  GENRE, not just the subject**: cosmic scale is the canonical awe stimulus and r009 got zero
+  sends, because in a saturated genre the response is recognition, not awe.
+- **"This is you"** — sent to one person because it is about them.
+- **Practical utility** — the viewer will actually use it.
+
+"The friend who likes space" is not an answer. If the honest answer is *nobody*, say so and go
+back to Stage 1. That costs five minutes; a build costs a day.
+
+---
+
 ## Stage 3 — Research and measure before building
 
 **Treat every backlog figure as a research lead — including the ones in the hooks.** r004 shipped
@@ -154,7 +193,37 @@ Do not repair and do not go city-shopping.
 
 ---
 
-## Stage 4 — Build
+## Stage 3b — GATE 4 · the script. Nothing is coded until this is approved.
+
+**Write the complete script as a TABLE and put it in
+`projects/<id_or_reel>/SCRIPT.md`. No Python, no `.tsx`, no data module exists yet.**
+
+| t | Narration — the on-screen words, verbatim | On screen | Why this beat exists |
+|:--|:--|:--|:--|
+
+Every beat, every line of copy, every number, the runtime, the hook and the close. **The human
+reads it in two minutes and says yes or no.** `projects/r009_emptiness/SCRIPT.md` is the model —
+it was written after the fact, and it is precisely what should have existed first.
+
+**Check these before handing it over, because they are what the three r009 cuts were spent on:**
+
+- **ONE ruler.** Every number on screen answers the same question. r009 v1 changed yardstick eight
+  times in nine beats and the verdict was *"we don't know what we are comparing against."*
+- **The hook SHOWS the result, it does not promise it.** Measured on r009: showing beat promising
+  by +60% on watch time. In a saturated genre the difference must be legible inside one second.
+- **Names ride on the objects**, not in a caption slot 470 px away.
+- **Never more than three text blocks on screen at once.**
+- **No jargon anywhere** — no catalogue designations, no units the viewer does not own (`AU`), no
+  five-significant-figure research artefacts.
+- **Every claim traced to a source**, and every mechanism sentence falsifiable (non-negotiable 7).
+
+**Once approved the script is a CONTRACT.** If a beat cannot be animated as scripted, that comes
+BACK here as a script change — it is never solved by improvising at build time. Improvising at
+build time is how r009 v1 ended up with seven rulers.
+
+---
+
+## Stage 4 — Build to the approved script
 
 **Full pipeline, file layout, chrome API and the nine non-negotiables:
 [`reference/build.md`](reference/build.md).**
