@@ -1761,6 +1761,94 @@ had already blamed for the 31%. **The beats that diluted the message were the sa
 killing the motion**, which is not a coincidence: both are symptoms of a reel that kept adding
 scales after its point had landed.
 
+### FOUR FLOORS AFTER ONE HIT — the reach test works and is not binding (2026-09-11)
+
+**The record, at 2026-09-11:**
+
+| Reel | Views | Reach test at Gate 0 | Outcome |
+|:--|--:|:--|:--|
+| `r005` great circle | **~66–80k** | **3 of 3** | the account's only hit |
+| `r006` cables | ~2.1k | 2 of 3 — no dispute running | floor |
+| `r007` tides | ~600 | weak on all three | floor, and the lowest of the nine |
+| `r008` pendulum | ~1.8k | "personally witnessed" flagged weak | floor |
+| `r009` emptiness | low | **1 of 3**, recorded in `GATE0.md` §4 before the build | floor |
+
+**Every one of the four was pre-flagged, in writing, before it was built.** r009's Gate 0 says it
+outright: *"if this lands at r006 numbers, that is a confirmed prediction and not a new lesson."*
+It did. **So the test is not the thing that is broken. The gate is: it has correctly named the
+outcome four times running and has not stopped a single build.** That is the finding, and it is
+about process, not craft.
+
+#### The 5-second number, and what it rules out
+
+r009 averages **5 s of a 40 s reel — 12.5% of runtime**. r005 averaged **20 s of 32 s — 62.5%**.
+Same account, same palette, same chrome, same audit discipline, a 5x gap.
+
+That comparison is worth more than the view counts, because it **rules things out**:
+
+- **Not the message.** r009 v2 was re-cut specifically to fix comprehension, and its ruler is not
+  established until 9 s with the payoff at 31 s. At a 5 s average, the overwhelming majority of
+  viewers never reached either. The re-cut improved what a viewer who stays understands; it could
+  not have moved this number, and it didn't.
+- **Not the craft or the aesthetic.** r005 shares both and holds people for 62.5% of its runtime.
+- **Not the motion audit.** r008 scored the best motion number on the account (99%) and floored.
+  Four reels now say that passing the audit and holding an audience are different things.
+- **Not runtime by itself.** 32 s vs 40 s does not explain 62.5% vs 12.5%.
+
+**What is left is the first two seconds and what the reel is about.** Non-negotiable 3 has said
+"the first 2 seconds decide everything" since r001; four floors are what it looks like when that
+rule is satisfied on the letter and missed on the substance.
+
+#### Three specific causes, in order of how confident I am
+
+**1. Gate 0's "object" condition has been passing on technicalities.** The kill condition is *the
+payoff frame shows an object the viewer has never seen*. Scored honestly:
+
+- r005 — a **seatback flight map**. The viewer has personally seen it, repeatedly. PASSES.
+- r006 — a world map with a line. Close, but nobody has watched a cable being laid.
+- r007 — an Earth–Moon–Sun diagram. Nobody has seen a tidal bulge.
+- r008 — fifteen weights on strings. Nobody has seen a pendulum wave outside a physics video.
+- r009 — a hypergiant at true scale beside a sub-pixel Sun. **Nobody has seen this.** Its own
+  `GATE0.md` recorded the caveat — *"a true-scale gap is a line with two dots on it, which drifts
+  toward diagram"* — and the build argued past it.
+
+"A star is an object everyone has seen" is true of a star and false of *this* star. **r005 is the
+only reel of the nine whose payoff object is a thing the viewer has personally, repeatedly seen,
+and it is the only hit.** n=1 either way, but the mechanism is plausible and the gate already
+tried to say so twice.
+
+**2. New, and specific to r009: differentiation that arrives at second 22 is not
+differentiation.** For its first two seconds r009 is indistinguishable from the thousands of
+cosmic-scale videos already in the feed — dark frame, glowing sphere, a size claim. Its entire
+argument for being different, that sizes saturate and distances do not, does not appear until
+~22 s. A viewer who has seen the genre swipes at 1 s and is *correct to*, on the evidence in front
+of them. **Competing inside a saturated genre requires the difference to be visible in the first
+second, not to be the reel's eventual thesis.** No previous reel had this problem, because no
+previous subject had a genre.
+
+**3. Distribution, stated as a caveat rather than a cause.** At 600–2,100 views the per-reel
+engagement figures are noise, and a small follower base means every reel must earn a cold push on
+its own with no warm pool to carry it. This does not explain the watch-time gap — that is measured
+per viewer — but it does mean **the view counts should not be over-read individually**. The
+pattern across four is the signal.
+
+#### What should change
+
+1. **Make the reach test binding.** No build without a written answer to *who does the viewer send
+   this to, and what are they proving*. "Recorded in advance and built anyway" has now been run
+   four times and produced four floors; it is a prediction log, not a gate. Cost: one sentence.
+2. **Add a first-two-seconds test to Gate 0**, next to the payoff still: *would a viewer who has
+   already seen this genre know, inside one second, that this one is different?* r009 fails it and
+   would have failed it before a line of code was written.
+3. **Score the "object" condition against the payoff frame as drawn, not the subject in the
+   abstract.** The question is not "is a star an object" but "has the viewer seen THIS picture".
+
+**What this does NOT say.** It does not say the physical-systems widening was wrong — r005 is a
+physical fact and the software reels died at Gate 0 for a separate, well-documented reason. It
+does not say the craft discipline is wasted; it says craft is necessary and has never been
+sufficient. And it is nine data points with one success, so every causal claim above is a
+hypothesis with a cheap test attached, not a law.
+
 ### Posted
 
 | Reel | Subject | Length | Posted |
