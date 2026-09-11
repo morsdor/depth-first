@@ -1891,6 +1891,69 @@ does anything Instagram reports about the first three seconds. Those are the rea
 re-cut cycle spent on the wrong layer.** That is the whole argument for pre-registration, and it
 is the fourth time this repo has had the chance to make it.
 
+### THE HOOK A/B — RESOLVED, 2026-09-11, ~6 h after posting
+
+**The teaser won on the pre-registered metric and it did not move reach.** Both halves of that
+sentence are load-bearing.
+
+| | v2 | v3 |
+|:--|:--|:--|
+| average watch | 5 s of 40 s — **12.5%** | 8 s of 40.4 s — **19.8%** |
+| views @ 6 h | — | 215 (171 viewers), tracking *below* the account's own typical curve |
+| shares · saves · follows | — | 0 · 0 · 0 |
+
+**+60% on watch time is a real result** and it is the read this entry called in advance: it is per
+viewer, so it survives the duplicate-suppression confound that makes views unreadable here. Showing
+the result in the first three seconds beats promising it. **That finding generalises to r010 and is
+the one thing to carry forward from three cuts of this reel.**
+
+**It bought nothing, because watch time is not the distribution mechanism.**
+
+#### The number that actually explains nine reels
+
+| | r005 (the hit) | r009 v3 |
+|:--|--:|--:|
+| viewers | 32,882 | 171 |
+| **like** rate | 2.79% | **2.92%** |
+| **share** rate | 0.92% | **0.00%** |
+| **save** rate | 1.10% | **0.00%** |
+| follow rate | 0.22% | 0.00% |
+
+**The like rate MATCHES the hit.** The people who see r009 like it at the same rate people liked
+the reel that did 66k. They do not like it less. **It just does not travel.**
+
+Likes are passive and cheap; **shares and saves are the costly signals, and they are the mechanism
+by which a reel escapes the pool it was tested on.** r005 got 303 shares and reached 32,882
+viewers. r009 got 0 and reached 171. A reel that nobody sends anywhere is shown to nobody, no
+matter how well it is cut.
+
+**Honesty about what 0/171 proves: not much on its own.** At r005's share rate, 171 viewers would
+be expected to produce **1.6** shares, and seeing zero has probability 0.21 — unremarkable. The
+95% upper bound on r009's share rate from this sample is 1.75%, which does not even exclude r005's
+0.92%. **The single reel is not the evidence. The pattern across r006–r009 is**, and this is the
+fifth consecutive confirmation of the reach test.
+
+#### What this closes, and what it opens
+
+**CLOSED — the hook was a real defect and it is fixed.** Craft was never the binding constraint,
+though: v3 has the best opening this account has built and the worst reach.
+
+**CLOSED — stop cutting r009.** Three cuts. The pre-registration said a fourth would be the `I51`
+mistake — answering a verdict with a craft fix — and that holds whether the reading was good or
+bad. It was good, and it changed nothing that matters.
+
+**OPEN — "who does the viewer send this to, and what are they proving?" is not a filter, it is THE
+constraint.** It has now predicted five outcomes in a row. Every craft rule in `CLAUDE.md` governs
+what happens *after* a viewer is shown the reel; nothing in this repo governs whether it is shown
+to anyone. That is the gap.
+
+**OPEN — distribution has never been controlled.** Nine reels, one platform, one warm pool of a
+couple of hundred followers acquired largely by a single geography reel, and every conclusion in
+this ledger drawn from it. The account's own chart puts a *typical* reel at ~350 views in 6 h,
+which is a floor, not a verdict on any particular reel. **Posting an already-rendered asset to a
+second platform costs one upload and is the only free way to tell a content problem from a
+distribution one.** It has never been tried.
+
 ### Posted
 
 | Reel | Subject | Length | Posted |
