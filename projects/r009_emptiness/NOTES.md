@@ -168,6 +168,20 @@ caught by looking at a still:
    printed `OUR SUNHE NEXT STAR` across the middle of the payoff.
 4. **An early return guarded on the wrong opacity** killed the span line with the ticks, leaving
    34.4–35.1 as a frame with nothing in it but the rule.
+5. **`useBeat` crosses in 0.6 s EARLY, which is a leak across a hard cut.** `useBeat(B.earth[0], …)`
+   put the giant beat's names — `OUR SUN`, `THE BIGGEST STAR` — at 83% opacity on the HOOK's star,
+   0.1 s before it cut away and ten seconds before the beat they belong to. Two beats' worth of
+   text inside one second across a cut, and the reader's verdict was *"it gets unreadable."*
+   **A beat that begins on a cut cannot use `useBeat`'s lead-in** — it needs an explicit ramp that
+   starts after the cut has landed.
+
+**v2, 0c — a cut needs a beat of silence on each side.** The first v2 cut ran the hook title out at
+3.6, cut at 3.8, and brought the next title in at 4.2: three text states changing inside 0.6 s
+across the biggest visual change in the reel. The promise now holds to **3.75** and leaves *with*
+the cut, so one decisive change replaces two small ones; then Earth has **1.1 s on its own** — its
+name at 4.5, its title at 4.9 — before Jupiter starts growing at 5.6. `useRung` gained a keyframe
+to match: Earth **holds centred** until 4.7 instead of sliding left the instant it arrived, toward
+a Jupiter not admitted for another 0.3 s.
 
 
 1. **The visibility ceiling is the important number, and it caused a white flash.** Bodies faded

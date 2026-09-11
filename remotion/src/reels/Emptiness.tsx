@@ -246,7 +246,10 @@ const LABEL_Y = 1090;
  */
 const useRung = () => {
   const s = useCurrentFrame() / FPS;
-  return interpolate(s, [0, 3.78, 3.8, 5.6, 9.4, 11.3, 13.1], [3, 3, 0, 1, 2, 2, 3], ease);
+  /* Earth HOLDS centred from the cut to 4.7 — the extra stop is the beat the
+     new frame gets to itself. Without it Earth started sliding left the instant
+     it arrived, toward a Jupiter that is not admitted until ~5.0. */
+  return interpolate(s, [0, 3.78, 3.8, 4.7, 5.6, 9.4, 11.3, 13.1], [3, 3, 0, 0, 1, 2, 2, 3], ease);
 };
 
 /**
@@ -975,9 +978,17 @@ const BODY_NAMES = ['EARTH', 'JUPITER', 'OUR SUN', 'THE BIGGEST STAR'];
 const BodyLabels: React.FC = () => {
   const viewKm = useViewKm();
   const rung = useRung();
-  /* Not during the hook: there the title IS the label, directly above the disc,
-     and printing the same six words twice reads as a mistake. */
-  const o = useBeat(B.earth[0], B.giant[1]);
+  /* NOT during the hook, and not one frame of lead-in either. `useBeat` crosses
+     in 0.6 s EARLY, which put "OUR SUN" and "THE BIGGEST STAR" — names that
+     belong to a beat ten seconds later — at 83% opacity on the hook's star, 0.1 s
+     before it cut away. Two beats' worth of text in one second is what made the
+     transition unreadable. These ramp AFTER the cut has landed. */
+  const o = interpolate(
+    useCurrentFrame() / FPS,
+    [B.earth[0] + 0.1, B.earth[0] + 0.7, B.giant[1], B.giant[1] + 0.6],
+    [0, 1, 1, 0],
+    { ...ease, extrapolateLeft: 'clamp', extrapolateRight: 'clamp' },
+  );
   if (o <= 0.002) return null;
   return (
     <>
@@ -1245,12 +1256,17 @@ export const Emptiness: React.FC = () => {
           between them. On an almost-empty frame a block of 62 px type is the
           single biggest event available — measured at 3.7 against a 1.0 event
           threshold — so the promise is spent as three events rather than one. */}
-      <Title from={0.6} to={3.6} lines={['THE BIGGEST STAR', 'EVER MEASURED']} size={62} accent={-1} />
-      <Title from={2.4} to={3.6} lines={['', '', 'IS ABOUT TO VANISH']} size={62} />
+      <Title from={0.6} to={3.75} lines={['THE BIGGEST STAR', 'EVER MEASURED']} size={62} accent={-1} />
+      <Title from={2.4} to={3.75} lines={['', '', 'IS ABOUT TO VANISH']} size={62} />
       <Countdown />
 
-      {/* B2 — the cut to Earth. The title says why we just left the star. */}
-      <Title from={4.2} to={7.5} lines={['TO SEE HOW BIG,', 'START HERE']} size={76} />
+      {/* B2 — the cut to Earth. The title says why we just left the star, but not
+          immediately: the promise holds to 3.75 and goes with the cut at 3.8, then
+          Earth has 1.1 s on its own — its name at 4.5, its title at 4.9 — before
+          Jupiter starts growing at 5.6. The first v2 cut ran the hook title out at
+          3.6 and the new title in at 4.2, so three text states changed inside one
+          second across a hard cut. */}
+      <Title from={4.9} to={7.5} lines={['TO SEE HOW BIG,', 'START HERE']} size={76} />
 
       {/* B3 — the ruler, said out loud. This is the sentence v1 never had, and
           without it every number afterwards is an unanchored figure. */}
