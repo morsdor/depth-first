@@ -210,6 +210,9 @@ lane (`projects/s001_ai_physical_cost/README.md`), tested cheaply.*
 | **I50** | The index that lost half its value to rounding | Everyone trusts a number on a screen | Truncating instead of rounding, thousands of times a day, walked a stock index from 1,000 to 520 over 22 months — while nothing was wrong with the market | Real index line drifting from the correctly-rounded line, gap widening month by month | Counter |
 
 | **I68** | The bridge did not fall down from resonance | Tacoma Narrows is in every physics textbook | It was aeroelastic flutter in a 64 km/h wind — the deck fed energy into its own twisting. Resonance is the wrong answer, and it is the one nearly everyone was taught | Simulated deck in real airflow, the torsional mode growing, the energy budget that separates flutter from resonance | Diagram + Counter |
+| **I71** | The one that started a hair's width away | Everyone has seen a pendulum swing | Two identical pendulums released **70 micrometres** apart — one human hair — trace the same path for three seconds and then have nothing to do with each other. Nothing is random and nothing is nudged again | Two double pendulums overlapping exactly, then daylight, then two unrelated machines | Diagram |
+*(Added 2026-09-11. **The first entry written for the LOOP format**, not the 30-60 s teaching format: ~12 s, no narration, one line of copy, built to be rewatched rather than understood. The format, not the topic, is what is being tested — see `gate0/i71_divergence/GATE0.md`. Perturbation and every timing are outputs of `chaos.py`; energy drift 8e-12 of MgL.)*
+
 *(`I54`-`I68` added 2026-09-10, the first ids under the widened "how systems work" remit. Every figure in these fifteen rows is a RESEARCH LEAD carried from memory and none has been verified — the same status that made `I15` ship a hook of 300,000/300 that no real graph supported, and that killed `I53` in twenty minutes. Verify before any of them reaches a gate.)*
 
 ---
