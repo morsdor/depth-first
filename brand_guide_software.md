@@ -1645,6 +1645,75 @@ by local `@font-face`; `brand/fonts.ts` exports the same family names, so nothin
 Renders are offline and reproducible. This is the "cache the network" rule the Python side already
 followed, applied to the browser.
 
+### r009 — three things only a per-frame scan could have caught (added 2026-09-11)
+
+**The first 3D reel (`@remotion/three`), and every real defect in it was invisible to the
+existing checks.** `tsc`, `brand:check`, the motion audit and the safe audit all passed on a cut
+that had a **near-white flash** in it. Frames 79–100 averaged **180/255** — the visibility window
+was letting a body fade in while it was still *larger than the frame*, and a lit sphere filling
+the picture blows out. Stills at 0.5 s intervals missed it; the Studio missed it; it showed up
+only when every frame's mean brightness was scanned.
+
+**Two more of the same shape.** Orbit rings drawn at `r * 0.997` are **sub-pixel** and never
+rendered at any zoom — the orbit beat shipped through four renders with no visible orbits at all.
+And a yaw rotation added to "make the rings move" turns an already-tilted ring **edge-on**, because
+euler XYZ applies yaw after tilt. Both look fine in code review and produce nothing on screen.
+
+**The lesson is not "3D is hard".** It is that this repo's checks all measure *aggregate*
+properties — a median, a dead spell, a bounding box — and every one of those survives a frame
+that is simply wrong. **Scan per-frame statistics on any new renderer before trusting the
+suite.** Three lines of numpy over the decoded frames found all three.
+
+**A corollary about debugging tools.** `ffmpeg -ss 2.5 -i in.mp4` seeks to the nearest *keyframe*
+and silently returns a different frame; it showed a clean picture for a full debugging round while
+the flash sat two frames away. Use `-vf select=eq(n\,N)` when the exact frame matters.
+
+### r009 — a sparse point cloud cannot carry a hold, at any size or brightness (2026-09-11)
+
+The cosmic-scale beats failed the motion audit **seven times in a row**, and every "obvious" fix
+did nothing measurable: more keyframes, a faster spin, a bigger disc, a brighter disc, a tighter
+zoom. Measured directly, a 2,600-point galaxy holding for four seconds changed **0.12–0.19** per
+sample against a 0.35 floor. This is `CLAUDE.md` non-negotiable 4's blind spot stated exactly —
+the audit measures mean change over the whole frame, so only **large-area** motion counts, and a
+cloud of 2 px points has no area however many of them there are.
+
+**What actually worked was giving the beat a large bright mass rather than more motion:** the
+galaxy got the diffuse unresolved disc light a real galaxy has, with a deliberately flat falloff.
+One texture change moved the reel from FAIL to PASS after seven failed attempts at the problem
+from the motion side.
+
+**And the general fix for a hold is to keep leaving.** Every hold in this reel is now a
+continuous recession — the frame never stops pulling back — which keeps the reading time and
+loses the stillness, exactly as the rule asks.
+
+### r009 — the accuracy gate caught a mechanism sentence, again (2026-09-11)
+
+Gate 0 passed on a payoff frame built around **Stephenson 2-18 at 2,150 R☉**. Twenty minutes of
+Stage 3 research killed it: the figure is revised down toward ~1,400 R☉ and was inflated by the
+star's own ejected-material nebula confusing where the photosphere is. Replaced with **WOH G64 A,
+1,540 ± 77 R☉** (Ohnaka et al. 2024) — measured, recent, and the first star ever imaged outside
+our galaxy. The headline moved **13,430 → 18,749**: more honest *and* stronger.
+
+**The one that nearly shipped was not a figure.** "The Hayashi limit caps stars at 1,500 R☉" is
+false — it is a *temperature* line (~2,500 K) on the H–R diagram, not a radius cap — and the
+number came from a fan wiki. Non-negotiable 7 is exactly right that **mechanism sentences slip
+through where figures do not**, because a sentence looks like prose and nothing in the toolchain
+checks prose. It was replaced with an observation instead of a theory: the five largest stars
+ever measured, across two galaxies, are all within **8.7%** of each other.
+
+### r009 — the reach test was failed ON PURPOSE, and recorded before the build (2026-09-11)
+
+`I70` clears all three Gate 0 kill conditions cleanly — the payoff frame is impressive before a
+word is read, which is the exact inverse of the three software concepts that died — but it scores
+**1 of 3** on the reach test: no dispute is running about star sizes. That is the condition that
+separated r005 (~66k) from r006 (~1.8k).
+
+It was built anyway, for the 3D toolchain, and **the prediction was written into `GATE0.md` §4
+before the build started**. That matters: if this lands at r006 numbers it is a *confirmed
+prediction* and teaches nothing new, and only a good result is information. Recording the
+expected outcome in advance is cheap and it is what stops a bad result being re-explained
+afterwards — which is precisely what happened to r006.
+
 ### Posted
 
 | Reel | Subject | Length | Posted |
@@ -1657,3 +1726,5 @@ followed, applied to the browser.
 | `r006` | Submarine cables — your message goes underwater | 28 s | **2026-09-09** |
 | `r007` | Tides — the Sun pulls 179× harder, the Moon makes the tide | 54 s | **2026-09-10** |
 | `r008` | Pendulum wave — fifteen strings, back in line at 30 s | 34 s | **2026-09-10** |
+
+**Built, not yet posted:** `r009` — scale / the biggest star is a speck — 53 s, built 2026-09-11.

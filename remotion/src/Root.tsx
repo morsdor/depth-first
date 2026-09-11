@@ -8,6 +8,7 @@ import { DURATION_SECONDS as GC_SECONDS, Greatcircle } from './reels/Greatcircle
 import { Cables, DURATION_SECONDS as CABLES_SECONDS } from './reels/Cables';
 import { DURATION_SECONDS as TIDES_SECONDS, Tides } from './reels/Tides';
 import { DURATION_SECONDS as PENDULUM_SECONDS, Pendulum } from './reels/Pendulum';
+import { DURATION_SECONDS as EMPTINESS_SECONDS, Emptiness } from './reels/Emptiness';
 import { DURATION_SECONDS as MANIM_SECONDS, ManimProbe } from './reels/ManimProbe';
 import { SafeZones } from './reels/lib/chrome';
 
@@ -85,6 +86,13 @@ const TidesSafe: React.FC = () => (
 const PendulumSafe: React.FC = () => (
   <>
     <Pendulum />
+    <SafeZones />
+  </>
+);
+
+const EmptinessSafe: React.FC = () => (
+  <>
+    <Emptiness />
     <SafeZones />
   </>
 );
@@ -228,6 +236,27 @@ export const RemotionRoot: React.FC = () => {
         id="r008-pendulum-safe"
         component={PendulumSafe}
         durationInFrames={PENDULUM_SECONDS * 30}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+
+      {/* r009 · I70 · the biggest star is a speck — the first 3D reel, built on
+          @remotion/three. No Manim layer and no external asset: the scene is drawn
+          from remotion/src/reels/data/emptiness.ts, which emit_ts.py refuses to
+          write unless all 13 on-screen claims hold. */}
+      <Composition
+        id="r009-emptiness"
+        component={Emptiness}
+        durationInFrames={EMPTINESS_SECONDS * 30}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="r009-emptiness-safe"
+        component={EmptinessSafe}
+        durationInFrames={EMPTINESS_SECONDS * 30}
         fps={30}
         width={1080}
         height={1920}

@@ -46,17 +46,23 @@ new strategy, it is removing a constraint that was never real.
 idea 60 s buys eight or nine beats instead of four. Longer is permitted, never required — earn
 each beat, and the retention cliff at 1.5–3 s is unchanged by the runtime.
 
-**The backlog is still the gate on inventing topics.** A non-software concept gets a permanent id
-appended to `content_backlog.md` with its section and accent **before** it is built, exactly like
-`I51` and `I52` did. Physical-system ids will usually land in §2 (`infrastructure`) or §6
-(`failure`), which already fit them. Do not build off a topic that has no row.
+**The backlog is a starting point, not the gate on inventing topics (revised 2026-09-11).** The
+69 original ids were written in one AI-generated sitting and their figures are unverified — the
+repo already knows this, from the `I54`–`I68` note and from the `I15` hook no real graph
+supported. Treating that file as the gate on invention imports its blind spots, so **reasoning a
+concept from scratch is allowed and expected**, alongside the backlog. `I70` (r009) was the first.
 
-**When asked for "a new reel", pick the next concept from [`content_backlog.md`](content_backlog.md).
-Do not invent a topic — propose a new id and get it written down instead.** **69 entries, ids
-`I01`–`I69`**, grouped into six sections that map 1:1 onto `DOMAIN_ACCENT` in
+**What did NOT change: every built concept still gets a permanent id appended to
+`content_backlog.md`, with its section and therefore its accent, BEFORE the build starts.** Ids
+are what the five logs resolve against; inventing the topic is free, skipping the id is not.
+Physical-system ids usually land in §2 (`infrastructure`) or §6 (`failure`).
+
+**When asked for "a new reel", bring both — the live candidates from
+[`content_backlog.md`](content_backlog.md) and anything reasoned from scratch that beats them.** **70 entries, ids
+`I01`–`I70`**, grouped into six sections that map 1:1 onto `DOMAIN_ACCENT` in
 `remotion/src/brand/tokens.ts` — so the section *is* the accent colour decision. Live counts come
 from the script, never from this line:
-**8 built · 1 failed · 2 in gate · 2 retired · 1 shelved · 55 open** (2026-09-10).
+**9 built · 1 failed · 1 in gate · 2 retired · 1 shelved · 56 open** (2026-09-11; 70 ids, `I01`–`I70`).
 
 **The procedure for all of this is the [`new-reel`](.claude/skills/new-reel/SKILL.md) skill —
 `/new-reel`.** It lists the live candidate ids with their real status
@@ -165,8 +171,10 @@ before optimising for reach: whether r005's 71 follows stayed, and whether they 
 | `r007` | `I58` | Tides — the Sun pulls 179x harder and the Moon still makes the tide | built 2026-09-10 (54 s), **posted 2026-09-10** — 189 views · 4 likes · 1 follow at first reading; first reel outside software, and the longest |
 | `r008` | `I69` | Pendulum wave — fifteen strings, and the thirty seconds they take to come back | built 2026-09-10 (34 s), **posted 2026-09-10** — 190 views · 0 engagement at first reading; first reel with a Manim layer; rebuilt down from a 60 s cycle after the first viewer could not tell the fifteen strings apart |
 
+| `r009` | `I70` | Scale — the biggest star ever measured is a speck in the gap to the next one | built 2026-09-11 (53 s), **awaiting Gate 3** — first 3D reel (`@remotion/three`), first topic invented rather than taken from the backlog, and the longest |
+
 **Reel numbers are contiguous and mean "the Nth reel posted".** `r001`–`r008` above are the eight
-that have shipped, in order. **The next reel is `r009`.**
+that have shipped, in order; `r009` is built and un-posted. **The next reel is `r010`.**
 
 **Three built reels were never posted and were deleted on 2026-09-10** — the shuffle bias (`I51`,
 five rebuilds), A\* vs Dijkstra (`I15`, which failed the sentence test after being built) and the

@@ -41,6 +41,7 @@ with the row, because the temptation to "tighten" it later is exactly how a fals
 | `r005` | 2026-09-08 | A (below) | "Those curved flight paths on the seatback map are the straight lines. The map is bent, not the flight." | 916 | 303 | 362 | 71 | **Figures at day 1 (2026-09-09 09:47); views curve had not flattened, so these are lower bounds.** 32,882 viewers / 46,782 views — 20.3x the account's previous best reach — and best on every per-viewer metric: likes 2.79%, shares 0.92%, saves 1.10%, follows 0.216%. Skip 29.9%, the lowest recorded. Average watch rose 16 -> 16 -> 17 -> 20 s across four readings while reach grew 64x. Audience was **99.9% non-followers**, 58% India, 67% aged 25-44. **Three early conclusions were retracted** (saves at 1 h, shares at 4 h, skip rate at 7 h) — see `brand_guide_software.md` §13. |
 | `r006` | 2026-09-09 | A (below) — confirm which caption went out | "Your message to America doesn't go up to a satellite. It goes into the sea." | — | — | — | — | Peaked ~1.8k views: the pre-registered test of the r005 pattern, failed — see `brand_guide_software.md` §13 "FALSIFIED". Insights not yet logged. |
 | `r008` | 2026-09-10 | A (below) — confirm which caption went out | "Fifteen weights on fifteen strings. Nothing connects them. Watch what happens at thirty seconds." | 0 | 0 | 0 | 0 | **190 views at first reading (2026-09-10)** — the floor, with the best motion score on the account (99%); Gate 0 had flagged the "personally witnessed" leg as weak. |
+| `r009` | *not posted* | A (below) | "Everyone shows you how big stars get. Nobody shows you the emptiness." | — | — | — | — | **Built 2026-09-11, awaiting Gate 3.** First 3D reel and the longest at 53 s. `GATE0.md` §4 records the prediction in advance: it clears all three kill conditions but scores **1 of 3** on the reach test — no dispute is running about star sizes — so r006 numbers would be a confirmed prediction, not a new lesson. |
 
 Engagement figures are per the reel's own Insights, on the base Instagram reports them against
 (unique viewers). r001's are at 3 days, r003's at ~18 h — see `brand_guide_software.md` §13.
@@ -386,3 +387,46 @@ data module was written. See `projects/r007_tides/NOTES.md`.
 The phrase "centrifugal force is wrong". The rotating-frame derivation about the barycentre is
 legitimate; only the popular version is wrong. Saying it flatly would be the reel making the same
 class of error it exists to avoid.
+
+---
+
+## r009 — "The biggest star we have ever measured is a speck" (`I70`) — DRAFT, not posted
+
+### Caption A
+
+> Everyone shows you how big stars get. Nobody shows you the emptiness.
+>
+> WOH G64 is 1,540 times the width of the Sun — put it where the Sun is and it swallows Jupiter's
+> orbit. It is the biggest star we have ever measured, and it is not much bigger than the next
+> four: the five largest ever found, across two galaxies, are all within 8.7% of each other.
+> Sizes run out.
+>
+> Distances don't. Lay that star end to end across the gap to Proxima Centauri, our nearest
+> neighbour, and it fits **18,749 times**.
+>
+> Every figure here was computed from published measurements, and every colour is the real one —
+> each star is drawn at the colour a body of its temperature actually emits.
+
+### Load-bearing phrasings
+
+- **"the biggest star we have ever measured"**, never "the biggest star there is". Hypergiant
+  radii are model-dependent and disputed; even the source list says so. This wording survives the
+  next revision, and there will be one — Stephenson 2-18's 2,150 R☉ did not survive *this* build.
+- **"1,540 times the width"** — width, not size or volume. By volume it is ~3.6 billion times,
+  which is a different and much larger claim the reel does not make.
+- **"the five largest ever found ... within 8.7%"** is an observation, not a theory. Do **not**
+  write "stars cannot get bigger than X" — the Hayashi-limit version of that claim is false and
+  was cut during research.
+- **"our nearest neighbour"** — and note Proxima is unusually *close*. Typical local separations
+  are larger, which makes the point stronger, so there is no temptation to overstate.
+- **Do not write "space is empty."** It is empty *of stars*.
+
+### Hashtags — six, topical, no stuffing
+
+`#astronomy` `#space` `#stars` `#scale` `#physics` `#scicomm`
+
+### Not in the caption, on purpose
+
+Any claim about the size of the universe, and any "this will blow your mind" framing. The reel's
+whole argument is that the genre's usual ending — "and this one is even bigger" — is the wrong
+place to stop; a caption that reaches for awe undercuts the one thing that makes it different.
