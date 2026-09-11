@@ -1,6 +1,7 @@
 # r009 · I70 — the biggest star in the universe is a speck
 
-**Built 2026-09-11. 53 s. Accent `infrastructure #00D6F7` (§2).**
+**Built 2026-09-11. Re-cut the same day after the Gate 3 read: 53 s → 40 s. Accent
+`infrastructure #00D6F7` (§2).**
 First **3D** reel in the repo (`@remotion/three`), and the first built on a topic that did not
 come from `content_backlog.md`.
 
@@ -12,12 +13,13 @@ come from `content_backlog.md`.
 Full gate record, including the two rejected alternatives and the honest reach-test failure:
 [`gate0/GATE0.md`](gate0/GATE0.md).
 
-> **Gate 3, 2026-09-11 — the first viewer read says the message does not land.** *"I had a hard
+> **Gate 3, 2026-09-11 — the first viewer read said the message did not land.** *"I had a hard
 > time understanding what it had to convey. We don't know what we are comparing against. The
 > sphere can also tell us what it represents."* The craft was praised; the script was not. The
 > diagnosis and the script-first rewrite are in [`SCRIPT.md`](SCRIPT.md) — one ruler instead of
 > seven, labels riding on the bodies, the catalogue name out of the title, and the wide third cut
-> to a sequel. **Everything below describes the v1 cut as built and is unchanged.**
+> to a sequel. **v2 is built, rendered and audited — the tables below describe it.** The v1
+> figures are kept inline wherever the change is the lesson.
 
 ## The spine
 
@@ -108,20 +110,25 @@ reason emission nebulae photograph red.
 `brand:check` bans hex literals outside `brand/` but accepts computed `rgb()` strings, so the
 honest path and the legal path turned out to be the same one.
 
-## The beats
+## The beats — v2, 40 s
 
 | Beat | s | What it does |
 |:--|:--|:--|
-| hook | 0.0–4.2 | Earth → Jupiter. A promise naming its object and its second, with a clock keeping it. |
-| sun | 4.2–7.0 | The Sun, held. |
-| giant | 7.0–13.0 | WOH G64 swells in, 1,540× wider, the Sun a point beside it. |
-| orbits | 13.0–18.0 | Orbits drawn outward from its seat: it swallows Jupiter's, stops short of Saturn's. |
-| saturate | 20.0–24.5 | The five largest ever measured, near-identical. **Sizes stop.** |
-| break | 24.5–35.0 | The gap. Counter runs 1 → 18,749. Giant gone at **t=31.0**, the second the hook promised. |
-| hood | 35.0–41.0 | 25 real neighbouring systems in real 3D. |
-| nebula | 41.0–43.8 | The Orion Nebula at its measured 24 ly. |
-| galaxy | 43.8–49.0 | The galaxy, Sun pinned at its real radius, pulsing. |
-| close | 49.0–53.0 | Staggered close naming what the next reel does. |
+| hook | 0.0–3.8 | **The giant itself**, receding, with the promise over it and a clock keeping it. |
+| earth | 3.8–7.8 | Hard cut to Earth. Jupiter grows beside it and **Earth stays**. The ruler is born: `×11.2`. |
+| sun | 7.8–11.3 | The Sun grows past Jupiter, which stays. `×9.7`. The title says the ruler out loud. |
+| giant | 11.3–17.0 | The giant returns at `×1,540`, the Sun a **labelled** point beside it for the whole beat. |
+| orbits | 17.0–20.2 | Wordless: rings drawn outward from its seat, Jupiter's swallowed. No new number. |
+| saturate | 21.2–25.8 | The five largest ever measured. The ruler visibly **refuses to climb**. |
+| break | 25.8–34.8 | The gap. Counter 1 → 18,749. Giant gone at **t=31.0**, the second the hook promised. |
+| close | 34.8–40.0 | Stays on the gap while the fill drains out of it. Four staggered arrivals. |
+
+**Cut from v1:** `hood` (25 neighbouring systems), `nebula` (Orion at 24 ly) and `galaxy` (the
+Sun at its real galactocentric radius) — 18 s that opened three new scales *after* the payoff had
+landed, in three more units. `HoodGroup`, `NebulaGroup` and `GalaxyGroup` are deleted from
+`Emptiness.tsx` and remain in git; the subject is a reel of its own. The v1 titles that named
+`WOH G64` and quoted `7.16 AU`, `8.7%` and `4.2465` are gone with them — see
+[`SCRIPT.md`](SCRIPT.md) for the full jargon kill list.
 
 ## The architecture: one number moves
 
@@ -135,6 +142,33 @@ re-basing rather than a translation. Each beat also owns its local origin and cr
 shared `viewKm`.
 
 ## Traps, all of them found by measuring rather than by looking
+
+**v2, 0 — only large-area change counts, and this is what that means in numbers.** The audit
+measures mean change over the whole frame, so on an almost-empty frame **the only real events are
+text arrivals** — a 62 px title block measures **3.7** against a 1.0 event threshold, while a
+disc receding across a whole beat measures 0.15–0.30. A shrinking disc changes an *annulus*, whose
+area scales with its radius, so a beat built on one dies exactly as the star gets small. Three
+consequences, each of which took a render to find:
+
+- the hook was cut 5.0 s → 3.8 s and its title split into two arrivals at 0.6 and 2.4 with the
+  clock landing at 1.5 between them, because three events is what 3.8 s of one star can be given;
+- the tail was cut 5.5 s → 3.0 s after the payoff and every line of it lands on its own beat;
+- **`ease` takes the rate to zero AT every keyframe**, so a long pull needs keyframes 0.4 s apart,
+  not 1.6 s apart. Three widely-spaced ones read as three separate dead spells (2.00 s at 2.8 s,
+  then 1.75 s at 15.0 s). The hook's ten geometric steps are what fixed it.
+
+**v2, 0b — four rendering bugs that typecheck, lint and brand:check all passed.** Every one was
+caught by looking at a still:
+
+1. **An empty `<div>` creates no line box.** A staggered title passing `''` as a spacer collapsed
+   to zero height, so "IS ABOUT TO VANISH" rendered *on top of* "THE BIGGEST STAR".
+2. **"Accent the last line" paints the wrong line** once a title is split — the last line of the
+   first half is not the last line of the title. `Title` now takes an explicit `accent` index.
+3. **An extra `/2`** in the gap ticks' pixel conversion put both a quarter of the way in and
+   printed `OUR SUNHE NEXT STAR` across the middle of the payoff.
+4. **An early return guarded on the wrong opacity** killed the span line with the ticks, leaving
+   34.4–35.1 as a frame with nothing in it but the rule.
+
 
 1. **The visibility ceiling is the important number, and it caused a white flash.** Bodies faded
    in while still *larger than the frame*: a lit sphere filling the picture blows out, and frames
@@ -158,22 +192,39 @@ shared `viewKm`.
 ## Audits
 
 ```
-motion (default --width 240):  median 0.658 · dead spell 1.50s (limit 1.5) · event density 31%  PASS
-Instagram chrome:              TOP 0 px · BOTTOM 0 px · RAIL worst 888 px
+                        v1 (53 s)                    v2 (40 s)
+motion, --width 240     median 0.658                 median 0.723
+                        dead 1.50s (limit 1.5)       dead 0.75s          PASS
+                        event density 31%            event density 35%
+Instagram chrome        TOP 0 · BOTTOM 0 · RAIL 888  TOP 0 · BOTTOM 0 · RAIL 1017
 ```
 
-**On the rail number:** the repo's `reel_safe_audit.py` uses a flat `x 60..870`, which is the
-rail-safe *width*; Instagram's action rail actually covers `x>=870` only below `y=1050`. Measured
-against the real rectangles, nothing lands in the top or bottom bands, and the rail overlap is
-**888 px worst-case against r005's 876 px** — r005 being the only reel on this account that
-worked. Most of it is the shared `Progress` bar's tail, which every reel in the repo has.
+**Per beat (v2), median | dead samples | event density:**
 
-**On event density:** 31% is below r004's 42% and I51 v5's 53%, and it is the honest weak point
-of this build. The wide rungs are the cause — a sparse point cloud cannot carry a hold at 240 px
-wide however big or bright it is, which is the blind spot `CLAUDE.md` names. Every hold in the
-reel had to be given continuous motion (the galaxy never stops receding; the orbit plane tilts;
-the five-star row travels a wave; a pulse crosses the gap after the tally lands). Watch this at
-Gate 3: if it reads static, the wide third is where to cut.
+```
+hook     0.529 |  5/15 | 20%      orbits    0.446 |  3/12 | 25%
+earth    2.492 |  0/16 | 94%      saturate  0.539 |  2/19 | 21%
+sun      1.075 |  2/14 | 50%      break     0.814 |  2/36 | 28%
+giant    0.522 |  9/23 | 39%      close     0.299 | 11/21 | 19%
+```
+
+**On the rail number, and why 1017 is not a regression.** The repo's `reel_safe_audit.py` uses a
+flat `x 60..870`; Instagram's action rail actually covers `x>=870` only below `y=1050`. Measured
+against the real rectangle, **the only thing r009 puts in the rail is the shared `Progress` bar at
+y=1534 — and r005 measures 1017 there too**, on the same probe. Everything else the flat test
+flags is the gap line and its two end stars at y≈830, which is 220 px above the rail. Top and
+bottom bands are clean at 0 px.
+
+**`reel_safe_audit.py` cannot run in the cloud container and FAILS OPEN.** Neither available
+ffmpeg does `-f rawvideo` on h264 — the Remotion build has no rawvideo muxer, the Playwright build
+is `--disable-everything` and cannot decode h264 — so the frame generator yields nothing, the
+bbox comes back inverted (`x 1080..-1`) and the script prints **PASS**. The numbers above came
+from the same logic re-sourced through PNG frames, which is what `reel_motion_audit.py` already
+does. Treat a `PASS` with an inverted bbox as "did not run".
+
+**On event density:** 35% is above v1's 31% and r004's 42% is still the target. The weak beats are
+the hook (20%) and the close (19%), and both are weak for the same measurable reason — see the
+trap below.
 
 ## Rebuild
 

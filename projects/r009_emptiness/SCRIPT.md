@@ -284,3 +284,28 @@ ones that already scored well.
 - The reach-test verdict in `gate0/GATE0.md` §4 — still 1 of 3, still the honest weak point, and a
   clearer script does not repair a missing dispute. What it does repair is the part that was
   inside our control.
+
+---
+
+## 8. As built — 2026-09-11, the same day
+
+**v2 is built, rendered and audited.** `Emptiness.tsx`, `r009_emptiness.mp4`, `NOTES.md`. What the
+build changed about the plan above, and why:
+
+- **40 s, not 44.** The audit decides beat length on an almost-empty frame, and the two beats the
+  plan gave the most room to — the hook and the tail — are the two that cannot fill it. See
+  `NOTES.md`, "v2, 0".
+- **No `BodyLabel` credit line.** The plan demoted `WOH G64 A · ESO, 2024` to a small credit under
+  the body. `brand:check` enforces a 36 px type floor, so there is no such thing as a small credit
+  here — at 36 px it reads as a second name. The designation is in `NOTES.md` with its paper,
+  which is where a source belongs; nothing on screen names it.
+- **No B4 caption at all.** With two body names, the ruler and the countdown, the giant beat was
+  already carrying four text blocks; the fifth made the still unreadable.
+- **`two galaxies, all the same size` → `none of them bigger`.** 8.7% is 15 px at the size those
+  five discs are drawn, and it is visible. The stronger claim was also the false one.
+- **Ruler reads `×11.2 / ×9.7 / ×1,540`, not `×11 / ×10`.** Rounding 9.73 to 10 in the slot the
+  whole reel resolves against is the kind of tidy-up non-negotiable 7 exists to stop. The title
+  says "each one about ten times the last", which is the honest version in words.
+- **The end ticks track the gap's ends** rather than sitting at x=60/x=1020, and a retiring rung
+  now fades at the page margin instead of sliding off the edge — both found by measuring the mp4,
+  not by reading the code.

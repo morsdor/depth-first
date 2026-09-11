@@ -1714,6 +1714,53 @@ prediction* and teaches nothing new, and only a good result is information. Reco
 expected outcome in advance is cheap and it is what stops a bad result being re-explained
 afterwards — which is precisely what happened to r006.
 
+### r009 — ONE RULER. The yardstick problem, and the first Gate 3 failure on message (2026-09-11)
+
+**The verdict on the 53 s cut:** *"I really like it. All colours, branding, palette, spacing,
+focus, all animation aspects. I just had a hard time understanding the message. **We don't know
+what we are comparing against.** The sphere can also tell us what it represents."*
+
+This is a new failure mode for this repo and it deserves its own line. Every previous kill was
+Gate 0 — the concept was wrong. r009's concept passed Gate 0 cleanly and its craft was praised.
+**It failed on the script**, and the cause is countable:
+
+> **The cut changed its yardstick eight times in nine beats.** Earths across → Suns across →
+> astronomical units and planet orbits → a percentage spread → stars laid end to end → systems per
+> light-year → gaps per nebula width → percent of a galaxy. **Seven units, none surviving into the
+> next beat.** So when the payoff number landed, the viewer had nothing in hand to feel it
+> against, because the unit it was measured in had been invented four seconds earlier and was
+> never used again.
+
+**The rule that came out of it, and it generalises past this reel:**
+
+> **Pick ONE ruler, state it in words, use it at every rung, and never replace it.** Every number
+> on screen must answer the same question. r009's is *how many of the last thing fit across the
+> next*: 11, 10, 1,540 — and then 18,749, for a thing that is not a thing at all. Four numbers,
+> one question, and the argument is legible without a single sentence of explanation. Anything
+> that cannot be said in that ruler is demoted to a wordless beat or cut.
+
+**Second rule, and it is the one the viewer actually asked for:**
+
+> **A label belongs ON its object, not in a slot.** r009 v1 put titles at y=300 and captions at
+> y=1300 with the sphere at y=830, so nothing on screen ever said which circle was which and
+> "1,540 times wider" was a claim about two unlabelled discs. v2 gives every body a name that
+> reads the same `rung`, `viewKm` and visibility window as the 3D object, so a name cannot
+> outlive, precede or drift off the thing it names. **And a comparison needs both of its terms in
+> frame at once**: a rung does not leave until the next one is at full size.
+
+**Third, and it is a subtraction:** the catalogue designation `WOH G64` was the largest type on
+screen at 92 px. That is non-negotiable 6 broken as squarely as "Reed-Solomon" in a hook would
+break it, and the same beat also carried `7.16 AU`. Both are gone; so are `8.7%`, `4.2465` and
+`PROXIMA`. **A reel is allowed a name the viewer can repeat or a name the viewer can look up, and
+the first one wins every time.**
+
+**What the cut bought.** 53 s → 40 s, nine beats → eight, and the audit improved on every measure
+at the same time: median 0.658 → 0.723, dead spell 1.50 s → 0.75 s, event density 31% → 35%. The
+18 s removed — the neighbourhood, the Orion Nebula, the galaxy — were the three rungs the v1 audit
+had already blamed for the 31%. **The beats that diluted the message were the same beats that were
+killing the motion**, which is not a coincidence: both are symptoms of a reel that kept adding
+scales after its point had landed.
+
 ### Posted
 
 | Reel | Subject | Length | Posted |
@@ -1727,4 +1774,4 @@ afterwards — which is precisely what happened to r006.
 | `r007` | Tides — the Sun pulls 179× harder, the Moon makes the tide | 54 s | **2026-09-10** |
 | `r008` | Pendulum wave — fifteen strings, back in line at 30 s | 34 s | **2026-09-10** |
 
-**Built, not yet posted:** `r009` — scale / the biggest star is a speck — 53 s, built 2026-09-11.
+**Built, not yet posted:** `r009` — scale / the biggest star is a speck — **40 s**, built and re-cut 2026-09-11.
