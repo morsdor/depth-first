@@ -29,7 +29,7 @@ passed on a beautiful picture before (I15) and the repo paid for it.
   six stow AT ONCE. The aisle is the resource; parallelism is the mechanism.
   The reel's own fill pattern will come from our simulation, never from here.
 
-    python3 gate0/i73_boarding/mock_payoff.py
+    python3 projects/r011_boarding/gate0/mock_payoff.py
 """
 import pathlib
 import random
@@ -37,7 +37,7 @@ import random
 from PIL import Image, ImageDraw, ImageFont
 
 HERE = pathlib.Path(__file__).resolve().parent
-FONTS = pathlib.Path(__file__).resolve().parents[2] / "assets" / "fonts"
+FONTS = pathlib.Path(__file__).resolve().parents[3] / "assets" / "fonts"
 
 # ── the published field test ────────────────────────────────────────────────
 T_B2F, T_RANDOM = 371, 284                      # 6:11 and 4:44, in seconds

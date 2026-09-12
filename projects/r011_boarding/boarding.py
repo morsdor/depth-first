@@ -29,8 +29,8 @@ have to climb past, and then leaves the aisle.
 Nobody overtakes anybody -- that is what makes an aisle an aisle, and
 check_invariants() asserts it on every event.
 
-    python3 gate0/i73_boarding/boarding.py            # the field test, all five methods
-    python3 gate0/i73_boarding/boarding.py --sweep    # is the ordering an artefact?
+    python3 projects/r011_boarding/boarding.py            # the field test, all five methods
+    python3 projects/r011_boarding/boarding.py --sweep    # is the ordering an artefact?
 """
 import argparse
 import random as _random
@@ -178,6 +178,12 @@ def simulate(method, seed=0, rows=ROWS, t_row=T_ROW, t_stow=T_STOW, t_sit=T_SIT,
     next_in = 0
     t = 0.0
     events, samples, tr = 0, [], []
+    # Per-passenger trajectory, for the animation. `arr` is the time this
+    # passenger ARRIVED at each sub-slot, so the reel can reconstruct
+    # stop-and-go motion exactly rather than tweening between snapshots.
+    arr = [[] for _ in range(n)]
+    stow_iv = [None] * n
+    sit_t = [None] * n
 
     def wake_behind(s):
         if s == 0:
@@ -214,21 +220,24 @@ def simulate(method, seed=0, rows=ROWS, t_row=T_ROW, t_stow=T_STOW, t_sit=T_SIT,
             if state[p] == STOWING:
                 stowed[p], state[p], blocked[p] = True, WALKING, False
                 ready[p] = t
+                stow_iv[p] = (stow_iv[p][0], t)
             if state[p] == SHUFFLING and ready[p] <= t + 1e-9:
                 s = slot[p]
                 aisle[s], slot[p], state[p] = None, -1, SEATED
                 filled[(row_of[p], seat_of[p])] = True
-                seated_at[p] = t
+                seated_at[p] = sit_t[p] = t
                 wake_behind(s)
             elif state[p] == WALKING and not blocked[p] and ready[p] <= t + 1e-9:
                 if not stowed[p] and slot[p] >= target[p] - stow_reach:
                     state[p], ready[p] = STOWING, t + t_stow
+                    stow_iv[p] = (t, None)
                 elif slot[p] == target[p]:
                     start_seating(p)
                 elif aisle[slot[p] + 1] is None:
                     s = slot[p]
                     aisle[s], aisle[s + 1], slot[p] = None, p, s + 1
                     ready[p] = t + t_sub
+                    arr[p].append((t + t_sub, s + 1))
                     wake_behind(s)
                 else:
                     blocked[p] = True
@@ -237,6 +246,7 @@ def simulate(method, seed=0, rows=ROWS, t_row=T_ROW, t_stow=T_STOW, t_sit=T_SIT,
             p = next_in
             aisle[0], slot[p], state[p] = p, 0, WALKING
             ready[p] = t + t_sub
+            arr[p].append((t, 0))
             next_in += 1
 
         check_invariants(aisle, state, slot, order_index, seated_at, t)
@@ -247,7 +257,16 @@ def simulate(method, seed=0, rows=ROWS, t_row=T_ROW, t_stow=T_STOW, t_sit=T_SIT,
 
     assert all(filled[c] for c in filled) or load < 1.0, 'a seat was left empty'
     assert len({(row_of[p], seat_of[p]) for p in range(n)}) == n, 'two people, one seat'
-    return t, samples, tr
+    pax = [{'row': row_of[p], 'seat': seat_of[p], 'bag': has_bag[p],
+            'arr': arr[p], 'stow': stow_iv[p], 'sit': sit_t[p]} for p in range(n)]
+    for d in pax:
+        assert d['sit'] is not None, 'a passenger never sat down'
+        assert d['arr'], 'a passenger never entered the aisle'
+        assert (d['stow'] is None) != d['bag'], 'bag/stow disagree'
+        if d['stow']:
+            assert d['stow'][1] is not None and d['stow'][1] > d['stow'][0], 'stow never ended'
+            assert d['stow'][1] <= d['sit'] + 1e-9, 'stowed after sitting'
+    return t, samples, tr, pax
 
 
 def mean_concurrency(samples, total):
@@ -267,7 +286,7 @@ def peak_concurrency(samples):
 def run(method, seeds=25, **kw):
     ts, con, peak = [], [], []
     for sd in range(seeds):
-        total, samples, _ = simulate(method, seed=sd, **kw)
+        total, samples, _, _ = simulate(method, seed=sd, **kw)
         ts.append(total)
         con.append(mean_concurrency(samples, total))
         peak.append(peak_concurrency(samples))

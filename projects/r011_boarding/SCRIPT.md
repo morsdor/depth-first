@@ -79,3 +79,39 @@ where the integrator said higher. **After approval, every line above gets checke
 
 Once approved this table is the contract: if a beat cannot be animated as written it comes **back
 here** as a script change, never improvised at build time.
+
+---
+
+# BUILT — two deviations from the table above, 2026-09-12
+
+**The script is a contract, so a change to it gets written down rather than improvised.** Two beats
+moved during the build. Both are recorded here and in `NOTES.md`, and both are visible in the render
+at GATE 5.
+
+## 1 · The mechanism beats moved BEFORE the finish, not after it
+
+**Scripted:** beat 3 the random cabin finishes → beat 4 dive into the back-to-front aisle → beat 5
+dive into the random aisle.
+
+**Built:** dive (beats 3–4) → finish (beats 5–6).
+
+**Why: at the finish the random cabin is empty.** The scripted order asks the reel to show "seven
+people stowing at once" in a cabin whose last passenger sat down forty seconds earlier. The only
+ways to keep that order were to replay the random cabin from the start mid-reel — a clock visibly
+running backwards in the middle of a comparison — or to show the counter with nothing under it.
+**Both cabins have to be boarding for the contrast to exist, and that is only true before the
+finish.** Nothing else changed: same eight copy moments, same words, same order of ideas.
+
+## 2 · The close does not re-board both cabins in window-middle-aisle order
+
+**Scripted:** "both cabins re-board one last time in the window-middle-aisle order, fast, finishing
+together."
+
+**Built:** the measured **window, middle, aisle** row in the field-test list lights up at the moment
+United and Southwest are named, over a dimmed replay of the two boardings.
+
+**Why: the scripted version would have put a third, unmeasured animation on screen** — a WilMA
+boarding of our own, un-cited, competing with two lines of copy and the follow ask. Lighting the row
+ties the news to a number somebody actually measured (4:13 against back to front's 6:11), which is
+the stronger move and costs no runtime. The replay behind it is what keeps the last thirteen seconds
+from being a frozen frame; it carries no clock, so it claims nothing.

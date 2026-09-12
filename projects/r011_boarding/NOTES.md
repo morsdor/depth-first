@@ -170,6 +170,38 @@ quietly.
 
 ---
 
+## Caption, proposed — not yet written to `reel_captions_log.md`
+
+*(That log is updated on POSTING, along with the "Built so far" table, `brand_guide_software.md`
+§13, and moving `I73` from `backlog/open.md` to `backlog/posted.md`. `r010`'s row in the captions
+log still reads "not recorded — confirm what went out", which is the reason this one is drafted
+before posting rather than after.)*
+
+> **Back to front is slower than no system at all.**
+>
+> In 2011 somebody built a mock 757 on a soundstage, put 72 people through it five different ways,
+> and timed it. Boarding people in a completely random order beat the airline's back-to-front order
+> by a minute and a half — 4:44 against 6:11.
+>
+> The reason isn't walking speed. The aisle is the only way in, and only one person can use a
+> stretch of it at a time, so what sets the pace is **how many people can stow a bag at once.** Back
+> to front packs everyone who still has a bag into the same few feet of aisle: two at a time, and
+> never more than two. Spread them out and it's seven.
+>
+> United switched to window-middle-aisle in 2023. Southwest did it in January.
+>
+> Simulation is a car-following-style agent model of a 12-row single-aisle cabin, run on the same
+> 72 passengers in both orders. Nothing is fitted: it lands within 1% of the measured back-to-front
+> time and 7% of the random one. Field test: Steffen & Hotchkiss, *J. Air Transport Management* 18
+> (2012) 64–67.
+
+**Hook line:** "Boarding in no order at all beats boarding back to front."
+**The load-bearing phrasing:** *back to front* is always named as a **method**, never as "your
+airline". Most carriers do something like it, United and Southwest do not, and boarding groups are
+tied to fare and status — so the claim is about the order, which is what was actually measured.
+
+---
+
 ## Commands
 
 ```bash

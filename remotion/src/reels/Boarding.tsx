@@ -113,6 +113,19 @@ const DIVE_SPREAD = 0.62;
  */
 const LATE_ZOOM = 0.55;
 const LATE_CY = 706;
+/**
+ * When the cabins shrink and lift, and when the replay starts.
+ *
+ * These are set by the MOTION AUDIT, not by taste. The back-to-front cabin
+ * finishes at 27.7 s and the field-test list arrives at 31.7, so for three
+ * seconds in between both cabins are full and nothing on screen moves at all —
+ * the second audit failed on exactly that, a 2.25 s dead spell at 28.8 s. Moving
+ * the closing transition forward to 29.0 closes the gap to 1.3 s. The clocks go
+ * first, because the replay resets simulation time and a clock reading 6:08 that
+ * jumps to 0:00 would be a false statement.
+ */
+const LATE_MOVE = [29.0, 30.0] as const;
+const REPLAY = 30.0;
 
 // ── cabin geometry, in world units. 1 unit = one row of pitch. ─────────────
 const SEAT_W = 0.5;
@@ -147,7 +160,7 @@ const clamp01 = (x: number) => Math.min(1, Math.max(0, x));
  *
  *  - the opening beat plays the END of the race, from OPEN_AT
  *  - the race itself, from zero
- *  - the closing beats replay it from zero, dimmed behind the field-test list
+ *  - the closing beats replay it from zero, behind the field-test list
  *
  * The replay is why the last thirteen seconds are not a frozen frame. r010's
  * retention bled 100% -> 37% on a reel whose last EVENT was at 4.7 s of 12, and
@@ -157,7 +170,7 @@ const clamp01 = (x: number) => Math.min(1, Math.max(0, x));
  */
 const simTime = (s: number) => {
   if (s < REWIND) return OPEN_AT + s * RATE;
-  if (s >= BEAT.field[0]) return (s - BEAT.field[0]) * RATE;
+  if (s >= REPLAY) return (s - REPLAY) * RATE;
   return Math.max(0, (s - RACE_START) * RATE);
 };
 
@@ -339,7 +352,7 @@ const Cabin: React.FC<{ arm: Arm; tau: number; x: number; bins: number }> = ({
 const Scene: React.FC<{ s: number }> = ({ s }) => {
   const tau = simTime(s);
   const d = DIVE as unknown as number[];
-  const late = [BEAT.field[0] - 0.9, BEAT.field[0] + 0.1];
+  const late = LATE_MOVE as unknown as number[];
   const tilt = interpolate(s, d, [0, TILT, TILT, 0], ease);
   const zoom =
     interpolate(s, d, [1, DIVE_ZOOM, DIVE_ZOOM, 1], ease) *
@@ -585,8 +598,8 @@ export const Boarding: React.FC = () => {
         </ThreeCanvas>
       </AbsoluteFill>
 
-      <CabinHead cab={0} name="BACK TO FRONT" arm={B2F} s={s} hide={BEAT.field[0] - 1.1} />
-      <CabinHead cab={1} name="NO ORDER AT ALL" arm={RANDOM} s={s} hide={BEAT.field[0] - 1.1} />
+      <CabinHead cab={0} name="BACK TO FRONT" arm={B2F} s={s} hide={LATE_MOVE[0]} />
+      <CabinHead cab={1} name="NO ORDER AT ALL" arm={RANDOM} s={s} hide={LATE_MOVE[0]} />
 
       {/* Beat 1 — the result, at frame 0. The opening beat plays the last three
           seconds of the race: the right cabin is already full and the left still
@@ -669,15 +682,15 @@ export const Boarding: React.FC = () => {
 
       {/* Out before the replay starts: a running maximum that resets to zero
           because the animation looped would be a false readout. */}
-      <Counter cab={0} arm={B2F} s={s} from={BEAT.fewFeet[0]} to={BEAT.field[0] - 0.6} />
-      <Counter cab={1} arm={RANDOM} s={s} from={BEAT.fewFeet[0]} to={BEAT.field[0] - 0.6} />
+      <Counter cab={0} arm={B2F} s={s} from={BEAT.fewFeet[0]} to={LATE_MOVE[0]} />
+      <Counter cab={1} arm={RANDOM} s={s} from={BEAT.fewFeet[0]} to={LATE_MOVE[0]} />
       <FieldTest s={s} />
 
       {/* The rate label. A reel that prints a clock must print the rate, and the
           rate must be true: simulation time is linear in playback everywhere. */}
       <Fade
         from={t(RACE_START)}
-        to={t(BEAT.field[0] - 0.6)}
+        to={t(LATE_MOVE[0])}
         style={{ position: 'absolute', top: 1500, left: 60, width: 810, textAlign: 'center' }}
       >
         <div style={{ fontFamily: 'IBM Plex Mono', fontSize: 36, color: GRAPHITE }}>
