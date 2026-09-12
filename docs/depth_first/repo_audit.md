@@ -243,7 +243,7 @@ Four kinds of reference moved: the project folder and its mp4, the two Remotion 
 (`r011-divergence` → `r010-divergence`), the ranges (`r001–r011` → `r001–r010`, and one
 `r001–r010` → `r001–r009` in the loop-format section, which had meant "every reel before the
 loop"), and the §13 lesson headings — the parked build's three lessons are now filed under `I65`,
-which is what ids are for. **The next reel is `r011`, from `I73`.**
+which is what ids are for. **`I73` shipped as `r011` the same day.**
 
 **A new `[PARKED]` state was added to `backlog/closed.md`** for a build the owner sets aside, as
 distinct from `RETIRED`, `FAILED` and `SHELVED`. A parked row names the commit its code sits in, so

@@ -1784,6 +1784,67 @@ camera is doing — that is r001's bug and the whole reason the rule exists. The
 FAIL to PASS on a real fix in between: a 280 px label centred on a marker at x = 119 put its glyphs
 at x = 37, inside Instagram's left cut. 78 pixels, and still text under the chrome.
 
+### r011 — BIND THE ACCENT TO THE LOAD-BEARING QUANTITY, AND THE CLAIM BECOMES COUNTABLE (2026-09-12)
+
+The reel's whole argument is that a lane closure of an aisle is set by **how many people can stow a
+bag at once**. The first instinct was to spend red the usual §6 way — on the cabin that loses. That
+would have been decoration: the viewer already knows which side loses, because one clock stops
+first.
+
+**Red instead marks exactly one variable: who is currently blocking the aisle with a bag.** One red
+figure on the left, five to seven on the right, in the same frame. The claim stops being a sentence
+the viewer has to trust and becomes **a colour they can count** — and the counters beside the cabins
+are then neutral bone, because the number that counts red things should not itself be red.
+
+**The test: name the variable your accent encodes, in one noun.** "Who is stowing" passes. "The bad
+one" does not — that is the decorative use `tokens.ts` says destroys the accent, and it is what a
+§6 reel drifts toward when the failure is the subject rather than a measurable thing inside it.
+
+### r011 — A RUNNING MAXIMUM IS A READOUT; A LIVE COUNTER IS A FLICKER (2026-09-12)
+
+"STOWING NOW: 7" is true for about half a second and unreadable at reel speed, and the copy quoting
+it is then a claim about a frame the viewer never caught. **"MOST AT ONCE: 7" is still true a second
+later**, it only ever moves up, and it is the number the copy actually quotes.
+
+It also made the mechanism legible as a *result*: the back-to-front readout climbs to 2 at
+simulation t = 39 s and **never moves again for the remaining 5½ minutes of boarding**, while the
+other climbs 1 → 3 → 5 → 7. A live counter would have shown both flickering around 1.
+
+**Any on-screen counter whose peak is the point should be a running maximum.** Reset it and you are
+lying: the closing beats replay the boarding, so both counters are faded out **before** the replay
+starts rather than resetting to zero on screen.
+
+### r011 — DIMMING THE ONLY MOVING THING IS THE SAME MISTAKE AS FREEZING IT (2026-09-12)
+
+The closing beats needed a ranked list of measured times read over the two cabins, so the cabins
+were dimmed to 0.2 behind a 0.55 scrim. **Effective opacity 11%, and the motion audit failed it —
+4.50 s dead spell at 33.0 s** — because a replay nobody can see registers as nothing at all.
+
+**The fix is to MOVE the object, not to hide it.** The cabin block now shrinks to 0.55 and lifts
+into the top half; the list gets clean ground underneath; the replay stays fully visible. Dead spell
+4.50 s → 0.50 s, event density 16% → 33%.
+
+**Companion to non-negotiable 6**: "the recognisable object stays on screen, or in frame" is not
+satisfied by leaving it there at 11% — that is the object having left while the code still draws it.
+
+### r011 — THE GAP BETWEEN TWO OBJECTS IS SET BY THE TEXT, NOT THE PICTURE (2026-09-12)
+
+Two cabins side by side at a 0.9-unit gap composed beautifully and **their headers collided in the
+middle of the frame** — "BACK TO FRONT" ran into "NO ORDER AT ALL". The gap went to 2.6 units for a
+reason that has nothing to do with the drawing: each label needs 357 px and each column is only as
+wide as the object above it.
+
+**Three of `r011`'s seven traps were layout, and none was visible to `tsc` or `brand:check`.** The
+other two: a five-row list whose pieces were each sized by eye and whose **total** ran 68 px past
+the safe bottom on 396 frames; and a dive zoom that had to come down twice because the block's
+bottom corners magnify ~7% under perspective and crossed into the action rail.
+
+- **Add the height up.** A stacked block of type has a computable total; eyeballing the pieces is
+  how you get 1608 against a limit of 1540.
+- **`whiteSpace: nowrap` on anything whose wrapping would be a bug**, so it cannot happen quietly.
+- **A perspective camera makes the near edge bigger.** Compute the magnification at the nearest
+  corner before choosing a zoom, or the audit will.
+
 ### r009 — ONE RULER. The yardstick problem, and the first Gate 3 failure on message (2026-09-11)
 
 **The verdict on the 53 s cut:** *"I really like it. All colours, branding, palette, spacing,
@@ -2157,6 +2218,7 @@ distribution one.** It has never been tried.
 | `r008` | Pendulum wave — fifteen strings, back in line at 30 s | 34 s | **2026-09-10** |
 | `r009` | Scale — the biggest star ever measured is a speck in the gap | 40 s | **2026-09-11** |
 | `r010` | Two double pendulums one hair apart — the loop format | 12 s | **2026-09-11/12** |
+| `r011` | Aeroplane boarding — back to front is slower than no order at all | 45 s | **2026-09-12** |
 
 ### Parked — built or researched, and set aside by the owner
 
@@ -2166,7 +2228,7 @@ distribution one.** It has never been tried.
 | `I72` | The zipper merge — both lanes to the cone | researched and scripted 2026-09-12, **parked before any animation**; code at `add9b44` |
 
 **`I65` HELD `r010` AND GAVE IT BACK.** A reel number means "the Nth reel POSTED", so when the
-traffic build was parked the pendulum loop — posted tenth — became `r010`. It was `r010` in every
+traffic build was parked the pendulum loop — posted tenth — became `r010`. It was `r011` in every
 entry above until 2026-09-12. Ids do not move, which is why this ledger still resolves.
 
-**The next reel is `r010` — `I73`, aeroplane boarding.**
+**`I73` then shipped as `r011` on 2026-09-12, so the next reel is `r012`.**

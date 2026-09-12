@@ -79,7 +79,7 @@ carries an `Added` date.
 reasoned from scratch that beats them.** **82 ids `I01`–`I82`**, grouped into six sections that map
 1:1 onto `DOMAIN_ACCENT` in `remotion/src/brand/tokens.ts` — so the section *is* the accent colour
 decision. Live counts come from the script, never from this line:
-**10 posted · 6 closed · 66 live** (2026-09-12; 82 ids, `I01`–`I82`).
+**11 posted · 6 closed · 65 live** (2026-09-12; 82 ids, `I01`–`I82`).
 
 **`PARKED` IS A STATE AND IT IS NOT A FAILURE (2026-09-12).** `I65` (the traffic reel, built as a
 46 s cut) and `I72` (the zipper merge, researched to a measured table and an approved script) were
@@ -300,13 +300,11 @@ before optimising for reach: whether r005's 71 follows stayed, and whether they 
 
 | `r010` | `I71` | Two double pendulums released one human hair apart — the same object for 3.3 s, then unrelated | **POSTED 2026-09-11/12 (12 s), after a same-day re-cut.** First reel in the loop format and the account's **first pre-registered experiment**. Cut 1 passed both audits with the best motion number on the account and **failed GATE 5 on its copy** — *"what is the text on video supposed to say?? i do not understand it"*. **The result at ~8 h: 3,546 views / 2,429 viewers — second-best reach ever — average watch 8 s on 12 s (66.7%), and views per viewer 1.460 against r005's 1.423. The rewatch bet FAILED: runtime was not the variable.** Like rate 0.247% against r005's 2.786%. See `brand_guide_software.md` §13 "THE LOOP FORMAT RETURNED A RESULT" and [`projects/r010_divergence/NOTES.md`](projects/r010_divergence/NOTES.md) traps 11–14 |
 
-| `r011` | `I73` | Aeroplane boarding — back to front is slower than no order at all | **BUILT 2026-09-12 (45 s), GATE 5 PASSED — *"a great video … I absolutely love it"* — READY TO POST.** Re-runs the 2011 field test: our agent model lands **−1% on back-to-front and −8% on random** against 72 real people in a mock 757, with nothing fitted, and **144 of 144 sweep points** keep back to front slower. The mechanism is one number — **the back-to-front cabin never gets more than TWO people stowing at once, in any seed at any parameter setting; random reaches seven.** Motion 0.50 s dead spell / 33% density; safe area clean with no exemption. See [`projects/r011_boarding/NOTES.md`](projects/r011_boarding/NOTES.md) |
+| `r011` | `I73` | Aeroplane boarding — back to front is slower than no order at all | **POSTED 2026-09-12 (45 s)**, GATE 5 on the first cut — *"a great video … I absolutely love it"*, the first reel to pass GATE 5 without a re-cut since `r007`. **Reading pre-registered before posting** in [`projects/r011_boarding/NOTES.md`](projects/r011_boarding/NOTES.md). Re-runs the 2011 field test: our agent model lands **−1% on back-to-front and −8% on random** against 72 real people in a mock 757, with nothing fitted, and **144 of 144 sweep points** keep back to front slower. The mechanism is one number — **the back-to-front cabin never gets more than TWO people stowing at once, in any seed at any parameter setting; random reaches seven.** Motion 0.50 s dead spell / 33% density; safe area clean with no exemption. See [`projects/r011_boarding/NOTES.md`](projects/r011_boarding/NOTES.md) |
 
-**Reel numbers are contiguous and mean "the Nth reel posted".** `r001`–`r010` have shipped.
-**`r011` has passed GATE 5 and is unposted** — its pre-registered reading is in
-[`projects/r011_boarding/NOTES.md`](projects/r011_boarding/NOTES.md), written before it went up — it claimed its number when the first `.tsx` was written, not
-when its Gate 0 was, which is the rule as written and what `I72` had just shown the cost of getting
-wrong.
+**Reel numbers are contiguous and mean "the Nth reel posted".** `r001`–`r011` have shipped.
+**`r011` claimed its number when the first `.tsx` was written, not when its Gate 0 was** — the rule
+as written, and what `I72` had just shown the cost of getting wrong. **The next reel is `r012`.**
 
 **THE PENDULUM LOOP WAS `r011` UNTIL 2026-09-12 AND IS NOW `r010` (2026-09-12).** The traffic reel
 (`I65`) held `r010`, was never posted, and was **parked by the account owner** on 2026-09-12 along
@@ -425,6 +423,36 @@ play it back in Remotion. See `projects/r001_shazam/` for the reference shape
 
 On-screen numbers are then free and correct because the run produced them. **₹0 — no image model is
 involved in a reel.** Keep it that way.
+
+### RE-RUN SOMEBODY ELSE'S EXPERIMENT. The strongest claim is not ours. (2026-09-12, r011)
+
+**Every reel up to `r011` computed its own claim, and that is the expensive way to be right.** If
+the model is the only evidence, then the model is also the only thing standing between the reel and
+a false central sentence — and `I72` is what that costs: a day of research, an approved script, and
+a pitch ("the zipper gets everyone through faster") falsified by our own simulation the moment it
+ran.
+
+**`r011` inverted it. The headline is a published field test** — 72 real people, a mock 757,
+five boarding methods, timed (Steffen & Hotchkiss, JATM 18 (2012) 64–67) — **and the simulation's
+job is to show the MECHANISM behind a result that is already in.** That removes the whole failure
+class. The claim cannot be falsified by our own model, because it was never ours; what the model can
+do is fail to reproduce it, which is a cheap and early signal rather than a dead build.
+
+**When a published measurement of the thing exists, prefer this shape.** The reel gets three things
+it cannot otherwise have:
+
+1. **The claim is somebody else's**, so "we measured it" becomes "they measured it, and here is
+   why it happens" — which is a stronger sentence and a more sendable one.
+2. **An unfitted validation is available.** Our agent model landed **−1% on back-to-front and −8%
+   on random** with parameters chosen before any comparison was run. That number is only sayable
+   because an outside measurement existed to say it against.
+3. **The mechanism is the reel's own contribution**, and it is the part no published table contains.
+
+**It does not license citing instead of computing.** The animation is still the real model, run —
+`₹0`, no authored frames. And a citation carries its own confound: **if such a reel travels, it may
+be the "they actually tested this" credibility doing the work rather than the send channel.** That
+confound is registered in advance in `projects/r011_boarding/NOTES.md`; register it again next time
+rather than concluding from one post.
 
 ### 3D BY DEFAULT — `@remotion/three` (2026-09-11)
 
@@ -586,6 +614,20 @@ mistake, and r009 repeated it twice.
    one stated base and never compare two figures computed on different ones. Every claim, figure and complexity bound is verified against a primary source
    before shipping (`backlog/README.md`). Historical entries `I31 I48 I49 I50` carry
    figures from memory and *must* be checked. Treat every number in the backlog as a research lead.
+   **A MODEL THAT FLATTERS YOUR OWN CLAIM IS NOT CAUGHT BY ANY INVARIANT — r011, 2026-09-12.**
+   `boarding.py` gave one aisle slot per row of pitch, so a standing passenger owned the whole
+   0.79 m and only one person in the cabin could ever stow at a given row. Every assertion passed:
+   nobody overtook, nobody was seated before reaching their row, no two people shared a seat. And
+   the model reported back-to-front **66% slower than random against the 31% that was actually
+   measured** — a two-fold over-statement of the exact effect the reel was about. A second bug had
+   already inverted `seat_class`, so WilMA boarded *aisle seats first* and Steffen was charged 384 s
+   of the interference it is defined not to have; nothing crashed and no assertion fired there
+   either. **`check_invariants` proves a model is self-consistent, never that it is unbiased**, and a
+   bias toward your own thesis is the one direction you will not notice. **The only thing that
+   caught both was an outside number to disagree with.** So: before trusting a model that supports
+   the reel, find a published measurement of the same system and check the ORDERING and the RATIO
+   against it — and be most suspicious when your model agrees with you more strongly than the
+   literature does.
 8. **Verify with video + filmstrip, never stills** — for *timing*. Stills are correct for *layout*.
 9. **End on a reason to follow.** Measured on r001 at 3 days: ~18% of 1,286 viewers reached the
    last frame and **one** followed. The end frame is the most-watched dead space in the format —

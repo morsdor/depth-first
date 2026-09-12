@@ -188,6 +188,25 @@ working, not failing.
 - **Record negative results, including broken tests.** `I53`'s first flow-accumulation test
   returned 96–99 for everything including its controls — saturation dressed as a result.
 
+**FIND AN OUTSIDE NUMBER TO CHECK THE MODEL AGAINST, BEFORE TRUSTING IT (r011, 2026-09-12).**
+A model that supports the reel is the one you will not audit hard enough, and `check_invariants`
+cannot help: it proves self-consistency, never that the model is unbiased.
+
+- **Search for a published measurement of the same system first**, and use it on the ORDERING and
+  the RATIO, not just the headline. `boarding.py` passed every assertion it had while reporting
+  back-to-front **66% slower against a measured 31%** — a two-fold over-statement of the reel's own
+  effect — and a separate inverted helper had WilMA boarding *aisle seats first* with nothing
+  crashing. The published table caught both; no invariant could have.
+- **Be most suspicious when the model agrees with you more strongly than the literature does.**
+  That is the shape of a bug, not of a discovery.
+- **Pick the parameters BEFORE running the comparison**, from ordinary physical values, and say so.
+  That is what makes "−1% and −8%, nothing fitted" sayable at all.
+- **Sweep every free parameter and report the count.** r011: 144 of 144 combinations keep the
+  ordering, so the result does not rest on any guess about how long a bag takes.
+- **If a published measurement of the claim exists, consider making it the HEADLINE** and letting
+  the model carry the mechanism instead — CLAUDE.md, "Re-run somebody else's experiment". It removes
+  the failure class that killed `I72`.
+
 If a figure kills the concept: write the GATE0 file up as a **failure record** (model:
 `gate0/i53_flood/gate0/GATE0.md`), append the verdict to the backlog row, keep the id, stop.
 Do not repair and do not go city-shopping.
@@ -281,6 +300,28 @@ projects/r<NNN>_<name>/
   NOTES.md          build record — figures with provenance, beats, traps, what is NOT claimed
 remotion/src/reels/<Name>.tsx             plus BOTH compositions registered in Root.tsx
 ```
+
+**`emit_ts.py` ASSERTS THE CLAIM AT THE MOMENT THE COPY MAKES IT, not just in the data (r011,
+2026-09-12).** Asserting that a figure is true is the easy half; `r010` shipped copy that was
+approved, consistent with its data, and still false, because the claim and the frame it appears over
+were checked separately.
+
+So put the reel's beat times in `emit_ts.py` and bind them:
+
+```python
+RACE_START, RATE = 3.2, 15.0          # must match the constants in <Name>.tsx
+SIM = lambda screen: (screen - RACE_START) * RATE
+COPY_SEVEN = 13.2                     # the frame the words "SEVEN STOW AT ONCE" appear on
+
+claim('the counter already reads 7 when the copy says seven stow at once',
+      R['maxStow'][-1][0] <= SIM(COPY_SEVEN))
+claim('"EVERYONE SEATED AT 4:24" lands AFTER the random cabin is full',
+      SIM(COPY_RANDOM_DONE) >= R['total'])
+```
+
+**Move a beat and the data module refuses to regenerate until the script and the run agree again.**
+r011 carries 30 such claims, four of them timeline-bound, and two of the four failed on first run —
+copy that would have named a number a second or two before it was true on screen.
 
 ---
 

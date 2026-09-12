@@ -43,6 +43,7 @@ with the row, because the temptation to "tighten" it later is exactly how a fals
 | `r008` | 2026-09-10 | A (below) — confirm which caption went out | "Fifteen weights on fifteen strings. Nothing connects them. Watch what happens at thirty seconds." | 0 | 0 | 0 | 0 | **~1.8k views at 2026-09-11**, up from 190 at first reading — with the best motion score on the account (99%); Gate 0 had flagged the "personally witnessed" leg as weak. |
 | `r009` | 2026-09-11 ×2 | **A (below) — confirmed, both posts** | "Everyone shows you how big stars get. Nobody shows you the emptiness." | 5 | 0 | 0 | 0 | **Posted 2026-09-11 at 40 s, after a same-day re-cut from 53 s. Average watch time 5 s on a 40 s reel — 12.5% of runtime, against r005's 20 s on 32 s (62.5%).** That is a 5x gap on the same account, same aesthetic, same craft discipline, and it is measured BEFORE the message can land: the ruler is not established until 9 s and the payoff is at 31 s. The v2 re-cut fixed what a viewer who stays understands; almost nobody stayed. **The failure is in the first two seconds, not in the script.** **Re-cut to v3 and RE-POSTED the same day with the same Caption A**, its hook replaced by a teaser that shows the star vanish in the first three seconds — see §13 "the hook A/B". Also §13 "four floors after one hit". First 3D reel. v1 failed on message, not craft — one ruler now replaces seven, every sphere carries its own name, and the wide third is cut; see `projects/r009_emptiness/SCRIPT.md`. `GATE0.md` §4 records the prediction in advance: it clears all three kill conditions but scores **1 of 3** on the reach test — no dispute is running about star sizes — so r006 numbers would be a confirmed prediction, not a new lesson. |
 | `r010` | 2026-09-11/12 | **not recorded — confirm what went out.** Built and delivered without a caption written in repo | — | 6 | 3 | 3 | 1 | **First reel in the loop format, and the first pre-registered experiment this account has run to a number.** First reading 2026-09-12 10:03, curve flat at ~8 h. **3,546 views / 2,429 viewers — second-best reach on the account after r005, ~10x a typical reel — and 85.8% of it from the Reels tab**, i.e. cold algorithmic distribution to strangers rather than the follower pool. **Average watch 8 s on 12 s = 66.7%**, against r005's 20 s on 32 s (62.5%) and r009's 5 s on 40 s (12.5%): the best ratio recorded, and **nowhere near the ≥100% the format was built for**. **Views per viewer 1.460 against r005's 1.423 — no rewatch lift at all**, which is the bet itself failing. Per-viewer engagement collapsed: likes 0.247% against r005's 2.786% (**11.3x lower**), shares 0.124% against 0.921% (7.5x), saves 0.124%, follows 0.041%, comments 0. **Shares are nevertheless the first non-zero send rate since r005** and Instagram flags share rate "Higher" — because the account's typical since r005 has been zero. Skip 41.1%, flagged "Lower". See `brand_guide_software.md` §13 "THE LOOP FORMAT RETURNED A RESULT". |
+| `r011` | 2026-09-12 | **A (below) — confirmed, written in repo BEFORE posting** (`projects/r011_boarding/NOTES.md`) | "Back to front is slower than no system at all." | — | — | — | — | **Awaiting first reading. The reading is PRE-REGISTERED** — `projects/r011_boarding/NOTES.md` says what each outcome would settle, written before the post went up, because a prediction made afterwards is not one. Graded on **sends per reach** against r005's 1.203%: **>= 1.0% means argument ammunition GENERALISES** and r005 stops being one lucky arena; **0.4-1.0% means the channel is real but the ARENA is a multiplier** (flat earth is identity-loaded, boarding is only annoyance-loaded); **< 0.2% on a 3-of-3 GATE 3 score falsifies the current thesis** and moves the lever from "is a dispute running" to "how much identity is at stake". Average watch under 11 s (25% of 45 s) would say 45 s cannot be earned on this account whatever the content. **Views settle nothing.** One confound registered in advance: this is the first reel whose headline number is somebody else's published measurement rather than our own simulation, so a good result may be the CITATION doing the work rather than the argument channel — separate the two before concluding. |
 
 Engagement figures are per the reel's own Insights, on the base Instagram reports them against
 (unique viewers). r001's are at 3 days, r003's at ~18 h — see `brand_guide_software.md` §13.
@@ -525,3 +526,35 @@ above does. A caption is the one part of a posted reel that can still be edited;
 Any claim about the size of the universe, and any "this will blow your mind" framing. The reel's
 whole argument is that the genre's usual ending — "and this one is even bigger" — is the wrong
 place to stop; a caption that reaches for awe undercuts the one thing that makes it different.
+
+---
+
+## `r011` — caption A, as posted 2026-09-12
+
+**Back to front is slower than no system at all.**
+
+In 2011 somebody built a mock 757 on a soundstage, put 72 people through it five different ways, and
+timed it. Boarding people in a completely random order beat the airline's back-to-front order by a
+minute and a half — 4:44 against 6:11.
+
+The reason isn't walking speed. The aisle is the only way in, and only one person can use a stretch
+of it at a time, so what sets the pace is **how many people can stow a bag at once.** Back to front
+packs everyone who still has a bag into the same few feet of aisle: two at a time, and never more
+than two. Spread them out and it's seven.
+
+United switched to window-middle-aisle in 2023. Southwest did it in January.
+
+Simulation is an agent model of a 12-row single-aisle cabin, run on the same 72 passengers in both
+orders. Nothing is fitted: it lands within 1% of the measured back-to-front time and 7% of the
+random one. Field test: Steffen & Hotchkiss, *J. Air Transport Management* 18 (2012) 64-67.
+
+**Hook line:** "Back to front is slower than no system at all."
+
+**The load-bearing phrasing, and the thing that nearly made the copy false:** *back to front* is
+named as a **METHOD**, never as "your airline". Most carriers do something like it, **United and
+Southwest do not**, and boarding groups are tied to fare and status. The order is what was measured;
+the airline is not. This was the top falsification risk in the reel's Gate 0 and it was retired by
+wording rather than by dropping the concept.
+
+**First caption written in this repo before the reel was posted rather than after.** Every row above
+`r011` that says "not recorded — confirm what went out" is what the other order produces.
