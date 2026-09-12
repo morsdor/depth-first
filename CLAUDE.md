@@ -212,8 +212,18 @@ and practical utility and surprise independently positive:
 stimulus and it got zero sends, because **arousal requires novelty** — in a saturated genre the
 response is recognition, not awe. Check the channel against the genre, not just the subject.
 
-**Measure sends per reach, never views.** r005 is the only benchmark: **0.92%**. Everything since
-is zero.
+**Measure sends per reach, never views.** r005 is the only benchmark: **1.20% at day 4**, revised up
+from the 0.92% read at day 1. Everything since is zero or near it — r011, the best of them, sends at
+**0.124%**, which is **9.7x below** it.
+
+**AND THE BENCHMARK ROSE AS IT SPREAD, WHICH IS THE WHOLE MECHANISM (2026-09-12).** Between day 1
+and day 4 r005's reach grew **2.12x** and its shares grew **2.77x** — share rate **0.921% → 1.203%**.
+Engagement rates normally DILUTE as a post escapes its warm pool into colder audiences, and r011's
+cold Reels-tab traffic is what dilution looks like. r005 did the opposite: **the further it
+travelled, the more sendable it got**, because the further it travels the likelier it lands on
+somebody who has an argument to settle with it. A reel that is sent does not plateau — each send
+opens a pool the algorithm never tested. **That is the difference between 94k over four days and
+3.5k in eight hours**, and it is a property of the CONTENT, not of the push.
 
 ### Pick a fight, not a gap (r005 vs r006 — the belief-correction test FAILED)
 
@@ -252,7 +262,7 @@ before optimising for reach: whether r005's 71 follows stayed, and whether they 
 | `r002` | `I08` | Autocorrect / edit distance | **posted 2026-09-02** |
 | `r003` | `I01` | QR / Reed–Solomon damage tolerance | **posted 2026-09-05** (without the end beat) |
 | `r004` | `I03` | JPEG / DCT — a photo stores no pixels | **posted 2026-09-06** |
-| `r005` | `I17` | Great circle — the flight path that looks curved is the straight one | **posted 2026-09-08** (32 s) — first reel built under Gate 0; **80k+ views and ~120 follows by 2026-09-10**, the account's only hit |
+| `r005` | `I17` | Great circle — the flight path that looks curved is the straight one | **posted 2026-09-08** (32 s) — first reel built under Gate 0; **94,171 views / 69,816 viewers and 157 follows at day 4 (2026-09-12), still climbing.** The account's only hit, and the only reel that has produced follows at all: every other reel r001–r011 combined has produced **3** |
 | `r006` | `I22` | Submarine cables — your message abroad goes underwater, not to space | **posted 2026-09-09** (28 s) — peaked ~1.8k views; the r005 pattern test, and it failed |
 | `r007` | `I58` | Tides — the Sun pulls 179x harder and the Moon still makes the tide | built 2026-09-10 (54 s), **posted 2026-09-10** — 189 views · 4 likes · 1 follow at first reading; first reel outside software, and the longest |
 | `r008` | `I69` | Pendulum wave — fifteen strings, and the thirty seconds they take to come back | built 2026-09-10 (34 s), **posted 2026-09-10** — 190 views · 0 engagement at first reading; first reel with a Manim layer; rebuilt down from a 60 s cycle after the first viewer could not tell the fifteen strings apart |

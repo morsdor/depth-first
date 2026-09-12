@@ -2093,6 +2093,44 @@ never been controlled.** What is NOT caveated is the views-per-viewer figure —
 measurement of the exact mechanism the format was built on, taken against the account's own best
 reel, and it shows nothing.
 
+**r005 AT DAY 4 — A SENT REEL COMPOUNDS; A PUSHED REEL PLATEAUS (2026-09-12).** Read at day 4 with
+the curve only now flattening: **94,171 views / 69,816 viewers, 157 follows, 840 shares, 855 saves,
+27 comments, ~2K likes, average watch still 20 s.**
+
+| | day 1 | **day 4** | growth |
+|:--|--:|--:|--:|
+| viewers | 32,882 | **69,816** | ×2.12 |
+| shares | 303 | **840** | **×2.77** |
+| **share rate** | 0.921% | **1.203%** | **+31%** |
+| save rate | 1.101% | 1.225% | +11% |
+| like rate | 2.786% | ~2.865% | flat |
+| follow rate | 0.216% | 0.225% | flat |
+| views per viewer | 1.423 | 1.349 | −5% |
+| avg watch / runtime | 62.5% | 62.5% | flat |
+
+**THE SHARE RATE ROSE WHILE THE REACH DOUBLED, AND THAT INVERTS THE NORMAL PATTERN.** Engagement
+rates dilute as a post escapes its warm pool — r011's cold Reels-tab traffic is textbook dilution,
+and r005's own views-per-viewer did dilute, 1.423 → 1.349. **Shares went the other way.** The
+reading that fits: the further this reel travels, the likelier it lands on somebody who has an
+argument to settle with it, so **sendability is not consumed by reach — it is created by it.** That
+is what "lands inside a dispute already running" buys, and no craft variable in this repo can
+produce it.
+
+**The consequence is the shape of the two curves, and it is the clearest thing in the account's
+data.** r005: four days, still climbing, 94k. r011: **eight hours, flat, 3.5k** — the algorithm
+tested it, it retained well, nothing propagated it, and it stopped. **A pushed reel stops when the
+push stops. A sent reel does not stop.**
+
+**FOLLOWS ARE THE MOST BRUTAL COLUMN IN THIS LEDGER. r005 has 157. Every other reel r001–r011
+combined has 3.** Not "r005 is the best performer" — **r005 is the account**, and ten reels of
+craft work have added a rounding error to it. Whatever is being optimised on the other ten, it is
+not the thing that produced this.
+
+**Day-1 rates were a floor and were read as an estimate; they are now revised UP.** The GATE 3
+benchmark moves from 0.92% to **1.203% sends per reach**. Two cautions on the day-4 figures: likes
+are Instagram's rounded "2K", so the like rate is ~2.8–2.9% and not a precise 2.865%; and the curve
+is flattening but not flat, so shares and follows may still rise.
+
 **OPEN — "who does the viewer send this to, and what are they proving?" is not a filter, it is THE
 constraint.** It has now predicted five outcomes in a row. Every craft rule in `CLAUDE.md` governs
 what happens *after* a viewer is shown the reel; nothing in this repo governs whether it is shown
@@ -2113,7 +2151,7 @@ distribution one.** It has never been tried.
 | `r002` | Autocorrect / edit distance | 43 s | **2026-09-02** |
 | `r003` | QR codes / Reed–Solomon | 37 s | **2026-09-05** |
 | `r004` | JPEG / DCT — a photo stores no pixels | 40 s | **2026-09-06** |
-| `r005` | Great circle — your flight path isn't curved | 32 s | **2026-09-08** |
+| `r005` | Great circle — your flight path isn't curved | 32 s | **2026-09-08** — 94,171 views / 157 follows at day 4 |
 | `r006` | Submarine cables — your message goes underwater | 28 s | **2026-09-09** |
 | `r007` | Tides — the Sun pulls 179× harder, the Moon makes the tide | 54 s | **2026-09-10** |
 | `r008` | Pendulum wave — fifteen strings, back in line at 30 s | 34 s | **2026-09-10** |
