@@ -12,8 +12,15 @@ the payoff, which is what Gate 0 kill condition 2 exists to forbid.
 
 ## 1. The sentence — G2
 
-> **"Follow the same person's paycheck their whole career, and for most people it peaks in
-> their late 40s or early 50s — and it never gets that high again."**
+**REVISED 2026-09-12 after reading the primary source in full** (user supplied the PDF; see §6).
+The original sentence claimed one person's paycheck was tracked across their whole career — the
+primary source does not support that for the rise-to-peak part, and the correction is below.
+
+> **"Your pay has a peak age. It's 46 — and past 55, when the same people were actually
+> tracked for years, it never came back."**
+
+The first half (rise to a peak at 46) is real 2016 population data, honestly framed as that. The
+second half ("never came back," past 55) is the part with genuine longitudinal backing — see §6.
 
 ## 2. Who does the viewer send this to, and what are they proving?
 
@@ -75,73 +82,77 @@ instead of a plotted curve. This is not an oversight; it is the thing being test
 > **Sends are expected to be low, same as `I71`, and that alone does not falsify anything** —
 > only a flat saves/watch-time number does.
 
-## 6. Numbers, and where they came from — NONE of this is verified yet, all of it is a LEAD
+## 6. Numbers — VERIFIED 2026-09-12 against the primary source, read in full
 
-- **Guvenen, Kaplan, Song & Weidner, "Lifetime Incomes in the United States over Six Decades"**
-  (NBER WP 23371; published as "Lifetime Earnings in the United States over Six Decades,"
-  *American Economic Journal: Applied Economics* 14(4): 446–479, 2022) — constructs lifetime
-  earnings for millions of individuals from a 57-year SSA administrative panel (1957–2013),
-  tracking the SAME people across their careers. This is the right *kind* of source (longitudinal,
-  not cross-sectional) but its headline results are cohort lifetime totals, not yet confirmed to
-  contain a plotted age-by-age profile at the resolution this reel needs — **must be checked**.
-- **Guvenen, "What Do Data on Millions of U.S. Workers Reveal About Lifecycle Earnings
-  Dynamics?"**, *Econometrica* 89(5), 2021 — also SSA panel data, explicitly about the shape of
-  earnings over the lifecycle rather than lifetime totals. **Best candidate primary source for
-  the actual age-earnings profile** — must be read in full, not taken from a search summary.
-- Un-sourced-yet, general finding repeated across secondary summaries (not yet traced to a
-  primary table): real earnings rise through the 20s–40s, **peak somewhere in the 45–54
-  bracket**, then plateau or decline — with the peak age and post-peak shape reportedly
-  **different by education level** (some sources: high-school-or-less cohorts peak and plateau
-  in their 40s for over a decade before declining; more educated cohorts may peak later or hold
-  longer). **This variation must be resolved before the sentence can say "most people" —
-  it may need to be scoped to a specific, stated group.**
-- **BLS CPS usual-weekly-earnings-by-age tables exist and are public**, but are cross-sectional
-  (different people at different ages in the same year) and **cannot support the individual-
-  trajectory claim** ("yours doesn't come back") on their own — same trap `I65`'s advisor-caught
-  correction warns against. Usable only as supporting context, never as the payoff's data source.
-- Two attempted primary-source fetches (`nber.org`, `gregkaplan.me` PDFs) and one BLS page were
-  blocked by this session's egress proxy — not evaluated, not ruled out. **Must be resolved via
-  Stage 3 research**, ideally from a session where those hosts are reachable, or via a public
-  microdata source this account can compute against directly (candidates: PSID, NLSY — both
-  public-use panel surveys tracking real individuals across decades; SSA microdata itself is
-  restricted-access and not an option).
+**Source:** Peter J. Brady & Steven Bass (Investment Company Institute), *"A Day in the Life
+Cycle: Using Tax Data to Measure Changes in Income by Age,"* IRS Statistics of Income Joint
+Statistical Research Program, draft December 10, 2024. User supplied the PDF directly after this
+session's fetch tool was blocked on every external host tried (irs.gov, nber.org, bls.gov,
+even wikipedia.org). Read cover to cover, pages 1–14.
 
-## 7. Licence and feasibility
+**What the data actually is:** US IRS administrative tax data for **tax year 2016**, built into a
+representative sample of the *entire* US population (filers, their dependents, and nonfilers
+identified via information returns — not just tax filers). Individual-level, per-capita income.
 
-**Not yet resolved — the central open item.** "Compute the animation, don't author it" requires
-a real longitudinal dataset this account can legally hold and run code against:
+**This is a CROSS-SECTIONAL snapshot, not a full-career panel — the authors say so themselves:**
+*"Some caution is warranted when interpreting the cross-sectional results as representing the
+typical life cycle experience."* The original G2 sentence's "same person, whole career" framing
+overclaimed this. **One real exception:** the authors cross-check their 55–72 range against
+**Brady and Bass (2023a), which used panel data to follow the SAME individuals from age 55
+through age 72** — and found the cross-sectional results consistent with it. So the decline
+*from 55 onward* has genuine longitudinal backing; the *rise to the peak* (22→46) does not.
 
-- **SSA administrative panel data** (what the two academic papers above use): restricted access,
-  not public. Not usable directly.
-- **PSID** (Panel Study of Income Dynamics): public-use, free registration, decades of individual
-  earnings histories. Likely candidate — needs a registration/access check.
-- **NLSY** (National Longitudinal Survey of Youth, BLS): public-use, free registration, purpose-
-  built for career-trajectory research. Likely candidate — needs the same check.
-- If neither is feasible inside a build cycle, the fallback is **published, citable age-profile
-  figures from the papers in §6** (a published figure is a fact and is citable, same distinction
-  `I22`'s Gate 0 licence note draws — the underlying microdata is the database, not the printed
-  chart), with the animation driven by digitised published values rather than a from-scratch
-  run. That is a weaker fit to "compute, don't author" and must be flagged on screen if used.
+**Verified figures (median per-capita total income, Figure 4):**
 
-## 8. Accuracy risks the build must not skate past
+| Age | Income | Note |
+|:--|:--|:--|
+| 30 | $30,000 | rising |
+| **46** | **$41,000** | **the peak** |
+| 61 | $37,000 | falling — this leg IS panel-verified (see above) |
+| 70 | $34,000 | |
+| 70→80 | declines 2.0%/yr on average | footnote 15 |
+| 70→98 | declines 0.7%/yr on average | footnote 15 |
 
-1. **Cross-sectional vs longitudinal, restated because it is the whole risk.** "Your pay peaks in
-   your late 40s and doesn't come back" is a claim about **one person's trajectory over time**.
-   A same-year snapshot of different people at different ages cannot prove it, no matter how
-   often that shape gets cited as if it does. If Stage 3 cannot secure genuinely longitudinal
-   data, the sentence must be rewritten to a population-snapshot claim ("people ten years older
-   than you, right now, earn X" — still self-relevant, just an honest different claim).
-2. **"Most people" needs a defined population.** If the peak age or post-peak shape differs
-   meaningfully by education, sex, or occupation, the reel must either pick one stated group and
-   say so on screen, or show that the qualitative shape (rise, peak, plateau/decline) holds
-   across groups even if the exact age moves — not paper over the variation the way `I15` papered
-   over Paris-vs-Manhattan.
-3. **Real vs nominal.** Earnings must be inflation-adjusted (real terms) or the "never comes back"
-   claim is trivially true by inflation alone and means nothing.
+**Spendable income** (total income minus federal income + payroll taxes) follows a **flatter**
+version of the same hump — also **peaks at 46**, declines **~10% by 61** ($37,200→$32,300),
+and is actually **$500 higher at 70 than at 61** ($32,800 vs $32,300) despite total income being
+**$2,900 lower** at 70 than 61 ($34,300 vs $37,200) — falling tax rates in retirement flatten the
+spendable curve. This is a genuinely surprising, verified, on-brand nuance worth a beat of its own
+if runtime allows, though the reel's core claim uses total income for the cleaner single number.
+
+**Superseded from the earlier search-summary-only version of this file:** the SSA-panel papers
+(Guvenen 2021 *Econometrica*; Guvenen, Kaplan, Song & Weidner 2022 *AEJ:Applied*) are no longer
+needed as the primary source — the Brady & Bass paper is now read directly and is sufficient on
+its own, with its own explicit cross-check against a real panel study for the part of the claim
+that needs one.
+
+## 7. Licence and feasibility — RESOLVED
+
+**Published figures are facts and are citable** (the same distinction `I22`'s licence note draws
+for route geometry vs. published maps). The numbers in §6 are printed in the paper's text and
+Figure 4, not reconstructed from restricted microdata — no PSID/NLSY access needed, no licence
+question. "Compute the animation, don't author it" is satisfied by running real interpolation and
+timing arithmetic over these real, cited anchor points, the same shape r006 used for MAREA/IMEWE
+published cable lengths.
+
+## 8. Accuracy risks — resolved by the primary-source read, restated for the build
+
+1. **Cross-sectional vs longitudinal — resolved by scoping the sentence, not by more data.** The
+   rise-to-peak (22→46) is presented as real population data for a stated year, not as one
+   person's trajectory. The decline (55→72) is presented as panel-verified, because it is (§6).
+   The build must keep this distinction on screen, not blur it back together.
+2. **"Most people" needs a defined population — still open.** The paper's median is the whole
+   representative 2016 population; it does not break out the peak age by education or occupation
+   in the pages read here. The reel should say "the typical American," not "everyone," and not
+   imply the peak age is fixed across every group.
+3. **Real vs nominal — resolved.** The paper's income measure is nominal 2016 dollars for a single
+   year, so the "inflation makes it trivially true" trap in the old §8 doesn't apply here — the
+   comparison is across people in the same year, not across years for one person. No adjustment
+   needed for the claim as scoped above.
 
 ## 9. Awaiting
 
-**A human yes on the sentence and the frame, with the kill-condition-2 waiver read and accepted
-as written above.** Gate 0 is not mine to pass, and the waiver is not mine to grant unilaterally
-either — it is written down because the account owner already said yes to testing the format;
-this file is that agreement made checkable later.
+**A human yes on the REVISED sentence (§1) and the frame, with the kill-condition-2 waiver read
+and accepted as written above.** Gate 0 is not mine to pass, and the waiver is not mine to grant
+unilaterally either — it is written down because the account owner already said yes to testing
+the format; this file is that agreement made checkable later.
