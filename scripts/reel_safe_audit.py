@@ -12,6 +12,7 @@ under it; text, strokes and bobs sit well over. Run --calibrate on a render you
 already trust to see the margin before trusting the threshold.
 """
 import argparse
+import shutil
 import subprocess
 import sys
 
@@ -21,6 +22,24 @@ SAFE = dict(top=270, bottom=1540, left=60, right=870)
 
 
 def frames(path, fps, w, h):
+    # THIS PATH DOES NOT WORK IN THE CLOUD RENDER CONTAINER, and the failure used
+    # to be a bare FileNotFoundError on 'ffmpeg'. There is no system ffmpeg here;
+    # the only build that decodes h264 is Remotion's bundled compositor, and that
+    # one has no rawvideo muxer, so `-f rawvideo` cannot work either way.
+    #
+    # Use scripts/reel_safe_frames.py instead, which reads PNGs:
+    #
+    #   remotion/node_modules/@remotion/compositor-linux-x64-gnu/ffmpeg \
+    #       -loglevel error -i reel.mp4 -vf scale=270:480 frames/%04d.png
+    #   python3 scripts/reel_safe_frames.py frames --scale 4
+    #
+    # It is also the tool the r010 lesson settled on, because it takes
+    # --bleed ranges so an exemption has to be written down.
+    if shutil.which('ffmpeg') is None:
+        raise SystemExit(
+            'no system ffmpeg here, and the bundled one has no rawvideo muxer.\n'
+            'Decode to PNGs with the compositor ffmpeg and run '
+            'scripts/reel_safe_frames.py — see the comment in this function.')
     p = subprocess.Popen(
         ['ffmpeg', '-v', 'error', '-i', path, '-vf', f'fps={fps}',
          '-f', 'rawvideo', '-pix_fmt', 'gray', '-'],

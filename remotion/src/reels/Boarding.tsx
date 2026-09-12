@@ -83,7 +83,8 @@ const BEAT = {
   randomDone: [21.0, 24.7],
   b2fDone: [27.9, 31.1],
   field: [31.7, 37.6],
-  close: [37.9, 44.7],
+  close: [37.9, 41.3],
+  closeAsk: [41.7, 44.8],
 } as const;
 
 const DIVE = [7.6, 8.4, 17.2, 18.0] as const;
@@ -112,7 +113,7 @@ const DIVE_SPREAD = 0.62;
  * is what keeps it alive; dimming it is what killed it.
  */
 const LATE_ZOOM = 0.55;
-const LATE_CY = 706;
+const LATE_CY = 690;
 /**
  * When the cabins shrink and lift, and when the replay starts.
  *
@@ -508,7 +509,7 @@ const FieldTest: React.FC<{ s: number }> = ({ s }) => {
   return (
     <Fade
       from={t(BEAT.field[0])}
-      style={{ position: 'absolute', top: 964, left: 60, width: 810 }}
+      style={{ position: 'absolute', top: 930, left: 60, width: 810 }}
     >
       <div
         style={{
@@ -516,7 +517,7 @@ const FieldTest: React.FC<{ s: number }> = ({ s }) => {
           fontWeight: 600,
           fontSize: 36,
           color: ASH,
-          marginBottom: 14,
+          marginBottom: 10,
         }}
       >
         72 passengers, a mock 757, 2011
@@ -529,7 +530,7 @@ const FieldTest: React.FC<{ s: number }> = ({ s }) => {
             justifyContent: 'space-between',
             alignItems: 'baseline',
             borderTop: `2px solid ${GRAPHITE}`,
-            padding: '16px 4px',
+            padding: '10px 4px',
             opacity: interpolate(
               s,
               [BEAT.field[0] + i * 0.18, BEAT.field[0] + 0.5 + i * 0.18],
@@ -538,14 +539,14 @@ const FieldTest: React.FC<{ s: number }> = ({ s }) => {
             ),
           }}
         >
-          <span style={{ fontFamily: 'IBM Plex Sans', fontWeight: 600, fontSize: 44, color: BONE }}>
+          <span style={{ fontFamily: 'IBM Plex Sans', fontWeight: 600, fontSize: 42, color: BONE }}>
             {k}
           </span>
           <span
             style={{
               fontFamily: 'IBM Plex Mono',
               fontWeight: 700,
-              fontSize: 52,
+              fontSize: 46,
               color: k === 'back to front' ? FAIL : BONE,
             }}
           >
@@ -558,9 +559,9 @@ const FieldTest: React.FC<{ s: number }> = ({ s }) => {
           fontFamily: 'IBM Plex Sans',
           fontSize: 36,
           color: ASH,
-          marginTop: 18,
+          marginTop: 12,
           borderTop: `2px solid ${GRAPHITE}`,
-          paddingTop: 16,
+          paddingTop: 12,
         }}
       >
         Steffen &amp; Hotchkiss 2012
@@ -698,14 +699,18 @@ export const Boarding: React.FC = () => {
         </div>
       </Fade>
 
+      {/* The follow ask goes in the COPY slot, not under the field-test list.
+          Below the list there are 44 px of safe frame left, and two lines of type
+          need 100 — the first attempt put it at y 1400 and the safe-area audit
+          found it, along with the list itself, on 396 frames down to y 1608. */}
       <Fade
-        from={t(BEAT.close[0] + 2.6)}
-        style={{ position: 'absolute', top: 1400, left: 60, width: 810, textAlign: 'center' }}
+        from={t(BEAT.closeAsk[0])}
+        style={{ position: 'absolute', top: 300, left: 60, width: 810, textAlign: 'center' }}
       >
-        <div style={{ fontFamily: 'IBM Plex Sans', fontWeight: 600, fontSize: 40, color: ASH }}>
+        <div style={{ fontFamily: 'IBM Plex Sans', fontWeight: 600, fontSize: 44, color: ASH }}>
           Next: stand still on the escalator
         </div>
-        <div style={{ fontFamily: 'IBM Plex Sans', fontWeight: 600, fontSize: 40, color: ASH }}>
+        <div style={{ fontFamily: 'IBM Plex Sans', fontWeight: 600, fontSize: 44, color: ASH }}>
           and more people get up it.
         </div>
       </Fade>

@@ -160,7 +160,17 @@ audit measures mean change over the whole frame, so a small moving object is wor
 its passenger sits. **This is not a craft fix to a measurement — every flash marks a real event in
 the run, and the audit was right that the events were invisible.**
 
-**6 · Four layout collisions, all found in stills and none by the typechecker.**
+**6 · The safe-area audit found the field-test list 68 px past the bottom, on 396 frames.**
+Every row of it was sized by eye and nothing added up the total: five rows of 52 px mono with 16 px
+padding, a header and a citation came to y 1608 against a limit of 1540. The follow ask was down
+there too, at y 1400, fighting the same 44 px of frame. The list is now tighter and the **ask moved
+into the copy slot**, which is where every other line of type in this reel already lives.
+**A block of stacked type needs its height added up, not eyeballed** — and `reel_safe_audit.py`
+could not tell me, because it crashed on a bare `FileNotFoundError`. There is no system ffmpeg in
+this container and the bundled compositor has no rawvideo muxer, so that script cannot run here at
+all; it now says so and names `reel_safe_frames.py`, which is the tool the `r010` lesson settled on.
+
+**7 · Four layout collisions, all found in stills and none by the typechecker.**
 "BACK TO FRONT" ran into "NO ORDER AT ALL" in the middle of the frame — **the cabin gap is set by
 the text, not by the picture**, and went from 0.9 to 2.6 units. The "Next:" line landed on top of
 the counters. Copy at 46 px wrapped to four lines and pushed into the cabin headers. The dive zoom
