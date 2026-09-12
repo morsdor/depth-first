@@ -10,6 +10,7 @@ import { DURATION_SECONDS as TIDES_SECONDS, Tides } from './reels/Tides';
 import { DURATION_SECONDS as PENDULUM_SECONDS, Pendulum } from './reels/Pendulum';
 import { DURATION_SECONDS as EMPTINESS_SECONDS, Emptiness } from './reels/Emptiness';
 import { DURATION_SECONDS as DIVERGENCE_SECONDS, Divergence } from './reels/Divergence';
+import { DURATION_SECONDS as BOARDING_SECONDS, Boarding } from './reels/Boarding';
 import { DURATION_SECONDS as MANIM_SECONDS, ManimProbe } from './reels/ManimProbe';
 import { SafeZones } from './reels/lib/chrome';
 
@@ -101,6 +102,13 @@ const EmptinessSafe: React.FC = () => (
 const DivergenceSafe: React.FC = () => (
   <>
     <Divergence />
+    <SafeZones />
+  </>
+);
+
+const BoardingSafe: React.FC = () => (
+  <>
+    <Boarding />
     <SafeZones />
   </>
 );
@@ -289,6 +297,32 @@ export const RemotionRoot: React.FC = () => {
         id="r010-divergence-safe"
         component={DivergenceSafe}
         durationInFrames={DIVERGENCE_SECONDS * 30}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+
+      {/* r011 · I73 · aeroplane boarding. Two boardings of the SAME cabin by the
+          SAME 72 passengers, differing only in the order they are called in. The
+          model lands within 1% of the back-to-front time and 7% of the random time
+          measured on 72 real people in a mock 757 in 2011, with nothing fitted, and
+          144 of 144 sweep points keep back to front slower. 3D is spent on one
+          move: the cabin block tips over at 8 s so the camera falls down the two
+          aisles where the bins are, and tips back at 18 s for the finish. Data from
+          remotion/src/reels/data/boarding.ts, which emit_ts.py refuses to write
+          unless all 30 on-screen claims hold. */}
+      <Composition
+        id="r011-boarding"
+        component={Boarding}
+        durationInFrames={BOARDING_SECONDS * 30}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="r011-boarding-safe"
+        component={BoardingSafe}
+        durationInFrames={BOARDING_SECONDS * 30}
         fps={30}
         width={1080}
         height={1920}
