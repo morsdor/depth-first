@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""List the live reel candidates in content_backlog.md, with status read from the repo.
+"""List the live reel candidates in backlog/open.md, with status read from the repo.
 
 Stage 1 of the `new-reel` skill. This script reports FACTS and deliberately does no
 ranking: which idea is worth a day of work is an editorial call made in the skill and
@@ -17,7 +17,7 @@ Status is never taken from memory. It comes from three places in the repo:
     python3 .claude/skills/new-reel/scripts/backlog_ideas.py --id I58
     python3 .claude/skills/new-reel/scripts/backlog_ideas.py --json
 
-NOTE ON ACCENTS: the section headings in content_backlog.md carry hex values that no
+NOTE ON ACCENTS: the section headings in backlog/open.md carry hex values that no
 longer match remotion/src/brand/tokens.ts (the backlog says infrastructure #22D3EE,
 tokens.ts says #00D6F7). The ACCENT NAME is the decision the section makes; the hex
 comes from DOMAIN_ACCENT in tokens.ts, which is what brand:check enforces. This script
@@ -33,7 +33,13 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[4]
 
-BACKLOG = ROOT / 'content_backlog.md'
+# Moved out of the root content_backlog.md on 2026-09-12. THE LIVE LIST IS open.md AND
+# IT CONTAINS ONLY LIVE CANDIDATES: anything posted, retired, killed or shelved was moved
+# to posted.md / closed.md so the list a human reads is the list that is actually open.
+# Ids stay permanent and are never reused — the other two files are what guarantee that.
+BACKLOG = ROOT / 'backlog' / 'open.md'
+SPENT = {'posted': ROOT / 'backlog' / 'posted.md',
+         'closed': ROOT / 'backlog' / 'closed.md'}
 CLAUDE_MD = ROOT / 'CLAUDE.md'
 PROJECTS = ROOT / 'projects'
 GATE0 = ROOT / 'gate0'
@@ -192,7 +198,7 @@ def main() -> int:
     a = ap.parse_args()
 
     if not BACKLOG.exists():
-        print(f'content_backlog.md not found at {BACKLOG}', file=sys.stderr)
+        print(f'the live backlog was not found at {BACKLOG}', file=sys.stderr)
         return 2
 
     accents = domain_accents()
@@ -210,7 +216,12 @@ def main() -> int:
         want = a.id.upper()
         hit = [e for e in entries if e['id'] == want]
         if not hit:
-            print(f'no row for {want} in content_backlog.md — propose it as a new id first',
+            for where, path in SPENT.items():
+                if path.exists() and f"**{want}**" in path.read_text(encoding='utf-8'):
+                    print(f'{want} is SPENT — it is in backlog/{where}.md. '
+                          f'Ids are permanent and are never reused for a different concept.')
+                    return 0
+            print(f'no row for {want} in backlog/open.md — propose it as a new id first',
                   file=sys.stderr)
             return 1
         show_one(hit[0])
@@ -220,7 +231,7 @@ def main() -> int:
     for e in entries:
         counts[e['status']] = counts.get(e['status'], 0) + 1
 
-    print(f'content_backlog.md — {len(entries)} ids   ' +
+    print(f'backlog/open.md (live) — {len(entries)} ids   ' +
           '   '.join(f'{k} {v}' for k, v in sorted(counts.items())))
     print('Runtime 30-60 s. The subject is any system whose mechanism can be shown running on '
           'real data.')

@@ -53,16 +53,38 @@ supported. Treating that file as the gate on invention imports its blind spots, 
 concept from scratch is allowed and expected**, alongside the backlog. `I70` (r009) was the first.
 
 **What did NOT change: every built concept still gets a permanent id appended to
-`content_backlog.md`, with its section and therefore its accent, BEFORE the build starts.** Ids
-are what the five logs resolve against; inventing the topic is free, skipping the id is not.
-Physical-system ids usually land in §2 (`infrastructure`) or §6 (`failure`).
+[`backlog/open.md`](backlog/open.md), with its section and therefore its accent, BEFORE the build
+starts.** Ids are what the five logs resolve against; inventing the topic is free, skipping the id
+is not. Physical-system ids usually land in §2 (`infrastructure`) or §6 (`failure`).
 
-**When asked for "a new reel", bring both — the live candidates from
-[`content_backlog.md`](content_backlog.md) and anything reasoned from scratch that beats them.** **71 entries, ids
-`I01`–`I71`**, grouped into six sections that map 1:1 onto `DOMAIN_ACCENT` in
-`remotion/src/brand/tokens.ts` — so the section *is* the accent colour decision. Live counts come
-from the script, never from this line:
-**11 built · 1 failed · 2 in gate · 2 retired · 1 shelved · 54 open** (2026-09-11; 71 ids, `I01`–`I71`).
+### THE REGISTER IS `backlog/`, AND POSTED IDEAS LEAVE THE LIVE LIST (2026-09-12)
+
+**The root `content_backlog.md` was one file holding live candidates, shipped reels and dead ideas
+together**, so reading it meant filtering out 15 spent ids to reach the 56 that were open. It is now
+a pointer, and the register is three files — see [`backlog/README.md`](backlog/README.md):
+
+| File | What is in it |
+|:--|:--|
+| **[`backlog/open.md`](backlog/open.md)** | **the live list — candidates only. The only file to read when picking a reel** |
+| [`backlog/posted.md`](backlog/posted.md) | ids that reached the feed |
+| [`backlog/closed.md`](backlog/closed.md) | retired, killed by a gate or by its own data, or built and shelved |
+
+**WHEN A REEL POSTS, ITS ROW MOVES TO `posted.md` THE SAME DAY.** That is now part of the shipping
+checklist alongside the "Built so far" table, `reel_captions_log.md` and
+`brand_guide_software.md` §13. **Ids are permanent and are never reused** — moving a row between
+these files never changes its id, which is what lets an old engagement log resolve. Every row
+carries an `Added` date.
+
+**When asked for "a new reel", bring both — the live candidates from `backlog/open.md` and anything
+reasoned from scratch that beats them.** **82 ids `I01`–`I82`**, grouped into six sections that map
+1:1 onto `DOMAIN_ACCENT` in `remotion/src/brand/tokens.ts` — so the section *is* the accent colour
+decision. Live counts come from the script, never from this line:
+**11 posted · 4 closed · 67 live** (2026-09-12; 82 ids, `I01`–`I82`).
+
+**`I72`–`I82` were minted 2026-09-12 on a single filter: does it feed an argument people are already
+having.** That is the account's only evidence-backed lever — r005 sends at 1.203% of reach and has
+157 follows, against 3 from every other reel combined. Each of those rows carries its GATE 3 answer
+in the note beneath it; an id with no named send channel is not a candidate.
 
 **The procedure for all of this is the [`new-reel`](.claude/skills/new-reel/SKILL.md) skill —
 `/new-reel`.** It lists the live candidate ids with their real status
@@ -298,7 +320,12 @@ ids.
 depth-first/
 ├── CLAUDE.md                    the law — this file
 ├── README.md                    what this is, how to run it, where the YouTube line went
-├── content_backlog.md           69 permanent ids in six sections; the section IS the accent
+├── content_backlog.md           A POINTER — the register moved to backlog/ on 2026-09-12
+├── backlog/                     the reel idea register. open.md is the live list
+│   ├── open.md                  LIVE CANDIDATES ONLY — the only one to read when picking
+│   ├── posted.md                ids that reached the feed; a row moves here on posting day
+│   ├── closed.md                retired / killed / shelved — rows stay so old logs resolve
+│   └── README.md                the rules, the counts and the Added dates
 ├── brand_guide_software.md      §13 is the ledger: every dated lesson, incl. retracted ones
 ├── reel_captions_log.md         caption, hook line, load-bearing phrasings, engagement per reel
 ├── insta_strategy.md            superseded premise, surviving evidence — read its status banner
@@ -340,8 +367,9 @@ depth-first/
 `projects/r<NNN>_<name>/` when the build starts and claims its number.** If a build is abandoned it
 is deleted and its number is released, which is what keeps `r001`–`r008` gapless.
 
-Update this table, `brand_guide_software.md` §13 and
-[`reel_captions_log.md`](reel_captions_log.md) when one ships.
+**When one ships, update all four:** this table, `brand_guide_software.md` §13,
+[`reel_captions_log.md`](reel_captions_log.md), and **move the id's row from
+[`backlog/open.md`](backlog/open.md) to [`backlog/posted.md`](backlog/posted.md)**.
 
 **r003 shipped without the end beat** — it was added to `Qr.tsx` after the reel was posted, so the
 `I03` line in that file is a plan, not a public promise.
@@ -532,7 +560,7 @@ mistake, and r009 repeated it twice.
    here" — false: peak-picking yields MORE peaks on pure noise (224) than on the song (202). Any
    on-screen "X happens because Y" needs an experiment that could falsify it. Give every percentage
    one stated base and never compare two figures computed on different ones. Every claim, figure and complexity bound is verified against a primary source
-   before shipping (`content_backlog.md` closing section). Historical entries `I31 I48 I49 I50` carry
+   before shipping (`backlog/README.md`). Historical entries `I31 I48 I49 I50` carry
    figures from memory and *must* be checked. Treat every number in the backlog as a research lead.
 8. **Verify with video + filmstrip, never stills** — for *timing*. Stills are correct for *layout*.
 9. **End on a reason to follow.** Measured on r001 at 3 days: ~18% of 1,286 viewers reached the
@@ -558,6 +586,15 @@ npx remotion still r002-autocorrect-safe out.png --frame=600
 
 `brand:check` accepts **computed `rgb()` strings**, which is how data-driven colour ramps stay legal
 without adding hexes to the palette. Hardcoded hex literals outside `brand/` fail.
+
+### WORK ON `main`. A BRANCH IS CREATED ONLY FOR `/wip`. (2026-09-12)
+
+**Directed by the account owner: commit and push straight to `main`.** This is a single-operator
+repo with no reviewers, so a feature branch buys nothing and costs a merge every time. **The one
+exception is `/wip`**, which exists to move an unfinished tree to another machine and therefore
+must not touch `main` — see below.
+
+Still true regardless of branch: **do not open a pull request unless it is explicitly asked for.**
 
 ### `/wip` — hand the working tree to another device
 

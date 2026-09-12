@@ -41,7 +41,7 @@ build has no reel number and is called by its backlog id, which is what ids are 
 Three built-but-never-posted reels (`I51` shuffle, `I15` A\*, the shelved `I64` queue) were deleted
 on 2026-09-10 rather than kept; they are in git history if a rebuild ever wants them.
 
-Backlog ids stay permanent in `content_backlog.md`; they are just not a folder key.
+Backlog ids stay permanent in `backlog/open.md`; they are just not a folder key.
 
 `.gitignore` tracks a render by the FILE's name — `!projects/*/r[0-9][0-9][0-9]_*.mp4` — so a
 correctly named render is committed. Match the render's name to its folder: `projects/r005_greatcircle/r005_greatcircle.mp4`.

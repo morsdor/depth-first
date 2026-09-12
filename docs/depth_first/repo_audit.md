@@ -187,7 +187,7 @@ their old names because the logs cite them.
 **Also fixed:** a real broken dependency — `gate0/i52_listening/gate0/mock_payoff.py` reads
 `projects/001_roman_aqueduct/vo_001_final.wav`, which is now on the branch. `I52`'s `GATE0.md` records
 this with the one-line restore command. Every other archived-path reference in the surviving files
-(`brand_guide_software.md`, `content_backlog.md`, `insta_strategy.md`, `remotion/src/brand/tokens.ts`,
+(`brand_guide_software.md`, `backlog/` (was `content_backlog.md` until 2026-09-12), `insta_strategy.md`, `remotion/src/brand/tokens.ts`,
 both comp deep dives) now names the branch instead of dangling.
 
 ---

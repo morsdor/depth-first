@@ -11,7 +11,7 @@ number and command in them was read from the repo or measured on this machine on
 | [`CLAUDE.md`](../../CLAUDE.md) | **The law.** Nine non-negotiables, Gate 0, the argument test, the "Built so far" table. Wins every disagreement. |
 | [`.claude/skills/new-reel/`](../../.claude/skills/new-reel/SKILL.md) | **The procedure.** `/new-reel` walks Stage 1 → 6 with three human gates. |
 | [`brand_guide_software.md`](../../brand_guide_software.md) §13 | **The ledger.** Every dated lesson, including the retracted ones. |
-| [`content_backlog.md`](../../content_backlog.md) | **The topic supply.** 69 permanent ids in six sections; the section is the accent colour. |
+| [`backlog/open.md`](../../backlog/open.md) | **The topic supply — LIVE CANDIDATES ONLY.** Permanent ids in six sections; the section is the accent colour. Posted ids move to `backlog/posted.md`, dead ones to `backlog/closed.md`. |
 | [`reel_captions_log.md`](../../reel_captions_log.md) | Captions, load-bearing phrasings, engagement per posted reel. |
 | [`what_travels.md`](what_travels.md) | **Why a reel is SHOWN at all.** The graded evidence behind Gate 3 — Instagram's three ranking ratios, why sends are the one that escapes your follower pool, Berger & Milkman on high-arousal sharing, Guo/Kim/Rubin on educational retention, and two falsified folklore hypotheses. Every rule in `CLAUDE.md` governs what happens AFTER a viewer is shown a reel; this is the file about whether they are. |
 | **These docs** | **The map.** How the machine works end to end, what is clutter, what tools exist beyond it, how to make each reel leave parts behind, and how to run the account like a business. |

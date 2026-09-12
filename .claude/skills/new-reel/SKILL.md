@@ -3,7 +3,7 @@ name: new-reel
 description: >-
   Use when starting a new Depth First short-form reel — "/new-reel", "a new reel", "next reel",
   "what should the next reel be", "pick a reel", or resuming one mid-build. Presents the live
-  candidate ids from content_backlog.md with their real status, runs the reasoning that picks
+  candidate ids from backlog/open.md with their real status, runs the reasoning that picks
   one, then drives the whole pipeline: Gate 0 (sentence → payoff still → human yes), the licence
   and falsification checks, the real-algorithm Python → JSON → TS data module → Remotion build,
   the render, the motion and safe-area audits, and the four logs a shipped reel updates. Enforces
@@ -71,7 +71,7 @@ edit without isolation, say so plainly rather than branching quietly.)*
 ## Stage 1 — Present the ideas
 
 **Never invent a topic.** Every reel comes from a permanent id in
-[`content_backlog.md`](../../../content_backlog.md). If the user wants something with no row, the
+[`backlog/open.md`](../../../backlog/open.md). If the user wants something with no row, the
 move is to *propose a new id* — with a section, and therefore an accent — get it written into the
 backlog, and only then build. `I51`, `I52` and `I54`–`I68` were all added that way.
 
@@ -312,7 +312,7 @@ Five files, every time (details in `reference/validate-and-ship.md`):
 | `CLAUDE.md` | the "Built so far" row |
 | `brand_guide_software.md` §13 | what this build taught, dated — including what failed |
 | `reel_captions_log.md` | the caption, the hook line, engagement columns filled in later |
-| `content_backlog.md` | the row marked produced/failed, with corrections to its figures |
+| `backlog/open.md` | the row marked produced/failed, with corrections to its figures |
 | `projects/r<NNN>_<name>/NOTES.md` | figures with provenance, the beats, the traps, what is NOT claimed |
 
 **GATE 3: the user watches the reel end to end before it is posted.** r006's pronoun hook and

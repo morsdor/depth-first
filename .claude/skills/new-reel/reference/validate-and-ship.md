@@ -110,7 +110,7 @@ Before anything is posted. Under a minute, and it has caught what nothing else c
 | `CLAUDE.md` | the row in **Built so far**: reel, backlog id, subject, state |
 | `brand_guide_software.md` §13 | a dated subsection — what this build taught, **including what failed** |
 | `reel_captions_log.md` | the caption, the hook line (first ~125 chars), engagement columns later |
-| `content_backlog.md` | the row marked produced/failed, plus corrections to any figure it got wrong |
+| `backlog/open.md` | the row marked produced/failed, plus corrections to any figure it got wrong |
 | `projects/r<NNN>_<name>/NOTES.md` | the build record |
 
 **Correcting the backlog is not optional.** `I01`'s row was wrong twice (30% → 24%; "no region is

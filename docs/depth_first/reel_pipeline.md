@@ -17,7 +17,7 @@ produced them. No image model, no hand-keyframing, no stock footage: ₹0 per re
 ## 1. The flow
 
 ```
-content_backlog.md (69 permanent ids, six sections = six accent colours)
+backlog/open.md (live ids only, six sections = six accent colours)
    │
    │  STAGE 1 · present 5–7 candidates   python3 .claude/skills/new-reel/scripts/backlog_ideas.py
    ▼
@@ -56,7 +56,7 @@ content_backlog.md (69 permanent ids, six sections = six accent colours)
    │
    │  STAGE 6 · log & ship — five files, then STOP, do not commit
    │     CLAUDE.md (Built so far) · brand_guide_software.md §13 · reel_captions_log.md ·
-   │     content_backlog.md (row + corrections) · projects/r<NNN>_<name>/NOTES.md
+   │     backlog/open.md (row + corrections) -> backlog/posted.md on posting · projects/r<NNN>_<name>/NOTES.md
    ▼
    post from the phone · read Insights at 24 h and 7 d · log them
 ```
@@ -239,7 +239,7 @@ that compares two algorithms nobody asked about (I15). All three passed every au
 | `CLAUDE.md` | the "Built so far" row |
 | `brand_guide_software.md` §13 | a dated subsection — what this build taught, including what failed |
 | `reel_captions_log.md` | caption A/B, hook line, hashtags (four to six, no bait), **load-bearing phrasings**, deliberately omitted claims; engagement filled in later |
-| `content_backlog.md` | the row marked built/failed, and every figure it had wrong, corrected in italics with the date and the measuring script |
+| `backlog/open.md` | the row marked built/failed, and every figure it had wrong, corrected in italics with the date and the measuring script |
 | `projects/r<NNN>_<name>/NOTES.md` | figures with provenance, beats, gate numbers, **traps**, what is NOT claimed |
 
 Then stop and let the human read the diff. Never commit unless told, and then straight to `main`.

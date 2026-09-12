@@ -11,7 +11,7 @@ because the run produced them.
 | **The law** | [`CLAUDE.md`](CLAUDE.md) — nine non-negotiables, Gate 0, the three human gates |
 | **The procedure** | [`/new-reel`](.claude/skills/new-reel/SKILL.md) — backlog id → Gate 0 → build → render → audit → the five logs |
 | **The map** | [`docs/depth_first/`](docs/depth_first/README.md) — state of the account, the pipeline end to end, the repo audit, the visual toolbox, module packs, growth strategy, and the software thesis |
-| **The topics** | [`content_backlog.md`](content_backlog.md) — 69 permanent ids in six sections |
+| **The topics** | [`backlog/open.md`](backlog/open.md) — 69 permanent ids in six sections |
 | **The ledger** | [`brand_guide_software.md`](brand_guide_software.md) §13 — every dated lesson, including the retracted ones |
 
 ```bash
