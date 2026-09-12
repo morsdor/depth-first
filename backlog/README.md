@@ -10,7 +10,7 @@ out the 15 ids that were already spent before you could see the 56 that were not
 | [`posted.md`](posted.md) | Ids that reached the feed | Moved here on posting, never moved back |
 | [`closed.md`](closed.md) | Retired, killed by a gate or by its own data, built and shelved, or **parked by the owner** | Rows stay forever so old logs resolve |
 
-**Counts at 2026-09-12: 83 ids `I01`–`I83`.** Never take live/posted/closed counts from this line —
+**Counts at 2026-09-12: 84 ids `I01`–`I84`.** Never take live/posted/closed counts from this line —
 the script below reads them from the repo.
 
 ```bash
@@ -43,7 +43,10 @@ figures are unverified; `I54`–`I69` were added 2026-09-10 when the remit widen
 `I72`–`I82` on 2026-09-12, the first batch selected on a single filter — **does it feed an argument
 people are already having;** `I83` also on 2026-09-12, reasoned from scratch rather than taken from
 either batch — a roundabout-vs-traffic-light throughput claim we compute ourselves, on the same
-"does it feed an argument people are already having" filter.
+"does it feed an argument people are already having" filter. `I84` on 2026-09-12, also reasoned
+from scratch — the account's first deliberate, written waiver of Gate 0 kill condition 2, testing
+a "this is you" self-relevant data format against a channel `what_travels.md` names and marks
+**"none yet"** against.
 
 ## `PARKED`, added 2026-09-12
 
