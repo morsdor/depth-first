@@ -2048,6 +2048,51 @@ whose inner edge clears the other silhouette costs nothing, occludes nothing, an
 separation at all. In a near-orthographic 3D scene, depth is not free real estate — it is
 accuracy budget.
 
+**r011 — THE LOOP FORMAT RETURNED A RESULT, AND THE BET ITSELF FAILED (2026-09-12).** The format
+was pre-registered in `CLAUDE.md` with one number: **average watch time ≥ 100% of runtime**, on the
+mechanism that a 12 s loop watched twice is 200% watch time. First reading at ~8 h:
+
+| | r011 (12 s loop) | r005 (32 s teaching reel) | r009 (40 s) |
+|:--|--:|--:|--:|
+| average watch / runtime | **66.7%** (8 s) | 62.5% (20 s) | 12.5% (5 s) |
+| **views per viewer** | **1.460** | **1.423** | — |
+| views / viewers | 3,546 / 2,429 | 46,782 / 32,882 | — |
+| like rate | **0.247%** | **2.786%** | — |
+| share rate | 0.124% | 0.921% | 0.00% |
+| save rate | 0.124% | 1.101% | 0.00% |
+
+**The rewatch mechanism did not appear. 1.460 replays per viewer against a 32-second reel's 1.423
+is the same number.** Runtime bought about five points of watch ratio, not the doubling the format
+was built on. **Runtime was not the variable** — the falsification condition written into
+`CLAUDE.md` in advance, and it is met.
+
+**What the format DID buy is reach, and that is not nothing.** 3,546 views is the account's second
+best ever behind r005, roughly 10x a typical reel, flat by 8 h, and **85.8% of it came from the
+Reels tab** — cold algorithmic distribution to strangers, not the follower pool. Skip rate 41.1%,
+flagged "Lower". The algorithm liked it; people did not react to it.
+
+**The collapse is in reaction, and it is r008's signature exactly.** 0.247% like rate against
+r005's 2.786% is **11.3x lower** on the same account with the same craft discipline. r008 took 0
+likes on ~1.8k views with the best motion score ever recorded here. **Two reels now say that
+mesmerising physics is watched and not felt.** Three sends is the first non-zero share rate since
+r005 and it is 7.5x below it; Instagram flagging share rate "Higher" only measures how long the
+account has been posting reels nobody sends.
+
+**THE RETENTION CURVE SAYS WHY IT NEVER LOOPED, AND IT IS A BUILD PROBLEM, NOT A FORMAT PROBLEM.**
+100% → ~68% at ~1.5 s → **~37% at 11 s** → ~18% at the cut. That is a steady bleed rather than a
+cliff, and for a loop it is fatal: **a reel cannot restart for the 63% who never reach the end.**
+The cause is on the reel's own timeline — the last thing that HAPPENS is the copy at 4.7 s, so
+**7.3 seconds, 61% of the runtime, carry no new event.** The motion audit reads 67% event density
+throughout and cannot see this, because it measures pixel change and two pendulums swinging change
+plenty of pixels. **Motion density is not event rate, and only event rate holds a viewer to a
+restart.** Any future loop needs something to happen roughly every 2 s, with the last event close
+to the cut so that reaching the restart is rewarded.
+
+**Caveat, and it is the same one as always: n = 1, one post, one platform, and distribution has
+never been controlled.** What is NOT caveated is the views-per-viewer figure — that is a direct
+measurement of the exact mechanism the format was built on, taken against the account's own best
+reel, and it shows nothing.
+
 **OPEN — "who does the viewer send this to, and what are they proving?" is not a filter, it is THE
 constraint.** It has now predicted five outcomes in a row. Every craft rule in `CLAUDE.md` governs
 what happens *after* a viewer is shown the reel; nothing in this repo governs whether it is shown
@@ -2074,11 +2119,12 @@ distribution one.** It has never been tried.
 | `r008` | Pendulum wave — fifteen strings, back in line at 30 s | 34 s | **2026-09-10** |
 | `r009` | Scale — the biggest star ever measured is a speck in the gap | 40 s | **2026-09-11** |
 
+| `r011` | Two double pendulums one hair apart — the loop format | 12 s | **2026-09-11/12** |
+
 ### Built and unposted — at GATE 5
 
 | Reel | Subject | Length | State |
 |:--|:--|:--|:--|
 | `r010` | Traffic jam with no cause — it runs backwards at 12 mph | 46 s | built **2026-09-11** |
-| `r011` | Two double pendulums one hair apart | 12 s | built **2026-09-11**, re-cut the same day |
 
 **The next reel is `r012`.**

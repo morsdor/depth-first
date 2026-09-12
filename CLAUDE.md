@@ -260,11 +260,11 @@ before optimising for reach: whether r005's 71 follows stayed, and whether they 
 
 | `r010` | `I65` | Traffic jam with no cause — the jam runs backwards at 12 mph, and one car in 22 breaks it up | **BUILT 2026-09-11 (46 s), NOT POSTED — at GATE 5.** First reel under the script-first gates and the first under 3D by default. One parameter bends a straight highway into a 755-foot ring and back, so the unroll is a real geometric morph rather than a cut. Motion: 0.25 s dead spell, 61% event density. See [`projects/r010_phantom_jam/NOTES.md`](projects/r010_phantom_jam/NOTES.md) |
 
-| `r011` | `I71` | Two double pendulums released one human hair apart — the same object for 3.3 s, then unrelated | **BUILT 2026-09-11 (12 s), RE-CUT the same day, NOT POSTED — at GATE 5.** The first reel in the loop format, and the first built on a metric other than sends: 12 s against the 28–54 s of everything before it, because a loop watched twice is 200% watch time. Judge on **average watch time ≥ 100% of runtime**; sends expected ~0. Cut 1 passed both audits with the account's best motion number and **failed GATE 5 on its copy** — *"what is the text on video supposed to say?? i do not understand it"* — because it pointed a plural at a single visible object and never once stated the setup. Motion: 0.25 s dead spell, **67% event density**. See [`projects/r011_divergence/NOTES.md`](projects/r011_divergence/NOTES.md) traps 11–14 |
+| `r011` | `I71` | Two double pendulums released one human hair apart — the same object for 3.3 s, then unrelated | **POSTED 2026-09-11/12 (12 s), after a same-day re-cut.** First reel in the loop format and the account's **first pre-registered experiment**. Cut 1 passed both audits with the best motion number on the account and **failed GATE 5 on its copy** — *"what is the text on video supposed to say?? i do not understand it"*. **The result at ~8 h: 3,546 views / 2,429 viewers — second-best reach ever — average watch 8 s on 12 s (66.7%), and views per viewer 1.460 against r005's 1.423. The rewatch bet FAILED: runtime was not the variable.** Like rate 0.247% against r005's 2.786%. See `brand_guide_software.md` §13 "THE LOOP FORMAT RETURNED A RESULT" and [`projects/r011_divergence/NOTES.md`](projects/r011_divergence/NOTES.md) traps 11–14 |
 
-**Reel numbers are contiguous and mean "the Nth reel posted".** `r001`–`r009` are the nine that
-have shipped, in order. **`r010` and `r011` are built and unposted** — each claimed its number when
-its build started, which is what stops two builds colliding. **The next reel is `r012`.**
+**Reel numbers are contiguous and mean "the Nth reel posted".** `r001`–`r009` and `r011` have
+shipped. **`r010` is built and unposted** — it claimed its number when its build started, which is
+what stops two builds colliding, and `r011` overtook it to the feed. **The next reel is `r012`.**
 
 **A re-post does NOT claim a new number.** r009 was posted at 40 s, re-cut after its watch-time
 reading, and posted again the same day at 40.4 s. That is one reel with two posting events, not
@@ -409,6 +409,30 @@ camera as a prop; fighting that is how you lose a day. Fix the camera, animate a
 loop watched twice is 200% watch time, and watch time is a confirmed ranking input. That is the one
 lever this account had never pulled. The origin is the r010 verdict: *"people don't use Instagram to
 consume that much serious knowledge."*
+
+### THE RESULT IS IN, AND THE REWATCH BET FAILED (2026-09-12)
+
+**`r011` was run to its pre-registered number and missed it.** Average watch **8 s on 12 s = 66.7%**
+against the **≥100%** the format was built for, and — the measurement that actually settles it —
+**1.460 views per viewer against r005's 1.423 on a 32-second reel. There is no rewatch lift.** The
+falsification condition written here in advance is met: **runtime was not the variable.**
+
+**Do not retire the format on that, because the same post produced the account's second-best reach**
+— 3,546 views, ~10x typical, **85.8% of it cold from the Reels tab**, skip rate flagged "Lower".
+The loop earns its keep on *distribution*, not on rewatch, and that is a different reason to keep
+using it. State that reason honestly rather than re-running the disproven one.
+
+**What it did not buy is any reaction at all: like rate 0.247% against r005's 2.786%, 11.3x lower.**
+With r008 (best motion score on the account, **0 likes** on ~1.8k views) that is now two reels
+saying the same thing — **mesmerising physics gets watched and does not get felt.**
+
+**MOTION DENSITY IS NOT EVENT RATE, and this is the transferable lesson.** r011's retention ran
+100% → 68% at 1.5 s → **37% at 11 s**: a steady bleed, which for a loop is fatal, because the reel
+cannot restart for the 63% who never reach the end. The cause is on the timeline — **the last thing
+that HAPPENS is the copy at 4.7 s, so 61% of the runtime carries no new event.** The motion audit
+read 67% and could not see it, because two pendulums swinging change plenty of pixels. **A loop
+needs an event roughly every 2 s, and its last event close to the cut**, so that reaching the
+restart is rewarded. `scripts/reel_motion_audit.py` does not measure this; you do, on the script.
 
 **A loop bends GATE 3, and must say so in writing.** There is usually no dispute for a mesmerising
 loop to settle, so the send test scores badly by construction. That is acceptable ONLY as a
