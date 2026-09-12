@@ -1784,6 +1784,40 @@ camera is doing — that is r001's bug and the whole reason the rule exists. The
 FAIL to PASS on a real fix in between: a 280 px label centred on a marker at x = 119 put its glyphs
 at x = 37, inside Instagram's left cut. 78 pixels, and still text under the chrome.
 
+### r011 — THE RESULT IS IN: GATE 3 IS NECESSARY, NOT SUFFICIENT (2026-09-12)
+
+**`r011` scored three named GATE 3 channels — argument ammunition, "this is you", practical
+utility — the best score any reel has carried into a build, and it is the cleanest test the send
+test has had.** First reading, ~6 h after posting: **2,913 views / 2,422 viewers, sends 0.041%
+(1 share)** — below `r010`'s already-poor 0.124%, **29x below** the r005 benchmark of 1.203%, and
+inside the **<0.2%** band the reel's own pre-registration (`projects/r011_boarding/NOTES.md`,
+written before it posted) named as falsifying the current thesis.
+
+**Five prior GATE 3 predictions — r006, r007, r008, r009 ×2 — were all predictions of a MISSING
+channel, correctly confirmed.** `r011` is the first test of the opposite claim: does naming a
+channel, or three, guarantee travel? **No.** The gate stands unchanged as a floor; a full score is
+now shown not to be a ceiling.
+
+**Best guess at the missing variable: HEAT, not structure.** Flat earth is identity-loaded — being
+wrong marks you as someone who doesn't understand how the world works. Boarding order is
+annoyance-loaded — nobody's self-concept is at stake in whether their airline boards efficiently.
+Every written condition in "pick a fight, not a gap" was met and it still didn't move, because that
+filter never asked **what the other person loses by being proven wrong.** Add that question to the
+filter before the next id is picked on it.
+
+**SHARES AND SAVES DIVERGED, AND THAT IS DATA, NOT NOISE.** Share rate flagged "Lower" than this
+account's own typical; save rate flagged **"Higher"**. Argument ammunition (send this to someone)
+failed; practical utility (I'll use this myself) partly worked. GATE 3's own table conflates both
+into one "sends" line — **a reel naming multiple channels should be read on a metric per channel**,
+because a single number can hide a real split like this one.
+
+**What still worked, so craft is not what to blame here either:** skip rate flagged "Lower" —
+genuinely better than the account's history, the second confirmation (after r009's hook A/B) that
+showing the result before explaining it works. Average watch 33.3% of 45 s is above the 25% floor
+the pre-registration set for "the runtime itself is wrong", so length is not the explanation.
+Reach was substantial and almost identical in volume to `r010`'s early reading — **the algorithm
+found an audience; the audience found nothing worth sending.**
+
 ### r011 — BIND THE ACCENT TO THE LOAD-BEARING QUANTITY, AND THE CLAIM BECOMES COUNTABLE (2026-09-12)
 
 The reel's whole argument is that a lane closure of an aisle is set by **how many people can stow a

@@ -255,6 +255,35 @@ somebody who has an argument to settle with it. A reel that is sent does not pla
 opens a pool the algorithm never tested. **That is the difference between 94k over four days and
 3.5k in eight hours**, and it is a property of the CONTENT, not of the push.
 
+### GATE 3 IS NECESSARY, NOT SUFFICIENT — r011 tested a full score, and it failed (2026-09-12)
+
+**Every GATE 3 answer up to `r011` was tested by a reel with ONE named channel, or none.** `r011`
+named **three** — argument ammunition, "this is you", practical utility, the best score any reel
+has carried into a build — and it is the cleanest test the gate has had. Result: **sends 0.041%
+(1 share, 2,422 viewers)** — below `r010`'s already-poor 0.124%, **29x below** r005's 1.203%
+benchmark, and inside the **<0.2%** band `r011`'s own pre-registered reading (written before
+posting, `projects/r011_boarding/NOTES.md`) named as falsifying the current thesis.
+
+**Five correct predictions of a MISSING channel — r006, r007, r008, r009 ×2 — is a different claim
+from "a full score guarantees travel", and `r011` is the first test of the second claim.
+It failed.** The gate stands as a floor, unchanged: nothing here suggests a reel with no channel
+would have done better. What is now falsified is treating a named channel as sufficient on its own.
+
+**The likely missing variable is HEAT — how much the loser of the dispute stands to have taken from
+them.** Flat earth is identity-loaded: being wrong marks you as someone who doesn't understand how
+the world works, and correcting your uncle is a status move as much as an informational one.
+Boarding order is annoyance-loaded, not identity-loaded — nobody's self-concept is at stake in
+whether they believe airlines board efficiently. `r011` met every written condition in "pick a
+fight, not a gap" and still didn't move, because that filter never asked what losing the argument
+COSTS the other person. **The next id picked on this filter should also answer: what does the
+person on the other side of this lose if they're proven wrong?**
+
+**SAVES AND SHARES ARE DIFFERENT CHANNELS AND DIVERGED ON `r011` — measure them separately.** Share
+rate: "Lower" than the account's own typical (argument ammunition failed). Save rate: **"Higher"**
+(practical utility partly worked, even with nothing sent). GATE 3's table conflates both into one
+"sends" line; a reel that names multiple channels should be graded on a metric per channel, not one
+number standing in for all of them.
+
 ### Pick a fight, not a gap (r005 vs r006 — the belief-correction test FAILED)
 
 **r006 was the pre-registered test of the "correct a belief" pattern and it failed.** Built to all
@@ -300,7 +329,7 @@ before optimising for reach: whether r005's 71 follows stayed, and whether they 
 
 | `r010` | `I71` | Two double pendulums released one human hair apart — the same object for 3.3 s, then unrelated | **POSTED 2026-09-11/12 (12 s), after a same-day re-cut.** First reel in the loop format and the account's **first pre-registered experiment**. Cut 1 passed both audits with the best motion number on the account and **failed GATE 5 on its copy** — *"what is the text on video supposed to say?? i do not understand it"*. **The result at ~8 h: 3,546 views / 2,429 viewers — second-best reach ever — average watch 8 s on 12 s (66.7%), and views per viewer 1.460 against r005's 1.423. The rewatch bet FAILED: runtime was not the variable.** Like rate 0.247% against r005's 2.786%. See `brand_guide_software.md` §13 "THE LOOP FORMAT RETURNED A RESULT" and [`projects/r010_divergence/NOTES.md`](projects/r010_divergence/NOTES.md) traps 11–14 |
 
-| `r011` | `I73` | Aeroplane boarding — back to front is slower than no order at all | **POSTED 2026-09-12 (45 s)**, GATE 5 on the first cut — *"a great video … I absolutely love it"*, the first reel to pass GATE 5 without a re-cut since `r007`. **Reading pre-registered before posting** in [`projects/r011_boarding/NOTES.md`](projects/r011_boarding/NOTES.md). Re-runs the 2011 field test: our agent model lands **−1% on back-to-front and −8% on random** against 72 real people in a mock 757, with nothing fitted, and **144 of 144 sweep points** keep back to front slower. The mechanism is one number — **the back-to-front cabin never gets more than TWO people stowing at once, in any seed at any parameter setting; random reaches seven.** Motion 0.50 s dead spell / 33% density; safe area clean with no exemption. See [`projects/r011_boarding/NOTES.md`](projects/r011_boarding/NOTES.md) |
+| `r011` | `I73` | Aeroplane boarding — back to front is slower than no order at all | **POSTED 2026-09-12 (45 s)**, GATE 5 on the first cut — *"a great video … I absolutely love it"*. **First reading ~6 h later: 2,913 views / 2,422 viewers, 98.3% cold — and sends at 0.041%, the SEND TEST'S FIRST FALSIFICATION on a reel that scored 3 of 3 named channels.** Skip rate flagged "Lower" (the hook worked); saves flagged "Higher" while shares were "Lower" — practical utility partly travelled, argument ammunition did not. See "GATE 3 IS NECESSARY, NOT SUFFICIENT" above and [`projects/r011_boarding/NOTES.md`](projects/r011_boarding/NOTES.md) |
 
 **Reel numbers are contiguous and mean "the Nth reel posted".** `r001`–`r011` have shipped.
 **`r011` claimed its number when the first `.tsx` was written, not when its Gate 0 was** — the rule

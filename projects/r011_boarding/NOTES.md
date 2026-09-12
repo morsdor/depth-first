@@ -2,7 +2,8 @@
 
 **Built 2026-09-12. 45.0 s · 1350 frames · 13 MB. BOTH AUDITS PASS. GATE 5 PASSED
 2026-09-12** — *"It is a great video and idk how it will perform but I absolutely love it."*
-**Ready to post; not yet posted.**
+**POSTED 2026-09-12. First reading ~6 h later: sends 0.041%, inside the <0.2% band the
+pre-registration named as falsifying — see "THE RESULT IS IN" below.**
 
 | audit | result |
 |:--|:--|
@@ -234,6 +235,75 @@ reach on the account. **Reach is the thing sends cause, not the thing to read.**
 else's published measurement rather than our own simulation. If it travels, that may be the
 citation doing the work — "they actually tested this" is its own kind of credibility — and not the
 argument channel. Worth separating before concluding either way.
+
+---
+
+## THE RESULT IS IN — first reading, ~6 h after posting, 2026-09-12
+
+**Views 2,913 · viewers 2,422 · average watch 15 s on 45 s (33.3%) · skip rate 37.3%, flagged
+"Lower" (better than the account's own typical) · follows 1.** Distribution: **84.8% Reels tab,
+13.5% Explore** — 98.3% cold algorithmic reach, almost identical in volume to `r010`'s early
+reading (2,429 viewers) on a completely different format.
+
+| | count | rate, of 2,422 viewers | IG's flag | this account |
+|:--|--:|--:|--:|:--|
+| likes | 15 | **0.619%** | Lower | r005 2.786% · r010 0.247% |
+| **shares (sends)** | **1** | **0.041%** | Lower | **r005 1.203% · r010 0.124%** |
+| saves | 3 | 0.124% | **Higher** | — |
+| comments | 0 | 0.000% | Typical | — |
+| reposts | 0 | 0.000% | Typical | — |
+
+**THE SEND TEST FAILED, DECISIVELY, AND THIS IS THE CLEANEST TEST IT HAS EVER HAD.** The
+pre-registered table above named three readings. This lands in the worst of them: **sends at
+0.041%** — below even `r010`'s already-poor 0.124%, and **29x below** the r005 benchmark of
+1.203%. That is not the >=0.4% that would say "the channel is real but the arena is a
+multiplier" — it is inside the **<0.2% band the pre-registration named, in writing, before the
+post went up, as falsifying the current thesis**: *"the send test is NOT SUFFICIENT... the lever
+is the ARENA, not the filter."*
+
+**This is the strongest test GATE 3 has had, because this reel did not merely clear the filter —
+it scored on THREE channels at once** (argument ammunition, "this is you", practical utility), the
+best score any reel has carried into a build. If a full house on GATE 3 were sufficient by itself,
+this should have travelled. It did not. GATE 3 has now correctly predicted a MISSING channel five
+times running; this is its **first test of a reel with every box checked, and it failed that
+test.** The gate remains necessary — nothing here suggests a reel with no named channel would have
+done better — but it is now demonstrated **not to be sufficient.**
+
+**The likely missing variable is exactly what was flagged in advance: heat.** Flat earth is
+identity-loaded — being wrong about it means being the kind of person who doesn't understand
+science, and correcting your uncle is a status move, not only an informational one. Boarding order
+is **annoyance-loaded, not identity-loaded**: nobody's sense of who they are is at stake in
+whether airlines board efficiently. All three of "pick a fight, not a gap"'s conditions were met —
+witnessed evidence, a running dispute, one repeatable number — and it still didn't move, because a
+fourth, unwritten condition may be: **does being wrong cost the other person something they care
+about.**
+
+**One split worth keeping separate from now on: SAVES and SHARES answer different GATE 3
+channels, and they diverged here.** Share rate was "Lower" than this account's own typical —
+argument ammunition failed to travel. Save rate was **"Higher"** — the *practical utility* channel
+(the viewer will use this themselves) partly worked even though the *send-this-to-someone* channel
+did not. Lumping both into one "sends" number, as GATE 3's table currently does, would have hidden
+this split entirely. **A GATE 3 answer that names multiple channels should expect, and check for, a
+metric that moves per channel — not one number standing in for all of them.**
+
+**What worked, and should not be discarded because the headline failed:** skip rate 37.3%, flagged
+**"Lower"** — genuinely better than the account's own history, and the second confirmation (after
+r009's hook A/B) that showing the result before explaining it keeps people past the first few
+seconds. Average watch 33.3% of a 45 s runtime is also ABOVE the 25% floor the pre-registration
+set for "the runtime itself is wrong" — so 45 s was not the problem here; nothing yet says a
+shorter cut travels better. **The algorithm found this an audience worth serving (2,422 cold
+viewers, on par with the account's second-best reach); the audience found nothing in it worth
+sending.**
+
+**The citation confound registered in advance is now moot.** The open question was whether a good
+result would be "they actually tested this" credibility or the argument channel; since nothing
+travelled, neither hypothesis gained support, and the confound is not resolved by this post.
+
+**Still to watch:** the views-over-time curve was already flat by ~3 h into this ~6 h reading —
+`r010`'s shape (fast then dead), not `r005`'s (slow, compounding, still climbing at day 4). Expect
+this reading to be close to final rather than a floor that rises, but log a second reading before
+calling it closed.
+
 
 ---
 

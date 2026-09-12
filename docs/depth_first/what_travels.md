@@ -122,11 +122,50 @@ build:
 |:--|:--|:--|
 | **Argument ammunition** | a dispute is already running and this settles it | **r005** — your uncle, that the earth is round |
 | **High-arousal novelty** | awe/anger/anxiety at something genuinely unfamiliar | r009 aimed here and missed: the genre is saturated, so it read as recognition |
-| **"This is you"** | sent to one person because it is about them or a shared experience | none yet |
-| **Practical utility** | the viewer will actually use it | none yet |
+| **"This is you"** | sent to one person because it is about them or a shared experience | r011 aimed here too — see G |
+| **Practical utility** | the viewer will actually use it | r011 — partial: saves moved, shares did not |
 
-**Measure sends per reach, not views.** r005 set the only benchmark we have: **0.92%**. Everything
-since is 0.
+**Measure sends per reach, not views.** r005 set the only benchmark we have: **0.92% at day 1,
+revised to 1.20% at day 4 as reach grew (§G's companion note in `CLAUDE.md`, "AND THE BENCHMARK
+ROSE AS IT SPREAD").** Everything else measured since is nowhere close — worst case 0.
+
+---
+
+## G. r011 — a full house on the channel table, and it still didn't travel (2026-09-12)
+
+**`r011` is the first reel to name THREE channels from the table above at once, and the cleanest
+test this document's whole thesis has had.** Argument ammunition (boarding-order disputes),
+"this is you" (the friend who stands at the gate the second their group is called), practical
+utility (a fact worth knowing before your next flight). Result at ~6 h: **2,913 views / 2,422
+viewers, sends 0.041% (1 share)** — below `r010`'s 0.124%, 29x below r005's 1.203% benchmark.
+
+**This falsifies "name a channel" as SUFFICIENT, without touching it as NECESSARY.** Sections A–F
+above establish that a missing channel predicts no travel — five correct predictions, r006 through
+r009. None of them tested whether a *present* channel guarantees travel, because none of those
+five reels had one. `r011` did, three of them, and still returned the account's worst send rate on
+record. **The table in §F answers "which channel", and after `r011` it is missing a second axis:
+how much is at stake in the dispute.**
+
+**Best current hypothesis: HEAT.** Berger & Milkman's own finding in §B is arousal-driven —
+awe, anger, anxiety — and arousal scales with how much the outcome matters to the person feeling
+it. Flat earth is a dispute about whether you understand how the world works; losing it costs
+identity. Boarding order is a dispute about a mild daily annoyance; losing it costs nothing. Every
+condition CLAUDE.md's "pick a fight, not a gap" lists was satisfied by `r011` — witnessed evidence,
+a running dispute, one repeatable number — and none of those conditions asks what the loser of the
+argument has on the line. **That is the gap.**
+
+**A second, smaller finding: "sends" is not one metric.** `r011`'s save rate was flagged "Higher"
+than this account's typical while its share rate was flagged "Lower" — practical utility partly
+worked as a channel even though the interpersonal send did not. §F's table names four channels but
+grades them all on one number; after `r011`, a channel should be checked against the metric that
+channel actually predicts (saves for utility, shares for ammunition and "this is you"), not folded
+into a single "sends per reach" figure that can hide a real split.
+
+**What this does NOT do: reopen craft as the explanation.** `r011`'s skip rate was flagged "Lower"
+(better than typical) and its average watch, at 33.3% of a 45 s runtime, sits above the 25% floor
+pre-registered as the "runtime itself is wrong" threshold. Section E's finding stands: craft is
+necessary and still not sufficient. It is GATE 3 itself, not the making of the reel, that this
+result narrows.
 
 ---
 
