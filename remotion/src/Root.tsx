@@ -11,6 +11,7 @@ import { DURATION_SECONDS as PENDULUM_SECONDS, Pendulum } from './reels/Pendulum
 import { DURATION_SECONDS as EMPTINESS_SECONDS, Emptiness } from './reels/Emptiness';
 import { DURATION_SECONDS as DIVERGENCE_SECONDS, Divergence } from './reels/Divergence';
 import { DURATION_SECONDS as BOARDING_SECONDS, Boarding } from './reels/Boarding';
+import { DURATION_SECONDS as EARNINGS_SECONDS, EarningsPeak } from './reels/EarningsPeak';
 import { DURATION_SECONDS as MANIM_SECONDS, ManimProbe } from './reels/ManimProbe';
 import { SafeZones } from './reels/lib/chrome';
 
@@ -109,6 +110,13 @@ const DivergenceSafe: React.FC = () => (
 const BoardingSafe: React.FC = () => (
   <>
     <Boarding />
+    <SafeZones />
+  </>
+);
+
+const EarningsPeakSafe: React.FC = () => (
+  <>
+    <EarningsPeak />
     <SafeZones />
   </>
 );
@@ -323,6 +331,34 @@ export const RemotionRoot: React.FC = () => {
         id="r011-boarding-safe"
         component={BoardingSafe}
         durationInFrames={BOARDING_SECONDS * 30}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+
+      {/* r012 · I84 · your pay has a peak age — NOT YET POSTED, in gate.
+          Pre-registered "this is you" format experiment: Gate 0 kill condition 2
+          (no chart payoff) is deliberately waived in writing
+          (projects/r012_earnings/gate0/GATE0.md §5). The line is a monotone
+          interpolation through cited anchors from Brady & Bass (ICI), "A Day in
+          the Life Cycle" (IRS SOI, 2024) — real 2016 tax data. Peaks at age 46,
+          $41,000; the decline past 55 is cross-checked in the source against
+          real panel data following the same individuals, which is the one leg
+          of this claim with genuine longitudinal backing. Data from
+          remotion/src/reels/data/earningsPeak.ts, which emit_ts.py refuses to
+          write unless every on-screen claim holds. */}
+      <Composition
+        id="r012-earnings"
+        component={EarningsPeak}
+        durationInFrames={EARNINGS_SECONDS * 30}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="r012-earnings-safe"
+        component={EarningsPeakSafe}
+        durationInFrames={EARNINGS_SECONDS * 30}
         fps={30}
         width={1080}
         height={1920}
