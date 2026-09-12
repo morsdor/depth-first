@@ -300,10 +300,12 @@ before optimising for reach: whether r005's 71 follows stayed, and whether they 
 
 | `r010` | `I71` | Two double pendulums released one human hair apart — the same object for 3.3 s, then unrelated | **POSTED 2026-09-11/12 (12 s), after a same-day re-cut.** First reel in the loop format and the account's **first pre-registered experiment**. Cut 1 passed both audits with the best motion number on the account and **failed GATE 5 on its copy** — *"what is the text on video supposed to say?? i do not understand it"*. **The result at ~8 h: 3,546 views / 2,429 viewers — second-best reach ever — average watch 8 s on 12 s (66.7%), and views per viewer 1.460 against r005's 1.423. The rewatch bet FAILED: runtime was not the variable.** Like rate 0.247% against r005's 2.786%. See `brand_guide_software.md` §13 "THE LOOP FORMAT RETURNED A RESULT" and [`projects/r010_divergence/NOTES.md`](projects/r010_divergence/NOTES.md) traps 11–14 |
 
+| `r011` | `I73` | Aeroplane boarding — back to front is slower than no order at all | **BUILT 2026-09-12 (45 s), NOT POSTED — at GATE 5.** Re-runs the 2011 field test: our agent model lands **−1% on back-to-front and −8% on random** against 72 real people in a mock 757, with nothing fitted, and **144 of 144 sweep points** keep back to front slower. The mechanism is one number — **the back-to-front cabin never gets more than TWO people stowing at once, in any seed at any parameter setting; random reaches seven.** Motion 0.50 s dead spell / 33% density; safe area clean with no exemption. See [`projects/r011_boarding/NOTES.md`](projects/r011_boarding/NOTES.md) |
+
 **Reel numbers are contiguous and mean "the Nth reel posted".** `r001`–`r010` have shipped.
-**The next reel is `r011`. It will be `I73` — aeroplane boarding — which is at GATE 0 in
-[`gate0/i73_boarding/`](gate0/i73_boarding/GATE0.md) and has claimed no number, because a number is
-claimed when a BUILD starts and `I72` just showed what claiming one early costs.**
+**`r011` is built and unposted** — it claimed its number when the first `.tsx` was written, not
+when its Gate 0 was, which is the rule as written and what `I72` had just shown the cost of getting
+wrong.
 
 **THE PENDULUM LOOP WAS `r011` UNTIL 2026-09-12 AND IS NOW `r010` (2026-09-12).** The traffic reel
 (`I65`) held `r010`, was never posted, and was **parked by the account owner** on 2026-09-12 along
@@ -552,6 +554,12 @@ mistake, and r009 repeated it twice.
    check *event density* — the share of 4fps samples with change >= 1.0. r004 ran 42%; I51's first
    cut ran 26% and a viewer called it static despite passing the 0.35 rule. Continuous motion, not
    more drift, is the fix: I51 v5 runs 53% by never pausing the thing the reel is about.
+   **The safe-area audit could report PASS having measured nothing, until 2026-09-12.** With an
+   ffmpeg that cannot decode h264 or mux rawvideo it decoded zero frames and printed a green tick
+   over an inverted bounding box. `scripts/reel_safe_audit.py` now decodes to PNGs — the one path
+   both the bundled and any system ffmpeg support — calls the single measurement in
+   `reel_safe_frames.py`, and **fails closed**: nothing measured is a FAIL with a non-zero exit.
+   Run it on the mp4; pass `--bleed` only for a range justified in `NOTES.md`.
    The audit is `scripts/reel_motion_audit.py` — run it on the rendered mp4, don't re-derive it,
    and run it at its DEFAULT `--width 240`: every benchmark above is at that width, and the same
    reel scores 27% at 240 and 51% at 360 because small moving objects vanish under downscaling.

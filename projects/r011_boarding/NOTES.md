@@ -1,6 +1,19 @@
 # r011 · `I73` — your airline boards the plane worse than no method at all
 
-**Built 2026-09-12. 45.0 s · 1350 frames.** Accent `#FF4D4D` (`failure`, §6). Teaching format.
+**Built 2026-09-12. 45.0 s · 1350 frames · 13 MB. BOTH AUDITS PASS.**
+
+| audit | result |
+|:--|:--|
+| motion | longest dead spell **0.50 s** (limit 1.5 s) · event density **33%** · median change 0.679 |
+| safe area | worst bbox **x 60..868, y 296..1528** inside x 60..870, y 270..1540 · **no exemption claimed** |
+
+**Event density 33% is below the teaching-reel benchmarks** (r004 42%, `I51` v5 53%) and that is
+honest rather than fixable: the moving parts are a ~40 px-wide aisle strip in each cabin, and the
+audit measures mean change over the whole frame, so small moving objects count for almost nothing —
+the same shape of problem as r006's route-draw beat at 16%. **A drifting camera would lift the
+number without adding an event**, which is the blind spot CLAUDE.md names and the `I51` mistake. If
+it reads as static on a phone, the answer is more events, not more drift.
+ Accent `#FF4D4D` (`failure`, §6). Teaching format.
 **NOT POSTED — at GATE 5.**
 
 - Gate 0, the send test, the research and the falsification conditions: [`gate0/GATE0.md`](gate0/GATE0.md)
@@ -170,7 +183,21 @@ could not tell me, because it crashed on a bare `FileNotFoundError`. There is no
 this container and the bundled compositor has no rawvideo muxer, so that script cannot run here at
 all; it now says so and names `reel_safe_frames.py`, which is the tool the `r010` lesson settled on.
 
-**7 · Four layout collisions, all found in stills and none by the typechecker.**
+**7 · `reel_safe_audit.py` COULD REPORT PASS HAVING MEASURED NOTHING, and that is now fixed.**
+Its own sibling script documented it: with an ffmpeg that cannot decode h264 or mux rawvideo, the
+frame generator yielded zero frames and the script printed **PASS with an inverted bounding box
+(x 1080..-1)**. In this container it did not even get that far — no system ffmpeg at all, so a bare
+`FileNotFoundError`. **A green tick over nothing measured is the one failure an audit must not
+have**, and it was not container-specific: the same silent pass was available on any machine where
+the decode produced nothing. Verified rather than assumed that the bundled compositor has no
+rawvideo muxer (`Requested output format 'rawvideo' is not known`).
+
+Both ffmpeg builds here will write PNGs, and so will any normal system ffmpeg, so the mp4 path now
+decodes to PNGs and calls the measurement in `reel_safe_frames.py` — **one implementation, one
+verdict, and it fails closed**: no frames, or every frame under the luminance floor, is a FAIL with
+a non-zero exit. Cross-checked against the manual PNG path on this reel: identical bbox.
+
+**8 · Four layout collisions, all found in stills and none by the typechecker.**
 "BACK TO FRONT" ran into "NO ORDER AT ALL" in the middle of the frame — **the cabin gap is set by
 the text, not by the picture**, and went from 0.9 to 2.6 units. The "Next:" line landed on top of
 the counters. Copy at 46 px wrapped to four lines and pushed into the cabin headers. The dive zoom
