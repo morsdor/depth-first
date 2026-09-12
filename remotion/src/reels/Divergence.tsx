@@ -6,13 +6,13 @@ import { FPS, Fade, REEL_H, REEL_W, ReelGround, t } from './lib/chrome';
 import { FRAMES, META } from './data/divergence';
 
 /**
- * r011 · I71 — the one that started a hair's width away.
+ * r010 · I71 — the one that started a hair's width away.
  *
  * FIRST REEL IN THE LOOP FORMAT. 12 s, no narration, two text moments, built to be
  * rewatched rather than understood. The runtime IS the experiment: every reel this
  * account has posted has been 28-54 s, i.e. too long to watch twice by accident, and
  * a 12 s loop watched twice is 200% watch time. Pre-registered metric and the
- * reasoning: projects/r011_divergence/gate0/GATE0.md §4.
+ * reasoning: projects/r010_divergence/gate0/GATE0.md §4.
  *
  * ── Nothing here is animated by hand ────────────────────────────────────────
  * Both pendulums come out of data/divergence.ts: classic double-pendulum equations,

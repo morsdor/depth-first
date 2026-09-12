@@ -226,6 +226,29 @@ find-and-replace would have collapsed r006→r005→… onto itself. Two forms n
 `\b` does not match before an underscore, so `r006_geo` and `r006_greatcircle` were missed by the
 first pass and caught by a second.
 
+### It happened a second time — 2026-09-12
+
+**The traffic build (`I65`) held `r010`, was never posted, and was parked by the account owner.**
+The number went back and the pendulum loop (`I71`), posted tenth, took it — so `r011` became
+`r010` across the repo, and the zipper merge (`I72`) gave up `r012` the same day.
+
+| was | is |
+|:--|:--|
+| r011 divergence | **r010** |
+| r010 phantom jam *(parked)* | `I65` — code at `18020c6` |
+| r012 zipper *(parked)* | `I72` — code at `add9b44` |
+
+**This pass was small because the rule was already in `CLAUDE.md` and had been applied once.**
+Four kinds of reference moved: the project folder and its mp4, the two Remotion composition ids
+(`r011-divergence` → `r010-divergence`), the ranges (`r001–r011` → `r001–r010`, and one
+`r001–r010` → `r001–r009` in the loop-format section, which had meant "every reel before the
+loop"), and the §13 lesson headings — the parked build's three lessons are now filed under `I65`,
+which is what ids are for. **The next reel is `r011`, from `I73`.**
+
+**A new `[PARKED]` state was added to `backlog/closed.md`** for a build the owner sets aside, as
+distinct from `RETIRED`, `FAILED` and `SHELVED`. A parked row names the commit its code sits in, so
+a deleted build is recoverable with one `git checkout` and its measurements are never re-derived.
+
 **Also moved, so each tree means one thing:**
 
 | Tree | Means |

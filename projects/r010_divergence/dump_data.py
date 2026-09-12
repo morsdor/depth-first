@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Run both pendulums and dump every frame the reel plays back.
 
-    python3 projects/r011_divergence/dump_data.py
+    python3 projects/r010_divergence/dump_data.py
 
 Played back 1:1 — 12 s of simulation in 12 s of reel. No time compression, so the
 reel needs no clock and makes no claim about rate.

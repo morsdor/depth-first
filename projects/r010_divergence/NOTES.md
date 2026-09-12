@@ -1,6 +1,10 @@
-# r011 · `I71` — the one that started a hair's width away
+# r010 · `I71` — the one that started a hair's width away
 
-**Built 2026-09-11, RE-CUT the same day. NOT POSTED — at GATE 5.** 12.0 s · 360 frames · 2.7 MB.
+**Built 2026-09-11, RE-CUT the same day, POSTED 2026-09-11/12 as cut 2.** 12.0 s · 360 frames · 2.7 MB.
+
+> **THIS REEL WAS `r011` UNTIL 2026-09-12.** It was renumbered to `r010` when the phantom-jam
+> build (`I65`) was parked without ever being posted and gave its number back — reel numbers mean
+> "the Nth reel POSTED", so this is the tenth. `I71` is unchanged and is what the logs resolve on.
 
 > **CUT 2.** Cut 1 rendered clean, passed both audits, scored the account's best motion number and
 > failed GATE 5 on the only thing that matters: *"what is the text on video supposed to say?? i do
@@ -169,8 +173,8 @@ inputs. Free, and the reel stays at ₹0.
 ## Render
 
 ```bash
-cd remotion && npx remotion render r011-divergence \
-  ../projects/r011_divergence/r011_divergence.mp4 --codec=h264 \
+cd remotion && npx remotion render r010-divergence \
+  ../projects/r010_divergence/r010_divergence.mp4 --codec=h264 \
   --browser-executable=/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell
 ```
 

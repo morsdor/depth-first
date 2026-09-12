@@ -8,14 +8,14 @@ out the 15 ids that were already spent before you could see the 56 that were not
 |:--|:--|:--|
 | [`open.md`](open.md) | **The live list. Candidates only.** | This is the only file to read when picking a reel |
 | [`posted.md`](posted.md) | Ids that reached the feed | Moved here on posting, never moved back |
-| [`closed.md`](closed.md) | Retired, killed by a gate or by its own data, or built and shelved | Rows stay forever so old logs resolve |
+| [`closed.md`](closed.md) | Retired, killed by a gate or by its own data, built and shelved, or **parked by the owner** | Rows stay forever so old logs resolve |
 
-**Counts at 2026-09-12: 67 live · 11 posted · 4 closed · 82 ids `I01`–`I82`.** Never take these
+**Counts at 2026-09-12: 66 live · 10 posted · 6 closed · 82 ids `I01`–`I82`.** Never take these
 from this line — the script below reads them from the repo.
 
 ```bash
 python3 .claude/skills/new-reel/scripts/backlog_ideas.py          # the live candidates
-python3 .claude/skills/new-reel/scripts/backlog_ideas.py --id I72 # one in full
+python3 .claude/skills/new-reel/scripts/backlog_ideas.py --id I73 # one in full
 ```
 
 It reads `open.md` for the rows and `CLAUDE.md` + `gate0/` for the status of each, so status is
@@ -42,3 +42,16 @@ figures are unverified; `I54`–`I69` were added 2026-09-10 when the remit widen
 "how systems work"; `I70`–`I71` on 2026-09-11, the first invented rather than taken from the list;
 `I72`–`I82` on 2026-09-12, the first batch selected on a single filter — **does it feed an argument
 people are already having.**
+
+## `PARKED`, added 2026-09-12
+
+**`I65` and `I72` were set aside by the account owner rather than by a gate or a number**, which is
+a fourth thing and now has its own state in [`closed.md`](closed.md). `I65` had been built as a
+46 s reel and never posted; `I72` had been researched to a measured table and an approved script and
+never animated. Both rows name the commit their code sits in, so the work is one `git checkout`
+away and no measurement is repeated. **`I65` was also wrongly filed in `posted.md` — it never
+reached the feed** — and that is fixed.
+
+**One consequence outside this folder: `I65` gave its reel number back.** It held `r010`; reel
+numbers mean "the Nth reel POSTED", so `r010` now belongs to `I71`, the pendulum loop, and the reel
+being built from `I73` is `r011`.

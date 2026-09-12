@@ -67,7 +67,7 @@ a pointer, and the register is three files — see [`backlog/README.md`](backlog
 |:--|:--|
 | **[`backlog/open.md`](backlog/open.md)** | **the live list — candidates only. The only file to read when picking a reel** |
 | [`backlog/posted.md`](backlog/posted.md) | ids that reached the feed |
-| [`backlog/closed.md`](backlog/closed.md) | retired, killed by a gate or by its own data, or built and shelved |
+| [`backlog/closed.md`](backlog/closed.md) | retired, killed by a gate or by its own data, built and shelved, or **parked by the owner** |
 
 **WHEN A REEL POSTS, ITS ROW MOVES TO `posted.md` THE SAME DAY.** That is now part of the shipping
 checklist alongside the "Built so far" table, `reel_captions_log.md` and
@@ -79,7 +79,15 @@ carries an `Added` date.
 reasoned from scratch that beats them.** **82 ids `I01`–`I82`**, grouped into six sections that map
 1:1 onto `DOMAIN_ACCENT` in `remotion/src/brand/tokens.ts` — so the section *is* the accent colour
 decision. Live counts come from the script, never from this line:
-**11 posted · 4 closed · 67 live** (2026-09-12; 82 ids, `I01`–`I82`).
+**10 posted · 6 closed · 66 live** (2026-09-12; 82 ids, `I01`–`I82`).
+
+**`PARKED` IS A STATE AND IT IS NOT A FAILURE (2026-09-12).** `I65` (the traffic reel, built as a
+46 s cut) and `I72` (the zipper merge, researched to a measured table and an approved script) were
+**set aside by the account owner** — not killed by a gate, not falsified by a number. That is a
+fourth thing and it reads differently: the concept stays intact and only the execution stops. Both
+rows moved to `backlog/closed.md` marked `[PARKED]`, **each naming the commit its code sits in**
+(`18020c6` and `add9b44`) so the work is one `git checkout` away and no measurement is ever repeated.
+Their builds are deleted from the tree, which is the same treatment `I51`, `I15` and `I64` got.
 
 **`I72`–`I82` were minted 2026-09-12 on a single filter: does it feed an argument people are already
 having.** That is the account's only evidence-backed lever — r005 sends at 1.203% of reach and has
@@ -181,17 +189,17 @@ Every beat, every line of copy, every number, the runtime, the hook and the clos
 it in two minutes and says yes or no. **`projects/r009_emptiness/SCRIPT.md` is the model** — it was
 written *after* the fact and it is exactly what should have existed before.
 
-**READ THE COPY COLUMN ALONE, WITH THE OTHER COLUMNS COVERED — r011, 2026-09-11.** The table's
+**READ THE COPY COLUMN ALONE, WITH THE OTHER COLUMNS COVERED — r010, 2026-09-11.** The table's
 "why this beat exists" column sits next to the copy and silently supplies the context the viewer
 will never get, so a line that means nothing on a phone reads as perfectly clear *in the table*.
-r011 cut 1 passed G4, rendered, passed both audits with the best motion number on the account, and
+r010 cut 1 passed G4, rendered, passed both audits with the best motion number on the account, and
 drew the verdict *"what is the text on video supposed to say?? i do not understand it"*. Its copy
 was **"ONE OF THESE IS / A HAIR'S WIDTH OFF."** over what was deliberately drawn to look like a
 single pendulum — a plural pointing at a singular — and the sentence the reel was actually about was
 never on screen in any form. **The copy column, read by itself, must be a complete thought.** That
 check is one minute and it is now part of G4.
 
-**AN APPROVED SCRIPT DOES NOT MAKE A CLAIM TRUE.** r011's re-cut copy was approved as "ONE STARTED
+**AN APPROVED SCRIPT DOES NOT MAKE A CLAIM TRUE.** r010's re-cut copy was approved as "ONE STARTED
 A HAIR LOWER" and the integrator says higher. Non-negotiable 7 outranks G4 and it covers sentences,
 not just figures — check the copy against the data *after* it is approved, and change the word.
 
@@ -235,12 +243,12 @@ stimulus and it got zero sends, because **arousal requires novelty** — in a sa
 response is recognition, not awe. Check the channel against the genre, not just the subject.
 
 **Measure sends per reach, never views.** r005 is the only benchmark: **1.20% at day 4**, revised up
-from the 0.92% read at day 1. Everything since is zero or near it — r011, the best of them, sends at
+from the 0.92% read at day 1. Everything since is zero or near it — r010, the best of them, sends at
 **0.124%**, which is **9.7x below** it.
 
 **AND THE BENCHMARK ROSE AS IT SPREAD, WHICH IS THE WHOLE MECHANISM (2026-09-12).** Between day 1
 and day 4 r005's reach grew **2.12x** and its shares grew **2.77x** — share rate **0.921% → 1.203%**.
-Engagement rates normally DILUTE as a post escapes its warm pool into colder audiences, and r011's
+Engagement rates normally DILUTE as a post escapes its warm pool into colder audiences, and r010's
 cold Reels-tab traffic is what dilution looks like. r005 did the opposite: **the further it
 travelled, the more sendable it got**, because the further it travels the likelier it lands on
 somebody who has an argument to settle with it. A reel that is sent does not plateau — each send
@@ -284,23 +292,28 @@ before optimising for reach: whether r005's 71 follows stayed, and whether they 
 | `r002` | `I08` | Autocorrect / edit distance | **posted 2026-09-02** |
 | `r003` | `I01` | QR / Reed–Solomon damage tolerance | **posted 2026-09-05** (without the end beat) |
 | `r004` | `I03` | JPEG / DCT — a photo stores no pixels | **posted 2026-09-06** |
-| `r005` | `I17` | Great circle — the flight path that looks curved is the straight one | **posted 2026-09-08** (32 s) — first reel built under Gate 0; **94,171 views / 69,816 viewers and 157 follows at day 4 (2026-09-12), still climbing.** The account's only hit, and the only reel that has produced follows at all: every other reel r001–r011 combined has produced **3** |
+| `r005` | `I17` | Great circle — the flight path that looks curved is the straight one | **posted 2026-09-08** (32 s) — first reel built under Gate 0; **94,171 views / 69,816 viewers and 157 follows at day 4 (2026-09-12), still climbing.** The account's only hit, and the only reel that has produced follows at all: every other reel r001–r010 combined has produced **3** |
 | `r006` | `I22` | Submarine cables — your message abroad goes underwater, not to space | **posted 2026-09-09** (28 s) — peaked ~1.8k views; the r005 pattern test, and it failed |
 | `r007` | `I58` | Tides — the Sun pulls 179x harder and the Moon still makes the tide | built 2026-09-10 (54 s), **posted 2026-09-10** — 189 views · 4 likes · 1 follow at first reading; first reel outside software, and the longest |
 | `r008` | `I69` | Pendulum wave — fifteen strings, and the thirty seconds they take to come back | built 2026-09-10 (34 s), **posted 2026-09-10** — 190 views · 0 engagement at first reading; first reel with a Manim layer; rebuilt down from a 60 s cycle after the first viewer could not tell the fifteen strings apart |
 | `r009` | `I70` | Scale — the biggest star ever measured is a speck in the gap to the next one | **posted 2026-09-11 (40 s), then RE-CUT AND RE-POSTED the same day as v3 (40.4 s)** — first 3D reel (`@remotion/three`) and first topic invented rather than taken from the backlog. Built at 53 s and **re-cut the same day**: the Gate 3 verdict was *"I had a hard time understanding what it had to convey. We don't know what we are comparing against."* — the account's first Gate 3 failure on MESSAGE rather than concept or craft. One ruler replaced seven, every sphere got its own name, and the wide third was cut. See [`projects/r009_emptiness/SCRIPT.md`](projects/r009_emptiness/SCRIPT.md) |
 
-| `r010` | `I65` | Traffic jam with no cause — the jam runs backwards at 12 mph, and one car in 22 breaks it up | **BUILT 2026-09-11 (46 s), NOT POSTED — at GATE 5.** First reel under the script-first gates and the first under 3D by default. One parameter bends a straight highway into a 755-foot ring and back, so the unroll is a real geometric morph rather than a cut. Motion: 0.25 s dead spell, 61% event density. See [`projects/r010_phantom_jam/NOTES.md`](projects/r010_phantom_jam/NOTES.md) |
+| `r010` | `I71` | Two double pendulums released one human hair apart — the same object for 3.3 s, then unrelated | **POSTED 2026-09-11/12 (12 s), after a same-day re-cut.** First reel in the loop format and the account's **first pre-registered experiment**. Cut 1 passed both audits with the best motion number on the account and **failed GATE 5 on its copy** — *"what is the text on video supposed to say?? i do not understand it"*. **The result at ~8 h: 3,546 views / 2,429 viewers — second-best reach ever — average watch 8 s on 12 s (66.7%), and views per viewer 1.460 against r005's 1.423. The rewatch bet FAILED: runtime was not the variable.** Like rate 0.247% against r005's 2.786%. See `brand_guide_software.md` §13 "THE LOOP FORMAT RETURNED A RESULT" and [`projects/r010_divergence/NOTES.md`](projects/r010_divergence/NOTES.md) traps 11–14 |
 
-| `r011` | `I71` | Two double pendulums released one human hair apart — the same object for 3.3 s, then unrelated | **POSTED 2026-09-11/12 (12 s), after a same-day re-cut.** First reel in the loop format and the account's **first pre-registered experiment**. Cut 1 passed both audits with the best motion number on the account and **failed GATE 5 on its copy** — *"what is the text on video supposed to say?? i do not understand it"*. **The result at ~8 h: 3,546 views / 2,429 viewers — second-best reach ever — average watch 8 s on 12 s (66.7%), and views per viewer 1.460 against r005's 1.423. The rewatch bet FAILED: runtime was not the variable.** Like rate 0.247% against r005's 2.786%. See `brand_guide_software.md` §13 "THE LOOP FORMAT RETURNED A RESULT" and [`projects/r011_divergence/NOTES.md`](projects/r011_divergence/NOTES.md) traps 11–14 |
+**Reel numbers are contiguous and mean "the Nth reel posted".** `r001`–`r010` have shipped.
+**The next reel is `r011`, and it is `I73` — aeroplane boarding.**
 
-**Reel numbers are contiguous and mean "the Nth reel posted".** `r001`–`r009` and `r011` have
-shipped. **`r010` is built and unposted** — it claimed its number when its build started, which is
-what stops two builds colliding, and `r011` overtook it to the feed. **The next reel is `r012`.**
+**THE PENDULUM LOOP WAS `r011` UNTIL 2026-09-12 AND IS NOW `r010` (2026-09-12).** The traffic reel
+(`I65`) held `r010`, was never posted, and was **parked by the account owner** on 2026-09-12 along
+with the zipper merge (`I72`); both rows are in [`backlog/closed.md`](backlog/closed.md) with the
+commit their code sits in. A number is claimed when a build starts and **released if the build is
+abandoned**, so `r010` went back and the tenth reel POSTED took it — which is the rule this file
+already carried, applied. `I71` is unchanged, and ids are what the five logs resolve against, so
+nothing in the ledger breaks.
 
 **A re-post does NOT claim a new number.** r009 was posted at 40 s, re-cut after its watch-time
 reading, and posted again the same day at 40.4 s. That is one reel with two posting events, not
-two reels — the number belongs to the concept, not to the upload. `r010` is still free.
+two reels — the number belongs to the concept, not to the upload.
 
 **Three built reels were never posted and were deleted on 2026-09-10** — the shuffle bias (`I51`,
 five rebuilds), A\* vs Dijkstra (`I15`, which failed the sentence test after being built) and the
@@ -423,9 +436,9 @@ unambiguous even when the message failed.
   GATE 3; it never substitutes for the answer.
 - **3D must not cost legibility.** If the thing the reel is about reads more clearly from one
   angle, the camera goes to that angle and stays there. A wave travelling backwards through a
-  line of cars reads from above and nowhere else, so `r010`'s reveal beat is near-top-down and
-  the dimensionality is spent on getting there — driver's eye on the road, rising as the road
-  bends into the ring — rather than on the moment that carries the claim.
+  line of cars reads from above and nowhere else, so the reveal beat of the parked `I65` traffic
+  build was near-top-down and the dimensionality was spent on getting there — driver's eye on the
+  road, rising as the road bends into the ring — rather than on the moment carrying the claim.
 
 **The camera is animated by moving the ROOT GROUP, not the camera.** `<ThreeCanvas>` takes its
 camera as a prop; fighting that is how you lose a day. Fix the camera, animate a wrapping
@@ -441,16 +454,16 @@ camera as a prop; fighting that is how you lose a day. Fix the camera, animate a
 | copy | a script of beats | **two text moments, no narration** |
 | travels by | **sends per reach** (GATE 3) | **rewatch → watch time** |
 | success | sends > 0 | **avg watch time ≥ 100% of runtime** |
-| first one | `r001` | **`r011`** |
+| first one | `r001` | **`r010`** |
 
-**Why it exists.** Every reel r001–r010 ran 28–54 s — too long to watch twice by accident. A 12 s
+**Why it exists.** Every reel r001–r009 ran 28–54 s — too long to watch twice by accident. A 12 s
 loop watched twice is 200% watch time, and watch time is a confirmed ranking input. That is the one
-lever this account had never pulled. The origin is the r010 verdict: *"people don't use Instagram to
-consume that much serious knowledge."*
+lever this account had never pulled. The origin is the verdict on the parked `I65` traffic build:
+*"people don't use Instagram to consume that much serious knowledge."*
 
 ### THE RESULT IS IN, AND THE REWATCH BET FAILED (2026-09-12)
 
-**`r011` was run to its pre-registered number and missed it.** Average watch **8 s on 12 s = 66.7%**
+**`r010` was run to its pre-registered number and missed it.** Average watch **8 s on 12 s = 66.7%**
 against the **≥100%** the format was built for, and — the measurement that actually settles it —
 **1.460 views per viewer against r005's 1.423 on a 32-second reel. There is no rewatch lift.** The
 falsification condition written here in advance is met: **runtime was not the variable.**
@@ -464,7 +477,7 @@ using it. State that reason honestly rather than re-running the disproven one.
 With r008 (best motion score on the account, **0 likes** on ~1.8k views) that is now two reels
 saying the same thing — **mesmerising physics gets watched and does not get felt.**
 
-**MOTION DENSITY IS NOT EVENT RATE, and this is the transferable lesson.** r011's retention ran
+**MOTION DENSITY IS NOT EVENT RATE, and this is the transferable lesson.** r010's retention ran
 100% → 68% at 1.5 s → **37% at 11 s**: a steady bleed, which for a loop is fatal, because the reel
 cannot restart for the 63% who never reach the end. The cause is on the timeline — **the last thing
 that HAPPENS is the copy at 4.7 s, so 61% of the runtime carries no new event.** The motion audit
@@ -475,7 +488,7 @@ restart is rewarded. `scripts/reel_motion_audit.py` does not measure this; you d
 **A loop bends GATE 3, and must say so in writing.** There is usually no dispute for a mesmerising
 loop to settle, so the send test scores badly by construction. That is acceptable ONLY as a
 pre-registered experiment with the watch-time metric stated up front — never as a way to stop asking
-the question. `r011`'s `gate0/GATE0.md` §4 is the model: it says plainly that by the letter of
+the question. `r010`'s `gate0/GATE0.md` §4 is the model: it says plainly that by the letter of
 GATE 3 it should not have been built, and states what would prove the format wrong.
 
 **"Pretty physics" is NOT the variable, and r008 is the proof.** r008 was a pendulum-wave reel with

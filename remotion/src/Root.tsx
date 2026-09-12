@@ -9,7 +9,6 @@ import { Cables, DURATION_SECONDS as CABLES_SECONDS } from './reels/Cables';
 import { DURATION_SECONDS as TIDES_SECONDS, Tides } from './reels/Tides';
 import { DURATION_SECONDS as PENDULUM_SECONDS, Pendulum } from './reels/Pendulum';
 import { DURATION_SECONDS as EMPTINESS_SECONDS, Emptiness } from './reels/Emptiness';
-import { DURATION_SECONDS as PHANTOM_SECONDS, PhantomJam } from './reels/PhantomJam';
 import { DURATION_SECONDS as DIVERGENCE_SECONDS, Divergence } from './reels/Divergence';
 import { DURATION_SECONDS as MANIM_SECONDS, ManimProbe } from './reels/ManimProbe';
 import { SafeZones } from './reels/lib/chrome';
@@ -95,13 +94,6 @@ const PendulumSafe: React.FC = () => (
 const EmptinessSafe: React.FC = () => (
   <>
     <Emptiness />
-    <SafeZones />
-  </>
-);
-
-const PhantomJamSafe: React.FC = () => (
-  <>
-    <PhantomJam />
     <SafeZones />
   </>
 );
@@ -278,38 +270,15 @@ export const RemotionRoot: React.FC = () => {
         height={1920}
       />
 
-      {/* r010 · I65 · a traffic jam with no cause. 3D by default from here on
-          (CLAUDE.md, 2026-09-11). One parameter bends a straight highway into a
-          755-foot ring and back, so the unroll is a real geometric morph rather
-          than a cut — the shot that only exists because the scene is 3D. Every
-          car position comes from remotion/src/reels/data/phantomJam.ts, which
-          emit_ts.py refuses to write unless all 14 on-screen claims hold. */}
-      <Composition
-        id="r010-phantom-jam"
-        component={PhantomJam}
-        durationInFrames={PHANTOM_SECONDS * 30}
-        fps={30}
-        width={1080}
-        height={1920}
-      />
-      <Composition
-        id="r010-phantom-jam-safe"
-        component={PhantomJamSafe}
-        durationInFrames={PHANTOM_SECONDS * 30}
-        fps={30}
-        width={1080}
-        height={1920}
-      />
-
-      {/* r011 · I71 · two double pendulums, one a hair's width off. THE FIRST LOOP
+      {/* r010 · I71 · two double pendulums, one a hair's width off. THE FIRST LOOP
           FORMAT REEL — 12 s against the 28-54 s of everything before it, because the
-          runtime is the experiment (see projects/r011_divergence/gate0/GATE0.md §4).
+          runtime is the experiment (see projects/r010_divergence/gate0/GATE0.md §4).
           3D for material only: the camera is near-orthographic at FOV 12, since the
           reel rests on a separation measured in single pixels and perspective would
           corrupt it. Data from remotion/src/reels/data/divergence.ts, which
           emit_ts.py refuses to write unless all 12 on-screen claims hold. */}
       <Composition
-        id="r011-divergence"
+        id="r010-divergence"
         component={Divergence}
         durationInFrames={DIVERGENCE_SECONDS * 30}
         fps={30}
@@ -317,7 +286,7 @@ export const RemotionRoot: React.FC = () => {
         height={1920}
       />
       <Composition
-        id="r011-divergence-safe"
+        id="r010-divergence-safe"
         component={DivergenceSafe}
         durationInFrames={DIVERGENCE_SECONDS * 30}
         fps={30}

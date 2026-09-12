@@ -118,10 +118,8 @@ checked. Verify before a row reaches a gate.
 | **I49** | Thirty-nine seconds, one number too big | A rocket exploding is legible to everyone | A 64-bit velocity was converted into 16 bits. It didn't fit. The guidance computer's error output was then read as flight data | Register overflowing at the exact value, conversion failing, trajectory diverging frame by frame | Counter + Diagram | 2026-09-02 |
 | **I50** | The index that lost half its value to rounding | Everyone trusts a number on a screen | Truncating instead of rounding, thousands of times a day, walked a stock index from 1,000 to 520 over 22 months — while nothing was wrong with the market | Real index line drifting from the correctly-rounded line, gap widening month by month | Counter | 2026-09-02 |
 | **I68** | The bridge did not fall down from resonance | Tacoma Narrows is in every physics textbook | It was aeroelastic flutter in a 64 km/h wind — the deck fed energy into its own twisting. Resonance is the wrong answer, and it is the one nearly everyone was taught | Simulated deck in real airflow, the torsional mode growing, the energy budget that separates flutter from resonance | Diagram + Counter | 2026-09-10 |
-| **I72** | The driver who races to the front of the queue and merges last is right | Every driver has sat in a lane closure and been furious at a late merger | Using BOTH lanes to the cone and taking turns — the zipper — reportedly cuts the queue by around 40% and clears everyone sooner, including the people who merged early. Merging early is the polite move that makes the jam worse for everyone, yourself included (LEAD: state DOT figures to verify; the simulation is ours) | Two lanes closing to one, real car-following model, early-merge against zipper side by side with queue length and total delay counted live | Diagram + Counter | 2026-09-12 |
-*(GATE 3 — argument ammunition, best on this list: one of the angriest arguments in ordinary life, witnessed by every driver, resolving to one number. Reuses r010’s validated Optimal-Velocity simulation, so the build cost is the lowest here.)*
 | **I73** | Your airline boards the plane worse than no method at all | Everybody has stood in that queue, and everybody has a theory about it | Back-to-front — the method most airlines use — is reportedly SLOWER than seating people in a completely random order, because it packs everyone who must stow luggage into the same few rows at the same time. An optimised order roughly halves it (LEAD: Steffen 2008 J. Air Transport Management and the 2012 field test to verify) | A cabin from above, four boarding methods racing in parallel from the same passenger list, each with its own clock | Diagram + Counter | 2026-09-12 |
-*(GATE 3 — three channels at once: argument ammunition, "this is you", and practical utility. Reuses r010’s agent engine.)*
+*(GATE 3 — three channels at once: argument ammunition, "this is you", and practical utility. **SELECTED 2026-09-12 as the next reel, `r011`** — see `../projects/r011_boarding/gate0/GATE0.md`. The agent engine written for the parked `I65` traffic build is recoverable at commit `18020c6`, but boarding is a queue in a corridor rather than a car-following problem, so expect a new model rather than a reuse.)*
 | **I79** | The equator water-swirl demonstration you paid for is a trick | Everyone has heard that water drains the other way in the southern hemisphere; thousands have paid for the roadside demo in Kenya or Ecuador | Coriolis is real and it governs hurricanes completely — but on a basin it is something like 10^-5 of the forces in play, so the shape of the bowl and the way the water was poured decide the direction entirely. The demo works by pouring (LEAD: compute the Rossby number for a basin against a cyclone) | The same simulated basin drained at both latitudes and at a hurricane’s scale, with the Coriolis term drawn to true relative size at each | Diagram + Counter | 2026-09-12 |
 *(GATE 3 — argument ammunition plus anger at a paid scam, which is high-arousal. Weak leg: the payoff frame risks being a force diagram rather than an object.)*
 
@@ -132,7 +130,7 @@ checked. Verify before a row reaches a gate.
 **Eleven ids minted 2026-09-12, reasoned from scratch rather than taken from the original sitting,
 and selected against ONE filter: does it feed an argument people are already having?** That filter
 is the account's only evidence-backed lever — r005 sends at **1.203% of reach and is still climbing
-at 94k views and 157 follows, while every other reel r001–r011 has produced 3 follows between
+at 94k views and 157 follows, while every other reel r001–r010 has produced 3 follows between
 them.** Each row carries its GATE 3 answer in the note beneath it, because an id with no named
 send channel is not a candidate.
 
@@ -148,7 +146,13 @@ That is the same status that let `I15` ship a hook no real graph supported and t
 twenty minutes. They are marked LEAD in the rows; verify before any of them reaches a gate.
 
 **Ranked at the time of minting:** `I72` (zipper merge) first — angriest argument, universally
-witnessed, and cheapest to build because r010's validated car-following simulation already exists.
-Then `I73` (boarding) and `I74` (escalator), which reuse the same engine. `I75` (Monty Hall) has the
+witnessed, and cheapest to build because the parked `I65` build's car-following simulation already
+existed. Then `I73` (boarding) and `I74` (escalator). `I75` (Monty Hall) has the
 highest send potential and the highest Gate 0 risk. `I77` (Moon mirrors) is r005's exact engine and
 the most toxic.
+
+**What happened to that ranking, 2026-09-12 — the same day.** `I72` was researched to a measured
+table and a G4 script and then **parked by the account owner**; it is in
+[`closed.md`](closed.md) with its numbers, so nobody runs that simulation twice. **`I73` (aeroplane
+boarding) was chosen instead and is building as `r011`.** The ranking above is left as written
+because a ranking that is quietly edited after the fact predicts nothing.

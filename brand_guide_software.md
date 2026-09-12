@@ -1714,9 +1714,9 @@ prediction* and teaches nothing new, and only a good result is information. Reco
 expected outcome in advance is cheap and it is what stops a bad result being re-explained
 afterwards — which is precisely what happened to r006.
 
-### r011 — NEVER FIX A LAYOUT PROBLEM BY CHANGING THE SCALE A CLAIM IS MEASURED IN (2026-09-11)
+### r010 — NEVER FIX A LAYOUT PROBLEM BY CHANGING THE SCALE A CLAIM IS MEASURED IN (2026-09-11)
 
-`r011`'s copy says the two pendulums were indistinguishable for **3.3 seconds**, and that number is
+`r010`'s copy says the two pendulums were indistinguishable for **3.3 seconds**, and that number is
 the moment their tips first separate by **one screen pixel** at 190.3 px/m. Then the safe-area audit
 found exactly two frames of 360 where a bob crossed into the action rail, by 2 and 4 px.
 
@@ -1728,17 +1728,17 @@ against the old one. The bob was shrunk instead, which cost motion density (84% 
 **Rule: once a claim is measured in display units, the display scale is part of the claim.** It may
 only change by going back to the measurement, never as a layout convenience.
 
-### r011 — THE FAILURE ACCENT CANNOT BE THE GROUND (2026-09-11)
+### r010 — THE FAILURE ACCENT CANNOT BE THE GROUND (2026-09-11)
 
 `<ReelGround accent={FAIL} />` is the natural thing to write for a §6 reel, and it washes the entire
 frame red for the entire runtime — precisely the decorative use `tokens.ts` warns destroys the
 accent. It passes `brand:check`, because the linter polices which hexes appear and not how much of
 the frame they cover.
 
-**A §6 reel takes a neutral ground and spends the red on one object, from one beat.** In `r011` the
+**A §6 reel takes a neutral ground and spends the red on one object, from one beat.** In `r010` the
 second pendulum turns red at the split and stays red; nothing else is ever red.
 
-### r011 — AN AUDIT CATCHES WHAT A STILL CANNOT (2026-09-11)
+### r010 — AN AUDIT CATCHES WHAT A STILL CANNOT (2026-09-11)
 
 The scene group was positioned at `-PIVOT_X_M` where `PIVOT_X_M` was already an offset *toward* the
 safe centre. The pivot landed 150 px right of where it belonged and the traces ran into Instagram's
@@ -1746,12 +1746,12 @@ action rail **on all 360 frames**. It typechecked, passed `brand:check`, and loo
 plausible in a still — because a still shows you a composition, not a coordinate.
 
 **Stills are for layout, video is for timing, and only a per-frame numerical audit finds an offset
-that looks fine.** Companion to r010's lesson that an exemption is written down rather than bought:
-`scripts/reel_safe_frames.py` is now the tool for both, and `r011` needs no exemption at all.
+that looks fine.** Companion to `I65`'s lesson that an exemption is written down rather than bought:
+`scripts/reel_safe_frames.py` is now the tool for both, and `r010` needs no exemption at all.
 
-### r010 — THE CLOCK MUST NOT LIE (2026-09-11)
+### I65 — THE CLOCK MUST NOT LIE (2026-09-11)
 
-`r010` compresses simulation time and prints the rate on screen (`×12`). The first cut interpolated
+The parked traffic build compresses simulation time and prints the rate on screen (`×12`). The first cut interpolated
 simulation time with the brand ease, the same curve every other animated value uses. At 13.3 s the
 clock read **1:35 where a true ×12 is 1:05** — because easing varies the rate continuously inside
 each beat.
@@ -1761,7 +1761,7 @@ a timestamp on screen, the quantity behind it has to be linear in playback or th
 statement. Nothing caught this but arithmetic against a still: it type-checked, it passed
 `brand:check`, and it looked completely normal in motion.
 
-### r010 — THE JAM WAS THE DARKEST THING ON SCREEN (2026-09-11)
+### I65 — THE JAM WAS THE DARKEST THING ON SCREEN (2026-09-11)
 
 Cars were coloured by speed, ramping stopped → `GRAPHITE`. `GRAPHITE` is very nearly the colour of
 the asphalt, so the jam rendered as an **absence** — a dark gap in a ring of blue — and the single
@@ -1771,7 +1771,7 @@ thing the entire reel is about was the hardest thing on the frame to see.
 is now bone and moving is accent, and the jam is a bright clot the eye finds before a label points
 at it. Same failure family as r006's route-draw beat: technically correct, visually absent.
 
-### r010 — AN EXEMPTION IS WRITTEN DOWN, NOT BOUGHT (2026-09-11)
+### I65 — AN EXEMPTION IS WRITTEN DOWN, NOT BOUGHT (2026-09-11)
 
 The safe-area audit failed on the driver's-eye beats, where the road leaves the bottom corners the
 way `ReelGround` leaves every edge. **The first thing I tried was raising the brightness threshold
@@ -1947,8 +1947,8 @@ v2 — none of which the re-cut touched.
 **Average watch time is per viewer, so it survives all of that.** So does the skip rate, and so
 does anything Instagram reports about the first three seconds. Those are the readings.
 
-- **v3 beats 5 s** → the teaser did its job and the finding generalises to r010: *show the result
-  in the first two seconds, do not promise it*.
+- **v3 beats 5 s** → the teaser did its job and the finding generalises to every reel after it:
+  *show the result in the first two seconds, do not promise it*.
 - **v3 lands at ~5 s again** → the hook is not the binding constraint, and the remaining
   candidates are the two §13 already names — that nobody has ever seen a 1,540 R☉ hypergiant, and
   that a dark, low-saturation, low-contrast frame reads as "quiet" in a feed. **Both of those are
@@ -1974,8 +1974,8 @@ sentence are load-bearing.
 
 **+60% on watch time is a real result** and it is the read this entry called in advance: it is per
 viewer, so it survives the duplicate-suppression confound that makes views unreadable here. Showing
-the result in the first three seconds beats promising it. **That finding generalises to r010 and is
-the one thing to carry forward from three cuts of this reel.**
+the result in the first three seconds beats promising it. **That finding generalises to every reel
+after it and is the one thing to carry forward from three cuts of this reel.**
 
 **It bought nothing, because watch time is not the distribution mechanism.**
 
@@ -2012,7 +2012,7 @@ though: v3 has the best opening this account has built and the worst reach.
 mistake — answering a verdict with a craft fix — and that holds whether the reading was good or
 bad. It was good, and it changed nothing that matters.
 
-**r011 — A SURPRISE YOU PROTECT BY HIDING THE PREMISE IS NOT A SURPRISE (2026-09-11).** Cut 1 drew
+**r010 — A SURPRISE YOU PROTECT BY HIDING THE PREMISE IS NOT A SURPRISE (2026-09-11).** Cut 1 drew
 the second pendulum in bone until the split so the pair would read as one object, with a comment in
 the component defending it: turning it red from frame 0 "would have given away the entire reel in
 the first second". It gave away nothing and cost everything. A viewer who does not know there are
@@ -2021,7 +2021,7 @@ which is a graphics effect rather than a physical fact. The existence of the sec
 PREMISE; only the divergence is the EVENT. Concealing a premise to protect an event deletes the
 event. Ask which of the two you are actually withholding.
 
-**r011 — THE VERDICT WAS ON THE COPY, AND THE COPY HAD BEEN APPROVED (2026-09-11).** *"What is the
+**r010 — THE VERDICT WAS ON THE COPY, AND THE COPY HAD BEEN APPROVED (2026-09-11).** *"What is the
 text on video supposed to say?? I do not understand it."* The copy read "ONE OF THESE IS / A HAIR'S
 WIDTH OFF." — a plural pointing at a singular, over a frame deliberately built to show one object —
 and the sentence the reel was about (two released from the same place, nothing touched either, they
@@ -2030,14 +2030,14 @@ ended up unrelated) was never on screen in any form. **It passed G4 because the 
 would never get. Every line read as clear in the table and as nothing on a phone. **At G4, read the
 copy column alone with the others covered.** One minute; it is now in `CLAUDE.md`.
 
-**r011 — AN APPROVED SCRIPT DOES NOT MAKE A CLAIM TRUE (2026-09-11).** The re-cut copy was approved
+**r010 — AN APPROVED SCRIPT DOES NOT MAKE A CLAIM TRUE (2026-09-11).** The re-cut copy was approved
 as "ONE STARTED A HAIR LOWER". The integrator says higher: the perturbation adds +0.004011° to θ₁
 and at a 135° release a larger θ is further from the downward vertical, so B's elbow starts at
 +0.707107645 m against +0.707106781 m. **Non-negotiable 7 outranks G4**, it covers sentences rather
 than only figures, and the check is against the data — not against the sign of the constant as
 reasoned about in your head. Change the word and tell the human which word changed.
 
-**r011 — WHEN TWO THINGS MUST BE DISTINGUISHED AT THE SAME COORDINATES, SEPARATE THEM IN THE
+**r010 — WHEN TWO THINGS MUST BE DISTINGUISHED AT THE SAME COORDINATES, SEPARATE THEM IN THE
 PICTURE PLANE, NEVER IN DEPTH (2026-09-11).** The obvious repair — one solid bob larger and behind,
 one smaller and in front, expecting a coloured rim — renders as a single solid object with the other
 erased inside it, because concentric solids nest and the depth test hands the whole overlap to
@@ -2048,11 +2048,11 @@ whose inner edge clears the other silhouette costs nothing, occludes nothing, an
 separation at all. In a near-orthographic 3D scene, depth is not free real estate — it is
 accuracy budget.
 
-**r011 — THE LOOP FORMAT RETURNED A RESULT, AND THE BET ITSELF FAILED (2026-09-12).** The format
+**r010 — THE LOOP FORMAT RETURNED A RESULT, AND THE BET ITSELF FAILED (2026-09-12).** The format
 was pre-registered in `CLAUDE.md` with one number: **average watch time ≥ 100% of runtime**, on the
 mechanism that a 12 s loop watched twice is 200% watch time. First reading at ~8 h:
 
-| | r011 (12 s loop) | r005 (32 s teaching reel) | r009 (40 s) |
+| | r010 (12 s loop) | r005 (32 s teaching reel) | r009 (40 s) |
 |:--|--:|--:|--:|
 | average watch / runtime | **66.7%** (8 s) | 62.5% (20 s) | 12.5% (5 s) |
 | **views per viewer** | **1.460** | **1.423** | — |
@@ -2109,7 +2109,7 @@ the curve only now flattening: **94,171 views / 69,816 viewers, 157 follows, 840
 | avg watch / runtime | 62.5% | 62.5% | flat |
 
 **THE SHARE RATE ROSE WHILE THE REACH DOUBLED, AND THAT INVERTS THE NORMAL PATTERN.** Engagement
-rates dilute as a post escapes its warm pool — r011's cold Reels-tab traffic is textbook dilution,
+rates dilute as a post escapes its warm pool — r010's cold Reels-tab traffic is textbook dilution,
 and r005's own views-per-viewer did dilute, 1.423 → 1.349. **Shares went the other way.** The
 reading that fits: the further this reel travels, the likelier it lands on somebody who has an
 argument to settle with it, so **sendability is not consumed by reach — it is created by it.** That
@@ -2117,11 +2117,11 @@ is what "lands inside a dispute already running" buys, and no craft variable in 
 produce it.
 
 **The consequence is the shape of the two curves, and it is the clearest thing in the account's
-data.** r005: four days, still climbing, 94k. r011: **eight hours, flat, 3.5k** — the algorithm
+data.** r005: four days, still climbing, 94k. r010: **eight hours, flat, 3.5k** — the algorithm
 tested it, it retained well, nothing propagated it, and it stopped. **A pushed reel stops when the
 push stops. A sent reel does not stop.**
 
-**FOLLOWS ARE THE MOST BRUTAL COLUMN IN THIS LEDGER. r005 has 157. Every other reel r001–r011
+**FOLLOWS ARE THE MOST BRUTAL COLUMN IN THIS LEDGER. r005 has 157. Every other reel r001–r010
 combined has 3.** Not "r005 is the best performer" — **r005 is the account**, and ten reels of
 craft work have added a rounding error to it. Whatever is being optimised on the other ten, it is
 not the thing that produced this.
@@ -2156,13 +2156,17 @@ distribution one.** It has never been tried.
 | `r007` | Tides — the Sun pulls 179× harder, the Moon makes the tide | 54 s | **2026-09-10** |
 | `r008` | Pendulum wave — fifteen strings, back in line at 30 s | 34 s | **2026-09-10** |
 | `r009` | Scale — the biggest star ever measured is a speck in the gap | 40 s | **2026-09-11** |
+| `r010` | Two double pendulums one hair apart — the loop format | 12 s | **2026-09-11/12** |
 
-| `r011` | Two double pendulums one hair apart — the loop format | 12 s | **2026-09-11/12** |
+### Parked — built or researched, and set aside by the owner
 
-### Built and unposted — at GATE 5
+| Id | Subject | State |
+|:--|:--|:--|
+| `I65` | Traffic jam with no cause — it runs backwards at 12 mph | built 2026-09-11 as a 46 s reel, **parked unposted 2026-09-12**; code at `18020c6` |
+| `I72` | The zipper merge — both lanes to the cone | researched and scripted 2026-09-12, **parked before any animation**; code at `add9b44` |
 
-| Reel | Subject | Length | State |
-|:--|:--|:--|:--|
-| `r010` | Traffic jam with no cause — it runs backwards at 12 mph | 46 s | built **2026-09-11** |
+**`I65` HELD `r010` AND GAVE IT BACK.** A reel number means "the Nth reel POSTED", so when the
+traffic build was parked the pendulum loop — posted tenth — became `r010`. It was `r010` in every
+entry above until 2026-09-12. Ids do not move, which is why this ledger still resolves.
 
-**The next reel is `r012`.**
+**The next reel is `r010` — `I73`, aeroplane boarding.**

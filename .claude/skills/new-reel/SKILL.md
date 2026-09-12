@@ -232,9 +232,10 @@ awe.** `r009` proved the stack — `@remotion/three`, `<ThreeCanvas>`, and
 exception and needs a reason in `NOTES.md`.
 
 **Spend the third dimension on something 2D cannot do**, not on tilting a chart. The test: name
-the shot that only exists because the scene is 3D. `r010` unrolls a 755-foot ring into a straight
-highway and bends it back — same road, one continuous move, no cut — and drops the camera to
-driver's eye for the beat where the jam passes through *you*.
+the shot that only exists because the scene is 3D. The parked `I65` traffic build unrolls a
+755-foot ring into a straight highway and bends it back — same road, one continuous move, no cut —
+and drops the camera to driver's eye for the beat where the jam passes through *you* (code at
+commit `18020c6`).
 
 **Two failure modes, both already paid for:**
 
