@@ -1,6 +1,8 @@
 # r011 · `I73` — your airline boards the plane worse than no method at all
 
-**Built 2026-09-12. 45.0 s · 1350 frames · 13 MB. BOTH AUDITS PASS.**
+**Built 2026-09-12. 45.0 s · 1350 frames · 13 MB. BOTH AUDITS PASS. GATE 5 PASSED
+2026-09-12** — *"It is a great video and idk how it will perform but I absolutely love it."*
+**Ready to post; not yet posted.**
 
 | audit | result |
 |:--|:--|
@@ -204,6 +206,34 @@ the counters. Copy at 46 px wrapped to four lines and pushed into the cabin head
 had to come down twice because the block's bottom corners magnify ~7% under perspective and crossed
 into the action rail. `whiteSpace: nowrap` is now on both header blocks so a wrap cannot happen
 quietly.
+
+---
+
+## PRE-REGISTERED, BEFORE POSTING — what each reading would settle
+
+**Written before the reel went up, because a prediction made afterwards is not one.** `r010` is the
+precedent: its rewatch bet was written down in advance and then **missed its own number**, which is
+the only reason that result taught anything instead of being re-narrated.
+
+**This is a teaching reel and it is graded on sends per reach.** The benchmark is `r005` at
+**1.203%**. Everything since is zero or near it; `r010`, the best of them, sent at **0.124%**.
+
+| reading | what it would settle |
+|:--|:--|
+| **sends ≥ 1.0% of reach** | **argument ammunition GENERALISES.** `r005` would stop being one lucky arena and become a repeatable channel — which is the single most valuable thing this account could learn |
+| **sends 0.4–1.0%** | the channel is real but **the arena is a multiplier.** Flat earth is identity-loaded; boarding is annoyance-loaded. Keep using the filter, expect less from low-stakes disputes |
+| **sends < 0.2%, on a 3-of-3 GATE 3 score** | **the send test is not sufficient**, and that is a genuine falsification of the current thesis. `I73` scored as well as anything since `r005` on the filter CLAUDE.md calls the account's only evidence-backed lever. If it still does not travel, the lever is the ARENA, not the filter — and the next reel should be picked on how much somebody's identity is at stake, not on whether a dispute exists |
+| **average watch < 11 s (25% of 45 s)** | **the runtime is wrong for this account regardless of content.** This is the longest teaching reel since `r007`. `r009` ran 12.5% at 40 s, then 19.8% after the hook re-cut. Under 25% here means 45 s cannot be earned and the ceiling is ~30 s |
+| **double-digit follows** | second real signal in the account's history. `r005` has 157; every other reel combined has 3 |
+
+**What would NOT settle anything:** views. `r010` took the account's second-best reach and returned
+0.247% likes and no rewatch lift, and `r009` v3 won its pre-registered metric and posted the worst
+reach on the account. **Reach is the thing sends cause, not the thing to read.**
+
+**One confound to note in advance:** this is the first reel whose headline number is somebody
+else's published measurement rather than our own simulation. If it travels, that may be the
+citation doing the work — "they actually tested this" is its own kind of credibility — and not the
+argument channel. Worth separating before concluding either way.
 
 ---
 
