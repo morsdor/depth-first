@@ -247,7 +247,44 @@ export const EarningsPeak: React.FC = () => {
               })}
 
           {pathD && (
-            <path d={pathD} fill="none" stroke={ACCENT} strokeWidth={6} strokeLinecap="round" />
+            <>
+              {/* the gradient fill under the curve and the soft glow behind
+                  the line — real emphasis on real data, not decoration: the
+                  filled area and the glow both trace the exact same points
+                  as the bright line on top. */}
+              <defs>
+                <linearGradient id="areaFill" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor={ACCENT} stopOpacity={0.38} />
+                  <stop offset="100%" stopColor={ACCENT} stopOpacity={0} />
+                </linearGradient>
+              </defs>
+              <path
+                d={`${pathD} L ${xOf(revealed[revealed.length - 1].age).toFixed(1)},${PLOT_Y1} L ${xOf(revealed[0].age).toFixed(1)},${PLOT_Y1} Z`}
+                fill="url(#areaFill)"
+                stroke="none"
+              />
+              <path d={pathD} fill="none" stroke={ACCENT} strokeWidth={20} strokeLinecap="round" opacity={0.22} />
+              <path d={pathD} fill="none" stroke={ACCENT} strokeWidth={7} strokeLinecap="round" />
+              {/* the bright leading edge of the reveal — a comet head, real
+                  motion tied to the data rather than filler. */}
+              {seconds < 26 && (
+                <>
+                  <circle
+                    cx={xOf(revealed[revealed.length - 1].age)}
+                    cy={yOf(revealed[revealed.length - 1].value)}
+                    r={16}
+                    fill={ACCENT}
+                    opacity={0.3}
+                  />
+                  <circle
+                    cx={xOf(revealed[revealed.length - 1].age)}
+                    cy={yOf(revealed[revealed.length - 1].value)}
+                    r={7}
+                    fill={INK}
+                  />
+                </>
+              )}
+            </>
           )}
 
           {/* the peak marker and the "never again this high" reference line */}
@@ -314,6 +351,27 @@ export const EarningsPeak: React.FC = () => {
           chrome, not something the pan/zoom should ever carry past the safe
           area (that drift is what originally failed scripts/reel_safe_audit.py). */}
       <svg width={1080} height={1920} style={{ position: 'absolute', inset: 0 }}>
+        <text x={PLOT_X0} y={PLOT_Y0 - 24} fontFamily="IBM Plex Mono" fontSize={36} fill={DIM} letterSpacing={2}>
+          UNITED STATES · IN US DOLLARS
+        </text>
+        {/* dollar gridlines — real values on the y-axis, not just age on x */}
+        {[20_000, 25_000, 30_000, 35_000, 40_000].map((v) => (
+          <g key={v}>
+            <line
+              x1={PLOT_X0}
+              y1={yOf(v)}
+              x2={PLOT_X1}
+              y2={yOf(v)}
+              stroke={LINE}
+              strokeWidth={1}
+              strokeDasharray="2 10"
+              opacity={0.6}
+            />
+            <text x={PLOT_X0 - 14} y={yOf(v) + 12} fontFamily="IBM Plex Mono" fontSize={30} fill={DIM} textAnchor="end">
+              ${Math.round(v / 1000)}k
+            </text>
+          </g>
+        ))}
         <text x={PLOT_X0} y={PLOT_Y1 + 40} fontFamily="IBM Plex Mono" fontSize={36} fill={DIM}>
           age {AGE_MIN}
         </text>
@@ -324,7 +382,7 @@ export const EarningsPeak: React.FC = () => {
 
       {/* ── the counter — the mechanism this whole format is testing ──────── */}
       {seconds < t(21) / FPS + 1 && (
-        <Fade from={t(0.5)} style={{ position: 'absolute', top: 1180, left: 60, width: SAFE_W }}>
+        <Fade from={t(0.5)} style={{ position: 'absolute', top: 1235, left: 60, width: SAFE_W }}>
           <div style={{ fontFamily: 'IBM Plex Mono', fontSize: 36, color: DIM, letterSpacing: 3 }}>
             AGE
           </div>
@@ -334,7 +392,7 @@ export const EarningsPeak: React.FC = () => {
             </div>
             {value !== null && (
               <div style={{ fontFamily: 'IBM Plex Mono', fontSize: 68, color: ACCENT }}>
-                {fmt(Math.round(value / 100) * 100)}
+                ${fmt(Math.round(value / 100) * 100)}
               </div>
             )}
           </div>
