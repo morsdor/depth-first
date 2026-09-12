@@ -243,6 +243,35 @@ build time is how r009 v1 ended up with seven rulers.
 
 ---
 
+## Where this runs — cloud vs Mac, from here on
+
+**Stages 1–3b are machine-agnostic — run them from a cloud session with no loss.** Presenting
+ideas, Gate 0, the send test, research/measurement, and writing the script are all reading, writing
+markdown, and running plain Python. Nothing here touches Chromium, GPU, or a render.
+
+**Stage 4 (build) is still fine in the cloud almost all the way through** — the compute script,
+`emit_ts.py`, the `.tsx`, `npx tsc --noEmit`, `npm run lint`/`brand:check`. None of that needs a
+display or a codec.
+
+**The one step that wants the Mac is Stage 5 — the actual render and the video-timing checks.**
+`npx remotion render`/`still` needs a working headless Chromium (GPU `angle` renderer for the 3D
+default, per Stage 3c), and "watch the video end to end" (non-negotiable 8) means an actual player.
+A cloud container can be made to render (see the `--browser-executable` note in
+[`reference/build.md`](reference/build.md)), but it's the flakier path — GPU passthrough and codec
+behavior in a generic Linux container are not guaranteed the way they are on the Mac that has
+always done these renders. **If a cloud render looks wrong, degraded, or the 3D layer misbehaves,
+don't debug it there — that is the signal to move to the Mac, not a bug to chase in the cloud.**
+
+**The handoff, in practice:** if you've been running a cloud session and reach Stage 5 (or the
+cloud render looks off), stop there, make sure the `projects/<id>_*/` tree is committed or pushed
+so the Mac session can see it, and pick it up locally for render + audit + the final watch-through.
+Going the other direction — working locally and then closing the lid mid-build — use `/wip` to park
+the tree on a `wip/<date>-<slug>` branch, then resume from a cloud session on that branch and
+either continue building or wait for Stage 5 to hand back to the Mac. Either direction is a normal
+mid-pipeline handoff, not a restart — resume at the stage you left, per "Resuming" below.
+
+---
+
 ## Stage 3c — 3D BY DEFAULT. `@remotion/three`, unless there is a stated reason not to.
 
 **Standing direction from the account owner (2026-09-11): use 3D wherever it can add a sense of
