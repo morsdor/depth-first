@@ -160,3 +160,122 @@ who stands up early, sent with no caption.)
 
 Nothing gets built until both are a yes. If either is no, the answer is a different id — **not a
 repair of this one.**
+
+---
+
+# STAGE 3 · THE RESEARCH IS IN (2026-09-12)
+
+**`boarding.py` — a discrete-event agent model of a single-aisle cabin. It survived, and the
+claim the reel rests on came out stronger than it went in.**
+
+## 10 · The field test, reproduced without fitting anything
+
+12 rows × 6 seats, 72 passengers, 20 seeds. Parameters (`t_row` 1.0 s per row of pitch, `t_stow`
+6.0 s, `t_sit` 2.0 s, shuffle 0/6/10 s for 0/1/2 seated neighbours, 75% carrying a bag) were
+chosen from ordinary walking and stowing times **before** any comparison was run and were **never
+tuned toward the published table.**
+
+| method | ours | published | error |
+|:--|--:|--:|--:|
+| Steffen | 2:17 | 3:36 | −36% |
+| WilMA (window→middle→aisle) | 3:08 | 4:13 | −26% |
+| **random** | **4:21** | **4:44** | **−8%** |
+| **back to front** | **6:08** | **6:11** | **−1%** |
+| block (3 groups of 4 rows) | 4:50 | 6:54 | −30% |
+
+**The two methods the reel is about land at −8% and −1%, with nothing fitted.** That is the
+`I65` standard — reproduce the experiment without being pointed at the answer — and it is met.
+
+**Four of the five positions in the ordering are right. Ours puts block ahead of back-to-front;
+the field test has them the other way round.** Do not paper over it: the published gap between
+those two is 43 s, the field test ran **each method exactly once** (it was a television
+production, n = 1 per arm), and our own seed-to-seed spread is **15–21 s**, so a 43 s inversion
+between the two slowest arms is within a single trial's noise. Block boarding being *slower* than
+strict back-to-front is also against every simulation study, since block has strictly more spread.
+**Steffen and WilMA come out optimistic in our model** — it grants perfect compliance, no bin
+contention and no families, which is exactly what makes Steffen impractical in real life. None of
+that touches the random-vs-back-to-front comparison.
+
+## 11 · The claim, and the sweep that tried to break it
+
+**144 of 144 parameter combinations have back-to-front slower than random.** Four stow times
+(3–20 s), four carry-on rates (40–95%), three shuffle penalties, three walking speeds:
+
+| | |
+|:--|:--|
+| combinations where back-to-front is slower | **144 / 144** |
+| penalty across the sweep | min **22%** · median **47%** · max **99%** |
+| published penalty | **31%** — inside that range |
+
+**The result is not an artefact of one guess about how long a bag takes.** It does not depend on
+stow time, bag rate, shuffle cost or walking speed. It only depends on the order.
+
+## 12 · The mechanism, measured — and this is what goes on screen
+
+**Back-to-front never gets more than TWO people stowing at once. Not in any seed, not at any
+parameter setting.** Random reaches five, six, seven.
+
+| | random | back to front |
+|:--|--:|--:|
+| mean people stowing at once | **1.28** | **0.91** |
+| peak, mean over 20 seeds | **5.0** | **2.0** |
+| share of boarding with ≥ 4 stowing | **5.7%** | **0.0%** |
+
+**The 2-person ceiling is not a modelling cap** — it holds at bin-reach 1, 2 and 3, because the
+binding constraint is the pipeline, not the bin: by the time a third passenger has walked up the
+aisle, the first has finished stowing. Back-to-front's whole penalty is this one number.
+
+## 13 · The run the reel animates
+
+**Seed 12, chosen as the seed closest to the 20-seed median on BOTH arms** (random 264.0 s against
+a 261.5 s median; back-to-front 368.0 s against 368.0 s). Declared here because choosing a run
+after seeing its numbers is how a reel ends up showing its best seed.
+
+| | |
+|:--|:--|
+| random | **4:24** · mean stowing 1.27 · **peak 7** |
+| back to front | **6:08** · mean stowing 0.91 · **peak 2** |
+| back-to-front penalty | **+1:44, i.e. 39% longer** (base: random's time) |
+| at 4:24, when the random cabin is full | back-to-front still has **6 people in the aisle** and needs **another 1:44** |
+
+**One caveat recorded rather than hidden: this run's random peak of 7 is above the 20-seed average
+of 5.0.** The live counter on screen is that run's own number and is therefore true of what is
+shown, but any copy that states a peak states this run's, not the account's, and the robust claim —
+the one true in every seed — is the **2-person ceiling on back-to-front.**
+
+## 14 · Three bugs, and what caught each
+
+1. **The no-overtaking invariant was asserted backwards** and fired on the first run. Whoever
+   boards first ends up *furthest down* the aisle, so reading slots front-to-back must give queue
+   positions in reverse. Caught by `check_invariants` immediately — which is the point of it.
+2. **`seat_class` was inverted on both sides**, so seat 0 (the port window) reported as an aisle
+   seat. **WilMA then boarded aisle seats first — the worst possible order — and Steffen, which is
+   defined to have zero seat interference, was charged 384 s of it.** Nothing crashed and no
+   invariant fired: WilMA simply came out slower than random, the opposite of the published result.
+   Caught by printing the queue and reading the seat numbers.
+3. **One aisle slot per row made the aisle too coarse.** A standing passenger owned the whole
+   0.79 m pitch, so only one person in the cabin could ever stow at a given row. That made
+   back-to-front almost perfectly serial and reported it **66% slower than random against the 31%
+   measured** — an over-prediction of the exact effect the reel is about, in the worst possible
+   direction. Two sub-slots per row of pitch, with a bin reachable from either, brought it to −1%.
+
+## 15 · The airline question from §7, answered
+
+**The top falsification risk was the word "airlines". It survives, but the copy has to be precise.**
+
+- **Back-to-front (by groups from the rear) is still the most common approach**, chosen because it
+  is the easiest to administer.
+- **United reintroduced window-middle-aisle on 26 October 2023**, projecting **~2 minutes saved per
+  flight**. It had used WilMA until 2017 and dropped it with Basic Economy.
+- **Southwest ends open seating on 27 January 2026** and its new eight-group boarding uses
+  window-middle-aisle, back of the cabin to the front.
+- **American Airlines' CEO on their own internal study: "we don't see any material change."**
+
+**So the reel must never say "your airline boards back to front".** It says *back to front* as a
+labelled method, and the close states what United and Southwest actually did, with dates. That is
+verified, it is more interesting than a complaint, and it turns the reel from a grumble into news.
+
+## 16 · Where this leaves the gates
+
+**G1 ✓ · G2 ✓ · G3 ✓ · research ✓ — the claim is measured, reproduced and swept.**
+**G4, the script, is next and it is the human's.** `SCRIPT.md`.
