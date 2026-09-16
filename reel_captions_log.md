@@ -558,3 +558,27 @@ wording rather than by dropping the concept.
 
 **First caption written in this repo before the reel was posted rather than after.** Every row above
 `r011` that says "not recorded — confirm what went out" is what the other order produces.
+
+---
+
+## `r013` — caption draft, written pre-posting 2026-09-16
+
+**You don't sweat fat off. You breathe it out.**
+
+Almost all of it — 84% of the mass — leaves through your lungs as the CO2 you breathe out. The
+rest becomes water. It isn't sweated, it isn't "turned into energy," and it doesn't go out the way
+most people guess.
+
+The split comes from the actual chemistry: fat is C55H104O6, and burning it runs
+C55H104O6 + 78 O2 → 55 CO2 + 52 H2O. Track where the fat's own atoms end up and the number falls
+out on its own — 84% as CO2, 16% as water. Published: Meerman & Brown, BMJ 2014;349:g7257 — a
+physicist who lost 15 kg and asked 150 doctors, dietitians and trainers where it went. Most got it
+wrong.
+
+**Hook line:** "You don't sweat fat off. You breathe it out."
+
+**Send-channel copy (GATE 3), and the reel's actual close card:** "Send this to whoever told you to
+sweat it off." Argument ammunition — everyone who has dieted has had this exact wrong conversation.
+
+**Engagement:** not recorded — this reel has not posted yet. GATE 5 (human watch-through) passed
+2026-09-16; both automated audits pass. See [`projects/r013_breath/NOTES.md`](projects/r013_breath/NOTES.md).

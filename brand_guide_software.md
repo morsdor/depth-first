@@ -1879,6 +1879,39 @@ bottom corners magnify ~7% under perspective and crossed into the action rail.
 - **A perspective camera makes the near edge bigger.** Compute the magnification at the nearest
   corner before choosing a zoom, or the audit will.
 
+### r013 — A CAMERA PUSH THAT INTERPOLATES ANCHOR AND SCALE TOGETHER OVERSHOOTS MID-TRANSITION, AND THE FIX IS STRUCTURAL NOT NUMERIC (2026-09-16)
+
+**The build (`I81`, "you don't sweat fat off, you breathe it out") chased the safe-area audit
+through six rounds of constant-tuning — 806 → 120 → 99 → 90 → 71 → 67 failing frames — without
+ever reaching zero.** Every fix (a smaller camera reach, a tighter O2 clamp, a smaller molecule
+scale) closed one overshoot and opened a smaller one nearby, because the underlying cause was never
+a wrong constant: **a point near the push target renders FARTHER from centre mid-transition than
+at either the wide shot or the full close-up**, because the anchor hasn't caught up proportionally
+to the scale increase yet. No single set of constants removes a transient that is a property of
+interpolating both together.
+
+**The fix that actually reached zero was structural: clip the `<ThreeCanvas>` to the exact safe
+box** (`overflow: hidden` on a container sized to `SAFE_W`/`SAFE_TOP`/`SAFE_BOTTOM`, with
+`ReelGround` kept OUTSIDE the clip so it stays full-bleed per non-negotiable 2). This guarantees
+the constraint regardless of any future animation-math imprecision, rather than depending on
+getting every constant exactly right — belt-and-suspenders on top of the tuning, which still
+mattered (it took the median failing-frame bbox from wildly over to a few px over, small enough
+for the clip to absorb invisibly).
+
+**A second, unrelated bug found on the way: an early `return null` gating a component's visibility,
+placed BEFORE a later `useMemo` in the same component, is a conditionally-called hook.** Invisible
+to `tsc`, and it does not raise a React warning either — it crashed the render outright with an
+internal `@react-three/fiber` error. The fix is always the same: gate visibility through the
+rendered output (opacity, or a value computed from props already read), never through an early
+return that some frames take and others don't.
+
+**Third: a decorative "flavour" object with no on-screen claim can still fail the audit.** A
+fallback oxygen-atom destination sat at a 4-15x outlier distance against the real fragment data it
+was grown alongside — nobody was going to notice by eye, because at rest it barely showed. Scaled
+up by the close-up zoom during the pull-back, it was enough to blow past both edges of frame. Sanity
+range-check generated decorative values against their own data's real range, not just against "does
+it look fine in the wide shot."
+
 ### r009 — ONE RULER. The yardstick problem, and the first Gate 3 failure on message (2026-09-11)
 
 **The verdict on the 53 s cut:** *"I really like it. All colours, branding, palette, spacing,
