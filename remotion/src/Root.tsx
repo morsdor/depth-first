@@ -12,6 +12,7 @@ import { DURATION_SECONDS as EMPTINESS_SECONDS, Emptiness } from './reels/Emptin
 import { DURATION_SECONDS as DIVERGENCE_SECONDS, Divergence } from './reels/Divergence';
 import { DURATION_SECONDS as BOARDING_SECONDS, Boarding } from './reels/Boarding';
 import { DURATION_SECONDS as EARNINGS_SECONDS, EarningsPeak } from './reels/EarningsPeak';
+import { DURATION_SECONDS as HIJACK_SECONDS, Hijack } from './reels/Hijack';
 import { DURATION_SECONDS as MANIM_SECONDS, ManimProbe } from './reels/ManimProbe';
 import { SafeZones } from './reels/lib/chrome';
 
@@ -117,6 +118,13 @@ const BoardingSafe: React.FC = () => (
 const EarningsPeakSafe: React.FC = () => (
   <>
     <EarningsPeak />
+    <SafeZones />
+  </>
+);
+
+const HijackSafe: React.FC = () => (
+  <>
+    <Hijack />
     <SafeZones />
   </>
 );
@@ -336,7 +344,7 @@ export const RemotionRoot: React.FC = () => {
         height={1920}
       />
 
-      {/* r012 · I84 · your pay has a peak age — NOT YET POSTED, in gate.
+      {/* r012 · I84 · your pay has a peak age — posted 2026-09-12.
           Pre-registered "this is you" format experiment: Gate 0 kill condition 2
           (no chart payoff) is deliberately waived in writing
           (projects/r012_earnings/gate0/GATE0.md §5). The line is a monotone
@@ -346,7 +354,10 @@ export const RemotionRoot: React.FC = () => {
           real panel data following the same individuals, which is the one leg
           of this claim with genuine longitudinal backing. Data from
           remotion/src/reels/data/earningsPeak.ts, which emit_ts.py refuses to
-          write unless every on-screen claim holds. */}
+          write unless every on-screen claim holds. First reading: 2,421 views,
+          2,092 viewers, like rate ~0.10% — the account's weakest engagement —
+          alongside its first majority-Tier-1 audience; see
+          brand_guide_software.md §13. */}
       <Composition
         id="r012-earnings"
         component={EarningsPeak}
@@ -359,6 +370,40 @@ export const RemotionRoot: React.FC = () => {
         id="r012-earnings-safe"
         component={EarningsPeakSafe}
         durationInFrames={EARNINGS_SECONDS * 30}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+
+      {/* r014 · I31 · a typo once took a country off the internet (it wasn't a
+          typo) — NOT YET POSTED, in gate. Claimed r014, not r013: r013 was
+          taken by the already-posted Breath reel (I81) while this build was
+          in progress on a separate machine/session. 24 Feb 2008: Pakistan
+          Telecom leaked a route for YouTube's address block worldwide via its
+          upstream PCCW, which never validated the announcement. 97 networks
+          in 2:30; 2h14m to fix. VERIFIED against RIPE NCC's RIS case study, a
+          Google Research analysis of the same event, and Renesys's
+          contemporaneous writeup (gate0/GATE0.md §5) — "typo" appears nowhere
+          on screen. GATE 3 passed as a pre-registered novelty-channel
+          experiment with no argument-ammunition leg (gate0/GATE0.md §9). 3D
+          is spent on one continuous move: the globe scales up and rotates to
+          bring Karachi to face the camera (arriving at "street level" via the
+          sphere's own curvature, no separate ground geometry), then reverses
+          as the leak spreads. Data from remotion/src/reels/data/hijack.ts,
+          which emit_ts.py refuses to write unless every on-screen claim
+          holds. */}
+      <Composition
+        id="r014-hijack"
+        component={Hijack}
+        durationInFrames={HIJACK_SECONDS * 30}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="r014-hijack-safe"
+        component={HijackSafe}
+        durationInFrames={HIJACK_SECONDS * 30}
         fps={30}
         width={1080}
         height={1920}
