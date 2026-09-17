@@ -12,6 +12,7 @@ import { DURATION_SECONDS as EMPTINESS_SECONDS, Emptiness } from './reels/Emptin
 import { DURATION_SECONDS as DIVERGENCE_SECONDS, Divergence } from './reels/Divergence';
 import { DURATION_SECONDS as BOARDING_SECONDS, Boarding } from './reels/Boarding';
 import { DURATION_SECONDS as EARNINGS_SECONDS, EarningsPeak } from './reels/EarningsPeak';
+import { Breath, DURATION_SECONDS as BREATH_SECONDS } from './reels/Breath';
 import { DURATION_SECONDS as HIJACK_SECONDS, Hijack } from './reels/Hijack';
 import { DURATION_SECONDS as MANIM_SECONDS, ManimProbe } from './reels/ManimProbe';
 import { SafeZones } from './reels/lib/chrome';
@@ -118,6 +119,13 @@ const BoardingSafe: React.FC = () => (
 const EarningsPeakSafe: React.FC = () => (
   <>
     <EarningsPeak />
+    <SafeZones />
+  </>
+);
+
+const BreathSafe: React.FC = () => (
+  <>
+    <Breath />
     <SafeZones />
   </>
 );
@@ -370,6 +378,36 @@ export const RemotionRoot: React.FC = () => {
         id="r012-earnings-safe"
         component={EarningsPeakSafe}
         durationInFrames={EARNINGS_SECONDS * 30}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+
+      {/* r013 · I81 · you don't sweat fat off, you breathe it out —
+          POSTED 2026-09-16 (37s), RE-CUT AND RE-POSTED 2026-09-17 (39s). The
+          average human triglyceride, C55H104O6, grown as a real ball-and-stick
+          molecule from tetrahedral/trigonal bond-angle constraints
+          (projects/r013_breath/breath.py), not an authored diagram.
+          Independently re-derives 84.25% of the fat's own mass leaving as CO2
+          and 15.75% as H2O against Meerman & Brown's published 84% / 16%
+          (BMJ 2014;349:g7257). One continuous @remotion/three camera push
+          from the wide human scene into the molecule and back. Data from
+          remotion/src/reels/data/breath.ts, which emit_ts.py refuses to
+          write unless all 22 on-screen claims hold. Both cuts floored on
+          retention — see brand_guide_software.md §13 "A HOOK FIX MADE
+          RETENTION WORSE" and projects/r013_breath/NOTES.md. */}
+      <Composition
+        id="r013-breath"
+        component={Breath}
+        durationInFrames={BREATH_SECONDS * 30}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="r013-breath-safe"
+        component={BreathSafe}
+        durationInFrames={BREATH_SECONDS * 30}
         fps={30}
         width={1080}
         height={1920}

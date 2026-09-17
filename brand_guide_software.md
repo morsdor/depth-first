@@ -1879,6 +1879,80 @@ bottom corners magnify ~7% under perspective and crossed into the action rail.
 - **A perspective camera makes the near edge bigger.** Compute the magnification at the nearest
   corner before choosing a zoom, or the audit will.
 
+### r013 — A CAMERA PUSH THAT INTERPOLATES ANCHOR AND SCALE TOGETHER OVERSHOOTS MID-TRANSITION, AND THE FIX IS STRUCTURAL NOT NUMERIC (2026-09-16)
+
+**The build (`I81`, "you don't sweat fat off, you breathe it out") chased the safe-area audit
+through six rounds of constant-tuning — 806 → 120 → 99 → 90 → 71 → 67 failing frames — without
+ever reaching zero.** Every fix (a smaller camera reach, a tighter O2 clamp, a smaller molecule
+scale) closed one overshoot and opened a smaller one nearby, because the underlying cause was never
+a wrong constant: **a point near the push target renders FARTHER from centre mid-transition than
+at either the wide shot or the full close-up**, because the anchor hasn't caught up proportionally
+to the scale increase yet. No single set of constants removes a transient that is a property of
+interpolating both together.
+
+**The fix that actually reached zero was structural: clip the `<ThreeCanvas>` to the exact safe
+box** (`overflow: hidden` on a container sized to `SAFE_W`/`SAFE_TOP`/`SAFE_BOTTOM`, with
+`ReelGround` kept OUTSIDE the clip so it stays full-bleed per non-negotiable 2). This guarantees
+the constraint regardless of any future animation-math imprecision, rather than depending on
+getting every constant exactly right — belt-and-suspenders on top of the tuning, which still
+mattered (it took the median failing-frame bbox from wildly over to a few px over, small enough
+for the clip to absorb invisibly).
+
+**A second, unrelated bug found on the way: an early `return null` gating a component's visibility,
+placed BEFORE a later `useMemo` in the same component, is a conditionally-called hook.** Invisible
+to `tsc`, and it does not raise a React warning either — it crashed the render outright with an
+internal `@react-three/fiber` error. The fix is always the same: gate visibility through the
+rendered output (opacity, or a value computed from props already read), never through an early
+return that some frames take and others don't.
+
+**Third: a decorative "flavour" object with no on-screen claim can still fail the audit.** A
+fallback oxygen-atom destination sat at a 4-15x outlier distance against the real fragment data it
+was grown alongside — nobody was going to notice by eye, because at rest it barely showed. Scaled
+up by the close-up zoom during the pull-back, it was enough to blow past both edges of frame. Sanity
+range-check generated decorative values against their own data's real range, not just against "does
+it look fine in the wide shot."
+
+### r013 — A HOOK FIX MADE RETENTION WORSE, NOT BETTER, AND THAT IS THE ACTUAL FINDING (2026-09-17)
+
+**Cut 1 posted 2026-09-16: 159 views, average watch 5s of 37s (13.5%), skip rate 58.4% "Higher."**
+Diagnosis: the reel told the claim in text (B1-B2) long before anything surprising was shown — the
+same 12.5%-of-runtime shape r009's pre-recut cut had. Fix built same-day: a 2s flash-forward of the
+real payoff numbers (840g/160g) before the hook text, plus a fuller body so the numbers land on a
+visible referent, runtime 37s → 39s.
+
+**Cut 3 posted 2026-09-17: 197 views, average watch 3s of 39s (7.7%), skip rate 83.3% "Higher."**
+**Every retention number got WORSE, not better.** The hook-reorder hypothesis is falsified by this
+data, not confirmed by it.
+
+**The likely mechanism: the "fix" replaced one ambiguous window with a longer one.** Bare numbers
+with no immediately-legible subject, held for ~1.3s, are not obviously more legible to a cold
+Reels-tab scroller than the original hook text was — and the reorder pushed the one line that WAS
+plain English 2 full seconds deeper into the 1.5-3s window this account's own data says half of any
+cold audience uses to decide. Front-loading a payoff only helps if the front-loaded thing is
+ITSELF immediately legible; a real number with no context is not that, even though it satisfies the
+letter of "show before tell."
+
+**This is `I51`/`r009`'s mistake, on the same reel, twice: a craft fix answering what was actually
+a reach/content problem.** `CLAUDE.md`'s own scope rule says so directly — *"craft is necessary and
+has never once been sufficient... do not answer a reach problem with a craft fix"* — and this is
+now a measured instance of the fix making the number move the WRONG way, which is a stronger
+result than "the fix didn't help."
+
+**The more likely cause, applying the `r011` HEAT lesson in `brand_guide_software.md` above:**
+"you breathe fat out, not sweat it" is a low-stakes correction — nobody's identity is threatened
+by being wrong about it, unlike flat earth (`r005`, ~94k views) or even boarding order (`r011`,
+which also floored on sends despite scoring 3/3 named channels). GATE 3 accepted "argument
+ammunition" for `I81` without stress-testing heat, and that was too generous a read in hindsight.
+**`r005` — a similarly "compute the real thing" explainer, same account — hit 94k**, so this is
+evidence against the TOPIC, not against the format or the platform.
+
+**Going forward: when a reading comes back poor, check whether the diagnosis is craft (hook/pacing
+— fixable, cheaply, same day) or content (the concept itself lacks a channel with real heat — not
+fixable by re-cutting, ever).** The retention CURVE SHAPE is the tell: a steep drop that then
+plateaus is a hook problem worth one recut; a steep drop that keeps bleeding with no plateau at any
+cut is more likely the concept itself failing to hold anyone's interest once the hook has done its
+job, which is what happened on both of `r013`'s cuts.
+
 ### r009 — ONE RULER. The yardstick problem, and the first Gate 3 failure on message (2026-09-11)
 
 **The verdict on the 53 s cut:** *"I really like it. All colours, branding, palette, spacing,

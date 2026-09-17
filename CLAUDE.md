@@ -333,9 +333,15 @@ before optimising for reach: whether r005's 71 follows stayed, and whether they 
 
 | `r012` | `I84` | Earnings by age — median US pay peaks at 46 and, past 55, tracked on the same people, never comes back | **POSTED 2026-09-12 (Saturday night) (32 s)** — the "this is you" data-reel format test, Gate 0 kill condition 2 (chart as payoff) deliberately waived in writing. **First reading: 2,421 views / 2,092 viewers, 2 likes, 1 share, 1 follow — like rate ~0.10%, the lowest on the account, against the pre-registered failure case of merely "liked at a normal rate".** The format's own bet (self-relevance → watch time/saves) has no supporting read yet; on likes and sends alone this reads as a clean failure, worse than the pre-registered floor. **First reel with a majority Tier-1 audience — USA 23%, India 7% — a first for this account**, worth separating the format question from the audience-mix question before drawing a verdict. See [`projects/r012_earnings/NOTES.md`](projects/r012_earnings/NOTES.md) and `brand_guide_software.md` §13 |
 
-**Reel numbers are contiguous and mean "the Nth reel posted".** `r001`–`r012` have shipped.
-**`r011` claimed its number when the first `.tsx` was written, not when its Gate 0 was** — the rule
-as written, and what `I72` had just shown the cost of getting wrong. **The next reel is `r013`.**
+| `r013` | `I81` | Breath — you don't sweat fat off, you breathe it out | **POSTED 2026-09-16 (37 s), RE-CUT AND RE-POSTED 2026-09-17 (39 s).** Argument ammunition (Meerman & Brown, BMJ 2014: 84% of lost fat mass is exhaled as CO2, 16% becomes water), independently re-derived from a real balanced equation (C55H104O6 + 78 O2 → 55 CO2 + 52 H2O) rather than cited — 84.25%/15.75% computed, within 0.25 points of the paper; `emit_ts.py` carries 22 asserted on-screen claims. **Cut 1: 159 views, avg watch 5s/37s (13.5%), skip rate 58.4% "Higher".** Re-cut same-shape as r009's fix (a flash-forward front-loading the real payoff numbers, plus a fuller body). **Cut 2 (posted): 197 views, avg watch 3s/39s (7.7%), skip rate 83.3% "Higher" — WORSE on every retention metric, falsifying the hook-reorder hypothesis rather than confirming it.** Read as a content/heat floor, not a craft floor — see "A HOOK FIX MADE RETENTION WORSE" in `brand_guide_software.md` §13 and [`projects/r013_breath/NOTES.md`](projects/r013_breath/NOTES.md) |
+
+**Reel numbers are contiguous and mean "the Nth reel posted".** `r001`–`r013` have shipped.
+**`r011` claimed its number when the first `.tsx` was written, not when its Gate 0 was** — the
+rule as written, and what `I72` had just shown the cost of getting wrong. **The next reel is
+`r014`.** `r014` (`I31`, the BGP hijack reel) is built and awaiting GATE 5 — see
+[`projects/r014_hijack/NOTES.md`](projects/r014_hijack/NOTES.md). It was **not** `r013`: that
+number was claimed by `I81`/Breath, which posted first while the hijack build was in progress on a
+separate session.
 
 **THE PENDULUM LOOP WAS `r011` UNTIL 2026-09-12 AND IS NOW `r010` (2026-09-12).** The traffic reel
 (`I65`) held `r010`, was never posted, and was **parked by the account owner** on 2026-09-12 along
