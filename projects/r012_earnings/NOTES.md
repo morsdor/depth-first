@@ -1,7 +1,25 @@
 # r012 · `I84` — your pay has a peak age. It's 46.
 
 **Built 2026-09-12. 32.0 s · 960 frames · 4.9 MB. BOTH AUDITS PASS.**
-**NOT YET WATCHED END TO END — awaiting GATE 5.**
+**POSTED 2026-09-12 (Saturday night).**
+
+## Result — first reading, 2026-09-14
+
+**2,421 views / 2,092 viewers, 2 likes, 1 share, 1 follow.** Like rate **~0.10%** — the weakest
+engagement on the account, below the pre-registered failure floor in `gate0/GATE0.md` §5, which
+named "liked at a normal rate, near-zero sends" as the failure case. This came in liked at a
+*below-normal* rate too. Sends ~0.05%, in the same dead band as `r011`'s falsification. No saves
+figure was available at this reading, so the format's own bet (self-relevance → watch time/saves)
+has nothing positive to point to yet.
+
+**A confound arrived with the numbers and is not yet separated from the format verdict: this is
+the account's first reel with a majority Tier-1 audience** — USA 23%, India 7%, >50% Tier-1
+combined. Every prior reading on this account came from a pool the account's own geography-heavy
+subjects plausibly built; this reel's subject (US IRS data, dollar figures) may simply pull a
+different, colder audience on its own, independent of the chart-as-payoff format being tested.
+**Open: the next reel that reaches a majority non-Tier-1 audience is the needed control.** Full
+reasoning in `brand_guide_software.md` §13, "r012 — THE WEAKEST ENGAGEMENT ON THE ACCOUNT, AND A
+NEW AUDIENCE SHAPE ARRIVED WITH IT."
 
 | audit | result |
 |:--|:--|
@@ -123,8 +141,9 @@ caught mechanically before a single frame was rendered.
 Built silent, matching every reel since r003. No trending-audio decision made yet — that is a
 posting-time step per r010's precedent, not a build step.
 
-## Awaiting
+## Shipped
 
-**GATE 5 — a human watches this end to end before it is posted.** Nothing in `CLAUDE.md`'s four
-logs (the Built-so-far table, `brand_guide_software.md` §13, `reel_captions_log.md`, moving
-`I84`'s backlog row to `posted.md`) is updated yet — those are Stage 6, after this gate.
+Posted 2026-09-12. The four logs (Built-so-far table, `brand_guide_software.md` §13,
+`reel_captions_log.md`, `I84`'s row moved to `backlog/posted.md`) were updated 2026-09-14, after
+the first engagement reading rather than before posting — the caption itself was not recorded in
+this repo before it went out; see `reel_captions_log.md`.

@@ -331,9 +331,11 @@ before optimising for reach: whether r005's 71 follows stayed, and whether they 
 
 | `r011` | `I73` | Aeroplane boarding — back to front is slower than no order at all | **POSTED 2026-09-12 (45 s)**, GATE 5 on the first cut — *"a great video … I absolutely love it"*. **First reading ~6 h later: 2,913 views / 2,422 viewers, 98.3% cold — and sends at 0.041%, the SEND TEST'S FIRST FALSIFICATION on a reel that scored 3 of 3 named channels.** Skip rate flagged "Lower" (the hook worked); saves flagged "Higher" while shares were "Lower" — practical utility partly travelled, argument ammunition did not. See "GATE 3 IS NECESSARY, NOT SUFFICIENT" above and [`projects/r011_boarding/NOTES.md`](projects/r011_boarding/NOTES.md) |
 
-**Reel numbers are contiguous and mean "the Nth reel posted".** `r001`–`r011` have shipped.
+| `r012` | `I84` | Earnings by age — median US pay peaks at 46 and, past 55, tracked on the same people, never comes back | **POSTED 2026-09-12 (Saturday night) (32 s)** — the "this is you" data-reel format test, Gate 0 kill condition 2 (chart as payoff) deliberately waived in writing. **First reading: 2,421 views / 2,092 viewers, 2 likes, 1 share, 1 follow — like rate ~0.10%, the lowest on the account, against the pre-registered failure case of merely "liked at a normal rate".** The format's own bet (self-relevance → watch time/saves) has no supporting read yet; on likes and sends alone this reads as a clean failure, worse than the pre-registered floor. **First reel with a majority Tier-1 audience — USA 23%, India 7% — a first for this account**, worth separating the format question from the audience-mix question before drawing a verdict. See [`projects/r012_earnings/NOTES.md`](projects/r012_earnings/NOTES.md) and `brand_guide_software.md` §13 |
+
+**Reel numbers are contiguous and mean "the Nth reel posted".** `r001`–`r012` have shipped.
 **`r011` claimed its number when the first `.tsx` was written, not when its Gate 0 was** — the rule
-as written, and what `I72` had just shown the cost of getting wrong. **The next reel is `r012`.**
+as written, and what `I72` had just shown the cost of getting wrong. **The next reel is `r013`.**
 
 **THE PENDULUM LOOP WAS `r011` UNTIL 2026-09-12 AND IS NOW `r010` (2026-09-12).** The traffic reel
 (`I65`) held `r010`, was never posted, and was **parked by the account owner** on 2026-09-12 along

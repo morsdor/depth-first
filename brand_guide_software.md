@@ -2253,6 +2253,7 @@ distribution one.** It has never been tried.
 | `r009` | Scale — the biggest star ever measured is a speck in the gap | 40 s | **2026-09-11** |
 | `r010` | Two double pendulums one hair apart — the loop format | 12 s | **2026-09-11/12** |
 | `r011` | Aeroplane boarding — back to front is slower than no order at all | 45 s | **2026-09-12** |
+| `r012` | Earnings by age — median US pay peaks at 46 | 32 s | **2026-09-12** — 2,421 views / 2,092 viewers, 2 likes, 1 share, 1 follow at first reading |
 
 ### Parked — built or researched, and set aside by the owner
 
@@ -2265,4 +2266,29 @@ distribution one.** It has never been tried.
 traffic build was parked the pendulum loop — posted tenth — became `r010`. It was `r011` in every
 entry above until 2026-09-12. Ids do not move, which is why this ledger still resolves.
 
-**`I73` then shipped as `r011` on 2026-09-12, so the next reel is `r012`.**
+**`I73` then shipped as `r011` on 2026-09-12, and `I84` shipped as `r012` the same day, so the
+next reel is `r013`.**
+
+### r012 — THE WEAKEST ENGAGEMENT ON THE ACCOUNT, AND A NEW AUDIENCE SHAPE ARRIVED WITH IT (2026-09-14)
+
+**`I84`'s pre-registered failure case (`gate0/GATE0.md` §5) was "liked at a normal rate, near-zero
+sends, no lift in saves or watch time" — matching r006/r009. The actual read is worse than that
+floor.** First reading: 2,421 views / 2,092 viewers, **2 likes, 1 share, 1 follow** — a like rate
+of **~0.10%**, below every other reel on the account including r008's 0-engagement floor and an
+order of magnitude under r009/r010's already-poor ~0.25%. Sends sit at ~0.05%, in the same dead
+band as `r011`'s falsification. **The format bet (self-relevance → watch time/saves) has no
+positive read to point to** — no saves figure was available at this reading — so on the two
+numbers in hand this is a clean failure, not merely an inconclusive one.
+
+**A confound arrived at the same time and must not be absorbed into the format verdict without
+separating it first: `r012` is the account's first reel with a majority Tier-1 audience** — USA
+23%, India only 7%, over half from Tier-1 countries combined. Every prior reading on this account
+(r005's 157 follows included) came from a pool the reel's own subject — US IRS tax data, dollar
+figures — plausibly skews toward US viewers on its own, independent of anything about the "this is
+you" format. **Two live hypotheses, not one:** (a) the chart-as-payoff format genuinely fails GATE
+0 kill condition 2 even with self-relevance attached, or (b) a colder, unfamiliar Tier-1 audience
+engages differently than the account's usual pool regardless of format, and this reel is the first
+data point on that axis rather than the format axis. **Open — the next reel that reaches a
+majority non-Tier-1 audience is the control this needs**, and the next chart-payoff or
+self-relevance concept (if either is tried again) should not be graded against this single,
+confounded read.

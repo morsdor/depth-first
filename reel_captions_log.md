@@ -558,3 +558,20 @@ wording rather than by dropping the concept.
 
 **First caption written in this repo before the reel was posted rather than after.** Every row above
 `r011` that says "not recorded — confirm what went out" is what the other order produces.
+
+---
+
+## `r012` — caption not recorded, posted 2026-09-12
+
+**Not written in this repo before posting — confirm what actually went out with the caption used
+on Instagram.**
+
+**Hook line (from `SCRIPT.md`):** "YOUR PAY HAS A PEAK AGE."
+
+**Close line:** "Save this. Check back at your birthday."
+
+**Engagement at first reading (2026-09-14):** 2,421 views / 2,092 viewers, 2 likes, 1 share,
+1 follow. Like rate ~0.10% — the lowest on the account. See `brand_guide_software.md` §13 and
+`projects/r012_earnings/NOTES.md` for the full read, including the first-time majority-Tier-1
+audience (USA 23%, India 7%) that arrived alongside the poor engagement and has not yet been
+separated from the format verdict.

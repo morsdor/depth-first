@@ -1,6 +1,6 @@
 # Reels that shipped
 
-**Last updated 2026-09-12.**
+**Last updated 2026-09-14.**
 
 *One row per backlog id that reached the feed, removed from [`open.md`](open.md) so the live list
 stays live. **Ids are permanent and are never reused**, which is what lets old engagement logs
@@ -34,6 +34,15 @@ file only records that the id is spent.*
 > the line never returns. There is also no chaos in it: the phase is linear in n, so the row is
 > always a sampled sinusoid and the mess is spatial aliasing. Falsification in
 > `projects/r008_pendulum/gate0/GATE0.md` §6.
+| **I84** [BUILT] | Your pay has a peak age. It's 46 — and past 55 it never comes back — ✅ **produced as r012, 2026-09-12** | Every payslip you've ever gotten, and every "it's all downhill after 40" joke | Median US income by age from real 2016 IRS tax data (Brady & Bass, ICI/IRS SOI): a cross-sectional population peak at age 46 ($41,000), and — the part with genuine panel backing — the SAME people tracked from 55–72 never return to that height | A single earnings line with an age counter, a crowd-of-dots texture (cross-sectional) collapsing into one bright thread at age 55 (panel-verified), the line topping out and never returning | Diagram + Counter | 2026-09-12 |
+> **I84 — GATE 0 kill condition 2 (no chart as payoff) was deliberately WAIVED in writing**
+> (`projects/r012_earnings/gate0/GATE0.md` §5) as a format experiment: self-relevance (an age
+> counter to match against yourself) substituting for object-recognition. **First reading, 2026-09-14:
+> 2,421 views / 2,092 viewers, 2 likes, 1 share, 1 follow — like rate ~0.10%, the weakest engagement
+> on the account, below the pre-registered failure floor of "liked at a normal rate."** A confound
+> arrived at the same time and is not yet separated from the format verdict: this is the account's
+> first reel with a majority Tier-1 audience (USA 23%, India 7%). See `brand_guide_software.md` §13
+> "r012 — THE WEAKEST ENGAGEMENT ON THE ACCOUNT, AND A NEW AUDIENCE SHAPE ARRIVED WITH IT."
 
 ## §2 · Maps and real geography — accent `infrastructure`
 
