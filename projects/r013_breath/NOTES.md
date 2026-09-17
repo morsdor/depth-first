@@ -111,7 +111,64 @@ Brought back into the same magnitude range as the real fragments.
 Built silent, matching every reel since r003. No trending-audio decision made yet — a posting-time
 step per r010's precedent, not a build step.
 
+## POSTED, cut 1 (37s) — first reading, and the recut it triggered (2026-09-16/17)
+
+**Cut 1 posted 2026-09-16.** GATE 5 passed on the b1-b2 hook text landing immediately over the
+scene, no flash-forward. First reading: **159 views / 129 viewers, average watch 5s of 37s
+(13.5%), skip rate 58.4% "Higher" than this account's own typical, 0 likes / 0 comments / 0
+shares / 1 save / 0 follows.** Retention: a steep drop to ~50% by ~2s (roughly the account's known
+cliff), then a CONTINUOUS bleed to near-zero by ~15-20s rather than the plateau r005/r001 show
+after their own cliffs — no beat after the hook re-commits the viewer.
+
+**Diagnosis at the time:** the reel told the claim in text (B1-B2, 0-6.5s) long before it showed
+anything surprising — the molecule split and the real numbers didn't land until 14-28s, which is
+backwards from non-negotiable 3 and the exact risk `gate0/GATE0.md` §4 flagged in writing before
+the build. Near-identical to a number already in this repo's ledger: r009's pre-recut cut averaged
+5s of a 40s reel (12.5%) for a related reason.
+
+**Cut 2 (v2), same day:** added a B0 flash-forward — "840g" / "160g", bare, no label — before the
+hook text, everything else shifted +2.0s (37s -> 39s). Caught before posting: the owner watched it
+and flagged two problems — the bare numbers have no referent ("no idea what that even means"), and
+the person figure is too thin/generic to read as a body worth watching.
+
+**Cut 3 (v3), same day**, posted 2026-09-17: `Person`'s capsule widened (0.38 -> 0.5 radius,
+after a same-session attempt at a separate belly sphere produced a genuinely bad, inappropriate
+silhouette — reverted); a one-time `bodyShrink` pulse (1.18 -> 1.0 over the first 0.9s) gives the
+flash-forward numbers a visible referent, with a one-line caption ("JUST LEFT YOUR BODY.") added
+under them. Both audits passed (motion 34% event density; safe-area clean).
+
+**Second reading, cut 3, ~half a day later: 197 views / 186 viewers, average watch 3s of 39s
+(7.7%), skip rate 83.3% "Higher," 0 shares, ~1 like, 0 saves, 0 follows.** Every retention number
+moved the WRONG direction against cut 1 — worse average watch, worse skip rate, worse save rate.
+
+**The hook-reorder hypothesis is FALSIFIED, not confirmed, by this data.** The likely cause: the
+flash-forward was ALSO ambiguous to a cold Reels-tab viewer (numbers with no immediately-legible
+subject, for ~1.3s), and it pushed the one line that WAS plain English — "YOU DON'T SWEAT FAT
+OFF" — back by a full 2 seconds, inside the exact 1.5-3s window this account's own data says half
+of any cold audience uses to decide. The fix likely lengthened the ambiguous window rather than
+shortening it.
+
+**This is `I51`/`r009`'s mistake, repeated on this reel specifically, twice.** `CLAUDE.md`'s own
+scope rule: *"Craft is necessary and has never once been sufficient... do not answer a reach
+problem with a craft fix."* Two rounds of hook/craft iteration on `I81` produced two floors, one
+worse than the other. No further craft iteration is planned on this concept.
+
+**The more likely explanation, per the `r011` "GATE 3 IS NECESSARY, NOT SUFFICIENT" lesson**
+(`brand_guide_software.md` §13): sends correlate with HEAT — how much the other person loses by
+being proven wrong. Flat earth (`r005`, ~94k views, 157 follows) is identity-loaded; "you breathe
+fat out, not sweat it" is a mild, low-stakes correction — nobody's self-concept is threatened by
+being wrong about exhaled CO2. The concept was accepted at GATE 3 as "argument ammunition" without
+stress-testing heat, and in hindsight that was too generous a read. **r005 (a similarly
+"compute the real thing" explainer reel, same channel, same account) hit 94k** — so this is a
+content/topic-fit floor, not evidence the FORMAT or the PLATFORM doesn't work for this channel.
+
+**Both cuts are counted as posted.** `r001`-style precedent (a reel keeps its number and its
+posting date across a same-day recut) applies: `I81`/`r013` posted 2026-09-16, recut and reposted
+2026-09-17. The row below reflects the SECOND (current, live) reading; cut 1's reading is preserved
+above for the record.
+
 ## Awaiting
 
-Posting. When it ships: `CLAUDE.md`'s "Built so far" table, `brand_guide_software.md` §13,
-`reel_captions_log.md`, and moving `I81`'s row from `backlog/open.md` to `backlog/posted.md`.
+Nothing — logged as shipped and floored. Next id picked from `backlog/open.md` should explicitly
+answer "what does the person on the other side of this argument lose if they're proven wrong?"
+before being built, per the heat lesson above.

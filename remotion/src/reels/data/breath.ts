@@ -62,8 +62,8 @@ export const PER_KG = {
 } as const;
 
 /** Counter timing — MUST match Breath.tsx's own COUNTER_START/COUNTER_LOCK. */
-export const COUNTER_START = 25.3;
-export const COUNTER_LOCK = 27.1;
+export const COUNTER_START = 27.3;
+export const COUNTER_LOCK = 29.1;
 
 export const MOLECULE = {
   atoms: [

@@ -30,17 +30,17 @@ def claim(text, cond):
 # ── the reel's own timeline (screen seconds), matching SCRIPT.md exactly and
 # the constants at the top of Breath.tsx. A claim is checked AT THE MOMENT
 # the copy on screen makes it, not just somewhere true in the data. ─────────
-BEAT_MOLECULE_MEETS_O2 = (14.0, 17.5)     # "A MOLECULE OF YOUR FAT MEETS THE OXYGEN..."
-BEAT_BREAKS_APART = (17.5, 22.0)          # "IT BREAKS APART. THE CARBON LEAVES AS CO2..."
-BEAT_PER_KG_RULER = (22.0, 25.0)          # "FOR EVERY KILOGRAM YOU LOSE —"
-BEAT_840_160 = (25.0, 28.0)               # "840 GRAMS LEAVES AS BREATH. 160 GRAMS ... WATER."
+BEAT_MOLECULE_MEETS_O2 = (16.0, 19.5)     # "A MOLECULE OF YOUR FAT MEETS THE OXYGEN..."
+BEAT_BREAKS_APART = (19.5, 24.0)          # "IT BREAKS APART. THE CARBON LEAVES AS CO2..."
+BEAT_PER_KG_RULER = (24.0, 27.0)          # "FOR EVERY KILOGRAM YOU LOSE —"
+BEAT_840_160 = (27.0, 30.0)               # "840 GRAMS LEAVES AS BREATH. 160 GRAMS ... WATER."
 
 # The counter animates from 0 up to its target starting when the block
 # visibly splits and MUST lock (reach the final value) before the beat ends,
 # so the number is fully on screen for a readable stretch, not still ticking
 # when the copy that states it fades. These two numbers are read by
 # Breath.tsx as the literal frame bounds of its count-up interpolate().
-COUNTER_START, COUNTER_LOCK = 25.3, 27.1
+COUNTER_START, COUNTER_LOCK = 27.3, 29.1
 assert BEAT_840_160[0] <= COUNTER_START < COUNTER_LOCK <= BEAT_840_160[1], (
     'the counter must start and lock inside the beat that reads it')
 
@@ -66,7 +66,7 @@ claim('atom count matches the sum of the three elements',
       len(MOL['atoms']) == COUNTS['carbon'] + COUNTS['hydrogen'] + COUNTS['oxygen'])
 
 # ── B7/B8 (14.0-22.0s): the split is on screen with the real fragment count ─
-claim('the split (on screen 17.5-22.0s, "THE CARBON LEAVES AS THE CO2") '
+claim('the split (on screen 19.5-24.0s, "THE CARBON LEAVES AS THE CO2") '
       'produces exactly 55 CO2 fragments, one per carbon atom',
       COUNTS['co2Fragments'] == 55 == len(FRAG['co2']))
 claim('the split produces exactly 52 H2O fragments, one per hydrogen PAIR '
@@ -95,18 +95,18 @@ claim('the H2O bucket is within 0.5 percentage points of the published 16%',
 claim('the two buckets sum to 100% of the fat\'s own mass',
       abs((BUCKETS['co2Pct'] + BUCKETS['h2oPct']) - 100) < 1e-6)
 
-# ── B10 (25.0-28.0s): "840 GRAMS ... 160 GRAMS", checked AT THE MOMENT ─────
+# ── B10 (27.0-30.0s): "840 GRAMS ... 160 GRAMS", checked AT THE MOMENT ─────
 claim('840g/160g sum to the one kilogram the ruler (B9) just established',
       PERKG['co2Grams'] + PERKG['h2oGrams'] == 1000)
 claim('the on-screen figure is exactly 840 g (nearest 10g of the computed value)',
       PERKG['co2Grams'] == 840)
 claim('the on-screen figure is exactly 160 g (nearest 10g of the computed value)',
       PERKG['h2oGrams'] == 160)
-claim('the counter has reached 840 g by 27.1s, while "840 GRAMS" is still on '
-      'screen (beat ends 28.0s)',
+claim('the counter has reached 840 g by 29.1s, while "840 GRAMS" is still on '
+      'screen (beat ends 30.0s)',
       abs(counter_value(COUNTER_LOCK, PERKG['co2Grams']) - 840) < 1e-9)
-claim('the counter has reached 160 g by 27.1s, while "160 GRAMS" is still on '
-      'screen (beat ends 28.0s)',
+claim('the counter has reached 160 g by 29.1s, while "160 GRAMS" is still on '
+      'screen (beat ends 30.0s)',
       abs(counter_value(COUNTER_LOCK, PERKG['h2oGrams']) - 160) < 1e-9)
 claim('the counter has NOT yet reached its target the instant the beat opens '
       '(so the copy reads as motion, not a static title card — non-negotiable 4)',

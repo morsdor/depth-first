@@ -53,7 +53,7 @@ import {
  * the reel is actually about (breath) is what the close-up is inside of —
  * non-negotiable 6 kept by construction, not by a late fade.
  */
-export const DURATION_SECONDS = 37;
+export const DURATION_SECONDS = 39;
 
 // ── palette. Brand tokens only (tokens.ts DOMAIN_ACCENT.languages). ────────
 const INK = '#040E1F';
@@ -65,20 +65,28 @@ const ACCENT = '#51A4FF'; // DOMAIN_ACCENT.languages — marks the oxygen mechan
 const AMBER = '#FFB020'; // ONE element per frame (§3): the flame icon, alone
 const FAIL = '#FF4D4D'; // ONLY on the beat something is proven wrong (the strike-throughs)
 
-/** SCRIPT.md's 12 beats, verbatim timestamps. */
+/** SCRIPT.md's 13 beats. B0 is new — a 2.0s flash-forward of the REAL
+ *  payoff numbers (840g/160g), added after the v1 reading: average watch
+ *  5s on 37s (13.5%), skip rate flagged "Higher" — the claim was told in
+ *  text (B1-B2) long before anything surprising was SHOWN. v2's B0 was
+ *  bare numbers with no referent ("user has no idea what that even
+ *  means"); v3 has the body visibly shrink first, then a one-line caption,
+ *  so the numbers land on a subject instead of floating alone. B1 onward
+ *  is unchanged content, shifted +2.0s from the posted v1. */
 const BEAT = {
-  b1: [0.0, 3.0],
-  b2: [3.0, 6.5],
-  b3: [6.5, 8.3],
-  b4: [8.3, 10.1],
-  b5: [10.1, 12.2],
-  b6: [12.2, 14.0],
-  b7: [14.0, 17.5],
-  b8: [17.5, 22.0],
-  b9: [22.0, 25.0],
-  b10: [25.0, 28.0],
-  b11: [28.0, 33.0],
-  b12: [33.0, DURATION_SECONDS],
+  b0: [0.0, 2.0],
+  b1: [2.0, 5.0],
+  b2: [5.0, 8.5],
+  b3: [8.5, 10.3],
+  b4: [10.3, 12.1],
+  b5: [12.1, 14.2],
+  b6: [14.2, 16.0],
+  b7: [16.0, 19.5],
+  b8: [19.5, 24.0],
+  b9: [24.0, 27.0],
+  b10: [27.0, 30.0],
+  b11: [30.0, 35.0],
+  b12: [35.0, DURATION_SECONDS],
 } as const;
 
 // ── camera geometry ──────────────────────────────────────────────────────
@@ -136,7 +144,7 @@ const toWorld = (p: readonly [number, number, number]) =>
  *  spent on the push at B7's open and the pull-back at B9's open — the
  *  single continuous move SCRIPT.md calls for, never a cut. */
 const pushAmountAt = (s: number) =>
-  interpolate(s, [13.6, 14.8, BEAT.b8[1] - 0.6, BEAT.b9[0] + 1.2], [0, 1, 1, 0], ease);
+  interpolate(s, [15.6, 16.8, BEAT.b8[1] - 0.6, BEAT.b9[0] + 1.2], [0, 1, 1, 0], ease);
 
 const clamp01 = (x: number) => Math.min(1, Math.max(0, x));
 
@@ -321,16 +329,29 @@ const O2Cloud: React.FC<{ s: number }> = ({ s }) => {
 /** A visible chest rise/fall — real breathing, not just useBreath's px-scale
  *  jitter — so the wide shot keeps moving even when nothing else on screen
  *  is (non-negotiable 4; the B2 dead spell reel_motion_audit.py caught). */
+/** A fuller body — not the thin capsule v1 shipped with. A single wider
+ *  capsule (0.42 -> 0.5 radius), no separate bulge mesh: a first attempt
+ *  added a large sphere low on the torso to read as a "belly" and it
+ *  produced a bad, inappropriate-looking silhouette instead (a narrow
+ *  shaft over a low round base) — reverted. A uniformly wider capsule is
+ *  the safe version of "fuller body," even if less anatomically distinct.
+ *  `bodyShrink` (B0 only, a one-time 1.18 -> 1.0 pulse in the first
+ *  ~0.9s, wrapping the whole figure) gives the flash-forward numbers a
+ *  VISIBLE referent — the body visibly gets smaller right before "840g" /
+ *  "160g" appear, so the numbers read as "that's what just left," not two
+ *  context-free digits. */
 const Person: React.FC<{ opacity: number; s: number }> = ({ opacity, s }) => {
   const chest = 1 + 0.075 * Math.sin((2 * Math.PI * s) / 2.6);
+  const bodyShrink = interpolate(s, [0.0, 0.9], [1.18, 1.0], ease);
+  const torsoLen = TORSO_TOP_Y - FEET_Y - 0.76;
   return (
-    <group>
+    <group scale={[bodyShrink, bodyShrink, bodyShrink]}>
       <mesh position={[0, (FEET_Y + TORSO_TOP_Y) / 2, 0]} scale={[chest, 1, chest]}>
-        <capsuleGeometry args={[0.38, TORSO_TOP_Y - FEET_Y - 0.76, 6, 12]} />
+        <capsuleGeometry args={[0.5, torsoLen, 6, 12]} />
         <meshStandardMaterial color={ASH} emissive={ASH} emissiveIntensity={0.28} roughness={0.75} transparent opacity={opacity} />
       </mesh>
       <mesh position={[0, HEAD_CY, 0]}>
-        <sphereGeometry args={[0.32, 16, 16]} />
+        <sphereGeometry args={[0.34, 16, 16]} />
         <meshStandardMaterial color={ASH} emissive={ASH} emissiveIntensity={0.28} roughness={0.7} transparent opacity={opacity} />
       </mesh>
     </group>
@@ -340,7 +361,7 @@ const Person: React.FC<{ opacity: number; s: number }> = ({ opacity, s }) => {
 const Scale: React.FC<{ dropFrac: number; opacity: number }> = ({ dropFrac, opacity }) => (
   <group position={[0, FEET_Y - 0.09, 0]}>
     <mesh>
-      <boxGeometry args={[1.15, 0.16, 0.78]} />
+      <boxGeometry args={[1.4, 0.16, 0.78]} />
       <meshStandardMaterial color={SLATE} emissive={SLATE} emissiveIntensity={0.3} roughness={0.6} transparent opacity={opacity} />
     </mesh>
     <mesh position={[0, 0.085, 0.31]}>
@@ -578,6 +599,57 @@ const WrongIcon: React.FC<{
   );
 };
 
+/** B0 (0.0-2.0s) — the wordless flash-forward added in the v2 re-cut. The
+ *  REAL payoff numbers (840g/160g — the same figures GramsCounter reveals
+ *  properly at B10, computed by breath.py, never re-derived here), shown
+ *  cold with no label, before any explanation. Not asserted separately:
+ *  it renders the exact same PER_KG values emit_ts.py already checked. */
+/** Numbers now pop AFTER Person's one-time shrink (0.0-0.9s) rather than at
+ *  frame 0 — so the body visibly gets smaller FIRST, and the numbers land
+ *  as "that's what just left it," not two context-free digits. A short
+ *  caption underneath removes the remaining ambiguity without spoiling the
+ *  B6/B7 reveal of WHERE it goes. */
+const FlashForward: React.FC<{ x: number; value: number; color: string }> = ({ x, value, color }) => {
+  const frame = useCurrentFrame();
+  const s = frame / FPS;
+  const appear = interpolate(s, [0.82, 1.1], [0, 1], ease);
+  const scale = interpolate(s, [0.82, 1.15], [0.72, 1], ease);
+  const fadeOut = interpolate(s, [BEAT.b0[1] - 0.45, BEAT.b0[1]], [1, 0], ease);
+  const opacity = appear * fadeOut;
+  if (opacity <= 0.003) return null;
+  return (
+    <div
+      style={{
+        position: 'absolute',
+        top: 760,
+        left: x - 160,
+        width: 320,
+        textAlign: 'center',
+        opacity,
+        transform: `scale(${scale})`,
+      }}
+    >
+      <div style={{ fontFamily: 'IBM Plex Mono', fontWeight: 700, fontSize: 108, color }}>{value}g</div>
+    </div>
+  );
+};
+
+const FlashCaption: React.FC = () => {
+  const frame = useCurrentFrame();
+  const s = frame / FPS;
+  const appear = interpolate(s, [1.0, 1.3], [0, 1], ease);
+  const fadeOut = interpolate(s, [BEAT.b0[1] - 0.45, BEAT.b0[1]], [1, 0], ease);
+  const opacity = appear * fadeOut;
+  if (opacity <= 0.003) return null;
+  return (
+    <div style={{ position: 'absolute', top: 905, left: 60, width: 810, textAlign: 'center', opacity }}>
+      <div style={{ fontFamily: 'IBM Plex Sans', fontWeight: 600, fontSize: 38, color: BONE }}>
+        JUST LEFT YOUR BODY.
+      </div>
+    </div>
+  );
+};
+
 /** Counter — animates 0 -> target between COUNTER_START and COUNTER_LOCK,
  *  matching emit_ts.py exactly (it asserts these bounds against the copy's
  *  own on-screen window). */
@@ -650,11 +722,20 @@ export const Breath: React.FC = () => {
           an inner wrapper (Fade sets its OWN transform, so breath goes on
           the div that WRAPS all the Fades, never passed into one). */}
       <div style={{ position: 'absolute', inset: 0, transform: breath }}>
-      {/* B1 0.0-3.0 — the payoff object (breath, scale) is already moving
+      {/* B0 0.0-2.0 — v3. The body visibly shrinks FIRST (0.0-0.9s, Person's
+          bodyShrink), THEN the payoff numbers pop with one short caption —
+          v2's bare "840g / 160g" with no referent drew "user has no idea
+          what that even means." The shrink gives the numbers a visible
+          subject before they appear at all. */}
+      <FlashForward x={230} value={PER_KG.co2Grams} color={ASH} />
+      <FlashForward x={650} value={PER_KG.h2oGrams} color={ACCENT} />
+      <FlashCaption />
+
+      {/* B1 2.0-5.0 — the payoff object (breath, scale) is already moving
           before the title settles; title rides OVER the action. */}
       <Head from={BEAT.b1[0]} to={BEAT.b1[1]} lines={["YOU DON'T", 'SWEAT FAT OFF.']} size={64} />
 
-      {/* B2 3.0-6.5 — completes the hook sentence, accent colour. */}
+      {/* B2 5.0-8.5 — completes the hook sentence, accent colour. */}
       <Head from={BEAT.b2[0]} to={BEAT.b2[1]} lines={['YOU BREATHE', 'IT OUT.']} size={64} hot />
 
       {/* B3-B5 — the three wrong folk theories, crossed out one at a time,
@@ -681,10 +762,10 @@ export const Breath: React.FC = () => {
         />
       </div>
 
-      {/* B6 12.2-14.0 — the question the molecule beat answers. */}
+      {/* B6 14.2-16.0 — the question the molecule beat answers. */}
       <Head from={BEAT.b6[0]} to={BEAT.b6[1]} lines={['SO WHERE DOES', 'IT ACTUALLY GO?']} size={58} />
 
-      {/* B7 14.0-17.5 — continuous push into the breath cloud; the real
+      {/* B7 16.0-19.5 — continuous push into the breath cloud; the real
           molecule, meeting the inbound oxygen. */}
       <Head
         from={BEAT.b7[0]}
@@ -693,7 +774,7 @@ export const Breath: React.FC = () => {
         size={40}
       />
 
-      {/* B8 17.5-22.0 — the split: the falsifiable "X because Y" beat. */}
+      {/* B8 19.5-24.0 — the split: the falsifiable "X because Y" beat. */}
       <Head
         from={BEAT.b8[0]}
         to={BEAT.b8[1]}
@@ -702,15 +783,15 @@ export const Breath: React.FC = () => {
         hot
       />
 
-      {/* B9 22.0-25.0 — the ruler, stated once before any number lands. */}
+      {/* B9 24.0-27.0 — the ruler, stated once before any number lands. */}
       <Head from={BEAT.b9[0]} to={BEAT.b9[1]} lines={['FOR EVERY KILOGRAM', 'YOU LOSE —']} size={56} />
 
-      {/* B10 25.0-28.0 — the payoff number. Counters tick, not a title card. */}
+      {/* B10 27.0-30.0 — the payoff number. Counters tick, not a title card. */}
       <Head from={BEAT.b10[0]} to={BEAT.b10[1]} lines={['840 GRAMS LEAVES AS BREATH.', '160 GRAMS LEAVES AS WATER.']} size={36} />
       <GramsCounter x={190} target={PER_KG.co2Grams} label="LEAVES AS BREATH" color={ASH} />
       <GramsCounter x={750} target={PER_KG.h2oGrams} label="LEAVES AS WATER" color={ACCENT} />
 
-      {/* B11 28.0-33.0 — the 2s+ hold (non-negotiable 5), restated claim. */}
+      {/* B11 30.0-35.0 — the 2s+ hold (non-negotiable 5), restated claim. */}
       <Head
         from={BEAT.b11[0]}
         to={BEAT.b11[1]}
@@ -718,7 +799,7 @@ export const Breath: React.FC = () => {
         size={42}
       />
 
-      {/* B12 33.0-37.0 — the send-channel ask, phone-performable, over the
+      {/* B12 35.0-39.0 — the send-channel ask, phone-performable, over the
           same finished visual (no new cut). */}
       <Fade
         from={t(BEAT.b12[0])}

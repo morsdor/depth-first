@@ -69,3 +69,43 @@ approached.
 
 **A human yes on this script.** Once approved it is a contract — a beat that cannot be animated as
 written comes back here as a script change, not an improvisation at build time.
+
+---
+
+# v2 — the re-cut, 2026-09-16
+
+**The v1 cut posted, GATE 5 passed, and the reading came back poor: average watch 5s on a 37s
+reel (13.5%), skip rate flagged "Higher" than this account's own typical, and a retention curve
+that never flattens — it bleeds continuously to near-zero by ~15-20s instead of holding a plateau
+after the opening cliff the way this account's other reels do.**
+
+**Diagnosis:** the reel TOLD the claim in text (B1-B2, 0-6.5s) long before it SHOWED anything
+surprising — the molecule split and the real numbers (840g/160g) didn't land until 14-28s. That is
+backwards from non-negotiable 3 ("the first surprising result lands by ~3s") and it is the exact
+risk `gate0/GATE0.md` §4 flagged in writing before this was built: *"the visual needs a genuinely
+real-time payoff... or it drifts toward being told rather than shown."* It also matches a number
+already in this repo's ledger almost exactly — r009's pre-recut cut averaged 5s of a 40s reel
+(12.5%) for the same reason (`brand_guide_software.md` §13, "THE 5-SECOND NUMBER").
+
+**The fix: a new B0, 0.0-2.0s, a wordless flash-forward of the real payoff numbers** — "840g" and
+"160g", large, bold, no label, no explanation — shown cold over the SAME wide shot (person,
+breath) already live and moving underneath. Every beat from the old B1 onward is UNCHANGED
+content, uniformly shifted +2.0s. Runtime: 37s → **39s**.
+
+| t | Narration | On screen | Why |
+|:--|:--|:--|:--|
+| 0.0–2.0 | *(none — numbers only, no words)* | "840g" and "160g" pop in fast (0.0-0.35s), hold, fade out by 2.0s. The 3D wide shot (person, breath cloud already drifting) is visible underneath and already moving. | Show the actual payoff before any setup — a curiosity gap ("840g of *what*?") that the very next beat answers. Reuses the exact `PER_KG` values `emit_ts.py` already asserts for B10; not a new claim. |
+| 2.0–5.0 | **"YOU DON'T SWEAT FAT OFF."** | *(was B1, unchanged, +2.0s)* | Now arrives AFTER the viewer has already seen something happen — the hook sentence explains what they just glimpsed, rather than being the first thing on screen. |
+| 5.0–8.5 → 35.0–39.0 | *(all subsequent beats, unchanged content, +2.0s)* | — | — |
+
+**What did NOT change:** the sentence, the send test, the chemistry, the 22 asserted claims (all
+re-verified against the shifted timeline — `emit_ts.py`'s `BEAT_*`/`COUNTER_START`/`COUNTER_LOCK`
+constants were shifted +2.0s in lockstep, not re-derived), the ONE ruler, the close. This is a
+re-cut of ORDER, not of content — matching the r009/r010 precedent of a same-day recut after a
+poor reading, not a new Gate 0/Gate 3 pass (the concept and send channel are unchanged).
+
+## Awaiting (v2)
+
+Both audits pass (motion 30% event density / 1.25s max dead spell; safe-area clean, 64-868 /
+272-1524 against the 60-870 / 270-1540 box). Awaiting GATE 5 on the re-cut before it replaces the
+posted v1.

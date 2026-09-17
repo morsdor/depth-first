@@ -333,12 +333,12 @@ before optimising for reach: whether r005's 71 follows stayed, and whether they 
 
 | `r012` | `I84` | Pay peaks in your late 40s and never comes back | **Built 2026-09-12** — first-person account: posted outside this session's logs; engagement not yet recorded here. See [`projects/r012_earnings/NOTES.md`](projects/r012_earnings/NOTES.md) |
 
-| `r013` | `I81` | Breath — you don't sweat fat off, you breathe it out | **GATE 5 passed 2026-09-16 (37 s)** — argument ammunition (Meerman & Brown, BMJ 2014: 84% of lost fat mass is exhaled as CO2, 16% becomes water). First reel to independently re-derive a published figure from a real balanced chemical equation (C55H104O6 + 78 O2 → 55 CO2 + 52 H2O) rather than citing it — 84.25%/15.75% computed, within 0.25 points of the paper. `emit_ts.py` carries 22 asserted on-screen claims. Awaiting posting. See [`projects/r013_breath/NOTES.md`](projects/r013_breath/NOTES.md) |
+| `r013` | `I81` | Breath — you don't sweat fat off, you breathe it out | **POSTED 2026-09-16 (37 s), RE-CUT AND RE-POSTED 2026-09-17 (39 s).** Argument ammunition (Meerman & Brown, BMJ 2014: 84% of lost fat mass is exhaled as CO2, 16% becomes water), independently re-derived from a real balanced equation (C55H104O6 + 78 O2 → 55 CO2 + 52 H2O) rather than cited — 84.25%/15.75% computed, within 0.25 points of the paper; `emit_ts.py` carries 22 asserted on-screen claims. **Cut 1: 159 views, avg watch 5s/37s (13.5%), skip rate 58.4% "Higher".** Re-cut same-shape as r009's fix (a flash-forward front-loading the real payoff numbers, plus a fuller body). **Cut 2 (posted): 197 views, avg watch 3s/39s (7.7%), skip rate 83.3% "Higher" — WORSE on every retention metric, falsifying the hook-reorder hypothesis rather than confirming it.** Read as a content/heat floor, not a craft floor — see "A HOOK FIX MADE RETENTION WORSE" in `brand_guide_software.md` §13 and [`projects/r013_breath/NOTES.md`](projects/r013_breath/NOTES.md) |
 
-**Reel numbers are contiguous and mean "the Nth reel posted".** `r001`–`r011` have shipped, `r012`
-and `r013` are built and awaiting their posting read. **`r011` claimed its number when the first
-`.tsx` was written, not when its Gate 0 was** — the rule as written, and what `I72` had just shown
-the cost of getting wrong. **The next reel is `r014`.**
+**Reel numbers are contiguous and mean "the Nth reel posted".** `r001`–`r013` have shipped.
+**`r011` claimed its number when the first `.tsx` was written, not when its Gate 0 was** — the
+rule as written, and what `I72` had just shown the cost of getting wrong. **The next reel is
+`r014`.**
 
 **THE PENDULUM LOOP WAS `r011` UNTIL 2026-09-12 AND IS NOW `r010` (2026-09-12).** The traffic reel
 (`I65`) held `r010`, was never posted, and was **parked by the account owner** on 2026-09-12 along

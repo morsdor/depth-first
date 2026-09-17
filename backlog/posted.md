@@ -1,6 +1,6 @@
 # Reels that shipped
 
-**Last updated 2026-09-12.**
+**Last updated 2026-09-17.**
 
 *One row per backlog id that reached the feed, removed from [`open.md`](open.md) so the live list
 stays live. **Ids are permanent and are never reused**, which is what lets old engagement logs
@@ -44,6 +44,16 @@ file only records that the id is spent.*
 | **I58** [BUILT] | Two high tides a day, and one of them shouldn't be there — ✅ **BUILT as r007, 2026-09-10** *(re-spined: see note)* | Everyone has seen a tide come in | The moon pulls the near side hardest. The FAR bulge is the one almost every explanation gets wrong, and "centrifugal force" is not the answer | Real harmonic constituents for one named port, both bulges, a month of predicted tide against the measured record | Diagram + Counter | 2026-09-10 |
 *(`I58` built 2026-09-10 as r007, and the row's own framing was corrected during Gate 0 rather than
 | **I70** [BUILT] | The biggest star in the universe is a speck — ✅ **POSTED as r009, 2026-09-11** | Every scale video you have ever seen ends on "and this one is even bigger" | Star sizes run out — the five largest ever measured are all within 8.7% of each other (VERIFIED; the Stephenson 2-18 / Hayashi-limit versions of this claim were both false and were cut). Distances do not. Drawn together at one scale, the largest known star is 1/18,749th of the gap (VERIFIED: WOH G64 A, 1,540 R☉, Ohnaka+ 2024) to the nearest neighbouring star, which is the rung every scale video skips | A single continuous re-based 3D ladder — planet, Sun, red hypergiant, then the ladder breaks and the giant vanishes into the gap; nebula and galaxy after it | Three.js + Counter | 2026-09-11 |
+
+## §3 · What actually happens when you… — accent `languages`
+
+| Id | Hook — the line that opens the reel | What they already know | What they have never seen | On screen | Family | Added |
+|:--|:--|:--|:--|:--|:--|:--|
+| **I81** [BUILT] | You don't sweat fat off — you breathe it out — ✅ **POSTED as r013, 2026-09-16 (37s), RE-CUT AND RE-POSTED 2026-09-17 (39s)** | Everyone has dieted or watched someone diet, and everyone has a theory about where it goes | Fat is oxidised to carbon dioxide and water: **VERIFIED 84.25%/15.75%**, independently re-derived from the real balanced equation (C55H104O6 + 78 O2 → 55 CO2 + 52 H2O), within 0.25 points of the published 84%/16% (Meerman & Brown, BMJ 2014;349:g7257) | The real balanced equation run on a stated mass of fat, with the carbon atoms leaving through breath and the output weighed on screen | Diagram + Counter | 2026-09-12 |
+*(Both cuts floored — cut 1: 159 views, avg watch 5s/37s; cut 2: 197 views, avg watch 3s/39s, WORSE
+on every retention metric despite a hook re-cut. Read as a content/heat floor, not a craft floor —
+see `brand_guide_software.md` §13 "A HOOK FIX MADE RETENTION WORSE" and
+`projects/r013_breath/NOTES.md`.)*
 
 ## §6 · Failure autopsies — accent `failure`
 

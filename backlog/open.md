@@ -1,6 +1,6 @@
 # Open reel candidates
 
-**Last updated 2026-09-12.**
+**Last updated 2026-09-17.**
 
 *Live candidates only. **Nothing built, posted, retired or killed appears here** — those live in
 [`posted.md`](posted.md) and [`closed.md`](closed.md), and an id never moves back. The `Added`
@@ -84,8 +84,6 @@ checked. Verify before a row reaches a gate.
 | **I67** | Your green tariff doesn't change the electrons | Everyone has been sold a renewable plan | The wall hands you whatever was running three seconds ago. The tariff is an accounting instrument, and the grid publishes what actually ran | Live grid mix and carbon intensity hour by hour, against what the plan claims | Counter + Diagram | 2026-09-10 |
 | **I78** | The explanation of flight in your school textbook is wrong | Everyone has flown, and everyone was taught that air splits at the wing and must meet up at the back | It does not meet up. Air over the top arrives at the trailing edge EARLY — markedly so — and the equal-transit-time story is a textbook error that would not even produce enough lift if it were true (LEAD: solve the flow and quote the real timing) | Two marked air parcels released together at the leading edge of a real aerofoil, tracked through the actual flow, one arriving long before the other and never re-pairing | Three.js + Counter | 2026-09-12 |
 *(GATE 3 — argument ammunition: a live dispute in every aviation thread and physics classroom. Second channel is "you were taught something false", which is high-arousal.)*
-| **I81** | When you lose weight, you breathe it out | Everyone has dieted or watched someone diet, and everyone has a theory about where it goes | Fat is oxidised to carbon dioxide and water: roughly 84% of the mass leaves through the LUNGS and 16% as water. It is not converted to energy, not sweated out, and not turned into muscle (LEAD: Meerman & Brown, BMJ 2014 — verify the split and the stoichiometry) | The real balanced equation run on a stated mass of fat, with the carbon atoms leaving through breath and the output weighed on screen | Diagram + Counter | 2026-09-12 |
-*(GATE 3 — "this is you" plus argument ammunition; diet arguments run constantly. RISK: the payoff frame is molecules, which is Gate 0 kill condition 2 — needs a physical stand-in (a scale, a breath) or it dies.)*
 
 ## §4 · Secrets and proofs — accent `security`
 

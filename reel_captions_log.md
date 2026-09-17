@@ -561,7 +561,7 @@ wording rather than by dropping the concept.
 
 ---
 
-## `r013` — caption draft, written pre-posting 2026-09-16
+## `r013` — as posted, 2026-09-16, recut and reposted 2026-09-17
 
 **You don't sweat fat off. You breathe it out.**
 
@@ -580,5 +580,13 @@ wrong.
 **Send-channel copy (GATE 3), and the reel's actual close card:** "Send this to whoever told you to
 sweat it off." Argument ammunition — everyone who has dieted has had this exact wrong conversation.
 
-**Engagement:** not recorded — this reel has not posted yet. GATE 5 (human watch-through) passed
-2026-09-16; both automated audits pass. See [`projects/r013_breath/NOTES.md`](projects/r013_breath/NOTES.md).
+**Engagement — cut 1 (37s, posted 2026-09-16):** 159 views / 129 viewers, average watch 5s
+(13.5%), skip rate 58.4% "Higher," 0 likes / 0 comments / 0 shares / 1 save / 0 follows.
+
+**Engagement — cut 2 (39s, re-cut same day, posted 2026-09-17):** 197 views / 186 viewers,
+average watch 3s (7.7%), skip rate 83.3% "Higher," ~1 like, 0 shares, 0 saves, 0 follows. Every
+retention number moved the WRONG direction against cut 1 — the recut (a flash-forward front-
+loading the payoff numbers, plus a fuller body) falsified rather than confirmed the hook-reorder
+hypothesis. Read as a content/heat floor (see the `r011` HEAT lesson), not a craft floor — no
+further recut planned. See [`projects/r013_breath/NOTES.md`](projects/r013_breath/NOTES.md) and
+`brand_guide_software.md` §13, "A HOOK FIX MADE RETENTION WORSE."
