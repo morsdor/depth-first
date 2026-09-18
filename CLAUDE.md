@@ -337,16 +337,12 @@ before optimising for reach: whether r005's 71 follows stayed, and whether they 
 
 | `r014` | `I31` | BGP hijack — one country tried to block YouTube for itself, and broke it for the whole world | **GATE 5 passed, POSTED 2026-09-18 (44 s).** First-ever GATE 3 pass on pure high-arousal novelty with no argument-ammunition leg, pre-registered against `r009`'s reading rather than sends (`projects/r014_hijack/gate0/GATE0.md` §9). **First reading: 1,949 views / 1,531 viewers, average watch 16 s/44 s (36%), 6 likes, 0 comments, 0 shares, 3 saves, 2 follows.** Like rate 0.4% ("Lower" than typical) — well under `r009`'s 2.92%, in `r010`/`r012`'s failure band rather than `r009`'s "liked normally, didn't send" shape. Skip rate 33.5% ("Lower" — hook held) and save rate 0.2% ("Higher") are the only lifts; sends 0.0%, continuing the account's run of zero-send readings outside `r005`. **Falsifies the hypothesis that genre saturation, not the novelty channel itself, was `r009`'s problem.** See [`projects/r014_hijack/NOTES.md`](projects/r014_hijack/NOTES.md) and `brand_guide_software.md` §13 |
 
-**Reel numbers are contiguous and mean "the Nth reel posted".** `r001`–`r014` have shipped.
-**`r011` claimed its number when the first `.tsx` was written, not when its Gate 0 was** — the
-rule as written, and what `I72` had just shown the cost of getting wrong.
+| `r015` | `I77` | Mirrors on the Moon — there are real retroreflectors up there, and observatories still bounce lasers off them | **GATE 5 passed, POSTED 2026-09-18 (45 s).** Strongest GATE 3 send-test answer on the account since `r005` — settles moon-landing denial with a real, ongoing measurement, not a photo — and also the most toxicity-exposed candidate on the backlog by its own Gate 0 note. Absorbed the older, unverified duplicate `I63`. Every figure VERIFIED against APOLLO's own instrument papers, an LLR round-trip-loss review, and Eos.org's recession feature: round-trip light time 2.5644s (exact physics), ~3.1×10¹⁷ photons sent per pulse vs 5-10 typically returned, ±1mm ranging precision, 3.83 cm/year recession over 57 years of data. Four real build bugs found and fixed before render — an oversized arrival "spot," unbounded ambient rotation that quietly ruined the wide shots by the close beat, the off-focus body swinging into Instagram's header band during a dive, and a since-miscalibrated ping marker that grew to dwarf the Moon. See [`projects/r015_moonmirrors/NOTES.md`](projects/r015_moonmirrors/NOTES.md). Engagement pending first reading |
 
-**`r015` (`I77`, the lunar laser ranging / "mirrors on the Moon" reel) has claimed its number** —
-Gate 0 and GATE 3 both passed 2026-09-18 (send test: settles moon-landing denial with a real,
-ongoing measurement — the strongest GATE 3 answer since `r005`, and flagged for real toxicity risk
-in its own comments), Stage 3 research complete. Script awaiting GATE 4 — see
-[`projects/r015_moonmirrors/gate0/GATE0.md`](projects/r015_moonmirrors/gate0/GATE0.md). No `.tsx`,
-no data module, no build yet.
+**Reel numbers are contiguous and mean "the Nth reel posted".** `r001`–`r015` have shipped.
+**`r011` claimed its number when the first `.tsx` was written, not when its Gate 0 was** — the
+rule as written, and what `I72` had just shown the cost of getting wrong. **The next reel is
+`r016`.**
 
 **THE PENDULUM LOOP WAS `r011` UNTIL 2026-09-12 AND IS NOW `r010` (2026-09-12).** The traffic reel
 (`I65`) held `r010`, was never posted, and was **parked by the account owner** on 2026-09-12 along

@@ -633,3 +633,33 @@ typical) — under `r009`'s 2.92%, in `r010`/`r012`'s failure band rather than `
 normally, didn't send" result. Skip rate 33.5% ("Lower") and save rate 0.2% ("Higher") are the
 only lifts. See `brand_guide_software.md` §13, "r014 — THE NOVELTY-ALONE EXPERIMENT ALSO FAILED,
 AND WORSE THAN ITS OWN FLOOR," and [`projects/r014_hijack/NOTES.md`](projects/r014_hijack/NOTES.md).
+
+---
+
+## `r015` — as posted, 2026-09-18
+
+**There are actual mirrors on the Moon, and observatories are still bouncing lasers off them.**
+
+Apollo 11, 14 and 15 left them there in 1969–71. Two Soviet Lunokhod rovers carried French-built
+ones too. An observatory fires a laser at one tonight, the beam spreads to about 7 km wide by the
+time it arrives, and out of roughly 310 quadrillion photons sent, only a handful — 5 to 10 — come
+back.
+
+Time that round trip to a few picoseconds and you know the distance to within a millimetre. Do
+that for 57 years and the pattern is unmistakable: the Moon is drifting away, 3.83 cm every year.
+
+Five real mirrors, sitting there since before most of us were born, still answering when asked.
+
+**Hook line:** "There are mirrors on the Moon."
+
+**Close card (verbatim on screen):** "Five mirrors. Placed over fifty years ago. Still answering."
+
+**Send-channel copy (GATE 3):** "Send this to whoever told you we never went." Argument
+ammunition — the strongest send-test answer on the account since `r005`: a real, ongoing
+measurement (not a photo) that settles moon-landing denial. Also the most toxicity-exposed
+candidate on the backlog by its own Gate 0 note (`projects/r015_moonmirrors/gate0/GATE0.md` §2,
+§7.4) — worth watching the comments on this one.
+
+**Engagement:** pending first reading. See
+[`projects/r015_moonmirrors/NOTES.md`](projects/r015_moonmirrors/NOTES.md) for the build record
+and every verified figure's source.

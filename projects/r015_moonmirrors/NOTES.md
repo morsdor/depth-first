@@ -134,9 +134,12 @@ window even before any bleed is applied.
 - The five mirror-site selenographic coordinates are illustrative near-side placements (correct
   general region per mission), not asserted to survey precision.
 
-## Awaiting
+## GATE 5 — PASSED, posted 2026-09-18
 
-**GATE 5 — the account owner watches the finished render end to end.** Nothing here should be read
-as a substitute for that: the oversized spot and the header-band swing both passed every static
-check (tsc, brand:check, even the motion/safe audits at earlier stages of the build) and were only
-caught by looking at actual frames. Watch on a phone, not just the stills in this file.
+Watched end to end and approved without a repair. The oversized spot and the header-band swing
+both passed every static check (tsc, brand:check, even the motion/safe audits at earlier stages of
+the build) and were only caught by looking at actual frames during this build — recorded above so
+the next 3D two-body scene doesn't rediscover either the hard way.
+
+Caption logged in [`reel_captions_log.md`](../../reel_captions_log.md). First engagement reading
+pending.

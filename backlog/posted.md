@@ -1,6 +1,6 @@
 # Reels that shipped
 
-**Last updated 2026-09-18.**
+**Last updated 2026-09-18** (r015/I77 added).
 
 *One row per backlog id that reached the feed, removed from [`open.md`](open.md) so the live list
 stays live. **Ids are permanent and are never reused**, which is what lets old engagement logs
@@ -76,6 +76,21 @@ file only records that the id is spent.*
 on every retention metric despite a hook re-cut. Read as a content/heat floor, not a craft floor —
 see `brand_guide_software.md` §13 "A HOOK FIX MADE RETENTION WORSE" and
 `projects/r013_breath/NOTES.md`.)*
+
+## §4 · Secrets and proofs — accent `security`
+
+| Id | Hook — the line that opens the reel | What they already know | What they have never seen | On screen | Family | Added |
+|:--|:--|:--|:--|:--|:--|:--|
+| **I77** [BUILT] ★ | There are mirrors on the Moon, and observatories still bounce lasers off them — ✅ **POSTED as r015, 2026-09-18 (45 s)** | Everyone has seen the Moon, and everyone has heard someone say the landings were faked | Apollo 11, 14 and 15 (1969-71) and the Soviet Lunokhod 1/2 arrays (1970/73) are still ranged today. The beam spreads to ~7 km wide by arrival, and of ~3.1×10¹⁷ photons APOLLO sends per pulse, typically 5-10 come back — VERIFIED against APOLLO's own instrument papers, an LLR round-trip-loss review, and Eos.org's recession feature | A fixed camera and a moving root group diving between two real bodies — Earth's observatory, the Moon's reflector — timing a real round trip that locks a distance to ±1mm and a recession rate of 3.83 cm/year | Three.js + Counter | 2026-09-12 |
+> **I77 — the strongest GATE 3 send-test answer on the account since `r005`** (settles moon-landing
+> denial with a real, ongoing measurement, not a photo), and also the most toxicity-exposed
+> candidate on the backlog by its own Gate 0 note (`projects/r015_moonmirrors/gate0/GATE0.md` §2,
+> §7.4). Absorbed the older, unverified duplicate `I63` (retired, this file, §2) at Gate 0. Four
+> real build bugs found and fixed pre-render — an oversized arrival "spot," unbounded ambient
+> rotation that ruined the wide shots by the close beat, the off-focus body swinging into
+> Instagram's header band during a dive, and a since-miscalibrated ping marker — full record in
+> [`projects/r015_moonmirrors/NOTES.md`](../projects/r015_moonmirrors/NOTES.md). Engagement pending
+> first reading.
 
 ## §6 · Failure autopsies — accent `failure`
 
