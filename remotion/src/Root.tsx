@@ -14,6 +14,7 @@ import { DURATION_SECONDS as BOARDING_SECONDS, Boarding } from './reels/Boarding
 import { DURATION_SECONDS as EARNINGS_SECONDS, EarningsPeak } from './reels/EarningsPeak';
 import { Breath, DURATION_SECONDS as BREATH_SECONDS } from './reels/Breath';
 import { DURATION_SECONDS as HIJACK_SECONDS, Hijack } from './reels/Hijack';
+import { DURATION_SECONDS as MOONMIRRORS_SECONDS, MoonMirrors } from './reels/MoonMirrors';
 import { DURATION_SECONDS as MANIM_SECONDS, ManimProbe } from './reels/ManimProbe';
 import { SafeZones } from './reels/lib/chrome';
 
@@ -133,6 +134,13 @@ const BreathSafe: React.FC = () => (
 const HijackSafe: React.FC = () => (
   <>
     <Hijack />
+    <SafeZones />
+  </>
+);
+
+const MoonMirrorsSafe: React.FC = () => (
+  <>
+    <MoonMirrors />
     <SafeZones />
   </>
 );
@@ -442,6 +450,40 @@ export const RemotionRoot: React.FC = () => {
         id="r014-hijack-safe"
         component={HijackSafe}
         durationInFrames={HIJACK_SECONDS * 30}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+
+      {/* r015 · I77 · there are mirrors on the Moon, and observatories still
+          bounce lasers off them — NOT YET POSTED, in gate. Claimed r015 the
+          moment its script was written (gate0/ moved to projects/r015_moonmirrors/).
+          Apollo 11/14/15 and Lunokhod 1/2 are still ranged today; timing the
+          round trip to a few picoseconds gives ~1mm precision on 384,400 km,
+          and 57 years of that shows the Moon receding 3.83 cm/year. VERIFIED
+          against APOLLO's own instrument papers, an LLR round-trip-loss
+          review and Eos.org's recession feature (gate0/GATE0.md §5). GATE 3
+          passed as the strongest send-test answer since r005 (settles moon-
+          landing denial with a real measurement) and flagged for real
+          toxicity risk in its own comments. 3D is spent on one continuous
+          move: the root group's position is solved each frame so a FOCUS
+          point (observatory, then reflector, then back) lands exactly at
+          the origin regardless of current scale/rotation, so the ambient
+          spin never has to pause for the dive to read. Data from
+          remotion/src/reels/data/moonmirrors.ts, which emit_ts.py refuses to
+          write unless every on-screen claim holds. */}
+      <Composition
+        id="r015-moonmirrors"
+        component={MoonMirrors}
+        durationInFrames={MOONMIRRORS_SECONDS * 30}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="r015-moonmirrors-safe"
+        component={MoonMirrorsSafe}
+        durationInFrames={MOONMIRRORS_SECONDS * 30}
         fps={30}
         width={1080}
         height={1920}
