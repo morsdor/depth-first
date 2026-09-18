@@ -1,6 +1,6 @@
 # Reels that shipped
 
-**Last updated 2026-09-17.**
+**Last updated 2026-09-18.**
 
 *One row per backlog id that reached the feed, removed from [`open.md`](open.md) so the live list
 stays live. **Ids are permanent and are never reused**, which is what lets old engagement logs
@@ -58,6 +58,19 @@ file only records that the id is spent.*
 
 | Id | Hook — the line that opens the reel | What they already know | What they have never seen | On screen | Family | Added |
 |:--|:--|:--|:--|:--|:--|:--|
+| **I31** [BUILT] ★ | One country tried to block YouTube for itself, and broke it for the whole world — ✅ **POSTED as r014, 2026-09-18 (44 s)** | Everyone's heard "the internet went down" | Routing between networks runs on trust, unverified. In 2008 Pakistan Telecom announced it owned a slice of YouTube's addresses; PCCW never checked before repeating it worldwide, and 97 networks were carrying the route within 2:30 (VERIFIED against RIPE NCC RIS, Google Research, Renesys/CircleID) | Camera diving from orbit to street level at Karachi as the announcement fires, six real cities' traffic converging on one point, then reversing as YouTube out-announces it | Three.js + Counter | 2026-09-02 |
+> **I31 — shipped as the account's first pure high-arousal-novelty GATE 3 pass, with no
+> argument-ammunition leg** (`projects/r014_hijack/gate0/GATE0.md` §9), pre-registered against
+> `r009`'s reading rather than sends. **First reading: 1,949 views / 1,531 viewers, average watch
+> 16 s / 44 s (36%), 6 likes, 0 comments, 0 shares, 3 saves, 2 follows.** Like rate **0.4%** ("Lower"
+> than typical) — well under `r009`'s 2.92% and the account's own pre-registered floor for this
+> experiment, closer to `r010`/`r012`'s failure band than to `r009`'s "liked normally, didn't send"
+> shape. Skip rate 33.5% ("Lower," the hook held attention better than typical) and save rate 0.2%
+> ("Higher") are the only positive signals; sends are 0.0%, continuing the account's near-unbroken
+> run of zero-send readings outside `r005`. **Falsifies the stated hypothesis that genre saturation,
+> not the novelty channel itself, was `r009`'s problem** — a genuinely fresh novelty subject still
+> did not out-perform it. See `brand_guide_software.md` §13 and
+> [`projects/r014_hijack/NOTES.md`](../projects/r014_hijack/NOTES.md).
 | **I81** [BUILT] | You don't sweat fat off — you breathe it out — ✅ **POSTED as r013, 2026-09-16 (37s), RE-CUT AND RE-POSTED 2026-09-17 (39s)** | Everyone has dieted or watched someone diet, and everyone has a theory about where it goes | Fat is oxidised to carbon dioxide and water: **VERIFIED 84.25%/15.75%**, independently re-derived from the real balanced equation (C55H104O6 + 78 O2 → 55 CO2 + 52 H2O), within 0.25 points of the published 84%/16% (Meerman & Brown, BMJ 2014;349:g7257) | The real balanced equation run on a stated mass of fat, with the carbon atoms leaving through breath and the output weighed on screen | Diagram + Counter | 2026-09-12 |
 *(Both cuts floored — cut 1: 159 views, avg watch 5s/37s; cut 2: 197 views, avg watch 3s/39s, WORSE
 on every retention metric despite a hook re-cut. Read as a content/heat floor, not a craft floor —

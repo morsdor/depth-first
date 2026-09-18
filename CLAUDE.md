@@ -335,13 +335,12 @@ before optimising for reach: whether r005's 71 follows stayed, and whether they 
 
 | `r013` | `I81` | Breath — you don't sweat fat off, you breathe it out | **POSTED 2026-09-16 (37 s), RE-CUT AND RE-POSTED 2026-09-17 (39 s).** Argument ammunition (Meerman & Brown, BMJ 2014: 84% of lost fat mass is exhaled as CO2, 16% becomes water), independently re-derived from a real balanced equation (C55H104O6 + 78 O2 → 55 CO2 + 52 H2O) rather than cited — 84.25%/15.75% computed, within 0.25 points of the paper; `emit_ts.py` carries 22 asserted on-screen claims. **Cut 1: 159 views, avg watch 5s/37s (13.5%), skip rate 58.4% "Higher".** Re-cut same-shape as r009's fix (a flash-forward front-loading the real payoff numbers, plus a fuller body). **Cut 2 (posted): 197 views, avg watch 3s/39s (7.7%), skip rate 83.3% "Higher" — WORSE on every retention metric, falsifying the hook-reorder hypothesis rather than confirming it.** Read as a content/heat floor, not a craft floor — see "A HOOK FIX MADE RETENTION WORSE" in `brand_guide_software.md` §13 and [`projects/r013_breath/NOTES.md`](projects/r013_breath/NOTES.md) |
 
-**Reel numbers are contiguous and mean "the Nth reel posted".** `r001`–`r013` have shipped.
+| `r014` | `I31` | BGP hijack — one country tried to block YouTube for itself, and broke it for the whole world | **GATE 5 passed, POSTED 2026-09-18 (44 s).** First-ever GATE 3 pass on pure high-arousal novelty with no argument-ammunition leg, pre-registered against `r009`'s reading rather than sends (`projects/r014_hijack/gate0/GATE0.md` §9). **First reading: 1,949 views / 1,531 viewers, average watch 16 s/44 s (36%), 6 likes, 0 comments, 0 shares, 3 saves, 2 follows.** Like rate 0.4% ("Lower" than typical) — well under `r009`'s 2.92%, in `r010`/`r012`'s failure band rather than `r009`'s "liked normally, didn't send" shape. Skip rate 33.5% ("Lower" — hook held) and save rate 0.2% ("Higher") are the only lifts; sends 0.0%, continuing the account's run of zero-send readings outside `r005`. **Falsifies the hypothesis that genre saturation, not the novelty channel itself, was `r009`'s problem.** See [`projects/r014_hijack/NOTES.md`](projects/r014_hijack/NOTES.md) and `brand_guide_software.md` §13 |
+
+**Reel numbers are contiguous and mean "the Nth reel posted".** `r001`–`r014` have shipped.
 **`r011` claimed its number when the first `.tsx` was written, not when its Gate 0 was** — the
 rule as written, and what `I72` had just shown the cost of getting wrong. **The next reel is
-`r014`.** `r014` (`I31`, the BGP hijack reel) is built and awaiting GATE 5 — see
-[`projects/r014_hijack/NOTES.md`](projects/r014_hijack/NOTES.md). It was **not** `r013`: that
-number was claimed by `I81`/Breath, which posted first while the hijack build was in progress on a
-separate session.
+`r015`.**
 
 **THE PENDULUM LOOP WAS `r011` UNTIL 2026-09-12 AND IS NOW `r010` (2026-09-12).** The traffic reel
 (`I65`) held `r010`, was never posted, and was **parked by the account owner** on 2026-09-12 along

@@ -158,10 +158,22 @@ design) and at 41s (well outside it — text and globe both sit cleanly inside t
   about real per-city propagation order — only the aggregate "97 networks in 2:30" figure is
   measured and verified.
 
-## Awaiting
+## GATE 5 — PASSED, posted 2026-09-18
 
-**GATE 5 — the account owner watches the finished render end to end.** Nothing here should be read
-as a substitute for that: the "camera inside the sphere" and "frame goes solid black" bugs both
-passed every static check (tsc, brand:check, even a first pass of the motion/safe audits, since
-those measure luminance and inter-frame change, not "does this read as intended") and were only
-caught by looking at actual frames. Watch on a phone, not just the stills in this file.
+## First reading (2026-09-18)
+
+**1,949 views / 1,531 viewers, average watch 16s of 44s (36%), 6 likes, 0 comments, 0 shares,
+3 saves, 2 follows.** Skip rate 33.5% ("Lower" than typical), share rate 0.0% ("Lower"), like rate
+0.4% ("Lower"), save rate 0.2% ("Higher"), repost/comment rate 0.0% (typical). Sources: Reels tab
+88.4%, Explore 9.6%, Stories 1.1%, Feed 0.5%, Profile 0.1% — ~98% cold/algorithmic.
+
+**Grading against the `gate0/GATE0.md` §9 pre-registration:** the experiment was framed as a test
+of whether genre saturation (not the novelty channel itself) was `r009`'s real problem, judged
+against `r009`'s reading rather than sends. `r009` liked at a *normal* rate (2.92%, on par with
+`r005`) while sending at 0%. `r014`'s like rate is 0.4% — an order of magnitude under `r009`'s, and
+inside `r010` (0.247%) / `r012` (~0.10%)'s failure band instead. **This falsifies the hoped
+result**: a fresh, unsaturated novelty subject with a genuine "this could happen again" anxiety
+hook still did not clear `r009`'s bar. The only lifts are skip rate (hook held attention) and save
+rate (mild) — the same "watched, not felt" signature already seen on `r008`/`r010`/`r011`. Full
+analysis: `brand_guide_software.md` §13, "r014 — THE NOVELTY-ALONE EXPERIMENT ALSO FAILED, AND
+WORSE THAN ITS OWN FLOOR."

@@ -607,3 +607,29 @@ loading the payoff numbers, plus a fuller body) falsified rather than confirmed 
 hypothesis. Read as a content/heat floor (see the `r011` HEAT lesson), not a craft floor — no
 further recut planned. See [`projects/r013_breath/NOTES.md`](projects/r013_breath/NOTES.md) and
 `brand_guide_software.md` §13, "A HOOK FIX MADE RETENTION WORSE."
+
+---
+
+## `r014` — as posted, 2026-09-18
+
+**One country tried to block YouTube for itself, and broke it for the whole world.**
+
+24 February 2008, 18:47 UTC: Pakistan Telecom announces a route meant to block YouTube inside
+Pakistan. Its upstream provider, PCCW, never checks whether the claim is real before repeating it
+to the planet. 97 networks are carrying the route within two and a half minutes. For just over two
+hours, most of the world can't reach YouTube — not because of a typo, but because nobody asked for
+ID. Verified against RIPE NCC's own RIS case study, Google Research's BGP-dynamics analysis, and
+Renesys's contemporaneous writeup (cross-checked against its CircleID follow-up).
+
+**Hook line:** "One country tried to block YouTube for itself — for itself."
+
+**Send-channel copy (GATE 3):** none — pre-registered as a pure high-arousal-novelty pass with no
+argument-ammunition leg (`projects/r014_hijack/gate0/GATE0.md` §9), graded against `r009`'s
+reading rather than sends. Close card: "Nobody asked for ID. The internet runs on trust."
+
+**Engagement at first reading (2026-09-18):** 1,949 views / 1,531 viewers, average watch time 16s
+of 44s (36%), 6 likes, 0 comments, 0 shares, 3 saves, 2 follows. Like rate 0.4% ("Lower" than
+typical) — under `r009`'s 2.92%, in `r010`/`r012`'s failure band rather than `r009`'s own "liked
+normally, didn't send" result. Skip rate 33.5% ("Lower") and save rate 0.2% ("Higher") are the
+only lifts. See `brand_guide_software.md` §13, "r014 — THE NOVELTY-ALONE EXPERIMENT ALSO FAILED,
+AND WORSE THAN ITS OWN FLOOR," and [`projects/r014_hijack/NOTES.md`](projects/r014_hijack/NOTES.md).

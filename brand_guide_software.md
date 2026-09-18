@@ -2366,3 +2366,33 @@ data point on that axis rather than the format axis. **Open — the next reel th
 majority non-Tier-1 audience is the control this needs**, and the next chart-payoff or
 self-relevance concept (if either is tried again) should not be graded against this single,
 confounded read.
+
+### r014 — THE NOVELTY-ALONE EXPERIMENT ALSO FAILED, AND WORSE THAN ITS OWN FLOOR (2026-09-18)
+
+**`I31`'s `gate0/GATE0.md` §9 pre-registered this as a test of one specific question: was `r009`'s
+problem the missing argument-ammunition channel, or was it that "space is unfathomably big" is a
+saturated genre?** The bet was that a *fresh* high-arousal-novelty subject — a country
+accidentally breaking the internet for the rest of the world — would clear `r009`'s bar even
+without a send channel, because the genre isn't saturated and the "this could happen again, to
+something I use" anxiety hook is real. The pre-registered failure case was "liked at a
+normal-or-lower rate, no lift anywhere, indistinguishable from noise," matching `r009` (which
+itself liked at a *normal* rate — 2.92%, on par with `r005` — while sending at 0%).
+
+**First reading: 1,949 views / 1,531 viewers, average watch 16 s/44 s (36%), 6 likes, 0 comments,
+0 shares, 3 saves, 2 follows.** Like rate **0.4%**, flagged "Lower" than the account's own
+typical — not the "normal rate" `r009` actually got, but a full order of magnitude under it, and
+squarely inside the `r010` (0.247%) / `r012` (~0.10%) failure band instead. Sends are 0.0%, as
+expected going in. The only positive reads are skip rate (33.5%, "Lower" — the hook held attention
+better than typical) and save rate (0.2%, "Higher") — the same "hook works, nobody feels it"
+signature as `r011`.
+
+**The pre-registered question is answered, and not the way the bet hoped: it was not (only) genre
+saturation.** A subject this account had never touched, with a genuine ongoing-risk hook, still
+did not out-perform `r009` — it under-performed it on the one metric (likes) the experiment was
+graded on. Combined with `r008` (0 engagement, best motion score on the account) and `r010`/`r012`
+(near-zero likes on otherwise well-retained reels), **the account now has four independent reels
+saying craft, novelty and freshness are not the lever** — the only reel that ever moved was the one
+that landed inside a live, identity-loaded argument (`r005`), and the only other reel that scored a
+named channel at all (`r011`) still failed on sends once HEAT was checked. Novelty-for-its-own-sake,
+tried three separate ways now (`r009` cosmic scale, `r010` mesmerising loop, `r014` historical
+BGP hijack), has a 0-for-3 record on this account.
