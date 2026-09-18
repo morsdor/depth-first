@@ -339,8 +339,14 @@ before optimising for reach: whether r005's 71 follows stayed, and whether they 
 
 **Reel numbers are contiguous and mean "the Nth reel posted".** `r001`–`r014` have shipped.
 **`r011` claimed its number when the first `.tsx` was written, not when its Gate 0 was** — the
-rule as written, and what `I72` had just shown the cost of getting wrong. **The next reel is
-`r015`.**
+rule as written, and what `I72` had just shown the cost of getting wrong.
+
+**`r015` (`I77`, the lunar laser ranging / "mirrors on the Moon" reel) has claimed its number** —
+Gate 0 and GATE 3 both passed 2026-09-18 (send test: settles moon-landing denial with a real,
+ongoing measurement — the strongest GATE 3 answer since `r005`, and flagged for real toxicity risk
+in its own comments), Stage 3 research complete. Script awaiting GATE 4 — see
+[`projects/r015_moonmirrors/gate0/GATE0.md`](projects/r015_moonmirrors/gate0/GATE0.md). No `.tsx`,
+no data module, no build yet.
 
 **THE PENDULUM LOOP WAS `r011` UNTIL 2026-09-12 AND IS NOW `r010` (2026-09-12).** The traffic reel
 (`I65`) held `r010`, was never posted, and was **parked by the account owner** on 2026-09-12 along

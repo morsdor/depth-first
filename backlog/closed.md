@@ -33,7 +33,7 @@ nobody re-derives it.
 | **I63** [RETIRED] | There are mirrors on the moon  (retired — 2026-09-18, superseded by I77) | "We never went" is an argument everyone has heard | Apollo left retroreflectors and observatories still range them weekly. That is how we know the moon is receding 3.8 cm a year — a number that only exists because the mirrors are there | Real laser ranging geometry, the round-trip time, the recession plotted against the years | MapRoute + Counter | 2026-09-10 |
 *(Same concept as `I77` (§4 Secrets and proofs), added 2026-09-12 with a sharper GATE 3 note and
 the photon-budget detail already sourced. Rather than build two reels on one idea, `I63` retires
-in favour of `I77`, which is where Gate 0 now proceeds — see `gate0/i77_moonmirrors/gate0/GATE0.md`.)*
+in favour of `I77`, which is where Gate 0 now proceeds — see `projects/r015_moonmirrors/gate0/GATE0.md`.)*
 
 ## §3 · What actually happens when you… — accent `languages`
 

@@ -59,20 +59,30 @@ can hide — the file "looked done" at a glance and was still wrong.
 **The recognisable object (Earth, Moon, and the beam between them) can stay on screen for the
 whole reel** — non-negotiable 6 — the same way r005's globe and r009's ladder never left frame.
 
-## 5. Numbers, and where they came from — ALL LEADS, NONE VERIFIED YET
+## 5. Numbers, and where they came from — Stage 3 complete, 2026-09-18
 
-| Fact | Value (as proposed) | Status |
+**Two of the original backlog LEADs were significantly wrong and are corrected below** — the
+return-spot figure was off by roughly 500x, and the photon-ratio figure, while the right order of
+magnitude, had a cleaner, better-sourced replacement. Recorded here rather than quietly fixed,
+same as `I31`'s "1:45 vs 2:30" correction.
+
+| Fact | Verified value | Source |
 |:--|:--|:--|
-| Earth–Moon mean distance | 384,400 km | Standard astronomical constant — low risk, verify against a primary ephemeris source in Stage 3 anyway |
-| Apollo retroreflector arrays still in use | 11, 14, 15 (and the Soviet Lunokhod 1/2 arrays, sometimes counted separately) | LEAD — confirm which arrays are routinely used by which stations today, not just historically |
-| Outgoing beam spread at the Moon | ~6.5 km diameter, order-of-magnitude figure carried from `I77`'s backlog row | LEAD — must be recomputed in Stage 3 from a station's actual divergence half-angle and the real distance, not carried from memory |
-| Return beam spread at Earth | ~15,000 km, illustrative only | LEAD — same recomputation |
-| Photon return rate | "~1 photon back per 10^17 sent," backlog's own figure | LEAD — this is the number most likely to be wrong by an order of magnitude; different stations (APOLLO vs older McDonald-era) report very different photon budgets, and the reel must cite one station's real, published rate, not an average from memory |
-| Recession rate | 3.8 cm/year | LEAD — widely repeated, but must be sourced to an actual LLR data release or review (e.g. a JPL/IERS or APOLLO-station publication), not to secondary science writing |
+| Earth–Moon mean distance | 384,400 km | Standard astronomical constant, cross-checked against NASA/lunar-distance references |
+| Recession rate | **3.83 cm/year**, formal uncertainty ~0.09 mm, from 50+ years of LLR data | Eos.org ("Seeing the Light"), corroborated by IFLScience, ScienceBlog and an arXiv review on lunar recession and length-of-day — physical cause: tidal dissipation slowing Earth's rotation |
+| Round-trip photon loss, typical LLR station | **~1 : 10^18** — a 10 Hz, ~200 ps pulse of ~10^18 photons returns roughly one detected photon every few seconds at most stations | Lunar laser ranging review literature (arXiv, "the millimeter challenge" and related LLR reviews) |
+| APOLLO station's own figure (the modern outlier) | 115 mJ pulse = **3.1×10^17 photons sent**; APOLLO detects **5–10 photons per pulse**, i.e. roughly **1 : 4×10^16** — orders of magnitude better than older stations because of its larger aperture | APOLLO instrument papers (Murphy et al., IOPscience "Two Years of Millimeter-Precision Measurements"; arXiv instrument-description papers) |
+| Per-target record returns | Apollo 11: 0.96 photons/shot · Apollo 14: 1.52 · **Apollo 15: 3.15** (its larger 3-panel array returns the strongest signal) | Same APOLLO instrument literature |
+| Outgoing beam spot at the Moon | **A few km across, commonly cited ~7 km diameter** (atmospheric seeing sets a few arcsec of divergence) | Lunar ranging optics literature (Stony Brook laser-teaching report; IERS Technical Note 34) — corrects the backlog's uncited "kilometres wide" to a real range |
+| Return beam spot at Earth | **A few TENS of km across** — **not** the ~15,000 km this file originally carried as a placeholder, which was a 500x overstatement | Same optics literature — this is the correction that matters most before any beam-cone visual ships |
+| Active reflector arrays | **Apollo 11, 14, 15** (US, 1969–71) plus the Soviet **Lunokhod 1 and 2** French-built arrays (1970/73) — five real objects still on the Moon | Cross-checked via the Lunokhod 1 rediscovery literature below |
 
-**This id carries more unverified LEADs than most recent proposals**, precisely because it was
-minted for its GATE 3 shape rather than researched first. Stage 3 must treat every row above as
-possibly wrong, same as `I31`'s "typo" framing turned out to be.
+**The Lunokhod 1 story, found along the way and worth a beat of its own:** its reflector went
+undetected from 1971 until 2010 — effectively lost for 39 years — until Lunar Reconnaissance
+Orbiter imagery pinpointed the rover to ~100 m in March 2010, letting the APOLLO team range it
+successfully weeks later, on 22 April 2010. It now returns a signal **roughly 4x stronger than its
+twin, Lunokhod 2** — a mirror sitting untouched and still working after four decades, rediscovered
+from a photograph. (Corney et al. 2010, arXiv:1009.5720 / ScienceDirect; Astronomy.com summary.)
 
 ## 6. Licence and feasibility
 
@@ -92,11 +102,11 @@ possibly wrong, same as `I31`'s "typo" framing turned out to be.
 
 ## 7. Accuracy risks the build must not skate past
 
-1. **The photon-return figure is the single riskiest number on this page.** Different LLR stations
-   across different decades report photon budgets that vary by orders of magnitude (older lunar
-   arrays vs APOLLO's newer, larger-aperture setup). The build must cite ONE real station's
-   published figure and say which station, not blend an "average" the way `I31`'s "1:45 vs 2:30"
-   confusion nearly shipped a wrong number.
+1. **RESOLVED — the photon-return figure.** Different LLR stations report photon budgets that vary
+   by orders of magnitude (typical stations ~1:10^18 vs APOLLO's ~1:4×10^16), so the build cites
+   ONE station per figure and names it: "most stations" for the ~1:10^18 headline number, APOLLO
+   named explicitly for its 5–10 photons/pulse and the per-target 0.96/1.52/3.15 breakdown. Never
+   blended into a single unlabelled average — the `I31` "1:45 vs 2:30" lesson, applied.
 2. **"Landings were faked" must never be staged as a claim the reel takes seriously enough to
    rebut point-by-point.** The reel shows the mechanism and lets the fact stand; it does not
    itemise or platform specific conspiracy arguments, which is both a tone risk and an unnecessary
@@ -113,6 +123,10 @@ possibly wrong, same as `I31`'s "typo" framing turned out to be.
    chasing conspiracy content... most other arenas are cheaper and less toxic" — noted and accepted
    here as a real cost of proceeding, not an oversight.
 
-## 8. Awaiting
+## 8. Status
 
-**A human yes.** Gate 0 is not mine to pass.
+**Gate 0 (§1) — PASSED, 2026-09-18.** GATE 3 (§2) — PASSED, 2026-09-18. Stage 3 research (§5) —
+COMPLETE, 2026-09-18.
+
+**Awaiting GATE 4 — the human approves the full script**, in `../SCRIPT.md`. Nothing is coded
+until then.

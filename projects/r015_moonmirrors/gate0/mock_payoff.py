@@ -20,7 +20,7 @@ Every figure below is a RESEARCH LEAD -- Stage 3 verifies each against a
 primary source (APOLLO/McDonald/OCA station literature, LLR data releases)
 before it reaches a script or a frame.
 
-    python3 gate0/i77_moonmirrors/gate0/mock_payoff.py
+    python3 projects/r015_moonmirrors/gate0/mock_payoff.py
 """
 import pathlib
 
