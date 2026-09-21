@@ -153,7 +153,54 @@ share fell sharply, **yet severe-drought impact stayed 2–5% of GDP throughout.
 contested: [Huang et al. 2020, *J. Climate*](https://journals.ametsoc.org/view/journals/clim/33/12/jcli-d-19-0833.1.xml)
 finds forced trends overwhelmed by internal variability (IPO).
 
-## 7. Recommendation
+## 7. Getting the papers — verified access routes
+
+**All links below were checked on 2026-09-21 with an actual HTTP request, not scraped.**
+
+| Paper | Need to read? | Access |
+|:--|:--|:--|
+| **Gadgil 2018** — the hook | ✅ **Essential** | **FREE, full 29-page PDF** — [ias.ac.in](https://www.ias.ac.in/article/fulltext/jess/127/01/0001) |
+| **Boos & Kuang 2010** — act two | ✅ Yes | **FREE** — [boos.berkeley.edu](https://boos.berkeley.edu/pdf/BoosKuang2010_Nature_withSI.pdf) (**with SI**) |
+| **Boos & Kuang 2013** — the revision | ✅ Yes | **FREE** — [boos.berkeley.edu](https://boos.berkeley.edu/pdf/BoosKuang2013.pdf) |
+| **Roxy et al. 2017** — extreme rain | Optional | **FREE, gold OA** — [nature.com](https://www.nature.com/articles/s41467-017-00744-9.pdf) |
+| **Roxy et al. 2015** — Indian Ocean warming | Optional | **FREE, gold OA** — [nature.com](https://www.nature.com/articles/ncomms8423.pdf) |
+| **Gadgil 2003** — *Annu. Rev.* | ❌ **Not needed** | Paywalled. **Cited for authority, not content** — the 1,257 citations are public, and the argument is restated in 2018 |
+| **Geen et al. 2020** — *Rev. Geophys.* | ⚠️ Would like | Paywalled. **Email the corresponding author** — see below |
+| **Chakraborty, Nanjundiah & Srinivasan 2002** (IISc) | Optional | The `caos.iisc.ac.in` path is dead; search IISc ePrints or email |
+
+**Net position: nothing blocks the video.** The hook paper and both Boos papers are free.
+
+### ⚠️ OpenAlex reported all four core papers as "closed" — and was wrong about two
+
+A query to `api.openalex.org/works/doi:{doi}` returned `oa_status: closed` for Gadgil 2018 and
+Boos & Kuang 2010, **both of which have free, publisher-or-author-hosted PDFs that were verified
+by direct request.** OA indexes miss:
+
+- journals hosted by a learned society alongside a commercial publisher (**ias.ac.in** hosts every
+  Indian Academy of Sciences journal free, even where Springer also sells it), and
+- **author's own institutional pages**, which are the single highest-yield route and are indexed by
+  almost nothing.
+
+**Never conclude "paywalled" from an OA index alone. Check the author's page.**
+
+### The reusable toolkit
+
+1. **[Unpaywall](https://unpaywall.org/products/extension)** browser extension — legal OA copies, automatically.
+2. **The author's own page** — highest yield, worst indexed. Boos is the example here.
+3. **[ias.ac.in](https://www.ias.ac.in/)** — **all** Indian Academy of Sciences journals, free.
+   *J. Earth Syst. Sci.*, *Pramana*, *Sadhana*, *J. Biosciences*.
+4. **[Current Science](https://www.currentscience.ac.in/)** — free, and Indian monsoon science
+   publishes there heavily.
+5. **[IISc ePrints](https://eprints.iisc.ac.in/)**, **[OpenAlex](https://openalex.org/)**,
+   **[CORE](https://core.ac.uk/)**, **arXiv**.
+6. **Email the corresponding author.** Legal, completely normal, and it works nearly always.
+
+> **For this channel, #6 has a second payoff.** Every one of these scientists is Indian and reachable
+> — Gadgil at IISc, Roxy and Krishnan at IITM Pune. A PDF request is also the opening of a
+> fact-check relationship, and Ashris explicitly uses journalist contacts to fact-check his videos.
+> **An email that gets a paper may also get a reviewer, or an interview.**
+
+## 8. Recommendation
 
 **Make the video — on Gadgil's ITCZ reframing, not on insulation.**
 
