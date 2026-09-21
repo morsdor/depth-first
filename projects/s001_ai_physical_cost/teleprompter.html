@@ -1,0 +1,504 @@
+<!--
+  teleprompter.html — Software channel · s001 The Physical Cost of AI
+  A standalone, offline teleprompter. Double-click to open in any browser (file://).
+  Space=play/pause · ↑/↓=speed · +/−=font · R=restart · F=fullscreen · M=mirror · N=notes · H=highlight · ?=help
+  Drag the bottom time-bar (or scroll over the text) to jump to any section.
+  Source of truth: script.md (DRAFT v2). Palette: electric-blue-on-dark (this channel's thumbnail direction).
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>s001 · The Physical Cost of AI — Teleprompter</title>
+<style>
+  :root{
+    --bg:#080a0f; --ink:#e9f0f8; --dim:#7c8698; --note:#6b7486;
+    --amber:#f0b24a; --azure:#56c7ff; --hl:#ffe773; --hl-ink:#1a1c10;
+    --bar:#0d1017; --line:#1e2430; --accent:#3b93ff;
+    --fs:34;          /* VO font size in px (control) */
+    --lh:1.5;
+    --readY:38vh;     /* where the read-line sits */
+    --serif:Georgia,"Iowan Old Style","Palatino Linotype",Palatino,serif;
+    --sans:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--ink);font-family:var(--sans)}
+  body{position:relative}
+
+  /* ---------- stage ---------- */
+  #stage{position:fixed;inset:0;overflow:hidden;cursor:default}
+  #mirror{position:absolute;inset:0;transition:transform .2s}
+  #mirror.flipX{transform:scaleX(-1)}
+  #mirror.flipY{transform:scaleY(-1)}
+  #mirror.flipX.flipY{transform:scale(-1,-1)}
+  #reel{position:absolute;left:0;right:0;top:0;will-change:transform}
+  #col{max-width:22em;margin:0 auto;padding:0 6vw;font-size:calc(var(--fs)*1px)}
+
+  .wp{font-family:var(--sans);text-transform:uppercase;letter-spacing:.16em;
+      font-size:calc(var(--fs)*0.4px);color:var(--accent);margin:1.6em 0 .5em;
+      display:flex;gap:.8em;align-items:baseline;flex-wrap:wrap;opacity:.9}
+  .wp .reg{color:var(--dim);letter-spacing:.12em}
+  .wp .mic{color:var(--azure)}
+  section.mic .wp{border-left:3px solid var(--azure);padding-left:.7em;margin-left:-.85em}
+
+  .vo{font-family:var(--serif);font-size:calc(var(--fs)*1px);line-height:var(--lh);
+      color:var(--ink);margin:.7em 0}
+  .vo em{font-style:italic;color:#fff}
+  .vo strong{font-weight:800;color:#fff}
+  body.hl .vo mark{background:var(--hl);color:var(--hl-ink);padding:.02em .12em;border-radius:.1em;
+      -webkit-box-decoration-break:clone;box-decoration-break:clone}
+  .vo mark{background:none;color:inherit}          /* highlight only when body.hl */
+  section.mic .vo{color:#f2f8ff}
+
+  .cue{display:inline-block;font-family:var(--sans);font-size:calc(var(--fs)*0.34px);
+      text-transform:uppercase;letter-spacing:.14em;color:var(--amber);
+      border:1px solid color-mix(in srgb,var(--amber) 45%,transparent);border-radius:.5em;
+      padding:.25em .6em;margin:0 .5em .2em 0;vertical-align:.18em;white-space:nowrap}
+
+  .vis{font-family:var(--sans);font-size:calc(var(--fs)*0.46px);line-height:1.4;
+      color:var(--note);font-style:italic;margin:.5em 0;padding-left:.8em;
+      border-left:2px solid var(--line);display:none}
+  body.notes .vis{display:block}
+  .vis b{font-style:normal;font-family:var(--sans);text-transform:uppercase;letter-spacing:.16em;
+      font-size:.7em;color:#6a7488;margin-right:.6em}
+
+  .mark{font-family:var(--sans);text-transform:uppercase;letter-spacing:.22em;
+      font-size:calc(var(--fs)*0.4px);color:var(--dim);text-align:center;margin:1em 0;
+      display:flex;align-items:center;gap:1em;justify-content:center}
+  .mark::before,.mark::after{content:"";height:1px;width:14%;background:var(--line)}
+
+  .card{font-family:var(--sans);font-size:calc(var(--fs)*0.44px);color:var(--dim);text-align:center;
+      border:1px dashed var(--line);border-radius:.5em;padding:.7em 1em;margin:1.2em 0}
+
+  /* ---------- read line + focus vignette ---------- */
+  .vignette{position:absolute;inset:0;pointer-events:none;z-index:3;
+      background:linear-gradient(180deg,
+        var(--bg) 0%, rgba(8,10,15,.86) 12%, rgba(8,10,15,0) calc(var(--readY) - 6vh),
+        rgba(8,10,15,0) calc(var(--readY) + 12vh), rgba(8,10,15,.55) 74%, var(--bg) 100%)}
+  .readline{position:absolute;left:0;right:0;top:var(--readY);height:0;pointer-events:none;z-index:4;
+      border-top:1px solid rgba(59,147,255,.32)}
+  .readline::before,.readline::after{content:"";position:absolute;top:-6px;
+      border-top:6px solid transparent;border-bottom:6px solid transparent}
+  .readline::before{left:0;border-left:10px solid var(--accent)}
+  .readline::after{right:0;border-right:10px solid var(--accent)}
+  body.noguide .vignette,body.noguide .readline{opacity:0}
+
+  /* ---------- countdown ---------- */
+  #count{position:absolute;left:0;right:0;top:calc(var(--readY) - 8vh);text-align:center;z-index:6;
+      font-family:var(--serif);font-size:16vh;color:var(--accent);pointer-events:none;
+      opacity:0;transition:opacity .12s}
+  #count.show{opacity:1}
+
+  /* ---------- top control bar ---------- */
+  #bar{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;flex-wrap:wrap;align-items:center;
+      gap:.4rem .5rem;padding:.55rem .8rem;background:linear-gradient(180deg,var(--bar),rgba(13,16,23,.86));
+      border-bottom:1px solid var(--line);transition:opacity .3s,transform .3s}
+  #bar.hidden{opacity:0;transform:translateY(-100%);pointer-events:none}
+  #bar .grp{display:flex;align-items:center;gap:.25rem}
+  #bar .name{font-weight:700;font-size:.82rem;margin-right:auto;letter-spacing:.01em;white-space:nowrap}
+  #bar .name b{color:var(--accent)}
+  button{font-family:var(--sans);font-size:.78rem;line-height:1;color:var(--ink);background:#161b24;
+      border:1px solid var(--line);border-radius:.5rem;padding:.42em .6em;cursor:pointer;white-space:nowrap;
+      transition:border-color .15s,background .15s,color .15s}
+  button:hover{border-color:var(--accent)}
+  button:focus-visible{outline:2px solid var(--azure);outline-offset:2px}
+  button.on{background:var(--accent);border-color:var(--accent);color:#04121f}
+  #play{min-width:4.6rem;font-weight:700}
+  .val{font-variant-numeric:tabular-nums;font-size:.76rem;color:var(--dim);min-width:2.4rem;text-align:center}
+
+  /* ---------- bottom readout ---------- */
+  #foot{position:fixed;left:0;right:0;bottom:0;z-index:9;display:flex;align-items:center;gap:.8rem;
+      padding:.55rem .9rem .5rem;background:linear-gradient(0deg,var(--bar),rgba(13,16,23,0));
+      font-size:.74rem;color:var(--dim);font-variant-numeric:tabular-nums;pointer-events:none}
+  #track{position:relative;flex:1;height:6px;background:#161b24;border-radius:3px;cursor:pointer;
+      pointer-events:auto;touch-action:none}
+  #track::before{content:"";position:absolute;inset:-11px 0}        /* fat invisible grab zone */
+  #fill{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--azure));
+      border-radius:3px;pointer-events:none}
+  #knob{position:absolute;top:50%;left:0;width:14px;height:14px;border-radius:50%;background:var(--ink);
+      border:2px solid var(--accent);transform:translate(-50%,-50%);box-shadow:0 1px 4px rgba(0,0,0,.5);
+      pointer-events:none;transition:background .15s}
+  #track:hover #knob,#track.drag #knob{background:var(--accent)}
+
+  /* ---------- help overlay ---------- */
+  #help{position:fixed;inset:0;z-index:20;background:rgba(4,7,12,.9);display:none;
+      align-items:center;justify-content:center;padding:5vw}
+  #help.show{display:flex}
+  #help .card2{max-width:34rem;background:#0f131b;border:1px solid var(--line);border-radius:1rem;
+      padding:1.4rem 1.6rem;font-size:.9rem;line-height:1.7}
+  #help h2{font-family:var(--serif);font-size:1.4rem;margin-bottom:.6rem}
+  #help kbd{font-family:var(--sans);background:#1b212c;border:1px solid var(--line);border-bottom-width:2px;
+      border-radius:.35em;padding:.1em .5em;font-size:.82em;color:var(--ink)}
+  #help table{width:100%;border-collapse:collapse;margin-top:.5rem}
+  #help td{padding:.32em 0;border-top:1px solid var(--line);vertical-align:top}
+  #help td:first-child{width:9rem;white-space:nowrap}
+  #help p{color:var(--dim);margin-top:1rem;font-size:.82rem}
+
+  @media (prefers-reduced-motion:reduce){#mirror,#bar{transition:none}}
+</style>
+
+<div id="stage">
+  <div id="mirror"><div id="reel"><div id="col"></div></div></div>
+  <div class="vignette"></div>
+  <div class="readline"></div>
+  <div id="count"></div>
+</div>
+
+<header id="bar">
+  <span class="name"><b>s001</b> The Physical Cost of AI · Teleprompter</span>
+  <div class="grp"><button id="play" title="Play / pause (Space)">▶ Play</button>
+    <button id="restart" title="Restart (R)">⭮</button></div>
+  <div class="grp"><button id="spdn" title="Slower (↓)">–</button>
+    <span class="val" id="spval">145 wpm</span><button id="spup" title="Faster (↑)">+</button></div>
+  <div class="grp"><button id="fdn" title="Smaller text (−)">A−</button>
+    <button id="fup" title="Bigger text (+)">A+</button></div>
+  <div class="grp">
+    <button id="notes" title="Scene notes (N)">Notes</button>
+    <button id="hl" title="Highlight VO (H)">Highlight</button>
+    <button id="mir" title="Mirror for glass (M)">Mirror</button>
+    <button id="full" title="Fullscreen (F)">⛶</button>
+    <button id="helpbtn" title="Shortcuts (?)">?</button>
+  </div>
+</header>
+
+<footer id="foot">
+  <span id="pct">0%</span>
+  <div id="track" title="Drag — or scroll — to move through the script"><div id="fill"></div><div id="knob"></div></div>
+  <span id="left">–:–– left</span>
+</footer>
+
+<div id="help"><div class="card2">
+  <h2>Teleprompter — how to drive it</h2>
+  <table>
+    <tr><td><kbd>Space</kbd></td><td>Play / pause the scroll</td></tr>
+    <tr><td><kbd>↑</kbd> <kbd>↓</kbd></td><td>Speed up / down (words-per-minute)</td></tr>
+    <tr><td><kbd>+</kbd> <kbd>−</kbd></td><td>Bigger / smaller text</td></tr>
+    <tr><td><kbd>←</kbd> <kbd>→</kbd></td><td>Nudge back / forward while paused</td></tr>
+    <tr><td><kbd>R</kbd> / <kbd>Home</kbd></td><td>Jump back to the top</td></tr>
+    <tr><td>Time bar</td><td>Drag the bottom bar — or scroll the text — to jump to any section</td></tr>
+    <tr><td><kbd>F</kbd></td><td>Fullscreen</td></tr>
+    <tr><td><kbd>M</kbd></td><td>Mirror (for a beam-splitter glass rig)</td></tr>
+    <tr><td><kbd>N</kbd></td><td>Show / hide scene directions</td></tr>
+    <tr><td><kbd>H</kbd></td><td>Yellow highlight on the spoken lines</td></tr>
+    <tr><td><kbd>G</kbd></td><td>Show / hide the read-line guide</td></tr>
+    <tr><td><kbd>?</kbd> / <kbd>Esc</kbd></td><td>This help / close</td></tr>
+  </table>
+  <p>Speed is words-per-minute and re-calibrates to your font size automatically — set it near your real
+     pace (~145), hit Space, and read to the marked line. Blue section bars with a 🎙 are the beats to make
+     your own. Everything you change is remembered on this machine.</p>
+  <p style="margin-top:.6rem"><button id="closehelp">Got it</button></p>
+</div></div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ============================ THE SCRIPT (VO source of truth — script.md v2) ============================
+     beat forms:  ["vo", html]  |  ["vo", html, cueLabel]  |  ["vis", txt]  |  ["mark", txt]  |  ["card", txt] */
+  const SCRIPT = [
+    {n:"⓪", t:"Cold hook — the trap + reactor tease", reg:"Engineer · tease", mic:true, b:[
+      ["vis","A phone in the dark. A thumb types something trivial — “write me a haiku about my cat.” Send. A three-line poem appears in about a second. Calm. Weightless."],
+      ["vo","That took about a second, and it felt like nothing — because it very nearly <em>was</em> nothing. That answer cost around a third of a watt-hour of electricity and a mouthful of water. Less than running your microwave for two seconds."],
+      ["vis","Hard cut — a hyperscale datacenter at night, electric-blue, vast, humming, a cooling plume rising against a dark grid of power lines. Scale-shock against the phone."],
+      ["vo","So here is the strange question this video is going to answer. If one AI answer costs almost nothing — why did answering <em>enough</em> of them lead one of the largest companies on Earth to <strong>restart a nuclear reactor?</strong>"],
+    ]},
+    {n:"①", t:"Cold-open vignette", reg:"The everyday user", mic:true, b:[
+      ["vis","Pull back from the datacenter to a city at 11pm — thousands of lit windows. Push into one: an ordinary person on a couch, face lit by a screen."],
+      ["vo","Right now, somewhere, it's late, and someone can't sleep, and they ask a machine a question they'd be embarrassed to ask a person. Somewhere else a student pastes in an essay. A coder asks why their code won't run. A kid asks how big a blue whale really is."],
+      ["vis","A scatter of these moments across a dark globe — each a faint blue spark."],
+      ["vo","None of them are thinking about electricity. Why would they? The whole promise of this technology is that it feels <em>free</em>, and <em>instant</em>, and <em>weightless</em> — a genie that costs you nothing but the typing."],
+      ["vis","The sparks multiply — hundreds, thousands, a rising tide across the map."],
+      ["vo","And for any <em>one</em> of them, that's very nearly true. But there is no such thing as one. Right now this is happening about <strong>a billion times a day</strong> — and every one of those weightless little questions reaches back, through a wire, to something enormous, and physical, and hidden, that somebody had to build, and power, and feed."],
+      ["vis","The tide of sparks resolves into transmission lines converging on one blazing datacenter."],
+      ["vo","So let's follow a single question all the way back — and see what it's actually standing on."],
+    ]},
+    {n:"②", t:"Title sting", reg:"card", b:[
+      ["card","WHY AI IS SO EXPENSIVE TO RUN · 2–3 s sting · no VO"],
+    ]},
+    {n:"③", t:"The honest setup", reg:"Engineer", b:[
+      ["vis","Clean isometric — a single glowing “query” travelling from phone → a server. The 0.3 Wh figure appears, small."],
+      ["vo","Let's start with the small number, because it's real, and it matters."],
+      ["vo","A short, ordinary question to a chatbot uses only about <strong>0.3 watt-hours</strong> of electricity — what a good LED bulb burns in a couple of minutes. You may have heard that each query gulps ten times a Google search. That figure came from 2023, on older hardware — and it's roughly <strong>ten times too high</strong> for a typical question today. The engineers got fast."],
+      ["vis","The small query balloons — a longer prompt, then a “thinking” reasoning model — the number climbing 0.3 → 2.5 → 40."],
+      ["vo","Ask it to read a long document, and that climbs to a few watt-hours. Switch on one of the new <em>reasoning</em> models that thinks before it answers, and a single hard question can burn <strong>forty watt-hours or more</strong> — over a hundred times the simple case."],
+      ["mark","beat"],
+      ["vo","So hold onto the friendly number — 0.3. Not because it's wrong, but because the story was never that one query is expensive. The story is what it takes to answer <em>a billion</em> of them a day, forever — and to keep making the machine hungrier. Follow the wire."],
+    ]},
+    {n:"④", t:"Tentpole 1 · The appetite", reg:"Engineer · the electricity spine", b:[
+      ["vis","The query arrives; we fly through the datacenter doors — aisle after aisle of racks, roaring with fans. Land on one server."],
+      ["vo","Your question doesn't land on “a computer.” It lands here — in a building the size of several football fields, full of machines that never sleep."],
+      ["vis","Hero reveal of a single GPU — an NVIDIA H100 — lifted out and lit like a jewel, then slotted back."],
+      ["vo","The thing actually answering you is a chip like this — an <strong>H100</strong>. One of them, flat out, draws about <strong>700 watts</strong> — a microwave's worth of power, for one chip. But you're not answered by one."],
+      ["vis","The chip multiplies — a tray of eight, a rack, a hall."],
+      ["vo","They run in trays of eight, and one tray pulls around <strong>ten kilowatts</strong> — the electricity of about <strong>five homes</strong> — to do arithmetic, fast, in the dark. Fill a rack with trays and a hall with racks, and a single building is running the power of a small town. That is the fundamental fact the smooth little chat window is designed to hide: underneath, it is a <em>ferociously</em> hungry machine, and what it is hungry for is <strong>electricity.</strong>"],
+      ["vis","The hall's heat shimmer; cooling kicks in — cold aisles, liquid lines."],
+      ["vo","And there is a catch built into physics. Everything that much electricity does, it eventually turns into <em>heat</em> — and a hall like this would cook itself in minutes if nobody carried the heat away. Which is the second cost, the one nobody sees."],
+    ]},
+    {n:"⑤", t:"Tentpole 2 · The heat, and the water", reg:"Engineer", b:[
+      ["vis","The cooling towers outside, exhaling white vapour into the night."],
+      ["vo","The cheapest way to move a mountain of heat is water — so a big part of this machine exists just to evaporate it, the way sweat cools you down."],
+      ["vis","On-site — water through cooling loops, a little steam; a small figure: ~a few mL."],
+      ["vo","At the datacenter itself, one answer evaporates only a few <em>millilitres</em> — a rushed sip. But that isn't where most of the water is."],
+      ["vis","Pull back along the transmission lines to a power plant miles away, its own giant towers steaming."],
+      ["vo","Because the electricity had to come from somewhere — and most of the world still makes power by boiling water into steam to spin a turbine, in plants that evaporate their own rivers to cool back down. So every watt your question borrowed from the grid had <em>already</em> spent a little water, miles away, before it ever reached the building."],
+      ["vis","The two sources add — the on-site sip + the plant's share — to ~15 mL."],
+      ["vo","Add them up, and a single answer costs somewhere around <strong>fifteen millilitres</strong> of water — a real mouthful. The exact figure is genuinely hard to pin down; it depends on where the datacenter sits and how it's cooled. But a mouthful is the right order of magnitude — and, once again, there is no such thing as one. Now — where does a chip like that even come from?"],
+    ]},
+    {n:"⑥", t:"Tentpole 3 · The chip was expensive before it thought", reg:"Engineer · silicon", b:[
+      ["vis","Rewind the H100 back to a blank silicon wafer, back to a factory. A cleanroom: white suits, EUV machines the size of buses."],
+      ["vo","Because before that chip ever answered a single question, it was one of the most difficult objects humanity knows how to make."],
+      ["vis","EUV lithography machine, hero-lit — the Veritasium “most important machine” energy; patterns finer than a virus."],
+      ["vo","The features carved onto it are smaller than a virus, printed by firing light at silicon with a machine so complex that <strong>only one company on Earth</strong> can build it. Getting from sand to a working AI chip takes hundreds of steps, in a factory that has to be cleaner than an operating room and never, ever stops."],
+      ["vis","The fab's appetite — power lines in, purified-water lines in, materials in."],
+      ["vo","And a factory like that is a monster of its own. One leading-edge chip fab runs on the electricity of a small city <em>and</em> the water of a small town — millions of gallons a day, purified past anything found in nature — just to keep printing silicon. The company that makes most of the world's AI chips gets through more power and water in a year than some entire countries."],
+      ["vo","So your chatbot's brain was thirsty, and power-hungry, before it ever had a thought. Expensive to build. Expensive to cool. Expensive to make. Now do the one thing that turns all of this from a curiosity into a crisis — <strong>multiply.</strong>","wit"],
+    ]},
+    {n:"⑦", t:"Tentpole 4 · Where the power comes from", reg:"Both · back to the spine", b:[
+      ["vis","Zoom out — one datacenter to a map studded with hundreds, glowing across the US, Europe, Ireland."],
+      ["vo","We followed the heat, and the water, and the silicon. Now follow the thing the whole machine actually runs on — electricity — and ask a simple question: where does <em>a billion queries' worth</em> of it come from?"],
+      ["vis","The demand curve climbing steeply."],
+      ["vo","One query is a sip. But a billion a day, and <em>climbing</em> — data-centre electricity is growing about <strong>fifteen percent a year</strong>, more than four times faster than everything else we plug in."],
+      ["vis","Ireland lighting up alarmingly on the map."],
+      ["vo","Here's what that looks like when it lands on a real place. In Ireland, data centres now draw <strong>twenty-three percent of the entire country's electricity</strong> — nearly a quarter of a national grid, feeding server halls instead of homes. In a decade it grew more than <em>five hundred percent</em> — until the country started refusing to connect new ones."],
+      ["vis","The US map; the IEA projection bar climbing past heavy industry."],
+      ["vo","And Ireland is just the sharpest edge of it. Today the world's data centres already use more electricity than most countries on Earth. By 2030 they're on track for around <strong>three percent of all the power humanity generates</strong> — and in the United States, they'll soon draw more than making <em>all</em> the country's aluminium, steel, cement, and chemicals — <strong>combined.</strong>"],
+      ["vis","A quiet counter-beat — a “training” bar shrinking, a “running it” bar swelling."],
+      ["vo","And it doesn't slow down, because of a quirk most people never hear. We picture the giant cost as <em>training</em> — building the model once. But the forever-cost is <em>answering</em> you, a billion times a day — and running the thing has quietly outgrown building it. Which is how you end up with a company doing something that would have sounded insane ten years ago.","the forever-cost"],
+    ]},
+    {n:"⑧", t:"CLIMAX · The reactor", reg:"Engineer → Witness · pays off the hook", b:[
+      ["vis","Slow reveal — the twin cooling towers of Three Mile Island, silent, against a grey Pennsylvania sky."],
+      ["vo","This is Three Mile Island. If the name rings a bell, it should. In 1979, one of its two reactors suffered the worst nuclear accident in American history — a partial meltdown that helped freeze new nuclear construction in this country for a <em>generation.</em> Its surviving twin ran on quietly until <strong>2019</strong>, when it was switched off — simply too expensive to keep running. The lights went out. It was over."],
+      ["vis","2024 — crews, trucks, the plant stirring; a “restart” chyron."],
+      ["vo","Except in 2024, it came back. Not for a city. Not for a region. <strong>Microsoft signed a twenty-year deal to buy the entire output of a restarted Three Mile Island reactor — 835 megawatts, every watt of it — to match the electricity its AI data centres burn.</strong> Over a billion dollars, to wake a <em>nuclear reactor</em> from the dead."],
+      ["vis","835 MW resolving into ~800,000 lit homes — then those homes greying out as the power re-routes to a single datacenter."],
+      ["vo","Eight hundred and thirty-five megawatts is an entire power station — enough to light <strong>three-quarters of a million homes</strong> — and its whole output now has one customer, feeding one appetite."],
+      ["mark","beat · hold on the towers"],
+      ["vo","That is the real answer to the question we opened with. Your one question costs a sip. But all of them, all the time, growing every year — cost a reactor. That is why AI is so expensive to run. Not the query. The <em>machine</em> behind it."],
+    ]},
+    {n:"⑨", t:"What most people never see", reg:"Engineer · first person", mic:true, b:[
+      ["vis","Slow pull back from the datacenter to the phone we started on — the haiku still on screen."],
+      ["vo","Here's the thing I keep coming back to."],
+      ["vo","Any one of these questions really is almost nothing. Your own AI use is a rounding error on your life — the energy of a query is a few seconds of television. That's true, and it's worth saying plainly."],
+      ["vis","The tide of a billion sparks again, resolving into the reactor."],
+      ["vo","But line them up — a billion a day, growing every year, all landing on the same few grids and rivers and towns at once — and “almost nothing,” repeated at that scale, becomes a reactor. The weight was never in the question. It's in the machine that makes the question feel free."],
+      ["vis","The whole hidden chain, held for a moment — rack, cooling tower, power plant, fab, reactor."],
+      ["vo","And that's the part I find genuinely remarkable. We built something so good at hiding its own weight that a civilisation-sized effort — power plants, cooling towers, a factory cleaner than a hospital, a reactor pulled back from the dead — collapses down to a blinking cursor and a one-second reply. There's no monument to a datacenter. The most impressive thing about this machine might be that you never have to see it."],
+      ["mark","beat"],
+      ["vo","It isn't weightless. It never was. It just feels that way — and that feeling might be the most expensive thing we've ever engineered."],
+    ]},
+    {n:"⑩", t:"Close + sign-off", reg:"Engineer", mic:true, b:[
+      ["vis","Back to the phone. A thumb hovers, then types one more throwaway question. Send."],
+      ["vo","So the next time it answers you instantly, and it feels free, and weightless, and like magic —"],
+      ["vis","Pull the wire back one last time, one continuous move: phone → datacenter → power plant → the reactor."],
+      ["vo","remember what “instant” is standing on. A rack that eats like a town. A power plant that drinks for it. A chip that took a small country's worth of power and water to carve. And, at the end of the line, a reactor somebody brought back from the dead to keep the whole thing fed."],
+      ["vo","It's the most impressive machine most people will never see — and it is anything but free."],
+      ["vo","The next time it answers in a second, remember what it's standing on. I'll see you in the next one.","sign-off · provisional"],
+    ]},
+    {n:"⑪", t:"Outro card", reg:"card", b:[
+      ["card","Subscribe + next-video thumbnail · title sting reprise · no VO"],
+    ]},
+  ];
+
+  /* ============================ render ============================ */
+  const col = document.getElementById("col");
+  let totalWords = 0;
+  function wordsIn(html){ const d=document.createElement("div"); d.innerHTML=html;
+    const t=(d.textContent||"").trim(); return t?t.split(/\s+/).length:0; }
+
+  SCRIPT.forEach(sec=>{
+    const s=document.createElement("section"); if(sec.mic) s.className="mic";
+    if(sec.reg!=="card"){
+      const wp=document.createElement("div"); wp.className="wp";
+      wp.innerHTML=`<span class="num">${sec.n}</span> <span>${sec.t}</span>`+
+        (sec.reg?` <span class="${sec.mic?'mic':'reg'}">${sec.reg}</span>`:"")+
+        (sec.mic?` <span class="mic">🎙 your words</span>`:"");
+      s.appendChild(wp);
+    }
+    sec.b.forEach(be=>{
+      const [kind,txt,cue]=be;
+      const el=document.createElement("div");
+      if(kind==="vo"){ el.className="vo";
+        el.innerHTML=(cue?`<span class="cue">${cue}</span>`:"")+`<mark>${txt}</mark>`;
+        totalWords+=wordsIn(txt);
+      } else if(kind==="vis"){ el.className="vis"; el.innerHTML=`<b>scene</b>${txt}`; }
+      else if(kind==="mark"){ el.className="mark"; el.textContent=txt; }
+      else if(kind==="card"){ el.className="card"; el.textContent=txt; }
+      s.appendChild(el);
+    });
+    col.appendChild(s);
+  });
+
+  /* ============================ state + persistence ============================ */
+  const store={ get(k,d){ try{const v=localStorage.getItem("swtp_s001_"+k);return v==null?d:JSON.parse(v);}catch(e){return d;} },
+                set(k,v){ try{localStorage.setItem("swtp_s001_"+k,JSON.stringify(v));}catch(e){} } };
+  let wpm   = store.get("wpm",145);
+  let fs    = store.get("fs",34);
+  let notes = store.get("notes",false);
+  let hl    = store.get("hl",false);
+  let mir   = store.get("mir",false);
+  let guide = store.get("guide",true);
+
+  const reel=document.getElementById("reel"), stage=document.getElementById("stage"),
+        mirror=document.getElementById("mirror"), fill=document.getElementById("fill"),
+        pctEl=document.getElementById("pct"), leftEl=document.getElementById("left"),
+        spval=document.getElementById("spval"), bar=document.getElementById("bar"),
+        playBtn=document.getElementById("play"), countEl=document.getElementById("count"),
+        track=document.getElementById("track"), knob=document.getElementById("knob");
+
+  let offset=0, maxOffset=1, pxPerWord=20, playing=false, raf=null, lastTs=null;
+
+  function metrics(){
+    const vh=window.innerHeight;
+    reel.style.paddingTop = Math.round(vh*0.38)+"px";
+    reel.style.paddingBottom = Math.round(vh*0.55)+"px";
+    const textH = reel.scrollHeight - reel.offsetTop - (vh*0.38) - (vh*0.55);
+    pxPerWord = Math.max(6, textH/Math.max(1,totalWords));
+    maxOffset = Math.max(1, reel.scrollHeight - vh);
+    clamp(); apply();
+  }
+  const pxPerSec = ()=> (wpm/60)*pxPerWord;
+  function clamp(){ offset=Math.max(0,Math.min(offset,maxOffset)); }
+  function apply(){
+    reel.style.transform="translateY("+(-offset)+"px)";
+    const p=offset/maxOffset;
+    fill.style.width=(p*100).toFixed(1)+"%";
+    knob.style.left=(p*100).toFixed(2)+"%";
+    pctEl.textContent=Math.round(p*100)+"%";
+    const secs=Math.max(0,(maxOffset-offset)/pxPerSec());
+    leftEl.textContent=fmt(secs)+" left";
+  }
+  function fmt(s){ s=Math.round(s); return Math.floor(s/60)+":"+String(s%60).padStart(2,"0"); }
+
+  /* ============================ engine ============================ */
+  function loop(ts){
+    if(!playing) return;
+    if(lastTs==null) lastTs=ts;
+    const dt=(ts-lastTs)/1000; lastTs=ts;
+    offset += pxPerSec()*dt;
+    if(offset>=maxOffset){ offset=maxOffset; apply(); setPlay(false); return; }
+    apply(); raf=requestAnimationFrame(loop);
+  }
+  function setPlay(on){
+    playing=on; lastTs=null;
+    playBtn.textContent=on?"⏸ Pause":"▶ Play"; playBtn.classList.toggle("on",on);
+    if(on){ cancelAnimationFrame(raf); raf=requestAnimationFrame(loop); armHide(); }
+    else { cancelAnimationFrame(raf); showBar(); }
+  }
+  function toggle(){
+    if(playing){ setPlay(false); return; }
+    if(offset<2){ countdown(()=>setPlay(true)); } else setPlay(true);
+  }
+  let cdT=null;
+  function countdown(done){
+    let n=3; countEl.textContent=n; countEl.classList.add("show");
+    clearInterval(cdT);
+    cdT=setInterval(()=>{ n--; if(n<=0){ clearInterval(cdT); countEl.classList.remove("show"); done(); }
+      else countEl.textContent=n; },1000);
+  }
+  function restart(){ setPlay(false); offset=0; apply(); }
+
+  /* ============================ controls ============================ */
+  function setWpm(v){ wpm=Math.max(60,Math.min(260,v)); spval.textContent=wpm+" wpm"; store.set("wpm",wpm); apply(); }
+  function setFs(v){ fs=Math.max(18,Math.min(80,v)); document.documentElement.style.setProperty("--fs",fs);
+                     store.set("fs",fs); metrics(); }
+  function applyFlags(){
+    document.body.classList.toggle("notes",notes);
+    document.body.classList.toggle("hl",hl);
+    document.body.classList.toggle("noguide",!guide);
+    mirror.classList.toggle("flipX",mir);
+    document.getElementById("notes").classList.toggle("on",notes);
+    document.getElementById("hl").classList.toggle("on",hl);
+    document.getElementById("mir").classList.toggle("on",mir);
+    metrics();
+  }
+  const help=document.getElementById("help");
+  function toggleHelp(f){ help.classList.toggle("show", f==null? !help.classList.contains("show"): f); }
+
+  document.getElementById("play").onclick=toggle;
+  document.getElementById("restart").onclick=restart;
+  document.getElementById("spup").onclick=()=>setWpm(wpm+5);
+  document.getElementById("spdn").onclick=()=>setWpm(wpm-5);
+  document.getElementById("fup").onclick=()=>setFs(fs+3);
+  document.getElementById("fdn").onclick=()=>setFs(fs-3);
+  document.getElementById("notes").onclick=()=>{notes=!notes;store.set("notes",notes);applyFlags();};
+  document.getElementById("hl").onclick=()=>{hl=!hl;store.set("hl",hl);applyFlags();};
+  document.getElementById("mir").onclick=()=>{mir=!mir;store.set("mir",mir);applyFlags();};
+  document.getElementById("full").onclick=fullscreen;
+  document.getElementById("helpbtn").onclick=()=>toggleHelp();
+  document.getElementById("closehelp").onclick=()=>toggleHelp(false);
+
+  function fullscreen(){
+    try{
+      if(!document.fullscreenElement){
+        if(document.documentElement.requestFullscreen){
+          const p=document.documentElement.requestFullscreen(); if(p&&p.catch) p.catch(()=>{});
+        }
+      } else if(document.exitFullscreen){ document.exitFullscreen(); }
+    }catch(e){}
+  }
+
+  document.addEventListener("keydown",e=>{
+    if(e.metaKey||e.ctrlKey||e.altKey) return;
+    const k=e.key;
+    if(k===" "||k==="Spacebar"){ e.preventDefault(); toggle(); }
+    else if(k==="ArrowUp"){ e.preventDefault(); setWpm(wpm+5); }
+    else if(k==="ArrowDown"){ e.preventDefault(); setWpm(wpm-5); }
+    else if(k==="+"||k==="="){ setFs(fs+3); }
+    else if(k==="-"||k==="_"){ setFs(fs-3); }
+    else if(k==="ArrowRight"){ e.preventDefault(); offset+=window.innerHeight*0.12; clamp(); apply(); }
+    else if(k==="ArrowLeft"){ e.preventDefault(); offset-=window.innerHeight*0.12; clamp(); apply(); }
+    else if(k==="r"||k==="R"||k==="Home"){ restart(); }
+    else if(k==="f"||k==="F"){ fullscreen(); }
+    else if(k==="m"||k==="M"){ mir=!mir;store.set("mir",mir);applyFlags(); }
+    else if(k==="n"||k==="N"){ notes=!notes;store.set("notes",notes);applyFlags(); }
+    else if(k==="h"||k==="H"){ hl=!hl;store.set("hl",hl);applyFlags(); }
+    else if(k==="g"||k==="G"){ guide=!guide;store.set("guide",guide);applyFlags(); }
+    else if(k==="?"){ toggleHelp(); }
+    else if(k==="Escape"){ toggleHelp(false); }
+  });
+
+  /* ---- auto-hide the top bar while playing ---- */
+  let hideT=null;
+  function showBar(){ bar.classList.remove("hidden"); }
+  function armHide(){ clearTimeout(hideT); hideT=setTimeout(()=>{ if(playing) bar.classList.add("hidden"); },2600); }
+  stage.addEventListener("mousemove",()=>{ showBar(); if(playing) armHide(); });
+
+  /* ---- scrub the time slider: drag the bar (or scroll over it / the text) to seek ---- */
+  let scrubbing=false, resumeAfter=false;
+  function seekFrac(f){ offset=Math.max(0,Math.min(1,f))*maxOffset; clamp(); apply(); }
+  function fracFromX(x){ const r=track.getBoundingClientRect(); return r.width?(x-r.left)/r.width:0; }
+  track.addEventListener("pointerdown",e=>{
+    e.preventDefault();
+    scrubbing=true; resumeAfter=playing; track.classList.add("drag");
+    if(playing) setPlay(false);
+    try{ track.setPointerCapture(e.pointerId); }catch(_){}
+    seekFrac(fracFromX(e.clientX));
+  });
+  track.addEventListener("pointermove",e=>{ if(scrubbing) seekFrac(fracFromX(e.clientX)); });
+  function endScrub(e){
+    if(!scrubbing) return;
+    scrubbing=false; track.classList.remove("drag");
+    try{ track.releasePointerCapture(e.pointerId); }catch(_){}
+    if(resumeAfter && offset<maxOffset) setPlay(true);   // was rolling → keep rolling from here
+    resumeAfter=false;
+  }
+  track.addEventListener("pointerup",endScrub);
+  track.addEventListener("pointercancel",endScrub);
+
+  /* wheel over the slider — or anywhere on the prompter — walks the text and takes manual control */
+  function wheelScrub(e){
+    e.preventDefault();
+    if(playing) setPlay(false);
+    offset += e.deltaY * (e.deltaMode===1 ? 16 : e.deltaMode===2 ? window.innerHeight : 1);
+    clamp(); apply();
+  }
+  track.addEventListener("wheel",wheelScrub,{passive:false});
+  stage.addEventListener("wheel",wheelScrub,{passive:false});
+
+  /* ---- init ---- */
+  window.addEventListener("resize",metrics);
+  document.documentElement.style.setProperty("--fs",fs);
+  spval.textContent=wpm+" wpm";
+  applyFlags();
+  window.addEventListener("load",metrics);
+  setTimeout(metrics,60);
+})();
+</script>
