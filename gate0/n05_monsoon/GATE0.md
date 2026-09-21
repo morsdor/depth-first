@@ -2,7 +2,7 @@
 
 **Channel:** India long-form documentary (new line, not Depth First reels)
 **Format:** 16:9, target 20–28 min · English primary, Hindi audio track added later
-**Status:** thesis REVISED after research. Awaiting the human yes on §1. Payoff frame not yet redrawn.
+**Status:** GATE 0 PASSED — sentence approved by the account owner 2026-09-21, payoff frame drawn.
 
 > **Revision history.** v1 of this gate proposed a Boos & Kuang "Himalaya as insulator" hook and a
 > payoff frame that failed on its own terms. Both were rejected by the account owner before any
@@ -40,20 +40,34 @@ mainstream.
 **Act two — the Himalaya.** Boos & Kuang, *Nature* 463:218–222 (2010), **938 citations**, is
 authoritative and belongs in the video — but **presented for what it actually does.** See §6.1.
 
-## 3. Payoff frame — concept only, NOT yet drawn
+## 3. Payoff frame — DRAWN (sentence approved 2026-09-21)
 
-**The thesis is itself a picture, which is the whole improvement over v1:** the same rain belt that
-sits over the Congo and the Indian Ocean migrating north onto India, and back again. World map,
-the belt in January vs July, India marked. Derivable from real precipitation data.
+`payoff_frame.png`, from `mock_payoff.py`. A sketch, not a render. **Coastlines are real** —
+Natural Earth 110m, public domain, vendored as `ne_110m_land.geojson` so the sketch reproduces
+offline. ITCZ latitudes are hand-approximated from the standard climatology and get replaced by
+positions computed from GODL-licensed rainfall data at build.
 
-**Do not redraw until §1 is approved.** Sentence first, frame as evidence for it.
+**One frame, one claim: the same rain belt, six months apart.** January sits south of the equator,
+July arcs up over India. Both bands are drawn in the same hue — dimmer for January — because they
+have to read as *one belt somewhere else*, not two different things. The swing over India is marked
+at **31° of latitude**, the widest on Earth (Africa 29°, W Pacific 28°).
+
+> **Why this passes where v1 failed.** v1 paired an onset-date colour field with an insulation
+> diagram — a picture that would look **identical whether the thesis were true or false**.
+> This one would not. **If the monsoon really were a giant sea breeze, the belt would appear over
+> India in July and simply not exist in January.** It does exist. It is just somewhere else, and
+> the frame shows that. The picture is now evidence for the sentence rather than decoration
+> beside it.
+
+**Copy column read alone** — the r010 check — is a complete thought:
+*"In January, the rain is down there. In July, it's over India. That move is the monsoon."*
 
 ## 4. The three kill conditions
 
 | Condition | Verdict |
 |:--|:--|
-| **Sentence needs a jargon word** | **PASS.** "Rain belt", "wanders north". "ITCZ" is never spoken. |
-| **Payoff shows an object nobody has seen** | **PASS** on concept — a world map and a band of rain. Re-test once drawn. |
+| **Sentence needs a jargon word** | **PASS.** "Rain belt", "wanders north". **"ITCZ" appears nowhere on screen or in the script.** |
+| **Payoff shows an object nobody has seen** | **PASS.** A world map and a band of rain. India, Africa, Australia and Indonesia are all nameable with the sound off and no labels read. |
 | **Amazement depends on understanding first** | **PASS**, with §5's long-form adaptation. |
 
 ## 5. Long-form adaptation of kill condition 3
@@ -137,8 +151,16 @@ for once with TeleGeography on `r006`.
 
 ---
 
-## The ask
+## Gate 0 verdict
 
-**Read §1 out loud. Would you say that sentence to a friend?**
+**PASSED 2026-09-21.** The account owner approved the sentence in §1 before the frame was drawn,
+which is the order this gate specifies and the order v1 skipped.
 
-Not "is the picture good" — there is deliberately no picture yet.
+**Next:** Stage 3 is already done (`docs/india_longform/monsoon_research.md`). The next gate is
+**G4 — the script**, written as a beat table before any Python, `.tsx` or data module exists.
+Two things to clear alongside it:
+
+1. Email `cmagpune@gmail.com` on the IMD 0.25° gridded product's commercial terms. The GODL
+   sub-divisional series on data.gov.in is the fallback and is already clean.
+2. Request Geen et al. 2020 from the corresponding author — it is the independent endorsement
+   that makes the thesis mainstream rather than one scientist's view.
