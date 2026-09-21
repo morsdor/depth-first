@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "open-museum": {
+      "command": "npx",
+      "args": ["-y", "open-museum-mcp@0.21.0"],
+      "env": {}
+    }
+  }
+}
