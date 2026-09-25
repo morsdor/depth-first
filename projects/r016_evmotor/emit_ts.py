@@ -1,0 +1,144 @@
+#!/usr/bin/env python3
+"""r016 · I85 — pack evmotor_data.json into a TS module, and REFUSE to write it if any claim the
+reel makes on screen has stopped being true.
+
+    python3 motor.py && python3 emit_ts.py
+
+Beat times and copy times below MUST match remotion/src/reels/EvMotor.tsx. Per the r011 rule, a
+claim is checked at the SCREEN SECOND its words appear, not merely somewhere in the data.
+"""
+import json
+import math
+import pathlib
+
+HERE = pathlib.Path(__file__).resolve().parent
+OUT = HERE.parents[1] / "remotion" / "src" / "reels" / "data" / "evmotor.ts"
+D = json.loads((HERE / "evmotor_data.json").read_text())
+FLEET = D["fleet"]
+checks = []
+
+
+def claim(text, cond):
+    assert cond, f"ON-SCREEN CLAIM IS FALSE: {text}"
+    checks.append(text)
+
+
+# ── copy times, must match EvMotor.tsx ────────────────────────────────────────────────────────
+COPY_HOOK_COUNTERS_LAND = 3.0      # hook must SHOW the result by here, not promise it
+COPY_GAS_77 = (4.5, 11.0)          # "$77 NEVER REACHES THE WHEELS"
+COPY_EVERY_BEATS = (31.0, 38.0)    # "WE RAN 51 CARS … EVERY ELECTRIC ONE BEAT EVERY GAS ONE."
+TRAVEL = D["travel"]
+
+
+def count_at(car, s, wheel=True):
+    return sum(1 for p in D["particles"][car] if p["wheel"] == wheel and p["t0"] + TRAVEL <= s)
+
+
+gas, ev = D["dollars"]["gas"], D["dollars"]["ev"]
+
+# 1 · the four dollar figures
+claim('"GAS CAR: $23 REACHES THE WHEELS"', gas == 23)
+claim('"ELECTRIC CAR: $64 REACHES THE WHEELS"', ev == 64)
+claim('"$77 NEVER REACHES THE WHEELS" is $100 minus the gas figure', 100 - gas == 77)
+claim("each car carries exactly 100 one-dollar particles",
+      all(len(D["particles"][c]) == 100 for c in ("gas", "ev")))
+claim("the particles bound for the wheels ARE the dollar figure",
+      sum(p["wheel"] for p in D["particles"]["gas"]) == gas
+      and sum(p["wheel"] for p in D["particles"]["ev"]) == ev)
+
+# 5 · the hook shows, it does not promise
+claim("both hook counters have landed by 3.0 s",
+      count_at("gas", COPY_HOOK_COUNTERS_LAND) == gas and count_at("ev", COPY_HOOK_COUNTERS_LAND) == ev)
+
+# 2 · "most of it becomes heat in the engine"
+claim('"MOST OF IT BECOMES HEAT IN THE ENGINE": engine loss > 50% of fuel on EPA combined',
+      D["engineLossShare"] > 0.5)
+
+# 3/4 · the fleet line
+n_gas = sum(r["type"] == "Conv" for r in FLEET)
+n_ev = sum(r["type"] == "BEV" for r in FLEET)
+claim('"51 CARS" = 29 gas + 22 electric', (n_gas, n_ev, n_gas + n_ev) == (29, 22, 51))
+claim('"EVERY ELECTRIC ONE BEAT EVERY GAS ONE"',
+      min(r["toWheels"] for r in FLEET if r["type"] == "BEV")
+      > max(r["toWheels"] for r in FLEET if r["type"] == "Conv"))
+
+# 7 · "the US Energy Department's own figures agree"
+gas_frac = json.loads((HERE / "energy_budget.json").read_text())["results"]["gas"]["to_wheels"]
+ev_frac = json.loads((HERE / "energy_budget.json").read_text())["results"]["ev"]["to_wheels"]
+claim("gas figure lies inside DOE's published 12–30%", 0.12 <= gas_frac <= 0.30)
+claim("EV figure is within 2 points of DOE Fact #884's pre-regen ~65%", abs(ev_frac - 0.65) <= 0.02)
+
+# 6 · the motor
+M = D["motor"]
+fr = M["frames"]
+fps = D["fps"]
+
+
+def field_of(wt):
+    x = y = 0.0
+    for k in range(M["nSlots"]):
+        dv = math.cos(wt - 2 * math.pi * M["slotPhase"][k] / 3) * M["slotSign"][k]
+        a = 2 * math.pi * k / M["nSlots"]
+        x += dv * math.cos(a)
+        y += dv * math.sin(a)
+    return math.atan2(y, x)
+
+
+def signed_lag(i):
+    wt, rotor = fr[i]
+    return math.remainder(field_of(wt) - rotor, 2 * math.pi)     # >0: rotor behind the field
+
+
+bf0, bf1 = D["beat"]["field"]
+bb0, bb1 = D["beat"]["brake"]
+claim('"THE MAGNETISM SPINS": the field angle advances every frame of the field beat',
+      all(math.remainder(fr[i + 1][0] - fr[i][0], 2 * math.pi) > 0
+          for i in range(int(bf0 * fps), int(bf1 * fps) - 1)))
+claim('"THE MIDDLE CHASES IT": the rotor lags the field on every frame of the field beat',
+      all(signed_lag(i) > 0 for i in range(int(bf0 * fps), int(bf1 * fps))))
+claim('"IT RUNS AS A GENERATOR": the rotor LEADS the field once braking has taken hold',
+      all(signed_lag(i) < 0 for i in range(int((bb0 + 0.8) * fps), int(bb1 * fps))))
+claim("one lobe of the field goes round the ring at least twice in the field beat (it reads as spin)",
+      sum(math.remainder(fr[i + 1][0] - fr[i][0], 2 * math.pi)
+          for i in range(int(bf0 * fps), int(bf1 * fps) - 1)) >= 2 * 2 * math.pi)
+
+# the gas beat: the $77 counter replays the gas car's dollars slower; it must finish in the beat
+GAS_REPLAY_START, GAS_REPLAY_RATE = 4.8, 0.55     # must match EvMotor.tsx
+claim('"$77 NEVER REACHES THE WHEELS" counter reaches 77 before the gas beat ends',
+      count_at("gas", (COPY_GAS_77[1] - 0.4 - GAS_REPLAY_START) * GAS_REPLAY_RATE, wheel=False) == 77)
+
+# ── write ─────────────────────────────────────────────────────────────────────────────────
+flat = [v for pair in fr for v in pair]
+ts = f"""// GENERATED by projects/r016_evmotor/emit_ts.py — never hand-edit.
+// {len(checks)} on-screen claims asserted before this file was written.
+
+export const BEAT = {json.dumps(D['beat'])} as const;
+export const DOLLARS = {json.dumps(D['dollars'])} as const;
+export const EMIT = {json.dumps(D['emit'])} as const;
+export const TRAVEL = {TRAVEL};
+export const CARS = {json.dumps(D['cars'])} as const;
+
+export const MOTOR = {{
+  nSlots: {M['nSlots']},
+  slotPhase: {json.dumps(M['slotPhase'])},
+  slotSign: {json.dumps(M['slotSign'])},
+  axisA: {M['axisA']},
+}} as const;
+
+/** Per frame: [electrical angle wt, rotor angle], radians. */
+const MOTOR_FLAT: readonly number[] = {json.dumps(flat)};
+export const motorAt = (frame: number): [number, number] => {{
+  const i = Math.max(0, Math.min({len(fr) - 1}, Math.floor(frame)));
+  return [MOTOR_FLAT[2 * i], MOTOR_FLAT[2 * i + 1]];
+}};
+
+export type Particle = {{ t0: number; wheel: boolean; jitter: number; wheelIdx: number }};
+export const PARTICLES: {{ gas: readonly Particle[]; ev: readonly Particle[] }} = {json.dumps(D['particles'])};
+
+export type FleetCar = {{ name: string; type: string; toWheels: number }};
+export const FLEET: readonly FleetCar[] = {json.dumps(FLEET)};
+"""
+OUT.write_text(ts)
+for c in checks:
+    print("  ✓", c)
+print(f"{len(checks)} claims hold · wrote {OUT.relative_to(HERE.parents[1])}")

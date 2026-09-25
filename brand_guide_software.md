@@ -2396,3 +2396,27 @@ that landed inside a live, identity-loaded argument (`r005`), and the only other
 named channel at all (`r011`) still failed on sends once HEAT was checked. Novelty-for-its-own-sake,
 tried three separate ways now (`r009` cosmic scale, `r010` mesmerising loop, `r014` historical
 BGP hijack), has a 0-for-3 record on this account.
+
+### r016 / I85 — AN APPROVED SENTENCE WAS WRONG BY $16, AND THE MODEL CAUGHT IT (2026-09-25)
+
+**The owner approved "an electric motor gets about $80 of every $100 to the wheels" at Gate 0.**
+It came from DOE's widely quoted 77–80% EV figure. Stage 3 ran NREL's FASTSim on the EPA combined
+cycle, validated against EPA's sticker figures, and got **64%**. DOE's own Fact #884 says the same:
+"about 65%" wall-to-road *before* regenerative braking is counted as a gain on top. The headline
+number was real but on a different base, so the word changed and went back to the owner. That is
+non-negotiable 7 working as written: **an approved sentence is not a true one.**
+
+**Two more things this build taught:**
+
+- **The ruler that flatters the thesis most was measured and deliberately not used.** Counting only
+  drag and rolling resistance gives gas $15 vs EV $62 (4.3x, against 2.8x on DOE's own definition).
+  No published figure exists to check it against, and it agrees with the reel more strongly than
+  the literature does, which is the shape r011 says to distrust.
+- **One particle per dollar makes every counter a literal count.** Each car carries exactly 100
+  particles and the ones routed to the wheels ARE the figure. `emit_ts.py` asserts it, so a counter
+  cannot drift from its number.
+
+**Untested until posted:** whether a political-identity argument (US EV-vs-gas) carries the heat
+that `r011`'s annoyance-level argument lacked. This is the first send-test answer written to the
+"what does the loser lose" question from the start.
+

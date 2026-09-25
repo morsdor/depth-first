@@ -15,6 +15,7 @@ import { DURATION_SECONDS as EARNINGS_SECONDS, EarningsPeak } from './reels/Earn
 import { Breath, DURATION_SECONDS as BREATH_SECONDS } from './reels/Breath';
 import { DURATION_SECONDS as HIJACK_SECONDS, Hijack } from './reels/Hijack';
 import { DURATION_SECONDS as MOONMIRRORS_SECONDS, MoonMirrors } from './reels/MoonMirrors';
+import { DURATION_SECONDS as EVMOTOR_SECONDS, EvMotor } from './reels/EvMotor';
 import { DURATION_SECONDS as MANIM_SECONDS, ManimProbe } from './reels/ManimProbe';
 import { SafeZones } from './reels/lib/chrome';
 
@@ -141,6 +142,13 @@ const HijackSafe: React.FC = () => (
 const MoonMirrorsSafe: React.FC = () => (
   <>
     <MoonMirrors />
+    <SafeZones />
+  </>
+);
+
+const EvMotorSafe: React.FC = () => (
+  <>
+    <EvMotor />
     <SafeZones />
   </>
 );
@@ -484,6 +492,31 @@ export const RemotionRoot: React.FC = () => {
         id="r015-moonmirrors-safe"
         component={MoonMirrorsSafe}
         durationInFrames={MOONMIRRORS_SECONDS * 30}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+
+      {/* r016 · I85 · of every $100 you pay for, how much reaches the wheels —
+          gas car $23, electric car $64 (FASTSim on the EPA combined cycle,
+          validated against EPA sticker figures; inside DOE's own published
+          numbers; every EV beats every gas car across all 51 in the database).
+          NOT YET POSTED. The motor's coil glow and rotor angle are computed
+          per frame from real three-phase currents (projects/r016_evmotor/
+          motor.py); data from remotion/src/reels/data/evmotor.ts, which
+          emit_ts.py refuses to write unless every on-screen claim holds. */}
+      <Composition
+        id="r016-evmotor"
+        component={EvMotor}
+        durationInFrames={EVMOTOR_SECONDS * 30}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="r016-evmotor-safe"
+        component={EvMotorSafe}
+        durationInFrames={EVMOTOR_SECONDS * 30}
         fps={30}
         width={1080}
         height={1920}

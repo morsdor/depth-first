@@ -339,10 +339,12 @@ before optimising for reach: whether r005's 71 follows stayed, and whether they 
 
 | `r015` | `I77` | Mirrors on the Moon — there are real retroreflectors up there, and observatories still bounce lasers off them | **GATE 5 passed, POSTED 2026-09-18 (45 s).** Strongest GATE 3 send-test answer on the account since `r005` — settles moon-landing denial with a real, ongoing measurement, not a photo — and also the most toxicity-exposed candidate on the backlog by its own Gate 0 note. Absorbed the older, unverified duplicate `I63`. Every figure VERIFIED against APOLLO's own instrument papers, an LLR round-trip-loss review, and Eos.org's recession feature: round-trip light time 2.5644s (exact physics), ~3.1×10¹⁷ photons sent per pulse vs 5-10 typically returned, ±1mm ranging precision, 3.83 cm/year recession over 57 years of data. Four real build bugs found and fixed before render — an oversized arrival "spot," unbounded ambient rotation that quietly ruined the wide shots by the close beat, the off-focus body swinging into Instagram's header band during a dive, and a since-miscalibrated ping marker that grew to dwarf the Moon. See [`projects/r015_moonmirrors/NOTES.md`](projects/r015_moonmirrors/NOTES.md). Engagement pending first reading |
 
+| `r016` | `I85` | EV vs gas — of every $100 you pay for, a gas car gets $23 to the wheels and an electric car $64 | **BUILT AND RENDERED 2026-09-25 (42 s), NOT POSTED — awaiting GATE 5.** First reel framed for a US audience in USD, by the owner's direction. Headline measured in NREL's FASTSim on the EPA combined cycle, validated against EPA sticker figures (Camry −2.4%, Bolt +8.8%) and inside DOE's own published figures; the approved Gate 0 sentence said "$80" for the EV and Stage 3 falsified it (DOE's 77–80% counts regen as a gain on top), so the word changed. Across all 51 cars in the database every EV beats every gas car. The motor's coil glow and rotor angle are computed per frame from real three-phase currents; 16 claims asserted. Motion audit event density 85%. See [`projects/r016_evmotor/NOTES.md`](projects/r016_evmotor/NOTES.md) |
+
 **Reel numbers are contiguous and mean "the Nth reel posted".** `r001`–`r015` have shipped.
 **`r011` claimed its number when the first `.tsx` was written, not when its Gate 0 was** — the
-rule as written, and what `I72` had just shown the cost of getting wrong. **The next reel is
-`r016`.**
+rule as written, and what `I72` had just shown the cost of getting wrong. **`r016` (`I85`) is
+claimed by a build in progress (2026-09-25); the next new build takes `r017`.**
 
 **THE PENDULUM LOOP WAS `r011` UNTIL 2026-09-12 AND IS NOW `r010` (2026-09-12).** The traffic reel
 (`I65`) held `r010`, was never posted, and was **parked by the account owner** on 2026-09-12 along

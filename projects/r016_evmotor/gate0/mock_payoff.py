@@ -27,7 +27,7 @@ COPPER = (184, 115, 51)
 BILL = (156, 178, 140)
 BILL_INK = (60, 84, 58)
 
-FONT = "/home/user/depth-first/assets/fonts/"
+FONT = str(__import__("pathlib").Path(__file__).resolve().parents[3] / "assets" / "fonts") + "/"
 f_head = ImageFont.truetype(FONT + "ArchivoBlack-Regular.ttf", 46)
 f_big = ImageFont.truetype(FONT + "ArchivoBlack-Regular.ttf", 72)
 f_lab = ImageFont.truetype(FONT + "IBMPlexSans-Bold.ttf", 38)
@@ -156,5 +156,5 @@ ctext(1592, "sketch · figures are Gate-0 leads", f_mono, (70, 95, 125))
 
 # safe-area guide, faint
 d.rectangle([60, 270, 870, 1540], outline=(30, 45, 70), width=1)
-img.save("/home/user/depth-first/gate0/i85_evmotor/gate0/payoff_frame.png")
+img.save(__import__("pathlib").Path(__file__).with_name("payoff_frame.png"))
 print("wrote payoff_frame.png")

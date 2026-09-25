@@ -1,7 +1,6 @@
 # I85 — SCRIPT (GATE 4) · "$100 in. Here's what reaches the wheels."
 
-**Written 2026-09-25, before any `.tsx`, data module or build.** Proposed as `r016`; the number is
-claimed when the first `.tsx` is written, not here. Accent `languages #51A4FF`, with `failure #FF4D4D`
+**Written 2026-09-25, before any `.tsx`, data module or build.** **APPROVED (GATE 4) 2026-09-25, "go ahead with next step". `r016` claimed at build start.** Accent `languages #51A4FF`, with `failure #FF4D4D`
 for heat and lost energy only.
 
 **The sentence (Gate 0, corrected and approved 2026-09-25):**
@@ -108,3 +107,17 @@ Each claim is bound to the frame where its copy appears (the r011 rule).
 2. **Counters with or without car names in the hook.** I recommend with.
 3. **"NO FIRE" or "BURNS NOTHING"** in beat 3.
 4. **The follow line.** What does the next reel promise?
+
+## RESOLVED AT APPROVAL, 2026-09-25
+
+The owner approved with "go ahead with next step" and left the four choices open. They were taken
+on the recommendations above and are listed here so they can be reversed in one edit:
+
+1. The script is approved as written.
+2. Hook counters **name the car**: `GAS CAR: $23` / `ELECTRIC CAR: $64`, each followed by
+   `REACHES THE WHEELS`.
+3. Beat 3 reads **`AN ELECTRIC MOTOR BURNS NOTHING.` / `IT USES MAGNETS.`**, avoiding the
+   battery-fire rebuttal.
+4. The follow line is **a placeholder**: `FOLLOW FOR HOW THE THINGS YOU USE ACTUALLY WORK`. It does
+   not name a next reel, which non-negotiable 9 asks for. **The owner should replace it** once the
+   next reel is picked.

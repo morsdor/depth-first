@@ -663,3 +663,27 @@ candidate on the backlog by its own Gate 0 note (`projects/r015_moonmirrors/gate
 **Engagement:** pending first reading. See
 [`projects/r015_moonmirrors/NOTES.md`](projects/r015_moonmirrors/NOTES.md) for the build record
 and every verified figure's source.
+
+## `r016` — DRAFT, not posted (built 2026-09-25)
+
+**Of every $100 you spend on gas, about $77 never reaches the wheels.**
+
+We ran a 2016 Toyota Camry and a 2017 Chevy Bolt through the EPA's own test drive in the US
+government's vehicle model. The gas car gets $23 of every $100 to the wheels; most of the rest
+becomes heat in the engine. The electric car gets $64 of every $100 there, because a motor burns
+nothing: three sets of coils switch on in turn, the magnetism spins, and the middle chases it.
+And when you brake, it runs as a generator and puts energy back.
+
+We ran all 51 cars in the model. Every electric one beat every gas one.
+
+**Hook line:** "$100 goes into each car."
+
+**Close card (verbatim on screen):** "The US Energy Department's own figures agree." — follow
+line is a PLACEHOLDER pending the owner's choice of next reel.
+
+**Send-channel copy (GATE 3):** "Send this to whoever says EVs are a scam." Argument ammunition
+in the US EV-vs-gas fight — the heat test: the loser is defending the engine as sensible
+technology. Scope: energy, NOT emissions; expect "but the power plant" in the comments.
+
+**Engagement:** not posted.
+
