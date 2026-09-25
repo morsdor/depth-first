@@ -10,7 +10,7 @@ out the 15 ids that were already spent before you could see the 56 that were not
 | [`posted.md`](posted.md) | Ids that reached the feed | Moved here on posting, never moved back |
 | [`closed.md`](closed.md) | Retired, killed by a gate or by its own data, built and shelved, or **parked by the owner** | Rows stay forever so old logs resolve |
 
-**Counts at 2026-09-12: 84 ids `I01`–`I84`.** Never take live/posted/closed counts from this line —
+**Counts at 2026-09-25: 85 ids `I01`–`I85`.** Never take live/posted/closed counts from this line —
 the script below reads them from the repo.
 
 ```bash
