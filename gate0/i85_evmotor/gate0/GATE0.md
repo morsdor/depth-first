@@ -109,6 +109,68 @@ the script is written.
    animation, is the reason to build it, and the hook has to show something the common videos
    don't: the field computed from real currents, inside a real car.
 
-## 8. Awaiting
+## 8. Verdict so far
 
-**A human yes on the SENTENCE**, and on §2's send-test answer (GATE 3). Gate 0 is not mine to pass.
+**GATE 0 and GATE 3: a "go ahead" from the owner, 2026-09-25.** The message was truncated after
+"Go ahead and"; it is taken as a yes to the sentence and the send test, subject to the correction
+below.
+
+## 9. Stage 3 — the numbers, measured (2026-09-25). THE APPROVED SENTENCE'S EV FIGURE IS WRONG.
+
+`../energy_budget.py` → `../energy_budget.json`. NREL's **FASTSim 2.1.5** (a DOE-validated vehicle
+model, installed from PyPI, which is reachable where fueleconomy.gov is not) runs a **2016 Toyota
+Camry** and a **2017 Chevrolet Bolt** over the two EPA cycles behind the window-sticker "combined"
+figure: UDDS city and HWFET highway, weighted 55/45 by distance. The ruler was chosen **before**
+any result was seen:
+
+**Validation, before any result is trusted.** Each car's model economy is checked against EPA's
+own sticker figure, after FASTSim's EPA 5-cycle label adjustment: **Camry −2.4%, Bolt +8.8%**.
+The tolerance is 10%. **The first run compared raw test-cycle mpg with the sticker figure and read
++26%.** Two bases had been mixed, and the assertion refused to continue until they matched.
+
+| Share of the energy you PAY for… | Gas (Camry) | Electric (Bolt) | Outside number |
+|:--|:--|:--|:--|
+| **…that reaches the wheels** (braking energy included; DOE's own definition) | **22.6%** | **64.0%** | DOE's gas range is **12–30%** ✓ · DOE Fact #884 gives EV wall-to-road **"about 65%"** before regen is credited (2012 Leaf, 72 °F) ✓ |
+| …that pushes against air and road only (braking energy excluded) | 14.5% | 62.4% | none published |
+| city / highway, on the stricter ruler | 9.9% / 22.5% | 53.7% / 71.0% | |
+
+**What this changes.**
+
+- **The EV's "$80 of every $100" is FALSE on a like-for-like base.** DOE's 77–80% headline counts
+  energy recovered by regenerative braking as a gain *on top of* what came out of the wall. It is
+  not a share of the electricity you paid for. Two independent routes agree that the honest figure
+  is **~64–65%**: our model (64.0%) and DOE's own pre-regen figure (65%). The owner approved the
+  sentence, but the number in it is wrong, and non-negotiable 7 outranks the approval. **So the
+  word changes and goes back to the owner.**
+- **The gas "$75 never moves it" is right, and slightly conservative.** The measured figure is
+  77.4% on the DOE-comparable ruler.
+- **The ratio survives: about 2.8x on DOE's ruler.** The stricter ruler gives 4.3x, and **it is
+  deliberately NOT the headline.** It flatters the reel's own thesis more than any published
+  figure does, which is exactly the shape the `r011` lesson says to distrust. It has no outside
+  number to check it against.
+
+**Proposed corrected sentence (needs the owner's yes):**
+
+> **"Of every $100 of gas you put in your car, about $77 never reaches the wheels. Of every $100 of
+> electricity you put in an electric car, about $64 does."**
+
+**Still open, and not closed by this run:**
+
+- The **heat** phrasing ("out the radiator and tailpipe"). FASTSim puts engine loss at about 72%
+  of fuel energy on the combined cycle. DOE's radiator-plus-tailpipe share is 58–62%. The copy
+  should say "never reaches the wheels" rather than naming where the heat goes, unless DOE's page
+  is read at the source.
+- **fueleconomy.gov, afdc.energy.gov and web.archive.org are all blocked by this container's
+  egress policy.** DOE's figures above came through search excerpts of those pages and of
+  energy.gov Fact #884. **Read them at the source from the Mac before the script is locked.**
+- **Two cars is n = 2.** The Camry and Bolt are the FASTSim database's closest US mass-market pair.
+  A sweep across every conventional car and BEV in the database would show whether the ratio holds
+  across the fleet or only for this pair. Run it before the script is written.
+- FASTSim's label routine prints "trace miss" warnings. They come from its high-speed and
+  acceleration test legs, not from UDDS or HWFET, whose energy audit is what the table uses.
+  Recorded, not ignored.
+
+## 10. Awaiting
+
+**The owner's yes on the corrected sentence in §9.** Then: the fleet sweep, and a source read of
+DOE's pages. After that comes GATE 4, the script.

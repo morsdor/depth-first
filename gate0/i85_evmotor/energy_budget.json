@@ -1,0 +1,125 @@
+{
+ "ruler": "drag+rolling / energy paid for",
+ "combined_weights": [
+  0.55,
+  0.45
+ ],
+ "dollars_of_100": {
+  "gas": 15,
+  "ev": 62
+ },
+ "results": {
+  "gas": {
+   "city": {
+    "veh": "2016 TOYOTA Camry 4cyl 2WD",
+    "type": "Conv",
+    "cycle": "udds",
+    "miles": 7.450509765920121,
+    "bought_kj": 28633.50680566515,
+    "mpgge": 31.574515182845936,
+    "kwh_per_mi": 0.0,
+    "chg_eff": 0.86,
+    "audit": {
+     "drag_kj": 1274.3133602573462,
+     "rr_kj": 1559.2163686003591,
+     "brake_kj": 3076.7403493102324,
+     "aux_kj": 958.3000000000002,
+     "trans_kj": 513.936528536342,
+     "fc_kj": 21251.000198960868,
+     "mc_kj": 0.0,
+     "ess_eff_kj": 0.0
+    },
+    "val_comb": 28.0
+   },
+   "hwy": {
+    "veh": "2016 TOYOTA Camry 4cyl 2WD",
+    "type": "Conv",
+    "cycle": "hwfet",
+    "miles": 10.25686085169555,
+    "bought_kj": 27966.879178845793,
+    "mpgge": 44.50365705778167,
+    "kwh_per_mi": 0.0,
+    "chg_eff": 0.86,
+    "audit": {
+     "drag_kj": 4141.1352360968485,
+     "rr_kj": 2146.5196117952714,
+     "brake_kj": 951.2847110145486,
+     "aux_kj": 535.5,
+     "trans_kj": 629.4730051223187,
+     "fc_kj": 19562.966614816803,
+     "mc_kj": 0.0,
+     "ess_eff_kj": 0.0
+    },
+    "val_comb": 28.0
+   },
+   "moves": 0.1451871263644857,
+   "to_wheels": 0.22566715295878542,
+   "per_cycle": {
+    "udds": {
+     "moves": 0.098958529532858,
+     "to_wheels": 0.20641097572437717
+    },
+    "hwfet": {
+     "moves": 0.2248250442133034,
+     "to_wheels": 0.2588397336940697
+    }
+   }
+  },
+  "ev": {
+   "city": {
+    "veh": "2017 CHEVROLET Bolt",
+    "type": "BEV",
+    "cycle": "udds",
+    "miles": 7.450509765920121,
+    "bought_kj": 5230.705036617276,
+    "mpgge": 0.0,
+    "kwh_per_mi": 0.1676784889310027,
+    "chg_eff": 0.86,
+    "audit": {
+     "drag_kj": 1300.881264390403,
+     "rr_kj": 1509.3459337326924,
+     "brake_kj": 150.49290418961453,
+     "aux_kj": 342.25,
+     "trans_kj": 168.21630914027406,
+     "fc_kj": 0.0,
+     "mc_kj": 891.0436164246983,
+     "ess_eff_kj": 136.1763036113352
+    },
+    "val_comb": 0.283
+   },
+   "hwy": {
+    "veh": "2017 CHEVROLET Bolt",
+    "type": "BEV",
+    "cycle": "hwfet",
+    "miles": 10.25686085169555,
+    "bought_kj": 8880.56472052501,
+    "mpgge": 0.0,
+    "kwh_per_mi": 0.20678985530157418,
+    "chg_eff": 0.86,
+    "audit": {
+     "drag_kj": 4227.4729355873615,
+     "rr_kj": 2077.8646972831193,
+     "brake_kj": 21.87080290063014,
+     "aux_kj": 191.25,
+     "trans_kj": 162.52142982660644,
+     "fc_kj": 0.0,
+     "mc_kj": 819.3889762014709,
+     "ess_eff_kj": 136.9168178522412
+    },
+    "val_comb": 0.283
+   },
+   "moves": 0.624023666108386,
+   "to_wheels": 0.6395814915932735,
+   "per_cycle": {
+    "udds": {
+     "moves": 0.5372559107138039,
+     "to_wheels": 0.5660269660755756
+    },
+    "hwfet": {
+     "moves": 0.7100153910592428,
+     "to_wheels": 0.712478162694709
+    }
+   }
+  }
+ }
+}
