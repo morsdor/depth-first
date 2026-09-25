@@ -1,0 +1,410 @@
+[
+ {
+  "vid": 1,
+  "name": "2016 TOYOTA Corolla 4cyl 2WD",
+  "type": "Conv",
+  "to_wheels": 0.24524639154281258,
+  "moves": 0.17519043453630856,
+  "validation_err": 0.0027427294375974576
+ },
+ {
+  "vid": 2,
+  "name": "2016 HYUNDAI Elantra 4cyl 2WD",
+  "type": "Conv",
+  "to_wheels": 0.24554424483677598,
+  "moves": 0.18133683083333196,
+  "validation_err": -0.07202057300796239
+ },
+ {
+  "vid": 3,
+  "name": "2016 TOYOTA Camry 4cyl 2WD",
+  "type": "Conv",
+  "to_wheels": 0.22566715295878542,
+  "moves": 0.1451871263644857,
+  "validation_err": -0.023962380962920582
+ },
+ {
+  "vid": 4,
+  "name": "2016 CHEVROLET Malibu 4cyl 2WD",
+  "type": "Conv",
+  "to_wheels": 0.23474427192915007,
+  "moves": 0.16024380662766946,
+  "validation_err": -0.04386660615812277
+ },
+ {
+  "vid": 5,
+  "name": "2016 FORD Escape 4cyl 2WD",
+  "type": "Conv",
+  "to_wheels": 0.2433164473894524,
+  "moves": 0.16454491492681347,
+  "validation_err": 0.04680105966449544
+ },
+ {
+  "vid": 6,
+  "name": "2016 FORD Explorer 4cyl 2WD",
+  "type": "Conv",
+  "to_wheels": 0.23370632080309994,
+  "moves": 0.16081177326188417,
+  "validation_err": -0.056417050918275646
+ },
+ {
+  "vid": 7,
+  "name": "2016 BMW 328d 4cyl 2WD",
+  "type": "Conv",
+  "to_wheels": 0.28725081093572286,
+  "moves": 0.2057869170516948,
+  "validation_err": -0.15632224525034222
+ },
+ {
+  "vid": 8,
+  "name": "2016 AUDI A3 4cyl 2WD",
+  "type": "Conv",
+  "to_wheels": 0.29061137925133895,
+  "moves": 0.21695111967008876,
+  "validation_err": -0.07173058189868242
+ },
+ {
+  "vid": 17,
+  "name": "2017 CHEVROLET Bolt",
+  "type": "BEV",
+  "to_wheels": 0.6395814915932735,
+  "moves": 0.624023666108386,
+  "validation_err": 0.08753274595729144
+ },
+ {
+  "vid": 18,
+  "name": "2016 CHEVROLET Spark EV",
+  "type": "BEV",
+  "to_wheels": 0.6467603269203732,
+  "moves": 0.6320598381160902,
+  "validation_err": -0.052688320516437015
+ },
+ {
+  "vid": 19,
+  "name": "2016 Leaf 24 kWh",
+  "type": "BEV",
+  "to_wheels": 0.670558302339306,
+  "moves": 0.6562491848505231,
+  "validation_err": 0.020823549113337725
+ },
+ {
+  "vid": 20,
+  "name": "2016 Nissan Leaf 30 kWh",
+  "type": "BEV",
+  "to_wheels": 0.6706812169187941,
+  "moves": 0.6562438981947024,
+  "validation_err": 0.03731253482226804
+ },
+ {
+  "vid": 21,
+  "name": "2016 MITSUBISHI i-MiEV",
+  "type": "BEV",
+  "to_wheels": 0.5713397772496484,
+  "moves": 0.5592922221246523,
+  "validation_err": 0.08576491739269376
+ },
+ {
+  "vid": 22,
+  "name": "2016 TESLA Model S60 2WD",
+  "type": "BEV",
+  "to_wheels": 0.621067987151307,
+  "moves": 0.6047682991970293,
+  "validation_err": 0.008703547377538312
+ },
+ {
+  "vid": 27,
+  "name": "2010 Mazda 3 i-Stop",
+  "type": "Conv",
+  "to_wheels": 0.23633415314127157,
+  "moves": 0.17081238602502055,
+  "validation_err": -0.010263981606014272
+ },
+ {
+  "vid": 28,
+  "name": "2012 Ford Focus",
+  "type": "Conv",
+  "to_wheels": 0.23089176423334457,
+  "moves": 0.1671979446402738,
+  "validation_err": -0.02768519574054462
+ },
+ {
+  "vid": 29,
+  "name": "2012 Ford Fusion",
+  "type": "Conv",
+  "to_wheels": 0.22001253894161202,
+  "moves": 0.1474690135332397,
+  "validation_err": 0.12323203290701956
+ },
+ {
+  "vid": 30,
+  "name": "2017 Toyota Highlander 3.5 L",
+  "type": "Conv",
+  "to_wheels": 0.2210790062958504,
+  "moves": 0.15781864279066307,
+  "validation_err": -0.2280296503347814
+ },
+ {
+  "vid": 32,
+  "name": "2020 VW Golf 1.5TSI",
+  "type": "Conv",
+  "to_wheels": 0.23796582072163797,
+  "moves": 0.16129988401683149,
+  "validation_err": -0.294143548035829
+ },
+ {
+  "vid": 33,
+  "name": "2020 VW Golf 2.0TDI",
+  "type": "Conv",
+  "to_wheels": 0.26089674659030077,
+  "moves": 0.17747610096123226,
+  "validation_err": -0.4046145553903341
+ },
+ {
+  "vid": 34,
+  "name": "2022 Renault Zoe ZE50 R135",
+  "type": "BEV",
+  "to_wheels": 0.6089376107929141,
+  "moves": 0.5964058993010213,
+  "validation_err": null
+ },
+ {
+  "vid": 37,
+  "name": "2020 Chevrolet Colorado 2WD Diesel",
+  "type": "Conv",
+  "to_wheels": 0.23775241983304865,
+  "moves": 0.1658405169671937,
+  "validation_err": -0.07649107555778012
+ },
+ {
+  "vid": 39,
+  "name": "Maruti Swift 4cyl 2WD",
+  "type": "Conv",
+  "to_wheels": 0.21519421694656074,
+  "moves": 0.15055991847182604,
+  "validation_err": 0.338455878557542
+ },
+ {
+  "vid": 40,
+  "name": "2017 Maruti Dzire VDI",
+  "type": "Conv",
+  "to_wheels": 0.2880688576278552,
+  "moves": 0.22481376084038893,
+  "validation_err": null
+ },
+ {
+  "vid": 41,
+  "name": "2022 Toyota Avanza E/J MT",
+  "type": "Conv",
+  "to_wheels": 0.220804462584232,
+  "moves": 0.16563834909290803,
+  "validation_err": null
+ },
+ {
+  "vid": 42,
+  "name": "2023 Mitsubishi Pajero Sport",
+  "type": "Conv",
+  "to_wheels": 0.26872428217793537,
+  "moves": 0.1961387336978331,
+  "validation_err": null
+ },
+ {
+  "vid": 43,
+  "name": "2022 Tesla Model 3 RWD",
+  "type": "BEV",
+  "to_wheels": 0.584071859800672,
+  "moves": 0.5650720880773962,
+  "validation_err": null
+ },
+ {
+  "vid": 44,
+  "name": "2022 Tesla Model Y RWD",
+  "type": "BEV",
+  "to_wheels": 0.5844530495856711,
+  "moves": 0.5638657068272112,
+  "validation_err": null
+ },
+ {
+  "vid": 45,
+  "name": "2021 Fiat Panda Mild Hybrid",
+  "type": "Conv",
+  "to_wheels": 0.27578338959771304,
+  "moves": 0.19929975192164953,
+  "validation_err": null
+ },
+ {
+  "vid": 46,
+  "name": "2021 Peugot 3008",
+  "type": "Conv",
+  "to_wheels": 0.29694738641193213,
+  "moves": 0.20276491544119546,
+  "validation_err": null
+ },
+ {
+  "vid": 47,
+  "name": "Renault Megane 1.5 dCi Authentique",
+  "type": "Conv",
+  "to_wheels": 0.2898678812610894,
+  "moves": 0.19560598805819682,
+  "validation_err": null
+ },
+ {
+  "vid": 48,
+  "name": "Renault Clio IV diesel",
+  "type": "Conv",
+  "to_wheels": 0.28489873791645426,
+  "moves": 0.19655736412287253,
+  "validation_err": null
+ },
+ {
+  "vid": 49,
+  "name": "Nissan Navara",
+  "type": "Conv",
+  "to_wheels": 0.3105822897605995,
+  "moves": 0.2215671010757996,
+  "validation_err": null
+ },
+ {
+  "vid": 50,
+  "name": "Toyota Hilux Double Cab 4WD",
+  "type": "Conv",
+  "to_wheels": 0.27391652451167264,
+  "moves": 0.19196699168708212,
+  "validation_err": null
+ },
+ {
+  "vid": 51,
+  "name": "2022 Volvo XC40 Recharge twin",
+  "type": "BEV",
+  "to_wheels": 0.6249903246902816,
+  "moves": 0.6093986070612982,
+  "validation_err": null
+ },
+ {
+  "vid": 52,
+  "name": "2022 Ford F-150 Lightning 4WD",
+  "type": "BEV",
+  "to_wheels": 0.6488619040082065,
+  "moves": 0.6340664784361311,
+  "validation_err": null
+ },
+ {
+  "vid": 53,
+  "name": "Toyota Etios Liva diesel",
+  "type": "Conv",
+  "to_wheels": 0.2609250187519467,
+  "moves": 0.19382672670884327,
+  "validation_err": null
+ },
+ {
+  "vid": 54,
+  "name": "BYD ATTO 3",
+  "type": "BEV",
+  "to_wheels": 0.5908041928566546,
+  "moves": 0.5728307058341117,
+  "validation_err": null
+ },
+ {
+  "vid": 56,
+  "name": "2022 MINI Cooper SE Hardtop 2 door",
+  "type": "BEV",
+  "to_wheels": 0.6574014890608929,
+  "moves": 0.6434640312170302,
+  "validation_err": null
+ },
+ {
+  "vid": 57,
+  "name": "2021 Honda N-Box G",
+  "type": "Conv",
+  "to_wheels": 0.26872772083410634,
+  "moves": 0.20797382633771724,
+  "validation_err": null
+ },
+ {
+  "vid": 58,
+  "name": "2021 BMW iX xDrive40",
+  "type": "BEV",
+  "to_wheels": 0.6376956511508715,
+  "moves": 0.6212143826284926,
+  "validation_err": null
+ },
+ {
+  "vid": 59,
+  "name": "2021 Cupra Born",
+  "type": "BEV",
+  "to_wheels": 0.6509433216284509,
+  "moves": 0.6361711844940532,
+  "validation_err": null
+ },
+ {
+  "vid": 60,
+  "name": "2023 Volvo C40 Recharge",
+  "type": "BEV",
+  "to_wheels": 0.6233343264073512,
+  "moves": 0.60770431611498,
+  "validation_err": null
+ },
+ {
+  "vid": 61,
+  "name": "2023 Polestar 2 Long range Dual motor",
+  "type": "BEV",
+  "to_wheels": 0.6038808268666968,
+  "moves": 0.5865401794828301,
+  "validation_err": null
+ },
+ {
+  "vid": 62,
+  "name": "2022 Renault Megane E-Tech",
+  "type": "BEV",
+  "to_wheels": 0.6424587639401327,
+  "moves": 0.628307504501059,
+  "validation_err": null
+ },
+ {
+  "vid": 64,
+  "name": "2024 Volkswagen Polo 1.0 MPI",
+  "type": "Conv",
+  "to_wheels": 0.2641967043476528,
+  "moves": 0.20843899628438445,
+  "validation_err": null
+ },
+ {
+  "vid": 65,
+  "name": "2024 BYD Dolphin Active",
+  "type": "BEV",
+  "to_wheels": 0.6481889844116501,
+  "moves": 0.6350933464097146,
+  "validation_err": null
+ },
+ {
+  "vid": 66,
+  "name": "2024 VinFast VF e34",
+  "type": "BEV",
+  "to_wheels": 0.6645651808167131,
+  "moves": 0.6512972808283325,
+  "validation_err": null
+ },
+ {
+  "vid": 67,
+  "name": "2024 Toyota Vios 1.5 G",
+  "type": "Conv",
+  "to_wheels": 0.2352410370342463,
+  "moves": 0.17063616691101408,
+  "validation_err": null
+ },
+ {
+  "vid": 69,
+  "name": "2025 Polestar 2 Single Motor Standard Range",
+  "type": "BEV",
+  "to_wheels": 0.6200566688562265,
+  "moves": 0.6027099138800441,
+  "validation_err": null
+ },
+ {
+  "vid": 70,
+  "name": "2025 Chevrolet Silverado EV LT",
+  "type": "BEV",
+  "to_wheels": 0.6537154900640664,
+  "moves": 0.632508197410139,
+  "validation_err": null
+ }
+]

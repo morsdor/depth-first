@@ -170,7 +170,25 @@ The tolerance is 10%. **The first run compared raw test-cycle mpg with the stick
   acceleration test legs, not from UDDS or HWFET, whose energy audit is what the table uses.
   Recorded, not ignored.
 
-## 10. Awaiting
+## 10. Corrected sentence APPROVED, fleet sweep run (2026-09-25)
 
-**The owner's yes on the corrected sentence in §9.** Then: the fleet sweep, and a source read of
-DOE's pages. After that comes GATE 4, the script.
+The owner said yes to the §9 sentence. `../fleet_sweep.py` → `../fleet_sweep.json` runs **every
+light-duty gas car and EV in FASTSim's database** through the same audit, with trucks, motorcycles
+and the three-wheeler excluded by name before any result was seen:
+
+| | n | min | median | max |
+|:--|:--|:--|:--|:--|
+| gas (all) | 29 | 21.5% | 24.6% | 31.1% |
+| electric (all) | 22 | 57.1% | 63.9% | 67.1% |
+| gas (within 10% of EPA sticker) | 10 | 22.6% | 23.7% | 29.1% |
+| electric (within 10% of EPA sticker) | 6 | 57.1% | 64.3% | 67.1% |
+
+**The ranges do not overlap: the best gas car reaches 31.1%, the worst EV 57.1%.** Camry (22.6%) and
+Bolt (64.0%) sit at their groups' medians, so the pair is typical, not cherry-picked. Validation
+misses are reported, not dropped. Six cars miss EPA by more than 10%, among them the 2020 VW Golfs
+at −29% and −40% and the Maruti Swift at +34%, whose database entries are EU/India-spec. None of
+them changes the verdict.
+
+## 11. Awaiting
+
+**GATE 4, the script: [`../SCRIPT.md`](../SCRIPT.md).** Nothing is coded until it is approved.
