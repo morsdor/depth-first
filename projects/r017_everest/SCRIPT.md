@@ -1,6 +1,6 @@
 # I86 — SCRIPT (GATE 4) · "The top of Everest used to be seafloor."
 
-**Written 2026-10-02, before any `.tsx`, data module or build. Awaiting GATE 4.** Accent
+**Written 2026-10-02, before any `.tsx`, data module or build. APPROVED (GATE 4) 2026-10-02 — "Go with a / Go ahead with script": fossil option (a); the follow line stays a placeholder, to be flagged again at GATE 5. `r017` claimed at build start.** Accent
 `infrastructure #00D6F7` (the sea, sea level, the ocean India crosses). Amber is the summit
 seafloor rock and nothing else, in every frame.
 
@@ -30,7 +30,7 @@ Two other things on screen are not on that ruler, and each is deliberately kept 
 | 20 FEET below the summit | 6 m | Sakai et al. 2005 |
 | 450 million years ago | Middle Ordovician | Sakai et al. 2005; Montana State |
 | 50 million years ago | collision onset; the literature range is ~59–40 Ma | Najman et al. 2010 and others; model slowdown 45–50 Ma |
-| 4× your fingernails | model 4.2× · Cande & Stegman 4.3× | `plate_journey.py`; Yaemsiri 2010 |
+| 4× your fingernails | model 4.2× at peak · Cande & Stegman 4.3×; **on screen only while the clock reads 62–55 Ma, where the model is ≥ 3.74×** | `plate_journey.py`; Yaemsiri 2010 |
 | about the speed your fingernails grow | GPS 37–44 mm/yr against nails 41.6 | GPS; Yaemsiri 2010 |
 
 ---

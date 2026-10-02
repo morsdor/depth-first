@@ -16,6 +16,7 @@ import { Breath, DURATION_SECONDS as BREATH_SECONDS } from './reels/Breath';
 import { DURATION_SECONDS as HIJACK_SECONDS, Hijack } from './reels/Hijack';
 import { DURATION_SECONDS as MOONMIRRORS_SECONDS, MoonMirrors } from './reels/MoonMirrors';
 import { DURATION_SECONDS as EVMOTOR_SECONDS, EvMotor } from './reels/EvMotor';
+import { DURATION_SECONDS as EVEREST_SECONDS, Everest } from './reels/Everest';
 import { DURATION_SECONDS as MANIM_SECONDS, ManimProbe } from './reels/ManimProbe';
 import { SafeZones } from './reels/lib/chrome';
 
@@ -149,6 +150,13 @@ const MoonMirrorsSafe: React.FC = () => (
 const EvMotorSafe: React.FC = () => (
   <>
     <EvMotor />
+    <SafeZones />
+  </>
+);
+
+const EverestSafe: React.FC = () => (
+  <>
+    <Everest />
     <SafeZones />
   </>
 );
@@ -517,6 +525,28 @@ export const RemotionRoot: React.FC = () => {
         id="r016-evmotor-safe"
         component={EvMotorSafe}
         durationInFrames={EVMOTOR_SECONDS * 30}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+
+      {/* r017 · I86 · the top of Everest used to be seafloor — real elevation
+          (AWS Terrain Tiles), India moved by Seton et al. 2012's rotations, the
+          summit limestone (>= 8,520 m) the one amber element. Data from
+          remotion/src/reels/data/everest.ts, which projects/r017_everest/emit_ts.py
+          refuses to write unless every on-screen claim holds. NOT YET POSTED. */}
+      <Composition
+        id="r017-everest"
+        component={Everest}
+        durationInFrames={EVEREST_SECONDS * 30}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="r017-everest-safe"
+        component={EverestSafe}
+        durationInFrames={EVEREST_SECONDS * 30}
         fps={30}
         width={1080}
         height={1920}
