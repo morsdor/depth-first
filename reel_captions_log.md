@@ -664,26 +664,39 @@ candidate on the backlog by its own Gate 0 note (`projects/r015_moonmirrors/gate
 [`projects/r015_moonmirrors/NOTES.md`](projects/r015_moonmirrors/NOTES.md) for the build record
 and every verified figure's source.
 
-## `r016` — DRAFT, not posted (built 2026-09-25)
+## `r016` — as posted, 2026-10-02
 
 **Of every $100 you spend on gas, about $77 never reaches the wheels.**
 
-We ran a 2016 Toyota Camry and a 2017 Chevy Bolt through the EPA's own test drive in the US
-government's vehicle model. The gas car gets $23 of every $100 to the wheels; most of the rest
-becomes heat in the engine. The electric car gets $64 of every $100 there, because a motor burns
-nothing: three sets of coils switch on in turn, the magnetism spins, and the middle chases it.
-And when you brake, it runs as a generator and puts energy back.
+We ran a gas car and an electric car through the EPA's own test drive, in the US Department of
+Energy's vehicle simulator.
 
-We ran all 51 cars in the model. Every electric one beat every gas one.
+⛽ Gas car: $23 of every $100 reaches the wheels. Most of the rest becomes heat in the engine.
+⚡ Electric car: $64 of every $100.
+
+The difference is the motor. It burns nothing — three sets of coils switch on in turn, the
+magnetism spins, and the middle chases it. Hit the brakes and it runs backwards as a generator,
+putting energy back in the battery.
+
+We ran all 51 cars in the simulator. Every electric one beat every gas one.
+
+Send this to whoever says EVs are a scam.
+
+(2016 Camry vs 2017 Bolt, EPA combined cycle, NREL FASTSim. Energy in → energy to the wheels; this
+is not a claim about emissions.)
+
+#electriccar #EV #howitworks #engineering #cars
+
+*(Caption as supplied for posting; confirm against what actually went up if it was edited.)*
 
 **Hook line:** "$100 goes into each car."
 
-**Close card (verbatim on screen):** "The US Energy Department's own figures agree." — follow
-line is a PLACEHOLDER pending the owner's choice of next reel.
+**Close card (verbatim on screen):** "The US Energy Department's own figures agree." · follow line
+"Follow for how the things you use actually work." (placeholder — names no next reel).
 
-**Send-channel copy (GATE 3):** "Send this to whoever says EVs are a scam." Argument ammunition
-in the US EV-vs-gas fight — the heat test: the loser is defending the engine as sensible
-technology. Scope: energy, NOT emissions; expect "but the power plant" in the comments.
+**Send-channel copy (GATE 3):** "Send this to whoever says EVs are a scam." Argument ammunition in
+the US EV-vs-gas fight — the first send-test answer written to the "what does the loser lose"
+(heat) question from the start. Scope: energy, NOT emissions.
 
-**Engagement:** not posted.
-
+**Engagement:** pending first reading. See
+[`projects/r016_evmotor/NOTES.md`](projects/r016_evmotor/NOTES.md).

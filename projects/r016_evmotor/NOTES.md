@@ -3,8 +3,7 @@
 Build record, 2026-09-25. Gate 0, GATE 3 and the Stage 3 research are in `gate0/GATE0.md`; the
 approved script is `SCRIPT.md`. This file covers the build, the render and the audits.
 
-**State: rendered, both audits passing, awaiting GATE 5 (the owner watches it end to end). NOT
-POSTED.** Rendered in a cloud container (headless-shell Chromium, `angle`), not on the Mac. It
+**State: POSTED 2026-10-02.** GATE 5 passed by the owner; engagement pending first reading. Rendered in a cloud container (headless-shell Chromium, `angle`), not on the Mac. It
 rendered cleanly, but the Mac is still the reference render.
 
 ## Pipeline
