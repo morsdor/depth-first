@@ -126,8 +126,11 @@ function mountainShot(s: number): Shot {
   // payoff: from looking up the mountain to looking down from the top
   const up: Shot = { focus: new THREE.Vector3(0, 4.2, 0), scale: MOUNTAIN_SCALE, rx: -0.05, ry: orbit };
   const down: Shot = { focus: new THREE.Vector3(0, 4.4, 0), scale: MOUNTAIN_SCALE, rx: 0.36, ry: orbit };
-  const low: Shot = { focus: new THREE.Vector3(0, 5.5, 0), scale: 0.22, rx: 0.42, ry: orbit };
-  return blend(blend(up, down, ramp(s, y0 + 0.4, y0 + 4.8)), low, ramp(s, BEAT.close[0] - 0.4, BEAT.close[0] + 1.2));
+  // close: drop the mountain under the copy, then a slow push and rise to the cut
+  const low: Shot = { focus: new THREE.Vector3(0, 5.5, 0), scale: 0.2, rx: 0.3, ry: orbit };
+  const lift: Shot = { focus: new THREE.Vector3(0, 5.0, 0), scale: 0.215, rx: 0.42, ry: orbit };
+  const payoff = blend(up, down, ramp(s, y0 + 0.4, y0 + 4.8));
+  return blend(blend(payoff, low, ramp(s, BEAT.close[0] - 0.4, BEAT.close[0] + 1.0)), lift, ramp(s, BEAT.close[0] + 1.0, BEAT.close[1]));
 }
 
 // ── the mountain core: real heights, sampled on a polar mesh ──────────────
@@ -485,7 +488,7 @@ const FACE_W = 1.62;
 const FACE_H = 1.04;
 function rockShot(s: number): Shot {
   const k = s - BEAT.proof[0];
-  return { focus: new THREE.Vector3(0, 0, 0), scale: 0.9 + 0.025 * k, rx: 0.12 + 0.03 * Math.sin(k * 0.9), ry: -0.42 + 0.11 * k };
+  return { focus: new THREE.Vector3(0, 0, 0), scale: 0.88 + 0.012 * k, rx: 0.12 + 0.03 * Math.sin(k * 0.9), ry: -0.42 + 0.11 * k };
 }
 
 const RockFace: React.FC<{ s: number; opacity: number }> = ({ s, opacity }) => {
@@ -657,9 +660,9 @@ const scraped = (s: number) => clamp01((indiaFront(s) - CONTACT_X) / (FRONT_END 
 const BLOCK_SCALE = 0.74;
 const blockShot = (s: number): Shot => ({
   focus: new THREE.Vector3(-0.2, 0.12 + 0.03 * (s - BEAT.crash[0]), 0),
-  scale: BLOCK_SCALE * (0.92 + 0.02 * (s - BEAT.crash[0])),
+  scale: BLOCK_SCALE * (0.86 + 0.035 * (s - BEAT.crash[0])),
   rx: 0.32,
-  ry: -0.75 + 0.13 * (s - BEAT.crash[0]),
+  ry: -0.85 + 0.2 * (s - BEAT.crash[0]),
 });
 
 const Slab: React.FC<{ p: [number, number, number]; size: [number, number, number]; color: string; rz?: number; o: number; edge?: string; sx?: number; glow?: number }> = ({
