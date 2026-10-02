@@ -3,7 +3,7 @@
 Build record, 2026-10-02. Gate 0, GATE 3 and the Stage 3 research are in `gate0/GATE0.md`; the
 approved script is `SCRIPT.md`. This file covers the build, the render and the audits.
 
-**State: BUILT, awaiting GATE 5.** Rendered in a cloud container (headless-shell Chromium, `angle`).
+**State: BUILT and audited, awaiting GATE 5.** Rendered in a cloud container (headless-shell Chromium, `angle`).
 
 ## Pipeline
 
@@ -86,9 +86,23 @@ npx remotion render r017-everest ../projects/r017_everest/r017_everest.mp4 --cod
    orbited in front of the mountain. Outlines are ash, sediment is seeded-random, the close shot
    drops the mountain, and the plumb now runs up the core's own axis, drawn through the rock.
 
-## Audits
+## Audits (final render, 43 s, 1,290 frames)
 
-*(filled in after the render)*
+| Audit | Result |
+|:--|:--|
+| `reel_motion_audit.py` (default width 240) | **PASS**: median change 0.73, longest dead spell 0.25 s, **event density 32%** |
+| `reel_safe_audit.py` | **PASS** with **no bleed ranges** (worst box x 72–860, y 304–1540) |
+
+Per beat (event density = samples with change ≥ 1.0):
+
+| hook | proof | sea | race | crash | payoff | close |
+|:--|:--|:--|:--|:--|:--|:--|
+| 39% | 42% | 46% | 23% | **11%** | 50% | **14%** |
+
+**32% overall is below `r004`'s 42% and above `I51` cut 1's 26%, which a viewer called static.** The
+first render failed the dead-spell rule (4.0 s in the close, 31% overall); camera moves fixed the
+dead spell but barely moved the crash and close, whose objects cover a small share of the frame.
+**Flagged for GATE 5.** The audit cannot tell whether the crash *reads* as static; a watch can.
 
 ## Known weaknesses to judge at GATE 5
 
