@@ -94,4 +94,53 @@ mesh, if real elevation is used, needs a free DEM (SRTM/Copernicus GLO-30) — a
 
 ## 7. Verdict
 
-**Awaiting the owner — GATE 2 (the sentence), then GATE 3 (the send line in §2).**
+**GATE 2 and GATE 3 passed by the owner, 2026-10-02** ("Go ahead"), sentence and send line as
+written in §1 and §2.
+
+## 8. Stage 3 — research and measurement (2026-10-02)
+
+**Nothing falsified the sentence.** Every lead in §5 is now sourced or measured:
+
+| Figure | Value | Source |
+|:--|:--|:--|
+| Everest | **8,848.86 m = 29,031.7 ft → "29,032 FT"; 5.50 miles** | China–Nepal joint announcement, 2020-12-08 |
+| Summit rock | Qomolangma Formation, **Middle Ordovician limestone, ~450 Ma**, laid down in a warm shallow sea on India's northern margin | Sakai et al., *Island Arc* 14 (2005) 297; Montana State Everest Education Expedition |
+| The fossils | **abundant fragments of trilobites, crinoids (sea lilies), ostracods and brachiopods**, in samples taken **6 m (20 ft) below the summit** | Sakai et al. 2005, as reported by secondary sources — **paper not read in full; the container cannot reach the publisher** |
+| India's peak speed | model **17.4 cm/yr (6.9 in) at 55 Ma**, 5-Myr mean; Cande & Stegman: **~18 cm/yr around 65 Ma** | `plate_journey.py` on Seton et al. 2012; Cande & Stegman, *Nature* 475 (2011) 47 |
+| India's speed today | GPS **37–44 mm/yr** along the Himalaya; model 45 mm/yr at Nagpur | geodetic plate-motion models as summarised in Banerjee et al., *GRL* 2002, and others |
+| Fingernails | **3.47 mm/month = 41.6 mm/yr** | Yaemsiri et al., *JEADV* 24 (2010) 420 |
+| Ratio, peak | **4.2× fingernails** (model) · 4.3× (Cande & Stegman) | derived |
+| Ratio, today | fingernails lie **inside** the GPS range | derived |
+| India since 80 Ma | 6,611 km = **4,108 miles** (Nagpur vs Eurasia, model) | `plate_journey.py` |
+
+**The model against the outside numbers (`plate_journey.py`, parameters chosen before the run,
+nothing fitted).** Five checks, all pass. Two disagreements, stated rather than hidden:
+- **The model's peak is 10 Myr later than Cande & Stegman's** (55 vs ~65 Ma), though inside their
+  52–67 Ma fast window. The reel never names the year of the peak.
+- **The model's present-day rate is 45 mm/yr, one above GPS's 37–44.** The first draft of the check
+  allowed 46 under a label reading "37–44". That is loosening a test until it passes; it was caught
+  and rewritten so the bound states its own slack, and **the fingernail comparison is made against
+  GPS, never the model.**
+
+**Data and licence, resolved.**
+- **Rotations:** Seton et al. 2012, taken from GPlates' own `pygplates-tutorials` repository
+  (EarthByte/zenodo hosts are blocked by the proxy). The rotation poles are published parameters,
+  citable as facts. The repo carries no licence file, and the model's own licence could not be
+  read from this container. **So the reel uses only the ROTATIONS, never the model's geometry.**
+- **Geometry: Natural Earth** outlines (public domain), rotated by plate 501's poles — r006's
+  rule: published figures are facts, geometry is a database.
+- **Elevation: AWS Terrain Tiles** (Mapzen "terrarium", free with attribution to their SRTM/GMTED
+  sources), z12 around the summit. **The DEM's summit reads 8,753 m, 96 m under the survey**, as a
+  30-m-grid DEM always does on a sharp peak. The mesh is the shape; the number on screen is the survey.
+
+**Accuracy traps carried into the script.**
+1. **The sea the rock formed in is NOT the ocean India crossed.** The limestone is ~450 Ma; the
+   ocean India raced across opened much later. The script gives the two their own beats and never
+   says the rock formed in the ocean that closed.
+2. **They are fragments, not whole animals.** "Full of fossil sea creatures" is true; a whole
+   trilobite in the rock would not be. See SCRIPT.md, the open question on the fossil.
+3. **The uplift's timing is not known well enough to animate as a clock.** The height counter in
+   the collision beat runs alongside the stacking, never against a time axis.
+4. **The crumpling is a diagram, not a simulation**, and is labelled as such in NOTES.
+
+**Next: GATE 4 — `SCRIPT.md`.**
