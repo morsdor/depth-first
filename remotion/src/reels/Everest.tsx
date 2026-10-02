@@ -102,7 +102,8 @@ const SUMMIT_Y = TERRAIN.demPeakM / 1000;
 const MOUNTAIN_SCALE = 0.24;
 /** The mountain shot for any second, including its slow orbit. */
 function mountainShot(s: number): Shot {
-  const orbit = -0.6 + 0.045 * s;
+  // the orbit speeds up through the close, so the last beat keeps moving to the cut
+  const orbit = -0.6 + 0.09 * s + 0.6 * Math.max(0, s - BEAT.close[0]) ** 1.3 / 4;
   const whole: Shot = { focus: new THREE.Vector3(0, 4.4, 0), scale: MOUNTAIN_SCALE, rx: 0.3, ry: orbit };
   const [h0] = BEAT.hook;
   const [p0] = BEAT.proof;
@@ -483,7 +484,8 @@ function fragGeometry(f: Frag): THREE.BufferGeometry {
 const FACE_W = 1.62;
 const FACE_H = 1.04;
 function rockShot(s: number): Shot {
-  return { focus: new THREE.Vector3(0, 0, 0), scale: 1, rx: 0.12, ry: -0.32 + 0.05 * (s - BEAT.proof[0]) };
+  const k = s - BEAT.proof[0];
+  return { focus: new THREE.Vector3(0, 0, 0), scale: 0.9 + 0.025 * k, rx: 0.12 + 0.03 * Math.sin(k * 0.9), ry: -0.42 + 0.11 * k };
 }
 
 const RockFace: React.FC<{ s: number; opacity: number }> = ({ s, opacity }) => {
@@ -596,8 +598,9 @@ const Globe: React.FC<{ s: number; opacity: number }> = ({ s, opacity }) => {
     return new THREE.BufferGeometry().setFromPoints(seg);
   }, [qI]);
   // view: centred between India and Asia, drifting north with India
-  const lat = lerp(-6, 10, ramp(s, BEAT.race[0], BEAT.race[1]));
-  const lon = 78;
+  const sweep = clamp01((s - BEAT.race[0]) / (BEAT.race[1] - BEAT.race[0]));
+  const lat = lerp(-14, 14, sweep);
+  const lon = lerp(40, 92, sweep);
   const shot: Shot = {
     focus: new THREE.Vector3(0, 0, 0),
     scale: 1,
@@ -653,13 +656,13 @@ const indiaFront = (s: number) => lerp(-0.42, FRONT_END, ramp(s, BEAT.crash[0] +
 const scraped = (s: number) => clamp01((indiaFront(s) - CONTACT_X) / (FRONT_END - CONTACT_X)) * N_SHEETS;
 const BLOCK_SCALE = 0.74;
 const blockShot = (s: number): Shot => ({
-  focus: new THREE.Vector3(-0.2, 0.12, 0),
-  scale: BLOCK_SCALE,
+  focus: new THREE.Vector3(-0.2, 0.12 + 0.03 * (s - BEAT.crash[0]), 0),
+  scale: BLOCK_SCALE * (0.92 + 0.02 * (s - BEAT.crash[0])),
   rx: 0.32,
-  ry: -0.42 + 0.03 * (s - BEAT.crash[0]),
+  ry: -0.75 + 0.13 * (s - BEAT.crash[0]),
 });
 
-const Slab: React.FC<{ p: [number, number, number]; size: [number, number, number]; color: string; rz?: number; o: number; edge?: string; sx?: number }> = ({
+const Slab: React.FC<{ p: [number, number, number]; size: [number, number, number]; color: string; rz?: number; o: number; edge?: string; sx?: number; glow?: number }> = ({
   p,
   size,
   color,
@@ -667,13 +670,14 @@ const Slab: React.FC<{ p: [number, number, number]; size: [number, number, numbe
   o,
   edge = ASH,
   sx = 1,
+  glow = 0.35,
 }) => {
   const box = useMemo(() => new THREE.BoxGeometry(...size), [size[0], size[1], size[2]]); // eslint-disable-line react-hooks/exhaustive-deps
   const edges = useMemo(() => new THREE.EdgesGeometry(box), [box]);
   return (
     <group position={p} rotation={[0, 0, rz]} scale={[sx, 1, 1]}>
       <mesh geometry={box}>
-        <meshStandardMaterial color={color} emissive={color} emissiveIntensity={0.35} roughness={1} transparent opacity={o} />
+        <meshStandardMaterial color={color} emissive={color} emissiveIntensity={glow} roughness={1} transparent opacity={o} />
       </mesh>
       <lineSegments geometry={edges}>
         <lineBasicMaterial color={edge} transparent opacity={o * 0.8} />
@@ -712,7 +716,7 @@ const Block: React.FC<{ s: number; opacity: number }> = ({ s, opacity }) => {
   return (
     <group position={pos.toArray()} rotation={euler} scale={scale}>
       {/* Asia: holds still */}
-      <Slab p={[0.42, -0.18, 0]} size={[0.8, 0.36, 0.6]} color={GRAPHITE} o={opacity} />
+      <Slab p={[0.42, -0.18, 0]} size={[0.8, 0.36, 0.6]} color={GRAPHITE} o={opacity} glow={1.6} />
       {/* India: slides north, its front dipping under Asia */}
       <group position={[front, -0.2, 0]} rotation={[0, 0, -0.12]}>
         <Slab p={[-INDIA_L / 2, 0, 0]} size={[INDIA_L, 0.26, 0.58]} color={ASH} o={opacity} />
