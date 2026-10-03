@@ -2420,3 +2420,25 @@ non-negotiable 7 working as written: **an approved sentence is not a true one.**
 that `r011`'s annoyance-level argument lacked. This is the first send-test answer written to the
 "what does the loser lose" question from the start.
 
+### r016 — HEAT MOVED EVERY METRIC, AND STILL DID NOT TRAVEL LIKE r005 (2026-10-03)
+
+**First reading, ~17 h:** 10,275 views / 8,129 viewers, the second-best reach on the account, 83%
+cold from the Reels tab. Average watch 18 s of 42. **Every engagement rate flagged "Higher"**: likes
+1.33%, comments 0.39%, saves 0.33%, **shares 0.172%**. 2 follows.
+
+**What it says about the heat hypothesis.** It is the first reel built to the "what does the loser
+lose" question, and it is the best non-r005 reel on every channel: sends 1.4x `r010`'s, 4.2x
+`r011`'s, likes 5.4x `r010`'s, and 32 comments — the argument showed up in the comment section.
+**But sends are 5.3x below r005's day-1 rate and inside the <0.2% band `r011` pre-registered as
+falsifying.** So heat is a real lever and not the whole of r005's mechanism. Read it as "necessary,
+not sufficient", the same verdict GATE 3 itself got on `r011`.
+
+**Candidate explanations, none tested:** (1) r005's evidence was something every viewer had
+personally seen (the seatback map); a $100 split is a number they are told. (2) EV-vs-gas is a
+saturated argument with a crowded supply of ammunition; flat earth had little visual ammunition
+this good. (3) Day 1 vs day 4: r005's share rate ROSE as it spread, so the gap may narrow. **Re-read
+at day 4** before concluding anything.
+
+**Retention:** ~50% gone by ~10 s, inside the gas-engine beat, before the motor (the thing the owner
+asked for) appears at 11 s. The hook held; the second beat is where it bled.
+

@@ -3,7 +3,7 @@
 Build record, 2026-09-25. Gate 0, GATE 3 and the Stage 3 research are in `gate0/GATE0.md`; the
 approved script is `SCRIPT.md`. This file covers the build, the render and the audits.
 
-**State: POSTED 2026-10-02.** GATE 5 passed by the owner; engagement pending first reading. Rendered in a cloud container (headless-shell Chromium, `angle`), not on the Mac. It
+**State: POSTED 2026-10-02.** GATE 5 passed by the owner. **First reading (2026-10-03, ~17 h after posting): 10,275 views / 8,129 viewers — the account's second-best reach after r005, 83% from the Reels tab — average watch 18 s of 42 (43%), skip rate 28.1% "Lower". 108 likes (1.33%), 32 comments (0.39%), 14 shares (0.172%), 27 saves (0.33%), 4 reposts, 2 follows; Instagram flags every rate "Higher" than typical.** Sends at 0.172% are the best since r005 (1.4x r010's 0.124%) and still **5.3x below r005's day-1 0.921% and 7.0x below its day-4 1.203%** — inside the <0.2% band r011 named as falsifying. The heat test moved every metric the right way and did not reach r005's travel band. Re-read at day 4 (full table in `reel_captions_log.md`). Rendered in a cloud container (headless-shell Chromium, `angle`), not on the Mac. It
 rendered cleanly, but the Mac is still the reference render.
 
 ## Pipeline
@@ -110,3 +110,23 @@ The header band (y < 270) is clean on every frame, including these.
 - **The follow line is a placeholder** and names no next reel (non-negotiable 9).
 - The heat accent (`failure #FF4D4D`) is used for lost energy, not for a "break" beat. That's
   defensible, since the $77 is the failure the reel is about, but it stretches the brand rule.
+
+## First reading (2026-10-03, ~17 h after posting)
+
+| Metric | Value |
+|:--|:--|
+| Views / viewers | 10,275 / 8,129 (1.264 per viewer) |
+| Sources | Reels tab 83.0% · Explore 15.9% · Feed 0.4% · Stories 0.3% · Profile 0.1% |
+| Average watch | 18 s of 42 (43%); retention ~50% by ~10 s, then a slow bleed to the end |
+| Skip rate | 28.1% ("Lower") |
+| Likes · comments · reposts · shares · saves · follows | 108 · 32 · 4 · 14 · 27 · 2 |
+| Per viewer | likes 1.33% · comments 0.39% · **shares 0.172%** · saves 0.33% |
+
+**Against the heat hypothesis (the question this reel was built to answer):** every rate is flagged
+"Higher" than the account's typical, reach is second only to r005, and sends are the best since
+r005 — but **0.172% is 5.3x below r005's day-1 rate and inside the <0.2% band r011 named as
+falsifying.** Heat moved the reel; it did not make it travel the way r005 did. r005's rate rose
+from day 1 to day 4 as it spread; re-read this one at day 4 before concluding.
+
+**Retention:** half the audience is gone by ~10 s, before the motor beat starts (11 s). The hook
+held (skip "Lower"); the gas-engine beat (4.5–11 s) is where the curve falls.

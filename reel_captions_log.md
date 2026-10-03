@@ -698,5 +698,20 @@ is not a claim about emissions.)
 the US EV-vs-gas fight — the first send-test answer written to the "what does the loser lose"
 (heat) question from the start. Scope: energy, NOT emissions.
 
-**Engagement:** pending first reading. See
+**Engagement at first reading (2026-10-03, ~17 h):** 10,275 views / 8,129 viewers (1.264 views per
+viewer), 83.0% Reels tab, 15.9% Explore. Average watch **18 s / 42 s (43%)**; retention ~50% by ~10 s,
+then a slow bleed. Skip rate **28.1% ("Lower")**.
+
+| Channel | Count | Per viewer | Instagram's flag | Against |
+|:--|--:|--:|:--|:--|
+| Shares (sends) | 14 | **0.172%** | 0.2% "Higher" | r005 0.921% (day 1) / 1.203% (day 4) · r010 0.124% · r011 0.041% |
+| Likes | 108 | 1.33% | 1.3% "Higher" | r005 2.79% · r009 2.92% · r010 0.247% |
+| Saves | 27 | 0.33% | 0.3% "Higher" | |
+| Comments | 32 | 0.39% | 0.4% "Higher" | |
+| Reposts | 4 | 0.05% | "Higher" | |
+| Follows | 2 | | | r005 157 at day 4 |
+
+Graded per channel (GATE 3 names argument ammunition): **best send rate since r005 and still 5.3x
+below r005 at the same age** — moved, did not travel. Comments are the standout relative to other
+reels, as an argument-heat reel should produce. See
 [`projects/r016_evmotor/NOTES.md`](projects/r016_evmotor/NOTES.md).
