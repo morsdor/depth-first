@@ -3,7 +3,7 @@
 Build record, 2026-10-02. Gate 0, GATE 3 and the Stage 3 research are in `gate0/GATE0.md`; the
 approved script is `SCRIPT.md`. This file covers the build, the render and the audits.
 
-**State: BUILT and audited, awaiting GATE 5.** Rendered in a cloud container (headless-shell Chromium, `angle`).
+**State: POSTED 2026-10-03 (43 s).** GATE 5 passed by the owner. First reading below. Rendered in a cloud container (headless-shell Chromium, `angle`).
 
 ## Pipeline
 
@@ -112,3 +112,23 @@ dead spell but barely moved the crash and close, whose objects cover a small sha
 - **The sea beat does not obviously read as "under water"** in a still.
 - **The follow line is a placeholder** (non-negotiable 9), as agreed at GATE 4.
 - **Toxicity:** the reel never mentions the flood; expect the comments to.
+
+## First reading (2026-10-04, ~1 day after posting)
+
+| Metric | Value |
+|:--|:--|
+| Views / viewers | 7,014 / 5,579 (1.257 per viewer) |
+| Sources | Reels tab 77.9% · Explore 20.9% · Feed 0.6% · Profile 0.2% |
+| Average watch | 17 s of 43 (40%); ~35% left by ~12 s, then nearly flat to the end |
+| Likes · comments · reposts · shares · saves · follows | 72 · 2 · 3 · 8 · 25 · 6 |
+| Per viewer | likes 1.29% · comments 0.04% · **shares 0.143%** · saves 0.45% · **follows 0.11%** |
+
+**Against its own bet (a second heat test, the flood argument):** sends sit just under r016's day-1
+rate, in the same <0.2% band. **The argument did not show up: 2 comments against r016's 32 at the same
+age.** The reel never names the flood, and the caption's send line names the question, not the fight —
+so the heat may never have been switched on. What it did better than r016: saves (0.45% vs 0.33%) and
+follows (6 on 5.6k viewers, the best follow rate since r005).
+
+**Retention:** the curve drops through the proof and sea beats (4.5–17.5 s) and then holds almost
+flat through the race, crash and payoff — the viewers who reach the globe stay. The motion audit's
+weakest beats (crash 11%, close 14%) are not where people left.

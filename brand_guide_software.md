@@ -2442,3 +2442,28 @@ at day 4** before concluding anything.
 **Retention:** ~50% gone by ~10 s, inside the gas-engine beat, before the motor (the thing the owner
 asked for) appears at 11 s. The hook held; the second beat is where it bled.
 
+### r016 DAY 2 — THE RATES ROSE AS IT SPREAD, THE r005 SIGNATURE (2026-10-04)
+
+17,303 views / 13,441 viewers. Shares **0.172% → 0.223%**, likes 1.33% → 1.94%, comments 0.39% →
+0.62%, saves 0.33% → 0.43%: **every rate went up** while views grew 1.68x. Rates normally dilute as a
+reel leaves its warm pool; r005 is the only other reel that did this (0.921% → 1.203%). The day-1
+verdict ("moved, did not travel") stands on the absolute number — still 5.4x below r005 — but the
+*direction* is the travelling shape, not the diluting one. **Heat is the first variable since r005 to
+produce it.**
+
+### r017 / I86 — THE SECOND HEAT TEST LEFT THE HEAT SWITCHED OFF (2026-10-04)
+
+**First reading, ~1 day:** 7,014 views / 5,579 viewers, 40% average watch. Sends **0.143%** (r016
+0.172% at the same age), likes 1.29%, saves 0.45%, **comments 0.04% — 2, against r016's 32**, and
+**6 follows, the best follow rate since r005.**
+
+**The likely reason, stated as a hypothesis:** the reel and its caption both deliberately avoided
+naming the flood, to limit toxicity. r016's copy put both sides on screen ("gas car" vs "electric
+car") and the viewer's own side was obvious; r017's copy asks a question nobody in the audience was
+arguing about until told. **An argument the reel refuses to name may not be an argument the viewer
+brings to it.** That is the cost of the toxicity hedge, and it was paid knowingly.
+
+**What it did do:** saves and follows beat r016 — the geology reel converted better per viewer even
+while travelling less. Retention fell through the first 17 s and then held flat through the globe and
+crash, so the audit's weakest beats were not where people left.
+

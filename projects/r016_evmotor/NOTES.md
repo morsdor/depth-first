@@ -130,3 +130,10 @@ from day 1 to day 4 as it spread; re-read this one at day 4 before concluding.
 
 **Retention:** half the audience is gone by ~10 s, before the motor beat starts (11 s). The hook
 held (skip "Lower"); the gas-engine beat (4.5–11 s) is where the curve falls.
+
+## Day 2 (2026-10-04)
+
+17,303 views / 13,441 viewers (1.68x day 1), avg watch 21 s. 261 likes (1.94%), 84 comments (0.62%),
+8 reposts, 30 shares (0.223%), 58 saves (0.43%), 7 follows. **Every rate ROSE from day 1** — shares
+2.14x on 1.68x the views. Engagement normally dilutes as a reel reaches colder audiences; r005 is the
+only other reel whose rates rose as it spread. Still 5.4x below r005's day-4 send rate.

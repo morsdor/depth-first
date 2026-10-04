@@ -715,3 +715,56 @@ Graded per channel (GATE 3 names argument ammunition): **best send rate since r0
 below r005 at the same age** — moved, did not travel. Comments are the standout relative to other
 reels, as an argument-heat reel should produce. See
 [`projects/r016_evmotor/NOTES.md`](projects/r016_evmotor/NOTES.md).
+
+**Day 2 (2026-10-04):** 17,303 views / 13,441 viewers, avg watch 21 s. 261 likes (1.94%), 84 comments
+(0.62%), 8 reposts, **30 shares (0.223%)**, 58 saves (0.43%), 7 follows. **Every rate rose between day 1
+and day 2** — views 1.68x, shares 2.14x — the same shape as r005's day 1 → day 4, and the first time any
+other reel has shown it.
+
+## `r017` — as supplied for posting, 2026-10-03
+
+**The rock at the very top of Everest is full of fossil sea creatures.**
+
+Trilobites, sea lilies and tiny shelled animals, in samples collected 20 feet below the summit.
+
+That rock formed 450 million years ago on the floor of a warm, shallow sea. Then India broke away and
+raced north across an ocean, at its fastest about four times faster than your fingernails grow. When it
+hit Asia, the seafloor was crumpled and stacked into the highest mountains on Earth.
+
+From the seafloor to 29,032 feet.
+
+India is still pushing into Asia today, at about the speed your fingernails grow.
+
+Send this to whoever asks how seashells ended up on top of a mountain.
+
+(India's path is from the Seton et al. 2012 plate reconstruction; the mountain is real elevation data;
+the summit geology is from Sakai et al. 2005.)
+
+#everest #geology #himalayas #earthscience #howitworks
+
+*(Two send lines were offered: the one above, and the sharper "Send this to whoever thinks the fossils on
+Everest prove a flood." Confirm which went up.)*
+
+**Hook line:** "The top of Everest used to be seafloor."
+
+**Close card (verbatim on screen):** "India is still pushing into Asia at about the speed your fingernails
+grow." · follow line "Follow for how the planet actually works." (placeholder).
+
+**Send-channel copy (GATE 3):** argument ammunition in the "sea fossils on Everest prove a flood"
+dispute; the reel never names the flood.
+
+**Engagement at first reading (2026-10-04, ~1 day):** 7,014 views / 5,579 viewers (1.257 per viewer),
+77.9% Reels tab, 20.9% Explore. Average watch **17 s / 43 s (40%)**; retention ~35% by ~12 s, then
+nearly flat to the end.
+
+| Channel | Count | Per viewer | Against r016 at day 1 |
+|:--|--:|--:|:--|
+| Shares (sends) | 8 | **0.143%** | 0.172% |
+| Likes | 72 | 1.29% | 1.33% |
+| Saves | 25 | 0.45% | 0.33% |
+| Comments | 2 | **0.04%** | 0.39% |
+| Reposts | 3 | 0.05% | 0.05% |
+| Follows | 6 | **0.11%** | 0.02% |
+
+The argument did not arrive in the comments; follows and saves did. See
+[`projects/r017_everest/NOTES.md`](projects/r017_everest/NOTES.md).
