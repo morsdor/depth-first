@@ -106,7 +106,10 @@ than replacing it.
    `NOTES.md`, and check where the debris accumulates against the published location of the patch.
 6. **The 2018 survey is a snapshot.** Use the paper's year on screen, not "today".
 
-## 8. Awaiting
+## 8. Verdict
 
-**A human yes on the SENTENCE.** Gate 0 is not mine to pass. Then GATE 3: the drafted answer in §2
-needs the owner's yes, or a better name for who sends it.
+**GATE 2 (the sentence) PASSED, 2026-10-04**, by the owner.
+**GATE 3 (the send test) PASSED, 2026-10-04**, by the owner, on the answer in §2 as written.
+
+Next: Stage 3, research and measure. A figure can still kill it, and §5's "isn't straws" row is the
+one most likely to change the hook.
