@@ -75,7 +75,27 @@ so the threshold is swept (5 / 20 / 50) and every setting is reported, not only 
 
 ### The sweep
 
-*(filled in from `sweep.json` when the run completes)*
+216 runs (`sweep.json`): grid 1° / 2° × step 30 / 60 / 90 days × drifters all / drogued /
+undrogued × seasonal on / off × `MIN_PAIRS` 5 / 20 / 50 × 10 and 30 years. "Centre" is the
+concentration-weighted centre of the densest 1% of North Pacific cells.
+
+| | result |
+|:--|:--|
+| **The reference setting** (1°, 60 days, all drifters, seasonal, `MIN_PAIRS` 20) | centre **32.6°N 144.2°W, 103 km** from the measured 32°N 145°W at 10 years; 96 km at 30. The Lebreton box holds **63% of the North Pacific's debris on 13.8% of its area (4.6×)** |
+| **Pile within 1,000 km of the measured centre AND box enriched** | **185 of 216** |
+| at 1° | **106 of 108**: median 217 km, 85 of 108 within 300 km. The two misses are both `MIN_PAIRS` 5, the sparse-trap setting |
+| at 2° | 79 of 108. **Every 2° miss is at a 30- or 60-day step**, where a drifter often has not left its 200 km cell, so the matrix smears debris west. A resolution artefact, not a different answer |
+| **Box enriched above its area share** | **216 of 216**, by 3.6× to 6.2× |
+| `MIN_PAIRS` ≥ 20 | 131 of 144; median 197 km |
+
+**Verdict: the mechanism reproduces.** Debris spread evenly over every ocean, carried only by how
+real buoys actually moved, piles up where the patch was measured, in every setting the box gains,
+and within a couple of hundred kilometres of the measured centre in most of them. Nothing was fitted
+to 32°N 145°W. **The one thing NOT to say** from this model is a size or a tonnage: it predicts
+where, not how much.
+
+**For the build:** the reference setting is the one to animate. Its pile is 103 km from the measured
+centre and it is the setting van Sebille used, as recalled. Confirm that recall against the PDF.
 
 ---
 
@@ -97,10 +117,17 @@ Both had **lost their drogue** (the sea anchor that pins a drifter to the curren
 
 ---
 
-## 4. Still open before GATE 4
+## 4. Decided by the owner, 2026-10-04
+
+- **The ruler is 46% fishing nets** (Lebreton 2018, by mass). The 75–86% figure (2022) stays off
+  screen.
+- **No straws.** The word does not appear in the reel. No patch survey counts them, so the reel
+  makes no claim about them, not even as the named fight.
+
+## 5. Still open before GATE 4
 
 - Read Lebreton 2018, 2022 and the 2024 ERL paper in full (on the Mac): confirm the H/N split, the
   "at least 46%" definition, and the large-object trend 2015–2022.
-- Decide the ruler: 46% nets (2015) vs 75–86% fishing (2019, > 5 cm).
-- Decide whether "isn't straws" stays as the named fight with no straw figure.
+- Whether the survey year (2015) goes on screen, or the 2024 paper shows the share still holds.
+  The owner is reading it: https://doi.org/10.1088/1748-9326/ad78ed
 - Licence of the Lebreton papers (CC BY 4.0 expected for *Sci. Rep.*); figures are citable regardless.

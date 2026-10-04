@@ -113,3 +113,8 @@ than replacing it.
 
 Next: Stage 3, research and measure. A figure can still kill it, and §5's "isn't straws" row is the
 one most likely to change the hook.
+
+**Stage 3 decisions, 2026-10-04 (owner): the ruler is 46% nets, and straws are dropped from the
+reel.** No survey of the patch counts straws (`research/RESEARCH.md` §1), so the §1 sentence loses
+"straws and bags" and the §2 send answer loses the straw-ban fight as its named argument. Both
+rewordings go to the owner with the GATE 4 script.
