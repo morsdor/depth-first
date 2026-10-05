@@ -164,3 +164,19 @@ the way `I82` is graded. **That decision is the gate working, not failing.**
 2. **G3** is named in §2 and graded **weak**, with the prediction recorded above.
 3. Stage 3 is light: altitude on the day, the aircraft figure, the one stated base. Then `SCRIPT.md`
    at **G4**. Nothing is coded before it.
+
+## 9. Stage 3 update (2026-10-05) — the headline is 88%, not 89%
+
+`research/RESEARCH.md` and `research/measure.py` supersede the figures above where they differ; the
+text above is left as the Gate 0 record.
+
+- **89% was the 400 km figure. The station flies ~410–420 km, and every altitude in that band rounds
+  to 88%** (88.05% at the stated 260 miles). The copy says **"88% of YOUR gravity"** and drops "almost
+  90%", which at 88% is a stretch. §1's sub-question (a) is therefore answered by the physics.
+- **US units** are the draft (150 lb → 132 lb, 260 miles, 17,000 mph); the owner decides at G4.
+- **The cannon sequence was integrated step by step** and agrees with the closed form; at circular
+  speed it ran ten orbits with 0.0 m radius drift, and at 0.95× it landed. That checks the claim, not
+  Newton.
+- **No numeric risk remains.** The only open risk is §2 (Gate 3), unchanged: low heat, a saturated
+  correction, prediction below 0.2% shares per reach.
+- **The next gate is G4:** `gate0/i89_nogravity/SCRIPT.md`, a table with the copy column read alone.
