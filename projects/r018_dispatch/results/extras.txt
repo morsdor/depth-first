@@ -1,0 +1,9 @@
+STRAIGHT LINE vs ROAD  (360 riders, static snapshot of every car in the pool, 40 km/h, 20 seeds)
+ cars | riders whose straight-line-nearest car is NOT their road-nearest | extra pickup if you trusted the straight line | median road/line distance
+  150 |   41.3% ±0.6   | all riders  32.0s;  among those   77.3s | 1.48x
+  300 |   50.2% ±0.7   | all riders  34.4s;  among those   68.2s | 1.43x
+  600 |   58.0% ±0.6   | all riders  36.6s;  among those   63.1s | 1.38x
+
+H3 resolution 8: 112 cells touch the road network of this region; average edge 0.531 km, area 0.737 km^2
+fleet of 300: a rider's own cell plus its six neighbours holds 20.2 cars on average (10th-90th percentile 12-28) = 6.7% of the fleet
+REPORT-ONLY: that 7-cell neighbourhood contains the rider's true road-nearest car in 97.6% of cases

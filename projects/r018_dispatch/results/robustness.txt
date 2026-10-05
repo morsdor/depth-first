@@ -1,0 +1,28 @@
+LANDMASSES: removed 163 long bridge/tunnel segments (>150 m); largest components (junctions): [2832, 1657, 586, 18, 2, 2]
+  junction labels: -1: 56, 0: 2832, 1: 1657, 2: 586
+
+CHORD CHECK: share of directed edges with length/chord > 1.05: 2.8%  (by road length: 5.8%);  > 1.20: 1.2%
+
+--- AS RUN (same sampling as extras.py: should reproduce 50.2% and 34.4 s)
+  riders whose straight-line-nearest car is NOT their road-nearest :  50.2%   (n=7200)
+  extra pickup, ALL riders        mean  34.4 s | median  0.2 s
+  extra pickup, among the WRONG-car riders  mean  68.5 s | median  25.0 s | p25 10.2 | p75  54.0 | p90 218.7 | share > 60 s: 22.6%
+  among the wrong-car riders: a river between rider and the car the map prefers in   2.9% of cases
+  wrong-car rate  when the map-preferred car is on the SAME landmass:  47.5%   |   across a river:  94.6%  (cross share of all riders  1.5%)
+  mean extra when across a river: 199.4 s   |   same landmass:  64.5 s
+
+--- B. CHORD SENSITIVITY: points sampled ONLY on edges with length/chord <= 1.05
+  riders whose straight-line-nearest car is NOT their road-nearest :  48.6%   (n=7200)
+  extra pickup, ALL riders        mean  23.7 s | median  0.0 s
+  extra pickup, among the WRONG-car riders  mean  48.7 s | median  21.5 s | p25  9.5 | p75  43.4 | p90 118.2 | share > 60 s: 17.2%
+  among the wrong-car riders: a river between rider and the car the map prefers in   2.6% of cases
+  wrong-car rate  when the map-preferred car is on the SAME landmass:  46.3%   |   across a river:  87.6%  (cross share of all riders  1.5%)
+  mean extra when across a river: 128.2 s   |   same landmass:  46.6 s
+
+--- C. ONE-WAY CONTRIBUTION: every street made two-way (rivers still there)
+  riders whose straight-line-nearest car is NOT their road-nearest :  39.5%   (n=7200)
+  extra pickup, ALL riders        mean  17.0 s | median  0.0 s
+  extra pickup, among the WRONG-car riders  mean  43.0 s | median  16.4 s | p25  6.4 | p75  38.5 | p90 109.9 | share > 60 s: 17.1%
+  among the wrong-car riders: a river between rider and the car the map prefers in   3.7% of cases
+  wrong-car rate  when the map-preferred car is on the SAME landmass:  36.6%   |   across a river:  95.5%  (cross share of all riders  1.5%)
+  mean extra when across a river: 162.3 s   |   same landmass:  38.4 s

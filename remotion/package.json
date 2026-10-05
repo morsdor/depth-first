@@ -9,6 +9,7 @@
     "@react-three/fiber": "^9.7.0",
     "@remotion/cli": "4.0.512",
     "@remotion/google-fonts": "4.0.512",
+    "@remotion/install-whisper-cpp": "4.0.512",
     "@remotion/tailwind-v4": "4.0.512",
     "@remotion/three": "^4.0.512",
     "@types/three": "^0.185.4",

@@ -1,0 +1,37 @@
+{
+  "straight_vs_road": {
+    "150": {
+      "share_differ": 0.4131944444444445,
+      "share_se": 0.005878324823369735,
+      "extra_s_all": 32.04136500622842,
+      "extra_s_when_differ": 77.33882435966828,
+      "median_road_over_line": 1.478545669866526
+    },
+    "300": {
+      "share_differ": 0.5020833333333333,
+      "share_se": 0.006643707419664315,
+      "extra_s_all": 34.37028405385293,
+      "extra_s_when_differ": 68.2281967768714,
+      "median_road_over_line": 1.4265775064811728
+    },
+    "600": {
+      "share_differ": 0.5799999999999998,
+      "share_se": 0.006425334643125865,
+      "extra_s_all": 36.641975739050054,
+      "extra_s_when_differ": 63.10299759161412,
+      "median_road_over_line": 1.3816809634821836
+    }
+  },
+  "hex": {
+    "res": 8,
+    "cells_touching_roads": 112,
+    "avg_edge_km": 0.53141401,
+    "avg_area_km2": 0.7373275975944177,
+    "fleet": 300,
+    "cars_in_7_cells_mean": 20.179861111111112,
+    "cars_in_7_cells_p10": 12.0,
+    "cars_in_7_cells_p90": 28.0,
+    "share_of_fleet_mean": 0.0672662037037037,
+    "hood_contains_true_nearest": 0.97625
+  }
+}

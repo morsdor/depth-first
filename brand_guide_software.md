@@ -2467,3 +2467,48 @@ brings to it.** That is the cost of the toxicity hedge, and it was paid knowingl
 while travelling less. Retention fell through the first 17 s and then held flat through the globe and
 crash, so the audit's weakest beats were not where people left.
 
+### r018 — THE FIRST NARRATED REEL: THE VOICE IS THE MASTER CLOCK, AND ITS SYNC TOOL WAS THE WRONG ONE (2026-10-05)
+
+**What changed in the pipeline.** Until now a reel was silent or carried a synthesised bed; `r018` carries the owner's own
+voice. Order: script approved (G4) -> recorded -> word-timed -> build. **Every cue in the reel is the START of a spoken word**,
+derived in `emit_ts.py` from `vo_words.json`; `Dispatch.tsx` holds no hand-typed second, and 27 claims are asserted before the
+data module is written. Moving the voice moves the animation.
+
+**Whisper's word timestamps are NOT usable for sync — measured, not assumed.** The obvious tool (whisper.cpp, then a bigger
+model, `medium.en`) fixed several recognition errors and **did not fix the timing**. Tested against real speech onsets (an
+energy jump in the speech band): forced-alignment word starts landed on onsets with strength 14.7; whisper's scored 11.4 —
+barely above a CONTROL of the same times shifted randomly by +-400 ms (9.8); where the two disagreed (90 of 222 words) forced
+alignment was 49 ms from a real onset, whisper 124 ms. Whisper's word END times are worse still (the last word's end ran across
+the silence, 17.8 s in an 11.7 s file). **Use forced alignment of the APPROVED script onto the audio for timing, and a recogniser
+only to check which words were said.** The recogniser cannot tell a skipped word from a misheard one; a human listening to ten
+short clips can, and that confirmation is recorded in the timing file, never implied.
+
+**One continuous take beats seven.** The seven-take plan was a safety net; one 78 s read flows better, and a single-take mode
+splits it into beats by aligning the whole script. The cost is that a fast read (170 wpm) plus road noise makes a recogniser stumble
+— it did, on "surge" and "isn't" — which is exactly the case forced alignment is for.
+
+**Noise is judged by measurement, then by ear.** "Distant horns" turned out to be a 25-30 dB-down floor with no loud bursts and no
+tone at horn pitch: a light chain (80 Hz high-pass, denoise, gentle gate, loudness -16 LUFS) was chosen by the owner by ear. **The
+denoiser adds 25 ms of delay**: it is compensated in the audio, and verified to 0 ms against the raw take — an earlier coarse check
+said 250 ms and was a measurement artefact. Check delays at 1 ms resolution.
+
+**Audio in an MP4 arrives LATE by the AAC encoder's priming (44 ms here), and the sync check is what found it.** The first
+render's audio, pulled back out of the finished file and force-aligned again, sat **+45 ms** from the cue times on every one of 222
+words (a constant, not drift): 2112 samples at 48 kHz = 44.0 ms of encoder priming that this container does not hide with an edit
+list (both streams report start_time 0). Fixed by adding the constant to the cue maths; re-measured at **median +1 ms, max 21 ms**.
+`projects/r018_dispatch/sync_check.py` does this on any narrated reel — **run it on the rendered MP4, not on the audio file.**
+**Also: `<Audio startFrom>` takes whole frames** — trim by `n/30`, not by a round number of seconds, or the cues are 17 ms off.
+
+**Two rulers on one screen is a bug even when both are true.** The race card showed the episode's own counters (138.8 / 141.6) and the
+20-run averages (143.7 / 141.4 / 149.1) at the same moment, and overlapped the caption by 16 px. The counters now fade out while the
+card is up, and each average is labelled (AT ONCE / 5 s WAIT / 60 s WAIT) — a number a viewer must infer the meaning of is not on screen.
+
+**The map reel's three real build lessons.** (1) A map of an island needs its WATER: the river beat had no river until coastline
+was polygonised into land and water. (2) A label in the map window must clear the persistent tag (y 285-345): four collisions in
+one pass. (3) A contact-sheet thumbnail made correct 3D scale look wrong — read the full-size frame before touching the camera.
+
+**And the research that preceded it.** The reel was approved on a batching sentence; Stage 3 measured that batching is real but SMALL
+(-1.6%), and found the bigger effect (straight-line "closest" is the wrong car ~half the time) — but only after stress-testing it
+did its size fall from 34 s to ~24 s (a geometry artefact) and its cause move from rivers to the street grid (rivers are 2.9%). A
+lead claim's size can be an artefact even when its direction is real; re-run the headline on honest geometry before it reaches a
+script.

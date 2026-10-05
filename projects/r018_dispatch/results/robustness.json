@@ -1,0 +1,32 @@
+{
+  "as_run": {
+    "share_differ": 0.5020833333333333,
+    "mean_all": 34.370284053852934,
+    "median_wrong": 24.95636115372155,
+    "mean_wrong": 68.45533753464485,
+    "p90_wrong": 218.67628067693994,
+    "share_cross_of_wrong": 0.029045643153526972,
+    "rate_same": 0.4753855278766311,
+    "rate_cross": 0.9459459459459459
+  },
+  "near_straight_only": {
+    "share_differ": 0.48625,
+    "mean_all": 23.688277348679225,
+    "median_wrong": 21.54360652240033,
+    "mean_wrong": 48.716251616821026,
+    "p90_wrong": 118.23045947326517,
+    "share_cross_of_wrong": 0.026278206226792344,
+    "rate_same": 0.4631177592022291,
+    "rate_cross": 0.8761904761904762
+  },
+  "two_way_streets": {
+    "share_differ": 0.3951388888888889,
+    "mean_all": 16.979726319327767,
+    "median_wrong": 16.41535146677781,
+    "mean_wrong": 42.97153936701579,
+    "p90_wrong": 109.89882828187557,
+    "share_cross_of_wrong": 0.03725834797891037,
+    "rate_same": 0.36595492289442466,
+    "rate_cross": 0.954954954954955
+  }
+}

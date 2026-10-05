@@ -1,0 +1,32 @@
+SEED 18 (the median-gain seed): total wait  FD 138.8 s | every 5 s 137.2 s | every 60 s 141.6 s
+  episode own gain at 5 s: +1.57 s (the 20-run mean was +2.27 s)   60 s vs FD: +2.79 s (the 20-run mean was +5.4 s)
+  animation consistent with the claims: 5 s below FD = True, 60 s above FD = True
+
+riders in this episode with a river between them and the map-preferred car AND a wrong car: 13 of 360
+
+HOOK instance (straight-line-nearest != road-nearest, near-straight edges): 
+    rider              3
+    t                  6.7
+    pool               179
+    looks_closest_car  141
+    quickest_car       101
+    line_m_looks       927.7
+    line_m_quick       980.4
+    eta_s_looks        140.2
+    eta_s_quick        121.7
+
+RIVER instance (the map-preferred car is across a river): 
+    rider              102
+    t                  146.6
+    pool               140
+    looks_closest_car  162
+    quickest_car       21
+    line_m_looks       663.8
+    eta_s_looks        509.9
+    eta_s_quick        290.2
+
+LONG-WAIT rider under first dispatch: 
+    rider              355
+    t                  583.4
+    pickup_s           840.5
+    wait_s             841.1

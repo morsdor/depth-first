@@ -1,0 +1,73 @@
+  f"{np.nanmean(col(**H, pol=pol, key='pressure')):9.2f}   {extra}")
+====================================================================================================
+HEADLINE CELL  R=360  rho=1.0  v=40 km/h   (riders/batch at D=5: ~3.0)
+====================================================================================================
+  policy  total (cancels=300)   pickup  wait-to-match  cancel%  not-closest%  pressure   vs FD (paired 95%)
+  FD(1s)          143.7 ± 3.2    143.2            0.5      0.0           2.2      1.02   
+    D=2s          142.4 ± 3.2    141.4            1.0      0.0           3.8      1.01      -1.3s [  -2.3,  -0.3]  LOWER   -0.9%
+    D=5s          141.4 ± 3.4    138.9            2.5      0.0           7.8      1.00      -2.3s [  -3.5,  -1.0]  LOWER   -1.6%
+   D=10s          140.3 ± 3.2    135.3            5.0      0.0          13.6      1.00      -3.4s [  -4.8,  -2.0]  LOWER   -2.4%
+   D=15s          140.3 ± 3.1    132.7            7.6      0.0          16.4      1.01      -3.4s [  -5.3,  -1.6]  LOWER   -2.4%
+   D=30s          141.3 ± 3.0    126.2           15.1      0.0          24.3      1.01      -2.4s [  -4.4,  -0.4]  LOWER   -1.7%
+   D=60s          149.1 ± 2.9    119.5           29.6      0.0          33.5      0.99      +5.4s [  +3.1,  +7.7] HIGHER   +3.8%
+       G          144.5 ± 3.4    144.5            0.0      0.0           0.0       nan   
+
+PRE-REGISTERED VERDICT (headline cell, D=5 s):  paired difference -2.27 s, 95% [-3.49, -1.05]  ->  THE SENTENCE HOLDS AS MEASURED
+best interval in the headline cell (descriptive, post-selected): D=15s  -3.4s [-5.3,-1.6]  -2.4% of FD
+
+winners and losers at the headline cell, per rider vs FD (same riders in every policy):
+  D= 5s  shorter wait for  8.5% of riders (mean 128.9s shorter) | longer for 74.3% (mean  11.6s longer) | unchanged 17.2%
+  D=15s  shorter wait for 16.0% of riders (mean 122.1s shorter) | longer for 79.2% (mean  20.5s longer) | unchanged  4.7%
+
+====================================================================================================
+ALL 27 CELLS -- the outside-paper checks (PREREG §1) and the sweep (PREREG §3)
+====================================================================================================
+    R   rho   v |     FD best D   cut% |      D=5 vs FD verdict | O1 O2 O3  R1 | cancel% FD→D5 | pressure@15
+  120  0.75  20 |    413    60s    9.5 |    -6.5s   [-12,-1]   LOWER | ok ok NO ok |  25.0→ 25.0 |   2.18
+  120  0.75  30 |    302    60s    6.4 |    -3.9s    [-8,+0]    n.s. | ok ok NO ok |  25.0→ 25.0 |   2.18
+  120  0.75  40 |    247    60s    3.8 |    -2.5s    [-5,+0]    n.s. | ok ok NO ok |  25.0→ 25.0 |   2.18
+  120   1.0  20 |    418    60s    6.5 |    -3.6s    [-8,+1]    n.s. | ok ok NO ok |   0.0→  0.0 |   1.07
+  120   1.0  30 |    279    30s    3.7 |    -1.7s    [-5,+1]    n.s. | ok ok ok ok |   0.0→  0.0 |   1.07
+  120   1.0  40 |    209    30s    1.9 |    -0.8s    [-3,+1]    n.s. | ok ok ok lo |   0.0→  0.0 |   1.07
+  120   1.5  20 |    192     2s   -0.2 |    +1.3s    [+0,+2]  HIGHER | NO ok ok lo |   0.0→  0.0 |   1.01
+  120   1.5  30 |    128     2s   -0.3 |    +1.5s    [+1,+2]  HIGHER | NO ok ok lo |   0.0→  0.0 |   1.01
+  120   1.5  40 |     96     2s   -0.4 |    +1.6s    [+1,+2]  HIGHER | NO ok ok lo |   0.0→  0.0 |   1.01
+  360  0.75  20 |    312    60s    8.3 |    -5.4s    [-8,-3]   LOWER | ok ok NO ok |  25.0→ 25.0 |   2.19
+  360  0.75  30 |    235    60s    4.5 |    -3.1s    [-5,-1]   LOWER | ok ok NO ok |  25.0→ 25.0 |   2.19
+  360  0.75  40 |    197    30s    2.5 |    -2.0s    [-3,-1]   LOWER | ok ok ok lo |  25.0→ 25.0 |   2.19
+  360   1.0  20 |    287    30s    6.8 |    -6.5s    [-9,-4]   LOWER | ok ok ok ok |   0.0→  0.0 |   1.01
+  360   1.0  30 |    191    30s    4.2 |    -3.7s    [-5,-2]   LOWER | ok ok ok ok |   0.0→  0.0 |   1.01
+  360   1.0  40 |    144    15s    2.4 |    -2.3s    [-3,-1]   LOWER | ok ok ok lo |   0.0→  0.0 |   1.01
+  360   1.5  20 |    121     2s   -0.3 |    +1.6s    [+1,+2]  HIGHER | NO ok ok lo |   0.0→  0.0 |   1.01
+  360   1.5  30 |     81     2s   -0.5 |    +1.7s    [+2,+2]  HIGHER | NO ok ok lo |   0.0→  0.0 |   1.01
+  360   1.5  40 |     61     2s   -0.7 |    +1.8s    [+2,+2]  HIGHER | NO ok ok lo |   0.0→  0.0 |   1.01
+ 1080  0.75  20 |    237    30s    6.2 |    -5.0s    [-6,-4]   LOWER | ok ok ok ok |  25.0→ 25.0 |   2.06
+ 1080  0.75  30 |    185    30s    3.4 |    -2.9s    [-3,-2]   LOWER | ok ok ok ok |  25.0→ 25.0 |   2.06
+ 1080  0.75  40 |    159    15s    1.9 |    -1.8s    [-2,-1]   LOWER | ok ok ok lo |  25.0→ 25.0 |   2.06
+ 1080   1.0  20 |    194    30s    6.6 |    -6.6s    [-9,-5]   LOWER | ok ok ok ok |   0.0→  0.0 |   1.00
+ 1080   1.0  30 |    130    15s    4.4 |    -3.8s    [-5,-2]   LOWER | ok ok ok ok |   0.0→  0.0 |   1.00
+ 1080   1.0  40 |     97    10s    2.8 |    -2.3s    [-3,-1]   LOWER | ok ok ok lo |   0.0→  0.0 |   1.00
+ 1080   1.5  20 |     78     2s   -0.5 |    +1.8s    [+2,+2]  HIGHER | NO ok ok lo |   0.0→  0.0 |   1.01
+ 1080   1.5  30 |     52     2s   -0.9 |    +1.8s    [+2,+2]  HIGHER | NO ok ok lo |   0.0→  0.0 |   1.01
+ 1080   1.5  40 |     39     2s   -1.2 |    +1.9s    [+2,+2]  HIGHER | NO ok ok lo |   0.0→  0.0 |   1.01
+
+SWEEP at D = 5 s (Uber's "a few seconds"), of 27 cells: batching LOWER in 13, not significant in 5, HIGHER (worse) in 9
+   v=20: LOWER in 5 of 9, n.s. 1, HIGHER 3
+   v=30: LOWER in 4 of 9, n.s. 2, HIGHER 3
+   v=40: LOWER in 4 of 9, n.s. 2, HIGHER 3
+best-D cut vs FD across 27 cells: min -1.2%  median 2.8%  max 9.5%  (outside paper: 11.1%)
+O1 ok in 18/27, O2 ok in 27/27, O3 ok in 21/27, R1 in-band in 13/27
+
+FLAGS:
+   O1 FAILS: R=120 rho=1.5 v=20
+   O1 FAILS: R=120 rho=1.5 v=30
+   O1 FAILS: R=120 rho=1.5 v=40
+   O1 FAILS: R=360 rho=1.5 v=20
+   O1 FAILS: R=360 rho=1.5 v=30
+   O1 FAILS: R=360 rho=1.5 v=40
+   O1 FAILS: R=1080 rho=1.5 v=20
+   O1 FAILS: R=1080 rho=1.5 v=30
+   O1 FAILS: R=1080 rho=1.5 v=40
+
+Headline cell, the outside-paper SHAPE (total wait vs interval; theirs: 302.4 / 283.6 / 268.7 / 276.7 / 298.0 for FD / 5 / 15 / 30 / 60):
+  ours: FD=143.7  2=142.4  5=141.4  10=140.3  15=140.3  30=141.3  60=149.1
