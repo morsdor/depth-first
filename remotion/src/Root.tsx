@@ -18,6 +18,7 @@ import { DURATION_SECONDS as MOONMIRRORS_SECONDS, MoonMirrors } from './reels/Mo
 import { DURATION_SECONDS as EVMOTOR_SECONDS, EvMotor } from './reels/EvMotor';
 import { DURATION_SECONDS as EVEREST_SECONDS, Everest } from './reels/Everest';
 import { DURATION_SECONDS as GARBAGEPATCH_SECONDS, GarbagePatch } from './reels/GarbagePatch';
+import { DURATION_SECONDS as DISPATCH_SECONDS, Dispatch } from './reels/Dispatch';
 import { DURATION_SECONDS as MANIM_SECONDS, ManimProbe } from './reels/ManimProbe';
 import { SafeZones } from './reels/lib/chrome';
 
@@ -137,6 +138,13 @@ const BreathSafe: React.FC = () => (
 const HijackSafe: React.FC = () => (
   <>
     <Hijack />
+    <SafeZones />
+  </>
+);
+
+const DispatchSafe: React.FC = () => (
+  <>
+    <Dispatch />
     <SafeZones />
   </>
 );
@@ -581,6 +589,32 @@ export const RemotionRoot: React.FC = () => {
         width={1080}
         height={1920}
       />
+
+      {/* r019 · I90 · half the time, the car that looks closest on the map isn't the quickest — and Uber waits a few
+          seconds to match everyone at once. THE FIRST NARRATED REEL: the owner's own voice is the master clock and every
+          cue is derived from its word timings (forced alignment of the approved script), nothing hand-timed. Claimed r018 (renumbered r019 by the owner, 2026-10-05, since I87 had claimed r018 a day earlier)
+          when the first .tsx was written (projects/r019_dispatch/). A pre-registered FORMAT experiment: narration +
+          80 s + CS vocabulary + system-design genre, judged on average watch time (gate0/GATE0.md §5). The fleet is
+          SIMULATED on real OpenStreetMap streets; Uber's own pages supply the principle (early closest-driver matching,
+          then a few seconds of batching). Data: remotion/src/reels/data/dispatch.ts + dispatchVo.ts, which emit_ts.py
+          refuses to write unless every on-screen claim holds. */}
+      <Composition
+        id="r019-dispatch"
+        component={Dispatch}
+        durationInFrames={Math.round(DISPATCH_SECONDS * 30)}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="r019-dispatch-safe"
+        component={DispatchSafe}
+        durationInFrames={Math.round(DISPATCH_SECONDS * 30)}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+
 
       {/* Not a reel — the Manim bridge smoke test (scripts/manim_probe/probe.py). */}
       <Composition

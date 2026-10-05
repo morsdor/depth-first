@@ -19,6 +19,13 @@ matplotlib              # Gate 0 mocks, falsification sweeps (e.g. r008_pendulum
 # segno                 # r003 QR — spec-correct encoding, pure python
 # opencv-python-headless# r003 QR — an INDEPENDENT decoder, so damage verdicts are not self-reported
 # pyproj                # r005 great circle — WGS84 geodesic cross-check against the sphere
+# h3                    # I85 dispatch — Uber's own hexagon grid, so the cells on screen are the real ones
+# networkx              # I85 dispatch — shortest road ETAs on a real street graph
+# osmnx                 # I85 dispatch — street graph from OpenStreetMap (ODbL, attribute it); pulls in geopandas/pandas
+# scipy                 # I85 dispatch — linear_sum_assignment for "match everyone at once"
+# torch==2.5.1 torchaudio==2.5.1   # narrated reels — forced alignment of the script onto the voice (scripts/vo_force_align.py);
+#                                  # pinned: forced_align is deprecated in torchaudio 2.8 and removed in 2.9. Needs Python <= 3.12 wheels.
+# pypdf                 # reading a paper's PDF for outside numbers (no poppler on this Mac)
 
 # ── Manim lives in its OWN venv, not this one ────────────────────────────────
 #   python3 -m venv .manimenv && .manimenv/bin/pip install -r scripts/manim_requirements.txt

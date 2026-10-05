@@ -43,6 +43,23 @@ node_modules/
 remotion/out/
 remotion/build/
 remotion/.remotion/
+# Concept-stage research caches (road graphs, ETA matrices) — big and regenerable from the scripts.
+gate0/*/_cache/
+projects/*/_cache/
+# the full per-seed grid dump (1.4 MB) is regenerated in ~20 s by dispatch_sim.py; report.txt/extras/robustness/instances stay tracked
+gate0/*/results/grid_metrics.json
+projects/*/results/grid_metrics.json
+# Voice-over: the owner's own voice, and this repo is PUBLIC. Raw takes stay local; so does the cleaned mix that
+# the composition plays (remotion/public/reels/<reel>_vo.wav). The finished reel's mp4 IS tracked and carries
+# the voice anyway, so posting is unaffected — but a fresh clone cannot re-render a narrated reel without the
+# wav, and pushing it would put a clean, music-free sample of the voice in public history for good.
+# Rebuild it from the local take:  projects/<reel>/audio/vo_clean.wav  ->  remotion/public/reels/<reel>_vo.wav
+gate0/*/audio/
+projects/*/audio/
+remotion/public/reels/*_vo.wav
+# whisper.cpp binary + model (~500MB), used to word-time a recorded voice-over.
+# Re-create with:  node scripts/whisper-setup.mjs
+remotion/whisper.cpp/
 
 # Vendored third-party Agent Skills — installer output, NOT our source.
 # `skills-lock.json` is the manifest (source + path + hash per skill) and IS tracked;

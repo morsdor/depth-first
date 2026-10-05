@@ -1,0 +1,34 @@
+{
+  "stated_altitude_mi": 260,
+  "altitude_km": 418.4,
+  "g_ratio": 0.8805391128062549,
+  "g_pct": 88.05,
+  "lb_on_ground": 150,
+  "lb_on_tower": 132.08,
+  "lb_on_tower_equator": 131.53,
+  "centre_pct_farther": 6.57,
+  "plane_pct_32000ft": 99.695,
+  "plane_pct_24000ft": 99.771,
+  "v_circ_kms": 7.6622,
+  "v_circ_mph": 17140,
+  "v_graze_kms": 7.5394,
+  "period_min": 92.79,
+  "fall_1s_ft": 14.18,
+  "sideways_1s_mi": 4.76,
+  "shots": [
+    {
+      "kms": 3.0,
+      "land_deg": 8.845
+    },
+    {
+      "kms": 5.0,
+      "land_deg": 17.956
+    },
+    {
+      "kms": 6.5,
+      "land_deg": 33.756
+    }
+  ],
+  "orbits_integrated": 10,
+  "radius_drift_m": 0.0
+}

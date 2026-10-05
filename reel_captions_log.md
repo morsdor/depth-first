@@ -809,3 +809,42 @@ is not one the viewer brings). No straws anywhere (owner, 2026-10-04).
 Texas 695,662 km² = 2.3×. "About 140 miles" = the particles' densest 2°×2° window, 220 km from
 32°N 145°W (`pacific.py`). "More than 28,000 buoys since 1979" = 28,728 drifters, 1979-02-15 →
 2025-06-12 in the archive used — the whole global set the model was built from.
+
+---
+
+## `r019` — GATE 5 passed 2026-10-05, caption below (not posted)
+
+**The car that looks closest on your map? In our simulated New York, about half the time it isn't the quickest.**
+
+Close on the map isn't close on the road. Blocks, one-way streets and now and then a river — trust the
+straight line and you pick the wrong car about half the time, costing about 25 seconds a ride in our
+simulation.
+
+Uber's own account of the fix: it started by sending the closest available driver, one request at a
+time. Now it waits a few seconds and matches everyone together. In our run that shortens the average
+wait a little — and wait a whole minute and it's worse than not waiting at all.
+
+The fleet and riders are simulated (no Uber data). Map © OpenStreetMap contributors.
+Sources: uber.com/us/en/marketplace/matching · uber.com/blog/h3 · Bao et al., *Transportation
+Research Part C* 187 (2026) on batching windows in Manhattan.
+
+#systemdesign #uber #howthingswork #maps #simulation
+
+**Hook line (~110 chars, before "more"):** "The car that looks closest on your map? In our simulated New York, about half the time it isn't the quickest."
+
+**Load-bearing phrasings — do not "tighten".** "In our simulated New York" / "in our simulation": the fleet and
+riders are simulated, and every number is the model's. "About half the time": 48.6–50.2% across the pre-registered
+runs. "A little shorter": **−1.6% at a 5 s wait** (95% interval excludes zero) — NOT the −11.1% in the Delft study,
+which is a different city model and is deliberately not claimed. "Worse than not waiting at all": +3.8% at 60 s.
+"About 25 seconds": the measured figure is 23.7 s and the narration says about twenty-five.
+
+**Close card (verbatim on screen, held to 80.5 s):** "Next: how a map app finds your route."
+
+**Send-channel copy (GATE 3 — BENT, pre-registered):** "Send this to whoever asked why the app sent
+the far car." The honest answer, and a weak one — the live-argument leg is unverified. This reel is a
+**format experiment** (narration + ~80 s + spoken vocabulary + system-design genre), judged on average
+watch time, not sends: holds at >= 50% of runtime (~40 s), fails at <= 16 s
+(`projects/r019_dispatch/gate0/GATE0.md` §5).
+
+**Engagement:** pending first reading. Build record and every figure's provenance:
+[`projects/r019_dispatch/NOTES.md`](projects/r019_dispatch/NOTES.md).
