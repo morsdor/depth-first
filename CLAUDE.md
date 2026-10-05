@@ -343,10 +343,12 @@ before optimising for reach: whether r005's 71 follows stayed, and whether they 
 
 | `r017` | `I86` | Everest — the rock at the top of Everest used to be seafloor, and India pushed it 29,032 ft up | **POSTED 2026-10-03 (43 s).** GATE 5 passed by the owner. Real elevation (AWS Terrain Tiles), India moved by Seton et al. 2012's rotations, amber = the summit limestone ≥ 8,520 m; 12 claims asserted. Motion audit event density 32% (crash 11%, close 14% — flagged at GATE 5). **First reading (2026-10-04, ~1 day): 7,014 views / 5,579 viewers, 77.9% Reels tab, 20.9% Explore, avg watch 17 s of 43 (40%), 72 likes (1.29%), 2 comments (0.04%), 8 shares (0.143%), 25 saves (0.45%), 3 reposts, 6 follows (0.11% — the best follow rate since r005).** Second heat test: the flood argument did NOT come into the comments (2 vs r016's 32 at the same age); sends in r016's band, below it. See [`projects/r017_everest/NOTES.md`](projects/r017_everest/NOTES.md) |
 
+| `r018` | `I87` | The garbage patch — almost half of the Great Pacific Garbage Patch, by weight, is fishing nets | **BUILD STARTED 2026-10-04 (number claimed).** Script approved at GATE 4 (42 s, 3D). Headline is Lebreton et al. 2018 (≥ 46% of mass is fishing nets, 2015 survey); the mechanism re-runs van Sebille et al. 2012 on 48.9 M real NOAA drifter positions — the model's pile lands 103 km from the measured patch centre, 185 of 216 settings within 1,000 km, nothing fitted. See [`projects/r018_garbagepatch/SCRIPT.md`](projects/r018_garbagepatch/SCRIPT.md) |
+
 **Reel numbers are contiguous and mean "the Nth reel posted".** `r001`–`r017` have shipped.
 **`r011` claimed its number when the first `.tsx` was written, not when its Gate 0 was** — the
-rule as written, and what `I72` had just shown the cost of getting wrong. **The next reel is
-`r018`.**
+rule as written, and what `I72` had just shown the cost of getting wrong. **`r018` is claimed by `I87`
+(build started 2026-10-04); the next reel after it is `r019`.**
 
 **THE PENDULUM LOOP WAS `r011` UNTIL 2026-09-12 AND IS NOW `r010` (2026-09-12).** The traffic reel
 (`I65`) held `r010`, was never posted, and was **parked by the account owner** on 2026-09-12 along

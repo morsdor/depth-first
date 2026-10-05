@@ -17,6 +17,7 @@ import { DURATION_SECONDS as HIJACK_SECONDS, Hijack } from './reels/Hijack';
 import { DURATION_SECONDS as MOONMIRRORS_SECONDS, MoonMirrors } from './reels/MoonMirrors';
 import { DURATION_SECONDS as EVMOTOR_SECONDS, EvMotor } from './reels/EvMotor';
 import { DURATION_SECONDS as EVEREST_SECONDS, Everest } from './reels/Everest';
+import { DURATION_SECONDS as GARBAGEPATCH_SECONDS, GarbagePatch } from './reels/GarbagePatch';
 import { DURATION_SECONDS as MANIM_SECONDS, ManimProbe } from './reels/ManimProbe';
 import { SafeZones } from './reels/lib/chrome';
 
@@ -157,6 +158,13 @@ const EvMotorSafe: React.FC = () => (
 const EverestSafe: React.FC = () => (
   <>
     <Everest />
+    <SafeZones />
+  </>
+);
+
+const GarbagePatchSafe: React.FC = () => (
+  <>
+    <GarbagePatch />
     <SafeZones />
   </>
 );
@@ -547,6 +555,28 @@ export const RemotionRoot: React.FC = () => {
         id="r017-everest-safe"
         component={EverestSafe}
         durationInFrames={EVEREST_SECONDS * 30}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+
+      {/* r018 · I87 · almost half of the Great Pacific Garbage Patch, by weight, is
+          fishing nets (Lebreton et al. 2018). The mechanism is real NOAA drifters and a
+          transition model built from them; data from remotion/src/reels/data/garbagepatch.ts,
+          which projects/r018_garbagepatch/emit_ts.py refuses to write unless every on-screen
+          claim holds. NOT YET POSTED. */}
+      <Composition
+        id="r018-garbagepatch"
+        component={GarbagePatch}
+        durationInFrames={GARBAGEPATCH_SECONDS * 30}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="r018-garbagepatch-safe"
+        component={GarbagePatchSafe}
+        durationInFrames={GARBAGEPATCH_SECONDS * 30}
         fps={30}
         width={1080}
         height={1920}

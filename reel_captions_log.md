@@ -768,3 +768,44 @@ nearly flat to the end.
 
 The argument did not arrive in the comments; follows and saves did. See
 [`projects/r017_everest/NOTES.md`](projects/r017_everest/NOTES.md).
+
+## `r018` — drafted for posting, 2026-10-04 (not yet posted)
+
+**Almost half of the Great Pacific Garbage Patch, by weight, is one thing: fishing nets.**
+
+It isn't a floating island of bags and bottles. It's plastic spread thin across an area of ocean
+between California and Hawaii more than twice the size of Texas.
+
+So why does it all end up in one place? We followed real NOAA ocean buoys. One was dropped off
+Taiwan in 2019 — four and a half years later it drifted into the patch. Hundreds of others did the
+same.
+
+Then we scattered debris evenly across the North Pacific and let the real currents carry it, as
+measured by more than 28,000 buoys since 1979. It piled up within about 140 miles of where scientists
+measured the patch. Nobody told the model where to look.
+
+What is it made of? A 2015 survey found at least 46% of the patch's floating plastic, by weight, was
+fishing nets.
+
+It's not just what we throw away. It's what fishing boats leave at sea.
+
+Send this to whoever blames ocean plastic on your shopping bags.
+
+(Composition: Lebreton et al., Scientific Reports 2018. Currents: NOAA Global Drifter Program. Method:
+van Sebille et al., Environmental Research Letters 2012, re-run.)
+
+#oceanplastic #greatpacificgarbagepatch #ocean #fishing #howitworks
+
+**Hook line:** "Almost half of the Great Pacific Garbage Patch is one thing: fishing nets."
+
+**Close card (verbatim on screen):** "It's not just what we throw away. It's what fishing boats leave at
+sea." · follow line "Follow for how the planet actually works." (placeholder).
+
+**Send-channel copy (GATE 3):** argument ammunition in the "who is to blame for ocean plastic" fight —
+**named in both the close card and the send line**, the r017 lesson (an argument the reel does not name
+is not one the viewer brings). No straws anywhere (owner, 2026-10-04).
+
+**Caption figures beyond the reel, checked:** "more than twice the size of Texas" = 1.6 M km² ÷
+Texas 695,662 km² = 2.3×. "About 140 miles" = the particles' densest 2°×2° window, 220 km from
+32°N 145°W (`pacific.py`). "More than 28,000 buoys since 1979" = 28,728 drifters, 1979-02-15 →
+2025-06-12 in the archive used — the whole global set the model was built from.
