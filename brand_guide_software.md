@@ -2467,6 +2467,39 @@ brings to it.** That is the cost of the toxicity hedge, and it was paid knowingl
 while travelling less. Retention fell through the first 17 s and then held flat through the globe and
 crash, so the audit's weakest beats were not where people left.
 
+### r018 / I87 — THE MECHANISM WAS SOMEBODY ELSE'S EXPERIMENT, RE-RUN ON 48.9 M REAL BUOY FIXES (2026-10-05)
+
+**Posted (reported 2026-10-05), 42 s, 3D.** The headline is Lebreton et al. 2018 (≥ 46% of the patch's
+floating plastic mass is fishing nets) — a published measurement, the r011 shape. **The reel's own part is
+WHY it all gathers in one place**, and that was not drawn: van Sebille et al. 2012's transition-matrix
+method, re-run on the NOAA Global Drifter Program's 6-hourly archive (28,728 drifters, 1979–2025, pulled
+from AWS open data in 20 s), with debris spread evenly over every ocean and never told where the patch is.
+
+**The outside check did its job twice.** The model's pile landed **103 km** from Lebreton's measured
+centre (32°N 145°W) in the reference setting, and **185 of 216** swept settings within 1,000 km — but the
+FIRST run put the "patch" in the Sea of Okhotsk, because cells with no outgoing data trapped whatever
+drifted in. Without a published location to disagree with, that run would have looked like a result.
+The fix (drift into an unsampled cell = beaching) was made after seeing the bad run, so the threshold
+was swept and the failure recorded rather than hidden (`projects/r018_garbagepatch/research/RESEARCH.md`).
+
+**Owner decisions that changed the copy at Stage 3:** the ruler is 46% nets, not the 2022 study's
+75–86% (different base, different size class — one ruler); **"straws" was dropped entirely**, because no
+survey of the patch counts them and the famous "0.03%" is computed on all plastic ENTERING the ocean, a
+different base; the source line says **MEASURED 2015**, because fragments roughly quintupled by 2022
+(ERL 2024) and today's share of nets is unknown.
+
+**The send line names the fight** ("Send this to whoever blames ocean plastic on your shopping bags"),
+and so does the close card — the direct response to r017, whose unnamed argument never reached its
+comments. **Reading to make, written before any engagement was seen:** comments are the test of whether
+naming the fight brings it (r017: 2 at day 1; r016: 32); sends against r016's 0.172% and r017's 0.143% at
+the same age; saves, because the reel carries a figure people repeat.
+
+**Build traps worth keeping.** `np.load(npz)[key]` decompresses the whole array on EVERY access — a
+per-drifter loop over a 48.9 M-row array ran 10+ minutes until each array was loaded once. A globe pushed
+in for legibility puts coastlines under Instagram's rail; the fix was a soft CSS mask on the 3D layer to
+the safe column while the globe is the only scene — not a declared bleed, which is reserved for a set the
+camera is down inside (the sea).
+
 ### r019 — THE FIRST NARRATED REEL: THE VOICE IS THE MASTER CLOCK, AND ITS SYNC TOOL WAS THE WRONG ONE (2026-10-05)
 
 **What changed in the pipeline.** Until now a reel was silent or carried a synthesised bed; `r019` carries the owner's own

@@ -769,7 +769,7 @@ nearly flat to the end.
 The argument did not arrive in the comments; follows and saves did. See
 [`projects/r017_everest/NOTES.md`](projects/r017_everest/NOTES.md).
 
-## `r018` — drafted for posting, 2026-10-04 (not yet posted)
+## `r018` — drafted 2026-10-04, POSTED (reported 2026-10-05) — confirm this is the caption that went up
 
 **Almost half of the Great Pacific Garbage Patch, by weight, is one thing: fishing nets.**
 
@@ -812,7 +812,7 @@ Texas 695,662 km² = 2.3×. "About 140 miles" = the particles' densest 2°×2° 
 
 ---
 
-## `r019` — GATE 5 passed 2026-10-05, caption below (not posted)
+## `r019` — GATE 5 passed 2026-10-05, POSTED (reported 2026-10-05) — confirm this is the caption that went up
 
 **The car that looks closest on your map? In our simulated New York, about half the time it isn't the quickest.**
 

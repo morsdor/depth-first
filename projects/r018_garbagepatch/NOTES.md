@@ -1,6 +1,6 @@
 # r018 · I87 — "Almost half of the Great Pacific Garbage Patch, by weight, is fishing nets."
 
-**State: BUILT and RENDERED 2026-10-04 (42 s, 3D), awaiting GATE 5.** Rendered in a cloud container
+**State: POSTED (reported by the owner 2026-10-05) (42 s, 3D).** Built and rendered 2026-10-04. Rendered in a cloud container
 (headless-shell Chromium, `angle`). Script approved at GATE 4: [`SCRIPT.md`](SCRIPT.md).
 Research record: [`research/RESEARCH.md`](research/RESEARCH.md).
 

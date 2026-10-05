@@ -572,7 +572,7 @@ export const RemotionRoot: React.FC = () => {
           fishing nets (Lebreton et al. 2018). The mechanism is real NOAA drifters and a
           transition model built from them; data from remotion/src/reels/data/garbagepatch.ts,
           which projects/r018_garbagepatch/emit_ts.py refuses to write unless every on-screen
-          claim holds. NOT YET POSTED. */}
+          claim holds. POSTED (reported 2026-10-05). */}
       <Composition
         id="r018-garbagepatch"
         component={GarbagePatch}
