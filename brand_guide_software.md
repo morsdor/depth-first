@@ -2545,3 +2545,45 @@ one pass. (3) A contact-sheet thumbnail made correct 3D scale look wrong — rea
 did its size fall from 34 s to ~24 s (a geometry artefact) and its cause move from rivers to the street grid (rivers are 2.9%). A
 lead claim's size can be an artefact even when its direction is real; re-run the headline on honest geometry before it reaches a
 script.
+
+
+### r020 / I91 — A RULE WRITTEN IN ADVANCE WAS WRONG, THE RUN SAID SO, AND THE AC VERSION DIED ON ITS OWN ELIGIBILITY TEST (2026-10-06)
+
+**The pre-registration was mis-specified, and it showed itself by firing on its own headline day.** PREREG §4 made two
+simulated houses "like for like" by comparing their END states. That assumes they start the day identically; two
+continuous runs with different schedules do not. The rule cut the headline saving from 8.7% to 3.0%, borderline on its own
+≥ 3% threshold. It is now AMENDMENT 1 (appended, original text untouched): each day is made stored-heat-neutral on its own,
+**and every reading reports all three figures — raw 8.7%, the original rule 3.0%, the amended 7.9% — so the change of rule
+is visible.** A pre-registration protects against tuning only if its defects are logged rather than quietly edited.
+
+**A model bug that every invariant passed was found by an outside number — again (`r011`'s lesson, in miniature).** The
+heating model first reported a 2% saving; DOE's rule of thumb and the Canadian twin-house result said 7–21%. The furnace
+was holding the setback target while the house was still above it. "Both days end at the setpoint" passed throughout.
+**Write down what the model is EXPECTED to read before running it, and treat a miss in either direction as a bug.**
+
+**An eligibility rule written in advance removed a clause the owner had approved.** K5: the AC clause ships only if the
+model reproduces the published ordering (8 h off saves for every system; 4 h is mixed). 22 of 243 simulated variable-speed
+houses lose over 8 h, so it failed and the sentence narrowed to heat only — **a narrower claim needs the owner's yes, not
+the model's**, and the owner gave it. The failure is also a lead: *turning the AC off isn't always free* (NOTES §7).
+
+**A Gate 0 sketch produced a figure that was copy-worthy and wrong.** The toy model said the furnace runs flat out for
+"3.2 hours"; the real model said **1.0 hour** (the toy had no structure node). Sketch numbers must not be written in a
+form the build can copy; mark them as placeholders on the frame, as this one was, and replace them wholesale.
+
+**The honest answer was less dramatic than the myth.** "It costs more to heat it back up" is false — but the re-heat
+gives back about three-quarters of the saving (72.9% of the 5 PM lead), not nothing. The reel says so ("NOT ALL").
+
+**Two shell traps cost about 25 minutes.** (1) `pkill -f "<pattern>"` run in the SAME command line as the thing that
+contains the pattern kills its own shell (exit 144) — and everything after it in that command silently never ran, including
+the edit it was supposed to make. (2) A wait loop `until ! pgrep -f "<pattern>"` matches itself and never ends. **Key waits
+on the output line, not on process names; and after any command that exits non-zero, check what actually ran.**
+
+**The safe-area audit passed only after five different causes were removed, and a stricter 2× re-check was worth the
+five minutes.** Snow lives in camera space, not root space; a house that must leave frame leaves on a time window, not a
+half-fade (it still draws bright edges under x = 60); a shot that frames "house + outdoor unit" must be measured with the
+unit in it; and with **no close, the last caption must hold to the final frame** — Fade's out-ramp was dimming it in the last
+five frames, spending the beat's reading time.
+
+**All four primary sources were unreadable** (energy.gov, CMHC, colorado.edu, eia.gov are refused by the build container),
+so nothing on screen says "a study found". Weather came from files bundled in a PyPI wheel, so the cities were forced by
+availability and declared before any run. **Constraint, not choice, is the cleanest defence against dataset shopping.**

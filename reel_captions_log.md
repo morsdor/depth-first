@@ -848,3 +848,37 @@ watch time, not sends: holds at >= 50% of runtime (~40 s), fails at <= 16 s
 
 **Engagement:** pending first reading. Build record and every figure's provenance:
 [`projects/r019_dispatch/NOTES.md`](projects/r019_dispatch/NOTES.md).
+
+## `r020` — BUILT 2026-10-06, awaiting GATE 5 — caption FINAL as handed to the owner 2026-10-06; confirm it is what went up
+
+**Does it really cost more to heat the house back up? In our simulation, the 62° house used 9% less gas.**
+
+Does it really cost more to heat the house back up? We simulated two identical houses on a typical winter
+day: one held at 70°, one allowed to drop to 62° while nobody's home.
+
+The cooler house used 9% less gas that day — about 5% over a whole winter of weekdays. The re-heat gives
+back about three-quarters of what was saved, but not all of it.
+
+Heat pump? In our model, a big drop can cost more.
+
+Simulation: a two-node house model on NREL typical-year weather (Greensboro, NC). Not a measurement.
+
+#howthingswork #homeenergy #thermostat #heating #simulation
+
+**Hook line (~105 chars, before "more"):** "Does it really cost more to heat the house back up? In our simulation, the 62° house used 9% less gas."
+
+**Load-bearing phrasings — do not "tighten".** "In our simulation" / "we simulated": every figure is the model's, and
+**no study is cited because no primary source could be read** from the build container. "9% less gas that day": the
+two simulated meters, 100% vs 91.3% (8.66%) — the stored-heat-neutral figure is 7.9%. "About 5% over a whole winter of
+weekdays": 5.0% with a stated 5/7 weighting (7.0% if nobody were home at weekends). "About three-quarters": 72.9% of
+the 5 PM lead. "In our model, a big drop can cost more" (heat pump): an ASSUMED model, 8 °F, −1.4% a year — never "does", and never without "in our model". "Easing off", not "off".
+
+**Close card: none.** The owner waived non-negotiable 9 on 2026-10-06 (SCRIPT.md, change 1). Expect follows near 0
+whatever the reel does; that is a registered confound, not a result.
+
+**Send-channel copy (GATE 3):** "Send this to whoever says don't touch the thermostat — it costs more to heat it back up."
+Argument ammunition AND practical utility, graded on shares and saves separately. Heat is LOW (a competence sting, not
+an identity loss): expect `r016`'s band, not `r005`'s. Pre-registered reading, adjustable by the owner before posting,
+never after: shares >= 0.223% upper band; <= 0.124% no better than `r010`; saves >= 0.43% means utility travelled.
+
+**Engagement:** pending. See [`projects/r020_thermostat/NOTES.md`](projects/r020_thermostat/NOTES.md) and `SCRIPT.md`.

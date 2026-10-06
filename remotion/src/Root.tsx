@@ -19,6 +19,7 @@ import { DURATION_SECONDS as EVMOTOR_SECONDS, EvMotor } from './reels/EvMotor';
 import { DURATION_SECONDS as EVEREST_SECONDS, Everest } from './reels/Everest';
 import { DURATION_SECONDS as GARBAGEPATCH_SECONDS, GarbagePatch } from './reels/GarbagePatch';
 import { DURATION_SECONDS as DISPATCH_SECONDS, Dispatch } from './reels/Dispatch';
+import { DURATION_SECONDS as THERMOSTAT_SECONDS, Thermostat } from './reels/Thermostat';
 import { DURATION_SECONDS as MANIM_SECONDS, ManimProbe } from './reels/ManimProbe';
 import { SafeZones } from './reels/lib/chrome';
 
@@ -152,6 +153,13 @@ const DispatchSafe: React.FC = () => (
 const MoonMirrorsSafe: React.FC = () => (
   <>
     <MoonMirrors />
+    <SafeZones />
+  </>
+);
+
+const ThermostatSafe: React.FC = () => (
+  <>
+    <Thermostat />
     <SafeZones />
   </>
 );
@@ -610,6 +618,30 @@ export const RemotionRoot: React.FC = () => {
         id="r019-dispatch-safe"
         component={DispatchSafe}
         durationInFrames={Math.round(DISPATCH_SECONDS * 30)}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+
+      {/* r020 · I91 · if nobody's home all day, easing off the heat saves money and the
+          re-heat takes back about three-quarters of the saving, not all of it. Two
+          identical houses on one simulated winter day (NREL typical year, Greensboro NC):
+          70 °F held vs 62 °F while away. NOT YET POSTED. Silent, no close (owner's waiver
+          of non-negotiable 9, SCRIPT.md). Data from remotion/src/reels/data/thermostat.ts,
+          which projects/r020_thermostat/emit_ts.py refuses to write unless every on-screen
+          claim holds at the screen second its words appear. */}
+      <Composition
+        id="r020-thermostat"
+        component={Thermostat}
+        durationInFrames={THERMOSTAT_SECONDS * 30}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="r020-thermostat-safe"
+        component={ThermostatSafe}
+        durationInFrames={THERMOSTAT_SECONDS * 30}
         fps={30}
         width={1080}
         height={1920}

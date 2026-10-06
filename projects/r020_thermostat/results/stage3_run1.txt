@@ -1,0 +1,20 @@
+
+====================================================================================================
+0. THE MODEL CHECKS ITSELF (proves self-consistency only — NOT that it is unbiased)
+====================================================================================================
+energy-balance closure, annual furnace/setback run: relative error 1.47e-05
+
+====================================================================================================
+1. HEATING — Greensboro NC TMY3, gas furnace, 70 F held vs 62 F while away 8-17
+====================================================================================================
+annual gas, held every day            :   459.1 therms
+annual gas, set back every day        :   427.2 therms   (saving 7.0%, upper bound: occupants out all 365 days)
+annual gas, 5/7 weekdays set back     :   436.3 therms   (saving 5.0%)   <- PREREG §4 annual figure
+median Dec-Feb day with demand        : day 364 of 365, daily-mean 37.4 F (90 candidate days)
+  held 3.48 therms  set back 3.18 therms  ->  raw saving 8.7%; like-for-like 3.0%  (end-state correction 5.72% of the day)
+  end of day: air 70.00 vs 70.00 F | structure 63.30 vs 61.95 F | house low while away 62.0 F | furnace flat out after 5 pm 1.00 h (held: 0.00 h)
+Traceback (most recent call last):
+  File "/home/user/depth-first/gate0/i91_thermostat/stage3.py", line 86, in <module>
+    assert corr_frac < 0.01, "NOT COMPARABLE — end states differ by >1% of the day's energy"
+           ^^^^^^^^^^^^^^^^
+AssertionError: NOT COMPARABLE — end states differ by >1% of the day's energy

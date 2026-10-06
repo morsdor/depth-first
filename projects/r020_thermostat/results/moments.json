@@ -1,0 +1,76 @@
+{
+ "gas_at_8": {
+  "held": 114329.62220252302,
+  "setback": 125075.93582133627
+ },
+ "pct_of_held_day_at_8": {
+  "held": 32.807383772922634,
+  "setback": 35.891085339014325
+ },
+ "gas_at_12": {
+  "held": 173732.2291519775,
+  "setback": 125075.93582133627
+ },
+ "pct_of_held_day_at_12": {
+  "held": 49.85322093882055,
+  "setback": 35.891085339014325
+ },
+ "gas_at_16": {
+  "held": 230022.19533440983,
+  "setback": 127825.7206588649
+ },
+ "pct_of_held_day_at_16": {
+  "held": 66.00587225993321,
+  "setback": 36.68014809212971
+ },
+ "gas_at_17": {
+  "held": 245585.25968152858,
+  "setback": 134097.27504054774
+ },
+ "pct_of_held_day_at_17": {
+  "held": 70.47176145717178,
+  "setback": 38.4797979771626
+ },
+ "gas_at_18": {
+  "held": 260049.85567250202,
+  "setback": 197255.1697773893
+ },
+ "pct_of_held_day_at_18": {
+  "held": 74.62244036832514,
+  "setback": 56.603231353431426
+ },
+ "gas_at_20": {
+  "held": 289293.7554757207,
+  "setback": 242408.85195388706
+ },
+ "pct_of_held_day_at_20": {
+  "held": 83.01410497263552,
+  "setback": 69.56027740489864
+ },
+ "gas_at_24": {
+  "held": 348487.4715821877,
+  "setback": 318295.6819086445
+ },
+ "pct_of_held_day_at_24": {
+  "held": 100.0,
+  "setback": 91.33633426290255
+ },
+ "setback_air_reaches_62_at_h": 15.45,
+ "setback_air_back_to_70_at_h": 18.05,
+ "setback_flat_out_after_5pm_h": 1.0333333333333334,
+ "held_furnace_duty_mean_pct_of_cap": 22.99049291688043,
+ "setback_duty_8_to_17_pct": 1.5870874552316578,
+ "setback_duty_17_to_20_pct": 57.164443370929405,
+ "held_duty_17_to_20_pct": 23.06837278026811,
+ "totals_btu_gas": {
+  "held": 348487.4715821877,
+  "setback": 318295.6819086445
+ },
+ "saving_pct_raw": 8.663665737097448,
+ "outdoor_F_at_8": 36.50899999999987,
+ "outdoor_F_at_17": 37.94,
+ "outdoor_min_F": 35.96,
+ "outdoor_max_F": 42.863000000001705,
+ "gas_saved_while_away_btu": 122234.29825979409,
+ "gas_spent_extra_after_5pm_btu": 81296.19496743765
+}
