@@ -1,0 +1,17 @@
+version,scan_date,id,idea,tier,status,front_page_wall,cost,evidence_summary,note
+v1,2026-10-07,Y01,"Where the watts go in an AI data centre — grid to chip to heat, computed",A,live,moderate,M,"data_centers x2.82 (7 channels w/ 3x; all small-channel, untestable in known); Deep Xplain 218k@2.7k, Base Config 46.8k@2.1k; MEP Academy 1.44M owns the animated explainer",recommended pilot 1
+v1,2026-10-07,Y02,KV cache measured: same model with and without it,A,live,"gap, low ceiling",S,"llm_internals x1.34 replicates (1.73/1.14); Adam Rosler 40.5k@2.2k, Tales of Tensors 23.4k@2.7k; front page median 9.5k",recommended pilot 2
+v1,2026-10-07,Y03,"Why LLM speed is set by memory, not compute — roofline measured on the Mac",A,live,"gap, low ceiling",S,"same topic row as Y02; front page median 7.8k, 7/10 small channels",verify bandwidth figure against vendor spec
+v1,2026-10-07,Y04,What an AI answer costs in watts and rupees,B,live,"news wall top, gap at depth",M,ai_power x1.53 (q .20); Computerphile token-cost video 832k = 12.2x its own normal,recommended pilot 3 (capstone of Y01-Y03); per-query energy figures contested
+v1,2026-10-07,Y05,"CPU vs GPU on the same matrix multiply, measured",B,live,gap,S,"x1.27 ns; 0 of 26 small-channel videos >=10k; front page 0/10 giants, best 322k (886 d old)",cheap swap for pilot 3
+v1,2026-10-07,Y06,Why RAM got dearer — HBM eats the wafers,B,live,spike,S,"demand not lift: ColdFusion 1.38M, HTX Studio 1.02M at 7 days; DRAM figures unverified",time-boxed news peg
+v1,2026-10-07,Y07,"A transistor to an adder, built in a simulator",B,live,wall,M,x1.54 (q .20); evergreen proxy 1.85 (n=6); front page 7/10 giants at 1.2M median,only with a visibly different build
+v1,2026-10-07,Y08,Local-LLM hardware ranked in tokens per second per watt,B/C,live,moderate,S,one small channel carries it (NightShift Tech 91k@836); within-channel x1.16 ns,series after Y03
+v1,2026-10-07,Y09,Memory hierarchy measured on this Mac,C,live,"gap, low demand",S,"front page median 2.4k, old",fold into Y05
+v1,2026-10-07,Y10,"Physical electronics in 3D (SSD cell, battery, motor, SIM)",C,live,wall on transistors,M,"pooled topic x0.91 ns; 9.1% >=10k from 22 videos / 10 channels, one channel with a 10k+; earlier 2.17x was a regex artefact",existence proofs only
+v1,2026-10-07,Y11,"3D graphics engine from scratch, every operation counted",C,live,open,L,two channels carry the lift; Divine203 97k/36k/28k/16k/14k @4.3k,"large build, thin evidence"
+v1,2026-10-07,Y12,A CPU in a simulator that boots a program,C,live,open,L,scotts-tech 75k@4.8k; BRH 88k@6.9k (tier B); from scratch x1.42 ns,
+v1,2026-10-07,Y13,"Smallest useful language model trained on a laptop: time, energy, rupees",C,live,open,M,"Jake Waynes 39.8k@3.2k (search-found, outside the lift analysis)",too few small-channel videos to measure
+v1,2026-10-07,Y14,Undersea cables on the real route — only with a data angle,C,live,wall,M,small channels 2.6% >=10k; front page 11.8M/6.0M/4.3M; repo reel r006 already covers it,withdrawn as a pilot
+v1,2026-10-07,Y15,Chip geopolitics on the globe,C,live,spike,M,x2.70 but every hit in the last 180 days; India-border legal weight,"spike, not evergreen"
+v1,2026-10-07,Y16,FlashAttention and PagedAttention as one memory-traffic story,C,live,nobody searching,S,Tales of Tensors 15.7k/13.4k; first page median 1.8k,"segment of Y02/Y03, not a video"

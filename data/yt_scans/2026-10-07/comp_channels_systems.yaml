@@ -1,0 +1,64 @@
+# COMPUTING-SYSTEMS-MEASURED comp list — written 2026-10-07 to test one hypothesis:
+# that "how computing systems behave, shown with measurements and told as verified stories"
+# is a lane with >=3x outlier precedent and room for a new channel. A SEPARATE list from
+# comp_channels_software.yaml (animated CS explainers) — it overlaps on purpose where a channel
+# is a useful baseline.
+#
+#   python3 scripts/fetch_outliers.py --channels data/comp_channels_systems.yaml --csv data/outliers_systems.csv
+#
+# ⚠ Handles are best-effort. The script prints a "Channel resolution" table: READ IT. A wrong handle
+#   silently tracks the wrong channel. (Kevin Fang is @kevinfaang — double a.)
+#
+# `lane` is for the analysis join and is ignored by the script:
+#   A  failures-as-stories   incident / outage / "what went wrong" — the human or disaster is the hook
+#   B  physical-computing    chips, data centres, networks, cables, power — computing you can point at
+#   C  trade-offs-with-numbers  system design, latency, scale, cost — judgement with figures
+#   D  ml-concepts           CONTROL: animated/visual ML and data-science concept explainers, the lane
+#                            the hypothesis says to avoid as an identity
+#   F  format-control        non-computing channels whose FORMAT (failure analysis, systems, logistics)
+#                            is the precedent being borrowed
+channels:
+  # ── A · failures as stories ──
+  - {name: Kevin Fang,        handle: "@kevinfaang",       lane: A, why: "animated software-incident stories; the closest existing thing to the hypothesis"}
+  - {name: Dave's Garage,     handle: "@DavesGarage",      lane: A, why: "retired Microsoft engineer; stories and how-it-really-worked"}
+  - {name: Hussein Nasser,    handle: "@hnasr",            lane: A, why: "backend/network engineering incl. outage analyses"}
+  - {name: ColdFusion,        handle: "@ColdFusion",       lane: A, why: "tech business/history stories, long-form"}
+  - {name: Internet Historian, handle: "@InternetHistorian", lane: A, why: "narrated internet incidents; story-first precedent"}
+  - {name: Company Man,       handle: "@TheCompanyMan",    lane: A, why: "company/product failure stories"}
+  - {name: Fireship,          handle: "@Fireship",         lane: A, why: "news/explainer baseline for the tool-news treadmill"}
+  - {name: ThePrimeagen,      handle: "@ThePrimeagen",     lane: A, why: "opinion/reaction baseline"}
+  - {name: Theo - t3.gg,      handle: "@t3dotgg",          lane: A, why: "opinion/news baseline; also a creator-with-SaaS case"}
+  - {name: Low Level,         handle: "@LowLevelTV",       lane: A, why: "security/low-level stories"}
+  - {name: LiveOverflow,      handle: "@LiveOverflow",     lane: A, why: "security explainers, measured/reproduced"}
+  # ── B · the physical side of computing ──
+  - {name: Asianometry,       handle: "@Asianometry",      lane: B, why: "semiconductor and tech-industry systems; physical computing as history/economics"}
+  - {name: TechTechPotato,    handle: "@TechTechPotato",   lane: B, why: "chips and hardware industry"}
+  - {name: Branch Education,  handle: "@BranchEducation",  lane: B, why: "how chips/devices are physically made; 3D"}
+  - {name: Jeff Geerling,     handle: "@JeffGeerling",     lane: B, why: "infrastructure/hardware, hands-on"}
+  - {name: Computerphile,     handle: "@Computerphile",    lane: B, why: "computing explained by academics incl. AI cost/infra"}
+  - {name: Tom Scott,         handle: "@TomScottGo",       lane: B, why: "places and systems incl. internet infrastructure"}
+  - {name: Welch Labs,        handle: "@WelchLabs",        lane: B, why: "story-led technical narratives; AI and physics"}
+  # ── C · trade-offs with numbers ──
+  - {name: ByteByteGo,        handle: "@ByteByteGo",       lane: C, why: "system design, animated; the dev-channel-with-products precedent"}
+  - {name: Gaurav Sen,        handle: "@gkcs",             lane: C, why: "system design"}
+  - {name: Arpit Bhayani,     handle: "@AsliEngineerArpit", lane: C, why: "system design / engineering depth; India-based"}
+  - {name: Hello Interview,   handle: "@hello_interview",  lane: C, why: "system design interview prep"}
+  - {name: CodeAesthetic,     handle: "@CodeAesthetic",    lane: C, why: "software design, high-craft visuals"}
+  - {name: Coderized,         handle: "@coderized",        lane: C, why: "language/design explainers"}
+  # ── D · ML and data-science concepts (CONTROL) ──
+  - {name: 3Blue1Brown,       handle: "@3blue1brown",      lane: D, why: "the gold standard for animated ML/maths"}
+  - {name: StatQuest,         handle: "@statquest",        lane: D, why: "ML/stats concepts, simple visuals"}
+  - {name: Jay Alammar,       handle: "@JayAlammar",       lane: D, why: "visual transformer/LLM explainers"}
+  - {name: Serrano.Academy,   handle: "@SerranoAcademy",   lane: D, why: "ML concepts, friendly"}
+  - {name: Andrej Karpathy,   handle: "@AndrejKarpathy",   lane: D, why: "from-scratch LLM walkthroughs"}
+  - {name: Yannic Kilcher,    handle: "@YannicKilcher",    lane: D, why: "paper reviews"}
+  - {name: Two Minute Papers, handle: "@TwoMinutePapers",  lane: D, why: "AI research news, short"}
+  - {name: AI Explained,      handle: "@aiexplained-official", lane: D, why: "AI news/analysis"}
+  - {name: Art of the Problem, handle: "@ArtOfTheProblem", lane: D, why: "history-of-ideas ML/info explainers"}
+  - {name: Reducible,         handle: "@Reducible",        lane: D, why: "animated algorithms"}
+  - {name: Spanning Tree,     handle: "@SpanningTree",     lane: D, why: "animated CS concepts"}
+  # ── F · format controls (not computing) ──
+  - {name: Practical Engineering, handle: "@PracticalEngineering", lane: F, why: "infrastructure systems explained, incl. failures"}
+  - {name: Real Engineering,  handle: "@RealEngineering",  lane: F, why: "engineering systems and failures"}
+  - {name: Wendover Productions, handle: "@Wendoverproductions", lane: F, why: "logistics/systems documentaries; closest to 'how systems work'"}
+  - {name: Mentour Pilot,     handle: "@MentourPilot",     lane: F, why: "accident analysis format — the failure-as-story precedent outside software"}

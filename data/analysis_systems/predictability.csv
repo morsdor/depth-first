@@ -1,0 +1,5 @@
+model,n_features,oos_R2,oos_AUC_hit
+title features,24,-0.0061,0.555
+topics,28,-0.013,0.516
+title+topics,52,-0.0296,0.558
+ln(age) only,1,-0.0009,0.497

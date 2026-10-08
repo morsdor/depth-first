@@ -1,0 +1,124 @@
+topic,channel,group,subs,views,mult,published,title,id
+chip_fab_lithography,42 Index,small,3450.0,27897,18.438,2025-08-02,How Japan Lost Lithography — And ASML Won,jpnDE2TfVaQ
+transistors_logic,TechTechPotato,comp,,196354,9.7,2026-07-21,A CPU Made of Atoms: IBM's Breakthrough 0.7nm Transistors,_mRJw2F6j5Q
+transistors_logic,ElektroVerstehen,small,2010.0,10466,8.359,2026-05-02,🔧 IHK-Prüfungsaufgabe: Transistorschaltungen verstehen – Schritt für Schritt erklärt!💡⚡️,cE8NOGa9j0Y
+transistors_logic,Spanning Tree,comp,,1435929,7.3,2020-06-15,Understanding Logic Gates,INEtYZqtjTo
+transistors_logic,Del 0 al 1,small,2090.0,3970,6.302,2026-01-14,Como decide la electronica | Compuerta AND explicado con transistores,3EHNWOvFhi8
+transistors_logic,Pooji's world,small,5650.0,15696,3.405,2024-10-27,Bipolar junction Transistor|BJT|Construction|BTech|EDC,7GgaSq_Ypfs
+transistors_logic,Jeff Geerling,comp,,997959,3.09,2026-08-07,Intel just matched Apple Silicon. Seriously.,A2B7oI0FYqo
+cpu_gpu_architecture,Scan Business,small,5870.0,92219,31.701,2023-03-22,How to pick the best AMD EPYC server CPU,0Bn5OYWUJKY
+cpu_gpu_architecture,BIZON,small,3560.0,95602,16.475,2020-12-17,NVIDIA RTX 8000 VS RTX 3090 | 8 GPU 3D Rendering performance 2020-2021 | Best GPU for Blender,GeuKQiknwl4
+cpu_gpu_architecture,TechTechPotato,comp,,196354,9.7,2026-07-21,A CPU Made of Atoms: IBM's Breakthrough 0.7nm Transistors,_mRJw2F6j5Q
+cpu_gpu_architecture,AppliedAI,small,469.0,3515,8.7,2024-11-19,How Much GPU Memory Is Needed for LLM Fine-Tuning?,6ZKpykoE7VM
+cpu_gpu_architecture,DES Technologies,small,589.0,159,8.368,2026-07-02,What Happens to Retired AI GPU Servers in 2026?,XB7gnmLpiMU
+cpu_gpu_architecture,Video Games Explainer,small,5570.0,65621,7.922,2026-01-18,Every CPU War Explained in 17 Minutes,N9DHJHYYdyk
+memory_storage,Crusoe AI,small,3310.0,8208060,22737.008,2025-11-21,AI Lab: Open-source inference with vLLM + SGLang | Optimizing KV cache with Crusoe Managed Inference,R74kx7GKEbs
+memory_storage,Michael Schmidt (URBN_PXL),small,6550.0,162779,36.205,2023-11-01,iPhone 15 Pro Max - SSD & Flash Drive for ProRes Video,aI4YfoFg6t0
+memory_storage,Adam Rosler,small,2180.0,10089,32.971,2026-05-11,The Memory Wall: The Invisible Cap on Every LLM,RpAkcCsrcGM
+memory_storage,Clear,small,1100.0,16409,27.765,2025-01-28,Building the World's CHEAPEST NAS | What is a NAS,-lCYducWCMM
+memory_storage,AppliedAI,small,469.0,3515,8.7,2024-11-19,How Much GPU Memory Is Needed for LLM Fine-Tuning?,6ZKpykoE7VM
+memory_storage,HOSTKEY,small,402.0,1168,6.213,2026-08-07,Self-Hosted Cloud Storage: Nextcloud All-in-One Setup on Your Own Server,hopM6lLvpTE
+data_centers,DES Technologies,small,589.0,3254,171.263,2026-02-09,AI Data Centers Explained: How AI Is Reshaping Modern Infrastructure,ES2JdWCXs8I
+data_centers,Deep Xplain,small,2650.0,11307,30.559,2026-05-13,How Data Center Cooling Systems Work,vRCcSFSx80A
+data_centers,Great Lakes Data Racks & Cabinets,small,1730.0,31049,19.878,2025-03-05,15 Years of Data Center Upgrades in Action,3chMzjbp2b4
+data_centers,Clear,small,1100.0,10447,17.677,2025-05-27,How to Setup a Server Rack!,XPd8O0m1seY
+data_centers,Base Config,small,2120.0,1129,6.801,2026-02-02,Data Center Fiber Explained (How Light Moves Your Data),GZf3I6WJQZM
+data_centers,Data Center Richness,small,4700.0,9801,6.414,2026-06-18,What Solid State Transformers Mean for Data Centers,R_CzeVkYIfU
+ai_power_energy,Deep Xplain,small,2650.0,11307,30.559,2026-05-13,How Data Center Cooling Systems Work,vRCcSFSx80A
+ai_power_energy,Tech Dynamics,small,812.0,10110,13.096,2026-02-19,How Does A Nuclear Reactor EXPLODE ?,p2SYi0vxMIo
+ai_power_energy,Crusoe AI,small,3310.0,4063,11.255,2026-06-17,"Crusoe: The AI factory company — vertically integrated, energy-first, large-scale AI infrastructure",eGcpu7yhkew
+ai_power_energy,Big Things Explained,small,2930.0,5083,10.416,2026-07-06,How Electricity Reaches Your Home — The Hidden Journey of the Power Grid,--Dne_NNYlw
+ai_power_energy,Base Config,small,2120.0,740,4.458,2026-01-19,Data Center Cooling Explained: Air vs Liquid vs Immersion,ROyJACqAn3I
+ai_power_energy,Faradawn Yang,small,4740.0,2710,3.439,2026-01-01,"Write Your First CUDA Kernel in 15 Minutes (Threads, Blocks, Grid Explained)",2-bCyCVlAxM
+physical_networks,Lucky Tech Life,small,9930.0,74189,51.094,2024-09-20,TP-Link Mesh WiFi Extender AC750: Quick Unbox & Setup for Seamless Coverage!,z5qNOzE-xr0
+physical_networks,Bantha Overland,small,5080.0,248189,31.109,2024-08-30,Starlink Mini vs Standard? Real Starlinks Compared - Which One Wins?,p3s8OzNBS8c
+physical_networks,Little River DIY,small,7450.0,112035,17.037,2026-04-29,Professional Starlink Standard 4 Install,NeU1ZgW6PBg
+physical_networks,Scan Business,small,5870.0,42591,14.641,2023-05-16,What is NVIDIA Networking and what happened to Mellanox?,OW7fbBt-wVE
+physical_networks,Hussein Nasser,comp,,43624,7.29,2025-10-31,We now know why the DNS failed,LZm9nTwsGi8
+physical_networks,Base Config,small,2120.0,1129,6.801,2026-02-02,Data Center Fiber Explained (How Light Moves Your Data),GZf3I6WJQZM
+local_ai_hardware_bench,HOSTKEY,small,402.0,3498,18.606,2026-07-21,OpenLiteSpeed vs LEMP: Real WordPress Benchmarks (10x Faster — But There's a Catch),Kw64WL9hslk
+local_ai_hardware_bench,BIZON,small,3560.0,95602,16.475,2020-12-17,NVIDIA RTX 8000 VS RTX 3090 | 8 GPU 3D Rendering performance 2020-2021 | Best GPU for Blender,GeuKQiknwl4
+local_ai_hardware_bench,Computerphile,comp,,832081,12.25,2026-07-02,Why AI Tokens are so Expensive - Computerphile,-0HRzXk8vlk
+local_ai_hardware_bench,pookie,small,7130.0,34301,11.675,2025-09-07,How to Run Local LLMs with Llama.cpp: Complete Guide,EPYsP-l6z2s
+local_ai_hardware_bench,PhasedTech,small,8960.0,149248,5.341,2026-05-05,The Mac Studio Was Too Expensive.. So I Machined My Own,lnrUrZbUgs4
+local_ai_hardware_bench,Joaquín Ruiz — IA para Desarrolladores,small,9480.0,8597,4.185,2026-07-01,Ahorra tokens en Claude Code con Codebase Memory MCP (gratis),5_5yik4Y0cw
+diy_hardware_builds,scotts-tech,small,4820.0,8155,14.036,2025-03-06,FPGA video card part 2,2h3ZE8c8hdQ
+diy_hardware_builds,BRH - French SoC Enjoyer,small,6870.0,37100,6.164,2024-10-14,I Built This AI on FPGA ; Here's What Happened,lJa4dqdAsUM
+diy_hardware_builds,Coding Stick,small,717.0,657,4.322,2025-05-22,Hand Gesture Controlled Servo with OpenCV & Arduino | Real-Time Finger Tracking Project,s1_tpfUK9AU
+llm_internals,Crusoe AI,small,3310.0,8208060,22737.008,2025-11-21,AI Lab: Open-source inference with vLLM + SGLang | Optimizing KV cache with Crusoe Managed Inference,R74kx7GKEbs
+llm_internals,Adam Rosler,small,2180.0,10089,32.971,2026-05-11,The Memory Wall: The Invisible Cap on Every LLM,RpAkcCsrcGM
+llm_internals,Serrano.Academy,comp,,85470,20.04,2025-02-18,"Keys, Queries, and Values: The celestial mechanics of attention",RFdb2rKAqFw
+llm_internals,Art of the Problem,comp,,5211889,18.82,2026-05-22,I Gave ChatGPT a Body,S67z2aekBrI
+llm_internals,Computerphile,comp,,832081,12.25,2026-07-02,Why AI Tokens are so Expensive - Computerphile,-0HRzXk8vlk
+llm_internals,pookie,small,7130.0,34301,11.675,2025-09-07,How to Run Local LLMs with Llama.cpp: Complete Guide,EPYsP-l6z2s
+neural_net_basics,Gautam Sharma,small,990.0,5475,10.196,2024-10-26,Build a machine learning library from scratch using only C++ | Part 2,wOuMVD3XoHU
+neural_net_basics,BIZON,small,3560.0,56727,9.775,2019-06-04,"World's First 10x TITAN RTX, 2080 Ti  Liquid Cooled GPU Server. Benchmarks. Deep learning/AI, render",QeGhSWRUu-M
+neural_net_basics,3Blue1Brown,comp,,11359662,5.49,2024-04-01,"Transformers, the tech behind LLMs | Deep Learning Chapter 5",wjZofJX0v4M
+neural_net_basics,StatQuest,comp,,59959,5.45,2025-04-07,Reinforcement Learning with Neural Networks: Essential Concepts,9hbQieQh7-o
+neural_net_basics,BRH - French SoC Enjoyer,small,6870.0,31291,5.199,2024-10-27,"Today, YOU learn how to put AI on FPGA.",VsXMlSB6Yq4
+neural_net_basics,Andrej Karpathy,comp,,4230257,3.53,2022-08-16,The spelled-out intro to neural networks and backpropagation: building micrograd,VMj-3S1tku0
+generative_images_video,ChameleonAi,small,3660.0,90356,37.23,2024-08-17,"Stable Diffusion Models Explained Once and for All (1.5, 2, XL, Cascade, 3)",n233GPgOHJg
+generative_images_video,GeniPad,small,415.0,354,5.531,2025-11-24,"TiDAR: Think in Diffusion, Talk in Autoregression (Proposed by Nvidia)",2L9881iWp1w
+generative_images_video,Clear,small,1100.0,2603,4.404,2025-12-10,How to Get Started with Stable Diffusion - Zero Cost (Maximum Results),hwiMHkCC9M0
+generative_images_video,pookie,small,7130.0,11075,3.77,2025-10-26,How to Fine-Tune Stable Diffusion for Pixel Art (LoRA Guide),OdafuDeNMyM
+ai_industry_news,Preporato | AI for Engineers,small,2420.0,97242,211.856,2026-06-23,Claude Certified Architect (CCA-F): Study Guide to Pass First Try,akzKBQVyFEI
+ai_industry_news,DES Technologies,small,589.0,3254,171.263,2026-02-09,AI Data Centers Explained: How AI Is Reshaping Modern Infrastructure,ES2JdWCXs8I
+ai_industry_news,Future with Fawzi,small,5700.0,39653,63.142,2026-07-26,The truth about OpenAI accidentally hacking Hugging Face,8TZREGifAzA
+ai_industry_news,Art of the Problem,comp,,5211889,18.82,2026-05-22,I Gave ChatGPT a Body,S67z2aekBrI
+ai_industry_news,AI & SAP Basis Wizard,small,4810.0,17112,16.549,2025-01-29,DeepSeek R1 API in Python – Start Coding AI Today!,0hTzUACJc_k
+ai_industry_news,StatQuest,comp,,126482,11.49,2024-07-01,Coding a ChatGPT Like Transformer From Scratch in PyTorch,C9QSpl5nmrY
+llm_from_scratch_code,StatQuest,comp,,126482,11.49,2024-07-01,Coding a ChatGPT Like Transformer From Scratch in PyTorch,C9QSpl5nmrY
+llm_from_scratch_code,Scientific Coding,small,1550.0,9529,11.003,2023-04-09,LangChain intro - train LLM on set of pdf files,vXmpThOZiIM
+llm_from_scratch_code,Andrej Karpathy,comp,,8002785,6.68,2023-01-17,"Let's build GPT: from scratch, in code, spelled out.",kCc8FmEb1nY
+algorithms_visualized,Spanning Tree,comp,,2087942,10.62,2020-08-15,How Dijkstra's Algorithm Works,EFg3u_E6eHU
+algorithms_visualized,CompilerStuck,small,7740.0,187832,10.429,2023-10-28,20+ Sorting Algorithms Visualized - Disparity Chords (Reversed Inputs),c6jYRfmRNWs
+algorithms_visualized,Baa Code Education,small,804.0,19788,6.777,2025-06-05,CYK Algorithm in 5 minutes,OZrTBiIWE6s
+algorithms_visualized,Reducible,comp,,2274359,5.99,2020-11-14,The Fast Fourier Transform (FFT): Most Ingenious Algorithm Ever?,h7apO7q16V0
+algorithms_visualized,ThePrimeagen,comp,,959954,4.51,2023-01-06,"This Algorithm is 1,606,240% FASTER",U16RnpV48KQ
+algorithms_visualized,The Popple People,small,4310.0,4946,3.256,2025-07-13,Cheap SUV Tent | BRUTALLY HONEST REVIEW | Popple People | Episode 115,tCOd6H0UcFw
+compression_crypto,Reducible,comp,,2274359,5.99,2020-11-14,The Fast Fourier Transform (FFT): Most Ingenious Algorithm Ever?,h7apO7q16V0
+compression_crypto,Baa Code Education,small,804.0,10968,3.756,2025-09-03,Huffman Coding Explained | Compressing Text Step-by-Step,yPlWylq5zwk
+compression_crypto,HOSTKEY,small,402.0,698,3.713,2026-07-18,Self-Hosted Team Messenger: Element + Matrix Setup Guide (E2E Encrypted),nPy7-yV_W-w
+os_lowlevel,Gautam Sharma,small,990.0,5475,10.196,2024-10-26,Build a machine learning library from scratch using only C++ | Part 2,wOuMVD3XoHU
+os_lowlevel,Hussein Nasser,comp,,42738,7.14,2026-06-17,"Postgres is half as fast in Linux 7.0, and we always knew why",gO4J5Bkd1Oc
+os_lowlevel,AI & SAP Basis Wizard,small,4810.0,4576,4.426,2024-11-04,How to Update SAP Kernel,-mFNf3u9kcA
+os_lowlevel,Faradawn Yang,small,4740.0,2710,3.439,2026-01-01,"Write Your First CUDA Kernel in 15 Minutes (Threads, Blocks, Grid Explained)",2-bCyCVlAxM
+graphics_engines,Lucky Tech Life,small,9930.0,74189,51.094,2024-09-20,TP-Link Mesh WiFi Extender AC750: Quick Unbox & Setup for Seamless Coverage!,z5qNOzE-xr0
+graphics_engines,Divine203,small,4330.0,97310,28.807,2025-06-10,"Building a Graphics Engine from Scratch (NO OpenGl, NO Shaders)",ZnycovL2qWU
+graphics_engines,BIZON,small,3560.0,95602,16.475,2020-12-17,NVIDIA RTX 8000 VS RTX 3090 | 8 GPU 3D Rendering performance 2020-2021 | Best GPU for Blender,GeuKQiknwl4
+failures_outages_bugs,DES Technologies,small,589.0,78,4.105,2025-12-27,Sensitive Data on Tape? Here’s How Enterprises Lock It Down for Good,tqivNs6lcT4
+failures_outages_bugs,Low Level,comp,,925996,3.02,2026-08-03,I Hacked This Amazon Router. What I Found Should be Illegal.,2t6-AxpZXiA
+computing_history_companies,Stats Atlas,small,6310.0,175095,22.663,2026-07-09,Mapping Every Famous Shipwreck in History | 1545–2026,MrANdwFQ75w
+computing_history_companies,42 Index,small,3450.0,27897,18.438,2025-08-02,How Japan Lost Lithography — And ASML Won,jpnDE2TfVaQ
+computing_history_companies,Class 12 Azhanimation,small,9310.0,134430,16.712,2025-08-29,✨ Bhakti & Sufi Traditions | Class 12 History Chapter 6 | Animated Explanation✨,RihAOI9RoBE
+computing_history_companies,TechTechPotato,comp,,196354,9.7,2026-07-21,A CPU Made of Atoms: IBM's Breakthrough 0.7nm Transistors,_mRJw2F6j5Q
+computing_history_companies,Video Games Explainer,small,5570.0,63590,7.677,2026-01-23,Every Gaming GPU Era Explained in 17 Minutes,DYU_szrlC78
+computing_history_companies,Scan Business,small,5870.0,19877,6.833,2024-11-14,"What is NVIDIA AI Workbench? Featuring Rafi Nizam, Co-Founder of Falcon & Storm",ZC9lRC6Q2HY
+geopolitics_of_tech,Auto Sleuth,small,5160.0,117406,100.864,2026-07-23,China Just Built A Battery Without Lithium — And America Is Completely Speechless,C-cxHqIoQGk
+geopolitics_of_tech,Wild Uncovered,small,319.0,4100,15.769,2026-07-22,Huawei's Bold Move Could End Microsoft's Dominance,8YZ_c6YgsOg
+system_design_architecture,Crusoe AI,small,3310.0,40415,111.953,2026-07-30,Scale LLM inference to thousands of users with Terraform and KServe,QFK25a7xkxs
+system_design_architecture,Scan Business,small,5870.0,232440,79.904,2024-10-11,Introducing AMD EPYC 9005 CPUs based on the Turin architecture,fbrHDQzWqPk
+system_design_architecture,Kevin Fang,comp,,3613816,7.07,2023-04-26,"Dev Deletes Entire Production Database, Chaos Ensues",tLdRBsuvVKc
+system_design_architecture,Scientific Coding,small,1550.0,5505,6.357,2023-04-09,LangChain intro - make natural language SQL database queries,YL3VxQx3dbE
+system_design_architecture,Preporato | AI for Engineers,small,2420.0,2805,6.111,2026-04-27,Transformer Architecture Explained (What Changed Since 2017),dBURqWIIjLU
+system_design_architecture,Spanning Tree,comp,,1184295,6.02,2024-04-29,Understanding B-Trees: The Data Structure Behind Modern Databases,K1a2Bk8NrYQ
+devtools_langs_news,Gautam Sharma,small,990.0,16578,30.872,2020-07-11,Uniform cost search with python code walkthrough,Cj-MtFEK9Qk
+devtools_langs_news,Preporato | AI for Engineers,small,2420.0,9836,21.429,2026-07-23,Claude Certified Developer (CCDV-F): Everything You Need to Pass,IdnZKkijWD0
+devtools_langs_news,pookie,small,7130.0,51186,17.422,2026-02-22,I Switched to Neovim + Tmux for AI Coding Agents. No Going Back,C8EdaqLAxl8
+devtools_langs_news,AI & SAP Basis Wizard,small,4810.0,17112,16.549,2025-01-29,DeepSeek R1 API in Python – Start Coding AI Today!,0hTzUACJc_k
+devtools_langs_news,Coding Stick,small,717.0,2276,14.974,2025-12-29,Simulating Fluids From Scratch with Python,RfuSIPlCeL0
+devtools_langs_news,Joaquín Ruiz — IA para Desarrolladores,small,9480.0,30402,14.801,2026-05-15,Vibe coding está MUERTO: Construí una app con Spec Driven Development,uV5Q7d5M3XM
+electronics_motors_engineering,Auto Sleuth,small,5160.0,117406,100.864,2026-07-23,China Just Built A Battery Without Lithium — And America Is Completely Speechless,C-cxHqIoQGk
+electronics_motors_engineering,Divine203,small,4330.0,97310,28.807,2025-06-10,"Building a Graphics Engine from Scratch (NO OpenGl, NO Shaders)",ZnycovL2qWU
+electronics_motors_engineering,Big Things Explained,small,2930.0,5083,10.416,2026-07-06,How Electricity Reaches Your Home — The Hidden Journey of the Power Grid,--Dne_NNYlw
+electronics_motors_engineering,Unreal in 5 Minutes!,small,4210.0,23669,7.5,2025-02-16,Making CUTSCENES in Unreal Engine 5.5 is EASY!,UM5NWFoZnpE
+electronics_motors_engineering,Pooji's world,small,5650.0,24536,5.322,2025-07-03,Clipper circuit|BTech|ECE|JntuA|Jntuk|Spmvv|Explanation in telugu|EDC|,PNXFjC3wUzw
+electronics_motors_engineering,Tech Dynamics,small,812.0,3941,5.105,2025-06-18,Why Wind Turbines ONLY Have 3 Blades,BduTDcsouJY
+emerging_compute_hardware,42 Index,small,3450.0,25540,16.88,2026-05-08,Extropic: The Chip Innovation Nobody Expected,D4PJ9kQDe2M
+emerging_compute_hardware,Tech Dynamics,small,812.0,3509,4.545,2026-03-19,Quantum Computers Explained in 7 minutes,YUWoi66UQNg
+how_its_made_factory,Digital Vigyan,small,8610.0,229728,136.662,2025-10-17,📱सिम कार्ड कैसे बनता है?😯| The Secret Factory of SIM Card | Full Process in Hindi | Digital vigyan |,psl95GQ-_aQ
+how_its_made_factory,টেক ৩৬০,small,5700.0,68518,12.904,2026-07-20,হীরা আসলে কীভাবে তৈরি হয়  How Diamonds Are Made | টেক ৩৬০,m3WwFjtDeS8
+how_its_made_factory,Crusoe AI,small,3310.0,4063,11.255,2026-06-17,"Crusoe: The AI factory company — vertically integrated, energy-first, large-scale AI infrastructure",eGcpu7yhkew
+how_its_made_factory,Big Things Explained,small,2930.0,3834,7.857,2026-05-11,How Oil Gets from the Ground to Your Car — The Full Global Supply Chain | Big Things Explained,EBzMCLj_ieo
+how_its_made_factory,Branch Education,comp,,11755173,5.91,2024-05-17,How are Microchips Made? 🖥️🛠️ CPU Manufacturing Process Steps,dX9CGRZwD-w
+how_its_made_factory,Dr. How,small,1000.0,1742,3.369,2026-02-20,Identical vs Fraternal Twins | How Twins Are Made (3D Medical Animation),HPuDBVsUntw

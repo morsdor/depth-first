@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-07",
+  "created": "2026-10-08T20:22:00",
+  "files": {
+    "comp_channels_systems.yaml": {
+      "rows": null,
+      "sha256": "49a376c7ba054bf5",
+      "file_modified": "2026-10-07"
+    },
+    "comp_videos_systems.csv": {
+      "rows": 1007,
+      "sha256": "2b27fa9352d57db3",
+      "file_modified": "2026-10-07"
+    },
+    "outliers_systems.csv": {
+      "rows": 106,
+      "sha256": "7b50f84562877051",
+      "file_modified": "2026-10-07"
+    },
+    "lane_discovery_v2.csv": {
+      "rows": 1147,
+      "sha256": "79ab71f4de3c989a",
+      "file_modified": "2026-10-07"
+    },
+    "lane_discovery_systems.csv": {
+      "rows": 575,
+      "sha256": "4582c738dbbdc873",
+      "file_modified": "2026-10-07"
+    },
+    "small_channel_hits_systems.csv": {
+      "rows": 675,
+      "sha256": "e9c0fb6a8cc87b8c",
+      "file_modified": "2026-10-07"
+    },
+    "small_channel_catalogue_systems.csv": {
+      "rows": 1827,
+      "sha256": "f8bf962e2cef0e8e",
+      "file_modified": "2026-10-07"
+    },
+    "channel_stats_systems.csv": {
+      "rows": 37,
+      "sha256": "4b06904f4c1c6f89",
+      "file_modified": "2026-10-07"
+    }
+  },
+  "min_age_days": 60,
+  "hit_multiple": 3.0,
+  "corporate_excluded": [
+    "Applied Digital",
+    "BIZON",
+    "Crusoe AI",
+    "HOSTKEY",
+    "Ready Tensor",
+    "Scan Business"
+  ],
+  "git_head": "a0baaee",
+  "not_refreshed_in_this_scan": []
+}

@@ -1,0 +1,365 @@
+id,channel,group,role,y,mult,title,views,idx,face,text,subject,annot,brand,number,clutter
+A2B7oI0FYqo,Jeff Geerling,comp,top,1.1375590063497134,3.09,Intel just matched Apple Silicon. Seriously.,997959,1,0,0,P,0,0,0,1
+eJn6zsbrqUM,Tales Of Tensors,small,top,2.095549645988515,11.681,Flash Attention: The Fastest Attention Mechanism?,15652,2,0,1,D,0,0,0,1
+f2ddAUnYqTU,Country Boy Computers,small,bottom,-2.418870234104169,0.06,Rant 'round the rocket stove: Who's responsible for defective gpus? Fake 5090,516,3,0,2,P,1,1,1,2
+HUBB8DoiB80,Asianometry,comp,top,1.011697993326108,2.41,The Debt-Fueled Collapse of China’s Top Machine Tool Maker,495454,4,0,2,M,0,0,0,2
+Gb4UBK53sGQ,Real Engineering,comp,top,0.7824019380426663,2.27,The Insane Engineering of the P-38 Lightning,3608076,5,0,1,R,0,0,1,1
+JV0S5f89-Q4,StatQuest,comp,bottom,-1.251943809542282,0.49,Human Stories in AI: Tommy Tang,5416,6,0,2,I,0,0,0,2
+EFg3u_E6eHU,Spanning Tree,comp,top,2.1851575046584126,10.62,How Dijkstra's Algorithm Works,2087942,7,0,1,I,0,0,0,2
+XmnfqYPYwSw,Kevin Fang,comp,bottom,-3.2279692642797064,0.03,How many ways can this puzzle be solved?,13853,8,0,2,P,0,0,0,2
+AUVPNq62fmI,The Popple People,small,bottom,-2.4395021824316534,0.107,"Good Friends, Good Times! | Making Memories at the Ridge! | Friends Visit-Popple People-Episode 103",163,9,1,2,H,0,0,0,3
+HzLom8rk2zo,Spanning Tree,comp,bottom,-1.8556394642972944,0.15,"Teaching Computers to Learn, Part 1",30350,10,0,1,I,0,0,0,2
+M3OuTtW662Y,CompilerStuck,small,top,2.7993979825070854,12.324,"20 Sorting Algorithms Visualized (50,000 Elements)",221959,11,0,0,D,0,0,0,1
+vEnetcj_728,Andrej Karpathy,comp,bottom,-2.206646655065938,0.08,"Stable diffusion dreams of ""blueberry spaghetti"" for one night",94418,12,0,0,P,0,0,0,1
+bAt8cYL0G3A,Unreal in 5 Minutes!,small,bottom,-1.63723274620627,0.22,Make your AI CHASE you! | Unreal Engine 5,695,13,0,1,R,0,1,0,2
+JWXCI1jcGfI,Company Man,comp,top,0.6754431392731697,2.28,Lupe Fiasco Explains It All | @CultureUnitedClips,54433,14,1,2,H,0,0,0,3
+Ae9q7KsRbuI,Two Minute Papers,comp,top,0.9118100791935296,1.98,Minecraft Was Missing One Brilliant Idea,247291,15,0,0,R,0,0,0,1
+uV5Q7d5M3XM,Joaquín Ruiz — IA para Desarrolladores,small,top,2.472296979102562,14.801,Vibe coding está MUERTO: Construí una app con Spec Driven Development,30402,16,1,2,H,1,1,0,3
+_MoRcYLN-7U,Computerphile,comp,top,1.0772687763030504,2.9,Post Quantum Cryptography - Computerphile,196925,17,1,1,H,0,0,0,2
+1I1vxu5qIUM,Branch Education,comp,top,1.4898353658757932,5.23,How does Bluetooth Work?,10396301,18,0,2,R,0,1,0,1
+yYrDkZm0HCY,SoSimple,small,top,0.993627971870796,3.013,"ചാനൽ ""ഫോർ ബിഗിനേഴ്‌സ്"".So Simple-Part-1.",21846,19,1,2,P,0,0,0,3
+sEb0vRw-2Qo,Stats Atlas,small,bottom,-1.4809567262902767,0.299,Hard Rock Cafe's Expansion Mapped: Every Country From 1971 to 2026,2313,20,0,1,D,0,1,0,2
+eHEHE2fpnWQ,ByteByteGo,comp,top,1.0475510576911011,3.16,What Are AI Agents Really About?,297742,21,0,2,D,0,0,0,3
+vxjYaAmdY9c,Tech Dynamics,small,bottom,-2.7576011329064363,0.061,How Transformers POWER our World,47,22,0,1,R,0,0,0,1
+hIOW2HKgzPk,Wendover Productions,comp,top,0.5656354993839329,1.44,Why Fast Food Got So Expensive,1524801,23,0,2,D,0,1,0,2
+aKEm7HocnLU,Joaquín Ruiz — IA para Desarrolladores,small,bottom,-1.4558210536676148,0.305,CLAUDE MYTHOS: La IA que Anthropic ESCONDE y NO te deja usar ¿MARKETING o ciberseguridad?,627,24,1,1,H,1,1,0,2
+HIvdgvTrLtk,Unreal in 5 Minutes!,small,bottom,-1.4294344028017243,0.276,AI Has NO BRAIN! Unreal Engine Behavior Tree Tutorial,871,25,0,2,I,0,0,0,3
+8a8RKE7OXE8,Tech Dynamics,small,bottom,-3.0541955202966133,0.044,The $18 Billion Plan to CONTAIN CHERNOBYL,34,26,0,1,M,1,0,0,1
+tnGCPQwd7_Q,Faradawn Yang,small,top,1.2922454834013617,4.555,LLM Optimization Lecture 5: Continuous Batching and Piggyback Decoding,3589,27,1,2,D,0,0,0,2
+hkAH7-u7t5k,Yannic Kilcher,comp,top,1.773388957582172,5.0,AGI is not coming!,160980,28,1,0,H,0,0,0,1
+nBvDtj-p6VM,ByteByteGo,comp,bottom,-0.6522359427177773,0.56,Trillions of Web Pages: Where Does Google Store Them?,53022,29,0,2,D,0,0,0,3
+kVpDARqZdrQ,Andrej Karpathy,comp,bottom,-2.67622822054624,0.05,Stable diffusion dreams of psychedelic faces,54346,30,0,0,X,0,0,0,2
+KOpTWx1Eou4,Fireship,comp,top,0.273112287890774,0.83,"The most interesting ""hack"" in history...",1015622,31,1,1,H,0,1,0,2
+ziPIbxoFc_g,Jeff Geerling,comp,bottom,-0.8841149863081486,0.43,I can prove I had the best time at Open Sauce,138783,32,1,0,H,1,0,0,2
+EvCbRBs04Y0,The Popple People,small,bottom,-3.3353314682272237,0.043,Fixing Up the Arizona Truck | New Power Window Switch | Popple People-Episode 105,66,33,0,2,P,0,0,1,3
+Vf_pS0XSTyo,Real Engineering,comp,bottom,-1.0281323128591238,0.34,Solar Farms in Space - Reflect Orbital,539750,34,0,1,R,0,0,0,1
+uO5cvkzh3P0,Two Minute Papers,comp,bottom,-0.9316543030164268,0.32,They Said This Will Never Run In Real Time,40048,35,0,0,R,0,0,1,2
+rTWD8wRn4H8,Mentour Pilot,comp,bottom,-0.3837434866916234,0.65,The DEADLY Secret That Ripped This Plane APART! | The Insane Story Of The 1977 Dan-Air Crash,676675,36,0,1,R,0,0,1,1
+QTTCqGtT6I4,Dave's Garage,comp,top,1.2963191678616826,3.1,"CANBUS – Networking so simple, even YOU can understand it!",553631,37,1,2,H,0,0,0,3
+771PQEDeRmw,pookie,small,top,2.0395234823522204,10.687,Is Pi the Best Coding Agent? Pi vs OpenCode vs Claude Code,31397,38,1,1,H,0,0,0,2
+9EY_9KtxyPg,LiveOverflow,comp,top,0.991486584124426,2.89,Zenbleed (CVE-2023-20593),199548,39,1,2,H,0,0,0,2
+JpPIrmZB828,Jeff Geerling,comp,bottom,-0.6152458983326461,0.69,The best laptop Apple ever made,221818,40,0,0,P,0,1,0,1
+iFoma1jUToU,Asianometry,comp,bottom,-0.4772707811100145,0.56,Embedded Memories: The Next Generation,114929,41,0,1,P,0,0,0,2
+MrANdwFQ75w,Stats Atlas,small,top,2.805463587715878,22.663,Mapping Every Famous Shipwreck in History | 1545–2026,175095,42,0,2,D,0,0,1,2
+1HOVtQ-_fcE,Hello Interview,comp,top,1.2724544865736356,3.52,Kafka vs RabbitMQ,312299,43,0,2,D,0,1,0,3
+Ihp6tOCYHug,morejpeg,small,top,3.144698467616343,17.892,FABRIK - A simple algorithm for Inverse Kinematics,21560,44,0,1,R,0,0,0,1
+d68b659E4F4,Internet Historian,comp,bottom,-1.3546326286403942,0.29,My Immortal (2/3) | Sundance Rejects,2612267,45,1,1,I,0,0,1,2
+CWoZbpgL0aw,Clear,small,top,3.0758356862333165,31.812,Generate AI Images Without Paying A Dime | Stable Diffusion Tutorial,18801,46,1,2,H,0,0,0,2
+Se4eI5KICKI,Clear,small,bottom,-1.88492193680307,0.227,Lighting Setup for YouTube Videos!! (4 Different Levels),134,47,1,1,H,0,0,0,2
+M51asSwRLxA,Fireship,comp,top,0.108718926805131,0.71,This $12 billion startup finally shipped something...,865243,48,1,1,H,0,0,0,1
+1z8tuiWbdWw,Company Man,comp,top,0.8816367848915764,2.53,"Did The Game Just Threaten Kendrick, Top Dawg & TDE?",60396,49,1,2,H,1,0,0,3
+2E-4hmLqoLc,Mentour Pilot,comp,top,0.5133140250196818,1.81,The Most Important Crash You've Never Heard Of... | TWA Flight 514,1876801,50,0,1,R,0,0,1,1
+gpp57x_z_Jg,Tales Of Tensors,small,top,2.454937920653722,17.435,KV Cache: The Trick That Makes LLMs Faster,23363,51,0,2,D,0,0,0,2
+fR1HVMDnaqA,GeniPad,small,top,4.122034923777374,106.281,Inside vLLM: How vLLM works,6802,52,0,1,D,0,1,0,2
+q4LHDtgRzF4,Gaurav Sen,comp,bottom,-1.5409562348594263,0.23,AI Engineering Paper #2: Vectorization with FAISS,5084,53,1,2,H,0,0,1,2
+HqCwKS0zGpk,Del 0 al 1,small,bottom,-1.2916479860522254,0.379,Sistema Binario | Computadoras (Lección 02),239,54,0,1,I,0,0,1,3
+3VoD3Lnv8YY,Welch Labs,comp,bottom,-1.891124590429348,0.2,Bohr solves mystery; invents bomb,85642,55,0,2,P,0,0,0,2
+ZnycovL2qWU,Divine203,small,top,3.379623180959874,28.807,"Building a Graphics Engine from Scratch (NO OpenGl, NO Shaders)",97310,56,0,0,D,1,0,0,2
+5eqRuVp65eY,Welch Labs,comp,top,1.5582814538593976,5.71,AI can't cross this line and we don't know why.,2508769,57,0,1,D,1,0,0,1
+cAKOaLPXlIA,Class 12 Azhanimation,small,bottom,-2.996478796254065,0.057,"AI से देखिए 😱 हड़प्पा में रहने वाले लोग कौन थे? | Brick, Beads And Bones |Class 12 History chapter 1",457,58,1,2,I,0,0,0,3
+MAyX9FhG9K0,Gaurav Sen,comp,bottom,-1.676053569560917,0.23,AI Engineering #6: End-to-End AI Service in Production,5246,59,0,2,D,0,0,0,2
+YF_saRv0BPA,Lucky Tech Life,small,bottom,-2.933262442038423,0.083,iPhone 17 Pro Cosmic Orange Unboxing and First Impressions!,121,60,0,2,P,0,1,1,1
+Rj7EVaAEqUI,The Popple People,small,top,5.790488273322344,389.646,How to SET UP your STARLINK - Step by step tutorial - Popple People - Episode 107,591872,61,0,2,P,0,1,0,1
+GeuKQiknwl4,BIZON,small,top,2.613506592266301,16.475,NVIDIA RTX 8000 VS RTX 3090 | 8 GPU 3D Rendering performance 2020-2021 | Best GPU for Blender,95602,62,0,2,P,0,1,1,3
+a-uqfwq9Ibo,ColdFusion,comp,bottom,-1.4499414296044342,0.16,The Nuke That Almost Erased the US East Coast,145924,63,0,1,M,0,0,0,1
+Kw64WL9hslk,HOSTKEY,small,top,2.3609300682037526,18.606,OpenLiteSpeed vs LEMP: Real WordPress Benchmarks (10x Faster — But There's a Catch),3498,64,0,2,X,0,0,1,1
+ADNb1JKjbZs,AppliedAI,small,bottom,-2.094279494245838,0.124,What Are Knowledge Graphs and How Do They Relate to LLMs?,50,65,0,2,X,0,0,0,1
+9hv4nr_46Ao,AI Explained,comp,bottom,-0.5230013554268875,0.61,Nano Banana Pro: But Did You Catch These 10 Details?,60998,66,0,1,I,0,1,0,1
+JO6Zz5sXoDo,Mentour Pilot,comp,top,0.632215309044732,1.96,What REALLY Happened To Kobe Bryant's Helicopter?!,2027955,67,1,1,H,0,0,1,2
+fbrHDQzWqPk,Scan Business,small,top,3.8752183529875617,79.904,Introducing AMD EPYC 9005 CPUs based on the Turin architecture,232440,68,1,1,H,0,1,1,3
+3JKzIdLyuxI,Joaquín Ruiz — IA para Desarrolladores,small,top,2.173406692402348,11.534,Gemma 4: IA local en tu MÓVIL y PC sin Internet (privacidad total),23690,69,1,2,H,1,1,1,3
+gEMx7kt7n4E,Low Level,comp,bottom,-0.5247135658022105,0.58,I hate to say it but the router situation is insane,179198,70,1,1,H,0,0,0,2
+NeU1ZgW6PBg,Little River DIY,small,top,2.569504060709328,17.037,Professional Starlink Standard 4 Install,112035,71,1,1,P,0,0,1,2
+fb7-L-XrDUk,Art of the Problem,comp,bottom,-3.1632641456986317,0.05,Say You Love Me (2019 Documentary),13833,72,1,0,H,0,0,0,1
+UzSZvWHDB0E,BIZON,small,top,2.044582858662028,9.328,8x NVIDIA RTX 3090 water-cooled GPU Server | 3D rendering benchmarks 2020-2021 | Blender,54131,73,0,2,P,0,1,1,2
+JF_W3Oa6w8g,Lucky Tech Life,small,bottom,-1.9567727877908745,0.16,Olight Ostation 2 Pro Review: Are Rechargeable AA & AAA Batteries Worth It?,232,74,1,1,H,0,0,1,3
+Sjrz3zdHqRE,Mentour Pilot,comp,top,0.5222838077019745,1.73,This Should NOT Have Been POSSIBLE! | LATAM 8073,1784194,75,0,1,M,0,0,1,2
+ES2JdWCXs8I,DES Technologies,small,top,4.555198082829168,171.263,AI Data Centers Explained: How AI Is Reshaping Modern Infrastructure,3254,76,0,2,R,0,0,0,2
+p9hGtiJUnes,DES Technologies,small,bottom,-2.2050749626559556,0.211,Preparing IT Equipment for Buyback: Best Practices to Maximize Your Asset Sell-Off Value,4,77,0,0,P,0,0,0,1
+yNDEg9elOHY,Spanning Tree,comp,bottom,-2.3897279085905145,0.11,Pattern Matching in Python?,21009,78,0,2,D,0,1,1,2
+pgY5a_I1pvQ,Company Man,comp,bottom,-0.503795726913973,0.68,Boosie Paid $600K for a Trump Pardon... Then Got Scammed,16198,79,1,1,H,1,0,1,3
+eXXwN_TDdLU,ColdFusion,comp,top,0.7895261289053582,1.72,Why Building AI Data Centres Isn’t Working Anymore,1555184,80,1,1,H,1,0,0,2
+HHUi8F_qAXM,ByteByteGo,comp,top,0.6672637916132093,2.04,How Does a URL Shortener Work?,192632,81,0,2,D,0,0,1,3
+6vwAVDdT7_g,Big Things Explained,small,bottom,-1.6042479017547138,0.77,Exploring the World's Most Impressive Hydroelectric Dams,376,82,0,1,M,0,0,0,2
+DIAKL0s4Mzs,Welch Labs,comp,bottom,-2.502923117187911,0.13,Self-Driving Cars [S1E4: RALPH],58540,83,0,0,D,0,0,0,2
+C8EdaqLAxl8,pookie,small,top,2.4192897898294428,17.422,I Switched to Neovim + Tmux for AI Coding Agents. No Going Back,51186,84,1,1,H,0,1,0,3
+3yEQaHvQxlE,Gaurav Sen,comp,top,1.4997085866518505,5.14,Why AGI is pure fantasy.,114781,85,1,1,H,0,0,0,1
+q2KCrmQz9WE,LiveOverflow,comp,top,1.0174341518934835,1.65,Did an AI Really Hack Hugging Face?,113640,86,1,2,H,1,1,0,3
+4NlrfOl0l8U,3Blue1Brown,comp,bottom,-1.5493598283091046,0.2,The AI that solved IMO Geometry Problems | Guest video by @Aleph0,411474,87,0,2,D,1,0,0,1
+2X2V3xv_jik,Fireship,comp,bottom,-0.1168514798723807,0.54,The safest way to store Bitcoin was just hacked...,666210,88,1,2,H,0,1,0,2
+zjkBMFhNj_g,Andrej Karpathy,comp,top,1.6497294301155812,3.5,[1hr Talk] Intro to Large Language Models,4188351,89,1,2,I,0,0,0,2
+nuML9SmdbJ4,CodeAesthetic,comp,bottom,-0.5127030225179032,0.69,Dear Functional Bros,755944,90,0,1,D,0,0,0,1
+rQlMtztiAoA,CodeAesthetic,comp,bottom,-0.4731190161670252,0.77,Abstraction Can Make Your Code Worse,845908,91,0,1,D,0,0,0,1
+0bpYCxv2qhw,Yannic Kilcher,comp,bottom,-1.0010504228092851,0.3,[Video Response] What Cloudflare's code mode misses about MCP and tool calling,9804,92,1,0,D,0,0,0,3
+GZf3I6WJQZM,Base Config,small,top,1.7383441226656624,6.801,Data Center Fiber Explained (How Light Moves Your Data),1129,93,1,1,H,0,0,0,2
+_bbuRFT2l-Q,Gaurav Sen,comp,top,1.672905313034151,6.32,AI Trends in 2025,141202,94,1,2,H,0,0,1,2
+dX9CGRZwD-w,Branch Education,comp,top,1.78481151270241,5.91,How are Microchips Made? 🖥️🛠️ CPU Manufacturing Process Steps,11755173,95,0,2,R,0,0,0,2
+nD-Dco7xSSU,Welch Labs,comp,top,1.968074106539088,9.46,Oppenheimer's Apocalypse Math,4153245,96,0,2,D,1,0,0,3
+025yAcTL_Zs,GeniPad,small,bottom,-1.47462950618194,0.406,Why Language Models Hallucinate (Explained by OpenAI),26,97,0,2,X,0,1,0,2
+3MKRjt59hh4,TechTechPotato,comp,top,2.333771868624759,8.73,Why did AMD just buy this REALLY WEIRD chip company?,176753,98,1,0,H,1,0,0,2
+8zHUvixZAtg,Country Boy Computers,small,top,2.7772810723301937,9.207,How To: 64gb Home Ai-Server for under $1000?  *with Buyer’s Guide!,78969,99,0,2,R,0,0,1,3
+XeUB4h1OO1g,Serrano.Academy,comp,top,1.1040448058875387,3.54,GRPO - Group Relative Policy Optimization  - How DeepSeek trains reasoning models,15092,100,1,2,H,0,1,0,2
+phoeSk-qY8s,Asianometry,comp,top,0.4223840823967597,1.24,ADSL's Copper Miracle,254449,101,0,1,P,0,0,0,1
+LU58bHm7GlE,Wendover Productions,comp,bottom,-1.3517555327806383,0.25,One Piece of News From Every Country in the World (Pt 2),262704,102,0,2,I,0,0,1,3
+SR8ESCmUYLY,Dave's Garage,comp,top,1.1270333462519322,2.84,Hidden Code: How Slot Machines Actually Work - The Computer Inside,506701,103,1,2,H,0,0,1,3
+vpxdUkArXkY,SoSimple,small,top,1.9633295655518015,7.865,"ഡയോഡ്, ട്രാൻസിസ്റ്റർ ,മോസ്‌ഫെറ്റ് , ഐ ജി ബി റ്റി.",57019,104,0,2,P,0,0,1,2
+lScrxBKbgSE,Video Games Explainer,small,bottom,-2.481774553958185,0.087,Every Gaming Laptop From Walmart Explained in 11 Minutes,722,105,0,2,I,0,1,1,3
+y70pO7gBVX4,Video Games Explainer,small,top,2.472846340349394,14.573,Every Gaming PC Hardware Component Explained,120711,106,0,1,P,0,0,0,2
+tJMqVauWsjk,Computerphile,comp,bottom,-1.288423334761704,0.22,"ITS, Eliza & MiT's AI Lab - Computerphile",14985,107,1,2,H,0,0,0,2
+p3s8OzNBS8c,Bantha Overland,small,top,3.485433060592134,31.109,Starlink Mini vs Standard? Real Starlinks Compared - Which One Wins?,248189,108,0,2,P,0,1,0,2
+WGia1R3xacM,Tom Scott,comp,bottom,-0.5585246197232331,0.5,"If I get this wrong, 50,000 people will hear it.",637680,109,1,0,H,0,0,0,2
+V7u_gt5E2MU,Michael Schmidt (URBN_PXL),small,top,2.107942382747609,10.34,SSD's & Flash Drives for ProRes RAW & 4K 120 fps — iPhone 17 Pro (Max) Test,46489,110,0,2,P,0,1,1,3
+NKXT-kCKrZw,Dave's Garage,comp,bottom,-1.3631019371287372,0.26,ABS  (Anti-Lock Brakes) - How They Work and Why You Care!,46200,111,1,1,H,0,0,0,2
+YrHM3Zy6qoQ,TechTechPotato,comp,bottom,-1.353872585790763,0.22,Chips in the Cloud // The AI Hardware Show S2E9,4535,112,1,2,H,0,0,0,3
+eb48MdtNaDQ,Jeff Geerling,comp,top,0.961941301814208,3.13,Bambu Lab 3D printers: Never again,1011108,113,1,0,H,0,0,0,2
+fiG1MZATT3M,Wendover Productions,comp,bottom,-0.6440566021769132,0.51,One Piece of News From Every Country in the World,542925,114,0,2,I,0,0,1,3
+ZriPGiHpo4k,42 Index,small,bottom,-2.5381832881494635,0.181,Norway Is Killing Its Own Wild Salmon,274,115,0,2,M,1,0,0,3
+Qh9KBwqGxTI,Internet Historian,comp,top,0.9552853644095658,2.7,The Cost of Concordia,24090389,116,1,1,I,0,0,0,2
+t992ul_IKtc,Dave's Garage,comp,top,1.080397674091931,2.99,Why your NEW computer is SLOWER than your OLD computer!  By a Retired Microsoft Engineer.,533833,117,1,2,H,0,0,0,2
+VAt2mR7gY0k,Reducible,comp,bottom,-2.1980780030598193,0.1,What Actually Is a Data Structure?,39819,118,0,1,D,0,0,0,2
+5D4Zqp9GLSc,Fireship,comp,bottom,-0.4006865863596776,0.43,"OpenAI gets sued for stealing, again…",522183,119,1,1,H,0,1,0,2
+BptsHHD5yDg,Welch Labs,comp,bottom,-2.2465491753956175,0.14,A speck of matter god did not welcome into creation,63094,120,0,2,P,0,0,0,1
+1-JIqiV4NQg,Michael Schmidt (URBN_PXL),small,bottom,-2.0025045764587306,0.14,NEEWER X11 Teleprompter with Monitor — Hands-On Review,631,121,0,2,P,0,1,1,2
+FL_AIaGNdgk,Crusoe AI,small,bottom,-4.118129897911964,0.548,How Crusoe passed NVIDIA Exemplar Cloud certification on NVIDIA HGX B200 systems,198,122,1,0,D,0,0,0,2
+RFdb2rKAqFw,Serrano.Academy,comp,top,2.807410033616625,20.04,"Keys, Queries, and Values: The celestial mechanics of attention",85470,123,1,2,H,0,0,0,2
+O41KWhpNvw0,Mr.Etienna Tech,small,top,2.2119406832833115,12.465,"PART 3. Full  LAN Setup for Beginners | Static IP, File Sharing, DHCP & Internet Connection Guide",6519,124,0,2,D,0,0,0,3
+II5TqBYNd6o,Company Man,comp,bottom,-0.4187931652676446,0.71,Nolan Wells + XXL Freshman Cypher + Music Fans Vs. Content Fans + MORE,17037,125,1,1,H,0,0,0,3
+lHFITg6f30Q,Cómo se Fabrican las cosas,small,top,2.923276992192813,32.998,La Máquina que Fabrica Todos los Chips del Mundo,15839,126,0,2,R,1,0,0,3
+3mJR9dxfv1o,ElektroVerstehen,small,bottom,-1.8279170557293092,0.149,IHK-Prüfungsaufgabe GRAFCET analysieren – Schritt für Schritt erklärt📚,186,127,1,2,H,0,0,0,3
+qigPctCgR_k,Divine203,small,top,2.324923443349737,10.565,A* algorithm Explained like you’re a 5th Grader.,35689,128,1,0,H,0,0,0,2
+CFRhGnuXG-4,CodeAesthetic,comp,top,0.9155901300104532,3.08,Why You Shouldn't Nest Your Code,3366739,129,0,2,D,0,0,0,1
+itRV2jEtV8Q,3Blue1Brown,comp,bottom,-1.4038992575556584,0.23,Simulating and understanding phase change | Guest video by Vilas Winstein,472449,130,0,1,D,1,0,0,2
+SKuJ60kD8wg,Low Level,comp,top,0.3647798106210474,1.29,Wordpress Situation is Absolutely Insane,393943,131,0,1,X,0,1,0,1
+UiPJbxryrkU,Real Engineering,comp,bottom,-0.9310807586627682,0.27,Sagrada Familia - Full Documentary,429822,132,0,0,R,0,0,1,2
+c6jYRfmRNWs,CompilerStuck,small,top,2.039057491174801,10.429,20+ Sorting Algorithms Visualized - Disparity Chords (Reversed Inputs),187832,133,0,0,D,0,0,0,1
+ZxU6nOjEuvY,Bantha Overland,small,bottom,-2.9680067390856215,0.051,Exploring Utah's San Rafael Swell,410,134,0,2,M,0,0,0,1
+GEbn3nHyKnA,Kevin Fang,comp,top,1.8607450365105764,4.6,How One Line of Code Almost Blew Up the Internet,2351485,135,0,1,I,0,1,0,2
+x4CUAuwoZVk,LiveOverflow,comp,bottom,-0.9219157578844812,0.3,Security-driven Rapid Release - Pwn2Own Documentary (Part 4),20697,136,1,1,H,0,1,0,3
+R3nQ7pGXJcA,Yannic Kilcher,comp,bottom,-1.759155249063052,0.16,Traditional Holiday Live Stream,5228,137,1,1,H,0,0,0,2
+wzY2fV4Mp3U,AI Explained,comp,top,0.5295235226230434,1.29,"GPT-6 Goes Rogue? The HuggingFace Incident, Sans Hype",128090,138,1,1,H,0,1,1,1
+RfuSIPlCeL0,Coding Stick,small,top,2.209888183364252,14.974,Simulating Fluids From Scratch with Python,2276,139,0,0,D,0,0,0,3
+KCCJrQkuc9k,Divine203,small,bottom,-2.6818233468983315,0.091,CSS Flappy Bird but it's 3D,308,140,0,2,D,0,0,0,2
+OkViH03J5oM,42 Index,small,top,3.945455894405036,115.227,This New Technology Could Disrupt ASML and Intel,174338,141,0,2,R,0,1,0,2
+hhUwzCrriHk,Ready Tensor,small,bottom,-1.640494980468935,0.195,Agentic AI Core Components: Test your Understanding,75,142,0,2,D,0,0,0,2
+Z-T0iJEXiwM,StatQuest,comp,top,1.8862244902795955,10.27,Reinforcement Learning: Essential Concepts,113121,143,0,2,I,0,0,0,2
+gokC5fXEM00,Wendover Productions,comp,top,0.5757392684042424,1.64,How Red Bull Built Its Empire,1738795,144,0,0,M,0,1,0,3
+w7i4amO_zaE,ThePrimeagen,comp,top,1.898892102096447,9.44,0 to LSP : Neovim RC From Scratch,2008174,145,1,1,H,0,1,0,2
+_BrFKp-U8GI,3Blue1Brown,comp,bottom,-1.3152011286027638,0.25,Exploration & Epiphany | Guest video by Paul Dancstep,514830,146,0,2,R,0,0,0,1
+_GkNhKqsgVQ,Spanning Tree,comp,bottom,-2.0747630523448675,0.12,"Mathematical Origins of Machine Learning | Teaching Computers to Learn, Part 2",24285,147,0,2,D,0,0,0,2
+wlMgNtBipe4,Low Level,comp,top,0.3557785629799221,1.44,AI Was a Mistake,440012,148,0,1,X,0,1,0,1
+OYvlznJ4IZQ,Gaurav Sen,comp,top,3.6642931454076657,45.56,20 AI Concepts Explained in 40 Minutes,1017342,149,1,2,H,0,0,1,2
+cDKPbMaLTA4,Computerphile,comp,bottom,-1.2853189040939357,0.22,Recreating ITS - Computerphile,15096,150,0,1,P,0,0,0,2
+S67z2aekBrI,Art of the Problem,comp,top,3.3478276784837604,18.82,I Gave ChatGPT a Body,5211889,151,0,2,P,0,1,0,2
+l1_6gGAPN10,Crusoe AI,small,top,5.155228781695087,7232.864,AI Lab: Traditional cloud vs AI cloud | What's the difference?,2611064,152,1,2,H,0,1,0,2
+-J3wNP6u5YU,CodeAesthetic,comp,top,0.7862474787983348,2.71,Naming Things in Code,2962724,153,0,2,D,0,0,0,1
+s4ndArnAz30,Country Boy Computers,small,top,1.822441998885984,4.099,Best Budget gpu of 2026 for your Home Ai-server!! It destroys the Instinct Mi50..AMD Radeon Pro v620,35155,154,0,2,P,1,1,1,2
+soLXTZnh6x4,Country Boy Computers,small,bottom,-2.2201400207025213,0.08,Coding with AI - YouTube Analytics API to Google Sheets. Gemini vs. Qwen3.5 vs. Nemotron vs. Claude,686,155,0,1,I,1,1,0,3
+aPQY__2H3tE,Reducible,comp,top,1.5132341439399863,3.98,5 Simple Steps for Solving Dynamic Programming Problems,1510228,156,0,1,D,0,0,0,1
+n7mw4Ou3N8A,Deep Xplain,small,bottom,-2.354820659105622,0.157,What Your Water Filter Is REALLY Removing,58,157,0,2,P,1,0,0,2
+XXx0vYGDKiw,morejpeg,small,top,2.457747456921586,10.498,Procedural Animation | Devlog 0 (code in description),12650,158,0,1,D,0,0,1,1
+ce53fclMx30,Big Things Explained,small,top,0.996260231825069,10.777,"The 10,000 to 1 Odds: What It Takes to Make a Single Pill",5259,159,1,2,H,0,0,1,3
+IDWMR44tuU4,Coding Stick,small,bottom,-1.453714642551901,0.401,How to Set Up the NEAT AI Car Simulation,61,160,0,0,D,0,0,0,3
+6ZKpykoE7VM,AppliedAI,small,top,2.154651884374402,8.7,How Much GPU Memory Is Needed for LLM Fine-Tuning?,3515,161,0,2,X,0,0,0,1
+hqVZitryoZc,Faradawn Yang,small,bottom,-1.072072783247015,0.402,How to finetune a model,317,162,1,2,H,0,1,0,3
+Bf7vDBBOBUA,CodeAesthetic,comp,bottom,-0.3195572530767424,0.89,Don't Write Comments,973828,163,0,1,X,0,0,0,1
+yt2FWJt9h1U,ChameleonAi,small,top,3.757175525678069,53.888,Sillytavern Noob Guide: Intro to Local Models,130785,164,1,1,I,0,1,0,3
+FtwF6cmzamo,Reducible,comp,bottom,-2.5547529469985517,0.07,A Preview for Data Structures and Algorithms,26787,165,0,2,D,0,0,0,3
+y-FuqptTZow,Welch Labs,comp,top,1.7359653138735691,7.53,The Most Dangerous Rock in the World,3304438,166,0,2,R,0,0,0,1
+G-3_iseB2hI,Tales Of Tensors,small,bottom,-1.608307155594254,0.304,Grok 2.5 Architecture Explained,407,167,0,0,D,0,0,0,3
+fvihH8HiTmg,Stats Atlas,small,top,1.6906319727315022,7.046,The World's Most Forbidden Places | Mapped,54435,168,0,1,D,1,0,1,2
+r1U6fenGTrU,Art of the Problem,comp,bottom,-1.7188323043922578,0.22,How Neural Networks Learn | Backpropogation Intuition,60715,169,0,1,D,0,0,0,2
+tLdRBsuvVKc,Kevin Fang,comp,top,2.301245651078115,7.07,"Dev Deletes Entire Production Database, Chaos Ensues",3613816,170,0,2,D,0,1,0,2
+dtADQiBK24E,Company Man,comp,bottom,-0.3609950649339226,0.77,Stat Quo Reveals Game Thought Kendrick Lamar Was Dissing Him,18386,171,1,2,H,1,0,0,3
+wJyObkuNuFI,Data Center Richness,small,bottom,-1.3017810161340375,0.352,Solving the Speed to Power Problem,538,172,1,2,H,0,0,0,2
+-lCYducWCMM,Clear,small,top,2.7968047030926515,27.765,Building the World's CHEAPEST NAS | What is a NAS,16409,173,0,2,P,0,0,0,1
+8HmEzLZfQ4I,Big Things Explained,small,bottom,-1.6356430502841302,0.725,What Would Happen If Every Satellite Suddenly Disappeared?,354,174,0,2,R,0,0,0,3
+BWDL58Ybycg,42 Index,small,top,3.3314774927879403,76.539,Carl Zeiss: The Hidden Force Behind ASML Success,115803,175,0,2,R,0,1,0,2
+ywle5ZRK9hc,Cómo se Fabrican las cosas,small,top,3.930170133760969,96.115,Cómo se fabrica un iPhone | El objeto más complejo del mundo,46135,176,0,1,R,0,0,0,3
+MXhd5D9eXXk,Asianometry,comp,bottom,-0.9202732696948684,0.34,The Miraculous Cochlear Ear Implant,69311,177,1,1,M,0,0,0,1
+_mRJw2F6j5Q,TechTechPotato,comp,top,2.3903134426273995,9.7,A CPU Made of Atoms: IBM's Breakthrough 0.7nm Transistors,196354,178,1,2,H,0,1,1,2
+his4_4svUDo,Serrano.Academy,comp,bottom,-1.551255648815714,0.25,Josh Starmer and Luis Serrano Live Q/A from Uphill at Bern! (Moderated by Philip Schläfl),1047,179,1,2,H,0,0,0,2
+UwS4d8hT0mE,Deep Xplain,small,top,3.1889626264511404,43.322,How do ships anchor when they are in the middle of the ocean?,16029,180,0,0,R,1,0,0,1
+fyN9_9wz-3M,Data Center Richness,small,top,2.2239149717013715,10.925,Solid State Transformers and the Future of AI,16693,181,1,2,H,0,0,1,2
+bP9yCSdMFXs,Hussein Nasser,comp,bottom,-1.2195551080606923,0.37,Translation Lookaside buffer,2212,182,1,1,H,0,0,0,1
+D8786EYhpaE,Del 0 al 1,small,bottom,-2.080378130884237,0.133,¿Como Operan las compuertas exclusivas XOR y XNOR?,84,183,0,1,D,0,0,0,3
+z5qNOzE-xr0,Lucky Tech Life,small,top,3.3206839695554224,51.094,TP-Link Mesh WiFi Extender AC750: Quick Unbox & Setup for Seamless Coverage!,74189,184,0,2,P,0,1,0,2
+w4FCkbPykdQ,Real Engineering,comp,top,0.9865773467392354,3.0,How The Space Shuttle Worked | Full Documentary,4754463,185,0,0,R,0,0,0,1
+2eGYK_-r4Hc,Hello Interview,comp,bottom,-1.9331163559586824,0.16,Live Q&A with FAANG Engineers and Managers 2025/10/30,14492,186,1,1,H,0,1,0,2
+n0e0R3pIHTY,Little River DIY,small,bottom,-2.9542380815347,0.077,Cell Boosters & Wifi Calling | Using a phone in Rural Areas,504,187,0,1,P,0,0,0,2
+YtBysgPOKx4,Branch Education,comp,bottom,-1.615304535215159,0.24,How does NAND Flash Work?  Reading from TLC : Triple Level Cells  ||  Exploring Solid State Drives,480124,188,0,1,R,0,0,0,2
+YP73B9D20V4,Fireship,comp,top,0.2823087043999711,0.84,Open-weight AI just hit 2.8 trillion parameters…,1034622,189,1,1,H,0,1,0,1
+X8Pz2ZBhiGU,Tales Of Tensors,small,bottom,-1.6933320675240506,0.277,How ChatGPT Chooses Words,371,190,0,2,D,0,1,1,2
+aI4YfoFg6t0,Michael Schmidt (URBN_PXL),small,top,3.1333748198989375,36.205,iPhone 15 Pro Max - SSD & Flash Drive for ProRes Video,162779,191,0,2,P,0,1,1,2
+ngCos392W4w,Reducible,comp,top,1.518196722236758,4.09,5 Simple Steps for Solving Any Recursive Problem,1553149,192,0,2,D,0,0,1,3
+bADNpBKn1Zg,Crusoe AI,small,bottom,-3.915415530215129,0.662,Crusoe Intelligence Foundry: Managed Inference + Pi Coding Agent,239,193,1,2,D,0,1,0,2
+NUdI6lnm93Q,Deep Xplain,small,bottom,-1.653514455058013,0.316,The Real Reason Truck Drivers Don't Just Fill Up Anywhere,117,194,0,2,M,0,0,0,1
+SCdGhmpKcU8,Kevin Fang,comp,bottom,-2.7020757140831395,0.05,Software Engineer Interview Simulator,24682,195,0,1,I,0,1,0,3
+B0YbG5q6J8w,Base Config,small,bottom,-1.7478900913282875,0.187,Salt Typhoon Proves Quantum Threats Are Real,31,196,1,2,H,0,0,0,3
+7xTGNNLPyMI,Andrej Karpathy,comp,top,2.6252344341258613,8.27,Deep Dive into LLMs like ChatGPT,9896145,197,1,1,H,1,1,0,2
+wI4L11EoW3I,Hello Interview,comp,bottom,-0.9119941825797054,0.42,Bot Detection | ML System Design Problem Breakdown,37378,198,1,2,H,0,1,0,2
+bAWV_yrqx4w,Yannic Kilcher,comp,top,1.7772694434618983,5.44,[GRPO Explained] DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models,175121,199,1,0,D,0,1,0,3
+oh4REU4e0HY,Scan Business,small,bottom,-3.814680995579801,0.037,Space research for the good of all humankind - FDL Europe Highlights 2024,109,200,0,2,D,0,1,1,2
+1AvD82B8j00,Coding Stick,small,bottom,-1.148774755811921,0.579,I Made a 3D Racing Game with Arduino Joystick and Processing,88,201,0,0,D,0,0,0,3
+OaGCB7Sdr9g,TechTechPotato,comp,top,0.635983904726249,1.65,The BIOS Company Is Getting Acquired,33299,202,1,2,H,0,1,0,3
+GpaNijzRaJI,Tom Scott,comp,top,0.5855202768565783,1.86,"I helped break a 142-year-old bell, and that's okay.",2398214,203,1,0,H,0,0,0,2
+DdmgD5RMe1U,Faradawn Yang,small,top,2.132782173178102,10.835,"LLM Inference Optimization #2: Tensor, Data & Expert Parallelism (TP, DP, EP, MoE)",8538,204,1,2,D,0,0,0,1
+kjyeCdd-dl8,Internet Historian,comp,top,1.3916737194525763,4.43,The Fall of 76,39526170,205,1,0,H,0,0,0,1
+km8Yjm-7pSs,Video Games Explainer,small,bottom,-2.1906194892283546,0.114,Every Gaming Laptop Design Era Explained,947,206,0,2,P,0,1,0,3
+5V8tP5jDZ8U,ByteByteGo,comp,bottom,-1.5110358017067431,0.16,How OpenAI Built Its Data Agent,15292,207,0,2,D,0,1,0,2
+nKVML4YaBqs,Computerphile,comp,bottom,-1.154030991220357,0.28,TCP b : Additive Increase Multiplicative Decrease & 'Slow Start' - Computerphile,19150,208,1,1,H,0,0,0,2
+8JqxcibEnjg,Wendover Productions,comp,bottom,-0.7882028539707207,0.47,How the US' Only District Works,498842,209,0,1,I,0,0,0,1
+KaK7jDf7zwo,Bantha Overland,small,top,2.890572411459241,16.907,Starlink Mini Built-In Router Distance? How Far Does It Work?!,134884,210,0,2,P,1,1,0,2
+kCc8FmEb1nY,Andrej Karpathy,comp,top,2.2410269251323705,6.68,"Let's build GPT: from scratch, in code, spelled out.",8002785,211,1,2,H,0,0,0,3
+yHAcgyntYDQ,GeniPad,small,top,4.377132946385432,136.297,How vLLM Works + Journey of Prompts to vLLM + Paged Attention,8723,212,0,2,D,0,1,0,2
+hCZwH5CSlEY,Tom Scott,comp,bottom,-0.8917021583834288,0.37,I got hit in the teeth at England's oldest ritual,470811,213,1,0,H,0,0,0,2
+2oKjtvYslMY,Andrej Karpathy,comp,bottom,-3.187335313213694,0.03,Stable diffusion dreams of steampunk brains,38364,214,0,0,R,0,0,0,1
+Cru804JMjPI,AI Explained,comp,bottom,-0.8177880935139078,0.42,Deadline Day for Autonomous AI Weapons & Mass Surveillance,41949,215,1,2,H,0,0,0,1
+QxRs0tubqc8,Cómo se Fabrican las cosas,small,bottom,-3.205349470121608,0.065,Así se fabrica el combustible que mueve al mundo,31,216,0,2,R,0,0,0,3
+OlBO6PQQFFk,SoSimple,small,bottom,-1.6472237635223277,0.207,012-ബ്രെഡ്‌ബോർഡ് ഉപയോഗിച്ച് എളുപ്പത്തിൽ എങ്ങനെ തയ്യാറാക്കാം | Solderless Breadboard Tutorial,1502,217,1,2,P,0,0,1,3
+-T39cM3LPk0,Hussein Nasser,comp,top,2.5214533270296577,13.14,don't let AI rob you,78618,218,1,0,H,0,0,0,2
+IXWtyLSEXcE,ColdFusion,comp,bottom,-0.9403349130375138,0.3,The $400 Billion Company That Watches Everyone,274168,219,1,1,H,0,1,0,2
+DOFflggE_0Q,Hello Interview,comp,top,1.1822719384831435,3.05,Distributed Transactions Explained: 2 Phase Commit vs Saga Pattern,271201,220,0,1,D,0,1,0,2
+E0A7IrJtpUY,Low Level,comp,bottom,-0.6506637102313159,0.49,This Hack Effects Millions of Devices,151720,221,1,0,H,1,1,0,2
+QhWZq8oBpVw,StatQuest,comp,bottom,-1.2901667244496695,0.47,Human Stories in AI: Xavier Moyá,5137,222,0,2,I,0,0,0,2
+tgJKcKH_Ap8,Hello Interview,comp,bottom,-1.4296277795844483,0.28,Leetcode 200: Number of Islands - Coding Question Walkthrough,24766,223,1,2,H,0,0,1,2
+iHhfLVPc8N8,ChameleonAi,small,bottom,-3.102837485231471,0.063,PROVING that AI is art with FACTS and LOGIC in under 5 minutes,153,224,0,1,X,0,0,0,1
+XlW1gio17ko,Stats Atlas,small,bottom,-1.2175663705125637,0.42,Most Iconic Football Stadiums on Earth | Mapped (1884–2026),3242,225,0,1,M,0,0,1,2
+0hTzUACJc_k,AI & SAP Basis Wizard,small,top,2.477804039638409,16.549,DeepSeek R1 API in Python – Start Coding AI Today!,17112,226,0,2,I,0,1,1,2
+aAZ5_M0i5zk,morejpeg,small,bottom,-2.486265960443591,0.07,Point light shadows tutorial/discussion,84,227,0,0,D,0,0,0,1
+7_wkWQ9rB5I,ByteByteGo,comp,bottom,-0.6215063312914477,0.53,System Design: Why is Kafka Popular?,49646,228,0,2,D,0,1,0,3
+DQ57zYedMdQ,Hello Interview,comp,top,1.1136647945940217,3.55,API Design in System Design Interviews w/ Meta Staff Engineer,314885,229,1,2,H,0,1,0,2
+mG4SmhWyeFA,Two Minute Papers,comp,top,0.7998972404691819,1.85,DeepSeek Just Solved AI's Billion Dollar Problem,231469,230,0,1,I,0,1,0,1
+F6trWXZiZHg,Scan Business,small,top,2.8422660927988845,28.35,"NVIDIA GPU servers - DGX, HGX, EGX, MGX - all you need to know",82469,231,1,1,H,0,1,0,3
+HUtkW2gjC8Q,LiveOverflow,comp,top,0.8077015203750995,2.43,Generic HTML Sanitizer Bypass Investigation,167677,232,1,0,H,1,0,0,3
+nS2hnm0JRBk,Serrano.Academy,comp,top,1.48048382685159,5.44,The Kolmogorov-Arnold Theorem,23209,233,0,1,D,0,0,0,2
+GDN649X_acE,StatQuest,comp,top,1.875936382542903,10.64,"Encoder-Only Transformers (like BERT) for RAG, Clearly Explained!!!",117208,234,0,2,D,1,1,0,3
+giNYYY0DnJw,Base Config,small,top,5.440750792542094,282.114,Data Center Power Explained (It's simpler than you think),46831,235,1,2,H,0,0,0,3
+n233GPgOHJg,ChameleonAi,small,top,3.3306084368423603,37.23,"Stable Diffusion Models Explained Once and for All (1.5, 2, XL, Cascade, 3)",90356,236,1,1,H,0,0,1,3
+1wolt8Js70A,ChameleonAi,small,bottom,-2.716551398343581,0.093,Pipkin Pippa: Auld Lang Syne [AI Cover],226,237,1,1,I,0,0,0,2
+FjIYHqurQEQ,Clear,small,bottom,-1.8732706849979088,0.247,How to Improve Image Quality on ANY Camera | Canon Nikon Sony Panasonic,146,238,1,1,P,0,1,0,3
+rIG0T5iqr40,Divine203,small,bottom,-1.8440676239172045,0.203,"Re-making Chrome's Dino Game from scratch, but it's 3D (NO GAME ENGINES)",687,239,1,1,I,0,0,1,1
+mU3g2YPKlsA,Yannic Kilcher,comp,top,0.7183883859678858,1.84,On the Biology of a Large Language Model (Part 1),59360,240,1,2,D,0,0,0,3
+ZH3iKbEiks0,ThePrimeagen,comp,top,1.3450689887490817,4.29,I was wrong btw,913371,241,1,0,H,1,1,0,2
+cX3G0cPRJiA,Low Level,comp,bottom,-0.8277880908772635,0.43,Its Finally Over?,130545,242,1,2,H,0,1,0,2
+MikDvAqmTqs,Base Config,small,bottom,-1.1571463104746076,0.283,50 Million Without Power: The Real Story | Northeast Blackout (2003),47,243,1,2,H,0,0,0,3
+dPalBLlA5yQ,AI & SAP Basis Wizard,small,top,3.1828249696268287,33.33,AI Explained: What Does the Number of Parameters in an LLM Mean?,34463,244,0,2,D,0,0,0,1
+hRhBuHJ-j_o,Dave's Garage,comp,bottom,-1.3632254766818084,0.23,The Secret RGB LED Features I Hid in this 1970 Lincoln Continental Mark III,41892,245,1,2,H,0,0,0,2
+f-MzM0EEECo,Faradawn Yang,small,bottom,-1.5838695418635624,0.213,AI Writes Code. Humans Find the Real Bug.,168,246,1,2,H,0,0,0,2
+ux5qB1db5Tw,Coding Stick,small,top,5.431935419010902,408.322,Watch a Neural Network Learn in Real Time,62065,247,0,0,D,0,0,0,3
+lz8ONLIe5II,AI & SAP Basis Wizard,small,bottom,-1.793417586060321,0.157,Tutorial: ADK + Skills,162,248,0,2,X,0,1,0,2
+717o93uIZyQ,DES Technologies,small,bottom,-1.687309076102454,0.263,Sell vs Trade-In vs Lease Return: Which Pays More?,5,249,0,0,P,0,0,0,1
+Tx4HXZ7djlA,Gaurav Sen,comp,bottom,-1.4064898955400338,0.26,AI Engineering Paper #3: Vision Transformer (ViT) for Images,5800,250,1,2,H,0,0,0,2
+KhSCRgeQrtU,Deep Xplain,small,top,5.8079020627134605,589.105,Inside a Data Center: How It Actually Works,217969,251,0,2,R,0,0,0,2
+1Fn94BMzXNk,Ready Tensor,small,top,1.5647620696596074,4.841,RunPod Serverless Deployment Tutorial: Deploy Your Fine-Tuned LLM with vLLM,1859,252,0,2,D,0,1,0,3
+tO5kZv5bQ7I,Hussein Nasser,comp,bottom,-1.2477571159928165,0.37,The state of Direct IO in Postgres,2216,253,1,2,H,0,1,0,2
+i60FCen3_8k,GeniPad,small,bottom,-1.6968678337778804,0.328,AToken: A Unified Tokenizer for Vision,21,254,0,2,X,0,1,0,2
+Z9r3YWIYDmk,Class 12 Azhanimation,small,bottom,-2.6312115202296615,0.103,The Rattrap Class 12 English | Class 12 Chapter 5| Animated,827,255,1,2,I,0,0,0,2
+geIhl_VE0IA,Real Engineering,comp,top,0.8698233466766896,2.58,NASA'S Plutonium Problem,4098402,256,0,1,R,0,1,0,1
+-0HRzXk8vlk,Computerphile,comp,top,2.658800887486497,12.25,Why AI Tokens are so Expensive - Computerphile,832081,257,0,2,I,0,0,0,2
+huBe4mbycZc,Data Center Richness,small,bottom,-1.0641114002010397,0.46,Can We Really Put Data Centers in Space?,703,258,1,2,H,0,0,0,2
+dc59tsYtKpc,42 Index,small,bottom,-2.2845460970854794,0.239,How Nvidia Took Over the World (Even as Its Stock Falls),362,259,1,1,H,0,0,0,1
+M6EPWjzVflE,Internet Historian,comp,bottom,-1.3424485324361115,0.29,My Immortal (3/3) | Sundance Rejects,2597643,260,1,1,I,0,0,1,3
+TQuxVz52w2w,Art of the Problem,comp,top,2.1546965946028873,7.4,The Stock Market Always Wins,2050768,261,0,1,D,0,0,0,2
+RihAOI9RoBE,Class 12 Azhanimation,small,top,2.4736632340853295,16.712,✨ Bhakti & Sufi Traditions | Class 12 History Chapter 6 | Animated Explanation✨,134430,262,1,2,I,0,0,0,3
+EkzPi9GbYms,Mr.Etienna Tech,small,bottom,-1.7749710904032436,0.182,How to Auto Translate WhatsApp & Messenger Chats or other social medias (Easy!),95,263,1,2,H,0,1,0,3
+y24lF1q4SFY,AI Explained,comp,top,0.4327934707401241,1.23,Fable 5 vs GPT 5.6 Sol: The Early Results,122147,264,1,1,H,0,0,0,1
+LZm9nTwsGi8,Hussein Nasser,comp,top,1.7154573357970384,7.29,We now know why the DNS failed,43624,265,1,1,H,0,1,0,2
+I3uiXmGTJMw,Unreal in 5 Minutes!,small,top,2.3474449277178135,14.956,Set up ANIMATIONS for Beginners in Unreal Engine 5!,47201,266,1,1,R,0,1,0,3
+qs2QcycggWU,Branch Education,comp,top,1.4869876391880823,4.93,How does Starlink Satellite Internet Work?📡☄🖥,9805393,267,0,2,R,0,1,0,1
+SMJMYyszflM,Real Engineering,comp,bottom,-0.8288472603554817,0.41,How We Built the ISS - Part 2,657995,268,0,0,R,1,0,0,1
+B0ZcAWEvjCA,Art of the Problem,comp,bottom,-1.9218305266920432,0.19,History of Internet Communication (Network Coding),53279,269,0,2,D,0,0,1,2
+k_kyepATqB8,Computerphile,comp,top,1.0570939503591317,2.43,Shor's Algorithm for Quantum Computing - Computerphile,165138,270,1,1,H,0,0,0,3
+R74kx7GKEbs,Crusoe AI,small,top,6.32025030720675,22737.008,AI Lab: Open-source inference with vLLM + SGLang | Optimizing KV cache with Crusoe Managed Inference,8208060,271,1,2,H,0,1,0,3
+r932ds_v5yc,Little River DIY,small,bottom,-3.747065110526273,0.035,Using Hot Mud for Drywall Taping,229,272,0,1,P,0,0,0,1
+VIAS5_mWgO4,Tech Dynamics,small,top,2.6736308157226794,16.769,The $400 MILLION Machine that Prints COMPUTER CHIPS,12946,273,0,1,R,0,0,0,1
+jt2yZHDNCbY,ElektroVerstehen,small,top,1.061653286399557,3.234,IHK-Prüfungsaufgabe erklärt 🔌💡| Phasenan- und Phasenabschnittsteuerung verstehen! ⚡️,4049,274,0,2,D,1,0,0,3
+g4Gb6viwsnQ,ColdFusion,comp,bottom,-1.183356788028898,0.25,AI Band Gets Caught Then Hires Real Humans,224277,275,1,2,H,1,0,1,2
+7-TAgWxGxqw,Tech Dynamics,small,top,2.573991225655863,14.887,The INSANE Differences between US and European Cities,11493,276,0,1,M,0,0,0,2
+PHvbLmLPX6s,ThePrimeagen,comp,bottom,-1.3999225350927316,0.34,This Lesson Taught Me How To Do Better Benchmarks,73298,277,1,2,H,0,0,0,2
+bHXJnY7h6gw,Branch Education,comp,bottom,-2.970281085788097,0.06,3-Way Light Switches Explained!! Engineering Inside Light Switches and How They Work,124342,278,0,1,R,0,0,0,2
+-v2ZhcJcnBE,Tom Scott,comp,bottom,-0.5991832911026046,0.55,I was not prepared for a mannequin that can bleed.,708619,279,1,0,H,0,0,0,2
+QO1NZOFQgmM,TechTechPotato,comp,bottom,-1.6407653245873273,0.18,Esoteric Architectures in Machine Learning // The AI Hardware Podcast S2E8,3700,280,1,2,H,0,0,0,3
+1ebJU2R_YbA,Bantha Overland,small,bottom,-2.729230892684567,0.061,The Missing Accessory for inReach Mini,485,281,0,2,P,0,0,0,2
+2t6-AxpZXiA,Low Level,comp,top,1.237143992671643,3.02,I Hacked This Amazon Router. What I Found Should be Illegal.,925996,282,1,1,H,0,0,0,1
+LAakGALKhcc,CompilerStuck,small,bottom,-1.0741974639553886,0.465,20+ Sorts - Plane Visualizer,8369,283,0,0,D,0,0,0,1
+hxGOiiR9ZKg,CodeAesthetic,comp,top,-0.0245753882924296,1.2,The Flaws of Inheritance,1310216,284,0,1,D,0,0,0,1
+CXSvKcLovAk,Fireship,comp,bottom,-0.1239597719112656,0.57,The most controversial rewrite in history just shipped...,700875,285,1,1,H,0,1,0,2
+gYW-4tFztVQ,Video Games Explainer,small,top,3.1668271794889753,28.061,Every Gaming Laptop Explained in 18 Minutes,232431,286,0,1,P,0,1,0,3
+KzYjvkiBtvM,Little River DIY,small,top,2.72377568658243,20.332,Everything You Need to Know About Free Starlink!,133700,287,1,2,H,0,0,0,2
+UKqI4uloHTI,AI & SAP Basis Wizard,small,bottom,-2.409703688079889,0.086,Tutorial: ADK + Tools,89,288,0,2,X,0,1,0,2
+hByzGf0TAeM,AppliedAI,small,top,2.690943580994973,14.874,How Much GPU Memory is Needed for LLM Inference?,6009,289,0,2,X,0,0,0,1
+Sp2ySZ5_5rs,HOSTKEY,small,bottom,-2.908670078972627,0.096,Deploy a Free WAF to Block SQL Injection and XSS: Haltdos Setup Guide,18,290,0,2,D,0,1,0,3
+8eqdMpCz9tc,AI Explained,comp,bottom,-0.5106789049517168,0.62,"Is GPT-5.1 Really an Upgrade? But Models Can Auto-Hack Govts, so … there’s that",62077,291,1,2,H,0,1,1,3
+RuQZwl9Cas0,Michael Schmidt (URBN_PXL),small,bottom,-2.5000948122070814,0.081,Better than DJI RS5? Hohem MT3 PRO Gimbal + Sony a6700 + Viltrox Air Lenses,364,292,0,1,P,0,0,0,2
+A62XIDHf4DM,Lucky Tech Life,small,top,4.398256446427893,124.744,"Starlink Mini Setup, Activation and Speed Test! Complete Guide",181129,293,0,0,P,0,0,0,1
+ndLXXg1AA_8,Class 12 Azhanimation,small,top,2.297543892998911,14.27,Through the Eyes of Travellers | Class 12 History Chapter 5 | Animated |One Shot,114788,294,1,2,I,0,0,1,3
+HeX22LnKdFY,Jeff Geerling,comp,top,0.7320823697880863,2.62,This is no joke: the SBC hobby is dying,844628,295,0,1,P,0,0,1,1
+9vZsthgkI4U,Mr.Etienna Tech,small,bottom,-1.4551671150023724,0.25,How to Turn Your Phone into a WiFi Hotspot (Step-by-Step Guide) | Share Internet Easily,131,296,0,2,I,1,0,0,3
+zesUGFM1uog,morejpeg,small,bottom,-1.969862488872152,0.125,Competing with ChatGPT,151,297,0,0,D,0,0,0,3
+gO4J5Bkd1Oc,Hussein Nasser,comp,top,1.9314272826573629,7.14,"Postgres is half as fast in Linux 7.0, and we always knew why",42738,298,1,1,H,0,1,1,2
+vO6SWG-jxvE,Two Minute Papers,comp,top,0.3530013348856425,1.05,DeepMind Just Changed How AI Sees The World,131015,299,0,1,I,0,1,1,2
+HERnFgochyE,BIZON,small,bottom,-2.2837084613317757,0.108,SDXL 1.0 Made Easy: Install & Run with a Single Click,625,300,0,0,D,0,0,0,3
+TB0cXGvuw9A,ThePrimeagen,comp,bottom,-1.0330830342989243,0.49,Stepping Down From RustConf and Rust Project Controversy,104977,301,1,2,H,0,0,1,3
+9t-W51EHgzY,Ready Tensor,small,top,2.1290326451389285,8.448,"LiteLLM Proxy Tutorial: Track Costs, Budgets, and Multi-Provider LLM Usage",3244,302,0,2,X,0,1,0,3
+_d0duu3dED4,ByteByteGo,comp,top,1.511733462540224,5.0,Why Everyone’s Talking About MCP?,471743,303,0,2,D,0,1,0,3
+C9QSpl5nmrY,StatQuest,comp,top,1.9134050907168445,11.49,Coding a ChatGPT Like Transformer From Scratch in PyTorch,126482,304,0,2,D,0,1,0,3
+EmKQsSDlaa4,3Blue1Brown,comp,top,1.1753822057722856,3.44,How are holograms possible?,7117215,305,0,2,D,0,0,0,2
+XGftU_vt34M,Cómo se Fabrican las cosas,small,bottom,-3.048524527773092,0.075,Así Construyen los Gigantes que Dominan los Océanos,36,306,0,2,R,0,0,0,3
+9QDO68xMpUE,DES Technologies,small,top,3.9212619218355935,92.263,"Dell vs HP: Which Brand Is ACTUALLY Better in 2026? (Servers, PCs & IT Buying Truths)",1753,307,0,2,P,0,1,0,2
+zKjo8Oc2qLk,ColdFusion,comp,top,1.0729649251625009,2.77,The Windows 11 Crisis,2503874,308,1,1,H,0,0,0,1
+Ij7NQ-0mIVA,Reducible,comp,bottom,-1.6058285192964863,0.18,The Simple and Elegant Idea behind Efficient Dynamic Arrays,66480,309,0,2,D,0,0,0,1
+RiLUDmIJzyo,Joaquín Ruiz — IA para Desarrolladores,small,bottom,-1.566222585936978,0.251,"Claude Code: ¿qué está haciendo cuando ves ""Cogitating...""?",515,310,1,1,H,0,1,0,2
+1yBU41auQhw,Two Minute Papers,comp,bottom,-0.3993558689917995,0.54,DeepSeek's Absolutely Insane AI Speed Hack (DSpark),67475,311,0,0,I,0,1,0,1
+3EHNWOvFhi8,Del 0 al 1,small,top,1.5958438290763606,6.302,Como decide la electronica | Compuerta AND explicado con transistores,3970,312,0,2,P,1,0,0,2
+Oekl7K1iwxY,StatQuest,comp,bottom,-1.2570157640041435,0.49,Human Stories in AI: Simon Stochholm,5357,313,0,2,I,0,0,0,2
+_QU0rNL2_RU,AppliedAI,small,bottom,-2.321306570133683,0.099,A Brief Summary and Insights on the Llama 3.1 Model,40,314,0,2,X,0,1,1,1
+bNm-LIAKADw,Internet Historian,comp,bottom,-0.7306188997341256,0.45,Man in Cave (Reupload),3969095,315,0,1,M,0,0,0,1
+unb1orP0_b8,Ready Tensor,small,bottom,-2.2254824071492374,0.109,"Frontier vs Open-Weight LLMs: Cost, Control, and Deployment Tradeoffs",42,316,0,2,X,0,0,0,3
+-X03UKo_obE,LiveOverflow,comp,bottom,-0.7288787065171749,0.52,Asking Android Developers About Security at Droidcon Berlin,35742,317,1,2,H,0,0,0,2
+LPZh9BOjkQs,3Blue1Brown,comp,top,1.3017854635320116,3.85,Large Language Models explained briefly,7968695,318,0,1,R,0,0,0,2
+uhoxAKB02GU,Kevin Fang,comp,bottom,-3.657423590400638,0.02,Chipotle Race to Rewards bot,9328,319,0,0,D,0,0,0,3
+KXl8hLW4S-8,BIZON,small,bottom,-2.882672642932705,0.032,Bizon Z-Hub | Nvidia GPUs for your Mac - 2026,183,320,0,2,X,0,1,0,1
+7DKv5H5Frt0,Tom Scott,comp,top,1.857862478382464,9.46,"After ten years, it's time to stop weekly videos.",12168595,321,1,2,H,0,0,0,1
+UM5NWFoZnpE,Unreal in 5 Minutes!,small,top,1.5977129101112268,7.5,Making CUTSCENES in Unreal Engine 5.5 is EASY!,23669,322,0,2,R,0,1,0,3
+qLxECOjrJVg,Del 0 al 1,small,top,4.588764758995958,128.575,Como funciona un transistor y como usarlo correctamente.,81002,323,0,1,P,1,0,0,2
+8B05cy3UuSE,Two Minute Papers,comp,bottom,-0.6288322930905829,0.4,NVIDIA's AI Learns Why Copying Humans Isn't Enough,49543,324,0,0,R,0,0,0,2
+Mr8E79ANG4Q,TechTechPotato,comp,bottom,-1.3221411046266656,0.24,"Go Big Chips or Go Home // The Tech Poutine, 16th July 2026",4951,325,1,1,H,0,1,0,3
+pVoxkUnnfH0,CompilerStuck,small,bottom,-0.9829914828436788,0.51,17 Ways to Visualize Merge Sort,9194,326,0,2,R,0,0,1,1
+2iHPVsyv4GU,Wendover Productions,comp,top,0.8003689720785955,1.55,How Taiwan is Preparing to Get Invaded,1647178,327,0,2,D,0,0,0,3
+wjZofJX0v4M,3Blue1Brown,comp,top,1.5944599850728922,5.49,"Transformers, the tech behind LLMs | Deep Learning Chapter 5",11359662,328,0,1,R,0,0,0,1
+RhdQTNT5xu4,Company Man,comp,top,1.3266618553880527,4.14,Game Completely LOST IT at VERZUZ,98621,329,1,1,H,0,0,0,2
+byWZoKCdePo,Asianometry,comp,bottom,-0.5481325637474657,0.48,True 3D DRAM,98574,330,0,1,D,0,0,1,3
+wFarZmg707I,SoSimple,small,bottom,-1.5978981727343693,0.218,"0011_വെറും10മിനിറ്റിൽ,സ്കീമാറ്റിക്,പിസിബി ഡ്രോയിങ്,സിമുലേഷൻ,എന്നിവയുടെ ബേസിക് പഠനം.",1580,331,0,2,X,0,0,0,3
+-q2n5DkDoMQ,ColdFusion,comp,top,1.0044745637646983,2.44,OpenAI is Suddenly in Trouble,2202697,332,1,1,H,0,0,0,1
+bZ6HodKDxJE,Art of the Problem,comp,top,1.8854618831306136,5.76,The Debt Paradox,1595981,333,0,1,I,0,0,1,1
+vKaTe1Q5suE,The Popple People,small,top,1.9473832641285933,8.579,BEHR STAIN | Brutally Honest REVIEW | Popple People,13031,334,0,2,P,0,1,0,3
+jUa2x_xpFuM,Tom Scott,comp,top,0.4227035413394722,1.31,I have a weird conspiracy theory about this bridge,1691768,335,1,0,H,0,0,0,1
+r-SivgEpA1Q,Branch Education,comp,bottom,-1.5979768893786996,0.24,How does this SSD store 8TB of Data?  ||  Inside the Engineering of Solid-State Drive Architecture,469646,336,0,2,P,1,0,0,3
+tYQyh1tjSFc,ThePrimeagen,comp,bottom,-0.8885591353644279,0.3,am I becoming a real Game Dev?,64433,337,1,0,H,0,0,0,2
+txx6ec6MLNY,AI Explained,comp,top,0.523742159033256,1.54,Claude Mythos: Highlights from 244-page Release,152942,338,1,1,H,0,1,0,1
+OEIE7bOcVXM,HOSTKEY,small,bottom,-1.538033370769449,0.383,"Stop Configuring Nginx, PHP & MySQL by Hand — There's a Faster Way",72,339,0,2,X,0,1,0,2
+6Prpy-OHYoM,pookie,small,bottom,-2.1935973251820093,0.202,"MCP: Overhyped, Misunderstood, and you (probably) don’t need it",593,340,1,2,H,0,1,0,3
+7r-cH1tcl_g,Jeff Geerling,comp,bottom,-0.7365363872840526,0.62,"I built a new clock, and now I'm not sure what time it is",199188,341,1,0,H,0,0,1,2
+O5BJVO3PDeQ,Internet Historian,comp,top,1.0123939821053072,2.97,The Engoodening of No Man's Sky,26447343,342,1,1,H,0,0,0,2
+qzZLvw2AdvM,Kevin Fang,comp,top,1.3707986939404502,2.65,How A Steam Bug Deleted Someone’s Entire PC,1353921,343,0,2,D,0,1,0,3
+qSNTtA7gXOA,Dave's Garage,comp,bottom,-0.9618450616823622,0.38,Inside a Massive 1980s Hard Drive: 14 Inches of Fury!,66994,344,1,2,H,0,0,1,3
+npW_RLgRo5c,Mentour Pilot,comp,bottom,-0.3351247330710002,0.65,The Door OPENED Itself!? | United Airlines Flight 811,671683,345,0,1,R,0,1,1,2
+sNxIyYajbCA,HOSTKEY,small,top,2.389918361222144,18.83,The Science of Meeting Fatigue: Why Video Calls Drain You and What to Do,3540,346,0,2,R,0,0,1,2
+cPa1Ol9y0w8,ElektroVerstehen,small,bottom,-1.4943982443025112,0.204,IHK-Prüfungsaufgabe: Kennlinien von Motorschutzschaltern einfach verstehen 📚⚡️,256,347,0,2,D,1,0,0,3
+y1n5OFMo9UM,Scan Business,small,bottom,-3.1803320317618926,0.075,Re-imagine your office AND save money? You can with a Philips Docking Monitor from Scan.co.uk!,217,348,1,1,H,0,1,0,2
+B2A2pGrDG8I,Spanning Tree,comp,top,2.7126723677303746,18.02,What Is the Pigeonhole Principle?,3543661,349,0,1,R,0,0,0,1
+PWok7b-oquA,Mr.Etienna Tech,small,top,1.529794799768564,6.099,Step-by-Step Guide to Installing Logitech Group and Configuring Google Meet Conference Rooms,3190,350,0,2,P,0,1,0,3
+08_Bh7P93NY,Asianometry,comp,top,0.2897383479942962,1.16,RCA Made a Vacuum Tube to Beat the Transistor,238480,351,0,2,P,0,1,0,1
+ImaSgNgxu00,Hussein Nasser,comp,bottom,-1.2113898062810042,0.38,How HTTP/2 frees connections,2259,352,1,1,H,0,0,0,2
+VT71Yy-c_54,Serrano.Academy,comp,bottom,-1.5203067386382685,0.23,"Will AI help us, or make us dependent? - A Tale of Two Cities",987,353,1,2,H,0,0,0,2
+SyTy1uZgx8E,LiveOverflow,comp,bottom,-1.282613682461448,0.27,Google's Mobile VRP Behind the Scenes with Kristoffer Blasiak (Hextree Podcast Ep.1),18462,354,1,1,H,0,1,0,2
+h7apO7q16V0,Reducible,comp,top,1.930752176169788,5.99,The Fast Fourier Transform (FFT): Most Ingenious Algorithm Ever?,2274359,355,0,1,D,0,0,0,2
+JjHFubUPLV0,ThePrimeagen,comp,top,1.5249644068999042,6.49,From Meth To Netflix,1380512,356,1,0,H,1,0,0,1
+Dr6jw-WAd9E,Yannic Kilcher,comp,bottom,-1.7154376431611549,0.14,Traditional X-Mas Stream,4519,357,0,0,M,0,0,0,2
+xpV4-j6Nnew,Serrano.Academy,comp,bottom,-1.1162643533867562,0.36,Quantum superposition and the glove that changes color,1520,358,1,2,H,0,0,0,2
+R_CzeVkYIfU,Data Center Richness,small,top,1.751078146733534,6.414,What Solid State Transformers Mean for Data Centers,9801,359,1,2,R,0,0,0,3
+cE8NOGa9j0Y,ElektroVerstehen,small,top,2.023052863109325,8.359,🔧 IHK-Prüfungsaufgabe: Transistorschaltungen verstehen – Schritt für Schritt erklärt!💡⚡️,10466,360,0,2,D,1,0,0,3
+1BU5hqbU1z4,Mentour Pilot,comp,bottom,-0.8619516427928144,0.43,The Explosion That Killed A City,447311,361,0,2,R,0,0,0,2
+--Dne_NNYlw,Big Things Explained,small,top,0.9430616159751326,10.416,How Electricity Reaches Your Home — The Hidden Journey of the Power Grid,5083,362,0,2,R,0,0,0,3
+K1a2Bk8NrYQ,Spanning Tree,comp,top,1.8139240971902355,6.02,Understanding B-Trees: The Data Structure Behind Modern Databases,1184295,363,0,1,R,0,0,0,1
+KTKd-EnLn6U,pookie,small,bottom,-1.5769050337494743,0.38,"How to Build a Neural Network from Scratch in C++ — Part 4: Layers, Activation Functions Explained",1117,364,1,2,H,0,1,0,3
