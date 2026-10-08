@@ -76,3 +76,10 @@ remotion/public/reels/r004_*.png
 .manimenv/
 remotion/public/manim/
 
+
+# globe probe: fetched sources and the derived imagery are regenerable (scripts/globe_probe/README.md)
+scripts/globe_probe/data/
+remotion/public/globe_probe/
+
+# YouTube lane scan: the resolved-channel cache is regenerable (scripts/fetch_outliers.py)
+data/.channels_cache.json
