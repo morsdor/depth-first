@@ -1,0 +1,385 @@
+{
+ "cities": [
+  {
+   "city": "New York",
+   "date": "2026-01-04",
+   "std": "7:20",
+   "dst": "8:20",
+   "std_min": 439.9,
+   "noaa_minus_ephem_min": 0.1
+  },
+  {
+   "city": "Boston",
+   "date": "2026-01-03",
+   "std": "7:13",
+   "dst": "8:13",
+   "std_min": 433.2,
+   "noaa_minus_ephem_min": 0.13
+  },
+  {
+   "city": "Washington",
+   "date": "2026-01-05",
+   "std": "7:27",
+   "dst": "8:27",
+   "std_min": 446.8,
+   "noaa_minus_ephem_min": 0.08
+  },
+  {
+   "city": "Atlanta",
+   "date": "2026-01-07",
+   "std": "7:43",
+   "dst": "8:43",
+   "std_min": 462.7,
+   "noaa_minus_ephem_min": 0.01
+  },
+  {
+   "city": "Detroit",
+   "date": "2026-01-03",
+   "std": "8:01",
+   "dst": "9:01",
+   "std_min": 481.1,
+   "noaa_minus_ephem_min": 0.13
+  },
+  {
+   "city": "Indianapolis",
+   "date": "2026-01-04",
+   "std": "8:06",
+   "dst": "9:06",
+   "std_min": 485.7,
+   "noaa_minus_ephem_min": 0.09
+  },
+  {
+   "city": "Fort Wayne",
+   "date": "2026-01-04",
+   "std": "8:06",
+   "dst": "9:06",
+   "std_min": 485.5,
+   "noaa_minus_ephem_min": 0.11
+  },
+  {
+   "city": "Louisville",
+   "date": "2026-01-05",
+   "std": "8:00",
+   "dst": "9:00",
+   "std_min": 479.8,
+   "noaa_minus_ephem_min": 0.07
+  },
+  {
+   "city": "Columbus",
+   "date": "2026-01-04",
+   "std": "7:54",
+   "dst": "8:54",
+   "std_min": 473.6,
+   "noaa_minus_ephem_min": 0.1
+  },
+  {
+   "city": "Chicago",
+   "date": "2026-01-03",
+   "std": "7:18",
+   "dst": "8:18",
+   "std_min": 438.0,
+   "noaa_minus_ephem_min": 0.13
+  },
+  {
+   "city": "Minneapolis",
+   "date": "2026-01-02",
+   "std": "7:51",
+   "dst": "8:51",
+   "std_min": 470.9,
+   "noaa_minus_ephem_min": 0.17
+  },
+  {
+   "city": "Dallas",
+   "date": "2026-01-08",
+   "std": "7:30",
+   "dst": "8:30",
+   "std_min": 450.1,
+   "noaa_minus_ephem_min": -0.0
+  },
+  {
+   "city": "Houston",
+   "date": "2026-01-10",
+   "std": "7:18",
+   "dst": "8:18",
+   "std_min": 437.6,
+   "noaa_minus_ephem_min": -0.04
+  },
+  {
+   "city": "Denver",
+   "date": "2026-01-04",
+   "std": "7:21",
+   "dst": "8:21",
+   "std_min": 440.9,
+   "noaa_minus_ephem_min": 0.09
+  },
+  {
+   "city": "Salt Lake City",
+   "date": "2026-01-04",
+   "std": "7:52",
+   "dst": "8:52",
+   "std_min": 471.6,
+   "noaa_minus_ephem_min": 0.11
+  },
+  {
+   "city": "Boise",
+   "date": "2026-01-02",
+   "std": "8:18",
+   "dst": "9:18",
+   "std_min": 497.9,
+   "noaa_minus_ephem_min": 0.15
+  },
+  {
+   "city": "Seattle",
+   "date": "2026-01-01",
+   "std": "7:57",
+   "dst": "8:57",
+   "std_min": 477.2,
+   "noaa_minus_ephem_min": 0.23
+  },
+  {
+   "city": "Portland OR",
+   "date": "2026-01-01",
+   "std": "7:51",
+   "dst": "8:51",
+   "std_min": 470.5,
+   "noaa_minus_ephem_min": 0.19
+  },
+  {
+   "city": "San Francisco",
+   "date": "2026-01-05",
+   "std": "7:25",
+   "dst": "8:25",
+   "std_min": 445.1,
+   "noaa_minus_ephem_min": 0.06
+  },
+  {
+   "city": "Los Angeles",
+   "date": "2026-01-07",
+   "std": "6:59",
+   "dst": "7:59",
+   "std_min": 418.9,
+   "noaa_minus_ephem_min": 0.01
+  },
+  {
+   "city": "Spokane",
+   "date": "2026-01-01",
+   "std": "7:38",
+   "dst": "8:38",
+   "std_min": 457.8,
+   "noaa_minus_ephem_min": 0.23
+  },
+  {
+   "city": "Marquette MI",
+   "date": "2026-01-01",
+   "std": "8:33",
+   "dst": "9:33",
+   "std_min": 513.2,
+   "noaa_minus_ephem_min": 0.2
+  }
+ ],
+ "A_worst_disagreement_min": 0.23,
+ "B": {
+  "computed": "8:27",
+  "published": "8:27",
+  "standard_time": "7:27"
+ },
+ "C_floor_most_americans": 0.537,
+ "C": {
+  "cities": 3304,
+  "pop_millions": 209.0,
+  "excluded_no_dst_millions": 8.1,
+  "coverage_of_us": 0.655,
+  "shares": {
+   "7:30": {
+    "today": 0.2717,
+    "kept_forward": 1.0,
+    "kept_forward_minus3": 1.0,
+    "kept_forward_plus3": 1.0
+   },
+   "8:00": {
+    "today": 0.046,
+    "kept_forward": 0.8655,
+    "kept_forward_minus3": 0.8513,
+    "kept_forward_plus3": 0.9278
+   },
+   "8:30": {
+    "today": 0.0024,
+    "kept_forward": 0.2717,
+    "kept_forward_minus3": 0.2272,
+    "kept_forward_plus3": 0.3183
+   },
+   "9:00": {
+    "today": 0.0018,
+    "kept_forward": 0.046,
+    "kept_forward_minus3": 0.0294,
+    "kept_forward_plus3": 0.0663
+   }
+  },
+  "median_today": "7:20",
+  "median_kept_forward": "8:20"
+ },
+ "D": {
+  "start": "1974-01-06",
+  "total_days": 294,
+  "total_months": 9.7,
+  "endured_days": 112,
+  "cancelled_days": 119
+ },
+ "E_evening": [
+  {
+   "city": "New York",
+   "date": "2025-12-07",
+   "std": "16:29",
+   "dst": "17:29"
+  },
+  {
+   "city": "Boston",
+   "date": "2025-12-08",
+   "std": "16:12",
+   "dst": "17:12"
+  },
+  {
+   "city": "Washington",
+   "date": "2025-12-07",
+   "std": "16:46",
+   "dst": "17:46"
+  },
+  {
+   "city": "Atlanta",
+   "date": "2025-12-04",
+   "std": "17:29",
+   "dst": "18:29"
+  },
+  {
+   "city": "Detroit",
+   "date": "2025-12-08",
+   "std": "17:00",
+   "dst": "18:00"
+  },
+  {
+   "city": "Indianapolis",
+   "date": "2025-12-07",
+   "std": "17:20",
+   "dst": "18:20"
+  },
+  {
+   "city": "Fort Wayne",
+   "date": "2025-12-08",
+   "std": "17:12",
+   "dst": "18:12"
+  },
+  {
+   "city": "Louisville",
+   "date": "2025-12-06",
+   "std": "17:23",
+   "dst": "18:23"
+  },
+  {
+   "city": "Columbus",
+   "date": "2025-12-07",
+   "std": "17:07",
+   "dst": "18:07"
+  },
+  {
+   "city": "Chicago",
+   "date": "2025-12-08",
+   "std": "16:20",
+   "dst": "17:20"
+  },
+  {
+   "city": "Minneapolis",
+   "date": "2025-12-09",
+   "std": "16:32",
+   "dst": "17:32"
+  },
+  {
+   "city": "Dallas",
+   "date": "2025-12-03",
+   "std": "17:21",
+   "dst": "18:21"
+  },
+  {
+   "city": "Houston",
+   "date": "2025-12-02",
+   "std": "17:22",
+   "dst": "18:22"
+  },
+  {
+   "city": "Denver",
+   "date": "2025-12-07",
+   "std": "16:36",
+   "dst": "17:36"
+  },
+  {
+   "city": "Salt Lake City",
+   "date": "2025-12-07",
+   "std": "17:00",
+   "dst": "18:00"
+  },
+  {
+   "city": "Boise",
+   "date": "2025-12-09",
+   "std": "17:08",
+   "dst": "18:08"
+  },
+  {
+   "city": "Seattle",
+   "date": "2025-12-10",
+   "std": "16:18",
+   "dst": "17:18"
+  },
+  {
+   "city": "Portland OR",
+   "date": "2025-12-09",
+   "std": "16:27",
+   "dst": "17:27"
+  },
+  {
+   "city": "San Francisco",
+   "date": "2025-12-06",
+   "std": "16:51",
+   "dst": "17:51"
+  },
+  {
+   "city": "Los Angeles",
+   "date": "2025-12-04",
+   "std": "16:44",
+   "dst": "17:44"
+  },
+  {
+   "city": "Spokane",
+   "date": "2025-12-10",
+   "std": "15:58",
+   "dst": "16:58"
+  },
+  {
+   "city": "Marquette MI",
+   "date": "2025-12-10",
+   "std": "17:03",
+   "dst": "18:03"
+  }
+ ],
+ "F": {
+  "today": -7.0,
+  "kept_forward": -17.9
+ },
+ "G_washington": {
+  "monday": "1974-01-07",
+  "sunrise_kept_forward": "8:27",
+  "sunrise_standard": "7:27",
+  "elev_kept_forward": {
+   "7:00": -16.5,
+   "7:30": -11.0,
+   "8:00": -5.6,
+   "8:30": -0.4
+  },
+  "elev_standard_7_30": -0.4,
+  "evening": {
+   "date": "2025-12-07",
+   "sunset_standard": "16:46",
+   "sunset_kept_forward": "17:46",
+   "elev_5pm_standard": -3.3,
+   "elev_5pm_kept_forward": 6.7
+  }
+ }
+}

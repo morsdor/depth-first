@@ -26,6 +26,8 @@ matplotlib              # Gate 0 mocks, falsification sweeps (e.g. r008_pendulum
 # torch==2.5.1 torchaudio==2.5.1   # narrated reels — forced alignment of the script onto the voice (scripts/vo_force_align.py);
 #                                  # pinned: forced_align is deprecated in torchaudio 2.8 and removed in 2.9. Needs Python <= 3.12 wheels.
 # pypdf                 # reading a paper's PDF for outside numbers (no poppler on this Mac)
+# ephem                 # I92 daylight saving — sun position and sunrise, an INDEPENDENT implementation to check any hand-rolled formula against (MIT)
+# geonamescache         # I92 daylight saving — US cities >= 15,000 with population and IANA timezone, bundled offline (MIT; the GeoNames data is CC BY 4.0, attribute it)
 
 # ── Manim lives in its OWN venv, not this one ────────────────────────────────
 #   python3 -m venv .manimenv && .manimenv/bin/pip install -r scripts/manim_requirements.txt
