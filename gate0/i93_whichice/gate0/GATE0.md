@@ -9,8 +9,17 @@ need amazing visuals for this video."** §5 is the answer to that and §6 is wha
 **No reel number is claimed.** `r021` is the next free number, and `I92` (daylight saving) is also
 waiting on it; whichever build writes its first `.tsx` claims it.
 
-Nothing has been built. This file and `payoff_frame.png` are the two artefacts CLAUDE.md requires
+Nothing has been built as a reel. This file and `payoff_frame.png` are the two artefacts CLAUDE.md requires
 **before** any Python, any `.tsx`, any data module. `mock_payoff.py` is the five-minute still.
+
+> **STAGE 2–3 RECORD, 2026-10-13.** The owner answered the Gate 0 presentation with **"Looks good"** and one added direction.
+> **I took that as a yes to the sentence, to "barely", to the two-sided framing, and to the drafted send test (§2).** The owner did
+> not name a person at G3, so **§2's drafted answer is what was accepted — if "looks good" did not cover it, say so and §2 reopens.**
+> **The added direction: "give enough time for people to read on the screen on the animation and text."** It is now a rule the
+> script is checked against by a program (`research/read_budget.py`), and its cost is stated in `SCRIPT.md` §4.
+> Stage 3 then ran: the physics is asserted (`research/melt_check.py`), the figures are graded (`research/RESEARCH.md`), a **glass
+> probe** answered the visuals question (`scripts/glass_probe/README.md`: possible, with limits), and the **G4 script is drafted
+> (`SCRIPT.md`) and awaits the owner.** **Two numbers in §0 and §1 below were corrected by that work — marked in place.**
 
 ## 0. What the first draft got wrong, found by computing it before writing it down
 
@@ -22,9 +31,13 @@ that is **false as worded**, by a small and exact amount:
 > was sitting in. (`mock_payoff.py` asserts this; the glass case, fresh ice in fresh water, is
 > exactly 0 to 1e-12.)
 
-It is tiny at planet scale — **an upper bound of about 1 mm if ALL Arctic sea ice melted** (computed
-here from a *remembered* ~20,000 km³ ± 40 %: 0.9–1.7 mm, an upper bound because real sea ice is itself
-salty) **against about 7,400 mm if all of Greenland's ice did, a factor of roughly 4,000–8,000**. But a
+It is tiny at planet scale. **[CORRECTED 2026-10-13: the first draft said "about 1 mm if ALL Arctic sea
+ice melted" — true, but the wrong object.]** All **Arctic** sea ice is **at most 1.8 mm** (PIOMAS peak volume,
+28,000 km³, search-level), and **ALL floating ice on Earth — sea ice and shelves together — is about 4 cm**
+(Noerdlinger & Brower 2007, abstract via search), **against 7.42 m if all of Greenland's ice melted**
+(Morlighem et al. 2017, search-level): **Greenland alone is ~186× all floating ice, and all ice on land
+~1,640×** (`research/melt_check.py`). The salt-water remainder itself — **2.60 % of the displaced volume at
+ρ = 1.026** — reproduces the published 2.6 % **unfitted**, which is the outside-number check. But a
 viewer who knows the paper will say "technically it does", and that comment is the exact
 environment this reel posts into. So the word changes, as `r016`'s "$80" and `r020`'s "not all"
 did: **"doesn't raise" → "barely raises".** Costs the sentence nothing.
@@ -50,12 +63,13 @@ No CS word. The only terms of art are "sea ice" and "ice on land", and every vie
 **Supporting figures — all LEADS, none read at a primary** (this container cannot reach NSIDC, NOAA,
 the IPCC, Nature or Wikipedia: §6). They are for Stage 3, not for the copy:
 
-| figure | lead (from memory) | what kills it |
+| figure | status (2026-10-13) | what kills it |
 |:--|:--|:--|
-| Greenland ice sheet, all of it | about **7.4 m** of global sea level | the BedMachine / IPCC AR6 number, read at the source |
-| Antarctica; all other glaciers | about **58 m**; about **0.3 m** | same; only Greenland is needed on screen |
-| the salt-water correction | **2.2 % of the ice's volume** (computed, `mock_payoff.py`) | check against the paper that derives it (I recall Noerdlinger & Brower, 2007 — unverified) |
-| all Arctic sea ice, upper bound | **~1 mm** (computed from a remembered volume) | the sea-ice volume (PIOMAS or equivalent) |
+| Greenland, all of it | **7.42 ± 0.05 m** — Morlighem et al. 2017, **search-level** | read the paper; confirm "above floatation" is the base |
+| Antarctica; all other glaciers | **57.9 m**; **0.32 m** (Millan 2022 argues ~20 % lower) — search-level, **not on screen** | — |
+| the salt-water correction | **2.24 % of the ice's volume = 2.60 % of the displaced volume** at ρ = 1.026 — **computed, and it reproduces the published 2.6 %** (Noerdlinger & Brower, search-level) | read the paper |
+| all floating ice, sea ice + shelves | **about 4 cm** — Noerdlinger & Brower 2007, **one abstract**, search-level | **read the paper before "1.5 inches" ships** |
+| all Arctic sea ice, upper bound | **≤ 1.8 mm** — computed from the PIOMAS peak, search-level | not on screen; the script's fallback line |
 
 ## 2. Who does the viewer send this to, and what are they proving? (GATE 3, drafted)
 
@@ -125,7 +139,7 @@ the same rule, at two scales.
 
 | beat | the shot | what it needs |
 |:--|:--|:--|
-| **A. The glass** | A macro, physically-based glass: real transmission, refraction, caustics on the table, the cube cracking as it melts. **The submerged volume glows as a ghost shape and the meltwater fills it exactly** — an amber ring marks the level and does not move | `@remotion/three` `MeshPhysicalMaterial` transmission under the `angle` renderer. **Unproven for a render this heavy: a probe is the first thing to do after G2/G3** |
+| **A. The glass** | A macro, physically-based glass: real transmission, refraction, caustics on the table, the cube cracking as it melts. **The submerged volume glows as a ghost shape and the meltwater fills it exactly** — an amber ring marks the level and does not move | **PROBED 2026-10-13 (`scripts/glass_probe/`): possible, with limits.** Refractive glass, tinted water, cracked ice, the ring and the outlined space all render and read. Nested transmissive bodies do not (built around). **~1.7 s per frame here, so the render is a Mac job** |
 | **B. The shelf** | The same cube on rock, above the water. It melts, drips fall, and **the amber ring climbs** through the ghost band | same scene, same camera; the contrast is the point |
 | **C. The scale jump** | The camera pulls out; the glass's surface becomes the sea; floes appear; then **Greenland, in real NASA imagery** on the globe engine (`acb4820`), the ice sheet at true thickness (vertical exaggeration declared on screen) resting on rock *above* the sea | the globe engine exists; Greenland imagery and ice thickness are **Mac tasks** (§6) |
 | **D. The payoff** | **Decision for G4.** Either the amber ring climbs along a **real coast** (AWS terrain tiles, the only data host reachable here), scoped on screen as *"if all of it melted"* — or the payoff stays in the glass and the coast goes in the caption | the coast is the strongest visual and the most alarm-flavoured one. **I recommend the coast with the scope words on screen**; the owner decides |
@@ -138,7 +152,7 @@ ring would spend the 3D on the wrong thing — the `r009` lesson.
 
 ## 6. Licence, data, and what this container can and cannot reach
 
-**Egress test, 2026-10-13:** reachable — AWS terrain tiles (HTTP 200). **Not reachable** — NASA
+**Egress test, 2026-10-13:** `WebSearch` works, so **figures can be graded at search level here** (`research/RESEARCH.md`); reading a paper at its host cannot. Hosts reachable — AWS terrain tiles (HTTP 200). **Not reachable** — NASA
 eoimages, Natural Earth's site, NSIDC, NOAA NCEI, the IPCC, the UW Polar Science Center, Nature,
 Wikipedia, USGS. (`raw.githubusercontent.com`, which `scripts/globe_probe/README.md` uses for Natural
 Earth, was not tested.)

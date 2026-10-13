@@ -1,0 +1,180 @@
+{
+ "runtime_s": 59.6,
+ "blocks": [
+  {
+   "id": "B01",
+   "copy": "DOES MELTING ICE RAISE THE SEA?",
+   "t_in": 0.3,
+   "t_out": 4.6,
+   "words": 6,
+   "full_s": 3.83,
+   "need_s": 3.4,
+   "rides_on": "the glass",
+   "end_of_beat": false,
+   "reader_start": 0.6,
+   "reader_done": 4.0
+  },
+  {
+   "id": "B02",
+   "copy": "THE ICE MELTS. THE WATER LEVEL DOESN'T MOVE.",
+   "t_in": 5.0,
+   "t_out": 10.0,
+   "words": 8,
+   "full_s": 4.53,
+   "need_s": 4.2,
+   "rides_on": "the glass and the ring",
+   "end_of_beat": false,
+   "reader_start": 5.3,
+   "reader_done": 9.5
+  },
+  {
+   "id": "B03",
+   "copy": "THE ICE TOOK UP THIS SPACE. ITS MELTWATER FILLS IT EXACTLY.",
+   "t_in": 10.2,
+   "t_out": 16.4,
+   "words": 11,
+   "full_s": 5.73,
+   "need_s": 5.4,
+   "rides_on": "the ghost outline",
+   "end_of_beat": true,
+   "reader_start": 10.5,
+   "reader_done": 15.9
+  },
+  {
+   "id": "B04",
+   "copy": "NOW THE SAME ICE, ABOVE THE WATER.",
+   "t_in": 17.2,
+   "t_out": 21.6,
+   "words": 7,
+   "full_s": 3.93,
+   "need_s": 3.8,
+   "rides_on": "the shelf",
+   "end_of_beat": false,
+   "reader_start": 17.5,
+   "reader_done": 21.3
+  },
+  {
+   "id": "B05",
+   "copy": "FLOATING ICE BARELY RAISES THE SEA. ICE ON LAND DOES.",
+   "t_in": 27.0,
+   "t_out": 32.8,
+   "words": 10,
+   "full_s": 5.33,
+   "need_s": 5.0,
+   "rides_on": "the two glasses",
+   "end_of_beat": true,
+   "reader_start": 27.3,
+   "reader_done": 32.3
+  },
+  {
+   "id": "B06",
+   "copy": "SEA ICE: FLOATS",
+   "t_in": 35.4,
+   "t_out": 38.2,
+   "words": 3,
+   "full_s": 2.33,
+   "need_s": 2.2,
+   "rides_on": "the floes",
+   "end_of_beat": false,
+   "reader_start": 35.7,
+   "reader_done": 37.9
+  },
+  {
+   "id": "B07",
+   "copy": "GREENLAND'S ICE: ON LAND",
+   "t_in": 38.4,
+   "t_out": 42.2,
+   "words": 4,
+   "full_s": 3.33,
+   "need_s": 2.6,
+   "rides_on": "the ice sheet",
+   "end_of_beat": false,
+   "reader_start": 38.7,
+   "reader_done": 41.3
+  },
+  {
+   "id": "B08",
+   "copy": "ALL FLOATING ICE MELTS: SEA LEVEL RISES ABOUT 1.5 INCHES",
+   "t_in": 42.4,
+   "t_out": 47.9,
+   "words": 10,
+   "full_s": 5.03,
+   "need_s": 5.0,
+   "rides_on": "the ring on the house",
+   "end_of_beat": false,
+   "reader_start": 42.7,
+   "reader_done": 47.7
+  },
+  {
+   "id": "B09",
+   "copy": "ALL OF GREENLAND'S ICE MELTS: SEA LEVEL RISES ABOUT 24 FEET",
+   "t_in": 47.9,
+   "t_out": 53.8,
+   "words": 11,
+   "full_s": 5.43,
+   "need_s": 5.4,
+   "rides_on": "the ring on the house",
+   "end_of_beat": true,
+   "reader_start": 48.2,
+   "reader_done": 53.6
+  },
+  {
+   "id": "B10",
+   "copy": "SEND THIS TO WHOEVER'S ARGUING ABOUT ICE. FOLLOW FOR MORE.",
+   "t_in": 53.9,
+   "t_out": 59.4,
+   "words": 10,
+   "full_s": 5.03,
+   "need_s": 5.0,
+   "rides_on": "the finished frame",
+   "end_of_beat": true,
+   "reader_start": 54.2,
+   "reader_done": 59.2
+  }
+ ],
+ "events": [
+  {
+   "name": "the cube melts, the ring stays",
+   "start": 1.0,
+   "end": 10.6,
+   "state_held_to": 12.8
+  },
+  {
+   "name": "the meltwater fills the outlined space",
+   "start": 12.8,
+   "end": 15.0,
+   "state_held_to": 17.2
+  },
+  {
+   "name": "the shelf ice melts and the ring climbs",
+   "start": 21.8,
+   "end": 26.0,
+   "state_held_to": 33.4
+  },
+  {
+   "name": "the camera pulls out, glass to sea to Greenland",
+   "start": 33.4,
+   "end": 38.8,
+   "state_held_to": 42.4
+  },
+  {
+   "name": "the ring on the house rises 1.5 in",
+   "start": 43.2,
+   "end": 44.2,
+   "state_held_to": 47.9
+  },
+  {
+   "name": "the ring on the house climbs to 24 ft",
+   "start": 49.2,
+   "end": 52.8,
+   "state_held_to": 59.6
+  }
+ ],
+ "budget": {
+  "base_s": 1.0,
+  "per_word_s": 0.4,
+  "min_block_s": 2.0,
+  "end_of_beat_min_s": 3.0,
+  "hold_min_s": 2.0
+ }
+}

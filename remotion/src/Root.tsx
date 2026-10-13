@@ -22,6 +22,7 @@ import { DURATION_SECONDS as DISPATCH_SECONDS, Dispatch } from './reels/Dispatch
 import { DURATION_SECONDS as THERMOSTAT_SECONDS, Thermostat } from './reels/Thermostat';
 import { DURATION_SECONDS as MANIM_SECONDS, ManimProbe } from './reels/ManimProbe';
 import { DURATION_SECONDS as GLOBEPROBE_SECONDS, GlobeProbe } from './reels/GlobeProbe';
+import { DURATION_SECONDS as GLASSPROBE_SECONDS, GlassProbe } from './reels/GlassProbe';
 import { DURATION_SECONDS as GLOBEINDIA_SECONDS, GlobeIndia } from './reels/GlobeIndia';
 import { SafeZones } from './reels/lib/chrome';
 
@@ -675,6 +676,18 @@ export const RemotionRoot: React.FC = () => {
       {/* Not a reel — the India edition of the globe probe: globe, Delhi, Uttar Pradesh, Karnataka, Mumbai, Indore, Madhya
           Pradesh, each border drawing itself under a fact card. Needs the imagery and outlines prepared by
           scripts/globe_probe/prep_india.py (scripts/globe_probe/README.md). */}
+      {/* Not a reel — the I93 glass probe: refractive glass, water and a melting ice cube under a moving camera,
+          to see whether the renderer here can carry the "amazing visuals" brief. No backlog id, no reel number.
+          Findings: scripts/glass_probe/README.md. */}
+      <Composition
+        id="glass-probe"
+        component={GlassProbe}
+        durationInFrames={Math.round(GLASSPROBE_SECONDS * 30)}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+
       <Composition
         id="globe-india"
         component={GlobeIndia}
