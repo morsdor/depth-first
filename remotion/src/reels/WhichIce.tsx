@@ -5,6 +5,7 @@ import { ThreeCanvas } from '@remotion/three';
 import * as THREE from 'three';
 import { BASE, DOMAIN_ACCENT } from '../brand/tokens';
 import { Fade, FPS, REEL_H, REEL_W, SAFE_BOTTOM, SAFE_TOP } from './lib/chrome';
+
 import {
   Env, GlassOfWater, GuideLine, R_IN, SIDE0, WALL, backdrop, glassGeometry, poolTexture, seaTexture, sparkleTexture,
   type GlassState,
@@ -66,8 +67,11 @@ const floatAt = (m: number) => {
 };
 
 // ── the glass world ───────────────────────────────────────────────────────────
-const LEFT_X = -5.5;
-const RIGHT_X = 5.5;
+const LEFT_X = -4.9;
+const RIGHT_X = 4.9;
+/** The safe column is centred at x = 465 (chrome.tsx SAFE_CX), not at the canvas centre 540: everything is built 75 px to the left of centre. */
+const CENTER_SHIFT_PX = REEL_W / 2 - 465;
+const pxToUnits = (px: number, d: number) => (px * 2 * d * Math.tan((FOV / 2) * (Math.PI / 180))) / REEL_H;
 
 type Rig = { gx: number; gy: number; gz: number; rx: number; ry: number; rightX: number };
 
@@ -88,12 +92,12 @@ const rigAt = (t: number): Rig => {
   const holdU = clamp01((t - ANIM.slide[1]) / (ANIM.pull[0] - ANIM.slide[1]));
   // distance from the camera to the table centre, in world units
   const dSingle = lerp(27, 25.5, clamp01(t / ANIM.slide[0]));
-  const dPair = lerp(36, 34, holdU);
+  const dPair = lerp(35.5, 33.5, holdU);
   const dHold = lerp(dSingle, dPair, slide);
   const dEnd = 190;
   const d = t < ANIM.pull[0] ? dHold : dPair * Math.exp(Math.log(dEnd / dPair) * pullU);
   const yPx = lerp(lerp(1010, 880, slide), 760, pullU); // where the glasses' centre sits on the frame
-  const gx = lerp(-LEFT_X * CM, 0, slide) * (1 - pullU);
+  const gx = lerp(-LEFT_X * CM, 0, slide) * (1 - pullU) - pxToUnits(CENTER_SHIFT_PX, d);
   const ryOrbit = lerp(-0.3, 0.1, clamp01(t / ANIM.slide[0]));
   const ry = lerp(ryOrbit, lerp(0.04, -0.03, holdU), slide) * (1 - pullU);
   const rx = lerp(0.04, 0.34, pullU);
@@ -242,7 +246,7 @@ const LocalWorld: React.FC = () => {
         {/* light moving on the table: caustics, near enough */}
         <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.005, 1.2]}>
           <circleGeometry args={[11, 48]} />
-          <meshBasicMaterial map={sparkle} transparent opacity={0.3 * (1 - sea)} depthWrite={false} blending={THREE.AdditiveBlending} toneMapped={false} />
+          <meshBasicMaterial map={sparkle} transparent opacity={0.03 * (1 - sea)} depthWrite={false} blending={THREE.AdditiveBlending} toneMapped={false} />
         </mesh>
         {/* ...and then the table is the sea: lighter near the glass, fading into the horizon colour */}
         <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]} renderOrder={1}>
@@ -251,14 +255,14 @@ const LocalWorld: React.FC = () => {
         </mesh>
         <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.01, 0]} renderOrder={1}>
           <circleGeometry args={[260, 64]} />
-          <meshBasicMaterial map={sparkle2} transparent opacity={0.32 * sea} depthWrite={false} blending={THREE.AdditiveBlending} toneMapped={false} />
+          <meshBasicMaterial map={sparkle2} transparent opacity={0.09 * sea} depthWrite={false} blending={THREE.AdditiveBlending} toneMapped={false} />
         </mesh>
         <Floes t={t} />
 
         <group scale={CM}>
           <GlassOfWater s={left} x={LEFT_X} glassGeo={glassGeo} />
           <GlassOfWater s={right} x={r.rightX} glassGeo={glassGeo} />
-          <GuideLine yCm={GLASS.level_floating_cm} x0={LEFT_X - R_IN - WALL - 0.4} x1={RIGHT_X + R_IN + WALL + 0.4} opacity={guide} />
+          <GuideLine yCm={GLASS.level_floating_cm} x0={LEFT_X - R_IN - WALL + 0.1} x1={RIGHT_X + R_IN + WALL - 0.1} opacity={guide} />
         </group>
       </group>
     </>
@@ -439,7 +443,7 @@ const HouseWorld: React.FC = () => {
   const hx = HOUSE.x0 + HOUSE.w / 2;
   const roofAng = Math.atan(HOUSE.roof / (HOUSE.w / 2));
   const roofLen = Math.hypot(HOUSE.w / 2, HOUSE.roof) + 0.5;
-  const staffX = -4.2;
+  const staffX = -0.8;
 
   return (
     <>
@@ -451,11 +455,11 @@ const HouseWorld: React.FC = () => {
       {/* the sea: a flat plane at the ring's height, with light on it */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, L, 0]} renderOrder={4}>
         <circleGeometry args={[900, 8]} />
-        <meshBasicMaterial color="rgb(22, 78, 132)" transparent opacity={0.9} depthWrite={false} toneMapped={false} side={THREE.DoubleSide} />
+        <meshBasicMaterial color="rgb(14, 50, 86)" transparent opacity={0.9} depthWrite={false} toneMapped={false} side={THREE.DoubleSide} />
       </mesh>
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, L + 0.02, 0]} renderOrder={5}>
         <circleGeometry args={[400, 8]} />
-        <meshBasicMaterial map={sparkle} transparent opacity={0.34} depthWrite={false} blending={THREE.AdditiveBlending} toneMapped={false} />
+        <meshBasicMaterial map={sparkle} transparent opacity={0.05} depthWrite={false} blending={THREE.AdditiveBlending} toneMapped={false} />
       </mesh>
       {/* the seabed, so the water has something under it */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -6, 0]}>
@@ -466,7 +470,7 @@ const HouseWorld: React.FC = () => {
       {/* the bank and the house */}
       <mesh position={[(-1.8 + 60) / 2, FT_BANK / 2 - 3, -20]}>
         <boxGeometry args={[61.8, FT_BANK + 6, 60]} />
-        <meshStandardMaterial color="rgb(78, 70, 64)" roughness={0.95} />
+        <meshStandardMaterial color="rgb(62, 55, 50)" roughness={0.95} />
       </mesh>
       <group position={[hx, FT_BANK, -2]}>
         <mesh position={[0, HOUSE.wall / 2, 0]}>
@@ -500,11 +504,11 @@ const HouseWorld: React.FC = () => {
       </mesh>
       {/* the ring — the one amber element — round the staff, riding the sea; and the band across the staff */}
       <mesh position={[staffX, L + 0.05, 1.2]} rotation={[Math.PI / 2, 0, 0]} renderOrder={6}>
-        <torusGeometry args={[4.4, 0.1, 12, 160]} />
+        <torusGeometry args={[3.1, 0.1, 12, 160]} />
         <meshBasicMaterial color={AMBER} toneMapped={false} />
       </mesh>
       <mesh position={[staffX, L + 0.05, 1.2]} rotation={[Math.PI / 2, 0, 0]} renderOrder={6}>
-        <torusGeometry args={[4.4, 0.4, 12, 160]} />
+        <torusGeometry args={[3.1, 0.36, 12, 160]} />
         <meshBasicMaterial color={AMBER} transparent opacity={0.16} depthWrite={false} blending={THREE.AdditiveBlending} toneMapped={false} />
       </mesh>
       <mesh position={[staffX, L, 1.4]} renderOrder={7}>
@@ -619,7 +623,7 @@ export const WhichIce: React.FC = () => {
   const pip = sm(t, ANIM.pip_in);
 
   // the house camera: the scene sits between the two caption zones
-  const houseCam = { position: [4.3, 36, 96] as [number, number, number] };
+  const houseCam = { position: [6.6, 36, 96] as [number, number, number] };
 
   return (
     <AbsoluteFill style={{ backgroundColor: BASE.ink }}>
@@ -632,7 +636,7 @@ export const WhichIce: React.FC = () => {
             gl={{ antialias: true }}
             onCreated={({ camera }) => camera.lookAt(0, LOOK_Y, 0)}
           >
-            <Env background={() => backdrop('rgb(22, 50, 92)', 'rgb(12, 32, 62)', 'rgb(4, 14, 31)')} />
+            <Env background={() => backdrop('rgb(18, 42, 78)', 'rgb(12, 32, 62)', 'rgb(4, 14, 31)')} />
             <LocalWorld />
           </ThreeCanvas>
         </AbsoluteFill>
@@ -662,8 +666,8 @@ export const WhichIce: React.FC = () => {
             camera={{ fov: FOV, position: houseCam.position, near: 1, far: 2000 }}
             gl={{ antialias: true }}
             onCreated={({ camera, scene }) => {
-              camera.lookAt(4.3, 8.9, 0);
-              scene.background = backdrop('rgb(10, 28, 58)', 'rgb(34, 82, 128)', 'rgb(22, 78, 132)', 0.6);
+              camera.lookAt(6.6, 8.9, 0);
+              scene.background = backdrop('rgb(8, 22, 46)', 'rgb(14, 38, 68)', 'rgb(14, 48, 82)', 0.6);
             }}
           >
             <HouseWorld />
@@ -675,6 +679,16 @@ export const WhichIce: React.FC = () => {
       <AbsoluteFill style={{ opacity: g * (1 - h), background: 'linear-gradient(180deg, rgba(4,14,31,0.9) 0, rgba(4,14,31,0.7) 330px, rgba(4,14,31,0) 560px)', pointerEvents: 'none' }} />
       <AbsoluteFill style={{ opacity: h, background: 'linear-gradient(0deg, rgba(4,14,31,0.96) 0, rgba(4,14,31,0.86) 300px, rgba(4,14,31,0) 640px)', pointerEvents: 'none' }} />
 
+      {/* the header band is the one thing no bleed declaration exempts (reel_safe_frames.py): the top 270 px is under Instagram's header, so it is a dark
+          ground here, feathering inward. Everything else outside the safe area is kept dark by the GROUND colours, not by a mat: a four-sided dark frame
+          passed the audit and turned every scene into a boxed window, which threw away the picture (tried 2026-10-14, reverted). */}
+      <AbsoluteFill
+        style={{
+          pointerEvents: 'none',
+          background: `linear-gradient(180deg, rgba(4,14,31,0.96) 0, rgba(4,14,31,0.96) ${SAFE_TOP}px, rgba(4,14,31,0) ${SAFE_TOP + 110}px)`,
+        }}
+      />
+
       {showPip ? (
         <div style={{ position: 'absolute', left: 640, top: 1000, width: 220, height: 300, opacity: pip, borderRadius: 14, overflow: 'hidden', border: `3px solid ${BASE.graphite}` }}>
           <ThreeCanvas
@@ -684,7 +698,7 @@ export const WhichIce: React.FC = () => {
             gl={{ antialias: true }}
             onCreated={({ camera }) => camera.lookAt(0, 2.8, 0)}
           >
-            <Env background={() => backdrop('rgb(22, 50, 92)', 'rgb(12, 32, 62)', 'rgb(4, 14, 31)')} />
+            <Env background={() => backdrop('rgb(18, 42, 78)', 'rgb(12, 32, 62)', 'rgb(4, 14, 31)')} />
             <PipWorld />
           </ThreeCanvas>
         </div>

@@ -46,11 +46,11 @@ export const backdrop = (top: string, mid: string, bottom: string, midAt = 0.28)
   g.fillStyle = grad;
   g.fillRect(0, 0, 256, 512);
   const discs: Array<[number, number, number, string]> = [
-    [44, 62, 30, 'rgba(0, 214, 247, 0.30)'],
-    [196, 44, 24, 'rgba(255, 255, 255, 0.22)'],
-    [128, 92, 20, 'rgba(0, 214, 247, 0.20)'],
-    [226, 100, 16, 'rgba(255, 176, 32, 0.20)'],
-    [84, 20, 14, 'rgba(255, 255, 255, 0.16)'],
+    [44, 62, 30, 'rgba(0, 214, 247, 0.13)'],
+    [196, 44, 24, 'rgba(255, 255, 255, 0.09)'],
+    [128, 92, 20, 'rgba(0, 214, 247, 0.09)'],
+    [226, 100, 16, 'rgba(255, 176, 32, 0.08)'],
+    [84, 20, 14, 'rgba(255, 255, 255, 0.07)'],
   ];
   for (const [x, y, r, col] of discs) {
     const rg = g.createRadialGradient(x, y, 0, x, y, r);
@@ -73,8 +73,8 @@ export const poolTexture = (): THREE.CanvasTexture => {
   c.width = c.height = 512;
   const g = c.getContext('2d')!;
   const rg = g.createRadialGradient(256, 256, 0, 256, 256, 256);
-  rg.addColorStop(0, 'rgba(30, 72, 124, 1)');
-  rg.addColorStop(0.4, 'rgba(18, 46, 88, 0.85)');
+  rg.addColorStop(0, 'rgba(19, 50, 88, 1)');
+  rg.addColorStop(0.4, 'rgba(15, 40, 74, 0.85)');
   rg.addColorStop(1, 'rgba(12, 32, 62, 0)');
   g.clearRect(0, 0, 512, 512);
   g.fillStyle = rg;
@@ -90,9 +90,9 @@ export const seaTexture = (): THREE.CanvasTexture => {
   c.width = c.height = 512;
   const g = c.getContext('2d')!;
   const rg = g.createRadialGradient(256, 256, 0, 256, 256, 256);
-  rg.addColorStop(0, 'rgba(26, 92, 150, 1)');
-  rg.addColorStop(0.35, 'rgba(18, 66, 112, 0.96)');
-  rg.addColorStop(0.8, 'rgba(14, 44, 80, 0.6)');
+  rg.addColorStop(0, 'rgba(17, 60, 100, 1)');
+  rg.addColorStop(0.35, 'rgba(14, 50, 86, 0.96)');
+  rg.addColorStop(0.8, 'rgba(13, 40, 72, 0.6)');
   rg.addColorStop(1, 'rgba(12, 32, 62, 0)');
   g.clearRect(0, 0, 512, 512);
   g.fillStyle = rg;
