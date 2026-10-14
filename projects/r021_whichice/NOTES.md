@@ -73,6 +73,12 @@ have 0.03 s to spare, by construction — the build must not shorten any.** 83 w
 5. **A single-sided plane vanishes from underneath**: the house camera stays above the final sea level.
 6. **`useDelayRender`'s release must follow the state update**, not precede it.
 7. **A background wrapper reports "completed" while its subshell runs on.**
+8. **Fixing one audit can break the other.** Darkening the grounds to pass the safe-area audit pulled held shots under the motion audit's 0.35 floor. Run both
+   audits after any change to how the frame looks.
+9. **No audit sees a ruler that cannot be read.** The bank stood in front of the tide staff, hiding its 0 mark and most of the ring through the 1.5-inch beat;
+   both audits passed it. It was found by looking at a contact sheet of the render. Look at the render, not only at the numbers.
+10. **Test an ambient-motion change on a frame range, not the whole reel**: `remotion render <comp> out.mp4 --frames=840-899` is 2.5 min against 40, and
+    `reel_motion_audit.py` runs on the short file (ignore its first sample).
 
 ## What is NOT claimed
 
@@ -82,9 +88,27 @@ have 0.03 s to spare, by construction — the build must not shorten any.** 83 w
 - The height of the house: it is a stylised two-storey, and the staff is the ruler.
 - A source: nothing on screen says "a study found".
 
-## Audits (rendered 2026-10-14, cloud container)
+## Audits (rendered 2026-10-14, cloud container, third full render)
 
-*(filled in below once the render finishes)*
+The file: 1,782 frames, 59.46 s, 1080 x 1920, 30 fps, h264, 25.5 MB (Remotion adds a silent AAC track; the reel has no sound by design). ~39 min on 4 vCPUs,
+software GL, `--concurrency=2`.
+
+| audit | result |
+|:--|:--|
+| `scripts/reel_motion_audit.py` (default width) | **PASS** — longest dead spell 0.25 s (limit 1.5 s), median change 1.062, **event density 53 %** |
+| `scripts/reel_safe_audit.py --bleed 16.3-17.4,34.0-42.3` | **PASS** on all 1,782 frames; the header band (y < 270) is enforced inside both ranges |
+| the beats in the rendered file against `read_budget.py` | every block is absent 0.1 s before its `t_in`, fully on screen 0.45 s after it, still fully on screen 0.25 s before its `t_out`, and gone 0.1 s after it (near-white pixels counted in its caption zone, per block); B07's top zone still held the dissolving house at 42.2 s, read by eye at 41.9 / 42.1 / 42.4 s |
+| `research/read_budget.py` | **PASS**; `emit_ts.py` re-ran with all 24 claims asserted |
+
+**The two declared bleed ranges, and why.** 34.0–42.3 s is the sea floes and Greenland's full-bleed relief: scenery that runs off the frame by design, with every
+caption inside the safe area. **16.3–17.4 s is the right-hand glass sliding in from outside the frame** (a second render failed 29 frames there; the first
+frame outside is at 16.37 s): about one second of a glass crossing the edge, no text. Nothing was done to the luminance threshold (55).
+
+**Read the 53 % honestly.** The camera orbit added in render 3 moves the whole frame at constant speed, so it lifts the density number without being an
+event. The events are the beats in `read_budget.py`; the orbit's job is only that no held stretch is at rest. The run of renders: **render 1 failed the safe-area
+audit on all 1,782 frames** (scenic grounds above the threshold, header band included), **render 2 failed the motion audit** (5.0 s dead spell at 27.8 s, because
+darkening the grounds for the first audit left a held glass pair changing ~0.2 per sample against the 0.35 floor) and one safe-area range, and showed a
+**staff and ring hidden by the bank** that no audit can see.
 
 ## Open, and whose
 
