@@ -890,15 +890,16 @@ never after: shares >= 0.223% upper band; <= 0.124% no better than `r010`; saves
 Does melting ice raise the sea? It depends where the ice is sitting.
 
 The ice-cube-in-a-glass meme is right about floating ice. It already takes up the space its meltwater will
-fill, so the level barely moves — salt water leaves a small remainder, about 2.6%.
+fill, so the level barely moves. Salt water leaves a small remainder: the meltwater is about 2.6% more than the
+seawater the ice displaced.
 
 "The Arctic is melting, so the sea will rise" is right about ice on land. If all of Greenland's ice melted,
 the sea would rise about 24 feet. That is a what-if, not a forecast, and it says nothing about how long.
 
 Both camps are half right. Send this to the one who's arguing.
 
-Figures are published estimates (Noerdlinger & Brower 2007; Morlighem et al. 2017) — **[READ BOTH AT THE PRIMARY AND CORRECT THIS LINE BEFORE POSTING]**.
-Greenland drawn from real ice-surface elevation, heights exaggerated 30x.
+Greenland is drawn from real ice-surface elevation, heights exaggerated 30x.
+**[ADD ONLY AFTER BOTH ARE READ AT THE PRIMARY, and correct the figures if they differ: "Figures are published estimates (Noerdlinger & Brower 2007; Morlighem et al. 2017)."]**
 
 #howthingswork #sealevel #climate #physics #greenland
 
@@ -908,7 +909,7 @@ Greenland drawn from real ice-surface elevation, heights exaggerated 30x.
 the displaced volume (computed, and it reproduces the published figure unfitted), and the unqualified word is false. **"All of Greenland's ice"**
 and **"a what-if, not a forecast"**: the 24 feet is a thought experiment and the reel never gives a time. **"About 1.5 inches" / "about 24 feet"**:
 both search-level until read. **Both slogans are quoted and both are called half right** — taking a side would turn the two-sided send channel into a hit piece.
-Never "a study found" on screen; the caption may name the papers only after they are read.
+Never "a study found" on screen; the caption may name the papers only after they are read. **Every percentage carries its base (r021, 2026-10-14): the 2.6 % is of the seawater the ice displaced, not of the ice's own volume (that is 2.24 % at ρ = 1.025).**
 
 **Close card:** *SEND THIS TO WHOEVER'S ARGUING ABOUT ICE. FOLLOW FOR MORE.* — names the fight (the `r017` lesson), held 5.2 s over the finished frame.
 **It does not name the next reel**, because the next reel has not passed a gate.
