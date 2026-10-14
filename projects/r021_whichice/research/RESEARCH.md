@@ -65,6 +65,18 @@ when watched, the constants in `read_budget.py` are the thing to change, and eve
   notification meant "the wrapper returned", not "the install finished", and `node_modules` was half-populated. **Key a wait on the output line, not on the
   wrapper's exit.**
 
+- **THE TERRAIN TILES HOLD THE BED UNDER THE ICE AT ZOOM 5-9 (found 2026-10-14, measured).** AWS Terrain Tiles over Greenland carry the ICE SURFACE at zoom <= 4
+  and again at zoom >= 10, and the BEDROCK at zoom 5-9. At Summit Station (ice surface 3,216 m): z4 3,207 m, z5-z9 about 260 m, z10 3,254 m; at NGRIP
+  (2,917 m): z4 2,919 m, z5-z9 -128 m. A mesh built from z6, the obvious zoom, would have shown a BOWL. **The check that caught it was an outside number at a
+  known station, not an assertion about self-consistency** — the same lesson as `r011`. `greenland.py` now asserts five stations within 5 % (they are within 1.2 %).
+- **The first peak check was the wrong check.** It asserted the highest grid cell near Gunnbjorn Fjeld (3,694 m), a narrow rock peak that a ~3 km tile smooths away
+  (the cell reads ~3,100 m). **The assertion was replaced, not loosened**: the ice SURFACE at five stations is what the reel shows and what is now checked.
+- **A render hold taken inside the 3D canvas's own React tree did not hold the frame.** `useDelayRender` called from a component under `<ThreeCanvas>` released at
+  the loader's callback, before React had applied the texture, and the frame was captured without Greenland — no error, no timeout. The texture is now loaded in the
+  ordinary DOM tree and passed in as a prop.
+- **The camera's tilt shifts everything when the group is dollied.** Moving the root group away from a camera that looks slightly down made the glasses climb up the
+  frame and into the type. `gyFor()` solves the group's height from the camera geometry so the glasses land where the type is not.
+
 ## 5. What is NOT claimed
 
 - That any ice melts at any rate, or over any time scale. **There is no time anywhere in the script.**

@@ -882,3 +882,41 @@ an identity loss): expect `r016`'s band, not `r005`'s. Pre-registered reading, a
 never after: shares >= 0.223% upper band; <= 0.124% no better than `r010`; saves >= 0.43% means utility travelled.
 
 **Engagement:** pending. See [`projects/r020_thermostat/NOTES.md`](projects/r020_thermostat/NOTES.md) and `SCRIPT.md`.
+
+## `r021` — BUILT 2026-10-14, awaiting GATE 5 — caption DRAFT, not final: **do not post until the two figures are read at a primary**
+
+**Does melting ice raise the sea? It depends where the ice is sitting.**
+
+Does melting ice raise the sea? It depends where the ice is sitting.
+
+The ice-cube-in-a-glass meme is right about floating ice. It already takes up the space its meltwater will
+fill, so the level barely moves — salt water leaves a small remainder, about 2.6%.
+
+"The Arctic is melting, so the sea will rise" is right about ice on land. If all of Greenland's ice melted,
+the sea would rise about 24 feet. That is a what-if, not a forecast, and it says nothing about how long.
+
+Both camps are half right. Send this to the one who's arguing.
+
+Figures are published estimates (Noerdlinger & Brower 2007; Morlighem et al. 2017) — **[READ BOTH AT THE PRIMARY AND CORRECT THIS LINE BEFORE POSTING]**.
+Greenland drawn from real ice-surface elevation, heights exaggerated 30x.
+
+#howthingswork #sealevel #climate #physics #greenland
+
+**Hook line (~110 chars, before "more"):** "Does melting ice raise the sea? It depends where the ice is sitting. The ice-cube-in-a-glass meme is right about floating ice."
+
+**Load-bearing phrasings — do not "tighten".** **"Barely"**, never "doesn't": fresh ice floating in salt water leaves a remainder of 2.6 % of
+the displaced volume (computed, and it reproduces the published figure unfitted), and the unqualified word is false. **"All of Greenland's ice"**
+and **"a what-if, not a forecast"**: the 24 feet is a thought experiment and the reel never gives a time. **"About 1.5 inches" / "about 24 feet"**:
+both search-level until read. **Both slogans are quoted and both are called half right** — taking a side would turn the two-sided send channel into a hit piece.
+Never "a study found" on screen; the caption may name the papers only after they are read.
+
+**Close card:** *SEND THIS TO WHOEVER'S ARGUING ABOUT ICE. FOLLOW FOR MORE.* — names the fight (the `r017` lesson), held 5.2 s over the finished frame.
+**It does not name the next reel**, because the next reel has not passed a gate.
+
+**Send-channel copy (GATE 3, TWO-SIDED argument ammunition):** "Send this to whoever posts the ice-cube meme to say sea level can't rise — or to whoever says the melting Arctic floods cities."
+Heat is a competence sting (the meme-poster was right about the physics and wrong about the ice), softer on the other side. **Pre-registered before any
+engagement exists** (`gate0/GATE0.md` §8): sends per reach **works >= 0.30 % · in band 0.15–0.30 % · falsifies < 0.10 %** (`r016` day 1: 0.172 %, `r017`: 0.143 %);
+**comments >= 15 at day 1 supports "naming both slogans brings the argument"**, <= 5 means the fight did not come (`r016`: 32, `r017`: 2); saves informational.
+**No calendar tailwind, unlike `I92`** — the cleaner read of the topic.
+
+**Engagement:** pending. See [`projects/r021_whichice/NOTES.md`](projects/r021_whichice/NOTES.md) and `SCRIPT.md`.

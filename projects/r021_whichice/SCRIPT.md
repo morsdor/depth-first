@@ -1,6 +1,11 @@
 # `I93` — SCRIPT (GATE 4) · "which ice raises the sea"
 
-**Status: DRAFT, awaiting the owner's approval. Nothing below is coded as a reel.** The only code that exists is
+**Status: APPROVED at G4, 2026-10-14. The owner's words: "No let it take its full length. Go ahead."** That is a yes to the
+script as drafted **and to decision #1 — the full 59.6 s, no cuts.** Decisions #2–#6 were not answered individually, **so they stand
+as drafted, with my recommendations** (the house with its two guards; the close names the fight, not both slogans; the hook rule resolved by
+starting the melt at 1.0 s). **From here the script is the CONTRACT.** The history below is kept as it was handed over.
+
+*Was: DRAFT, awaiting the owner's approval. Nothing below is coded as a reel.* The only code that exists is
 `research/melt_check.py`, `research/read_budget.py`, and the **glass probe** (`remotion/src/reels/GlassProbe.tsx`, not a
 reel). Once approved this is the CONTRACT: a beat that cannot be animated as written comes back here as a script change.
 
@@ -160,3 +165,29 @@ computation asserts.
 **A human yes on this script**, with the decisions in §4 — above all #1 (the runtime and the cut list), #3 (the two numbers) and
 #4 (the house). Nothing past the probe is built until this is approved. **The cheapest way to read it:** the copy column alone (§2), in
 two minutes, then say what you would change.
+
+## 9. BUILD-TIME AMENDMENTS, 2026-10-14 — what the build changed against the approved script
+
+**Nothing below changes a claim, a number, or the reading budget. Each is a place the build could not do exactly what the table said, or where
+the table contradicted itself. Each is recorded here so the contract is the truth, and each is the owner's to overrule.**
+
+1. **B07 gained a line, and the beat times moved.** The §1 table promised *"vertical exaggeration declared on screen"* for the Greenland beat, but
+   `read_budget.py` had no line for it, so the contract contradicted itself. **B07 is now "GREENLAND'S ICE: ON LAND. HEIGHT EXAGGERATED 30X."**
+   (7 words, 3.8 s to read); B06 moved earlier (34.8–37.6) to pay for it. **Runtime 59.4 s, down from 59.6.** `emit_ts.py` asserts that the "30X"
+   on screen is the exaggeration of the mesh (`EXAG = 30`). **The reading budget passes with every line.**
+2. **Greenland is real elevation, not NASA imagery or ice thickness.** The container cannot reach either (`RESEARCH.md` §6). The shot is built from
+   **AWS terrain tiles at zoom 4, which hold the ICE SURFACE** (checked at five stations, all within 1.2 %), and **Natural Earth's glaciated-areas
+   polygons** for the ice mask (`projects/r021_whichice/greenland.py`). **It shows the ice standing above the sea. It does NOT show the ice
+   THICKNESS or the bed** — the table said "the ice sheet at true thickness resting on rock above the sea", and **that cannot be drawn from surface
+   data, and the bed under the middle of the sheet is below sea level in places**. The copy never claims it. **A Mac fetch of BedMachine would allow it.**
+3. **The glass-to-planet move is a dissolve, not one continuous 3D move.** The glass pulling back until it is a speck on the sea **is** one continuous move in
+   one scene. The sea to Greenland (36.4–38.0 s) and Greenland to the house (41.7–42.3 s) are **cross-dissolves of separate canvases**, because one
+   float32 depth buffer cannot hold a 15 cm glass and a 2,600 km island (the `r009` lesson). **If you want the strict version it is a Mac task and a
+   different build.**
+4. **B06's tag is in the top caption zone with a leader line to a floe**, not set on the floe: the floe moves during the pull-out and a moving label cannot
+   be read. The line follows the floe; the tag stays put, on a dark pill so it reads over pale ice.
+5. **The house stands on a 6 ft bank**, two storeys of 17 ft, so that **24.3 ft of sea reaches just above the eaves** and the roof stays visible. It is
+   calm: no wreckage, no streets, no named place. The ring is drawn round the tide staff; **the staff, not the house, is the ruler** (the house's height is
+   a stylised guess and the reel never says how tall it is).
+6. **The camera in the house scene stays above the final sea level** (36 ft). Below it, a single-sided sea plane vanishes when viewed from underneath.
+7. **The glass echo in the close is in the lower right**, over the sea, small, with its own ring.

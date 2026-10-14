@@ -2587,3 +2587,50 @@ five frames, spending the beat's reading time.
 **All four primary sources were unreadable** (energy.gov, CMHC, colorado.edu, eia.gov are refused by the build container),
 so nothing on screen says "a study found". Weather came from files bundled in a PyPI wheel, so the cities were forced by
 availability and declared before any run. **Constraint, not choice, is the cleanest defence against dataset shopping.**
+
+
+### r021 / I93 — THE OWNER'S "GIVE ENOUGH TIME TO READ" BECAME A RULE A PROGRAM CHECKS, AND IT CAUGHT FOUR THINGS A READER WOULD NOT (2026-10-14)
+
+**The rule.** The owner's note at the Gate 0 yes — *"give enough time for people to read on the screen on the animation and text"* — was turned into
+`projects/r021_whichice/research/read_budget.py`: every line is on screen at full opacity for **1.0 s + 0.40 s per word** (150 wpm, a 1.6× margin on the 238 wpm average
+adult rate — search-level), **one reader going through the lines in order must finish each before it fades**, every finished animation is held **>= 2 s**, and no more
+than three blocks show at once. `emit_ts.py` imports the same beat times and re-runs it on every emit, so **shortening a window below its reading time is a build failure,
+not a judgement call.** Before this the repo had two sentences on the subject ("end-of-beat text >= 3 s", "a 2 s hold") and a long history of reels that read as
+"too fast to understand anything".
+
+**What it caught, in my own first draft.** (1) A line **0.07 s short** and (2) a hold of **1.0 s**. (3) **A hand-counted word total one word short** — a window sized from a
+hand count is not a check. (4) **The table promised something the budget did not contain:** the §1 on-screen column said *"vertical exaggeration declared on screen"*,
+but no line existed for it, so the contract contradicted itself and the missing line would have cost 0.6 s of runtime. **Every on-screen promise in a G4 table needs a
+row in the checker.** What no program caught: **a missing quantifier** — "GREENLAND'S ICE MELTS: … 24 FEET" is false for any amount short of all of it; the first number said
+"ALL", the second did not. Reading the copy against the claim is still a human job.
+
+**The model that matters: ONE reader.** The first version budgeted each block alone. Two blocks on screen together do not each get their own reading time. The serial
+reader (starts a block when it is fully visible AND the last is finished) **failed three lines the per-block check had passed**, and it is the honest model of a phone viewer.
+
+**The cost, stated.** The reel is **59.4 s, at the 60 s ceiling, and reading time is the whole reason**: 83 words need 45.0 s of full-opacity reading. The owner saw that
+and said *"let it take its full length."* **The first retention reading is the test of whether a slow reel holds**: `r016` and `r017` held 43 % and 40 % of their runtime.
+
+**A guard proved by mutation.** `emit_ts.py` asserts 24 claims at the moment the copy makes them. All 24 passed on the first run, which proves nothing about a guard, so
+**one animation time was broken on purpose** (the shelf melt ended at 28 s, after the rule was on screen) and it refused to write. **A guard that has never failed has not been shown to work.**
+Two of my own assertions had an `or` that made them nearly always true; they were tightened before the mutation test.
+
+**AWS TERRAIN TILES HOLD THE BED UNDER THE ICE AT ZOOM 5–9.** Over Greenland the tiles carry the ICE SURFACE at zoom <= 4 and zoom >= 10 and the BEDROCK between. At Summit
+Station (ice surface 3,216 m) they read 3,207 m at z4, **about 260 m at z5–z9**, and 3,254 m at z10; at NGRIP, 2,919 m at z4 and **−128 m** at z5–z9. A mesh from z6 — the
+obvious choice — would have shown a bowl. **Only an outside number at a known station caught it**, not any assertion about self-consistency (`r011`'s lesson, again). The first
+check, "the highest cell is near Gunnbjorn Fjeld, 3,694 m", **was wrong and was replaced, not loosened**: a ~3 km tile smooths a narrow rock peak; five station heights are the right check.
+
+**A `delayRender` taken inside `<ThreeCanvas>` did not hold the frame.** The loader's callback released the hold before React had applied the texture; the frame was captured with
+Greenland missing, **with no error and no timeout**. Load assets in the ordinary DOM tree and pass them in. **The debugging that found it:** swap the material for flat
+magenta (geometry present), then colour by `tex` (never set), then make the error path loud (`cancelRender` — the render passed, so the hold had never taken effect).
+
+**Refraction on the glass only** (`scripts/glass_probe/README.md`): nested transmissive bodies cannot see each other and fight over the depth buffer; water and ice are blended
+volumes drawn after the glass. **A camera that looks slightly down moves everything when the root group is dollied** — the glasses climbed into the type until `gyFor()` solved
+the group's height from the camera geometry. **A single-sided plane vanishes from underneath**: the house camera stays above the final sea level (36 ft against 24.3).
+
+**Cloud render, measured.** The glass pair costs ~3 s per frame, Greenland ~0.6 s, the house ~1.2 s, at concurrency 2 on 4 vCPUs with software GL: **~70 minutes for the reel.**
+**Concurrency 3 failed with a 33 s page timeout and was 8 frames in after minutes** — three tabs of software GL fight for four cores; use 2 and `--timeout=180000`. **And again:**
+`pkill -f "<pattern>"` run in a command line that contains the pattern kills its own shell (exit 144). The trap is already in `r020`'s notes; I repeated it. Use `pkill -f "[p]attern"`.
+
+**Not yet known — the readings that decide this reel:** shares per reach against `r016`'s 0.172 % and `r017`'s 0.143 % (pre-registered: works >= 0.30 %, falsifies < 0.10 %), and
+**comments at day 1: >= 15 supports "naming both slogans brings the argument", <= 5 means it did not.** The owner's reading-time rule makes this the first reel where a SLOW pace is
+a hypothesis about retention, not an accident.

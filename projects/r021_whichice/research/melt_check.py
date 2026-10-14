@@ -1,7 +1,7 @@
 """Stage 3 research for I93 — every physical claim in the sentence, run and asserted.
 
 Nothing here is drawn. It answers: is each sentence the reel will put on screen TRUE, by how much, and
-against what outside number? Run:  python3 -I gate0/i93_whichice/research/melt_check.py
+against what outside number? Run:  python3 -I projects/r021_whichice/research/melt_check.py
 
 Five checks, in the order the sentence makes them:
 

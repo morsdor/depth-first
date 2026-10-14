@@ -13,10 +13,10 @@ import { REEL_H, REEL_W } from './lib/chrome';
  * Glass probe — NOT a reel. No backlog id, no reel number, no log entries. It is the smoke test for the one
  * question that decides whether `I93`'s "amazing visuals" are possible at all: can `@remotion/three` render a
  * convincing glass of water with an ice cube in it, in this container's headless renderer, at a cost per frame
- * a 58 s reel can afford? See scripts/glass_probe/README.md for the findings and gate0/i93_whichice.
+ * a 58 s reel can afford? See scripts/glass_probe/README.md for the findings and projects/r021_whichice.
  *
  * Geometry is in CENTIMETRES (the research script's units) times CM. The glass, the water level (9.525 cm,
- * gate0/i93_whichice/research/melt_check.py) and the cube (4 cm, 91.7 % under the line) are the same numbers the
+ * projects/r021_whichice/research/melt_check.py) and the cube (4 cm, 91.7 % under the line) are the same numbers the
  * Gate 0 still drew, so the probe cannot disagree with the physics.
  *
  * The camera never moves — `<ThreeCanvas>` takes it as a prop — so a wrapping <group> does.

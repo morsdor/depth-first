@@ -23,6 +23,7 @@ import { DURATION_SECONDS as THERMOSTAT_SECONDS, Thermostat } from './reels/Ther
 import { DURATION_SECONDS as MANIM_SECONDS, ManimProbe } from './reels/ManimProbe';
 import { DURATION_SECONDS as GLOBEPROBE_SECONDS, GlobeProbe } from './reels/GlobeProbe';
 import { DURATION_SECONDS as GLASSPROBE_SECONDS, GlassProbe } from './reels/GlassProbe';
+import { DURATION_SECONDS as WHICHICE_SECONDS, WhichIce } from './reels/WhichIce';
 import { DURATION_SECONDS as GLOBEINDIA_SECONDS, GlobeIndia } from './reels/GlobeIndia';
 import { SafeZones } from './reels/lib/chrome';
 
@@ -163,6 +164,13 @@ const MoonMirrorsSafe: React.FC = () => (
 const ThermostatSafe: React.FC = () => (
   <>
     <Thermostat />
+    <SafeZones />
+  </>
+);
+
+const WhichIceSafe: React.FC = () => (
+  <>
+    <WhichIce />
     <SafeZones />
   </>
 );
@@ -633,6 +641,26 @@ export const RemotionRoot: React.FC = () => {
           of non-negotiable 9, SCRIPT.md). Data from remotion/src/reels/data/thermostat.ts,
           which projects/r020_thermostat/emit_ts.py refuses to write unless every on-screen
           claim holds at the screen second its words appear. */}
+      {/* r021 · I93 · floating ice barely raises the sea; ice on land does. Silent, 3D, 59.4 s. Every second and every word comes from
+          data/whichice.ts, which projects/r021_whichice/emit_ts.py refuses to write unless every on-screen claim is true at the moment
+          its copy appears, and unless the reading-time budget the owner set (research/read_budget.py) still holds. */}
+      <Composition
+        id="r021-whichice"
+        component={WhichIce}
+        durationInFrames={Math.round(WHICHICE_SECONDS * 30)}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="r021-whichice-safe"
+        component={WhichIceSafe}
+        durationInFrames={Math.round(WHICHICE_SECONDS * 30)}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+
       <Composition
         id="r020-thermostat"
         component={Thermostat}

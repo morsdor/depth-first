@@ -1,5 +1,5 @@
 {
- "runtime_s": 59.6,
+ "runtime_s": 59.4,
  "blocks": [
   {
    "id": "B01",
@@ -69,67 +69,67 @@
   {
    "id": "B06",
    "copy": "SEA ICE: FLOATS",
-   "t_in": 35.4,
-   "t_out": 38.2,
+   "t_in": 34.8,
+   "t_out": 37.6,
    "words": 3,
    "full_s": 2.33,
    "need_s": 2.2,
    "rides_on": "the floes",
    "end_of_beat": false,
-   "reader_start": 35.7,
-   "reader_done": 37.9
+   "reader_start": 35.1,
+   "reader_done": 37.3
   },
   {
    "id": "B07",
-   "copy": "GREENLAND'S ICE: ON LAND",
-   "t_in": 38.4,
-   "t_out": 42.2,
-   "words": 4,
-   "full_s": 3.33,
-   "need_s": 2.6,
+   "copy": "GREENLAND'S ICE: ON LAND. HEIGHT EXAGGERATED 30X.",
+   "t_in": 37.8,
+   "t_out": 42.1,
+   "words": 7,
+   "full_s": 3.83,
+   "need_s": 3.8,
    "rides_on": "the ice sheet",
    "end_of_beat": false,
-   "reader_start": 38.7,
-   "reader_done": 41.3
+   "reader_start": 38.1,
+   "reader_done": 41.9
   },
   {
    "id": "B08",
    "copy": "ALL FLOATING ICE MELTS: SEA LEVEL RISES ABOUT 1.5 INCHES",
-   "t_in": 42.4,
-   "t_out": 47.9,
+   "t_in": 42.2,
+   "t_out": 47.7,
    "words": 10,
    "full_s": 5.03,
    "need_s": 5.0,
    "rides_on": "the ring on the house",
    "end_of_beat": false,
-   "reader_start": 42.7,
-   "reader_done": 47.7
+   "reader_start": 42.5,
+   "reader_done": 47.5
   },
   {
    "id": "B09",
    "copy": "ALL OF GREENLAND'S ICE MELTS: SEA LEVEL RISES ABOUT 24 FEET",
-   "t_in": 47.9,
-   "t_out": 53.8,
+   "t_in": 47.7,
+   "t_out": 53.6,
    "words": 11,
    "full_s": 5.43,
    "need_s": 5.4,
    "rides_on": "the ring on the house",
    "end_of_beat": true,
-   "reader_start": 48.2,
-   "reader_done": 53.6
+   "reader_start": 48.0,
+   "reader_done": 53.4
   },
   {
    "id": "B10",
    "copy": "SEND THIS TO WHOEVER'S ARGUING ABOUT ICE. FOLLOW FOR MORE.",
-   "t_in": 53.9,
-   "t_out": 59.4,
+   "t_in": 53.7,
+   "t_out": 59.2,
    "words": 10,
    "full_s": 5.03,
    "need_s": 5.0,
    "rides_on": "the finished frame",
    "end_of_beat": true,
-   "reader_start": 54.2,
-   "reader_done": 59.2
+   "reader_start": 54.0,
+   "reader_done": 59.0
   }
  ],
  "events": [
@@ -155,19 +155,19 @@
    "name": "the camera pulls out, glass to sea to Greenland",
    "start": 33.4,
    "end": 38.8,
-   "state_held_to": 42.4
+   "state_held_to": 42.2
   },
   {
    "name": "the ring on the house rises 1.5 in",
    "start": 43.2,
    "end": 44.2,
-   "state_held_to": 47.9
+   "state_held_to": 47.7
   },
   {
    "name": "the ring on the house climbs to 24 ft",
    "start": 49.2,
    "end": 52.8,
-   "state_held_to": 59.6
+   "state_held_to": 59.4
   }
  ],
  "budget": {
@@ -175,6 +175,8 @@
   "per_word_s": 0.4,
   "min_block_s": 2.0,
   "end_of_beat_min_s": 3.0,
-  "hold_min_s": 2.0
+  "hold_min_s": 2.0,
+  "fade_in_s": 0.3,
+  "fade_out_s": 0.17
  }
 }

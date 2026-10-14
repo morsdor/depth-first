@@ -6,8 +6,9 @@ Proposed 2026-10-13. Backlog id `I93` (§2 *Maps and real geography* → accent 
 feathers, a buried river — stay where they were or unminted), with one direction attached: **"we
 need amazing visuals for this video."** §5 is the answer to that and §6 is what stands in its way.
 
-**No reel number is claimed.** `r021` is the next free number, and `I92` (daylight saving) is also
-waiting on it; whichever build writes its first `.tsx` claims it.
+**Reel number `r021` is claimed (2026-10-14), when the first reel `.tsx` was written.** This folder moved from
+`gate0/i93_whichice/` to `projects/r021_whichice/` the same day, as CLAUDE.md prescribes. `I92` (daylight saving) was also waiting on
+`r021`; **it will take `r022` when its build starts.**
 
 Nothing has been built as a reel. This file and `payoff_frame.png` are the two artefacts CLAUDE.md requires
 **before** any Python, any `.tsx`, any data module. `mock_payoff.py` is the five-minute still.
