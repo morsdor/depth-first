@@ -96,8 +96,14 @@ const rigAt = (t: number): Rig => {
   const dHold = lerp(dSingle, dPair, slide);
   const dEnd = 190;
   const d = t < ANIM.pull[0] ? dHold : dPair * Math.exp(Math.log(dEnd / dPair) * pullU);
-  const yPx = lerp(lerp(1010, 880, slide), 760, pullU); // where the glasses' centre sits on the frame
-  const gx = lerp(-LEFT_X * CM, 0, slide) * (1 - pullU) - pxToUnits(CENTER_SHIFT_PX, d);
+  // a slow constant-speed orbit of the whole shot (an ellipse, 9 x 13 px, one lap per 6.5 s; a 20 px version measured 1.3 per 4 fps sample against the 0.35 floor, this smaller one is judged by the audit on the render), so the frame is never at rest between events;
+  // it stops before the pull-out begins, and `projectLocal` follows it because it reads this same rig
+  const lap = (t / 6.5) * Math.PI * 2;
+  const orbit = 1 - sm(t, [ANIM.pull[0] - 1.0, ANIM.pull[0]]);
+  const orbitX = Math.cos(lap) * 9 * orbit;
+  const orbitY = Math.sin(lap) * 13 * orbit;
+  const yPx = lerp(lerp(1010, 880, slide), 760, pullU) + orbitY; // where the glasses' centre sits on the frame
+  const gx = lerp(-LEFT_X * CM, 0, slide) * (1 - pullU) - pxToUnits(CENTER_SHIFT_PX - orbitX, d);
   const ryOrbit = lerp(-0.3, 0.1, clamp01(t / ANIM.slide[0]));
   const ry = lerp(ryOrbit, lerp(0.04, -0.03, holdU), slide) * (1 - pullU);
   const rx = lerp(0.04, 0.34, pullU);
@@ -426,6 +432,9 @@ const staffTexture = (): THREE.CanvasTexture => {
 
 const FT_BANK = 6; // the house stands on a bank 6 ft above the sea
 const HOUSE = { x0: 1.2, w: 12, d: 8, wall: 17, roof: 4.5 };
+/** The bank starts to the right of the staff and its ring (the ring ends at x = 1.05): a bank in front of the staff hid the 0 mark and most of the ring through the 1.5-inch beat. */
+const BANK_X0 = 1.1;
+const RING_R = 1.85;
 
 const seaLevelFt = (t: number) => {
   const blip = SCALE.floating_in / 12;
@@ -450,7 +459,7 @@ const HouseWorld: React.FC = () => {
       <ambientLight intensity={1.0} color="rgb(214, 232, 255)" />
       <directionalLight position={[-8, 18, 14]} intensity={2.0} color="rgb(255, 244, 232)" />
       <directionalLight position={[10, 6, -6]} intensity={0.9} color={CYAN} />
-      <group position={[Math.sin(t * 0.55) * 0.9, 0, Math.sin(t * 0.37) * 2.4]} rotation={[0, Math.sin(t * 0.29) * 0.018, 0]}>
+      <group position={[Math.sin(t * 0.8) * 1.1, Math.cos(t * 0.8) * 0.6, Math.sin(t * 0.37) * 2.4]} rotation={[0, Math.sin(t * 0.29) * 0.018, 0]}>
 
       {/* the sea: a flat plane at the ring's height, with light on it */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, L, 0]} renderOrder={4}>
@@ -468,8 +477,8 @@ const HouseWorld: React.FC = () => {
       </mesh>
 
       {/* the bank and the house */}
-      <mesh position={[(-1.8 + 60) / 2, FT_BANK / 2 - 3, -20]}>
-        <boxGeometry args={[61.8, FT_BANK + 6, 60]} />
+      <mesh position={[(BANK_X0 + 60) / 2, FT_BANK / 2 - 3, -20]}>
+        <boxGeometry args={[60 - BANK_X0, FT_BANK + 6, 60]} />
         <meshStandardMaterial color="rgb(62, 55, 50)" roughness={0.95} />
       </mesh>
       <group position={[hx, FT_BANK, -2]}>
@@ -504,11 +513,11 @@ const HouseWorld: React.FC = () => {
       </mesh>
       {/* the ring — the one amber element — round the staff, riding the sea; and the band across the staff */}
       <mesh position={[staffX, L + 0.05, 1.2]} rotation={[Math.PI / 2, 0, 0]} renderOrder={6}>
-        <torusGeometry args={[3.1, 0.1, 12, 160]} />
+        <torusGeometry args={[RING_R, 0.1, 12, 160]} />
         <meshBasicMaterial color={AMBER} toneMapped={false} />
       </mesh>
       <mesh position={[staffX, L + 0.05, 1.2]} rotation={[Math.PI / 2, 0, 0]} renderOrder={6}>
-        <torusGeometry args={[3.1, 0.36, 12, 160]} />
+        <torusGeometry args={[RING_R, 0.3, 12, 160]} />
         <meshBasicMaterial color={AMBER} transparent opacity={0.16} depthWrite={false} blending={THREE.AdditiveBlending} toneMapped={false} />
       </mesh>
       <mesh position={[staffX, L, 1.4]} renderOrder={7}>

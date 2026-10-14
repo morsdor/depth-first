@@ -191,3 +191,12 @@ the table contradicted itself. Each is recorded here so the contract is the trut
    a stylised guess and the reel never says how tall it is).
 6. **The camera in the house scene stays above the final sea level** (36 ft). Below it, a single-sided sea plane vanishes when viewed from underneath.
 7. **The glass echo in the close is in the lower right**, over the sea, small, with its own ring.
+8. **The bank starts to the right of the tide staff** (`BANK_X0 = 1.1`) and the ring is 1.85 round the staff rather than 3.1. With the bank in front of the
+   staff, the 0 mark and most of the ring were hidden through B08 — the beat the 1.5 inches is on — so the one ruler could not be read where the sentence is.
+   Now the whole 0–25 ft staff and the ring are visible from the first frame of the house to the last. No number, copy or timing changed.
+9. **The shot is never at rest: a slow orbit (9 x 13 px, one lap per 6.5 s) is added to the glass camera rig, and the house drifts a little faster.** The first
+   two renders failed the motion audit (5.0 s dead spell at 27.8 s) once the grounds were darkened for the safe-area audit: a held glass pair changes only
+   ~0.2 per sample against the 0.35 floor. The orbit is constant speed so it has no turning points; it fades out before the pull-out begins. It changes no
+   position the claims depend on (the ring and the guide line are in the same moving world).
+10. **The right-hand glass slides in from outside the frame (16.4–17.4 s)**, so for about one second part of it is past the safe area's right edge. That
+    range is declared as bleed in the audit (`--bleed 16.4-17.4,34.0-42.3`); **the header band is still enforced** and there is no text in the glass.
