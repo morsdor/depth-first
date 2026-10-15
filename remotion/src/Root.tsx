@@ -27,6 +27,7 @@ import { DURATION_SECONDS as WHICHICE_SECONDS, WhichIce } from './reels/WhichIce
 import { DURATION_SECONDS as GLOBEINDIA_SECONDS, GlobeIndia } from './reels/GlobeIndia';
 import { SafeZones } from './reels/lib/chrome';
 import { DURATION_SECONDS as YT_GPS_SECONDS, Gps } from './yt/Gps';
+import { Thumb } from './yt/Thumb';
 
 /**
  * Depth First — composition registry. POSTED REELS ONLY.
@@ -733,6 +734,8 @@ export const RemotionRoot: React.FC = () => {
         width={3840}
         height={2160}
       />
+      <Composition id="yt001-thumb" component={Thumb} durationInFrames={1} fps={30} width={3840} height={2160} defaultProps={{ text: true }} />
+      <Composition id="yt001-thumb-base" component={Thumb} durationInFrames={1} fps={30} width={3840} height={2160} defaultProps={{ text: false }} />
     </>
   );
 };
