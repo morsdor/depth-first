@@ -50,13 +50,23 @@ sentence boundary, and character-share inside a sentence for phrase-level cues (
 * No claim about the size of any real thing that is not to scale. The sphere in scene 3A is to scale; the
   three-sphere toy is labelled as a sketch by its framing, not by a number.
 
+## The render
+
+`npx remotion render yt001-gps … --scale=0.5 --codec=h264 --crf=20 --concurrency=4` (about 7–20 min on 4 cores, cloud
+container, headless-shell Chromium), then mastered with ffmpeg: a light compressor, `loudnorm` to **−16 LUFS /
+−1.5 dBTP** (the raw narration measured −24.8 LUFS, too quiet for YouTube, which never boosts), x264 crf 23.
+**1920×1080 · 4:57 · 45 MB** → `yt001_gps.mp4`. v1 had long static stretches; v2 (commit `9e577d7`) added motion to
+every beat: a living ground, signal fronts that keep travelling, marching dashes, two clocks beside the gravity
+well (ground slower, satellite faster, exaggerated and labelled), photons climbing the Harvard tower, a day counter,
+the 11 digits typed on one by one, L1/L5 pulses with L5 lagging.
+
 ## Known weaknesses
 
 * **The voice was chosen by Kokoro's published quality grade (`af_heart`), not by ear** — nobody has listened to it in
   this session. Check pacing and pronunciation ("N T S two", the 11-digit frequency, "Kelvin"-free script).
 * The constellation is **stylised**: 31 satellites in six 55° planes, evenly spread. The real slots are not.
-* Scene 5's right-hand ledger and left stage are visually thin in places; scene 3B's reveal is timed by
-  character share inside the sentence, so it can sit a beat early or late.
+* Scenes 5 and 6 are still text-forward: a left-weighted stage beside a ledger, with real empty space in the lower
+  third. Scene 3B's reveal is timed by character share inside the sentence, so it can sit a beat early or late.
 * Nothing here has been read at a primary source (no Ashby review PDF, no gps.gov PDF, no IS-GPS-200). Every
   external number is search-level.
 * **Upload note:** the narration is AI-generated — disclose it. Captions are in `captions.srt`.
