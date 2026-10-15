@@ -132,7 +132,13 @@ export const S5Einstein: React.FC = () => {
                   <rect x={20} y={-16} width={50} height={32} fill={COL.blue} />
                   <rect x={-16} y={-16} width={32} height={32} fill={COL.bone} />
                 </g>
-                <line x1={wx - 640} y1={870} x2={wx - 640} y2={1130} stroke={rgba(COL.cyan, 0.7)} strokeWidth={5} strokeDasharray="10 14" />
+                <line x1={wx - 640} y1={870} x2={wx - 640} y2={1130} stroke={rgba(COL.cyan, 0.7)} strokeWidth={5} strokeDasharray="10 14" strokeDashoffset={-t * 60} />
+                {[0, 1, 2].map((k) => {
+                  const ph = (t * 0.22 + k / 3) % 1;
+                  return <ellipse key={k} cx={wx} cy={1330} rx={110 + ph * 700} ry={36 + ph * 230} fill="none" stroke={rgba(COL.cyan, 0.4 * (1 - ph))} strokeWidth={5} />;
+                })}
+                <Clock cx={wx + 560} cy={1380} r={110} deg={(t * 18) % 360} label="slower" t={t} at={c[2] + 3.0} />
+                <Clock cx={wx - 960} cy={1000} r={110} deg={(t * 18 * 1.6) % 360} label="faster (exaggerated)" sat t={t} at={c[2] + 3.4} />
               </g>
             );
           })()}
@@ -147,6 +153,10 @@ export const S5Einstein: React.FC = () => {
               <line x1={1335} y1={k === 0 ? 640 : 1240} x2={1335} y2={k === 0 ? 600 : 1200} stroke={COL.bone} strokeWidth={7} />
             </g>
           ))}
+          {[0, 1, 2, 3].map((k) => {
+            const ph = (t * 0.45 + k * 0.25) % 1;
+            return <circle key={k} cx={1335 + 14 * Math.sin(ph * 18)} cy={1240 - ph * 600} r={14} fill={rgba(COL.cyan, 0.9 * (1 - 0.5 * ph))} />;
+          })}
           <line x1={1150} y1={640} x2={1150} y2={1240} stroke={COL.amber} strokeWidth={6} />
           <line x1={1130} y1={640} x2={1170} y2={640} stroke={COL.amber} strokeWidth={6} />
           <line x1={1130} y1={1240} x2={1170} y2={1240} stroke={COL.amber} strokeWidth={6} />
@@ -156,6 +166,7 @@ export const S5Einstein: React.FC = () => {
         <g opacity={g(4)}>
           <line x1={240} y1={1250} x2={2240} y2={1250} stroke={COL.graphite} strokeWidth={8} />
           <line x1={240} y1={1250} x2={240 + 2000 * rulerT} y2={1250} stroke={COL.cyan} strokeWidth={14} strokeLinecap="round" />
+          {rulerT >= 1 && <circle cx={240 + 2000 * ((t * 0.28) % 1)} cy={1250} r={22} fill={COL.bone} />}
           {Array.from({ length: 25 }, (_, i) => (
             <line key={i} x1={240 + (2000 * i) / 24} y1={1220} x2={240 + (2000 * i) / 24} y2={1280} stroke={i % 6 === 0 ? COL.ash : COL.graphite} strokeWidth={i % 6 === 0 ? 6 : 3} />
           ))}
@@ -170,6 +181,7 @@ export const S5Einstein: React.FC = () => {
           </g>
           <line x1={300} y1={1180} x2={2200} y2={1180} stroke={COL.graphite} strokeWidth={8} />
           <circle cx={300} cy={1180} r={24} fill={COL.bone} />
+          <circle cx={300 + 1600 * lin(t, c[5] + 1.0, c[5] + 9.0)} cy={1180} r={24} fill={COL.cyan} />
           <line x1={300} y1={1100} x2={2200 * 0 + 1900} y2={1100} stroke={COL.cyan} strokeWidth={8} strokeDasharray={`${1600 * lin(t, c[5] + 1.0, c[5] + 6.5)} 3000`} />
           <rect x={300} y={1000} width={1600} height={200} fill="none" />
           <rect x={300} y={1400} width={300} height={130} rx={65} fill={rgba(COL.slate, 0.9)} stroke={COL.ash} strokeWidth={6} />
@@ -218,6 +230,7 @@ export const S5Einstein: React.FC = () => {
       <Txt x={300} y={1210} t={t} at={c[5] + 0.8} out={OUT(5)} font="mono" size={56} color={COL.ash}>launch</Txt>
       <Txt x={780} y={960} t={t} at={c[5] + 3.2} out={OUT(5)} font="mono" size={72} color={COL.cyan}>≈ 20 days, running free</Txt>
       <Txt x={660} y={1420} t={t} at={c[5] + 1.0} out={OUT(5)} font="mono" size={64} color={COL.ash}>correction: OFF</Txt>
+      <Txt x={1700} y={1250} t={t} at={c[5] + 1.0} out={OUT(5)} font="mono" size={120} color={COL.cyan}>{`day ${Math.round(20 * lin(t, c[5] + 1.0, c[5] + 9.0))}`}</Txt>
 
       <Txt x={240} y={290} t={t} at={c[6] + 0.2} out={OUT(6)} font="display" size={130} color={COL.bone} lh={1}>MEASURED VS PREDICTED</Txt>
       <Txt x={240} y={670} t={t} at={c[6] + 1.2} out={OUT(6)} font="mono" size={56} color={COL.cyan}>MEASURED   +442.5 parts per trillion</Txt>
@@ -232,7 +245,9 @@ export const S5Einstein: React.FC = () => {
       <Txt x={240} y={960} t={t} at={c[7] + 3.0} font="mono" size={56} color={COL.ash}>WHAT IT IS SET TO ON THE GROUND</Txt>
       <Txt x={240} y={1040} t={t} at={c[7] + 3.2} font="mono" size={150} color={COL.ash} lh={1}>
         {'10.22'}
-        <span style={{ color: COL.cyan }}>{N.set_mhz_str.slice(5, 14)}</span>
+        <span style={{ color: COL.cyan }}>
+          {N.set_mhz_str.slice(5, 5 + Math.floor(lin(t, c[7] + 3.4, c[7] + 7.4) * 9.999)) + '\u00A0'.repeat(9 - Math.floor(lin(t, c[7] + 3.4, c[7] + 7.4) * 9.999))}
+        </span>
         {' MHz'}
       </Txt>
       <Txt x={240} y={1300} t={t} at={c[7] + 7.0} font="mono" size={96} color={COL.bone}>{`− ${(N.frac_ppt / 1e12 * 1e10).toFixed(3)} × 10⁻¹⁰`}</Txt>

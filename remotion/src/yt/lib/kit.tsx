@@ -135,6 +135,13 @@ export const Ground: React.FC<{ t: number; cx?: number; cy?: number }> = ({ t, c
           </pattern>
         </defs>
         <rect width={W} height={H} fill="url(#mesh)" opacity={0.9} />
+        {Array.from({ length: 64 }, (_, i) => {
+          const sp = 6 + ((i * 37) % 23);
+          const x = (i * 997 + 211) % W;
+          const y = (((i * 613 + 97) % H) - t * sp + H * 4) % H;
+          const a = 0.10 + 0.14 * (0.5 + 0.5 * Math.sin(t * 1.1 + i * 1.7));
+          return <circle key={i} cx={x} cy={y} r={2 + (i % 3)} fill={rgba(COL.ash, a)} />;
+        })}
       </svg>
       <AbsoluteFill
         style={{ background: `radial-gradient(ellipse 85% 85% at 50% 50%, ${rgba(COL.ink, 0)} 55%, ${rgba(COL.ink, 0.75)} 100%)` }}

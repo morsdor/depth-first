@@ -7,7 +7,7 @@ const CARD = [COL.cyan, COL.blue, COL.amber];
 const Card: React.FC<{ x: number; k: number; title: string; sub: string; at: number; t: number; dim: number; children: React.ReactNode }> = ({ x, k, title, sub, at, t, dim, children }) => {
   const on = ramp(t, at, at + 0.6) * dim;
   return (
-    <g opacity={on} transform={`translate(${x} ${560 + (1 - ramp(t, at, at + 0.6)) * 40})`}>
+    <g opacity={on} transform={`translate(${x} ${560 + (1 - ramp(t, at, at + 0.6)) * 40 + 10 * Math.sin(t * 1.3 + k * 2)})`}>
       <rect width={1040} height={900} rx={32} fill={rgba(COL.slate, 0.85)} stroke={rgba(CARD[k], 0.8)} strokeWidth={6} />
       <g transform="translate(520 330)">{children}</g>
       <text x={520} y={660} fontFamily="Archivo Black" fontSize={84} fill={COL.bone} textAnchor="middle">{title}</text>
@@ -70,8 +70,8 @@ export const S7Close: React.FC = () => {
 
         {/* what else runs on GPS time */}
         <g opacity={infra} transform="translate(0 0)">
-          <circle cx={1920} cy={960} r={190} fill={rgba(COL.cyan, 0.12)} stroke={COL.cyan} strokeWidth={8} />
-          <text x={1920} y={985} fontFamily="Archivo Black" fontSize={76} fill={COL.bone} textAnchor="middle">GPS TIME</text>
+          <circle cx={1920} cy={960} r={190 + 10 * Math.sin(t * 3)} fill={rgba(COL.cyan, 0.12)} stroke={COL.cyan} strokeWidth={8} />
+          <text x={1920} y={980} fontFamily="Archivo Black" fontSize={58} fill={COL.bone} textAnchor="middle">GPS TIME</text>
           {[
             { x: 760, label: 'CELL NETWORKS' },
             { x: 1920, label: 'POWER GRIDS', y: 1500 },
@@ -80,7 +80,8 @@ export const S7Close: React.FC = () => {
             const y = n.y ?? 960;
             return (
               <g key={i}>
-                <line x1={1920} y1={960} x2={n.x} y2={y === 960 ? 960 : 1360} stroke={rgba(COL.cyan, 0.5)} strokeWidth={6} strokeDasharray="12 16" />
+                <line x1={1920} y1={960} x2={n.x} y2={y === 960 ? 960 : 1360} stroke={rgba(COL.cyan, 0.5)} strokeWidth={6} strokeDasharray="12 16" strokeDashoffset={-t * 90} />
+                <circle cx={1920 + (n.x - 1920) * ((t * 0.35 + i * 0.3) % 1)} cy={960 + ((y === 960 ? 960 : 1360) - 960) * ((t * 0.35 + i * 0.3) % 1)} r={14} fill={COL.cyan} />
                 <rect x={n.x - 320} y={y === 960 ? 860 : 1360} width={640} height={200} rx={28} fill={rgba(COL.slate, 0.9)} stroke={rgba(COL.ash, 0.5)} strokeWidth={4} />
                 <text x={n.x} y={(y === 960 ? 860 : 1360) + 122} fontFamily="Archivo Black" fontSize={56} fill={COL.bone} textAnchor="middle">{n.label}</text>
               </g>
@@ -89,7 +90,7 @@ export const S7Close: React.FC = () => {
         </g>
       </svg>
 
-      <Txt x={W / 2} y={330} t={t} at={a1 - 0.8} out={c1 - 0.6} font="display" size={150} color={COL.bone} align="center" lh={1}>THREE IDEAS</Txt>
+      <Txt x={W / 2} y={330} t={t} at={0.3} out={c1 - 0.6} font="display" size={150} color={COL.bone} align="center" lh={1}>THREE IDEAS</Txt>
       <Txt x={W / 2} y={330} t={t} at={c1 + 0.3} out={c2 - 0.6} font="display" size={150} color={COL.bone} align="center" lh={1}>NOT JUST MAPS</Txt>
       <Txt x={W / 2} y={330} t={t} at={c2 + 0.2} out={endAt - 0.1} font="display" size={150} color={COL.bone} align="center" lh={1}>TAKE ANY ONE AWAY</Txt>
       <Txt x={W / 2} y={1620} t={t} at={c2 + 3.0} out={endAt - 0.1} font="sans" size={84} color={COL.ash} align="center">and the system stops working</Txt>

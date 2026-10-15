@@ -44,18 +44,22 @@ export const S6Accuracy: React.FC = () => {
             <rect key={`${i}${j}`} x={CX + (i * road + 10) * Z} y={CY + (j * road + 10) * Z} width={(road - 20) * Z} height={(road - 20) * Z} fill={rgba(COL.slate, 0.95)} stroke={rgba(COL.ash, 0.25)} strokeWidth={2} />
           )))}
           {/* 100 m: how it was degraded on purpose */}
-          <circle cx={CX} cy={CY} r={100 * Z} fill={rgba(COL.red, 0.05 * sa)} stroke={rgba(COL.red, 0.9 * sa)} strokeWidth={6} opacity={ramp(t, c2 + 0.8, c2 + 1.6)} />
+          <circle cx={CX} cy={CY} r={100 * Z} fill={rgba(COL.red, 0.05 * sa)} stroke={rgba(COL.red, (0.65 + 0.25 * Math.sin(t * 4)) * sa)} strokeWidth={6} opacity={ramp(t, c2 + 0.8, c2 + 1.6)} />
           {/* 4.9 m and 2 m */}
           <circle cx={CX} cy={CY} r={4.9 * Z} fill={rgba(COL.bone, 0.1)} stroke={COL.bone} strokeWidth={6} opacity={ramp(t, c0 + 0.8, c0 + 1.6)} />
           <circle cx={CX} cy={CY} r={2 * Z} fill={rgba(COL.cyan, 0.16)} stroke={COL.cyan} strokeWidth={6} opacity={ramp(t, c0 + 3.2, c0 + 4.0)} />
+          {[0, 1].map((k) => {
+            const ph = (t * 0.5 + k * 0.5) % 1;
+            return <circle key={k} cx={CX} cy={CY} r={8 + ph * 9 * Z} fill="none" stroke={rgba(COL.blue, 0.7 * (1 - ph))} strokeWidth={4} />;
+          })}
           <circle cx={CX} cy={CY} r={Math.max(7, 0.9 * Z * 0.5)} fill={COL.blue} stroke={COL.bone} strokeWidth={4} />
           {/* a building bouncing the signal: the long way round looks like a longer distance */}
           {(() => {
             const o = ramp(t, c0 + 8.0, c0 + 9.0) * (1 - ramp(t, c1 - 0.7, c1 - 0.2));
             return (
               <g opacity={o}>
-                <line x1={3480} y1={260} x2={CX + 78 * Z} y2={CY - 40 * Z} stroke={rgba(COL.cyan, 0.9)} strokeWidth={6} strokeDasharray="14 14" />
-                <line x1={CX + 78 * Z} y1={CY - 40 * Z} x2={CX + 6} y2={CY - 6} stroke={rgba(COL.cyan, 0.9)} strokeWidth={6} strokeDasharray="14 14" />
+                <line x1={3480} y1={260} x2={CX + 78 * Z} y2={CY - 40 * Z} stroke={rgba(COL.cyan, 0.9)} strokeWidth={6} strokeDasharray="14 14" strokeDashoffset={-t * 150} />
+                <line x1={CX + 78 * Z} y1={CY - 40 * Z} x2={CX + 6} y2={CY - 6} stroke={rgba(COL.cyan, 0.9)} strokeWidth={6} strokeDasharray="14 14" strokeDashoffset={-t * 150} />
               </g>
             );
           })()}
@@ -73,6 +77,33 @@ export const S6Accuracy: React.FC = () => {
           <polyline points="3500,240 2900,520 2800,940 1900,1700" fill="none" stroke={COL.cyan} strokeWidth={8} strokeDasharray={`${3600 * ramp(t, c1 + 1.0, c1 + 4.0)} 4000`} />
           {/* L5: bent more */}
           <polyline points="3500,240 2960,520 2640,940 1900,1700" fill="none" stroke={COL.blue} strokeWidth={8} strokeDasharray={`${3600 * ramp(t, c1 + 2.4, c1 + 5.4)} 4000`} />
+          {(() => {
+            const along = (pts: number[][], u: number) => {
+              const segs = pts.slice(1).map((q, i) => Math.hypot(q[0] - pts[i][0], q[1] - pts[i][1]));
+              const tot = segs.reduce((a, b) => a + b, 0);
+              let d = u * tot;
+              for (let i = 0; i < segs.length; i++) {
+                if (d <= segs[i] || i === segs.length - 1) {
+                  const f = Math.min(1, d / segs[i]);
+                  return [pts[i][0] + (pts[i + 1][0] - pts[i][0]) * f, pts[i][1] + (pts[i + 1][1] - pts[i][1]) * f];
+                }
+                d -= segs[i];
+              }
+              return pts[pts.length - 1];
+            };
+            const l1 = [[3500, 240], [2900, 520], [2800, 940], [1900, 1700]];
+            const l5 = [[3500, 240], [2960, 520], [2640, 940], [1900, 1700]];
+            const u = (t * 0.22) % 1;
+            const a = along(l1, u);
+            const b = along(l5, Math.max(0, u - 0.05));
+            const on = ramp(t, c1 + 4.2, c1 + 5.0);
+            return (
+              <g opacity={on}>
+                <circle cx={a[0]} cy={a[1]} r={18} fill={COL.cyan} />
+                <circle cx={b[0]} cy={b[1]} r={18} fill={COL.blue} />
+              </g>
+            );
+          })()}
           <circle cx={1900} cy={1700} r={22} fill={COL.blue} stroke={COL.bone} strokeWidth={6} />
           <g transform="translate(3500 240)">
             <rect x={-70} y={-16} width={50} height={32} fill={COL.blue} />

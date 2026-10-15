@@ -92,7 +92,11 @@ export const S3Ranging: React.FC = () => {
           {travel > 0 && travel < 1 && (
             <circle cx={satA.x} cy={satA.y} r={(rxA.y - satA.y) * travel} fill="none" stroke={rgba(COL.cyan, 0.9)} strokeWidth={8} />
           )}
-          <line x1={satA.x} y1={satA.y} x2={rxA.x} y2={rxA.y} stroke={rgba(COL.cyan, 0.45)} strokeWidth={4} strokeDasharray="14 16" />
+          <line x1={satA.x} y1={satA.y} x2={rxA.x} y2={rxA.y} stroke={rgba(COL.cyan, 0.45)} strokeWidth={4} strokeDasharray="14 16" strokeDashoffset={-t * 120} />
+          {t > c0 + 4.8 && [0, 1].map((k) => {
+            const ph = (((t - c0 - 4.8) / 2.6) + k * 0.5) % 1;
+            return <circle key={k} cx={satA.x} cy={satA.y} r={(rxA.y - satA.y) * ph} fill="none" stroke={rgba(COL.cyan, 0.5 * (1 - ph))} strokeWidth={6} />;
+          })}
           {ramp(t, c1 - 0.2, c1 + 1.4) > 0 && (
             <circle cx={satA.x} cy={satA.y} r={(rxA.y - satA.y) * ramp(t, c1 - 0.2, c1 + 1.4)} fill={rgba(COL.cyan, 0.06)} stroke={rgba(COL.cyan, 0.9)} strokeWidth={6} />
           )}

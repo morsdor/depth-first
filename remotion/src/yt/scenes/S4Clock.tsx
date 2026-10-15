@@ -28,8 +28,8 @@ export const S4Clock: React.FC = () => {
   const est = { x: a.x + (b.x - a.x) * f, y: a.y + (b.y - a.y) * f, b: a.b + (b.b - a.b) * f };
   const solved = u >= L - 1.01;
 
-  const showStage = ramp(t, c0 + 4.5, c0 + 5.5);
-  const ringsOn = ramp(t, c0 + 5.0, c0 + 6.5);
+  const showStage = ramp(t, c0 + 1.0, c0 + 2.0);
+  const ringsOn = ramp(t, c0 + 1.6, c0 + 3.0);
 
   // the real solve, as a staircase of errors
   const logw = (m: number) => 1140 * Math.max(0.02, Math.log10(m + 1) / Math.log10(IT[0].pos_err_m + 1));
@@ -57,6 +57,14 @@ export const S4Clock: React.FC = () => {
             {D2.sats.map((s, i) => (
               <circle key={i} cx={sx(s[0])} cy={sy(s[1])} r={Math.max(0, (D2.rho[i] - est.b) * SC)} fill={rgba(SAT_COL[i], 0.04)} stroke={rgba(SAT_COL[i], 0.9 * ringsOn)} strokeWidth={6} />
             ))}
+            {D2.sats.map((s, i) => {
+              const r = Math.max(0, (D2.rho[i] - est.b) * SC);
+              return <circle key={`m${i}`} cx={sx(s[0])} cy={sy(s[1])} r={r} fill="none" stroke={rgba(COL.bone, 0.55 * ringsOn)} strokeWidth={4} strokeDasharray="6 120" strokeDashoffset={-t * 160 - i * 90} />;
+            })}
+            {D2.sats.map((s, i) => {
+              const ph = (t * 0.3 + i * 0.33) % 1;
+              return <circle key={`r${i}`} cx={sx(s[0])} cy={sy(s[1])} r={ph * 700} fill="none" stroke={rgba(SAT_COL[i], 0.35 * (1 - ph) * ringsOn)} strokeWidth={4} />;
+            })}
           </g>
           {D2.sats.map((s, i) => (
             <g key={i} transform={`translate(${sx(s[0])} ${sy(s[1])})`}>
@@ -66,7 +74,7 @@ export const S4Clock: React.FC = () => {
             </g>
           ))}
           {/* your estimate, and (once solved) where you really are */}
-          <circle cx={sx(est.x)} cy={sy(est.y)} r={22} fill={COL.blue} stroke={COL.bone} strokeWidth={6} opacity={ringsOn} />
+          <circle cx={sx(est.x)} cy={sy(est.y)} r={22 + 4 * Math.sin(t * 5)} fill={COL.blue} stroke={COL.bone} strokeWidth={6} opacity={ringsOn} />
         </g>
       </svg>
 
