@@ -88,7 +88,7 @@ Length is now **5:37** (about 5:25 of story plus a 10 s credits tail) at 918 wor
 `npx remotion render yt001-gps … --scale=0.5 --codec=h264 --crf=20 --concurrency=4` (about 7–20 min on 4 cores, cloud
 container, headless-shell Chromium), then mastered with ffmpeg: a light compressor, `loudnorm` to **−16 LUFS /
 −1.5 dBTP** (the raw narration measured −24.8 LUFS, too quiet for YouTube, which never boosts), x264 crf 23.
-**1920×1080 · 4:57 · 45 MB** → `yt001_gps.mp4`. v1 had long static stretches; v2 (commit `9e577d7`) added motion to
+**1920×1080 · 5:38 · 53 MB** → `yt001_gps.mp4` (the v3 story cut; the earlier technical cut is in git history at `cdea7b1`). v1 had long static stretches; v2 (commit `9e577d7`) added motion to
 every beat: a living ground, signal fronts that keep travelling, marching dashes, two clocks beside the gravity
 well (ground slower, satellite faster, exaggerated and labelled), photons climbing the Harvard tower, a day counter,
 the 11 digits typed on one by one, L1/L5 pulses with L5 lagging.
