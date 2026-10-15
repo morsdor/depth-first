@@ -1,5 +1,5 @@
 import React from 'react';
-import { COL, Chapter, Ground, H, Txt, W, lin, ramp, rgba, sceneWindow, useT } from '../lib/kit';
+import { COL, Chapter, Ground, H, Txt, W, lin, phraseAt, ramp, rgba, sceneWindow, useT } from '../lib/kit';
 import { GPS } from '../data/gps';
 
 const WIN = sceneWindow('einstein');
@@ -41,12 +41,20 @@ export const S5Einstein: React.FC = () => {
     const o = i < c.length - 1 ? 1 - ramp(t, c[i + 1] - 0.6, c[i + 1] - 0.1, 0, 1, true) : 1;
     return a * o;
   };
+  const P = (i: number, f: string) => phraseAt('einstein', i, f);
+  const tSR = P(1, 'so they lose');
+  const tGR = P(2, 'so the satellite clocks');
+  const tNet = P(4, 'the satellite clocks gain');
+  const tLight = P(4, 'Except light');
+  const tPred = P(6, 'Einstein predicted');
+  const tPct = P(6, 'Less than one percent');
+  const tFlip = P(6, 'Then they flipped');
   const OUT = (i: number) => (i < c.length - 1 ? c[i + 1] - 0.6 : undefined);
 
   // ledger bars grow as their sentence speaks
-  const b1 = ramp(t, c[1] + 4.2, c[1] + 5.6);
-  const b2 = ramp(t, c[2] + 6.0, c[2] + 7.6);
-  const b3 = ramp(t, c[4] + 3.0, c[4] + 4.6);
+  const b1 = ramp(t, tSR, tSR + 1.2);
+  const b2 = ramp(t, tGR, tGR + 1.4);
+  const b3 = ramp(t, tNet + 0.6, tNet + 2.2);
 
   // the two clocks
   const hGround = (t * 24) % 360;
@@ -58,11 +66,11 @@ export const S5Einstein: React.FC = () => {
   const oy = 1340;
 
   // the light ruler (s4)
-  const rulerT = ramp(t, c[4] + 3.0, c[4] + 7.2);
+  const rulerT = ramp(t, tLight, tLight + 3.4);
   const kmShown = N.net_km_day * rulerT;
 
   // NTS-2 switch (s5/s6)
-  const flip = ramp(t, c[6] + 7.6, c[6] + 8.4);
+  const flip = ramp(t, tFlip + 0.2, tFlip + 1.0);
 
   return (
     <>
@@ -70,19 +78,19 @@ export const S5Einstein: React.FC = () => {
 
       {/* ───────── ledger (persistent) ───────── */}
       <svg width={W} height={H} style={{ position: 'absolute', inset: 0 }}>
-        <rect x={2480} y={250} width={1200} height={1010} rx={24} fill={rgba(COL.slate, 0.7)} stroke={rgba(COL.ash, 0.35)} strokeWidth={3} opacity={ramp(t, c[1] + 2.4, c[1] + 3.4)} />
-        <line x1={LX} y1={300} x2={LX} y2={1200} stroke={COL.graphite} strokeWidth={4} opacity={ramp(t, c[1] + 2.4, c[1] + 3.4)} />
+        <rect x={2480} y={250} width={1200} height={1010} rx={24} fill={rgba(COL.slate, 0.7)} stroke={rgba(COL.ash, 0.35)} strokeWidth={3} opacity={ramp(t, tSR - 1.4, tSR - 0.4)} />
+        <line x1={LX} y1={300} x2={LX} y2={1200} stroke={COL.graphite} strokeWidth={4} opacity={ramp(t, tSR - 1.4, tSR - 0.4)} />
         <rect x={LX + SR * PXUS * b1} y={395} width={-SR * PXUS * b1} height={36} fill={COL.blue} />
         <rect x={LX} y={655} width={GR * PXUS * b2} height={36} fill={COL.cyan} />
         <rect x={LX} y={915} width={NET * PXUS * b3} height={36} fill={COL.amber} />
       </svg>
-      <Txt x={2540} y={290} t={t} at={c[1] + 2.6} font="sans" size={52} color={COL.ash}>SPECIAL RELATIVITY · speed</Txt>
-      <Txt x={2540} y={440} t={t} at={c[1] + 4.2} font="mono" size={92} color={COL.bone}>{`−${Math.abs(SR).toFixed(2)} µs/day`}</Txt>
-      <Txt x={2540} y={550} t={t} at={c[2] + 4.8} font="sans" size={52} color={COL.ash}>GENERAL RELATIVITY · gravity</Txt>
-      <Txt x={2540} y={700} t={t} at={c[2] + 6.0} font="mono" size={92} color={COL.bone}>{`+${GR.toFixed(2)} µs/day`}</Txt>
-      <Txt x={2540} y={810} t={t} at={c[4] + 1.0} font="sans" size={52} color={COL.ash}>NET · satellite clocks gain</Txt>
-      <Txt x={2540} y={960} t={t} at={c[4] + 3.0} font="mono" size={92} color={COL.amber}>{`+${NET.toFixed(2)} µs/day`}</Txt>
-      <Txt x={2540} y={1090} t={t} at={c[4] + 5.0} font="mono" size={52} color={COL.ash}>{`= ${(NET / 24).toFixed(2)} µs every hour`}</Txt>
+      <Txt x={2540} y={290} t={t} at={tSR - 1.2} font="sans" size={52} color={COL.ash}>SPECIAL RELATIVITY · speed</Txt>
+      <Txt x={2540} y={440} t={t} at={tSR} font="mono" size={92} color={COL.bone}>{`−${Math.abs(SR).toFixed(2)} µs/day`}</Txt>
+      <Txt x={2540} y={550} t={t} at={tGR - 1.2} font="sans" size={52} color={COL.ash}>GENERAL RELATIVITY · gravity</Txt>
+      <Txt x={2540} y={700} t={t} at={tGR} font="mono" size={92} color={COL.bone}>{`+${GR.toFixed(2)} µs/day`}</Txt>
+      <Txt x={2540} y={810} t={t} at={tNet - 0.3} font="sans" size={52} color={COL.ash}>NET · satellite clocks gain</Txt>
+      <Txt x={2540} y={960} t={t} at={tNet + 0.6} font="mono" size={92} color={COL.amber}>{`+${NET.toFixed(2)} µs/day`}</Txt>
+      <Txt x={2540} y={1090} t={t} at={tNet + 3.0} font="mono" size={52} color={COL.ash}>{`= ${(NET / 24).toFixed(2)} µs every hour`}</Txt>
 
       <svg width={W} height={H} style={{ position: 'absolute', inset: 0 }}>
         {/* s0 — two clocks that cannot agree */}
@@ -191,9 +199,9 @@ export const S5Einstein: React.FC = () => {
         {/* s6 — measured vs predicted */}
         <g opacity={g(6)}>
           {[{ y: 760, v: 442.5, col: COL.cyan }, { y: 960, v: 446.5, col: COL.bone }].map((r, i) => (
-            <rect key={i} x={240} y={r.y} width={1900 * (r.v / 446.5) * ramp(t, c[6] + 1.2 + i * 2.0, c[6] + 2.6 + i * 2.0)} height={90} fill={r.col} />
+            <rect key={i} x={240} y={r.y} width={1900 * (r.v / 446.5) * ramp(t, (i === 0 ? c[6] + 1.0 : tPred - 0.1), (i === 0 ? c[6] + 2.6 : tPred + 1.4))} height={90} fill={r.col} />
           ))}
-          <line x1={240 + 1900 * (N.frac_ppt / 446.5)} y1={720} x2={240 + 1900 * (N.frac_ppt / 446.5)} y2={1120} stroke={COL.amber} strokeWidth={6} opacity={ramp(t, c[6] + 5.0, c[6] + 5.6)} />
+          <line x1={240 + 1900 * (N.frac_ppt / 446.5)} y1={720} x2={240 + 1900 * (N.frac_ppt / 446.5)} y2={1120} stroke={COL.amber} strokeWidth={6} opacity={ramp(t, tPct, tPct + 0.6)} />
           <rect x={300} y={1400} width={300} height={130} rx={65} fill={flip > 0.5 ? rgba(COL.cyan, 0.25) : rgba(COL.slate, 0.9)} stroke={flip > 0.5 ? COL.cyan : COL.ash} strokeWidth={6} />
           <circle cx={370 + 160 * flip} cy={1465} r={46} fill={flip > 0.5 ? COL.cyan : COL.ash} />
         </g>
@@ -212,47 +220,52 @@ export const S5Einstein: React.FC = () => {
       <Txt x={240} y={430} t={t} at={c[2] + 0.4} out={OUT(2)} font="display" size={130} color={COL.cyan} lh={1}>RUNS SLOWER</Txt>
       <Txt x={240} y={560} t={t} at={c[2] + 2.0} out={OUT(2)} font="mono" size={96} color={COL.cyan}>+ ΔΦ / c²</Txt>
       <Txt x={240} y={690} t={t} at={c[2] + 3.0} out={OUT(2)} font="sans" size={60} color={COL.ash}>satellite: weaker gravity, so faster</Txt>
+      <Txt x={240} y={800} t={t} at={P(2, 'A time glow-up')} out={OUT(2)} font="display" size={84} color={COL.cyan}>a time glow-up</Txt>
 
       <Txt x={240} y={290} t={t} at={c[3] + 0.2} out={OUT(3)} font="display" size={130} color={COL.bone} lh={1}>NOT JUST THEORY</Txt>
       <Txt x={1480} y={690} t={t} at={c[3] + 1.4} out={OUT(3)} font="mono" size={64} color={COL.ash}>top clock</Txt>
       <Txt x={1480} y={1230} t={t} at={c[3] + 1.8} out={OUT(3)} font="mono" size={64} color={COL.ash}>bottom clock</Txt>
       <Txt x={780} y={900} t={t} at={c[3] + 2.4} out={OUT(3)} font="mono" size={64} color={COL.amber}>22.5 m</Txt>
       <Txt x={240} y={450} t={t} at={c[3] + 0.6} out={OUT(3)} font="mono" size={64} color={COL.cyan}>HARVARD · 1959</Txt>
+      <Txt x={240} y={600} t={t} at={P(3, 'You could climb it')} out={OUT(3)} font="display" size={84} color={COL.bone}>you could climb it</Txt>
       <Txt x={1480} y={940} t={t} at={c[3] + 3.6} out={OUT(3)} font="mono" size={60} color={COL.bone}>{`predicted: ${(GH_C2 * 1e15).toFixed(2)} × 10⁻¹⁵`}</Txt>
 
       <Txt x={240} y={290} t={t} at={c[4] + 0.2} out={OUT(4)} font="display" size={130} color={COL.bone} lh={1}>NET GAIN</Txt>
       <Txt x={240} y={430} t={t} at={c[4] + 0.4} out={OUT(4)} font="display" size={130} color={COL.amber} lh={1}>EVERY DAY</Txt>
-      <Txt x={240} y={660} t={t} at={c[4] + 4.0} out={OUT(4)} font="mono" size={64} color={COL.ash}>{`light travels in that time:`}</Txt>
-      <Txt x={240} y={1020} t={t} at={c[4] + 4.4} out={OUT(4)} font="mono" size={190} color={COL.bone} lh={1}>{`${kmShown.toFixed(2)} km`}</Txt>
-      <Txt x={240} y={1360} t={t} at={c[4] + 5.0} out={OUT(4)} font="mono" size={48} color={COL.ash}>each tick = 1 hour</Txt>
+      <Txt x={240} y={660} t={t} at={tLight - 0.2} out={OUT(4)} font="mono" size={64} color={COL.ash}>{`light travels in that time:`}</Txt>
+      <Txt x={240} y={1020} t={t} at={tLight} out={OUT(4)} font="mono" size={190} color={COL.bone} lh={1}>{`${kmShown.toFixed(2)} km`}</Txt>
+      <Txt x={240} y={1360} t={t} at={tLight + 1.0} out={OUT(4)} font="mono" size={48} color={COL.ash}>each tick = 1 hour</Txt>
 
       <Txt x={240} y={290} t={t} at={c[5] + 0.2} out={OUT(5)} font="display" size={130} color={COL.bone} lh={1}>NTS-2 · JUNE 1977</Txt>
       <Txt x={300} y={1210} t={t} at={c[5] + 0.8} out={OUT(5)} font="mono" size={56} color={COL.ash}>launch</Txt>
       <Txt x={780} y={960} t={t} at={c[5] + 3.2} out={OUT(5)} font="mono" size={72} color={COL.cyan}>≈ 20 days, running free</Txt>
       <Txt x={660} y={1420} t={t} at={c[5] + 1.0} out={OUT(5)} font="mono" size={64} color={COL.ash}>correction: OFF</Txt>
+      <Txt x={1700} y={1450} t={t} at={P(5, 'No pressure')} out={OUT(5)} font="display" size={84} color={COL.ash}>no pressure</Txt>
       <Txt x={1700} y={1250} t={t} at={c[5] + 1.0} out={OUT(5)} font="mono" size={120} color={COL.cyan}>{`day ${Math.round(20 * lin(t, c[5] + 1.0, c[5] + 9.0))}`}</Txt>
 
       <Txt x={240} y={290} t={t} at={c[6] + 0.2} out={OUT(6)} font="display" size={130} color={COL.bone} lh={1}>MEASURED VS PREDICTED</Txt>
       <Txt x={240} y={670} t={t} at={c[6] + 1.2} out={OUT(6)} font="mono" size={56} color={COL.cyan}>MEASURED   +442.5 parts per trillion</Txt>
-      <Txt x={240} y={870} t={t} at={c[6] + 3.2} out={OUT(6)} font="mono" size={56} color={COL.bone}>PREDICTED  +446.5</Txt>
-      <Txt x={240} y={1170} t={t} at={c[6] + 5.0} out={OUT(6)} font="mono" size={56} color={COL.amber}>{`our calculation  +${N.frac_ppt.toFixed(1)}`}</Txt>
-      <Txt x={660} y={1420} t={t} at={c[6] + 7.2} out={OUT(6)} font="mono" size={64} color={flip > 0.5 ? COL.cyan : COL.ash}>{flip > 0.5 ? 'correction: ON' : 'correction: OFF'}</Txt>
+      <Txt x={240} y={870} t={t} at={tPred - 0.1} out={OUT(6)} font="mono" size={56} color={COL.bone}>PREDICTED  +446.5</Txt>
+      <Txt x={240} y={1170} t={t} at={tPct} out={OUT(6)} font="mono" size={56} color={COL.amber}>{`our calculation  +${N.frac_ppt.toFixed(1)}`}</Txt>
+      <Txt x={660} y={1420} t={t} at={tFlip} out={OUT(6)} font="mono" size={64} color={flip > 0.5 ? COL.cyan : COL.ash}>{flip > 0.5 ? 'correction: ON' : 'correction: OFF'}</Txt>
 
       {/* s7 — the number set before launch */}
       <Txt x={240} y={290} t={t} at={c[7] + 0.2} font="display" size={130} color={COL.bone} lh={1}>SET BEFORE LAUNCH</Txt>
-      <Txt x={240} y={620} t={t} at={c[7] + 1.0} font="mono" size={56} color={COL.ash}>WHAT THE CLOCK IS BUILT TO TICK AT</Txt>
-      <Txt x={240} y={700} t={t} at={c[7] + 1.2} font="mono" size={150} color={COL.ash} lh={1}>10.23000000000 MHz</Txt>
-      <Txt x={240} y={960} t={t} at={c[7] + 3.0} font="mono" size={56} color={COL.ash}>WHAT IT IS SET TO ON THE GROUND</Txt>
-      <Txt x={240} y={1040} t={t} at={c[7] + 3.2} font="mono" size={150} color={COL.ash} lh={1}>
+      <Txt x={240} y={620} t={t} at={c[7] + 0.4} font="mono" size={56} color={COL.ash}>WHAT THE CLOCK IS BUILT TO TICK AT</Txt>
+      <Txt x={240} y={700} t={t} at={c[7] + 0.6} font="mono" size={150} color={COL.ash} lh={1}>10.23000000000 MHz</Txt>
+      <Txt x={240} y={960} t={t} at={c[7] + 2.0} font="mono" size={56} color={COL.ash}>WHAT IT IS SET TO ON THE GROUND</Txt>
+      <Txt x={240} y={1040} t={t} at={c[7] + 2.2} font="mono" size={150} color={COL.ash} lh={1}>
         {'10.22'}
         <span style={{ color: COL.cyan }}>
-          {N.set_mhz_str.slice(5, 5 + Math.floor(lin(t, c[7] + 3.4, c[7] + 7.4) * 9.999)) + '\u00A0'.repeat(9 - Math.floor(lin(t, c[7] + 3.4, c[7] + 7.4) * 9.999))}
+          {N.set_mhz_str.slice(5, 5 + Math.floor(lin(t, c[7] + 2.4, c[7] + 5.6) * 9.999)) + '\u00A0'.repeat(9 - Math.floor(lin(t, c[7] + 2.4, c[7] + 5.6) * 9.999))}
         </span>
         {' MHz'}
       </Txt>
-      <Txt x={240} y={1300} t={t} at={c[7] + 7.0} font="mono" size={96} color={COL.bone}>{`− ${(N.frac_ppt / 1e12 * 1e10).toFixed(3)} × 10⁻¹⁰`}</Txt>
-      <Txt x={240} y={1430} t={t} at={c[7] + 8.0} font="sans" size={64} color={COL.ash}>so that in orbit it ticks exactly 10.23 MHz</Txt>
-      <Txt x={240} y={1620} t={t} at={c[7] + 10.0} font="mono" size={64} color={COL.amber}>the offset we computed matches the published setting</Txt>
+      <Txt x={240} y={1300} t={t} at={c[7] + 6.2} font="mono" size={96} color={COL.bone}>{`− ${(N.frac_ppt / 1e12 * 1e10).toFixed(3)} × 10⁻¹⁰`}</Txt>
+      <Txt x={240} y={1430} t={t} at={P(7, 'Wrong on the ground')} font="sans" size={64} color={COL.ash}>so that in orbit it ticks exactly 10.23 MHz</Txt>
+      <Txt x={240} y={1620} t={t} at={c[7] + 9.2} font="mono" size={64} color={COL.amber}>the offset we computed matches the published setting</Txt>
+
+      <Txt x={240} y={1760} t={t} at={P(7, 'Relatable')} font="display" size={100} color={COL.cyan}>relatable.</Txt>
 
       <Chapter n={5} name="EINSTEIN" t={t} dur={WIN.dur} />
     </>

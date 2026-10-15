@@ -45,7 +45,12 @@ claim("1 microsecond = 300 m", abs(N["us_m"] - 300) < 1)
 claim("scene order is the one the visuals assume",
       [s["id"] for s in TL["scenes"]] == ["hook", "satellites", "ranging", "clock", "einstein", "accuracy", "close"])
 dur = TL["duration"]
-claim("runtime is 'five minutes' (285-315 s), got %.1f s" % dur, 285 <= dur <= 315)
+claim("runtime is about five and a half minutes (300-345 s) incl. a 10 s credits tail, got %.1f s" % dur, 300 <= dur <= 345)
+claim("'about a fifteenth of a second' overhead delay (1/15 s = 66.7 ms; ours %.1f ms)" % N["overhead_ms"], abs(1000 / N["overhead_ms"] - 15) < 0.5)
+claim("'about fifty times higher than the space station' (alt / 420 km = %.0f)" % (N["alt_km"] / 420), 45 <= N["alt_km"] / 420 <= 52)
+claim("'three seconds, about a kilometre' for thunder (343 m/s x 3 s = %.0f m)" % (343 * 3), 1000 <= 343 * 3 <= 1100)
+claim("'a few billionths of a megahertz': 10.23 - 10.22999999543 = %.2e MHz" % (10.23 - 10.22999999543), 1e-9 < 10.23 - 10.22999999543 < 1e-8)
+claim("'less than one percent apart' (442.5 vs 446.5)", abs(442.5 - 446.5) / 446.5 < 0.01)
 
 # the screen must not name a figure before the voice does: the ledger rows in 'einstein' are keyed to sentence cues
 es = [s for s in TL["sentences"] if s["scene"] == "einstein"]

@@ -28,6 +28,8 @@ export const S7Close: React.FC = () => {
   const dim = Math.max(cardsDim, cardsBack * 0.9);
   const infra = ramp(t, c1 + 0.3, c1 + 1.1) * (1 - ramp(t, c2 - 0.5, c2 + 0.1, 0, 1, true));
   const endAt = WIN.cueEnd[2] + 1.2;
+  const tClocks = phraseAt('close', 2, 'thirty-one clocks');
+  const tLeft = phraseAt('close', 2, 'You just had');
   const credits = ramp(t, endAt, endAt + 1.2);
   const fade = 1 - credits;
   const pulse = (k: number) => 0.55 + 0.45 * Math.sin(t * 5 + k * 2);
@@ -92,8 +94,9 @@ export const S7Close: React.FC = () => {
 
       <Txt x={W / 2} y={330} t={t} at={0.3} out={c1 - 0.6} font="display" size={150} color={COL.bone} align="center" lh={1}>THREE IDEAS</Txt>
       <Txt x={W / 2} y={330} t={t} at={c1 + 0.3} out={c2 - 0.6} font="display" size={150} color={COL.bone} align="center" lh={1}>NOT JUST MAPS</Txt>
-      <Txt x={W / 2} y={330} t={t} at={c2 + 0.2} out={endAt - 0.1} font="display" size={150} color={COL.bone} align="center" lh={1}>TAKE ANY ONE AWAY</Txt>
-      <Txt x={W / 2} y={1620} t={t} at={c2 + 3.0} out={endAt - 0.1} font="sans" size={84} color={COL.ash} align="center">and the system stops working</Txt>
+      <Txt x={W / 2} y={330} t={t} at={c2 + 0.2} out={tLeft - 0.1} font="display" size={150} color={COL.cyan} align="center" lh={1}>RECALCULATING…</Txt>
+      <Txt x={W / 2} y={330} t={t} at={tLeft} out={endAt - 0.1} font="display" size={150} color={COL.bone} align="center" lh={1}>YOU JUST HAD TO TURN LEFT.</Txt>
+      <Txt x={W / 2} y={1620} t={t} at={tClocks - 0.1} out={endAt - 0.1} font="mono" size={64} color={COL.ash} align="center">31 clocks in space · 1 cheap watch · 1 physicist who never owned a smartphone</Txt>
       <Txt x={W / 2} y={1760} t={t} at={c1 + 5.0} out={c2 - 0.6} font="sans" size={64} color={COL.ash} align="center">many networks use GPS time as their reference</Txt>
 
       {/* sources */}

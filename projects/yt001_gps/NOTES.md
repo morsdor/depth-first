@@ -50,6 +50,39 @@ sentence boundary, and character-share inside a sentence for phrase-level cues (
 * No claim about the size of any real thing that is not to scale. The sphere in scene 3A is to scale; the
   three-sphere toy is labelled as a sketch by its framing, not by a number.
 
+## v3 — the script rewritten as a story (2026-10-15)
+
+Feedback on v2: *impressive visuals, but too technical — a normal person can't follow numbers; tell a story, start
+with a hook and an outline, narrate in casual modern language, be a little satirical.* So the **narration and the
+timing were rewritten; the computed visuals were kept.** Same seven scenes and the same number of sentence-beats per
+scene, so every animation still lands on the line it illustrates (cues are now anchored to *phrases*, via `phraseAt`,
+not fixed offsets).
+
+* **Hook + outline in the first 37 s:** a thing everyone does (the blue dot), the question, the three-point promise
+  (1 timestamps → location, 2 a fourth satellite, 3 a physicist who died in 1955), then two open loops
+  (*plot twist*; *the military broke GPS on purpose, then un-broke it*).
+* **Analogies a normal person owns:** thunderstorm (count the seconds → distance); a gas-station watch (the phone's quartz
+  clock); noise-cancelling headphones, but for space (dual-frequency ionosphere correction).
+* **Fewer spoken numbers** (the screen still shows them): the 11-digit frequency is no longer read out — it is typed on
+  screen while the voice says "nudged down by a few billionths of a megahertz".
+* **Satire stays on solid ground.** Each joke is attached to a checked fact:
+
+| Line | What it stands on |
+|:--|:--|
+| "a very expensive flock of very serious birds" / "about fifty times higher than the space station" | 20,191 km ÷ ~420 km = 48 (computed) |
+| "the world's most successful one-way relationship" | GPS is receive-only (gps.gov) |
+| "a cheap quartz crystal, the same basic tech as a gas-station watch" | phones use quartz oscillators; the joke is the comparison, not a spec |
+| "more self-awareness than most of us" | the solver really does recover the clock error (to < 15 m of range) |
+| "a time glow-up" | satellite clocks gain 45.79 µs/day from weaker gravity (computed) |
+| "you could climb it" | the Harvard tower was 22.5 m (**from memory — verify**) |
+| "no pressure" | NTS-2 ran ~20 days with the correction off (Ashby, secondary) |
+| "wrong on the ground, so it's right in orbit. Relatable." | 10.229999995433 vs 10.23 MHz (computed, matches the published setting) |
+| "your driver is always on the other [side]" / "your blue dot thinks you're in a river" | street width (~14 m on screen) vs ~5 m accuracy; multipath is real, the river is a joke |
+| "a government removing a feature, and everyone was happy" | selective availability turned off 2 May 2000 (gps.gov) |
+| "a physicist who never owned a smartphone" | Einstein died in 1955 |
+
+Length is now **5:37** (about 5:25 of story plus a 10 s credits tail) at 918 words; the voice runs at speed 1.05.
+
 ## The render
 
 `npx remotion render yt001-gps … --scale=0.5 --codec=h264 --crf=20 --concurrency=4` (about 7–20 min on 4 cores, cloud

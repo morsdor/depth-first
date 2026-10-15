@@ -1,5 +1,5 @@
 import React from 'react';
-import { COL, Chapter, Ground, H, Txt, W, lin, ramp, rgba, sceneWindow, useT } from '../lib/kit';
+import { COL, Chapter, Ground, H, Txt, W, lin, phraseAt, ramp, rgba, sceneWindow, useT } from '../lib/kit';
 
 const WIN = sceneWindow('accuracy');
 const CX = 2580;
@@ -12,7 +12,17 @@ const RATIO = (L1 / L5) ** 2;                            // ionospheric delay �
 export const S6Accuracy: React.FC = () => {
   const t = useT();
   const [c0, c1, c2] = WIN.cue;
-  const zoom = ramp(t, c2 + 1.0, c2 + 3.2);
+  const P = (i: number, f: string) => phraseAt('accuracy', i, f);
+  const tCab = P(0, 'which side of it');
+  const tBuild = P(0, 'And tall buildings');
+  const tRiver = P(0, 'in a river');
+  const tUntil = P(2, 'Until May');
+  const tBlur = P(2, 'blurred it');
+  const tHund = P(2, 'about a hundred');
+  const tOffP = P(2, 'A presidential order');
+  const tOff = P(2, 'switched that off');
+  const tHappy = P(2, 'A government removing');
+  const zoom = ramp(t, c2 + 0.4, c2 + 2.8);
   const Z = 20 + (5.5 - 20) * zoom;                      // px per metre
   const mapOn = ramp(t, c0 + 0.2, c0 + 1.2) * (1 - ramp(t, c1 - 0.5, c1 + 0.1, 0, 1, true)) + ramp(t, c2 - 0.3, c2 + 0.5);
   const mapA = Math.min(1, mapOn) * (1 - ramp(t, c1 - 0.5, c1 + 0.1) * (1 - ramp(t, c2 - 0.3, c2 + 0.5)));
@@ -20,7 +30,7 @@ export const S6Accuracy: React.FC = () => {
 
   const road = 80;                                       // metres between roads
   const lines = Array.from({ length: 41 }, (_, i) => i - 20);
-  const sa = 1 - ramp(t, c2 + 5.5, c2 + 6.5);            // the 100 m ring fades when the degradation ends
+  const sa = 1 - ramp(t, tOff, tOff + 1.0);            // the 100 m ring fades when the degradation ends
 
   return (
     <>
@@ -44,7 +54,7 @@ export const S6Accuracy: React.FC = () => {
             <rect key={`${i}${j}`} x={CX + (i * road + 10) * Z} y={CY + (j * road + 10) * Z} width={(road - 20) * Z} height={(road - 20) * Z} fill={rgba(COL.slate, 0.95)} stroke={rgba(COL.ash, 0.25)} strokeWidth={2} />
           )))}
           {/* 100 m: how it was degraded on purpose */}
-          <circle cx={CX} cy={CY} r={100 * Z} fill={rgba(COL.red, 0.05 * sa)} stroke={rgba(COL.red, (0.65 + 0.25 * Math.sin(t * 4)) * sa)} strokeWidth={6} opacity={ramp(t, c2 + 0.8, c2 + 1.6)} />
+          <circle cx={CX} cy={CY} r={100 * Z} fill={rgba(COL.red, 0.05 * sa)} stroke={rgba(COL.red, (0.65 + 0.25 * Math.sin(t * 4)) * sa)} strokeWidth={6} opacity={ramp(t, c2 + 1.8, c2 + 2.8)} />
           {/* 4.9 m and 2 m */}
           <circle cx={CX} cy={CY} r={4.9 * Z} fill={rgba(COL.bone, 0.1)} stroke={COL.bone} strokeWidth={6} opacity={ramp(t, c0 + 0.8, c0 + 1.6)} />
           <circle cx={CX} cy={CY} r={2 * Z} fill={rgba(COL.cyan, 0.16)} stroke={COL.cyan} strokeWidth={6} opacity={ramp(t, c0 + 3.2, c0 + 4.0)} />
@@ -53,9 +63,14 @@ export const S6Accuracy: React.FC = () => {
             return <circle key={k} cx={CX} cy={CY} r={8 + ph * 9 * Z} fill="none" stroke={rgba(COL.blue, 0.7 * (1 - ph))} strokeWidth={4} />;
           })}
           <circle cx={CX} cy={CY} r={Math.max(7, 0.9 * Z * 0.5)} fill={COL.blue} stroke={COL.bone} strokeWidth={4} />
+          {/* your cab, on the other side of the street */}
+          <g opacity={ramp(t, tCab, tCab + 0.8)}>
+            <rect x={CX + 10 * Z} y={CY + 3 * Z} width={4.6 * Z} height={2 * Z} rx={0.5 * Z} fill={COL.amber} stroke={COL.ink} strokeWidth={3} />
+            <rect x={CX + 11.6 * Z} y={CY + 3.4 * Z} width={1.8 * Z} height={1.2 * Z} fill={COL.ink} />
+          </g>
           {/* a building bouncing the signal: the long way round looks like a longer distance */}
           {(() => {
-            const o = ramp(t, c0 + 8.0, c0 + 9.0) * (1 - ramp(t, c1 - 0.7, c1 - 0.2));
+            const o = ramp(t, tBuild - 0.2, tBuild + 0.8) * (1 - ramp(t, c1 - 0.7, c1 - 0.2));
             return (
               <g opacity={o}>
                 <line x1={3480} y1={260} x2={CX + 78 * Z} y2={CY - 40 * Z} stroke={rgba(COL.cyan, 0.9)} strokeWidth={6} strokeDasharray="14 14" strokeDashoffset={-t * 150} />
@@ -116,9 +131,9 @@ export const S6Accuracy: React.FC = () => {
       {/* map labels */}
       <Txt x={CX + 6 * 20 + 40} y={CY - 4.9 * 20 - 120} t={t} at={c0 + 1.0} out={c1 - 0.6} font="mono" size={56} color={COL.bone}>a phone: ~4.9 m</Txt>
       <Txt x={CX + 6 * 20 + 40} y={CY + 4.9 * 20 + 30} t={t} at={c0 + 3.4} out={c1 - 0.6} font="mono" size={56} color={COL.cyan}>the signals: ~2 m</Txt>
-      <Txt x={3480} y={300} t={t} at={c0 + 8.4} out={c1 - 0.6} font="mono" size={48} color={COL.cyan} align="right">bounced off a building</Txt>
-      <Txt x={CX} y={CY - 100 * 5.5 - 90} t={t} at={c2 + 3.4} out={c2 + 7.6} font="mono" size={56} color={COL.red} align="center">until 2 May 2000: ~100 m, on purpose</Txt>
-      <Txt x={CX + 7 * 5.5 + 60} y={CY + 20} t={t} at={c2 + 7.2} font="mono" size={56} color={COL.bone}>today: ~5 m</Txt>
+      <Txt x={3480} y={300} t={t} at={tBuild + 0.3} out={c1 - 0.6} font="mono" size={48} color={COL.cyan} align="right">bounced off a building</Txt>
+      <Txt x={CX} y={CY - 100 * 5.5 - 90} t={t} at={tUntil} out={tOff} font="mono" size={56} color={COL.red} align="center">until 2 May 2000: ~100 m, on purpose</Txt>
+      <Txt x={CX + 7 * 5.5 + 60} y={CY + 20} t={t} at={tOff + 0.8} font="mono" size={56} color={COL.bone}>today: ~5 m</Txt>
       <Txt x={1560} y={190} t={t} at={c0 + 0.6} out={c1 - 0.6} font="mono" size={44} color={COL.ash}>ringed to scale on a city grid</Txt>
 
       {/* ionosphere labels */}
@@ -131,20 +146,24 @@ export const S6Accuracy: React.FC = () => {
       <Txt x={240} y={380} t={t} at={c0 + 0.6} out={c1 - 0.4} font="mono" size={230} color={COL.bone} lh={1}>~ 5 m</Txt>
       <Txt x={240} y={700} t={t} at={c0 + 3.0} out={c1 - 0.4} font="mono" size={64} color={COL.ash}>SIGNALS IN SPACE · SPECIFIED</Txt>
       <Txt x={240} y={790} t={t} at={c0 + 3.3} out={c1 - 0.4} font="mono" size={180} color={COL.cyan} lh={1}>~ 2 m</Txt>
-      <Txt x={240} y={1100} t={t} at={c0 + 6.0} out={c1 - 0.4} font="display" size={110} color={COL.bone} lh={1}>THE REST</Txt>
-      <Txt x={240} y={1230} t={t} at={c0 + 6.6} out={c1 - 0.4} font="sans" size={72} color={COL.ash} maxW={1160}>the atmosphere slows the signal</Txt>
-      <Txt x={240} y={1400} t={t} at={c0 + 8.0} out={c1 - 0.4} font="sans" size={72} color={COL.ash} maxW={1160}>buildings bounce it</Txt>
+      <Txt x={240} y={1100} t={t} at={tCab - 0.4} out={c1 - 0.4} font="display" size={110} color={COL.bone} lh={1}>THE FINE PRINT</Txt>
+      <Txt x={240} y={1230} t={t} at={tCab} out={c1 - 0.4} font="sans" size={72} color={COL.ash} maxW={1160}>your cab is on the other side of the street</Txt>
+      <Txt x={240} y={1420} t={t} at={tBuild} out={c1 - 0.4} font="sans" size={72} color={COL.ash} maxW={1160}>tall buildings bounce the signals…</Txt>
+      <Txt x={240} y={1590} t={t} at={tRiver - 0.2} out={c1 - 0.4} font="sans" size={72} color={COL.bone} maxW={1160}>…so the blue dot ends up in a river</Txt>
+      <Txt x={CX + 235} y={CY - 8} t={t} at={tCab + 0.3} out={c1 - 0.6} font="mono" size={52} color={COL.amber}>your cab</Txt>
 
       <Txt x={240} y={290} t={t} at={c1 + 0.3} out={c2 - 0.4} font="display" size={130} color={COL.bone} lh={1}>DELAY ∝ 1 / f²</Txt>
       <Txt x={240} y={460} t={t} at={c1 + 1.2} out={c2 - 0.4} font="sans" size={72} color={COL.ash} maxW={1160}>the delay depends on frequency, so two frequencies give it away</Txt>
       <Txt x={240} y={880} t={t} at={c1 + 5.0} out={c2 - 0.4} font="mono" size={72} color={COL.bone}>{`L5 is delayed ${RATIO.toFixed(2)}× more than L1`}</Txt>
       <Txt x={240} y={1010} t={t} at={c1 + 7.0} out={c2 - 0.4} font="sans" size={64} color={COL.ash} maxW={1160}>measure the gap, work out the delay, subtract it</Txt>
 
-      <Txt x={240} y={290} t={t} at={c2 + 0.3} font="display" size={130} color={COL.bone} lh={1}>ONCE, ON PURPOSE</Txt>
-      <Txt x={240} y={470} t={t} at={c2 + 1.0} font="mono" size={130} color={COL.red} lh={1}>~ 100 m</Txt>
-      <Txt x={240} y={640} t={t} at={c2 + 1.6} font="sans" size={64} color={COL.ash} maxW={1160}>civilian GPS, degraded by the US military</Txt>
-      <Txt x={240} y={1000} t={t} at={c2 + 5.4} font="mono" size={130} color={COL.bone} lh={1}>2 MAY 2000</Txt>
-      <Txt x={240} y={1170} t={t} at={c2 + 6.0} font="sans" size={64} color={COL.ash} maxW={1160}>a presidential order switched it off</Txt>
+      <Txt x={240} y={290} t={t} at={c2 + 0.3} font="display" size={108} color={COL.bone} lh={1}>ONCE, ON PURPOSE</Txt>
+      <Txt x={240} y={470} t={t} at={tHund - 0.3} font="mono" size={130} color={COL.red} lh={1}>~ 100 m</Txt>
+      <Txt x={240} y={640} t={t} at={tBlur - 0.2} font="sans" size={64} color={COL.ash} maxW={1160}>civilian GPS, blurred by the US military</Txt>
+      <Txt x={240} y={760} t={t} at={tBlur + 0.6} font="sans" size={64} color={COL.ash} maxW={1160}>in the name of security</Txt>
+      <Txt x={240} y={1000} t={t} at={tUntil - 0.1} font="mono" size={130} color={COL.bone} lh={1}>2 MAY 2000</Txt>
+      <Txt x={240} y={1170} t={t} at={tOffP} font="sans" size={64} color={COL.ash} maxW={1160}>a presidential order switched it off</Txt>
+      <Txt x={240} y={1380} t={t} at={tHappy} font="display" size={84} color={COL.cyan} maxW={1200} lh={1.1}>a government removed a feature. everyone was happy.</Txt>
 
       <Chapter n={6} name="HOW ACCURATE" t={t} dur={WIN.dur} />
     </>

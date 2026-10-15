@@ -49,13 +49,19 @@ const circle = (i: number, j: number, n = 120): V3[] => {
 export const S3Ranging: React.FC = () => {
   const t = useT();
   const [c0, c1, c2] = WIN.cue;
+  const cA = c1;                                              // the timer / sphere part starts with sentence 1
+  const tEq = phraseAt('ranging', 1, 'Delay times');
+  const tBubble = phraseAt('ranging', 1, 'So your phone is somewhere');
+  const tFlash = phraseAt('ranging', 0, 'You see the lightning');
+  const tThunder = phraseAt('ranging', 0, 'until the thunder') + 0.4;
+  const tSame = phraseAt('ranging', 0, 'GPS does the same');
 
   // ── A: the side view, to scale. Receiver at the top of the Earth, satellite 3.17 Earth-radii above. ──
   const ER = 420;
   const rxA = { x: 3050, y: 1700 };
   const satA = { x: rxA.x, y: rxA.y - ER * (N.alt_km / 6371) };
   const aOut = 1 - ramp(t, c2 - 0.5, c2 + 0.3, 0, 1, true);
-  const travel = ramp(t, c0 + 1.2, c0 + 4.6) ;                 // wavefront progress, slowed
+  const travel = ramp(t, cA + 0.8, cA + 4.4);                 // wavefront progress, slowed
   const slow = 3.4 / (N.overhead_ms / 1000);                  // how many times slower than real time we are showing it
   const ms = N.overhead_ms * travel;
 
@@ -72,7 +78,9 @@ export const S3Ranging: React.FC = () => {
   const bIn = ramp(t, c2 - 0.2, c2 + 0.6);
   const s1At = c2 + 0.3;
   const s2At = phraseAt('ranging', 2, 'A second satellite') - 0.4;
-  const s3At = phraseAt('ranging', 2, 'A third narrows') - 0.9;
+  const s3At = phraseAt('ranging', 2, 'A third satellite') - 0.5;
+  const tTwo = phraseAt('ranging', 2, 'in two points');
+  const tSpace = phraseAt('ranging', 2, 'floating in outer space');
   const youB = proj([0, 0, 0]);
   const r2B = proj(R2);
 
@@ -85,20 +93,40 @@ export const S3Ranging: React.FC = () => {
     <>
       <Ground t={t} cx={0.7} />
       <svg width={W} height={H} style={{ position: 'absolute', inset: 0 }}>
+
+        {/* ── A0: the thunderstorm, for anyone who has ever counted ── */}
+        <g opacity={ramp(t, c0 + 0.2, c0 + 1.0) * (1 - ramp(t, c1 - 0.4, c1 + 0.2))}>
+          <line x1={1700} y1={1450} x2={3700} y2={1450} stroke={COL.graphite} strokeWidth={8} />
+          {[[3200, 520, 380, 130], [2930, 600, 260, 120], [3470, 600, 280, 110]].map(([x, y, rx, ry], i) => (
+            <ellipse key={i} cx={x} cy={y} rx={rx} ry={ry} fill={rgba(COL.ash, 0.22)} stroke={rgba(COL.ash, 0.5)} strokeWidth={4} />
+          ))}
+          {(() => {
+            const fl = Math.max(0, 1 - Math.abs(t - tFlash) * 5) + 0.7 * Math.max(0, 1 - Math.abs(t - tFlash - 0.3) * 8);
+            const pts = '3200,640 3150,860 3240,910 3130,1150 3210,1200 3150,1450';
+            return (
+              <g opacity={Math.min(1, fl)}>
+                <polyline points={pts} fill="none" stroke={rgba(COL.cyan, 0.6)} strokeWidth={34} strokeLinejoin="round" />
+                <polyline points={pts} fill="none" stroke={COL.bone} strokeWidth={12} strokeLinejoin="round" />
+              </g>
+            );
+          })()}
+          {t >= tFlash && <circle cx={3150} cy={1450} r={950 * lin(t, tFlash, tThunder)} fill="none" stroke={rgba(COL.ash, 0.7)} strokeWidth={6} opacity={1 - 0.6 * ramp(t, tThunder, tThunder + 1)} />}
+          <circle cx={2200} cy={1450} r={26} fill={COL.blue} stroke={COL.bone} strokeWidth={6} />
+        </g>
         {/* ── A ── */}
-        <g opacity={aOut}>
+        <g opacity={aOut * ramp(t, c1 - 0.3, c1 + 0.4)}>
           <circle cx={rxA.x} cy={rxA.y + ER} r={ER} fill={rgba(COL.slate, 0.9)} stroke={COL.ash} strokeWidth={5} />
           {/* the signal front: a circle of light expanding from the satellite */}
           {travel > 0 && travel < 1 && (
             <circle cx={satA.x} cy={satA.y} r={(rxA.y - satA.y) * travel} fill="none" stroke={rgba(COL.cyan, 0.9)} strokeWidth={8} />
           )}
           <line x1={satA.x} y1={satA.y} x2={rxA.x} y2={rxA.y} stroke={rgba(COL.cyan, 0.45)} strokeWidth={4} strokeDasharray="14 16" strokeDashoffset={-t * 120} />
-          {t > c0 + 4.8 && [0, 1].map((k) => {
-            const ph = (((t - c0 - 4.8) / 2.6) + k * 0.5) % 1;
+          {t > cA + 4.6 && [0, 1].map((k) => {
+            const ph = (((t - cA - 4.6) / 2.6) + k * 0.5) % 1;
             return <circle key={k} cx={satA.x} cy={satA.y} r={(rxA.y - satA.y) * ph} fill="none" stroke={rgba(COL.cyan, 0.5 * (1 - ph))} strokeWidth={6} />;
           })}
-          {ramp(t, c1 - 0.2, c1 + 1.4) > 0 && (
-            <circle cx={satA.x} cy={satA.y} r={(rxA.y - satA.y) * ramp(t, c1 - 0.2, c1 + 1.4)} fill={rgba(COL.cyan, 0.06)} stroke={rgba(COL.cyan, 0.9)} strokeWidth={6} />
+          {ramp(t, tBubble - 0.2, tBubble + 1.6) > 0 && (
+            <circle cx={satA.x} cy={satA.y} r={(rxA.y - satA.y) * ramp(t, tBubble - 0.2, tBubble + 1.6)} fill={rgba(COL.cyan, 0.06)} stroke={rgba(COL.cyan, 0.9)} strokeWidth={6} />
           )}
           <circle cx={rxA.x} cy={rxA.y} r={22} fill={COL.blue} stroke={COL.bone} strokeWidth={6} />
           <g transform={`translate(${satA.x} ${satA.y})`}>
@@ -130,21 +158,28 @@ export const S3Ranging: React.FC = () => {
           <path d={path(circle(0, 1), ramp(t, s2At + 0.8, s2At + 2.6))} fill="none" stroke={COL.bone} strokeWidth={7} strokeLinecap="round" opacity={ramp(t, s2At + 0.6, s2At + 1)} />
           {/* …and the third sphere cuts it at two points */}
           <path d={path(circle(1, 2), ramp(t, s3At + 0.8, s3At + 2.4))} fill="none" stroke={rgba(COL.bone, 0.55)} strokeWidth={5} strokeLinecap="round" opacity={ramp(t, s3At + 0.6, s3At + 1)} />
-          <circle cx={youB.x} cy={youB.y} r={24} fill={COL.blue} stroke={COL.bone} strokeWidth={7} opacity={ramp(t, s3At + 1.8, s3At + 2.4)} />
-          <circle cx={r2B.x} cy={r2B.y} r={24} fill={COL.ink} stroke={COL.amber} strokeWidth={7} opacity={ramp(t, s3At + 2.4, s3At + 3.0)} />
+          <circle cx={youB.x} cy={youB.y} r={24} fill={COL.blue} stroke={COL.bone} strokeWidth={7} opacity={ramp(t, tTwo, tTwo + 0.6)} />
+          <circle cx={r2B.x} cy={r2B.y} r={24} fill={COL.ink} stroke={COL.amber} strokeWidth={7} opacity={ramp(t, tSpace - 0.3, tSpace + 0.4)} />
         </g>
       </svg>
 
+
+      {/* A0 — copy */}
+      <Txt x={240} y={360} t={t} at={c0 + 0.3} out={c1 - 0.4} font="display" size={140} color={COL.bone} lh={1}>SEE THE FLASH.</Txt>
+      <Txt x={240} y={510} t={t} at={tFlash + 0.3} out={c1 - 0.4} font="display" size={140} color={COL.bone} lh={1}>COUNT THE SECONDS.</Txt>
+      <Txt x={240} y={800} t={t} at={tFlash + 0.5} out={c1 - 0.4} font="mono" size={200} color={COL.cyan} lh={1}>{`${Math.round(3 * lin(t, tFlash, tThunder))} s`}</Txt>
+      <Txt x={240} y={1060} t={t} at={tThunder} out={c1 - 0.4} font="mono" size={96} color={COL.bone}>≈ 1 km away</Txt>
+      <Txt x={240} y={1260} t={t} at={tSame} out={c1 - 0.4} font="sans" size={84} color={COL.ash} maxW={1250}>GPS: the same trick, with radio</Txt>
       {/* A — copy */}
-      <Txt x={240} y={360} t={t} at={c0 + 0.2} out={c2 - 0.5} font="display" size={150} color={COL.bone} lh={1}>DELAY</Txt>
-      <Txt x={240} y={500} t={t} at={c0 + 0.4} out={c2 - 0.5} font="display" size={150} color={COL.bone} lh={1}>× SPEED OF LIGHT</Txt>
-      <Txt x={240} y={640} t={t} at={c0 + 0.6} out={c2 - 0.5} font="display" size={150} color={COL.cyan} lh={1}>= DISTANCE</Txt>
-      <Txt x={240} y={1000} t={t} at={c0 + 1.2} out={c2 - 0.5} font="mono" size={64} color={COL.ash}>{`slowed ${fmtInt(slow)}×`}</Txt>
-      <Txt x={240} y={1090} t={t} at={c0 + 1.2} out={c2 - 0.5} font="mono" size={190} color={COL.bone} lh={1}>{`${ms.toFixed(1)} ms`}</Txt>
-      <Txt x={240} y={1360} t={t} at={c1 + 0.1} out={c2 - 0.5} font="mono" size={72} color={COL.ash}>{`${N.overhead_ms.toFixed(1)} ms × ${fmtInt(C_KMS)} km/s`}</Txt>
-      <Txt x={240} y={1470} t={t} at={c1 + 0.6} out={c2 - 0.5} font="mono" size={150} color={COL.cyan} lh={1}>{`= ${fmtInt(N.alt_km)} km`}</Txt>
-      <Txt x={1700} y={1700} t={t} at={c1 + 1.6} out={c2 - 0.5} font="sans" size={64} color={COL.ash} maxW={900}>{'a sphere of possible places, drawn to scale'}</Txt>
-      <Txt x={3110} y={1710} t={t} at={c0 + 3.2} out={c2 - 0.5} font="mono" size={48} color={COL.bone}>YOU</Txt>
+      <Txt x={240} y={360} t={t} at={cA + 0.2} out={c2 - 0.5} font="display" size={150} color={COL.bone} lh={1}>DELAY</Txt>
+      <Txt x={240} y={500} t={t} at={cA + 0.4} out={c2 - 0.5} font="display" size={150} color={COL.bone} lh={1}>× SPEED OF LIGHT</Txt>
+      <Txt x={240} y={640} t={t} at={cA + 0.6} out={c2 - 0.5} font="display" size={150} color={COL.cyan} lh={1}>= DISTANCE</Txt>
+      <Txt x={240} y={1000} t={t} at={cA + 0.8} out={c2 - 0.5} font="mono" size={64} color={COL.ash}>{`slowed ${fmtInt(slow)}×`}</Txt>
+      <Txt x={240} y={1090} t={t} at={cA + 0.8} out={c2 - 0.5} font="mono" size={190} color={COL.bone} lh={1}>{`${ms.toFixed(1)} ms`}</Txt>
+      <Txt x={240} y={1360} t={t} at={tEq - 0.2} out={c2 - 0.5} font="mono" size={72} color={COL.ash}>{`${N.overhead_ms.toFixed(1)} ms × ${fmtInt(C_KMS)} km/s`}</Txt>
+      <Txt x={240} y={1470} t={t} at={tEq + 0.5} out={c2 - 0.5} font="mono" size={150} color={COL.cyan} lh={1}>{`= ${fmtInt(N.alt_km)} km`}</Txt>
+      <Txt x={1700} y={1700} t={t} at={tBubble + 0.2} out={c2 - 0.5} font="sans" size={64} color={COL.ash} maxW={900}>{'a sphere of possible places, drawn to scale'}</Txt>
+      <Txt x={3110} y={1710} t={t} at={cA + 2.0} out={c2 - 0.5} font="mono" size={48} color={COL.bone}>YOU</Txt>
 
       {/* B — copy */}
       <Txt x={240} y={360} t={t} at={s1At + 0.3} font="display" size={150} color={COL.cyan} lh={1}>1 SATELLITE</Txt>
@@ -153,9 +188,9 @@ export const S3Ranging: React.FC = () => {
       <Txt x={240} y={840} t={t} at={s2At + 0.5} font="sans" size={84} color={COL.ash}>where they overlap: a circle</Txt>
       <Txt x={240} y={1040} t={t} at={s3At + 0.3} font="display" size={150} color={COL.purple} lh={1}>3 SATELLITES</Txt>
       <Txt x={240} y={1180} t={t} at={s3At + 0.5} font="sans" size={84} color={COL.ash}>two points…</Txt>
-      <Txt x={youB.x + 60} y={youB.y + 30} t={t} at={s3At + 2.0} font="mono" size={56} color={COL.bone}>YOU</Txt>
-      <Txt x={r2B.x + 60} y={r2B.y - 30} t={t} at={s3At + 2.8} font="mono" size={56} color={COL.amber}>OUT IN SPACE</Txt>
-      <Txt x={240} y={1360} t={t} at={s3At + 3.2} font="sans" size={84} color={COL.ash}>…and one of them is out in space</Txt>
+      <Txt x={youB.x + 60} y={youB.y + 30} t={t} at={tTwo + 0.3} font="mono" size={56} color={COL.bone}>YOU</Txt>
+      <Txt x={r2B.x + 60} y={r2B.y - 30} t={t} at={tSpace + 0.2} font="mono" size={56} color={COL.amber}>OUT IN SPACE</Txt>
+      <Txt x={240} y={1360} t={t} at={tSpace} font="sans" size={84} color={COL.ash}>…and one of them is out in space</Txt>
 
       <Chapter n={3} name="DISTANCE FROM TIME" t={t} dur={WIN.dur} />
     </>

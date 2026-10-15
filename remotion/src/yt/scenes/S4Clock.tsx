@@ -1,5 +1,5 @@
 import React from 'react';
-import { COL, Chapter, Ground, H, Txt, W, fmtInt, lin, ramp, rgba, sceneWindow, useT } from '../lib/kit';
+import { COL, Chapter, Ground, H, Txt, W, fmtInt, lin, phraseAt, ramp, rgba, sceneWindow, useT } from '../lib/kit';
 import { GPS } from '../data/gps';
 
 const WIN = sceneWindow('clock');
@@ -17,10 +17,16 @@ export const S4Clock: React.FC = () => {
   const t = useT();
   const [c0, c1, c2] = WIN.cue;
   const e2 = WIN.cueEnd[2];
+  const tNeed = phraseAt('clock', 0, 'your phone needs');
+  const tQ = phraseAt('clock', 0, 'its clock is');
+  const tMil = phraseAt('clock', 1, 'A single millionth');
+  const tUnk = phraseAt('clock', 1, 'So your phone has');
+  const tFour = phraseAt('clock', 2, 'Four unknowns need');
+  const st2 = phraseAt('clock', 2, 'Starting from') - 0.2;
 
   // iterate index, interpolated (toy iterates; the same step count as the real 3-D solve)
   const L = D2.iters.length;
-  const u = lin(t, c2 + 3.2, e2 - 1.2) * (L - 1);
+  const u = lin(t, st2, e2 - 1.2) * (L - 1);
   const k = Math.min(L - 2, Math.floor(u));
   const f = ramp(u - k, 0, 1);
   const a = D2.iters[k];
@@ -33,7 +39,7 @@ export const S4Clock: React.FC = () => {
 
   // the real solve, as a staircase of errors
   const logw = (m: number) => 1140 * Math.max(0.02, Math.log10(m + 1) / Math.log10(IT[0].pos_err_m + 1));
-  const shown = Math.floor(lin(t, c2 + 3.2, e2 - 1.2) * (IT.length - 0.01)) ;
+  const shown = Math.floor(lin(t, st2, e2 - 1.2) * (IT.length - 0.01)) ;
 
   return (
     <>
@@ -80,43 +86,43 @@ export const S4Clock: React.FC = () => {
 
       {/* stage captions */}
       <Txt x={1560} y={190} t={t} at={c0 + 5.0} font="mono" size={44} color={COL.ash}>TOY VERSION · a flat map · 3 satellites · unknowns: x, y and the clock</Txt>
-      <Txt x={1560} y={1830} t={t} at={c0 + 6.2} out={c2 + 3} font="mono" size={56} color={COL.bone}>every circle is too big by the same amount</Txt>
-      <Txt x={1560} y={1830} t={t} at={c2 + 3.2} font="mono" size={56} color={COL.ash}>{`clock error found so far: ${est.b.toFixed(2)} km`}</Txt>
+      <Txt x={1560} y={1830} t={t} at={c0 + 6.2} out={st2} font="mono" size={56} color={COL.bone}>every circle is too big by the same amount</Txt>
+      <Txt x={1560} y={1830} t={t} at={st2} font="mono" size={56} color={COL.ash}>{`clock error found so far: ${est.b.toFixed(2)} km`}</Txt>
       {solved && <Txt x={sx(est.x) + 50} y={sy(est.y) - 110} t={t} at={e2 - 1.4} font="mono" size={64} color={COL.bone}>YOU</Txt>}
 
       {/* left column */}
       {/* c0 */}
-      <Txt x={240} y={300} t={t} at={c0 + 0.3} out={c1 - 0.3} font="display" size={140} color={COL.bone} lh={1}>NEEDED</Txt>
-      <Txt x={240} y={450} t={t} at={c0 + 0.6} out={c1 - 0.3} font="mono" size={104} color={COL.cyan} lh={1}>a few billionths</Txt>
-      <Txt x={240} y={590} t={t} at={c0 + 0.8} out={c1 - 0.3} font="sans" size={72} color={COL.ash}>of a second</Txt>
-      <Txt x={240} y={900} t={t} at={c0 + 2.6} out={c1 - 0.3} font="display" size={140} color={COL.bone} lh={1}>A PHONE HAS</Txt>
-      <Txt x={240} y={1050} t={t} at={c0 + 2.9} out={c1 - 0.3} font="mono" size={104} color={COL.bone} lh={1}>a quartz crystal</Txt>
-      <Txt x={240} y={1200} t={t} at={c0 + 3.4} out={c1 - 0.3} font="sans" size={72} color={COL.ash} maxW={1200}>cheap, and it can be off by a lot</Txt>
+      <Txt x={240} y={300} t={t} at={tNeed - 0.1} out={c1 - 0.3} font="display" size={140} color={COL.bone} lh={1}>NEEDED</Txt>
+      <Txt x={240} y={450} t={t} at={tNeed + 0.2} out={c1 - 0.3} font="mono" size={104} color={COL.cyan} lh={1}>a few billionths</Txt>
+      <Txt x={240} y={590} t={t} at={tNeed + 0.5} out={c1 - 0.3} font="sans" size={72} color={COL.ash}>of a second</Txt>
+      <Txt x={240} y={900} t={t} at={tQ - 0.2} out={c1 - 0.3} font="display" size={140} color={COL.bone} lh={1}>A PHONE HAS</Txt>
+      <Txt x={240} y={1050} t={t} at={tQ + 0.2} out={c1 - 0.3} font="mono" size={104} color={COL.bone} lh={1}>a quartz crystal</Txt>
+      <Txt x={240} y={1200} t={t} at={tQ + 1.2} out={c1 - 0.3} font="sans" size={72} color={COL.ash} maxW={1200}>the same basic tech as a gas-station watch. It drifts, and it has no shame.</Txt>
 
       {/* c1 */}
-      <Txt x={240} y={300} t={t} at={c1 + 0.3} out={c2 - 0.3} font="mono" size={210} color={COL.bone} lh={1}>1 µs</Txt>
-      <Txt x={240} y={540} t={t} at={c1 + 0.9} out={c2 - 0.3} font="mono" size={210} color={COL.cyan} lh={1}>= 300 m</Txt>
-      <Txt x={240} y={860} t={t} at={c1 + 2.0} out={c2 - 0.3} font="mono" size={72} color={COL.ash}>a quartz error of 0.5 ms</Txt>
-      <Txt x={240} y={960} t={t} at={c1 + 2.4} out={c2 - 0.3} font="mono" size={110} color={COL.bone} lh={1}>= 150 km</Txt>
-      <Txt x={240} y={1290} t={t} at={c1 + 3.6} out={c2 - 0.3} font="sans" size={72} color={COL.ash}>four unknowns</Txt>
-      <Txt x={240} y={1400} t={t} at={c1 + 4.0} out={c2 - 0.3} font="mono" size={150} color={COL.bone} lh={1}>x · y · z · b</Txt>
-      <Txt x={240} y={1600} t={t} at={c1 + 4.8} out={c2 - 0.3} font="sans" size={64} color={COL.ash} maxW={1200}>where you are in 3-D, and how wrong your clock is</Txt>
+      <Txt x={240} y={300} t={t} at={tMil - 0.1} out={c2 - 0.3} font="mono" size={210} color={COL.bone} lh={1}>1 µs</Txt>
+      <Txt x={240} y={540} t={t} at={tMil + 0.9} out={c2 - 0.3} font="mono" size={210} color={COL.cyan} lh={1}>= 300 m</Txt>
+      <Txt x={240} y={860} t={t} at={tMil + 2.4} out={c2 - 0.3} font="mono" size={72} color={COL.ash}>a quartz error of 0.5 ms</Txt>
+      <Txt x={240} y={960} t={t} at={tMil + 2.9} out={c2 - 0.3} font="mono" size={110} color={COL.bone} lh={1}>= 150 km</Txt>
+      <Txt x={240} y={1290} t={t} at={tUnk} out={c2 - 0.3} font="sans" size={72} color={COL.ash}>four unknowns</Txt>
+      <Txt x={240} y={1400} t={t} at={tUnk + 0.4} out={c2 - 0.3} font="mono" size={150} color={COL.bone} lh={1}>x · y · z · b</Txt>
+      <Txt x={240} y={1600} t={t} at={tUnk + 1.4} out={c2 - 0.3} font="sans" size={64} color={COL.ash} maxW={1200}>where you are in 3-D, and how wrong your clock is</Txt>
 
       {/* c2 */}
-      <Txt x={240} y={260} t={t} at={c2 + 0.3} font="display" size={140} color={COL.bone} lh={1}>4 UNKNOWNS</Txt>
-      <Txt x={240} y={410} t={t} at={c2 + 0.9} font="display" size={140} color={COL.cyan} lh={1}>4 SATELLITES</Txt>
-      <Txt x={240} y={680} t={t} at={c2 + 3.0} font="mono" size={48} color={COL.ash}>A REAL FIX · START: THE CENTRE OF THE EARTH</Txt>
+      <Txt x={240} y={260} t={t} at={tFour - 0.1} font="display" size={140} color={COL.bone} lh={1}>4 UNKNOWNS</Txt>
+      <Txt x={240} y={410} t={t} at={tFour + 0.5} font="display" size={140} color={COL.cyan} lh={1}>4 SATELLITES</Txt>
+      <Txt x={240} y={680} t={t} at={st2 - 0.2} font="mono" size={48} color={COL.ash}>A REAL FIX · START: THE CENTRE OF THE EARTH</Txt>
       {IT.map((r, i) => {
         const y = 790 + i * 160;
         const on = i <= shown;
         const w = logw(r.pos_err_m);
         return (
           <React.Fragment key={i}>
-            <Txt x={240} y={y} t={t} at={c2 + 3.2 + (i * (e2 - c2 - 4.4)) / IT.length} font="mono" size={48} color={COL.ash}>{`step ${r.k}`}</Txt>
+            <Txt x={240} y={y} t={t} at={st2 + (i * (e2 - st2 - 1.2)) / IT.length} font="mono" size={48} color={COL.ash}>{`step ${r.k}`}</Txt>
             {on && (
-              <div style={{ position: 'absolute', left: 240, top: y + 62, height: 26, borderRadius: 4, background: i === IT.length - 1 ? COL.cyan : COL.ash, width: w * ramp(t, c2 + 3.2 + (i * (e2 - c2 - 4.4)) / IT.length, c2 + 4.0 + (i * (e2 - c2 - 4.4)) / IT.length) }} />
+              <div style={{ position: 'absolute', left: 240, top: y + 62, height: 26, borderRadius: 4, background: i === IT.length - 1 ? COL.cyan : COL.ash, width: w * ramp(t, st2 + (i * (e2 - st2 - 1.2)) / IT.length, st2 + 0.8 + (i * (e2 - st2 - 1.2)) / IT.length) }} />
             )}
-            <Txt x={1380} y={y} t={t} at={c2 + 3.4 + (i * (e2 - c2 - 4.4)) / IT.length} align="right" font="mono" size={48} color={i === IT.length - 1 ? COL.cyan : COL.bone}>
+            <Txt x={1380} y={y} t={t} at={st2 + 0.2 + (i * (e2 - st2 - 1.2)) / IT.length} align="right" font="mono" size={48} color={i === IT.length - 1 ? COL.cyan : COL.bone}>
               {r.pos_err_m >= 1000 ? `${fmtInt(r.pos_err_m)} m` : `${r.pos_err_m.toFixed(1)} m`}
             </Txt>
           </React.Fragment>
