@@ -1,0 +1,107 @@
+1
+00:00:01,200 --> 00:00:07,216
+Right now, thirty-one satellites, twenty thousand kilometers above your head, are broadcasting the time.
+
+2
+00:00:07,666 --> 00:00:13,767
+Your phone listens, and from nothing but those timestamps, it works out where you are, to within a few meters.
+
+3
+00:00:14,217 --> 00:00:20,532
+It's one of the most precise measurements most people make every day. And it only works because of Albert Einstein.
+
+4
+00:00:21,782 --> 00:00:32,107
+GPS is thirty-one satellites in six orbital planes, tilted fifty-five degrees to the equator, at an altitude of about twenty thousand two hundred kilometers.
+
+5
+00:00:32,557 --> 00:00:41,603
+Each one circles the Earth twice a day, and the pattern is arranged so that from almost anywhere on the surface, at least four are always above the horizon.
+
+6
+00:00:42,053 --> 00:00:48,751
+They carry atomic clocks, and they do one thing: they broadcast who they are, where they are, and exactly what time it is.
+
+7
+00:00:49,201 --> 00:00:59,911
+And notice what they don't do. Nothing travels from your phone to them. GPS is receive-only, so the satellites never know you exist, and any number of phones can use it at once.
+
+8
+00:01:01,161 --> 00:01:05,129
+The signal travels at the speed of light, so the delay tells you the distance.
+
+9
+00:01:05,579 --> 00:01:18,848
+From a satellite straight overhead, the signal takes about sixty-seven milliseconds. Multiply by the speed of light, and you know you're somewhere on a sphere, centered on that satellite, with a radius of twenty thousand kilometers.
+
+10
+00:01:19,298 --> 00:01:27,853
+A second satellite gives a second sphere. Where they overlap is a circle. A third narrows it to two points, and one of them is out in space.
+
+11
+00:01:29,103 --> 00:01:40,047
+There's a catch. To measure that delay, your phone needs the time to within a few billionths of a second. But the clock in your phone is a cheap quartz crystal, and it can be off by a lot.
+
+12
+00:01:40,497 --> 00:01:49,563
+One microsecond of error is three hundred meters. So your phone has four unknowns: where you are in three dimensions, and how wrong its own clock is.
+
+13
+00:01:50,013 --> 00:02:05,373
+Four unknowns need four equations. That's why GPS needs a fourth satellite. Starting from a guess at the center of the Earth, the phone corrects its answer again and again, and in five steps it homes in on your position, and on your clock error.
+
+14
+00:02:06,623 --> 00:02:11,487
+Now, the satellites' clocks. Einstein says they can't agree with clocks on the ground.
+
+15
+00:02:11,937 --> 00:02:22,412
+First, special relativity: a moving clock runs slow. The satellites move at nearly four kilometers a second, and that costs them about seven microseconds a day.
+
+16
+00:02:22,862 --> 00:02:35,577
+Second, general relativity: clocks run slower deeper in gravity. Up at twenty thousand kilometers, gravity is weaker, so the satellite clocks run faster, by about forty-six microseconds a day.
+
+17
+00:02:36,027 --> 00:02:45,861
+This isn't only theory. In nineteen fifty-nine, physicists at Harvard measured gravity's effect on time across a tower just twenty-two and a half meters tall.
+
+18
+00:02:46,311 --> 00:02:55,634
+The net result: the satellite clocks gain about thirty-eight and a half microseconds every day. In that time, light travels eleven and a half kilometers.
+
+19
+00:02:56,084 --> 00:03:10,100
+When a test satellite, N T S two, launched in June nineteen seventy-seven, it carried a frequency synthesizer to cancel the effect. But engineers left it switched off, and let the atomic clock run for about twenty days.
+
+20
+00:03:10,550 --> 00:03:20,513
+It gained four hundred forty-two and a half parts per trillion. General relativity had predicted four hundred forty-six and a half. Then they switched the correction on.
+
+21
+00:03:20,963 --> 00:03:35,363
+Today, every GPS clock is set, before launch, to tick at ten point two, two, nine, nine, nine, nine, nine, nine, five, four, three megahertz, instead of ten point two three. So that in orbit, it ticks exactly right.
+
+22
+00:03:36,613 --> 00:03:50,970
+So how accurate is it? A smartphone under open sky is typically within about five meters. The signals in space are specified to about two. The rest comes from the atmosphere slowing the signal, and from buildings bouncing it.
+
+23
+00:03:51,420 --> 00:04:02,449
+The ionosphere delays radio waves by an amount that depends on their frequency, so many modern phones listen on two frequencies at once, and use the difference to cancel the delay.
+
+24
+00:04:02,899 --> 00:04:16,105
+It used to be far worse, on purpose. Until May the second, two thousand, the US military deliberately degraded civilian GPS to about a hundred meters. A presidential order switched that off.
+
+25
+00:04:17,355 --> 00:04:27,872
+So every time a blue dot lands on your map, three ideas are working together. Distance from time. A fourth satellite, to fix your clock. And Einstein, to fix theirs.
+
+26
+00:04:28,322 --> 00:04:39,906
+And it isn't just maps. Many cell networks, power grids and financial markets use GPS time as their reference, which is why getting the clocks right matters far beyond navigation.
+
+27
+00:04:40,356 --> 00:04:44,281
+Take away any one of those three ideas, and the system stops working.

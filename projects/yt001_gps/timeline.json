@@ -1,0 +1,242 @@
+{
+ "voice": "af_heart",
+ "speed": 0.98,
+ "sample_rate": 24000,
+ "duration": 296.281,
+ "words": 751,
+ "scenes": [
+  {
+   "id": "hook",
+   "start": 1.2,
+   "end": 20.532,
+   "next": 21.782
+  },
+  {
+   "id": "satellites",
+   "start": 21.782,
+   "end": 59.911,
+   "next": 61.161
+  },
+  {
+   "id": "ranging",
+   "start": 61.161,
+   "end": 87.853,
+   "next": 89.103
+  },
+  {
+   "id": "clock",
+   "start": 89.103,
+   "end": 125.373,
+   "next": 126.623
+  },
+  {
+   "id": "einstein",
+   "start": 126.623,
+   "end": 215.363,
+   "next": 216.613
+  },
+  {
+   "id": "accuracy",
+   "start": 216.613,
+   "end": 256.105,
+   "next": 257.355
+  },
+  {
+   "id": "close",
+   "start": 257.355,
+   "end": 284.281,
+   "next": 285.531
+  }
+ ],
+ "sentences": [
+  {
+   "scene": "hook",
+   "i": 0,
+   "text": "Right now, thirty-one satellites, twenty thousand kilometers above your head, are broadcasting the time.",
+   "start": 1.2,
+   "end": 7.216
+  },
+  {
+   "scene": "hook",
+   "i": 1,
+   "text": "Your phone listens, and from nothing but those timestamps, it works out where you are, to within a few meters.",
+   "start": 7.666,
+   "end": 13.767
+  },
+  {
+   "scene": "hook",
+   "i": 2,
+   "text": "It's one of the most precise measurements most people make every day. And it only works because of Albert Einstein.",
+   "start": 14.217,
+   "end": 20.532
+  },
+  {
+   "scene": "satellites",
+   "i": 0,
+   "text": "GPS is thirty-one satellites in six orbital planes, tilted fifty-five degrees to the equator, at an altitude of about twenty thousand two hundred kilometers.",
+   "start": 21.782,
+   "end": 32.107
+  },
+  {
+   "scene": "satellites",
+   "i": 1,
+   "text": "Each one circles the Earth twice a day, and the pattern is arranged so that from almost anywhere on the surface, at least four are always above the horizon.",
+   "start": 32.557,
+   "end": 41.603
+  },
+  {
+   "scene": "satellites",
+   "i": 2,
+   "text": "They carry atomic clocks, and they do one thing: they broadcast who they are, where they are, and exactly what time it is.",
+   "start": 42.053,
+   "end": 48.751
+  },
+  {
+   "scene": "satellites",
+   "i": 3,
+   "text": "And notice what they don't do. Nothing travels from your phone to them. GPS is receive-only, so the satellites never know you exist, and any number of phones can use it at once.",
+   "start": 49.201,
+   "end": 59.911
+  },
+  {
+   "scene": "ranging",
+   "i": 0,
+   "text": "The signal travels at the speed of light, so the delay tells you the distance.",
+   "start": 61.161,
+   "end": 65.129
+  },
+  {
+   "scene": "ranging",
+   "i": 1,
+   "text": "From a satellite straight overhead, the signal takes about sixty-seven milliseconds. Multiply by the speed of light, and you know you're somewhere on a sphere, centered on that satellite, with a radius of twenty thousand kilometers.",
+   "start": 65.579,
+   "end": 78.848
+  },
+  {
+   "scene": "ranging",
+   "i": 2,
+   "text": "A second satellite gives a second sphere. Where they overlap is a circle. A third narrows it to two points, and one of them is out in space.",
+   "start": 79.298,
+   "end": 87.853
+  },
+  {
+   "scene": "clock",
+   "i": 0,
+   "text": "There's a catch. To measure that delay, your phone needs the time to within a few billionths of a second. But the clock in your phone is a cheap quartz crystal, and it can be off by a lot.",
+   "start": 89.103,
+   "end": 100.047
+  },
+  {
+   "scene": "clock",
+   "i": 1,
+   "text": "One microsecond of error is three hundred meters. So your phone has four unknowns: where you are in three dimensions, and how wrong its own clock is.",
+   "start": 100.497,
+   "end": 109.563
+  },
+  {
+   "scene": "clock",
+   "i": 2,
+   "text": "Four unknowns need four equations. That's why GPS needs a fourth satellite. Starting from a guess at the center of the Earth, the phone corrects its answer again and again, and in five steps it homes in on your position, and on your clock error.",
+   "start": 110.013,
+   "end": 125.373
+  },
+  {
+   "scene": "einstein",
+   "i": 0,
+   "text": "Now, the satellites' clocks. Einstein says they can't agree with clocks on the ground.",
+   "start": 126.623,
+   "end": 131.487
+  },
+  {
+   "scene": "einstein",
+   "i": 1,
+   "text": "First, special relativity: a moving clock runs slow. The satellites move at nearly four kilometers a second, and that costs them about seven microseconds a day.",
+   "start": 131.937,
+   "end": 142.412
+  },
+  {
+   "scene": "einstein",
+   "i": 2,
+   "text": "Second, general relativity: clocks run slower deeper in gravity. Up at twenty thousand kilometers, gravity is weaker, so the satellite clocks run faster, by about forty-six microseconds a day.",
+   "start": 142.862,
+   "end": 155.577
+  },
+  {
+   "scene": "einstein",
+   "i": 3,
+   "text": "This isn't only theory. In nineteen fifty-nine, physicists at Harvard measured gravity's effect on time across a tower just twenty-two and a half meters tall.",
+   "start": 156.027,
+   "end": 165.861
+  },
+  {
+   "scene": "einstein",
+   "i": 4,
+   "text": "The net result: the satellite clocks gain about thirty-eight and a half microseconds every day. In that time, light travels eleven and a half kilometers.",
+   "start": 166.311,
+   "end": 175.634
+  },
+  {
+   "scene": "einstein",
+   "i": 5,
+   "text": "When a test satellite, N T S two, launched in June nineteen seventy-seven, it carried a frequency synthesizer to cancel the effect. But engineers left it switched off, and let the atomic clock run for about twenty days.",
+   "start": 176.084,
+   "end": 190.1
+  },
+  {
+   "scene": "einstein",
+   "i": 6,
+   "text": "It gained four hundred forty-two and a half parts per trillion. General relativity had predicted four hundred forty-six and a half. Then they switched the correction on.",
+   "start": 190.55,
+   "end": 200.513
+  },
+  {
+   "scene": "einstein",
+   "i": 7,
+   "text": "Today, every GPS clock is set, before launch, to tick at ten point two, two, nine, nine, nine, nine, nine, nine, five, four, three megahertz, instead of ten point two three. So that in orbit, it ticks exactly right.",
+   "start": 200.963,
+   "end": 215.363
+  },
+  {
+   "scene": "accuracy",
+   "i": 0,
+   "text": "So how accurate is it? A smartphone under open sky is typically within about five meters. The signals in space are specified to about two. The rest comes from the atmosphere slowing the signal, and from buildings bouncing it.",
+   "start": 216.613,
+   "end": 230.97
+  },
+  {
+   "scene": "accuracy",
+   "i": 1,
+   "text": "The ionosphere delays radio waves by an amount that depends on their frequency, so many modern phones listen on two frequencies at once, and use the difference to cancel the delay.",
+   "start": 231.42,
+   "end": 242.449
+  },
+  {
+   "scene": "accuracy",
+   "i": 2,
+   "text": "It used to be far worse, on purpose. Until May the second, two thousand, the US military deliberately degraded civilian GPS to about a hundred meters. A presidential order switched that off.",
+   "start": 242.899,
+   "end": 256.105
+  },
+  {
+   "scene": "close",
+   "i": 0,
+   "text": "So every time a blue dot lands on your map, three ideas are working together. Distance from time. A fourth satellite, to fix your clock. And Einstein, to fix theirs.",
+   "start": 257.355,
+   "end": 267.872
+  },
+  {
+   "scene": "close",
+   "i": 1,
+   "text": "And it isn't just maps. Many cell networks, power grids and financial markets use GPS time as their reference, which is why getting the clocks right matters far beyond navigation.",
+   "start": 268.322,
+   "end": 279.906
+  },
+  {
+   "scene": "close",
+   "i": 2,
+   "text": "Take away any one of those three ideas, and the system stops working.",
+   "start": 280.356,
+   "end": 284.281
+  }
+ ]
+}

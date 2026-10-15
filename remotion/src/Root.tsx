@@ -26,6 +26,7 @@ import { DURATION_SECONDS as GLASSPROBE_SECONDS, GlassProbe } from './reels/Glas
 import { DURATION_SECONDS as WHICHICE_SECONDS, WhichIce } from './reels/WhichIce';
 import { DURATION_SECONDS as GLOBEINDIA_SECONDS, GlobeIndia } from './reels/GlobeIndia';
 import { SafeZones } from './reels/lib/chrome';
+import { DURATION_SECONDS as YT_GPS_SECONDS, Gps } from './yt/Gps';
 
 /**
  * Depth First — composition registry. POSTED REELS ONLY.
@@ -723,6 +724,14 @@ export const RemotionRoot: React.FC = () => {
         fps={30}
         width={1080}
         height={1920}
+      />
+          <Composition
+        id="yt001-gps"
+        component={Gps}
+        durationInFrames={YT_GPS_SECONDS * 30}
+        fps={30}
+        width={3840}
+        height={2160}
       />
     </>
   );
