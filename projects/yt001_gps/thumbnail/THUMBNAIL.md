@@ -60,11 +60,28 @@ bushy moustache, filled with a faint star field and cyan constellation lines, ri
 
 (Or describe him without the name: "an elderly physicist, wild white hair, bushy moustache, rumpled collar".)
 
+## Result (2026-10-15) — the owner ran the prompt; the final is `thumb_final_face.png` / `.jpg`
+
+`thumb_generated_einstein.png` is the model's output (1672×941, one generation). It kept the globe, beams and dot
+almost exactly (mean pixel difference vs the base ≈ 7/255 on the right half, mostly resampling), added the portrait
+on the left, and left the lower-left dark. **Only its left third is used.** `Thumb.tsx` takes it as the `art` prop
+(composition `yt001-thumb-face`, art copied to `remotion/public/yt_gps/thumb_art.png`) and masks it out from
+x = 1580 to 1900 of 3840, so the globe on screen is the code-drawn one, not the model's. The headline **GPS / NEEDS /
+HIM** is set in Archivo Black in the same composition — exact position, the brand font, no mangled letters.
+`composite.py` does the same job in PIL for a tool that has no Remotion; it was not needed for this render.
+
+| File | What it is |
+|:--|:--|
+| `thumb_generated_einstein.png` | the model's raw output — keep as the source, do not upload |
+| `thumb_final_face.png` | **the thumbnail**, 1920×1080, rendered from `yt001-thumb-face` |
+| `thumb_final_face.jpg` | the same at q92 — YouTube caps thumbnails at **2 MB**, a PNG with a photo in it can exceed that |
+
 ## Then, in this order
 
 1. **Check the globe.** If the model nudged anything on the right, run
    `python3 -I composite.py generated.png` — it keeps the model's left third (x < 720, feathered out by x = 960)
-   and takes everything else from `thumb_base.png`. Output: `thumb_composite.png`.
+   and takes everything else from `thumb_base.png`. Output: `thumb_composite.png`. (With `Thumb.tsx`'s `art` prop
+   this is already done at render time.)
 2. **Grade the face to the palette.** CLAUDE.md's rule for generated assets is *repair against the tokens, never ship
    as-is*: models get the geometry right and the colours wrong. Pull the skin toward bone `#E8E6E1`, the shadows
    toward navy `#040E1F`, keep the rim light cyan `#00D6F7`.
@@ -86,5 +103,7 @@ bushy moustache, filled with a faint star field and cyan constellation lines, ri
 
 * A **photo or likeness of Einstein** is an asset with its own provenance. A generated face carries no licence
   problem of its own, but if you use a real archival photo instead, check its licence first — I have not.
+* **The face was not colour-repaired** (CLAUDE.md: never ship a generated asset as-is). It was prompted to the palette
+  and lands on navy/cyan/grey, so I judged it on-palette by eye; no pixel check against the tokens was run.
 * The title and thumbnail must say the same thing. The video's title is *"How GPS finds you, and why it needs Einstein"*;
   every headline above is a shortened form of that.

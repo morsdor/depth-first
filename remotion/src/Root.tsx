@@ -735,6 +735,7 @@ export const RemotionRoot: React.FC = () => {
         height={2160}
       />
       <Composition id="yt001-thumb" component={Thumb} durationInFrames={1} fps={30} width={3840} height={2160} defaultProps={{ text: true }} />
+      <Composition id="yt001-thumb-face" component={Thumb} durationInFrames={1} fps={30} width={3840} height={2160} defaultProps={{ text: false, art: 'yt_gps/thumb_art.png' }} />
       <Composition id="yt001-thumb-base" component={Thumb} durationInFrames={1} fps={30} width={3840} height={2160} defaultProps={{ text: false }} />
     </>
   );

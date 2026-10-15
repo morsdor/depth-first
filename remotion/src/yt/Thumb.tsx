@@ -1,5 +1,5 @@
 import React from 'react';
-import { AbsoluteFill } from 'remotion';
+import { AbsoluteFill, Img, staticFile } from 'remotion';
 import { COL, FONT, Ground, H, W, rgba } from './lib/kit';
 import { GlobeBody, SatIcon, YOU, makeProj, vec, type View } from './lib/globe';
 
@@ -21,7 +21,18 @@ const SATS: { x: number; y: number; ang: number }[] = [
   { x: 2200, y: 1640, ang: 24 },
 ];
 
-export const Thumb: React.FC<{ text?: boolean }> = ({ text = true }) => {
+/** Headline for the face version: three stacked lines under the portrait, the last one in amber. */
+const FACE_LINES = [
+  ['GPS', 1230, COL.bone],
+  ['NEEDS', 1510, COL.bone],
+  ['HIM', 1790, COL.amber],
+] as const;
+
+/**
+ * `art` is a model-generated image (public/yt_gps/…): ONLY its left third is used. A mask hands everything
+ * right of x≈1600 back to the code-drawn globe, so the part of the thumbnail that is the video's own cannot drift.
+ */
+export const Thumb: React.FC<{ text?: boolean; art?: string }> = ({ text = true, art }) => {
   const P = makeProj(VIEW);
   const you = P(vec(YOU.lon + SPIN, YOU.lat));
   const sats = SATS;
@@ -71,7 +82,31 @@ export const Thumb: React.FC<{ text?: boolean }> = ({ text = true }) => {
         <circle cx={you.x} cy={you.y} r={76} fill={COL.blue} stroke={COL.bone} strokeWidth={18} />
       </svg>
 
-      {text && (
+      {art && (
+        <>
+          <Img
+            src={staticFile(art)}
+            style={{
+              position: 'absolute', inset: 0, width: W, height: H, objectFit: 'cover',
+              WebkitMaskImage: 'linear-gradient(90deg, rgb(0,0,0) 0px, rgb(0,0,0) 1580px, rgba(0,0,0,0) 1900px)',
+              maskImage: 'linear-gradient(90deg, rgb(0,0,0) 0px, rgb(0,0,0) 1580px, rgba(0,0,0,0) 1900px)',
+            }}
+          />
+          {FACE_LINES.map(([w, y, c]) => (
+            <div
+              key={w}
+              style={{
+                position: 'absolute', left: 170, top: y, fontFamily: FONT.display, fontSize: 280, lineHeight: 1,
+                color: c, textShadow: `0 12px 0 ${rgba(COL.ink, 0.9)}, 0 0 60px ${rgba(COL.ink, 0.9)}`, whiteSpace: 'nowrap',
+              }}
+            >
+              {w}
+            </div>
+          ))}
+        </>
+      )}
+
+      {text && !art && (
         <>
           {/* a shadow band so the headline stays readable where it crosses the globe */}
           <AbsoluteFill
